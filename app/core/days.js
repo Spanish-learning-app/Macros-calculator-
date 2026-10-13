@@ -28,7 +28,8 @@ export function emptyDay(date) {
 
 /**
  * @param {{ id: string, slot: SlotId, food: Food, servingId: string, qty: number,
- *   status?: 'planned'|'eaten' }} input status defaults to 'eaten'
+ *   status?: 'planned'|'eaten' }} input status defaults to 'eaten' (the store passes 'planned'
+ *   for future dates, A12)
  * @returns {Entry} with snapshot = { name, grams, ...nutrients } computed now (unrounded).
  */
 export function createEntry({ id, slot, food, servingId, qty, status = 'eaten' }) {
@@ -115,7 +116,8 @@ export function copyDay(fromDay, toDay, makeId, { status = 'planned' } = {}) {
 
 /**
  * @param {Day} day @param {Map<string, Food>} foodIndex
- * @param {{ include?: 'all'|'eaten' }} [options] default 'all' (planned + eaten)
+ * @param {{ include?: 'all'|'eaten'|'planned' }} [options] default 'all' (planned + eaten).
+ *   "Left" in the UI uses 'eaten' (A12); planned food is shown as a separate figure.
  * @returns {{ total: Nutrients, bySlot: Record<SlotId, Nutrients> }} unrounded; every slot id present.
  */
 export function dayTotals(day, foodIndex, { include = 'all' } = {}) {

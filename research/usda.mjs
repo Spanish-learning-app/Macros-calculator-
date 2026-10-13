@@ -31,6 +31,18 @@ const NUTRIENTS = {
   1093: 'sodiumMg',
   1051: 'water',
 };
+// FNDDS (survey) CSVs put the legacy nutrient number in the nutrient_id column.
+const NUTRIENTS_BY_NBR = {
+  208: 'kcal',
+  203: 'protein',
+  204: 'fat',
+  205: 'carbsDiff',
+  291: 'fiber',
+  269: 'sugars',
+  606: 'satFat',
+  307: 'sodiumMg',
+  255: 'water',
+};
 
 function parseCsvLine(line) {
   const out = [];
@@ -77,7 +89,7 @@ async function buildIndex() {
       foods[r.fdc_id] = { fdcId: Number(r.fdc_id), dataset: ds, description: r.description, n: {} };
     });
     await readCsv(path.join(dir, 'food_nutrient.csv'), (r) => {
-      const key = NUTRIENTS[r.nutrient_id];
+      const key = (ds === 'fndds' ? NUTRIENTS_BY_NBR : NUTRIENTS)[r.nutrient_id];
       const f = foods[r.fdc_id];
       if (key && f && r.amount !== '') f.n[key] = Number(r.amount);
     });

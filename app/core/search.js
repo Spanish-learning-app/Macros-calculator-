@@ -35,10 +35,17 @@ export function buildSearchIndex(foods) {
 }
 
 /**
- * Best tier per food over its names: exact > prefix > wordPrefix (every query word is a prefix of
- * some word) > substring > fuzzy (every query word of >= 4 chars within 1 edit of some word; shorter
- * words must word-prefix). score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1).
- * Sort: score desc, then shorter `matched`, then name (en). Blank query -> [].
+ * Best tier per food over its names (name, nameRoman, nameUr, aliases), all normalized:
+ *   exact      whole name === query
+ *   prefix     name starts with query
+ *   wordPrefix every query word is a prefix of some word of the name (any order)
+ *   substring  name contains query
+ *   fuzzy      every query word of >= 4 chars is within Damerau-Levenshtein (OSA: insert, delete,
+ *              substitute, adjacent swap) distance 1 of some word of the name, or of that word's
+ *              prefix of the same length; shorter query words must word-prefix
+ *              (karhai -> karahi, dhal -> dal, anday -> anda, samosay -> samosa).
+ * score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1). Sort: score desc, then shorter
+ * `matched`, then name (en). Blank query -> []. `matched` = the original (unnormalized) string.
  * @param {object} index @param {string} query
  * @param {{ limit?: number, boosts?: Record<string, number> }} [options] limit default 20
  * @returns {{ food: Food, score: number, tier: keyof TIERS, matched: string }[]}
@@ -66,7 +73,9 @@ export function recencyBoosts(recents, today) {
 }
 
 /**
- * Food ids used in `slot`, most used first (slots[slot] desc, then lastUsed desc, then id).
+ * Every recent food id, those used in `slot` first: sort by slots[slot] (missing = 0) desc, then
+ * count desc, then lastUsed desc, then id. A chai logged only at Nashta still appears for Shaam ki
+ * chai (A6).
  * @param {Record<string, Recent>} recents @param {SlotId} slot
  * @param {{ limit?: number }} [options] default 12
  * @returns {string[]}

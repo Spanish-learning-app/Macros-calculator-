@@ -70,6 +70,22 @@ export function compute(sheet) {
     const w = ck.water / 100;
     const loss = (tot.water - w * raw) / (1 - w);
     cooked = raw - loss;
+  } else if (ck.method === 'steps') {
+    // evaporation built from named cooking steps: each step removes `frac` of the water carried by
+    // the named ingredient line(s) (water from the ingredient tables), or a stated number of grams.
+    let ev = 0;
+    ck.detail = [];
+    for (const st of ck.steps) {
+      let g = 0;
+      if (st.grams != null) g = st.grams;
+      else {
+        const ids = Array.isArray(st.ing) ? st.ing : [st.ing];
+        for (const l of lines) if (ids.includes(l.id)) g += l.grams * ((ING[l.id].water ?? 0) / 100) * st.frac;
+      }
+      ev += g;
+      ck.detail.push(`${st.why}: ${g.toFixed(0)} g`);
+    }
+    cooked = raw - ev;
   } else if (ck.method === 'none') cooked = raw;
   else throw new Error(`${sheet.id}: unknown cooking method`);
   const lossWater = raw - cooked;
@@ -95,6 +111,7 @@ export function compute(sheet) {
     waterPer100g: missing.water > 0.05 * raw ? null : +per(waterCooked).toFixed(1),
     addedFatPer100g: +per(addedFat).toFixed(1),
     lines,
+    cookingDetail: ck.detail || null,
   };
   const p = out.per100g;
   out.atwater = Math.round(4 * p.protein + 4 * p.carbs + 9 * p.fat + 2 * p.fiber);
@@ -127,6 +144,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     const p = r.per100g;
     const flag = Math.abs(r.atwaterGap) > 0.1 ? '  <-- ENERGY GAP' : '';
     console.log(`${s.id.padEnd(30)} raw ${String(r.rawG).padStart(7)} → ${String(r.cookedG).padStart(7)} g (y ${r.yield})  ${String(p.kcal).padStart(4)} kcal P${p.protein} C${p.carbs} F${p.fat} Fib${p.fiber} Sug${p.sugars} Sat${p.satFat} Na${p.sodium} H2O ${r.waterPer100g} | addFat ${r.addedFatPer100g} | 4-4-9-2 ${r.atwater} (${(r.atwaterGap * 100).toFixed(1)}%)${flag}${r.error ? ' ' + r.error : ''}`);
+    if (filter && r.cookingDetail) console.log('   evaporation: ' + r.cookingDetail.join('; '));
     if (filter) for (const l of r.lines) console.log(`   ${l.id.padEnd(20)} ${String(l.qty).padStart(6)} ${l.unit}  ${String(l.kcal).padStart(7)} kcal  P${l.protein} F${l.fat}  ${l.note}`);
   }
   if (!filter) {

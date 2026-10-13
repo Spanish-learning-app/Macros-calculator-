@@ -714,3 +714,24 @@ Kenji's official data gate (`tests/data/`) implements the same rules from this t
 - Whole-pot recipes (portion logging), using the same §6 method.
 - Ramadan mode: Ramadan slots; protein at sehri; diabetes note shown when fasting.
 - A published weight for the "plate"; karchi if a source exists.
+
+---
+
+## 11. Sample day templates (`app/data/templates.js`, provisional)
+
+There are three desi days built from the kickoff memo:
+- 1,800 kcal cut (about 141 g protein)
+- 2,550 kcal maintain (about 140 g protein)
+- 3,045 kcal gain (about 170 g protein)
+
+Each item is `{ foodId, servingId, qty, label, approx: { kcal, protein }, planned? }`, grouped by
+default slot id.
+
+| Rule | Detail |
+|---|---|
+| Planned ids | Items reference *planned* food ids until the Lab's review. Then Ayesha swaps in the shipped ids, recomputes totals from FOODS and removes `planned`. |
+| Approx values | Hand estimates (±10%). They are not test data. |
+| UI | Do not show a template unless every item resolves in FOODS. |
+
+`app/data/index.js` does not export the templates (contract: RULES and FOODS only). Import them
+directly when the feature arrives.
