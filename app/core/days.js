@@ -67,7 +67,8 @@ export function addEntry(day, entry) {
 /**
  * @param {Day} day @param {string} entryId
  * @param {{ qty?: number, servingId?: string, status?: 'planned'|'eaten', slot?: SlotId }} patch
- * @param {Map<string, Food>} foodIndex used to refresh the snapshot when qty/servingId change
+ * @param {Map<string, Food>} foodIndex used to refresh the snapshot when qty/servingId change.
+ *   Unknown entry fields (e.g. Sprint 2 `boxRef`) are kept.
  * @returns {Day} unchanged copy if entryId is unknown.
  */
 export function updateEntry(day, entryId, patch, foodIndex) {
@@ -95,6 +96,7 @@ export function setSlotStatus(day, slot, status) {
 
 /**
  * Appends copies of fromDay's `fromSlot` entries to toDay's `toSlot`, with fresh ids from makeId().
+ * Copies carry only the Entry fields of ARCHITECTURE §4.3 (never a Sprint 2 `boxRef`).
  * @param {Day} fromDay @param {SlotId} fromSlot @param {Day} toDay @param {SlotId} toSlot
  * @param {() => string} makeId
  * @param {{ status?: 'planned'|'eaten' }} [options] status of the copies, default 'planned'

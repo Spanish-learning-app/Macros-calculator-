@@ -145,7 +145,9 @@ Day = { date: 'YYYY-MM-DD', entries: Entry[] }   // entries in display order
   preset))`. With the Spain preset, dinner runs 20:00–01:00, so food logged at 00:30 belongs to the
   previous date. The same rule will give Ramadan's after-taraweeh slot its fasting day.
 - **Sprint 2** adds one optional field, `boxRef: { batchId, boxId }`, for a box placed from a
-  meal-prep batch (§13). Sprint 1 code must keep unknown entry fields when copying or updating.
+  meal-prep batch (§13). Sprint 1 code must therefore keep unknown entry fields in `updateEntry` and
+  `switchEntryFood`, while `copySlot` and `copyDay` copy only the §4.3 fields (a box cannot be in
+  two places).
 
 ### 4.4 Profile and targets (kickoff decision 6)
 
