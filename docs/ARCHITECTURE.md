@@ -141,9 +141,11 @@ Day = { date: 'YYYY-MM-DD', entries: Entry[] }   // entries in display order
 - **Totals** use the live food database, so the Lab's corrections reach past days.
 - **The snapshot** is used only when `foodId` is missing from the index (a deleted food, or a quick
   add). It also keeps exports self-contained.
-- **Logical day.** An entry's date is the *logical* day: `todayISO(now, dayStartMinutes(rules,
-  preset))`. With the Spain preset, dinner runs 20:00–01:00, so food logged at 00:30 belongs to the
-  previous date. The same rule will give Ramadan's after-taraweeh slot its fasting day.
+- **Logical day** (Manager decision, `team/DECISIONS.md`): the logging day starts at **04:00**
+  (`settings.dayStartMinutes = 240`, adjustable 00:00–05:00). An entry's date is
+  `todayISO(now, settings.dayStartMinutes)`, so food eaten between midnight and 03:59 belongs to the
+  previous day, on every preset. Any entry can be moved to another day in one tap. Ramadan mode
+  (Sprint 3) gets its own boundary.
 - **Sprint 2** adds one optional field, `boxRef: { batchId, boxId }`, for a box placed from a
   meal-prep batch (§13). Sprint 1 code must therefore keep unknown entry fields in `updateEntry` and
   `switchEntryFood`, while `copySlot` and `copyDay` copy only the §4.3 fields (a box cannot be in
@@ -183,6 +185,7 @@ UserData = {
     slotLabels: { [slot]: string },        // user renames; a missing key = the preset's label
     halalOnly: boolean,                    // default RULES.vocab.halalRules.halalOnlyFilterDefault (true)
     seafood: 'all'|'fish-prawns'|'fish-only',   // reserved; the question is Sprint 2
+    dayStartMinutes: number,               // 240 (04:00) by default; 0..300 (team/DECISIONS.md)
     units: { weight: 'kg'|'lb', height: 'cm'|'ftin' },
     weekStartsOn: 0|1|6, theme: 'system'|'light'|'dark', hideCalories: boolean,
   },
@@ -275,7 +278,6 @@ America/Los_Angeles, and must cover **Sunday 25 October 2026**, when Madrid's cl
 | `weekSummary(daysByDate, dates, index, targets)` | one row per date `{ date, total, entries, pct }`; a missing day gives zeros |
 | `averageTotals(rows)` | mean over rows with `entries > 0` |
 | `slotForTime(minutes, rules, preset = 'default')` | uses `RULES.mealSlots[preset][].hours = [start, end)` in minutes, which may wrap; falls back to `'snacks'` |
-| `dayStartMinutes(rules, preset = 'default')` | end minute of the preset's window that wraps past midnight, else 0 (`spain` → 60) |
 
 ### 5.5 `targets.js`
 
@@ -402,7 +404,7 @@ store.getState() → { data: UserData, storageStatus, saveError, undo: { label }
 store.subscribe((state) => void) → unsubscribe
 
 // selectors (memoized on state)
-store.today() → 'YYYY-MM-DD'               // logical day: todayISO(now(), dayStartMinutes(rules, preset))
+store.today() → 'YYYY-MM-DD'               // logical day: todayISO(now(), settings.dayStartMinutes)
 store.defaultSlot() → SlotId               // slotForTime(minutesOfDay(now()), rules, preset)
 store.slotLabel(slot) → string             // settings.slotLabels[slot] ?? the preset's label
 store.targetResult() → TargetResult | null // null before onboarding
@@ -420,7 +422,7 @@ store.recents(slot) → { food, servingId, qty }[]  // never a 'not-halal' food
 // actions (each one persists; saves are debounced 300 ms and flushed on pagehide)
 store.completeOnboarding(profile, prefs?)  store.skipOnboarding()
 store.setProfile(profile)  store.setTargetPrefs(prefs)  store.setTargetOverride(key, value|null)
-store.updateSettings(patch)                // includes slotPreset, slotLabels, halalOnly
+store.updateSettings(patch)                // includes slotPreset, slotLabels, halalOnly, dayStartMinutes
 store.addFood({ date, slot, foodId, servingId, qty, status? }) → entryId
       // default status: 'planned' for a future date, otherwise 'eaten' (A12); calls recordUse
 store.quickAdd({ date, slot, name, nutrients, status? }) → entryId
@@ -428,6 +430,7 @@ store.updateEntry(date, entryId, patch)
 store.switchVariant(date, entryId, foodId)
 store.removeEntry(date, entryId)           // undoable
 store.setEntryStatus(date, entryId, status)
+store.moveEntry(date, entryId, toDate)     // one tap from the entry row; undoable (team/DECISIONS.md)
 store.setSlotStatus(date, slot, status)
 store.copySlot({ fromDate, fromSlot, toDate, toSlot, status? })   // undoable as one step
 store.copyDay({ fromDate, toDate, status? })                      // undoable as one step (A5 b)
@@ -473,7 +476,9 @@ export function mount(container, ctx) → { update(route), unmount() }
   - **Storage banner.**
   - **Week and month view.**
   - **Onboarding:** with Skip (A1).
-  - **Profile:** includes the meal-times preset (Pakistani or Spanish) and slot renaming.
+  - **Profile:** includes the meal-times preset (Pakistani or Spanish), slot renaming, and "My day
+    starts at" (00:00–05:00, default 04:00).
+  - **Entry row:** "Move to another day" in one tap (previous day, next day or a picked date).
   - **Data:** export textarea and Copy, import by paste or file, Replace or Merge.
   - **About the data.**
 
@@ -624,6 +629,8 @@ Batch = { id, recipeId,                       // a user recipe id or a library b
                     placed: { date, entryId } | null, status: 'available'|'placed'|'eaten'|'discarded' }] }
 ```
 
+- **Fridge or freezer per box** is the user's choice (Manager decision): the app warns, calmly and
+  without red, when a box would sit in the fridge longer than its fridge life (rice: 1 day).
 - **Use-by** (`RULES.mealPrep`): a fridge box gets cookedOn + min(fridgeDays of its components); a
   freezer box has none until moved, then movedToFridgeOn + `thawedFridgeDays`. Pure function
   `boxUseBy(batch, box, recipe, foodIndex, rules) → date|null`. The Day view says "last day" on the

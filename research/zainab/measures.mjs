@@ -41,6 +41,10 @@ export const M = {
   cupRice: 185, // FDC 168877 raw long-grain
   cupLentils: 192, // FDC 174284 red lentils raw
   cupAtta: 120, // FDC 168893 whole-grain wheat flour
+  cupMaida: 125, // FDC 168894 all-purpose flour
+  tbspGhee: 12.8, // FDC 173412 butter oil, anhydrous
+  tspGhee: 4.3, // 1/3 of FDC 173412 tbsp
+  tbspButter: 14.2, // FDC 173430
   cupBesan: 92, // FDC 174288
   cupSuji: 167, // FDC 168933
   cupRaisins: 145, // FDC 168165

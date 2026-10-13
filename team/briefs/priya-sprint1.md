@@ -164,6 +164,10 @@ eats halal. Sprint 1 UI work:
     on Madrid time.
   - Slot renaming stays (`settings.slotLabels`).
   - Show slot names everywhere through `store.slotLabel(slot)`, never hard-coded.
+- **Logical day** (Manager decision, `team/DECISIONS.md`):
+  - The day starts at 04:00 by default.
+  - Profile gets "My day starts at" (00:00–05:00).
+  - Every entry row offers "Move to another day" in one tap (`store.moveEntry`, undoable).
 - **Barcelona food:** long Catalan and Spanish names, such as "Pa amb tomàquet (bread with tomato
   and olive oil)", must not be cut off at 360 px (A15). Lunch-box foods show their `box` serving
   ("1 box (350 g)") like any other serving.

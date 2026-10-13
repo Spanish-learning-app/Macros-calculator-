@@ -129,14 +129,14 @@ already carry these changes, and `tests/contract/` enforces the new names.
   - `weekDates('2026-10-25')` has 7 distinct dates
   - `todayISO` and `minutesOfDay` give the same answers for both 02:30s
   - US clocks change on 1 Nov 2026
-- **`dates.todayISO(now, dayStartMinutes = 0)`:** the logical day. Local 00:30 with
-  `dayStartMinutes = 60` gives the previous date.
+- **`dates.todayISO(now, dayStartMinutes = 0)`:** the logical day (Manager decision in
+  `team/DECISIONS.md`: the logging day starts at 04:00 and the store passes
+  `settings.dayStartMinutes = 240`). Local 00:30 and 03:59 with 240 give the previous date; 04:00
+  gives the same date; with 0 the calendar date.
 - **`days.slotForTime(minutes, rules, preset = 'default')`** reads `RULES.mealSlots[preset]`.
   - Spain: 00:30 → dinner, 01:30 → snacks, 12:45 → lunch, 17:00 → evening.
   - Default: 03:59 → snacks.
   - An unknown preset throws `RangeError`.
-- **`days.dayStartMinutes(rules, preset = 'default')`:** the end of the window that wraps past
-  midnight, or 0. Spain → 60; default → 0.
 - **`foods.HALAL_STATUSES` and `foods.BOX`:** `validateFood` checks `halal: { status, reason }`.
   The status must be in the enum, and the reason must be non-empty unless the status is `halal`.
   `halal` and `halal-check` are no longer tags.
@@ -150,6 +150,7 @@ already carry these changes, and `tests/contract/` enforces the new names.
   - Europe/Madrid, Africa/Ceuta and Atlantic/Canary → `slotPreset: 'spain'`; Asia/Karachi →
     `'default'`.
   - `halalOnly: true` and `seafood: 'all'` come from `RULES.vocab.halalRules`.
+  - `dayStartMinutes: 240`; `validateUserData` accepts 0–300.
   - `slotLabels: {}`, `recipes: []`, `batches: []`.
 - **Entry fields:** `updateEntry` and `switchEntryFood` keep unknown entry fields (Sprint 2
   `boxRef`). `copySlot` and `copyDay` copy only the §4.3 fields.

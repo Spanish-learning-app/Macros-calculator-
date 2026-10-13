@@ -141,9 +141,12 @@ updated by Bilal (Madrid clock, A16–A19, a PhD weekday test day); re-read it b
   - Unit tests for `addDays`, `diffDays`, `weekDates`, `todayISO` and `minutesOfDay` around it.
   - One E2E with `page.clock`: log food at 02:30 on 25 Oct and again after the change. Both land
     on 25 Oct, and the week view for that week shows 7 days.
-- **Logical day (Spain preset):** dinner runs 20:00–01:00. Food logged at 00:30 lands on the
-  previous date (`todayISO(now, dayStartMinutes(rules, 'spain'))`). On the default preset it lands
-  on the new date.
+- **Logical day** (Manager decision, `team/DECISIONS.md`): the logging day starts at 04:00
+  (`settings.dayStartMinutes = 240`, adjustable 0–300).
+  - Food logged at 00:30 or 03:59 lands on the previous date, on both presets. At 04:00 it lands on
+    the new date.
+  - With the setting at 0, food lands on the calendar date.
+  - "Move to another day" is one tap and can be undone.
 - **Halal:**
   - QA unit tests: `validateFood` checks the `halal` field. `searchFoods` puts `not-halal` foods in
     `hidden` when `halalOnly` is on, and keeps `check` foods in `hits`.
@@ -161,5 +164,14 @@ updated by Bilal (Madrid clock, A16–A19, a PhD weekday test day); re-read it b
   - lunch-box `box` serving kcal within `boxServing.kcal`
 - **Fixtures:** there are now 16, all passing the Lab gate (`es-ensaimada-fx` is the not-halal
   case, `pk-chicken-tikka-rice-box-fx` the lunch box).
-- **Acceptance:** A19 is Sprint 1 (script it). A16–A18 are Sprint 2 (`test.fixme` stubs that
-  document the budgets).
+- **Acceptance:** A19 and A20 (the Madrid clock change) are Sprint 1; script them. A16–A18 are
+  Sprint 2 (`test.fixme` stubs that document the budgets).
+- **Two spec conflicts are open.** Lena has raised both with Omar. Until they are resolved:
+  - **A20 (2) and (3) against the 04:00 day start.** CUSTOMER.md expects the two 02:30 entries on
+    25 Oct, but with `dayStartMinutes = 240` they belong to 24 Oct. Script A20 twice:
+    - with `dayStartMinutes = 0`, asserting CUSTOMER.md's calendar-date expectations;
+    - with the default 240, asserting that both 02:30 entries land on 24 Oct.
+    Keep whichever Omar confirms.
+  - **A8 step 2 ("plate × 0.5" of plain rice) against NUTRITION.md §5.4** (rice has no plate
+    serving until a source is found). Script step 2 with the katori serving × 0.5 and mark the
+    plate variant `test.fixme`.

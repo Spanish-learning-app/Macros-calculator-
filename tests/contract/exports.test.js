@@ -67,7 +67,6 @@ const CONTRACT = {
       weekSummary: 4,
       averageTotals: 1,
       slotForTime: 2,
-      dayStartMinutes: 1,
     },
     constants: ['SLOT_IDS', 'DEFAULT_SLOT_LABELS'],
   },

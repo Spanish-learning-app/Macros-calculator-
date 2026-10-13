@@ -36,3 +36,30 @@
   - Decision: app/data/ is exempt from Prettier only (the Lab keeps one record per line). ESLint, the data gate and the RULES contract test still cover it.
   - Bug in my own test: the slot-coverage loop never ended for a window ending at 1440. Fixed by looping over the window length.
 - 2026-10-13 22:33 UTC: docs/BRIEF.md now says the Boss lives in Barcelona and needs halal meal prep. Tests now run in Europe/Madrid (it has DST) instead of Los Angeles. Scope is Omar's call; I will flag it in my report.
+- 2026-10-13 22:45 UTC: Reconciled with docs/NUTRITION.md v1.0 (Ayesha), which is binding for targets.
+  - Prefs are `{ proteinGPerKg, fatPct }`.
+  - TargetResult keys follow §2.2. I dropped offerHideCalories; the store derives it.
+  - The binding vectors are A–K in §2.7.
+  - Food-record rules the fixtures now follow: family is required when style is set; addedFatPer100g is required for recipe records; katori-served groups need the katori-small/katori/katori-large/tbsp set; rice has no plate serving.
+  - Fixture ids now end in `-fx`; two had collided with real Lab ids (G1).
+  - Ayesha's own gate (`node research/check-foods.mjs tests/fixtures/foods.js`) passes 16/16.
+- 2026-10-13 22:55 UTC: Folded in Meeting 002 (Barcelona), which I was excused from.
+  - Tests run in Europe/Madrid first, then Asia/Karachi and America/Los_Angeles; the Playwright clock is Madrid. DST on 25 Oct 2026 is covered in the briefs.
+  - New exports: HALAL_STATUSES and BOX constants.
+  - `searchFoods` returns `{ hits, hidden }` with `halalOnly = true`. `normalize` folds accents and deletes the Catalan middle dot.
+  - `slotForTime(minutes, rules, preset = 'default')`.
+  - `defaultData({ timeZone, rules })` reads RULES.mealSlotPresetDefault (Madrid, Ceuta and Canary → spain) and halalRules.
+  - New settings: slotPreset, slotLabels, halalOnly, seafood (reserved), dayStartMinutes.
+  - UserData reserves recipes [] and batches [] for Sprint 2.
+  - Fixtures: halal field on all records, halal tags removed, plus pa amb tomàquet, café con leche, ensaïmada (not-halal) and a lunch box.
+  - The contract test pins the halal and preset enums to RULES.
+- 2026-10-13 22:58 UTC: My first logical-day design came from the slot preset (Spain → 01:00). It is superseded by Omar's decision in team/DECISIONS.md: the day starts at 04:00 (settings.dayStartMinutes = 240, range 0–300), plus one-tap "move to another day". I removed `days.dayStartMinutes` from the contract and added `store.moveEntry`.
+  - ARCHITECTURE §13 now holds the Sprint 2 meal-prep design: recipes, `foodFromRecipe`, batches/boxes with fridge or freezer, use-by, boxRef on entries, shopping list, and a new core/mealprep.js. It adopts Omar's box-entry suggestion.
+- 2026-10-13 23:00 UTC: STEP 0 DONE.
+  - `npm run check` passes: lint, format, and 16/16 contract tests in each of 3 time zones. E2E passes 8/8 on 4 projects.
+  - Briefs for Hamza, Priya and Kenji are ready to hand over verbatim.
+  - Open conflicts for Omar:
+    - (a) CUSTOMER.md A20 (2)/(3) expects 02:30 entries on 25 Oct, but the 04:00 day start puts them on 24 Oct.
+    - (b) A8 step 2 asks for a "plate" of rice, which NUTRITION.md §5.4 does not allow.
+    Kenji has interim instructions for both.
+  - Next for me: implement ui/store.js (§7.3) and integrate main.js (§7.1) when Omar asks.

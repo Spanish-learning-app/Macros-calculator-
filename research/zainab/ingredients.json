@@ -959,6 +959,38 @@
   "sodiumMg": 142,
   "water": 76.15
  },
+ "egg-yolk": {
+  "label": "Egg yolk, raw",
+  "src": "fdc",
+  "code": 172184,
+  "perMl": false,
+  "citation": "FDC 172184 (SR Legacy): Egg, yolk, raw, fresh",
+  "kcal": 322,
+  "protein": 15.86,
+  "carbs": 3.59,
+  "fat": 26.54,
+  "fiber": 0,
+  "sugars": 0.56,
+  "satFat": 9.551,
+  "sodiumMg": 48,
+  "water": 52.31
+ },
+ "sesame": {
+  "label": "Sesame (til), white",
+  "src": "ifct",
+  "code": "H011",
+  "perMl": false,
+  "citation": "IFCT 2017 H011: Gingelly seeds, white (Sesamum indicum)",
+  "kcal": 519.6,
+  "protein": 21.7,
+  "carbs": 10.83,
+  "fat": 43.05,
+  "fiber": 16.99,
+  "sugars": 0.67,
+  "satFat": null,
+  "sodiumMg": null,
+  "water": 3.3
+ },
  "sugar": {
   "label": "Sugar, granulated (cheeni)",
   "src": "fdc",

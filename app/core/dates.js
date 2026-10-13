@@ -13,8 +13,9 @@ export function isISODate(value) {
 
 /**
  * The LOCAL "logical" date of `now`: the calendar date, or the previous date when the local time is
- * before `dayStartMinutes` (a Spanish dinner at 00:30 still belongs to yesterday; see
- * days.dayStartMinutes). Uses the local Y-M-D and minutes, so a DST change never shifts it.
+ * before `dayStartMinutes`. The store passes settings.dayStartMinutes (default 240 = 04:00, Manager
+ * decision 2026-10-13 in team/DECISIONS.md), so a 00:30 toast after dinner still belongs to
+ * yesterday. Uses the local Y-M-D and minutes, so a DST change never shifts it.
  * @param {Date} now @param {number} [dayStartMinutes=0] 0..1439 @returns {string} 'YYYY-MM-DD'
  */
 export function todayISO(now, dayStartMinutes = 0) {

@@ -86,6 +86,8 @@ export default {
   'beef-shank': { src: 'fdc', code: 169441, label: 'Beef, shank, lean, raw (nalli gosht)' },
   goat: { src: 'fdc', code: 175303, label: 'Goat meat, raw (mutton, bakra)' },
   egg: { src: 'fdc', code: 171287, label: 'Egg, whole, raw' },
+  'egg-yolk': { src: 'fdc', code: 172184, label: 'Egg yolk, raw' },
+  sesame: { src: 'ifct', code: 'H011', label: 'Sesame (til), white' },
 
   // ---- sugar, nuts, fruit, other ----
   sugar: { src: 'fdc', code: 169655, label: 'Sugar, granulated (cheeni)' },

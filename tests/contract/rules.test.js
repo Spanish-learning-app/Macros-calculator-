@@ -112,8 +112,6 @@ function checkCoverage(slots) {
     minutes.every((n) => n <= 1),
     'no minute belongs to two slots',
   );
-  const wrapping = slots.filter(({ hours }) => hours && hours[0] > hours[1]);
-  assert.ok(wrapping.length <= 1, 'at most one window wraps past midnight (dayStartMinutes)');
 }
 
 const indexUrl = new URL('../../app/data/index.js', import.meta.url);

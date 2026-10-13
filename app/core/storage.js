@@ -13,7 +13,8 @@ export const SCHEMA_VERSION = 1;
 export const EXPORT_KIND = 'katori-backup';
 
 /**
- * A fresh document: profile null, no days, recipes [] and batches [] (reserved for Sprint 2).
+ * A fresh document: profile null, no days, recipes [] and batches [] (reserved for Sprint 2),
+ * settings.dayStartMinutes 240 (04:00; team/DECISIONS.md; validateUserData accepts 0..300).
  * With `rules`: settings.slotPreset = rules.mealSlotPresetDefault.byTimeZone[timeZone] ??
  * .fallback (Madrid, Ceuta, Canary -> 'spain'); settings.halalOnly =
  * rules.vocab.halalRules.halalOnlyFilterDefault; settings.seafood = rules.vocab.halalRules
