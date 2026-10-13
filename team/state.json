@@ -55,5 +55,9 @@
       "task": "Kickoff memo",
       "output": "team/meetings/001-kickoff/memo-ayesha.md"
     }
-  ]
+  ],
+  "checkIn": {
+    "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
+    "cron": "9 * * * * (UTC, hourly)"
+  }
 }
