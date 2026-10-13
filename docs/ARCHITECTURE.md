@@ -70,7 +70,7 @@ tests/
   unit/qa/                 Kenji   tests written from this document and NUTRITION.md
   data/                    Kenji   the data gate (every record in app/data)
   e2e/                     Kenji   Playwright specs (A1–A15 scripted)
-  fixtures/                Kenji   foods.js (12 fixture records), index.js ({ RULES, FOODS })
+  fixtures/                Kenji   foods.js (16 fixture records), index.js ({ RULES, FOODS })
 package.json, eslint.config.js, .prettierrc.json, .prettierignore     Lena
 playwright.config.js                                                  Kenji
 docs/ARCHITECTURE.md                                                  Lena
@@ -358,7 +358,7 @@ The five `load()` statuses:
   `SLOT_IDS`; style ids = `STYLES`; `vocab.halalStatuses` ids = `HALAL_STATUSES`.
 - **`mealPrep.*`** (storage lives, thawing, box targets) is read from Sprint 2 (§13).
 - **Until real data lands:** the engineers build against `tests/fixtures/index.js`. It holds the
-  real RULES and 12 fixture foods, which pass every gate and are never shipped.
+  real RULES and 16 fixture foods, which pass every gate and are never shipped.
 - **When data is missing:** the app shows "Food data is not available yet" and keeps working.
 
 ## 7. UI architecture (`app/ui/`, `app/main.js`)
@@ -538,7 +538,7 @@ export function mount(container, ctx) → { update(route), unmount() }
 
 ### 10.2 Unit tests
 
-- Fixtures come from `tests/fixtures/index.js` (real RULES plus 12 fixture foods), never from
+- Fixtures come from `tests/fixtures/index.js` (real RULES plus 16 fixture foods), never from
   `app/data/foods-*.js`.
 - Profiles A, B and C, and the NUTRITION.md vectors, are binding.
 

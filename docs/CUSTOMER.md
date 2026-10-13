@@ -434,11 +434,127 @@ Each test lists its start state, steps, pass rule and budget.
   - Person: I log D0 one-handed without zooming.
 - **Budget:** n/a.
 
+### A16: Batch recipe into boxes (Sprint 2, US-29)
+- **Start:** Set up, Sprint 2 build. Sunday 18:00.
+- **Steps:**
+  1. From the lunch-box library, pick "Chicken tikka rice bowl" and set 4 boxes.
+  2. Build my own recipe, "Tikka bowls": 800 g boneless chicken thigh, 200 g dahi, 2 tbsp oil,
+     320 g dry basmati, 2 cucumbers. Set 4 boxes, then change it to 5.
+  3. In the ingredient picker, search `ensaimada`.
+- **Pass:**
+  - (1) The macros per box show without another action, and match the "1 box" values of #49 (the
+    same recipe) within 2%.
+  - (2) For kcal, protein, carbs, fat and fibre, per box = recipe total ÷ boxes. Changing 4 to 5
+    updates the per-box figures with no re-entry.
+  - A recipe's halal status is the worst status among its ingredients, shown with that ingredient's
+    reason.
+  - (3) No `not-halal` food can be picked as an ingredient.
+- **Budget:**
+  - (1) ≤ 4 actions.
+  - (2) ≤ 25 actions and ≤ 2 min for a person.
+  - Changing the box count ≤ 2 actions.
+
+### A17: Boxes into Lunch, Monday to Thursday (Sprint 2, US-30)
+- **Start:** A16 step 1 done (4 boxes). Sunday 20:00.
+- **Steps:**
+  1. From the batch, place one box in Lunch on Monday, Tuesday, Wednesday and Thursday.
+  2. Place a fifth box on Friday, then Undo.
+  3. On Monday at 14:00, tick Monday's box eaten.
+- **Pass:**
+  - Four planned Lunch entries of "1 box" each, on the right dates. The batch shows "0 of 4 left".
+  - The fifth placement works but shows an inline "no boxes left" note (no pop-up), and Undo removes
+    it.
+  - Ticking makes Monday's box eaten and updates "left".
+  - The batch shows the boxes left and the halal status without opening anything.
+- **Budget:** step 1 ≤ 6 actions and ≤ 15 s. The tick takes 1 action.
+
+### A18: Fridge, freezer, use-by and shopping list (Sprint 2, US-31, US-32)
+
+Ayesha's rule (minutes 002, decision 7):
+- Box 1 goes in the fridge and boxes 2–4 go in the freezer.
+- Use-by = the cooked date + the shortest fridge life of anything in the box (`RULES.mealPrep.storage`).
+- A frozen box has no use-by. "Move to fridge" gives it 1 day.
+
+- **Start:** A17 step 1 done, but don't tick Monday. The batch was cooked on Sunday 1 Nov 2026, after
+  the clock change.
+- **Steps:**
+  1. Look at the batch's storage.
+  2. Sunday 21:00: check box 1.
+  3. Monday 12:00: open the Day view.
+  4. Monday 22:00: move box 2 to the fridge.
+  5. Tuesday 09:00: open the Day view and the batch.
+  6. Cook the cold library box "Chicken chana chaat" (4 boxes) on Sunday. Look at its storage
+     options and use-by.
+  7. Open the tikka batch's shopping list at 4 boxes, then at 8. Copy it.
+- **Pass:**
+  - (1) For a rice box, the app proposes box 1 in the fridge and boxes 2–4 in the freezer. Any box
+    can be changed.
+  - (2) Box 1's use-by is Monday, because rice keeps 1 day. Boxes 2–4 show "frozen" and no use-by.
+  - (3) Monday's Lunch box shows "last day".
+  - (4) Box 2 now shows a use-by of Tuesday.
+  - (5) The batch shows box 1 as "past use-by, best not to eat", in neutral wording with no red and
+    no pop-up. Tuesday's box shows "last day".
+  - (6) The chana chaat use-by is Sunday + its shortest fridge life (Ayesha's table gives 2 days for
+    the chaat salad, so Tuesday). The freezer option is off, or marked "doesn't freeze well".
+  - (7) Each ingredient appears once, and the amounts double at 8 boxes. Meat is listed under the
+    halal butcher and everything else under the supermarket. The list copies as plain text.
+- **Budget:** moving a box ≤ 2 actions. The shopping list opens in ≤ 2 actions and copies in 1.
+
+### A19: Barcelona café breakfast (Sprint 1, US-26, US-27, US-28)
+- **Start:** Fresh, device on Europe/Madrid. Skip onboarding. A weekday, 09:00.
+- **Steps:**
+  1. Read the slot labels.
+  2. Open the add sheet without choosing a slot. Log `cafe amb llet` (#40, cup × 1), `croissant`
+     (#42, piece × 1) and `suc de taronja` (#44, glass × 1).
+  3. At 11:30, open the add sheet without choosing a slot. Log `tallat` (#41, cup × 1).
+  4. Search every Catalan, Spanish and English word for #37, #40–#45 and #47 (#46 is step 5).
+  5. Search `ensaïmada`, then `ensaimada`, then show the hidden item.
+- **Pass:**
+  - (1) The Spanish preset is active with no setup.
+  - (2, 3) All four entries land in `breakfast` by default, including the 11:30 cortado, on Madrid's
+    date.
+  - (4) Each word finds its food in the top 3, with or without accents.
+  - The croissant row shows a `check` chip, and its reason opens in ≤ 1 action. Halal foods show no
+    chip.
+  - (5) Instead of an empty list, the results say one item is hidden by "Halal only", name it, and
+    give its reason (made with pork lard). Showing it takes 1 action, and its row has a `not-halal`
+    chip. Showing it doesn't switch "Halal only" off anywhere else.
+- **Budget:** steps 2–3 ≤ 12 actions (minutes 002, decision 10); ≤ 30 s for a person. My count is 12
+  only if search rows have a "+" that adds the default portion; without one it's 16. Priya, please
+  confirm.
+
+### A20: Across the Madrid clock change (Sprint 1, US-26; minutes 002, decision 1)
+
+On Sunday 25 Oct 2026 at 03:00 CEST, Madrid clocks go back to 02:00 CET, so 02:00–03:00 happens
+twice.
+
+- **Start:** Set up, Spanish preset, Madrid clock.
+- **Steps:**
+  1. Saturday 24 Oct, 21:30 CEST: log D5's four dinner rows.
+  2. Sunday 25 Oct: log 1 glass of milk (#20) at the first 02:30 (CEST, UTC+2) and 1 banana (#32)
+     at the second (CET, UTC+1).
+  3. Sunday 25 Oct, 12:00 CET: open the app.
+  4. From 25 Oct, step back two days, then forward three.
+  5. Open the week view for 25 Oct, then the next week.
+  6. Monday 26 Oct, 09:00: copy yesterday into today, then reload.
+  7. Repeat steps 3–5 in America/Los_Angeles around its own change on Sunday 1 Nov 2026, and in
+     Asia/Karachi (no change) around 25 Oct.
+- **Pass:**
+  - (2) Both 02:30 entries land in Snacks on 25 Oct.
+  - (3) The app opens on 25 Oct, and the 24th holds exactly the four dinner rows.
+  - (4) The dates read 24, 23, then 24, 25, 26, with nothing skipped or repeated.
+  - (5) The week of Monday 19 to Sunday 25 Oct has 7 days, and the next one starts on Monday 26.
+  - (6) The 26th gets the 25th's two entries. After the reload, no entry has moved date and every
+    day's totals are unchanged.
+- **Budget:** n/a (script only).
+
 ---
 
 ## 5. Test days
 
-Times set the clock and the default slot. Food numbers refer to the coverage list.
+Times set the clock (Madrid time) and the default slot, and food numbers refer to the coverage list.
+D0–D4 use the Pakistani-preset slot labels, but tests work by slot id (Nashta = `breakfast`, Shaam ki
+chai = `evening`). D0 and D5 run on the Spanish preset; D1–D4 run on the Pakistani preset.
 
 ### D0: The Boss's sample day (from docs/BRIEF.md)
 
@@ -498,12 +614,12 @@ plain rice (#8) plate × 1.
 
 At 11:30 I still call it nashta, so the slot picker has to let me choose.
 
-### D3: A Ramadan day (A11 is Sprint 2)
+### D3: A Ramadan day (A11 is Sprint 3)
 
-In Sprint 1, log Sehri in Nashta, Iftar in Shaam ki chai and After-taraweeh in Snacks, all on the
-date of the sehri.
+Until Ramadan mode ships in Sprint 3, log Sehri in Nashta, Iftar in Shaam ki chai and
+After-taraweeh in Snacks, all on the date of the sehri.
 
-| Time | Slot (S2 / S1) | I type | Food | I say | Script portion |
+| Time | Slot (Ramadan mode / until then) | I type | Food | I say | Script portion |
 |------|----------------|--------|------|-------|----------------|
 | 04:30 | Sehri / Nashta | paratha | #6 | 1 paratha | piece × 1 |
 | 04:30 | Sehri / Nashta | fried egg | #16 | 2 fried anday | piece × 2 |
@@ -540,19 +656,56 @@ date of the sehri.
   150 g pack of halal beef sausage (chorizo is out). It feeds three of us, so I log ⅓ of the pot.
 - **Tortilla:** as in A10.
 
+### D5: PhD weekday in Barcelona (the Boss's real weekday)
+
+Spanish preset, "Halal only" on, Madrid time. In Sprint 2 the lunch row becomes a box from the Sunday
+batch (A17) instead of the Sprint 1 bridge record #49.
+
+| Time | Slot | I type | Food | I say | Script portion |
+|------|------|--------|------|-------|----------------|
+| 08:45 | Breakfast / café | cafe amb llet | #40 | 1 café con leche | cup × 1 |
+| 08:45 | Breakfast / café | croissant | #42 (`check` chip) | 1 croissant | piece × 1 |
+| 11:15 | Breakfast / café | tallat | #41 | 1 cortado | cup × 1 |
+| 13:45 | Lunch box (eaten in the library) | tikka bowl | #49 | chicken tikka rice bowl, 1 box | box × 1 |
+| 13:45 | Lunch box | manzana | #31 | 1 apple | piece × 1 |
+| 17:30 | Merienda / chai | chai | #21 (1 tsp) | 1 cup chai | cup × 1 |
+| 17:30 | Merienda / chai | galletas maria | #26 | 3 Marie biscuits | piece × 3 |
+| 21:30 | Dinner | chicken salan | #11 | 1 katori | katori × 1 |
+| 21:30 | Dinner | daal | #9 | half katori masoor daal | katori × 0.5 |
+| 21:30 | Dinner | chawal | #8 | half plate | plate × 0.5 |
+| 21:30 | Dinner | salad | #34 | salad | katori × 1 |
+| 23:30 | Snacks (picked by hand; 23:30 falls in Dinner hours) | skyr | #48 | 1 pot of skyr | pot × 1 |
+| 23:30 | Snacks | plátano | #32 | 1 plátano | piece × 1 |
+
+Daal is fine at a home dinner; the Boss only bans it from the lunch box.
+
 ---
 
 ## 6. Customer Panel runs
 
 - **Review 1:**
-  - I do person runs of A1–A9 and A12–A15, plus the five days, at phone size and on desktop. Each
-    run is timed, with screenshots.
-  - Nasreen, as a first-time user, runs A1, A2/A3 in her own words, A4, A8 and D0. Her timings are
-    recorded but don't decide pass or fail; her findings do.
+  - I do person runs of A1–A9, A12–A15 and A19, plus D0–D5, at phone size and on desktop. Each run is
+    timed, with screenshots.
+  - Nasreen, as a first-time user, runs A1, A2/A3 in her own words, A4, A8 and D0.
+  - Mariam, as a first-time user on the Madrid clock, runs A1 (Skip), A19, D5 and D0 in her own
+    words.
+  - Their timings are recorded but don't decide pass or fail; their findings do.
   - Reports go in `team/feedback/`.
-- **Sprint 2 review:** A10, A11 and A5(c). Nasreen does a whole-pot recipe of her own choosing.
+- **Sprint 2 review:** A10, A16–A18 and A5(c). Nasreen does a whole-pot recipe of her own choosing,
+  and Mariam runs a real Sunday batch through A16–A18.
+- **Sprint 3 review:** A11 (Ramadan).
 - **Requests that need an owner's answer** (I'll raise them at Review 1 if they're still open):
-  - **Lena / Priya:** recents work across slots (A6), copying a whole day is undoable (A5b), and
-    planned food shows separately from "left" (A12).
-  - **Ayesha / the Lab:** the serving labels in §1, frying oil in recipes (A10), and a daal chawal
-    plate record (D0).
+  - **Lena / Priya:**
+    - Recents work across slots (A6).
+    - Copying a whole day is undoable (A5b).
+    - Planned food shows separately from "left" (A12).
+    - A "+" on search rows, which A19's 12-action budget needs.
+    - Which date food logged between 00:00 and 01:00 lands on, now that Spanish dinner runs to 01:00.
+      My vote is the previous day, as with after-taraweeh, but it's open, so no test depends on it
+      yet.
+  - **Ayesha / the Lab:**
+    - The serving labels in §1.
+    - Frying oil in recipes (A10).
+    - A daal chawal plate record (D0).
+    - Halal statuses and reasons for #40–#49.
+    - The fridge lives in `RULES.mealPrep.storage` (A18).

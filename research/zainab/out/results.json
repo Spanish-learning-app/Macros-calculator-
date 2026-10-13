@@ -1695,5 +1695,466 @@
   "boneShareServed": 0,
   "massCheck": 34.2,
   "file": "research/zainab/recipes/daals.mjs"
+ },
+ "aloo-gobi-home": {
+  "id": "aloo-gobi-home",
+  "dish": "Aloo gobi (potato and cauliflower sabzi), home style",
+  "rawG": 1088.9,
+  "cookedG": 885.1,
+  "yield": 0.813,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 114,
+   "protein": 2,
+   "carbs": 9.8,
+   "fat": 6.7,
+   "fiber": 3,
+   "sugars": 1.4,
+   "satFat": 1,
+   "sodium": 285
+  },
+  "waterPer100g": 76.9,
+  "addedFatPer100g": 6.2,
+  "lines": [
+   {
+    "id": "potato",
+    "qty": 395,
+    "unit": "g",
+    "grams": 395,
+    "note": "TfT 2 small = 340 g (USDA small 170 g); F&S 3 cups diced = 450 g (USDA ½ cup diced = 75 g)",
+    "kcal": 275.7,
+    "protein": 6.08,
+    "fat": 0.91
+   },
+   {
+    "id": "cauliflower",
+    "qty": 240,
+    "unit": "g",
+    "grams": 240,
+    "note": "TfT 1 small head = 265 g (USDA); F&S 2 cups chopped = 214 g (USDA 107 g/cup)",
+    "kcal": 55,
+    "protein": 5.16,
+    "fat": 1.06
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 54.5,
+    "unit": "g",
+    "grams": 54.5,
+    "note": "¼ cup (both)",
+    "kcal": 481.8,
+    "protein": 0,
+    "fat": 54.5
+   },
+   {
+    "id": "onion",
+    "qty": 95,
+    "unit": "g",
+    "grams": 95,
+    "note": "TfT 1 medium 110 g; F&S ½ cup = 80 g",
+    "kcal": 45.6,
+    "protein": 1.42,
+    "fat": 0.23
+   },
+   {
+    "id": "tomato",
+    "qty": 250,
+    "unit": "g",
+    "grams": 250,
+    "note": "TfT 2–3 small (228 g); F&S 2–3 (≈ 308 g)",
+    "kcal": 49,
+    "protein": 2.25,
+    "fat": 1.17
+   },
+   {
+    "id": "garlic",
+    "qty": 16,
+    "unit": "g",
+    "grams": 16,
+    "note": "5–6 cloves",
+    "kcal": 19.8,
+    "protein": 1.11,
+    "fat": 0.03
+   },
+   {
+    "id": "ginger",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 2.8,
+    "protein": 0.11,
+    "fat": 0.04
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 2.25,
+    "unit": "g",
+    "grams": 2.3,
+    "note": "",
+    "kcal": 6.1,
+    "protein": 0.24,
+    "fat": 0.39
+   },
+   {
+    "id": "cumin",
+    "qty": 3.1500000000000004,
+    "unit": "g",
+    "grams": 3.2,
+    "note": "seeds + ground",
+    "kcal": 9.6,
+    "protein": 0.44,
+    "fat": 0.52
+   },
+   {
+    "id": "turmeric",
+    "qty": 1.2000000000000002,
+    "unit": "g",
+    "grams": 1.2,
+    "note": "",
+    "kcal": 3.4,
+    "protein": 0.09,
+    "fat": 0.06
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1.26,
+    "unit": "g",
+    "grams": 1.3,
+    "note": "",
+    "kcal": 3,
+    "protein": 0.16,
+    "fat": 0.08
+   },
+   {
+    "id": "salt",
+    "qty": 6.5,
+    "unit": "g",
+    "grams": 6.5,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "coriander",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 1.6,
+    "protein": 0.18,
+    "fat": 0.03
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 0.9,
+    "protein": 0.01,
+    "fat": 0.01
+   }
+  ],
+  "cookingDetail": [
+   "onion fried golden 6–7 min (C.onionSoft, CoFID 13-501): 20 g",
+   "tomatoes cooked to a bhuna until the oil rises (F&S): 164 g",
+   "cauliflower stewed in its own moisture: Bognár 2002 \"Cauliflower, stewed\" yield 0.92 (n = 12) → 8% of weight ≈ 9% of its water: 20 g"
+  ],
+  "kcalIngredientSum": 108,
+  "atwater": 114,
+  "atwaterGap": -0.053,
+  "boneShareServed": 0,
+  "massCheck": 21.5,
+  "file": "research/zainab/recipes/sabzi-egg.mjs"
+ },
+ "bhindi-home": {
+  "id": "bhindi-home",
+  "dish": "Bhindi (okra) sabzi, home style",
+  "rawG": 733.7,
+  "cookedG": 529.4,
+  "yield": 0.722,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 137,
+   "protein": 2.5,
+   "carbs": 5.9,
+   "fat": 10.4,
+   "fiber": 4.8,
+   "sugars": 1.7,
+   "satFat": 1.5,
+   "sodium": 403
+  },
+  "waterPer100g": 74.3,
+  "addedFatPer100g": 9.8,
+  "lines": [
+   {
+    "id": "okra",
+    "qty": 454,
+    "unit": "g",
+    "grams": 454,
+    "note": "1 lb (both)",
+    "kcal": 124.8,
+    "protein": 9.44,
+    "fat": 1
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 52,
+    "unit": "g",
+    "grams": 52,
+    "note": "",
+    "kcal": 459.7,
+    "protein": 0,
+    "fat": 52
+   },
+   {
+    "id": "onion",
+    "qty": 75,
+    "unit": "g",
+    "grams": 75,
+    "note": "TfT 1 large (150 g); F&S none",
+    "kcal": 36,
+    "protein": 1.13,
+    "fat": 0.18
+   },
+   {
+    "id": "tomato",
+    "qty": 123,
+    "unit": "g",
+    "grams": 123,
+    "note": "TfT 2 medium (246 g); F&S none",
+    "kcal": 24.1,
+    "protein": 1.11,
+    "fat": 0.58
+   },
+   {
+    "id": "garlic",
+    "qty": 7.5,
+    "unit": "g",
+    "grams": 7.5,
+    "note": "2–3 cloves (TfT)",
+    "kcal": 9.3,
+    "protein": 0.52,
+    "fat": 0.01
+   },
+   {
+    "id": "ginger",
+    "qty": 2,
+    "unit": "g",
+    "grams": 2,
+    "note": "1 tsp",
+    "kcal": 1.1,
+    "protein": 0.04,
+    "fat": 0.02
+   },
+   {
+    "id": "green-chilli",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 2.1,
+    "protein": 0.12,
+    "fat": 0.04
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 0.9,
+    "unit": "g",
+    "grams": 0.9,
+    "note": "",
+    "kcal": 2.4,
+    "protein": 0.1,
+    "fat": 0.16
+   },
+   {
+    "id": "turmeric",
+    "qty": 0.75,
+    "unit": "g",
+    "grams": 0.8,
+    "note": "",
+    "kcal": 2.1,
+    "protein": 0.06,
+    "fat": 0.04
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1.35,
+    "unit": "g",
+    "grams": 1.4,
+    "note": "",
+    "kcal": 3.2,
+    "protein": 0.17,
+    "fat": 0.09
+   },
+   {
+    "id": "salt",
+    "qty": 5.5,
+    "unit": "g",
+    "grams": 5.5,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 2.5,
+    "unit": "g",
+    "grams": 2.5,
+    "note": "",
+    "kcal": 0.6,
+    "protein": 0.01,
+    "fat": 0.01
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 128,
+  "atwater": 137,
+  "atwaterGap": -0.066,
+  "boneShareServed": 0,
+  "massCheck": 23.6,
+  "file": "research/zainab/recipes/sabzi-egg.mjs"
+ },
+ "desi-omelette": {
+  "id": "desi-omelette",
+  "dish": "Desi omelette (anda omelette with pyaz, tamatar, hari mirch)",
+  "rawG": 295.3,
+  "cookedG": 268.8,
+  "yield": 0.91,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 163,
+   "protein": 7.7,
+   "carbs": 3.1,
+   "fat": 13.1,
+   "fiber": 1,
+   "sugars": 1.7,
+   "satFat": 3,
+   "sodium": 296
+  },
+  "waterPer100g": 73.7,
+  "addedFatPer100g": 7.6,
+  "lines": [
+   {
+    "id": "egg",
+    "qty": 150,
+    "unit": "g",
+    "grams": 150,
+    "note": "3 large eggs (USDA large egg 50 g)",
+    "kcal": 214.5,
+    "protein": 18.84,
+    "fat": 14.27
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 20.4,
+    "unit": "g",
+    "grams": 20.4,
+    "note": "1½ tbsp (kfoods)",
+    "kcal": 180.3,
+    "protein": 0,
+    "fat": 20.4
+   },
+   {
+    "id": "onion",
+    "qty": 50,
+    "unit": "g",
+    "grams": 50,
+    "note": "kfoods 1 small (70 g); TfT ½ small (35 g)",
+    "kcal": 24,
+    "protein": 0.75,
+    "fat": 0.12
+   },
+   {
+    "id": "tomato",
+    "qty": 60,
+    "unit": "g",
+    "grams": 60,
+    "note": "kfoods 1 tomato; TfT ½ small Roma (31 g)",
+    "kcal": 11.8,
+    "protein": 0.54,
+    "fat": 0.28
+   },
+   {
+    "id": "green-chilli",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "1",
+    "kcal": 2.1,
+    "protein": 0.12,
+    "fat": 0.04
+   },
+   {
+    "id": "coriander",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 0.9,
+    "protein": 0.11,
+    "fat": 0.02
+   },
+   {
+    "id": "milk-whole",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "1 tsp milk (kfoods)",
+    "kcal": 3.1,
+    "protein": 0.16,
+    "fat": 0.16
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 0.45,
+    "unit": "g",
+    "grams": 0.5,
+    "note": "",
+    "kcal": 1.1,
+    "protein": 0.06,
+    "fat": 0.03
+   },
+   {
+    "id": "salt",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 163,
+  "atwater": 163,
+  "atwaterGap": 0,
+  "boneShareServed": 0,
+  "massCheck": 24.9,
+  "file": "research/zainab/recipes/sabzi-egg.mjs"
  }
 }

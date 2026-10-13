@@ -4,12 +4,13 @@
 
 ## Read first
 
+0. `team/meetings/002-boss-update.md` and the **Meeting 002 additions** at the end of this brief.
 1. `team/briefs/_common.md`, `team/briefs/kenji.md`, `team/PLAYBOOK.md` §3, and your journal
    `team/journals/kenji.md`. If the journal has entries, continue from where it stops.
 2. `docs/ARCHITECTURE.md`. This is your specification: §4 types, §5 core contracts, §6 data
    contract, §7.2 routes and §10 testing.
 3. `docs/NUTRITION.md` and `app/data/rules.js` (Ayesha): target vectors and data-gate rules.
-4. `docs/CUSTOMER.md` (Bilal): §2 test conventions (actions, starting states, Asia/Karachi clock,
+4. `docs/CUSTOMER.md` (Bilal): §2 test conventions (actions, starting states, test clock (Europe/Madrid since meeting 002),
    P1) and §4 acceptance tests A1–A15. The Sprint 1 tests are A1–A9 except A10 and A11, plus
    A12–A15.
 
@@ -33,15 +34,16 @@ they are yours now. Do not edit `app/**`, `tests/contract/**` (Lena's), `tests/u
   - When Hamza implements the function, your tests become real without any edit from you.
   - E2E specs for features that are not built yet use `test.fixme`.
 - **Fixtures:** `tests/fixtures/index.js` exports `{ RULES, FOODS }`. RULES is the real
-  `app/data/rules.js`. FOODS is 12 fixture records, ids ending in `-fx`, that pass every Lab gate
-  (`node research/check-foods.mjs tests/fixtures/foods.js`: 12/12). Keep fixture ids stable. Add
+  `app/data/rules.js`. FOODS is 16 fixture records, ids ending in `-fx`, that pass every Lab gate
+  (`node research/check-foods.mjs tests/fixtures/foods.js`: 16/16). Keep fixture ids stable. Add
   records if you need them; every record must still pass the gate.
 - **Playwright:**
   - Run `npm run setup` once; it links the preinstalled 1.56.1. **Never** run
     `playwright install`.
   - Import from `playwright/test`.
   - The projects are `phone`, `phone-dark`, `small` (360 px) and `desktop`.
-  - The clock is `timezoneId: 'Asia/Karachi'`. Use `page.clock` to set the time each test needs.
+  - The clock is `timezoneId: 'Europe/Madrid'` (meeting 002). Use `page.clock` to set the time each
+    test needs.
 - **E2E data:** until the real foods land, serve the fixtures in place of the app's data module:
   `page.route('**/data/index.js', r => r.fulfill({ contentType: 'text/javascript', body: 'export const RULES = ' + JSON.stringify(RULES) + '; export const FOODS = ' + JSON.stringify(FOODS) + ';' }))`.
   Once the real data has landed, run the D0–D4 flows against it too.
@@ -62,7 +64,7 @@ they are yours now. Do not edit `app/**`, `tests/contract/**` (Lena's), `tests/u
    - Property-style checks where they help:
      - no input is ever mutated (deep-freeze inputs)
      - `sumNutrients` is order-independent
-     - `addDays(addDays(d, n), -n) === d` across years and DST, in both time zones
+     - `addDays(addDays(d, n), -n) === d` across years and DST, in all three time zones
      - `normalize` is idempotent
      - a boost never crosses a tier
    - **Targets:** NUTRITION.md §2.7 vectors A–K.
@@ -124,3 +126,40 @@ Report:
 - risks
 
 Do not commit.
+
+## Meeting 002 additions (binding; folded in by Lena)
+
+`team/meetings/002-boss-update.md`: the Boss lives in Barcelona. `docs/CUSTOMER.md` is being
+updated by Bilal (Madrid clock, A16–A19, a PhD weekday test day); re-read it before scripting.
+
+- **Clocks:**
+  - Europe/Madrid is primary: `playwright.config.js` uses `timezoneId: 'Europe/Madrid'`, and
+    `npm test` runs Madrid, Karachi and Los Angeles.
+  - Add Karachi and LA E2E specs where a date or slot depends on the zone
+    (`test.use({ timezoneId })`).
+- **DST, 25 Oct 2026** (Madrid 03:00 → 02:00):
+  - Unit tests for `addDays`, `diffDays`, `weekDates`, `todayISO` and `minutesOfDay` around it.
+  - One E2E with `page.clock`: log food at 02:30 on 25 Oct and again after the change. Both land
+    on 25 Oct, and the week view for that week shows 7 days.
+- **Logical day (Spain preset):** dinner runs 20:00–01:00. Food logged at 00:30 lands on the
+  previous date (`todayISO(now, dayStartMinutes(rules, 'spain'))`). On the default preset it lands
+  on the new date.
+- **Halal:**
+  - QA unit tests: `validateFood` checks the `halal` field. `searchFoods` puts `not-halal` foods in
+    `hidden` when `halalOnly` is on, and keeps `check` foods in `hits`.
+  - E2E: the filter is on by default; there is a "1 hidden: not halal" line with its reason; the
+    chip shows on `check` foods; a not-halal food never appears in recents.
+- **Search:** `normalize` folds accents and deletes the Catalan middle dot. Café food is found by
+  its Catalan, Spanish and English name (A19 is Sprint 1).
+- **Data gate:** follow `docs/NUTRITION.md` §8, now G1–G22, which `research/check-foods.mjs`
+  implements. New gates:
+  - the `halal` field (G21)
+  - no halal tags
+  - at most one seafood tag
+  - `not-halal` only for allowed groups, with a reason that mentions lard
+  - no slot hints on not-halal foods
+  - lunch-box `box` serving kcal within `boxServing.kcal`
+- **Fixtures:** there are now 16, all passing the Lab gate (`es-ensaimada-fx` is the not-halal
+  case, `pk-chicken-tikka-rice-box-fx` the lunch box).
+- **Acceptance:** A19 is Sprint 1 (script it). A16–A18 are Sprint 2 (`test.fixme` stubs that
+  document the budgets).

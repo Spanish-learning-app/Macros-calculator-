@@ -4,6 +4,7 @@
 
 ## Read first
 
+0. `team/meetings/002-boss-update.md` and the **Meeting 002 additions** at the end of this brief.
 1. `team/briefs/_common.md`, `team/briefs/priya.md`, `team/PLAYBOOK.md` §3, and your journal
    `team/journals/priya.md`. If the journal has entries, continue from where it stops.
 2. `docs/ARCHITECTURE.md`. §2 (Artifact constraints), §4 (data model), §7 (UI architecture: routes,
@@ -141,3 +142,36 @@ Report:
 - risks
 
 Do not commit.
+
+## Meeting 002 additions (binding; folded in by Lena)
+
+`team/meetings/002-boss-update.md`: the Boss lives in Barcelona, on a Spanish meal schedule, and
+eats halal. Sprint 1 UI work:
+
+- **Halal chip:**
+  - Every food row (search results, recents, the picker, entry rows) shows a calm chip for
+    `check` ("Check") and `not-halal` ("Not halal").
+  - One tap shows `food.halal.reason`; the labels come from `RULES.vocab.halalStatuses`.
+  - `halal` foods show no chip. Use no red.
+- **"Halal only" filter:**
+  - A toggle in the add sheet and in Profile, on by default (`settings.halalOnly`).
+  - `store.search()` returns `{ hits, hidden }`. When `hidden` is not empty, show one line, e.g.
+    "1 hidden: not halal". Tapping it shows the hidden food's name and reason, and offers to show
+    it anyway.
+  - Not-halal foods never appear in recents or suggestions.
+- **Meal-time presets:**
+  - Profile gets "Meal times: Pakistani / Spanish" (`settings.slotPreset`). Spanish is the default
+    on Madrid time.
+  - Slot renaming stays (`settings.slotLabels`).
+  - Show slot names everywhere through `store.slotLabel(slot)`, never hard-coded.
+- **Barcelona food:** long Catalan and Spanish names, such as "Pa amb tomàquet (bread with tomato
+  and olive oil)", must not be cut off at 360 px (A15). Lunch-box foods show their `box` serving
+  ("1 box (350 g)") like any other serving.
+- **About the data:** add `RULES.vocab.halalRules.crossContactNote` as one line (decision 4).
+- **Not in Sprint 1:** the seafood question in onboarding (`RULES.vocab.halalRules.seafoodChoices`)
+  is Sprint 2. Design it if you have time, but do not ship it.
+- **Your harness:** copy all 16 fixtures (now including `es-ensaimada-fx` (not-halal),
+  `intl-whey-protein-fx` (check), `es-pa-amb-tomaquet-fx`, `es-cafe-con-leche-fx` and the lunch box
+  `pk-chicken-tikka-rice-box-fx`).
+- **New acceptance tests:** A19 (a Barcelona café breakfast by its Spanish, Catalan or English name,
+  ≤ 12 actions) is Sprint 1. A16–A18 (meal prep) are Sprint 2.

@@ -35,3 +35,13 @@
   pastries, menú del día), meal-prep must-haves and budgets, A16–A19, and a request for a Barcelona
   PhD meal-prep tester. Found that the CUSTOMER.md clock (Asia/Karachi) is wrong for the Boss; it
   must be Europe/Madrid. CUSTOMER.md follow-up waits for Omar to set sprints. Nothing committed.
+- 2026-10-13 22:46 UTC: Read minutes 002 and Mariam's brief (my hire, approved). Updated
+  docs/CUSTOMER.md to v2: Madrid as the primary clock, Karachi and LA as extra checks, and a new A20
+  for the 25 Oct 2026 clock change (LA's change on 1 Nov too). Conventions now cover the Spanish and
+  Pakistani presets and the halal rules ("Halal only" on by default, chips for check/not-halal,
+  hidden-item explanation). Coverage gets #40–#49 (café foods by Catalan, Spanish and English name,
+  skyr, and the tikka box bridge record). New stories US-26–US-34; sprints re-tagged per decision 9:
+  Ramadan, nudges and weight log to S3, "my chai once" confirmed for S2. Added A16–A18 (S2; A18
+  follows Ayesha's fridge/freezer rule) and A19 (S1, Spanish preset), plus the D5 PhD weekday, and
+  updated the panel plan with Mariam. Open: "+" on search rows (A19's budget needs it) and the date
+  for 00:00–01:00 entries. Nothing committed.
