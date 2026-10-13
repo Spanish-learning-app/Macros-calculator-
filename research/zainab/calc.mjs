@@ -99,7 +99,7 @@ export function compute(sheet) {
     yield: +(cooked / raw).toFixed(3),
     removedG: +removed.toFixed(1),
     per100g: {
-      kcal: Math.round(per(tot.kcal)),
+      kcal: null, // set below: NUTRITION.md §6 step 7, kcal = round(4P + 4C + 9F + 2·fibre)
       protein: +per(tot.protein).toFixed(1),
       carbs: +per(tot.carbs).toFixed(1),
       fat: +per(tot.fat).toFixed(1),
@@ -114,8 +114,11 @@ export function compute(sheet) {
     cookingDetail: ck.detail || null,
   };
   const p = out.per100g;
-  out.atwater = Math.round(4 * p.protein + 4 * p.carbs + 9 * p.fat + 2 * p.fiber);
-  out.atwaterGap = +((p.kcal - out.atwater) / out.atwater).toFixed(3);
+  p.kcal = Math.round(4 * p.protein + 4 * p.carbs + 9 * p.fat + 2 * p.fiber);
+  out.kcalIngredientSum = Math.round(per(tot.kcal)); // sum of the tables' own energy values, for comparison
+  out.atwater = p.kcal;
+  out.atwaterGap = +((out.kcalIngredientSum - p.kcal) / p.kcal).toFixed(3);
+  out.boneShareServed = removed > 0 ? +(removed / (cooked + removed)).toFixed(3) : 0;
   out.massCheck = +(p.protein + p.carbs + p.fat + p.fiber).toFixed(1);
   if (waterCooked < 0) out.error = 'cooked water negative: yield too low';
   return out;
@@ -143,7 +146,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     results[s.id] = r;
     const p = r.per100g;
     const flag = Math.abs(r.atwaterGap) > 0.1 ? '  <-- ENERGY GAP' : '';
-    console.log(`${s.id.padEnd(30)} raw ${String(r.rawG).padStart(7)} → ${String(r.cookedG).padStart(7)} g (y ${r.yield})  ${String(p.kcal).padStart(4)} kcal P${p.protein} C${p.carbs} F${p.fat} Fib${p.fiber} Sug${p.sugars} Sat${p.satFat} Na${p.sodium} H2O ${r.waterPer100g} | addFat ${r.addedFatPer100g} | 4-4-9-2 ${r.atwater} (${(r.atwaterGap * 100).toFixed(1)}%)${flag}${r.error ? ' ' + r.error : ''}`);
+    console.log(`${s.id.padEnd(30)} raw ${String(r.rawG).padStart(7)} → ${String(r.cookedG).padStart(7)} g (y ${r.yield})  ${String(p.kcal).padStart(4)} kcal P${p.protein} C${p.carbs} F${p.fat} Fib${p.fiber} Sug${p.sugars} Sat${p.satFat} Na${p.sodium} H2O ${r.waterPer100g} | addFat ${r.addedFatPer100g} | table-sum ${r.kcalIngredientSum} (${(r.atwaterGap * 100).toFixed(1)}%)${r.boneShareServed ? ' bone ' + r.boneShareServed : ''}${flag}${r.error ? ' ' + r.error : ''}`);
     if (filter && r.cookingDetail) console.log('   evaporation: ' + r.cookingDetail.join('; '));
     if (filter) for (const l of r.lines) console.log(`   ${l.id.padEnd(20)} ${String(l.qty).padStart(6)} ${l.unit}  ${String(l.kcal).padStart(7)} kcal  P${l.protein} F${l.fat}  ${l.note}`);
   }

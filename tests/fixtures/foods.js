@@ -1,8 +1,10 @@
-// FIXTURE FOODS for unit and E2E tests. NOT nutrition data: values are plausible and built to pass
-// the data gate against the real RULES (energy, mass, fibreZero, group kcal and serving ranges, tag
-// rules), but they are not reviewed and must never be copied into app/data/.
-// Record format: docs/ARCHITECTURE.md §4.2. Serving weights follow RULES.householdMeasures and
-// RULES.referenceWeightsG (katori 200 ml, chai cup 200 ml, roti 27/40/52 g).
+// FIXTURE FOODS for unit and E2E tests. NOT nutrition data. The values are plausible and pass every
+// Lab gate (`node research/check-foods.mjs tests/fixtures/foods.js`), but they are not reviewed and
+// must never be copied into app/data/. Every id ends in `-fx`, so fixture data can never be
+// mistaken for a real record.
+// Record format: docs/ARCHITECTURE.md §4.2 and docs/NUTRITION.md §3. Servings follow NUTRITION.md
+// §5: katori-served groups offer katori-small/katori/katori-large/tbsp at one density (daal and
+// curry 1.00 g/ml, rice 0.67 g/ml); roti 27/40/52 g; chai cup 200 ml at 1.03 g/ml.
 // Owner: Kenji (created by Lena in Step 0). Keep ids stable; tests refer to them.
 
 const source = (confidence, method = 'recipe') => ({
@@ -13,17 +15,34 @@ const source = (confidence, method = 'recipe') => ({
   date: '2026-10-13',
 });
 
+const katoriServings = (density, labelUr) => [
+  { id: 'katori-small', label: '1 small katori (155 ml)', grams: round1(155 * density) },
+  {
+    id: 'katori',
+    label: '1 katori (200 ml)',
+    ...(labelUr ? { labelUr } : {}),
+    grams: round1(200 * density),
+    default: true,
+  },
+  { id: 'katori-large', label: '1 large katori (360 ml)', grams: round1(360 * density) },
+  { id: 'tbsp', label: '1 tablespoon (chamach)', grams: round1(15 * density) },
+];
+
+function round1(x) {
+  return Math.round(x * 10) / 10;
+}
+
 export default [
   {
-    id: 'pk-roti-home',
+    id: 'pk-roti-home-fx',
     name: 'Roti (ghar ki, whole wheat)',
     nameUr: 'گھر کی روٹی',
     nameRoman: 'ghar ki roti',
     aliases: ['roti', 'chapati', 'chapatti', 'phulka', 'chapathi'],
     group: 'bread',
     state: 'cooked on a tawa, no ghee',
-    style: 'home',
     per100g: { kcal: 270, protein: 9, carbs: 47, fat: 3.5, fiber: 7 },
+    addedFatPer100g: 0,
     servings: [
       { id: 'small', label: '1 small roti (27 g)', grams: 27 },
       { id: 'medium', label: '1 medium roti (40 g)', labelUr: '1 روٹی', grams: 40, default: true },
@@ -34,7 +53,7 @@ export default [
     source: source('B'),
   },
   {
-    id: 'pk-chai-doodh-patti-home',
+    id: 'pk-chai-doodh-patti-home-fx',
     name: 'Doodh patti chai (with sugar)',
     nameUr: 'دودھ پتی چائے',
     nameRoman: 'doodh patti',
@@ -42,8 +61,9 @@ export default [
     group: 'drink-tea-coffee',
     state: 'as served; full-cream milk, 1.5 tsp sugar per cup',
     style: 'home',
-    family: 'doodh-patti',
+    family: 'doodh-patti-fx',
     per100g: { kcal: 72, protein: 2.4, carbs: 9.6, fat: 2.6, fiber: 0, sugars: 9.4 },
+    addedFatPer100g: 0,
     servings: [
       { id: 'cup', label: '1 cup (200 ml)', labelUr: '1 کپ', grams: 206, default: true },
       { id: 'mug', label: '1 mug (250 ml)', grams: 257.5 },
@@ -53,7 +73,7 @@ export default [
     source: source('B'),
   },
   {
-    id: 'pk-daal-masoor-home',
+    id: 'pk-daal-masoor-home-fx',
     name: 'Masoor daal (home)',
     nameUr: 'مسور کی دال',
     nameRoman: 'masoor ki daal',
@@ -61,24 +81,16 @@ export default [
     group: 'daal-legume',
     state: 'cooked, as served with tarka',
     style: 'home',
-    family: 'daal-masoor',
+    family: 'daal-masoor-fx',
     per100g: { kcal: 114, protein: 6.5, carbs: 13, fat: 3.2, fiber: 3.5 },
     addedFatPer100g: 3,
-    servings: [
-      {
-        id: 'katori',
-        label: '1 katori (200 ml, 200 g)',
-        labelUr: '1 کٹوری',
-        grams: 200,
-        default: true,
-      },
-    ],
+    servings: katoriServings(1.0, '1 کٹوری'),
     tags: ['pakistani', 'vegetarian', 'halal'],
     slots: ['lunch', 'dinner'],
     source: source('B'),
   },
   {
-    id: 'pk-chicken-karahi-home',
+    id: 'pk-chicken-karahi-home-fx',
     name: 'Chicken karahi (home)',
     nameUr: 'چکن کڑاہی',
     nameRoman: 'chicken karahi',
@@ -86,19 +98,16 @@ export default [
     group: 'curry-meat',
     state: 'cooked, as served with gravy, edible portion (no bones)',
     style: 'home',
-    family: 'chicken-karahi',
+    family: 'chicken-karahi-fx',
     per100g: { kcal: 159, protein: 16, carbs: 3, fat: 9, fiber: 0.8 },
     addedFatPer100g: 7,
-    servings: [
-      { id: 'katori', label: '1 katori (200 ml, 200 g)', grams: 200, default: true },
-      { id: 'plate', label: '1 plate (250 g)', grams: 250 },
-    ],
+    servings: katoriServings(1.0),
     tags: ['pakistani', 'halal'],
     slots: ['lunch', 'dinner'],
     source: source('B'),
   },
   {
-    id: 'pk-chicken-karahi-restaurant',
+    id: 'pk-chicken-karahi-restaurant-fx',
     name: 'Chicken karahi (restaurant)',
     nameUr: 'چکن کڑاہی',
     nameRoman: 'chicken karahi',
@@ -106,19 +115,16 @@ export default [
     group: 'curry-meat',
     state: 'cooked, as served with gravy, edible portion (no bones)',
     style: 'restaurant',
-    family: 'chicken-karahi',
+    family: 'chicken-karahi-fx',
     per100g: { kcal: 218, protein: 15, carbs: 3, fat: 16, fiber: 0.8 },
     addedFatPer100g: 14,
-    servings: [
-      { id: 'katori', label: '1 katori (200 ml, 200 g)', grams: 200, default: true },
-      { id: 'plate', label: '1 plate (350 g)', grams: 350 },
-    ],
+    servings: katoriServings(1.0),
     tags: ['pakistani', 'halal'],
     slots: ['dinner'],
     source: source('C'),
   },
   {
-    id: 'pk-rice-plain',
+    id: 'pk-rice-plain-fx',
     name: 'Plain white rice (boiled)',
     nameUr: 'سادہ چاول',
     nameRoman: 'sada chawal',
@@ -126,16 +132,13 @@ export default [
     group: 'grain-cooked',
     state: 'boiled and drained',
     per100g: { kcal: 126, protein: 2.7, carbs: 28, fat: 0.3, fiber: 0.4 },
-    servings: [
-      { id: 'plate', label: '1 plate (250 g)', grams: 250, default: true },
-      { id: 'katori', label: '1 katori (200 ml, 134 g)', grams: 134 },
-    ],
+    servings: katoriServings(0.67),
     tags: ['pakistani', 'vegetarian', 'vegan', 'halal'],
     slots: ['lunch', 'dinner'],
     source: source('A', 'direct'),
   },
   {
-    id: 'intl-egg-boiled',
+    id: 'intl-egg-boiled-fx',
     name: 'Egg, boiled',
     nameUr: 'ابلا ہوا انڈا',
     nameRoman: 'ubla anda',
@@ -149,7 +152,7 @@ export default [
     source: source('A', 'direct'),
   },
   {
-    id: 'intl-whey-protein',
+    id: 'intl-whey-protein-fx',
     name: 'Whey protein powder',
     aliases: ['whey', 'protein powder', 'protein shake'],
     group: 'protein-supplement',
@@ -161,12 +164,11 @@ export default [
     source: source('B', 'label'),
   },
   {
-    id: 'es-tortilla-de-patatas',
+    id: 'es-tortilla-de-patatas-fx',
     name: 'Tortilla de patatas (Spanish omelette)',
     aliases: ['tortilla', 'tortilla española', 'spanish omelette', 'spanish omelet'],
     group: 'egg',
     state: 'cooked, as served',
-    style: 'home',
     per100g: { kcal: 179, protein: 6.5, carbs: 13, fat: 11, fiber: 1.2 },
     addedFatPer100g: 8,
     servings: [
@@ -178,7 +180,7 @@ export default [
     source: source('B'),
   },
   {
-    id: 'intl-banana',
+    id: 'intl-banana-fx',
     name: 'Banana',
     nameUr: 'کیلا',
     nameRoman: 'kela',
@@ -195,7 +197,7 @@ export default [
     source: source('A', 'direct'),
   },
   {
-    id: 'med-olive-oil',
+    id: 'med-olive-oil-fx',
     name: 'Olive oil',
     nameUr: 'زیتون کا تیل',
     nameRoman: 'zaitoon ka tel',
@@ -211,7 +213,7 @@ export default [
     source: source('A', 'direct'),
   },
   {
-    id: 'pk-gulab-jamun',
+    id: 'pk-gulab-jamun-fx',
     name: 'Gulab jamun',
     nameUr: 'گلاب جامن',
     nameRoman: 'gulab jamun',
@@ -219,6 +221,7 @@ export default [
     group: 'sweet-dessert',
     state: 'as served, in syrup',
     per100g: { kcal: 323, protein: 5, carbs: 50, fat: 11, fiber: 0.5, sugars: 40 },
+    addedFatPer100g: 8,
     servings: [{ id: 'piece', label: '1 piece (40 g)', grams: 40, default: true }],
     tags: ['pakistani', 'vegetarian', 'halal'],
     slots: ['snacks', 'dinner'],

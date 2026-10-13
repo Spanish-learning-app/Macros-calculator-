@@ -4,7 +4,7 @@
   "phase": "Sprint 1 · Build v1",
   "sprint": 1,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-13T22:30:00Z",
+  "updatedAt": "2026-10-13T22:42:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -28,12 +28,12 @@
     "ayesha": {
       "location": "office",
       "status": "working",
-      "task": "NUTRITION.md, rules.js, check-foods.mjs, index.js, templates.js"
+      "task": "Meeting 002 rules follow-up (spain slots, halal field, seafood, storage)"
     },
     "bilal": {
       "location": "office",
       "status": "working",
-      "task": "docs/CUSTOMER.md"
+      "task": "CUSTOMER.md update (Madrid, A16-A19, D5)"
     },
     "hamza": {
       "location": "office",
@@ -62,8 +62,18 @@
     },
     "nasreen": {
       "location": "office",
+      "status": "idle",
+      "task": "Waiting for Review 1"
+    },
+    "yusuf": {
+      "location": "office",
       "status": "working",
-      "task": "team/feedback/nasreen-before.md"
+      "task": "12 halal lunch boxes"
+    },
+    "mariam": {
+      "location": "office",
+      "status": "working",
+      "task": "Before interview"
     }
   },
   "inFlight": [
@@ -74,12 +84,12 @@
     },
     {
       "member": "ayesha",
-      "task": "Nutrition contract",
-      "output": "docs/NUTRITION.md, app/data/rules.js, app/data/index.js, app/data/templates.js, research/check-foods.mjs"
+      "task": "Meeting 002 rules follow-up",
+      "output": "app/data/rules.js, docs/NUTRITION.md, research/check-foods.mjs, app/data/index.js"
     },
     {
       "member": "bilal",
-      "task": "Customer doc",
+      "task": "CUSTOMER.md update per Meeting 002",
       "output": "docs/CUSTOMER.md"
     },
     {
@@ -93,9 +103,14 @@
       "output": "app/data/foods-basics.js, foods-intl.js, foods-es-med.js, foods-pk-packaged.js, research/javier/"
     },
     {
-      "member": "nasreen",
+      "member": "yusuf",
+      "task": "12 halal lunch boxes + café review",
+      "output": "app/data/foods-mealprep.js, research/yusuf/, docs/MEALPREP.md"
+    },
+    {
+      "member": "mariam",
       "task": "Before interview",
-      "output": "team/feedback/nasreen-before.md"
+      "output": "team/feedback/mariam-before.md"
     }
   ],
   "checkIn": {
@@ -103,5 +118,9 @@
     "cron": "9 * * * * (UTC, hourly)"
   },
   "appName": "Katori",
-  "next": "When step 0 lands: start Hamza, Priya, Kenji with team/briefs/<id>-sprint1.md; ask Lena for store/router/integration. After data lands: Ayesha reviews. Then Review 1 meeting."
+  "next": "When step 0 lands: start Hamza, Priya, Kenji with team/briefs/<id>-sprint1.md; ask Lena for store/router/integration. After data lands: Ayesha reviews. Then Review 1 meeting.",
+  "meetingsHeld": [
+    "001-kickoff",
+    "002-boss-update"
+  ]
 }

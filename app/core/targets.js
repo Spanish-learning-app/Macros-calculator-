@@ -58,12 +58,12 @@ export function validateProfile(profile, rules) {
 }
 
 /**
- * Full calculation exactly as docs/NUTRITION.md: health/derived flag effects, BMR, TDEE, rails in
- * order, protein, fat (floor rounded up), carbs as remainder, fibre, then rounding per
- * RULES.rounding. warnings = RULES.warnings keys that fired ('estimate' always first) plus the ids
- * of active health and derived flags.
+ * Full calculation exactly as docs/NUTRITION.md §2.2 (steps 1–12): flags, effective goal, BMR,
+ * TDEE, rails, kcal, PRW, protein, fat (floor rounded up), carbs, fibre, check. warnings =
+ * 'estimate' first (when ok) + codes that fired + ids of active health and derived flags.
  * @param {Profile} profile @param {object} rules RULES
- * @param {TargetPrefs} [prefs] the user's own protein g/kg PRW and fat % (clamped to RULES ranges)
+ * @param {TargetPrefs} [prefs] { proteinGPerKg?, fatPct? }: the user's own choices, clamped to
+ *   RULES ranges (NUTRITION.md §2.1). Binding vectors: NUTRITION.md §2.7 A–K.
  * @returns {TargetResult}
  */
 export function computeTargets(profile, rules, prefs = {}) {

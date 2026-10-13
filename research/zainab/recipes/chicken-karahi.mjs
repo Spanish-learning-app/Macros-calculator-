@@ -1,5 +1,6 @@
 // Recipe sheet: chicken karahi — home and restaurant standard recipes (one base, two fat loads).
 import { M, ASSUMED as A } from '../measures.mjs';
+import { C } from '../conventions.mjs';
 
 // Bone: curry/karahi-cut skinless broiler pieces. Edible fraction 0.75, from CoFID 2021
 // "weighed with bone" factors for casseroled chicken (breast 0.90, thighs 0.83, drumsticks 0.65,
@@ -66,16 +67,17 @@ const base = (fat) => [
   ['salt', 2 * M.tspSalt, '2 tsp'],
 ];
 
-// Cooking loss: no water added; covered 20–25 min, then reduced on high until the fat separates
-// (TfT, SBS). Taken as evaporation of 80% of the tomato water (500 g × 93.6% = 468 g → 375 g) plus
-// nothing from the chicken beyond what joins the masala (chicken juices stay in the pot until the
-// final bhuna, which is what drives the tomato water off). Evaporation 375 g (assumption, grade C).
-// Cross-check: result has ~66 g water/100 g, between CoFID 19-549 homemade beef curry (63.5) and
-// 19-322 takeaway chicken curry; plausible for a dry, clinging karahi masala.
+// Cooking loss (water balance, NUTRITION.md §6 step 5, third option): no water is added. The
+// pieces are covered ~20 min, then the pot is reduced on high "until the ghee/oil separates and the
+// chicken looks glossy" (TfT; SBS cooks 25–30 min stirring). So: tomatoes cooked down to a paste,
+// onion browned, and the juices the chicken releases are driven off in the final bhuna.
 const cooking = {
-  method: 'evaporate',
-  grams: 375,
-  basis: 'no water added; 80% of tomato water (468 g) driven off in the final bhuna until oil separates (assumption)',
+  method: 'steps',
+  steps: [
+    { ing: 'tomato', frac: C.tomatoBhuna, why: 'tomatoes reduced to a paste until oil separates (C.tomatoBhuna 0.7)' },
+    { ing: 'onion', frac: C.onionBrown, why: 'onion browned (C.onionBrown 0.5)' },
+    { ing: 'chicken-meat', frac: C.chickenJuice, why: 'chicken juices (USDA stewed yield 0.784 → 29% of its water) reduced off in the bhuna' },
+  ],
 };
 
 export default [

@@ -13,6 +13,8 @@ export default defineConfig({
   reporter: [['list']],
   use: {
     baseURL: `http://localhost:${PORT}`,
+    timezoneId: 'Asia/Karachi', // docs/CUSTOMER.md §2: the test clock is Asia/Karachi
+    locale: 'en-GB',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },

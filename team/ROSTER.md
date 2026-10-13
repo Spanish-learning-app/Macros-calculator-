@@ -36,5 +36,7 @@ Hires are requested by a lead, approved by the Manager, and logged here with the
 | `zainab` | **Zainab Rauf** | Pakistani Cuisine Food Researcher | Nutrition Lab | Ayesha (approved by Omar) | 2026-10-13 | ~60% of food records and most of the estimate risk: the Boss's daily food. |
 | `javier` | **Javier Morales** | International & Packaged Foods Researcher | Nutrition Lab | Ayesha (approved by Omar) | 2026-10-13 | Spanish/Mediterranean, gym staples, fruit, dairy, Pakistani packaged foods. |
 | `nasreen` | **Nasreen Akhtar** | Customer tester, beginner home cook | Customer Panel | Bilal (approved by Omar) | 2026-10-13 | Tests first-time use, katori portions and whole-pot cooking at a 1,600 kcal target. |
+| `yusuf` | **Yusuf Benali** | Halal Meal-Prep & Catalan Cuisine Specialist | Nutrition Lab | Ayesha (approved by Omar, Meeting 002) | 2026-10-13 | The halal lunch-box library needs first-hand Barcelona sourcing: halal butchers, supermarket labels, bakery fats. |
+| `mariam` | **Mariam Iqbal** | Customer tester, halal PhD student in Barcelona | Customer Panel | Bilal (approved by Omar, Meeting 002) | 2026-10-13 | Lives the Boss's actual weekday: Madrid clock, Sunday meal prep, microwave queue, café breakfasts. |
 
 Briefs for each hire are in `team/briefs/<id>.md`.

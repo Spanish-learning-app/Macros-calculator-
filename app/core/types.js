@@ -62,8 +62,9 @@
  * @property {boolean} lifts          Weight training at least twice a week.
  * @property {HealthFlag[]} healthFlags
  *
- * @typedef {{ proteinGPerKgPrw?: number|null, fatPctOfKcal?: number|null }} TargetPrefs
- *   The user's own choices; clamped to RULES.protein.overrideGPerKgPrw / RULES.fat.pctOfKcalRange.
+ * @typedef {{ proteinGPerKg?: number|null, fatPct?: number|null }} TargetPrefs
+ *   The user's own choices (NUTRITION.md §2.1): proteinGPerKg (per kg PRW) clamped to
+ *   RULES.protein.overrideGPerKgPrw; fatPct (of kcal) clamped to RULES.fat.pctOfKcalRange.
  *
  * @typedef {object} TargetResult
  * @property {boolean} ok            false = a noTargets effect applies (e.g. minor): logging only.
@@ -80,9 +81,9 @@
  * @property {'lose'|'maintain'|'gain'} effectiveGoal  After flag effects (lockGoal, disallowGoals).
  * @property {number|null} energyDelta            Unrounded kcal/day vs TDEE after rails (negative = deficit).
  * @property {number|null} effectiveRateKgPerWeek Signed kg/week after rails (negative = loss).
- * @property {boolean} offerHideCalories          true when an active flag has offerHideCalories.
- * @property {string[]} warnings                  Keys of RULES.warnings that fired ('estimate'
- *   first) + ids of active health and derived flags. The UI shows RULES text for each.
+ * @property {string[]} warnings                  NUTRITION.md §2.2: 'estimate' first when ok, then
+ *   the RULES.warnings codes that fired and the ids of active health and derived flags (order
+ *   after 'estimate' not significant).
  *
  * @typedef {{ servingId: string, qty: number, count: number, lastUsed: string,
  *   slots: Partial<Record<SlotId, number>> }} Recent
