@@ -1,4 +1,656 @@
 {
+ "roti-home": {
+  "id": "roti-home",
+  "dish": "Roti / chapati / phulka, home tawa, no ghee",
+  "rawG": 170.5,
+  "cookedG": 136.3,
+  "yield": 0.799,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 246,
+   "protein": 7.8,
+   "carbs": 47.1,
+   "fat": 1.1,
+   "fiber": 8.3,
+   "sugars": 1.3,
+   "satFat": null,
+   "sodium": 142
+  },
+  "waterPer100g": 34.4,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "atta",
+    "qty": 100,
+    "unit": "g",
+    "grams": 100,
+    "note": "whole-wheat atta (IFCT A019)",
+    "kcal": 320.3,
+    "protein": 10.57,
+    "fat": 1.53
+   },
+   {
+    "id": "water",
+    "qty": 70,
+    "unit": "g",
+    "grams": 70,
+    "note": "dough water (TfT 1 cup per 2 cups atta ≈ 0.99 g/g; any surplus leaves on the tawa)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "salt",
+    "qty": 0.5,
+    "unit": "g",
+    "grams": 0.5,
+    "note": "TfT ¼ tsp per 2 cups",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 235,
+  "atwater": 246,
+  "atwaterGap": -0.045,
+  "boneShareServed": 0,
+  "massCheck": 64.3,
+  "file": "research/zainab/recipes/breads.mjs"
+ },
+ "roti-ghee-home": {
+  "id": "roti-ghee-home",
+  "dish": "Roti with ghee (chupri roti), home",
+  "rawG": 50.3,
+  "cookedG": 44.3,
+  "yield": 0.881,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 291,
+   "protein": 6.4,
+   "carbs": 39.1,
+   "fat": 10.6,
+   "fiber": 6.9,
+   "sugars": 1.1,
+   "satFat": 5.8,
+   "sodium": 0
+  },
+  "waterPer100g": 36.2,
+  "addedFatPer100g": 9.7,
+  "lines": [
+   {
+    "id": "atta",
+    "qty": 27,
+    "unit": "g",
+    "grams": 27,
+    "note": "one medium roti: 40 g roti at 34.4% water ← 26.9 g atta",
+    "kcal": 86.5,
+    "protein": 2.85,
+    "fat": 0.41
+   },
+   {
+    "id": "water",
+    "qty": 19,
+    "unit": "g",
+    "grams": 19,
+    "note": "dough water",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 4.3,
+    "unit": "g",
+    "grams": 4.3,
+    "note": "1 tsp brushed on",
+    "kcal": 38.7,
+    "protein": 0,
+    "fat": 4.3
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 283,
+  "atwater": 291,
+  "atwaterGap": -0.027,
+  "boneShareServed": 0,
+  "massCheck": 63,
+  "file": "research/zainab/recipes/breads.mjs"
+ },
+ "tandoori-roti": {
+  "id": "tandoori-roti",
+  "dish": "Tandoori roti (tandoor, whole-wheat)",
+  "rawG": 166.2,
+  "cookedG": 137.3,
+  "yield": 0.826,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 244,
+   "protein": 7.7,
+   "carbs": 46.7,
+   "fat": 1.1,
+   "fiber": 8.3,
+   "sugars": 1.3,
+   "satFat": null,
+   "sodium": 339
+  },
+  "waterPer100g": 34.4,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "atta",
+    "qty": 100,
+    "unit": "g",
+    "grams": 100,
+    "note": "atta dough (tandoors in Punjab use atta; some mix in maida — not modelled)",
+    "kcal": 320.3,
+    "protein": 10.57,
+    "fat": 1.53
+   },
+   {
+    "id": "water",
+    "qty": 65,
+    "unit": "g",
+    "grams": 65,
+    "note": "dough water",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "salt",
+    "qty": 1.2,
+    "unit": "g",
+    "grams": 1.2,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 233,
+  "atwater": 244,
+  "atwaterGap": -0.045,
+  "boneShareServed": 0,
+  "massCheck": 63.8,
+  "file": "research/zainab/recipes/breads.mjs"
+ },
+ "naan-plain": {
+  "id": "naan-plain",
+  "dish": "Naan, plain (tandoor)",
+  "rawG": 866.6,
+  "cookedG": 708.6,
+  "yield": 0.818,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 291,
+   "protein": 7.5,
+   "carbs": 53.9,
+   "fat": 4.6,
+   "fiber": 1.9,
+   "sugars": 2.7,
+   "satFat": null,
+   "sodium": 331
+  },
+  "waterPer100g": 30.8,
+  "addedFatPer100g": 3.8,
+  "lines": [
+   {
+    "id": "maida",
+    "qty": 500,
+    "unit": "g",
+    "grams": 500,
+    "note": "500 g (Food Fusion)",
+    "kcal": 1759,
+    "protein": 51.8,
+    "fat": 3.8
+   },
+   {
+    "id": "yogurt",
+    "qty": 45,
+    "unit": "g",
+    "grams": 45,
+    "note": "3 tbsp",
+    "kcal": 27.4,
+    "protein": 1.56,
+    "fat": 1.46
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 27.2,
+    "unit": "g",
+    "grams": 27.2,
+    "note": "2 tbsp",
+    "kcal": 240.4,
+    "protein": 0,
+    "fat": 27.2
+   },
+   {
+    "id": "sugar",
+    "qty": 8.4,
+    "unit": "g",
+    "grams": 8.4,
+    "note": "2 tsp",
+    "kcal": 32.5,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "salt",
+    "qty": 6,
+    "unit": "g",
+    "grams": 6,
+    "note": "1 tsp",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "water",
+    "qty": 280,
+    "unit": "g",
+    "grams": 280,
+    "note": "lukewarm water \"as required\" for a soft dough (~56% of flour; leaves in baking)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 291,
+  "atwater": 291,
+  "atwaterGap": 0,
+  "boneShareServed": 0,
+  "massCheck": 67.9,
+  "file": "research/zainab/recipes/breads.mjs"
+ },
+ "roghni-naan": {
+  "id": "roghni-naan",
+  "dish": "Roghni naan (milk-and-oil dough, egg wash, sesame)",
+  "rawG": 825.6,
+  "cookedG": 614.1,
+  "yield": 0.744,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 326,
+   "protein": 7.7,
+   "carbs": 47.3,
+   "fat": 11.3,
+   "fiber": 1.9,
+   "sugars": 2.8,
+   "satFat": 2,
+   "sodium": 200
+  },
+  "waterPer100g": 30.8,
+  "addedFatPer100g": 8.9,
+  "lines": [
+   {
+    "id": "maida",
+    "qty": 375,
+    "unit": "g",
+    "grams": 375,
+    "note": "3 cups (USDA 125 g/cup)",
+    "kcal": 1319.3,
+    "protein": 38.85,
+    "fat": 2.85
+   },
+   {
+    "id": "water",
+    "qty": 237,
+    "unit": "g",
+    "grams": 237,
+    "note": "1 cup",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "milk-whole",
+    "qty": 122,
+    "unit": "g",
+    "grams": 122,
+    "note": "½ cup",
+    "kcal": 74.4,
+    "protein": 3.84,
+    "fat": 3.96
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 54.4,
+    "unit": "g",
+    "grams": 54.4,
+    "note": "4 tbsp",
+    "kcal": 480.9,
+    "protein": 0,
+    "fat": 54.4
+   },
+   {
+    "id": "sugar",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "1 tsp",
+    "kcal": 16.3,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "salt",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "½ tsp",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "egg-yolk",
+    "qty": 17,
+    "unit": "g",
+    "grams": 17,
+    "note": "1 yolk (USDA large egg yolk ≈ 17 g)",
+    "kcal": 54.7,
+    "protein": 2.7,
+    "fat": 4.51
+   },
+   {
+    "id": "milk-whole",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "1 tsp in the wash",
+    "kcal": 3.1,
+    "protein": 0.16,
+    "fat": 0.16
+   },
+   {
+    "id": "sesame",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "sprinkled; \"as required\" (assumption 2 g per naan)",
+    "kcal": 41.6,
+    "protein": 1.74,
+    "fat": 3.44
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 324,
+  "atwater": 326,
+  "atwaterGap": -0.006,
+  "boneShareServed": 0,
+  "massCheck": 68.2,
+  "file": "research/zainab/recipes/breads.mjs"
+ },
+ "paratha-home": {
+  "id": "paratha-home",
+  "dish": "Paratha, plain, home (light desi ghee)",
+  "rawG": 90.3,
+  "cookedG": 66,
+  "yield": 0.731,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 340,
+   "protein": 6.4,
+   "carbs": 38.9,
+   "fat": 16.1,
+   "fiber": 6.9,
+   "sugars": 1.1,
+   "satFat": 9.1,
+   "sodium": 176
+  },
+  "waterPer100g": 30.6,
+  "addedFatPer100g": 15.1,
+  "lines": [
+   {
+    "id": "atta",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "one paratha (TfT 2 cups = 240 g → 6)",
+    "kcal": 128.1,
+    "protein": 4.23,
+    "fat": 0.61
+   },
+   {
+    "id": "water",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "dough (TfT 1 cup per 2 cups atta)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "layered + tawa",
+    "kcal": 90,
+    "protein": 0,
+    "fat": 10
+   },
+   {
+    "id": "salt",
+    "qty": 0.3,
+    "unit": "g",
+    "grams": 0.3,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 330,
+  "atwater": 340,
+  "atwaterGap": -0.029,
+  "boneShareServed": 0,
+  "massCheck": 68.3,
+  "file": "research/zainab/recipes/breads.mjs"
+ },
+ "paratha-dhaba": {
+  "id": "paratha-dhaba",
+  "dish": "Paratha, dhaba / restaurant (heavy ghee)",
+  "rawG": 99.3,
+  "cookedG": 78.9,
+  "yield": 0.795,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 387,
+   "protein": 5.4,
+   "carbs": 32.5,
+   "fat": 24.9,
+   "fiber": 5.8,
+   "sugars": 0.9,
+   "satFat": 14.4,
+   "sodium": 147
+  },
+  "waterPer100g": 30.6,
+  "addedFatPer100g": 24.1,
+  "lines": [
+   {
+    "id": "atta",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "",
+    "kcal": 128.1,
+    "protein": 4.23,
+    "fat": 0.61
+   },
+   {
+    "id": "water",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 19,
+    "unit": "g",
+    "grams": 19,
+    "note": "TfT-level load",
+    "kcal": 171,
+    "protein": 0,
+    "fat": 19
+   },
+   {
+    "id": "salt",
+    "qty": 0.3,
+    "unit": "g",
+    "grams": 0.3,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 379,
+  "atwater": 387,
+  "atwaterGap": -0.021,
+  "boneShareServed": 0,
+  "massCheck": 68.6,
+  "file": "research/zainab/recipes/breads.mjs"
+ },
+ "anda-paratha-home": {
+  "id": "anda-paratha-home",
+  "dish": "Anda paratha (egg paratha), home, desi ghee",
+  "rawG": 215.8,
+  "cookedG": 118.9,
+  "yield": 0.551,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 305,
+   "protein": 9.7,
+   "carbs": 26,
+   "fat": 16.8,
+   "fiber": 5.4,
+   "sugars": 3,
+   "satFat": 8.5,
+   "sodium": 386
+  },
+  "waterPer100g": 40,
+  "addedFatPer100g": 12,
+  "lines": [
+   {
+    "id": "atta",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "one paratha (as paratha-home; SuperChef uses ~90 g flour per paratha)",
+    "kcal": 128.1,
+    "protein": 4.23,
+    "fat": 0.61
+   },
+   {
+    "id": "water",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "dough",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "egg",
+    "qty": 50,
+    "unit": "g",
+    "grams": 50,
+    "note": "1 egg per paratha (both references)",
+    "kcal": 71.5,
+    "protein": 6.28,
+    "fat": 4.75
+   },
+   {
+    "id": "onion",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "MTV 1 onion per 2 eggs (55 g); SuperChef 1 medium per 4 (27 g)",
+    "kcal": 19.2,
+    "protein": 0.6,
+    "fat": 0.1
+   },
+   {
+    "id": "tomato",
+    "qty": 22,
+    "unit": "g",
+    "grams": 22,
+    "note": "SuperChef 1 large per 4 eggs (45 g); MTV none",
+    "kcal": 4.3,
+    "protein": 0.2,
+    "fat": 0.1
+   },
+   {
+    "id": "green-chilli",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 2.1,
+    "protein": 0.12,
+    "fat": 0.04
+   },
+   {
+    "id": "coriander",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 0.9,
+    "protein": 0.11,
+    "fat": 0.02
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 14.3,
+    "unit": "g",
+    "grams": 14.3,
+    "note": "see added fat",
+    "kcal": 128.7,
+    "protein": 0,
+    "fat": 14.3
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 0.45,
+    "unit": "g",
+    "grams": 0.5,
+    "note": "",
+    "kcal": 1.1,
+    "protein": 0.06,
+    "fat": 0.03
+   },
+   {
+    "id": "salt",
+    "qty": 1,
+    "unit": "g",
+    "grams": 1,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 299,
+  "atwater": 305,
+  "atwaterGap": -0.02,
+  "boneShareServed": 0,
+  "massCheck": 57.9,
+  "file": "research/zainab/recipes/breads.mjs"
+ },
  "chicken-karahi-home": {
   "id": "chicken-karahi-home",
   "dish": "Chicken karahi, home style",

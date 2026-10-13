@@ -4,7 +4,7 @@
   "phase": "Sprint 1 · Build v1",
   "sprint": 1,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-13T22:42:00Z",
+  "updatedAt": "2026-10-13T22:50:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -23,32 +23,32 @@
     "lena": {
       "location": "office",
       "status": "working",
-      "task": "Step 0 scaffold"
+      "task": "store.js + integration + reviews + preview"
     },
     "ayesha": {
       "location": "office",
       "status": "working",
-      "task": "Meeting 002 rules follow-up (spain slots, halal field, seafood, storage)"
+      "task": "skipDefaults; then review researchers' records"
     },
     "bilal": {
       "location": "office",
-      "status": "working",
-      "task": "CUSTOMER.md update (Madrid, A16-A19, D5)"
+      "status": "idle",
+      "task": "Waiting for Review 1"
     },
     "hamza": {
       "location": "office",
-      "status": "idle",
-      "task": "Waiting for step 0"
+      "status": "working",
+      "task": "app/core per team/briefs/hamza-sprint1.md"
     },
     "priya": {
       "location": "office",
-      "status": "idle",
-      "task": "Waiting for step 0"
+      "status": "working",
+      "task": "UI per team/briefs/priya-sprint1.md"
     },
     "kenji": {
       "location": "office",
-      "status": "idle",
-      "task": "Waiting for step 0"
+      "status": "working",
+      "task": "QA per team/briefs/kenji-sprint1.md"
     },
     "zainab": {
       "location": "office",
@@ -72,26 +72,11 @@
     },
     "mariam": {
       "location": "office",
-      "status": "working",
-      "task": "Before interview"
+      "status": "idle",
+      "task": "Waiting for Review 1"
     }
   },
   "inFlight": [
-    {
-      "member": "lena",
-      "task": "Step 0 scaffold + sprint briefs",
-      "output": "package.json, docs/ARCHITECTURE.md, app shell, app/core stubs, tests/fixtures/foods.js, team/briefs/*-sprint1.md"
-    },
-    {
-      "member": "ayesha",
-      "task": "Meeting 002 rules follow-up",
-      "output": "app/data/rules.js, docs/NUTRITION.md, research/check-foods.mjs, app/data/index.js"
-    },
-    {
-      "member": "bilal",
-      "task": "CUSTOMER.md update per Meeting 002",
-      "output": "docs/CUSTOMER.md"
-    },
     {
       "member": "zainab",
       "task": "Pakistani food records",
@@ -108,9 +93,32 @@
       "output": "app/data/foods-mealprep.js, research/yusuf/, docs/MEALPREP.md"
     },
     {
-      "member": "mariam",
-      "task": "Before interview",
-      "output": "team/feedback/mariam-before.md"
+      "member": "lena",
+      "task": "store.js, integration, reviews, preview",
+      "output": "app/ui/store.js, app/main.js, app/ui/router.js"
+    },
+    {
+      "member": "hamza",
+      "task": "Core engine",
+      "brief": "team/briefs/hamza-sprint1.md",
+      "output": "app/core/**, tests/unit/dev/**"
+    },
+    {
+      "member": "priya",
+      "task": "UI",
+      "brief": "team/briefs/priya-sprint1.md",
+      "output": "app/ui/views/**, app/ui/components/**, app/ui/dom.js, app/styles/**"
+    },
+    {
+      "member": "kenji",
+      "task": "QA",
+      "brief": "team/briefs/kenji-sprint1.md",
+      "output": "tests/unit/qa/**, tests/data/**, tests/e2e/**, tests/fixtures/**"
+    },
+    {
+      "member": "ayesha",
+      "task": "skipDefaults then record review",
+      "output": "app/data/rules.js, docs/NUTRITION.md"
     }
   ],
   "checkIn": {
@@ -118,7 +126,7 @@
     "cron": "9 * * * * (UTC, hourly)"
   },
   "appName": "Katori",
-  "next": "When step 0 lands: start Hamza, Priya, Kenji with team/briefs/<id>-sprint1.md; ask Lena for store/router/integration. After data lands: Ayesha reviews. Then Review 1 meeting.",
+  "next": "Wait for: Lena store (tell Priya), Hamza units (Priya), researchers' data (Ayesha review), integration -> preview publish -> Review 1 meeting with Bilal, Nasreen, Mariam hands-on tests.",
   "meetingsHeld": [
     "001-kickoff",
     "002-boss-update"
