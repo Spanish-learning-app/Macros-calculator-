@@ -39,3 +39,9 @@
   - index.js now includes foods-mealprep.js. Contract test 7/7, eslint clean.
   - Zainab's two karahi records already pass every gate except the halal migration, which is expected.
   Not committed.
+- 2026-10-13 22:51 UTC — SKIP DEFAULTS (A1) for Omar/Lena.
+  - rules.js v1.2.0 adds skipDefaults: EU label reference intakes (Reg. 1169/2011 Annex XIII) of 2000 kcal, P50, C260, F70, plus fibre 25 (EFSA AI); sugars 90 and satFat 20 as references.
+  - These show a "Reference" chip (not "Estimate") with a not-personal line and a "Set up my targets" prompt.
+  - Personal targets need sex, age, height and weight; anything else missing defaults to light, maintain, no lifting, no flags.
+  - Documented in NUTRITION.md §2.1a. The About-the-data text is in §7.4. Contract test 7/7, lint clean.
+  Standing by for the researcher review (task 6). Not committed.

@@ -1,7 +1,7 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 1, version 1.1 (2026-10-13). Version 1.1 adds the Meeting 002 changes: the halal field, seafood tags, not-halal
+**Status:** Sprint 1, version 1.2 (2026-10-13). Version 1.2 adds skip defaults (§2.1a). Version 1.1 added the Meeting 002 changes: the halal field, seafood tags, not-halal
 rules, the Spain slot preset, meal-prep storage and the `lunchbox` group.
 
 This document and `app/data/rules.js` are the specification for:
@@ -66,6 +66,42 @@ Valid ranges are in `RULES.profileLimits`. Ages 13–17 are accepted, but those 
 **Prefs** (optional): `{ proteinGPerKg?, fatPct? }`. This is the user's own choice.
 - `proteinGPerKg` is clamped to `RULES.protein.overrideGPerKgPrw`.
 - `fatPct` is clamped to `RULES.fat.pctOfKcalRange`.
+
+### 2.1a When onboarding is skipped (`RULES.skipDefaults`, test A1)
+
+If `sex`, `ageYears`, `heightCm` or `weightKg` is missing, for example because the user tapped
+**Skip**, the app does **not** call `computeTargets`. It shows reference values instead:
+
+| kcal | protein | carbs | fat | fibre |
+|---|---|---|---|---|
+| 2000 | 50 g | 260 g | 70 g | 25 g |
+
+Sugars 90 g and saturated fat 20 g appear as label-style references.
+
+**Source:** the EU food-label reference intakes for an average adult (Regulation (EU) 1169/2011,
+Annex XIII). Fibre is the EFSA adequate intake.
+
+**Why these values rather than no targets:**
+- Users like Nasreen need one number to start with, and "left today" needs something to count down
+  from.
+- The Boss sees these values printed on every pack in Spain, so they are familiar and honest.
+- We did not derive values from our own formula, because without a weight that would mean inventing
+  a person and presenting it as personal.
+
+**Labelling:**
+- A **"Reference"** chip, not "Estimate".
+- The line: *"Reference values for an average adult (2,000 kcal), as on EU food labels. Not personal
+  to you."*
+- A **"Set up my targets (1 minute)"** button.
+- No health-flag logic runs on reference values.
+- The four values are independent references, so 4P + 4C + 9F does not have to equal the kcal.
+
+**Switching to personal targets:**
+- As soon as all four of sex, age, height and weight are known, personal targets replace the
+  reference, and they are labelled "estimate" as usual.
+- Anything else missing takes `skipDefaults.defaultsWhenMissing`: activity `light`, goal `maintain`,
+  no weight training, no health flags.
+- A user aged under 18 gets the `minor` flag (no targets) at that point.
 
 ### 2.2 Algorithm
 

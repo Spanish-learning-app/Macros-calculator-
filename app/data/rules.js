@@ -7,7 +7,7 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.1.0',
+  version: '1.2.0',
   updated: '2026-10-13',
 
   // ---------------------------------------------------------------- energy
@@ -35,6 +35,26 @@ export default {
     { id: 'female', label: 'Woman' },
     { id: 'male', label: 'Man' },
   ],
+
+  // ---------------------------------------------------------------- onboarding skipped (test A1)
+  // Used while sex, ageYears, heightCm or weightKg is missing (e.g. the user tapped Skip).
+  // These are NOT personal targets and NOT computed by computeTargets: they are the EU food-label
+  // reference intakes the Boss sees on every pack in Spain ("Reference intake of an average adult").
+  // Independent reference values, so 4P+4C+9F does not have to equal kcal. Shown with `label`, a
+  // "Reference" chip instead of "Estimate", and the `prompt` button. No health-flag logic applies.
+  skipDefaults: {
+    mode: 'reference',
+    targets: { kcal: 2000, protein: 50, carbs: 260, fat: 70, fiber: 25 },
+    referenceExtras: { sugars: 90, satFat: 20 }, // shown only as label-style references
+    chip: 'Reference',
+    label: 'Reference values for an average adult (2,000 kcal), as on EU food labels. Not personal to you.',
+    prompt: 'Set up my targets (1 minute)',
+    source: 'Regulation (EU) No 1169/2011, Annex XIII Part B (reference intakes: 8,400 kJ / 2,000 kcal, fat 70 g, saturates 20 g, carbohydrate 260 g, sugars 90 g, protein 50 g); fibre 25 g: EFSA adequate intake for adults (2010)',
+    // Personal targets replace the reference as soon as ALL of these are known; anything else
+    // missing takes `defaultsWhenMissing`, and the result is labelled an estimate as usual.
+    requiredForPersonal: ['sex', 'ageYears', 'heightCm', 'weightKg'],
+    defaultsWhenMissing: { activity: 'light', goal: 'maintain', rateKgPerWeek: 0, lifts: false, healthFlags: [] },
+  },
 
   // ---------------------------------------------------------------- BMR
   bmr: {
