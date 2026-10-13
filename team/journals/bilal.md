@@ -17,3 +17,15 @@
   switch, fractional portions, source in one tap and protein/kcal left. Recipes, saved meals,
   Ramadan, nudges and the weight log go to Sprint 2. Honesty rule: the panel supplies no
   measurements. Starting docs/CUSTOMER.md for Kenji.
+- 2026-10-13 22:24 UTC: Wrote docs/CUSTOMER.md. It has a coverage list (39 foods with my
+  search words and the serving labels I need; the Lab picks the grams), conventions (what counts as
+  an action, starting states, profile P1), 25 user stories tagged by sprint (US-22 "my chai set
+  once" is 2*, my proposal, because the minutes don't mention it), A1–A15 with steps, pass rules
+  and budgets (A10 and A11 are Sprint 2), test days D0–D4 as tables, and the panel plan for Review 1.
+- 2026-10-13 22:24 UTC: Changes from my memo. A5 first-time logging is now ≤ 120 s, not
+  90: I counted about 70 actions for 17 foods. The A4 budget is ≤ 32 actions; my own count is 31.
+  Chai in test data uses the 2 tsp record because I drink 1.5 tsp. No weighing anywhere (honesty
+  rule). Under Ayesha's kickoff formulas my target is about 2,210 kcal and 161 g protein at
+  0.5 kg/week, not MacroFactor's 2,300; NUTRITION.md is binding. Open asks: recents across slots,
+  undo for copy-day and planned vs "left" (Lena/Priya); serving labels, frying oil in recipes and a
+  daal chawal plate (Lab). Nothing committed.
