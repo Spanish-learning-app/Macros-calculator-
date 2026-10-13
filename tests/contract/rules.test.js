@@ -73,7 +73,9 @@ test('RULES.mealSlots.default hours cover the day without overlap', () => {
   for (const { hours } of RULES.mealSlots.default) {
     if (hours == null) continue;
     const [start, end] = hours;
-    for (let m = start; m !== end; m = (m + 1) % 1440) minutes[m] += 1;
+    assert.ok(start >= 0 && start < 1440 && end > 0 && end <= 1440, `hours ${hours} in range`);
+    const length = (end - start + 1440) % 1440 || 1440; // wraps past midnight when start > end
+    for (let i = 0; i < length; i += 1) minutes[(start + i) % 1440] += 1;
   }
   assert.ok(
     minutes.every((n) => n <= 1),

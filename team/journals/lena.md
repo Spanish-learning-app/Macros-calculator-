@@ -20,3 +20,19 @@
   - Binding items: name Katori; five scope additions (copy day, family variant switch, fractional portions, source in one tap, kcal/protein left); the Profile type with the activity enum sedentary|light|moderate|very_active|extra_active; `group` is HARD; app/data/index.js exports RULES and FOODS.
   - docs/NUTRITION.md and app/data/rules.js do not exist yet. I will propose the RULES fields that code reads, using the values in Ayesha's memo, and reconcile once her files land.
   - `npm link playwright` touches neither package.json nor a root lockfile. An empty `node --test` glob exits 0.
+- 2026-10-13 22:33 UTC: Step 0 code is in place, and `npm run check` and the E2E suite are green.
+  - Files: package.json (scripts setup/serve/lint/format/test/test:e2e/check/test:coverage), eslint.config.js (no plugins; purity rules for app/core; no functions in app/data), .prettierrc.json, .prettierignore.
+  - Core: app/core/{types,units,dates,foods,days,targets,search,storage}.js stubs with final signatures; each throws "not implemented".
+  - Shell: app/index.html, app/main.js, app/ui/router.js, and starter app/styles/{tokens,base}.css for Priya.
+  - Tests and fixtures: tests/fixtures/{foods,index}.js (12 records), tests/contract/{exports,rules}.test.js (mine), playwright.config.js and tests/e2e/smoke.spec.js (for Kenji).
+  - Results: check passes in TZ Asia/Karachi and Europe/Madrid (13 pass, 1 skipped until Ayesha writes app/data/index.js). E2E 8/8 on phone, phone-dark, small and desktop.
+- 2026-10-13 22:33 UTC: Reconciled with Ayesha's real app/data/rules.js, which she was editing live. The real file wins.
+  - Group, tag and style vocabularies now live under RULES.vocab.
+  - Slot hours are [startMin, endMin), and windows may wrap.
+  - The energy tolerance is max(stated × pct/100, kcal).
+  - Health-flag ids are pregnant, breastfeeding, eating_disorder, kidney_disease and diabetes_hypo_risk. Derived flags are minor, underweight and age_over_80.
+  - computeTargets returns `warnings` (RULES.warnings keys plus active flag ids).
+  - I removed my invented TARGET_FLAGS and HEALTH_FLAGS constants. The fixture RULES is now a re-export of the real rules, and fixture foods use the real group ids and pass every RULES gate.
+  - Decision: app/data/ is exempt from Prettier only (the Lab keeps one record per line). ESLint, the data gate and the RULES contract test still cover it.
+  - Bug in my own test: the slot-coverage loop never ended for a window ending at 1440. Fixed by looping over the window length.
+- 2026-10-13 22:33 UTC: docs/BRIEF.md now says the Boss lives in Barcelona and needs halal meal prep. Tests now run in Europe/Madrid (it has DST) instead of Los Angeles. Scope is Omar's call; I will flag it in my report.
