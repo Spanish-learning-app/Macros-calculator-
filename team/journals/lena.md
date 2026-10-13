@@ -63,3 +63,18 @@
     - (b) A8 step 2 asks for a "plate" of rice, which NUTRITION.md §5.4 does not allow.
     Kenji has interim instructions for both.
   - Next for me: implement ui/store.js (§7.3) and integrate main.js (§7.1) when Omar asks.
+- 2026-10-13 23:20 UTC: TASK 2 (store and integration) started. Omar's decisions in DECISIONS.md:
+  - A20 follows the 04:00 day start.
+  - A8 half plate is tested on Daal chawal.
+  - "+" on every search result uses the last-used portion, else the default.
+  - Skip = RULES.skipDefaults (reference targets, NUTRITION.md §2.1a).
+  Core status: only units.js is done (Hamza).
+- 2026-10-13 23:35 UTC: STORE LANDED, app/ui/store.js (§7.3).
+  - Undo is a snapshot taken before an undoable action. Any later change closes the undo window.
+  - Statuses: an add to a future date is planned. A copy is planned into today or the future, eaten into the past.
+  - "+" uses portionFor (last-used, else default). Recents exclude not-halal foods. Search adds a slot-hint boost (+0.25 within the tier).
+  - Saves are debounced (300 ms) with flush().
+  - Reference targets come from skipDefaults. targetKind/targetInfo follow §2.1a. Missing optional profile fields use defaultsWhenMissing.
+  - Added settings.onboarding (pending/done/skipped) to the contract (types.js and the storage.js JSDoc). Told Hamza via Omar.
+  - Tests: tests/unit/dev/store.test.js has 15 tests that are TODO in the repo until core lands. They pass 15/15 in Madrid, Karachi and LA against throwaway core stand-ins in the scratchpad (never in the repo).
+  - ARCHITECTURE §7.3 rewritten. Omar told so he can tell Priya.

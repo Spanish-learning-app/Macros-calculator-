@@ -66,7 +66,7 @@ app/
   data/                    Lab     index.js, rules.js, foods-*.js (pure data; §6)
 tests/
   contract/                Lena    exports.test.js, rules.test.js (this contract, enforced)
-  unit/dev/                Hamza   the author's own tests
+  unit/dev/                Hamza   the author's own tests (store.test.js and router.test.js: Lena)
   unit/qa/                 Kenji   tests written from this document and NUTRITION.md
   data/                    Kenji   the data gate (every record in app/data)
   e2e/                     Kenji   Playwright specs (A1–A15 scripted)
@@ -186,6 +186,7 @@ UserData = {
     halalOnly: boolean,                    // default RULES.vocab.halalRules.halalOnlyFilterDefault (true)
     seafood: 'all'|'fish-prawns'|'fish-only',   // reserved; the question is Sprint 2
     dayStartMinutes: number,               // 240 (04:00) by default; 0..300 (team/DECISIONS.md)
+    onboarding: 'pending'|'done'|'skipped',  // Skip = reference targets (NUTRITION.md §2.1a)
     units: { weight: 'kg'|'lb', height: 'cm'|'ftin' },
     weekStartsOn: 0|1|6, theme: 'system'|'light'|'dark', hideCalories: boolean,
   },
@@ -394,55 +395,69 @@ The five `load()` statuses:
 `{ current, go, href, subscribe, start, stop }`. Food details (the source, A9 and A14) and the
 dialogs are overlays, not routes.
 
-### 7.3 Store (`ui/store.js`, Lena, delivered right after Step 0)
+### 7.3 Store (`ui/store.js`, Lena; landed 2026-10-13)
 
 ```js
-createStore({ persistence, rules, foods, now, makeId }) → store
+createStore({ persistence, rules, foods, foodsStatus, now, makeId, timeZone, debounceMs, timers }) → store
 
 // state
 store.getState() → { data: UserData, storageStatus, saveError, undo: { label } | null, foodsStatus }
-store.subscribe((state) => void) → unsubscribe
+store.subscribe((state) => void) → unsubscribe          // called after every change
+store.flush()                                           // save now (main.js: pagehide, hidden tab)
 
-// selectors (memoized on state)
+// selectors (cheap; derived data is memoized)
 store.today() → 'YYYY-MM-DD'               // logical day: todayISO(now(), settings.dayStartMinutes)
 store.defaultSlot() → SlotId               // slotForTime(minutesOfDay(now()), rules, preset)
+store.settings() → Settings                // with fallbacks filled in
+store.slots() → [{ id, label }]            // the five slots in order, with display labels
 store.slotLabel(slot) → string             // settings.slotLabels[slot] ?? the preset's label
-store.targetResult() → TargetResult | null // null before onboarding
-store.targets() → Nutrients | null
+store.onboardingState() → 'pending'|'done'|'skipped'    store.needsOnboarding() → boolean
+store.targetResult() → TargetResult | null // null while sex/age/height/weight are incomplete
+store.targets() → Nutrients | null         // personal, or RULES.skipDefaults reference values
+store.targetKind() → 'personal'|'reference'|'none'      // 'none' e.g. for a minor
+store.targetInfo() → { kind, chip, label, prompt }      // 'Estimate', or the Reference chip, line, button
 store.hideCaloriesOffered() → boolean      // an active flag has effect.offerHideCalories
 store.day(date) → Day                      // emptyDay when absent
+store.loggedDates() → string[]             // dates with entries (month grid dots)
 store.totals(date) → { eaten, planned, all }   // each { total, bySlot }
 store.left(date) → progress(eaten.total, targets)  // "left" = eaten only (A7, A12)
-store.week(date) → { rows, average }
-store.food(id) → Food | undefined
-store.variants(foodId) → Food[]
-store.search(query, { slot }) → { hits, hidden }   // boosted by recents; settings.halalOnly
-store.recents(slot) → { food, servingId, qty }[]  // never a 'not-halal' food
+store.week(date) → { dates, rows, average }
+store.food(id) → Food | undefined          store.variants(foodId) → Food[]
+store.portionFor(foodId) → { servingId, qty }   // last-used portion, else default serving × 1
+store.search(query, { slot, limit }) → { hits, hidden }   // recency + slot-hint boosts; halalOnly
+store.recents(slot, { limit }) → { food, servingId, qty }[]  // never a 'not-halal' food
+store.exportText() → string                store.previewImport(text) → parseImport result
 
-// actions (each one persists; saves are debounced 300 ms and flushed on pagehide)
-store.completeOnboarding(profile, prefs?)  store.skipOnboarding()
+// actions (each one persists: saves are debounced 300 ms and flushed on pagehide)
+store.completeOnboarding(profile, prefs?)  store.skipOnboarding()   // skip = reference targets
 store.setProfile(profile)  store.setTargetPrefs(prefs)  store.setTargetOverride(key, value|null)
-store.updateSettings(patch)                // includes slotPreset, slotLabels, halalOnly, dayStartMinutes
-store.addFood({ date, slot, foodId, servingId, qty, status? }) → entryId
-      // default status: 'planned' for a future date, otherwise 'eaten' (A12); calls recordUse
+store.updateSettings(patch)                // slotPreset, slotLabels, halalOnly, dayStartMinutes, theme…
+store.addFood({ date, slot, foodId, servingId?, qty?, status? }) → entryId
+      // no servingId = the "+" portion (last-used, else default; team/DECISIONS.md); default status:
+      // 'planned' for a future date, otherwise 'eaten' (A12); records the use for recents
 store.quickAdd({ date, slot, name, nutrients, status? }) → entryId
-store.updateEntry(date, entryId, patch)
+store.updateEntry(date, entryId, patch)    store.setEntryStatus(date, entryId, status)
 store.switchVariant(date, entryId, foodId)
-store.removeEntry(date, entryId)           // undoable
-store.setEntryStatus(date, entryId, status)
-store.moveEntry(date, entryId, toDate)     // one tap from the entry row; undoable (team/DECISIONS.md)
 store.setSlotStatus(date, slot, status)
+store.removeEntry(date, entryId)           // undoable
+store.moveEntry(date, entryId, toDate)     // undoable; one tap from the entry row (team/DECISIONS.md)
 store.copySlot({ fromDate, fromSlot, toDate, toSlot, status? })   // undoable as one step
 store.copyDay({ fromDate, toDate, status? })                      // undoable as one step (A5 b)
-store.undo() → boolean                     // the last undoable action; the toast stays ≥ 5 s (A13)
-store.exportText() → string
+      // copies default to 'eaten' into a past date, 'planned' into today or the future
+store.undo() → boolean    store.dismissUndo()
+      // undo restores the document from just before the last undoable action; any other change
+      // closes the undo window. The toast shows state.undo.label for at least 5 s (A13).
 store.importText(text, mode) → { ok, summary?, error? }           // undoable
 store.resetData()                          // undoable
 ```
 
-Until the store lands, Priya builds views against a small fake that has the same API, kept in
-her own view harness or test page. A tiny change to this API is fine if Lena agrees and updates
-this section.
+- **Onboarding state** is stored as `settings.onboarding` (`'pending'`, `'done'` or `'skipped'`).
+  When it is missing: `'done'` if there is a profile, otherwise `'pending'`.
+- **Errors:** an unknown food or entry id throws `Error`. A bad quantity throws the core's
+  `RangeError`. Views validate quantities first (A8 inline errors) and never let a throw reach the
+  user.
+- **Tests:** the author's tests are in `tests/unit/dev/store.test.js` (Lena). Kenji tests the store
+  independently.
 
 ### 7.4 Views and components (Priya)
 

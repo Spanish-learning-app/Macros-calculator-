@@ -651,6 +651,409 @@
   "massCheck": 57.9,
   "file": "research/zainab/recipes/breads.mjs"
  },
+ "doodh-patti-0tsp": {
+  "id": "doodh-patti-0tsp",
+  "dish": "Doodh patti chai, home, 0 tsp sugar per cup",
+  "rawG": 204.5,
+  "cookedG": 204.5,
+  "yield": 1,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 47,
+   "protein": 2.4,
+   "carbs": 3.7,
+   "fat": 2.5,
+   "fiber": 0,
+   "sugars": 3.8,
+   "satFat": 1.4,
+   "sodium": 33
+  },
+  "waterPer100g": 91,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "milk-whole",
+    "qty": 154.5,
+    "unit": "g",
+    "grams": 154.5,
+    "note": "150 ml whole milk per 200 ml cup (75%: F&S half-milk doodh patti reduced by a third; F&S all-milk version would be richer)",
+    "kcal": 94.2,
+    "protein": 4.87,
+    "fat": 5.02
+   },
+   {
+    "id": "tea-brewed",
+    "qty": 50,
+    "unit": "g",
+    "grams": 50,
+    "note": "50 ml brewed tea (patti boiled in water)",
+    "kcal": 0.5,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 46,
+  "atwater": 47,
+  "atwaterGap": -0.021,
+  "boneShareServed": 0,
+  "massCheck": 8.6,
+  "file": "research/zainab/recipes/chai-drinks.mjs"
+ },
+ "doodh-patti-1tsp": {
+  "id": "doodh-patti-1tsp",
+  "dish": "Doodh patti chai, home, 1 tsp sugar per cup",
+  "rawG": 208.7,
+  "cookedG": 208.7,
+  "yield": 1,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 53,
+   "protein": 2.3,
+   "carbs": 5.6,
+   "fat": 2.4,
+   "fiber": 0,
+   "sugars": 5.7,
+   "satFat": 1.4,
+   "sodium": 33
+  },
+  "waterPer100g": 89.1,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "milk-whole",
+    "qty": 154.5,
+    "unit": "g",
+    "grams": 154.5,
+    "note": "150 ml whole milk per 200 ml cup (75%: F&S half-milk doodh patti reduced by a third; F&S all-milk version would be richer)",
+    "kcal": 94.2,
+    "protein": 4.87,
+    "fat": 5.02
+   },
+   {
+    "id": "tea-brewed",
+    "qty": 50,
+    "unit": "g",
+    "grams": 50,
+    "note": "50 ml brewed tea (patti boiled in water)",
+    "kcal": 0.5,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "sugar",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "1 level tsp (FDC 169655, 4.2 g)",
+    "kcal": 16.3,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 53,
+  "atwater": 53,
+  "atwaterGap": 0,
+  "boneShareServed": 0,
+  "massCheck": 10.3,
+  "file": "research/zainab/recipes/chai-drinks.mjs"
+ },
+ "doodh-patti-2tsp": {
+  "id": "doodh-patti-2tsp",
+  "dish": "Doodh patti chai, home, 2 tsp sugar per cup",
+  "rawG": 212.9,
+  "cookedG": 212.9,
+  "yield": 1,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 61,
+   "protein": 2.3,
+   "carbs": 7.5,
+   "fat": 2.4,
+   "fiber": 0,
+   "sugars": 7.6,
+   "satFat": 1.4,
+   "sodium": 32
+  },
+  "waterPer100g": 87.4,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "milk-whole",
+    "qty": 154.5,
+    "unit": "g",
+    "grams": 154.5,
+    "note": "150 ml whole milk per 200 ml cup (75%: F&S half-milk doodh patti reduced by a third; F&S all-milk version would be richer)",
+    "kcal": 94.2,
+    "protein": 4.87,
+    "fat": 5.02
+   },
+   {
+    "id": "tea-brewed",
+    "qty": 50,
+    "unit": "g",
+    "grams": 50,
+    "note": "50 ml brewed tea (patti boiled in water)",
+    "kcal": 0.5,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "sugar",
+    "qty": 8.4,
+    "unit": "g",
+    "grams": 8.4,
+    "note": "2 level tsp (FDC 169655, 4.2 g)",
+    "kcal": 32.5,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 60,
+  "atwater": 61,
+  "atwaterGap": -0.016,
+  "boneShareServed": 0,
+  "massCheck": 12.2,
+  "file": "research/zainab/recipes/chai-drinks.mjs"
+ },
+ "dhaba-chai": {
+  "id": "dhaba-chai",
+  "dish": "Dhaba chai (karak, all milk, 3 tsp sugar per cup)",
+  "rawG": 321.6,
+  "cookedG": 218.6,
+  "yield": 0.68,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 109,
+   "protein": 4.5,
+   "carbs": 12.5,
+   "fat": 4.6,
+   "fiber": 0,
+   "sugars": 12.9,
+   "satFat": 2.6,
+   "sodium": 61
+  },
+  "waterPer100g": 77.5,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "milk-whole",
+    "qty": 309,
+    "unit": "g",
+    "grams": 309,
+    "note": "300 ml milk boiled down to a 200 ml cup (reduced by a third, F&S)",
+    "kcal": 188.5,
+    "protein": 9.73,
+    "fat": 10.04
+   },
+   {
+    "id": "sugar",
+    "qty": 12.600000000000001,
+    "unit": "g",
+    "grams": 12.6,
+    "note": "3 level tsp",
+    "kcal": 48.8,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 109,
+  "atwater": 109,
+  "atwaterGap": 0,
+  "boneShareServed": 0,
+  "massCheck": 21.6,
+  "file": "research/zainab/recipes/chai-drinks.mjs"
+ },
+ "dhaba-chai-extra-sugar": {
+  "id": "dhaba-chai-extra-sugar",
+  "dish": "Dhaba chai, extra sugar (4 tsp per cup)",
+  "rawG": 325.8,
+  "cookedG": 222.8,
+  "yield": 0.684,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 115,
+   "protein": 4.4,
+   "carbs": 14.2,
+   "fat": 4.5,
+   "fiber": 0,
+   "sugars": 14.5,
+   "satFat": 2.6,
+   "sodium": 60
+  },
+  "waterPer100g": 76,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "milk-whole",
+    "qty": 309,
+    "unit": "g",
+    "grams": 309,
+    "note": "300 ml milk boiled down to a 200 ml cup (reduced by a third, F&S)",
+    "kcal": 188.5,
+    "protein": 9.73,
+    "fat": 10.04
+   },
+   {
+    "id": "sugar",
+    "qty": 16.8,
+    "unit": "g",
+    "grams": 16.8,
+    "note": "4 level tsp",
+    "kcal": 65,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 114,
+  "atwater": 115,
+  "atwaterGap": -0.009,
+  "boneShareServed": 0,
+  "massCheck": 23.1,
+  "file": "research/zainab/recipes/chai-drinks.mjs"
+ },
+ "kashmiri-chai": {
+  "id": "kashmiri-chai",
+  "dish": "Kashmiri chai (pink tea), sweet, with nuts",
+  "rawG": 215.9,
+  "cookedG": 215.9,
+  "yield": 1,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 63,
+   "protein": 2.3,
+   "carbs": 7.2,
+   "fat": 2.7,
+   "fiber": 0.2,
+   "sugars": 7.2,
+   "satFat": null,
+   "sodium": 118
+  },
+  "waterPer100g": 86.9,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "milk-whole",
+    "qty": 137.33333333333331,
+    "unit": "g",
+    "grams": 137.3,
+    "note": "⅔ of the cup milk (F&S)",
+    "kcal": 83.8,
+    "protein": 4.33,
+    "fat": 4.46
+   },
+   {
+    "id": "tea-brewed",
+    "qty": 66.66666666666667,
+    "unit": "g",
+    "grams": 66.7,
+    "note": "⅓ cup kahwa (tea concentrate)",
+    "kcal": 0.7,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "sugar",
+    "qty": 8.4,
+    "unit": "g",
+    "grams": 8.4,
+    "note": "TfT 2–2.5 tbsp per 2.5 cups ≈ 2.3 tsp per 200 ml → 2 tsp",
+    "kcal": 32.5,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "pistachio",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "TfT ½ tbsp pistachios + ½–1 tbsp almonds per 2.5 cups ≈ 3 g nuts per cup",
+    "kcal": 8.1,
+    "protein": 0.35,
+    "fat": 0.64
+   },
+   {
+    "id": "almonds",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "",
+    "kcal": 8.7,
+    "protein": 0.32,
+    "fat": 0.75
+   },
+   {
+    "id": "salt",
+    "qty": 0.5,
+    "unit": "g",
+    "grams": 0.5,
+    "note": "pinch (TfT ¼ tsp per 2.5 cups)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 62,
+  "atwater": 63,
+  "atwaterGap": -0.016,
+  "boneShareServed": 0,
+  "massCheck": 12.4,
+  "file": "research/zainab/recipes/chai-drinks.mjs"
+ },
+ "rooh-afza-water": {
+  "id": "rooh-afza-water",
+  "dish": "Rooh Afza sharbat (with water)",
+  "rawG": 259,
+  "cookedG": 259,
+  "yield": 1,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 36,
+   "protein": 0,
+   "carbs": 8.9,
+   "fat": 0,
+   "fiber": 0,
+   "sugars": 8.9,
+   "satFat": 0,
+   "sodium": 3
+  },
+  "waterPer100g": null,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "rooh-afza-syrup",
+    "qty": 30,
+    "unit": "ml",
+    "grams": 39,
+    "note": "2 tbsp (30 ml) syrup per glass",
+    "kcal": 92.1,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "water",
+    "qty": 220,
+    "unit": "g",
+    "grams": 220,
+    "note": "chilled water to fill a 250 ml glass",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 36,
+  "atwater": 36,
+  "atwaterGap": 0,
+  "boneShareServed": 0,
+  "massCheck": 8.9,
+  "file": "research/zainab/recipes/chai-drinks.mjs"
+ },
  "chicken-karahi-home": {
   "id": "chicken-karahi-home",
   "dish": "Chicken karahi, home style",
@@ -2808,5 +3211,382 @@
   "boneShareServed": 0,
   "massCheck": 24.9,
   "file": "research/zainab/recipes/sabzi-egg.mjs"
+ },
+ "samosa-aloo": {
+  "id": "samosa-aloo",
+  "dish": "Aloo samosa (potato and peas), deep-fried",
+  "rawG": 1710.5,
+  "cookedG": 1390,
+  "yield": 0.813,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 318,
+   "protein": 4.2,
+   "carbs": 28.8,
+   "fat": 20.1,
+   "fiber": 2.4,
+   "sugars": 0.9,
+   "satFat": 9.4,
+   "sodium": 418
+  },
+  "waterPer100g": 42.7,
+  "addedFatPer100g": 19.6,
+  "lines": [
+   {
+    "id": "maida",
+    "qty": 375,
+    "unit": "g",
+    "grams": 375,
+    "note": "3 cups (Punjabi samosa, 18 pieces)",
+    "kcal": 1319.3,
+    "protein": 38.85,
+    "fat": 2.85
+   },
+   {
+    "id": "water",
+    "qty": 185,
+    "unit": "g",
+    "grams": 185,
+    "note": "¾ cup + 1–2 tbsp",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 55,
+    "unit": "g",
+    "grams": 55,
+    "note": "¼ cup + 1 tsp",
+    "kcal": 495,
+    "protein": 0,
+    "fat": 55
+   },
+   {
+    "id": "potato",
+    "qty": 700,
+    "unit": "g",
+    "grams": 700,
+    "note": "650 g (Punjabi) / 500 g per 2 cups maida (aloo samosa → 750 g per 3 cups)",
+    "kcal": 488.6,
+    "protein": 10.78,
+    "fat": 1.61
+   },
+   {
+    "id": "peas-green",
+    "qty": 90,
+    "unit": "g",
+    "grams": 90,
+    "note": "½ cup (72 g) / 1 cup optional",
+    "kcal": 73.2,
+    "protein": 6.53,
+    "fat": 0.12
+   },
+   {
+    "id": "onion",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "½ cup (Punjabi) / none",
+    "kcal": 19.2,
+    "protein": 0.6,
+    "fat": 0.1
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 28,
+    "unit": "g",
+    "grams": 28,
+    "note": "2 tbsp in the filling",
+    "kcal": 247.5,
+    "protein": 0,
+    "fat": 28
+   },
+   {
+    "id": "green-chilli",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 6.3,
+    "protein": 0.35,
+    "fat": 0.11
+   },
+   {
+    "id": "coriander",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "",
+    "kcal": 2.5,
+    "protein": 0.28,
+    "fat": 0.06
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "",
+    "kcal": 8.5,
+    "protein": 0.46,
+    "fat": 0.23
+   },
+   {
+    "id": "cumin",
+    "qty": 3.1500000000000004,
+    "unit": "g",
+    "grams": 3.2,
+    "note": "",
+    "kcal": 9.6,
+    "protein": 0.44,
+    "fat": 0.52
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 1.8,
+    "unit": "g",
+    "grams": 1.8,
+    "note": "",
+    "kcal": 4.8,
+    "protein": 0.19,
+    "fat": 0.31
+   },
+   {
+    "id": "ajwain",
+    "qty": 1,
+    "unit": "g",
+    "grams": 1,
+    "note": "",
+    "kcal": 3.6,
+    "protein": 0.16,
+    "fat": 0.21
+   },
+   {
+    "id": "salt",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "1½ tsp dough + 1 tsp filling",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "oil-palm",
+    "qty": 190,
+    "unit": "g",
+    "grams": 190,
+    "note": "frying oil absorbed (FNDDS samosa ratio); street frying oil is palm-based",
+    "kcal": 1679.6,
+    "protein": 0,
+    "fat": 190
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 314,
+  "atwater": 318,
+  "atwaterGap": -0.013,
+  "boneShareServed": 0,
+  "massCheck": 55.5,
+  "file": "research/zainab/recipes/snacks-sweets.mjs"
+ },
+ "kulfi-malai": {
+  "id": "kulfi-malai",
+  "dish": "Kulfi (malai kulfi, milk reduced by half)",
+  "rawG": 1666.6,
+  "cookedG": 833.3,
+  "yield": 0.5,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 336,
+   "protein": 8.3,
+   "carbs": 28.3,
+   "fat": 21,
+   "fiber": 0.2,
+   "sugars": 28.5,
+   "satFat": 12.7,
+   "sodium": 182
+  },
+  "waterPer100g": 40.2,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "milk-whole",
+    "qty": 1030,
+    "unit": "g",
+    "grams": 1030,
+    "note": "1 litre (1.03 g/ml)",
+    "kcal": 628.3,
+    "protein": 32.45,
+    "fat": 33.48
+   },
+   {
+    "id": "condensed-milk",
+    "qty": 322.7848101265823,
+    "unit": "g",
+    "grams": 322.8,
+    "note": "250 ml (USDA 306 g/cup)",
+    "kcal": 1036.1,
+    "protein": 25.53,
+    "fat": 28.08
+   },
+   {
+    "id": "cream",
+    "qty": 297.5,
+    "unit": "g",
+    "grams": 297.5,
+    "note": "1¼ cups heavy cream",
+    "kcal": 1011.5,
+    "protein": 8.45,
+    "fat": 107.34
+   },
+   {
+    "id": "pistachio",
+    "qty": 4.8999999999999995,
+    "unit": "g",
+    "grams": 4.9,
+    "note": "6–8 pistachios (~0.7 g each, assumption)",
+    "kcal": 26.4,
+    "protein": 1.14,
+    "fat": 2.08
+   },
+   {
+    "id": "almonds",
+    "qty": 8.4,
+    "unit": "g",
+    "grams": 8.4,
+    "note": "6–8 almonds (USDA 1.2 g each)",
+    "kcal": 48.6,
+    "protein": 1.78,
+    "fat": 4.19
+   },
+   {
+    "id": "cardamom",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "",
+    "kcal": 3.8,
+    "protein": 0.12,
+    "fat": 0.04
+   },
+   {
+    "id": "salt",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "¼ tsp",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 331,
+  "atwater": 336,
+  "atwaterGap": -0.015,
+  "boneShareServed": 0,
+  "massCheck": 57.8,
+  "file": "research/zainab/recipes/snacks-sweets.mjs"
+ },
+ "fruit-chaat": {
+  "id": "fruit-chaat",
+  "dish": "Fruit chaat (Pakistani, with chaat masala and sugar)",
+  "rawG": 808,
+  "cookedG": 808,
+  "yield": 1,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 80,
+   "protein": 0.9,
+   "carbs": 16.4,
+   "fat": 0.4,
+   "fiber": 3.4,
+   "sugars": 12.2,
+   "satFat": null,
+   "sodium": 145
+  },
+  "waterPer100g": 78,
+  "addedFatPer100g": 0,
+  "lines": [
+   {
+    "id": "banana",
+    "qty": 300,
+    "unit": "g",
+    "grams": 300,
+    "note": "TfT 1 banana (118 g); Hamariweb 4–6 bananas → mid ≈ 300 g",
+    "kcal": 267,
+    "protein": 3.27,
+    "fat": 0.99
+   },
+   {
+    "id": "apple",
+    "qty": 150,
+    "unit": "g",
+    "grams": 150,
+    "note": "1 small apple (USDA 149 g)",
+    "kcal": 93.6,
+    "protein": 0.43,
+    "fat": 0.96
+   },
+   {
+    "id": "guava",
+    "qty": 150,
+    "unit": "g",
+    "grams": 150,
+    "note": "Hamariweb 1 cup (USDA 165 g)",
+    "kcal": 48.4,
+    "protein": 2.16,
+    "fat": 0.48
+   },
+   {
+    "id": "kinnow",
+    "qty": 150,
+    "unit": "g",
+    "grams": 150,
+    "note": "TfT mandarin + orange juice; Hamariweb sweet lime",
+    "kcal": 79.5,
+    "protein": 1.22,
+    "fat": 0.46
+   },
+   {
+    "id": "sugar",
+    "qty": 25,
+    "unit": "g",
+    "grams": 25,
+    "note": "TfT 1 tsp (4.2 g); Hamariweb ½ cup sugar syrup (~60 g sugar if 1:1) → 25 g",
+    "kcal": 96.8,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 30,
+    "unit": "g",
+    "grams": 30,
+    "note": "Hamariweb 4 tbsp (60 g); TfT none",
+    "kcal": 6.6,
+    "protein": 0.1,
+    "fat": 0.07
+   },
+   {
+    "id": "salt",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "chaat masala (mostly salt; spices negligible)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 73,
+  "atwater": 80,
+  "atwaterGap": -0.087,
+  "boneShareServed": 0,
+  "massCheck": 21.1,
+  "file": "research/zainab/recipes/snacks-sweets.mjs"
  }
 }

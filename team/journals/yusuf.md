@@ -9,3 +9,20 @@
   re-read the contract before writing records.
 - Plan: own pipeline in research/yusuf/ (ingredients.mjs registry → fetch.mjs → ingredients.json;
   recipes/<id>.mjs + calc.mjs → out/results.json; recipe sheets recipes/<id>.md; build of records).
+- 22:55 Omar confirmed rules.js v1.1.0 is final: `halal {status, reason?}` required, `lunchbox` group
+  (90–260 kcal/100 g, servings 50–800 g, default `box` serving 450–850 kcal = G22), tags
+  `meal-prep`, `eat-cold`, `catalan`; `mealPrep.storage` ids cooked-starch / cooked-meat / egg-dish /
+  cold-salad. Banned words now include `vino`, `cerdo`, etc. (avoid "sin vino" in names).
+- 22:55 Tools written: research/yusuf/mercadona.mjs (live Mercadona prices, warehouse bcn1 = 08001
+  Barcelona; cache research/cache/yusuf/mercadona/), research/yusuf/off.mjs (OFF labels).
+- Findings so far: ALL Mercadona wheat wraps (Hacendado normal/integral/maxi/mini, Delibreads) list
+  E471 with no origin → `check`. Mission pita (14378) has no E471 → use pita for the shami box.
+  Hummus Hacendado: E270 "de origen vegetal", no E471 → fine. +Proteínas natural pots (Mercadona's
+  skyr-style) = milk + cultures only, no gelatina. Pan rallado: no manteca. Mercadona bcn1 lists no
+  "skyr" today → use "Postre lácteo natural +Proteínas 12 g" (EAN 8480000209085).
+- Halal meat prices: Carne Halal Online (Barcelona prov.) pechuga 7.49 €/kg, picada ternera 11.99,
+  picada pollo 9.90; Halal Empordà (Girona) pechuga 8.95, picada vacuno 13.30. Boneless thigh,
+  bulgur, garam/chaat masala: no online price found → "not available".
+- Yields: Bognár 2002 (rice stewed 2.94; green beans boiled 0.93; peas 0.89; cevapcici/rissole
+  pan-fried 0.81; chicken breast escallop pan-fried 0.80; dried peas boiled 2.45 …); USDA protein
+  ratios raw→cooked for meat; stated water balance for couscous/bulgur (absorption, covered).

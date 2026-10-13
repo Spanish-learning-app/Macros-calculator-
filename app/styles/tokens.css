@@ -1,34 +1,87 @@
-/* Design tokens. Owner: Priya (starter by Lena in Step 0; restyle freely, keep the structure).
-   Theming contract (Artifact): light tokens on :root; dark tokens under prefers-color-scheme
-   guarded by :root:not([data-theme='light']), and again under :root[data-theme='dark'] so the
-   in-app theme switch can force either mode. */
+/* Design tokens. Owner: Priya.
+   Theming contract (Artifact, ARCHITECTURE §7.5): light tokens on :root; dark tokens under
+   prefers-color-scheme guarded by :root:not([data-theme='light']), and again under
+   :root[data-theme='dark'] so the in-app theme switch can force either mode.
+   Palette: warm and calm (cream, clay, cardamom green). There is no red anywhere: going over a
+   target is neutral information, never an error. Every text colour passes WCAG AA on --bg and
+   --surface in its theme. */
 
 :root {
   color-scheme: light;
 
+  /* Type */
   --font-sans:
     system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Nastaliq Urdu', sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', serif;
   --font-size-base: 1rem;
   --line-height: 1.5;
+  --text-xs: 0.8125rem; /* 13px: grams under chips, captions */
+  --text-sm: 0.875rem; /* 14px: secondary lines */
+  --text-md: 1rem; /* 16px: body, inputs (no iOS zoom) */
+  --text-lg: 1.125rem; /* 18px: food names, slot titles */
+  --text-xl: 1.375rem; /* 22px: view titles */
+  --text-2xl: 2rem; /* 32px: the big "left today" number */
+  --text-3xl: 2.5rem; /* 40px: big number on wide screens */
+  --weight-normal: 400;
+  --weight-medium: 550;
+  --weight-bold: 700;
 
+  /* Space and shape */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
+  --space-5: 20px;
   --space-6: 24px;
+  --space-8: 32px;
+  --radius-sm: 8px;
   --radius: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
   --tap: 44px; /* minimum touch target */
+  --tap-lg: 52px; /* primary actions and portion chips */
   --gutter: 16px; /* phone side gutter */
+  --content-max: 760px;
+  --nav-height: 56px;
+  --shadow-1: 0 1px 2px rgb(60 40 20 / 0.08), 0 1px 1px rgb(60 40 20 / 0.04);
+  --shadow-2: 0 6px 24px rgb(60 40 20 / 0.16), 0 2px 6px rgb(60 40 20 / 0.08);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 180ms;
 
-  --bg: #faf7f2;
+  /* Colour: surfaces and text */
+  --bg: #faf6ef;
   --surface: #ffffff;
-  --text: #1f1a14;
-  --text-muted: #5f574d;
-  --border: #e4ddd2;
-  --accent: #b4532a;
-  --accent-text: #ffffff;
-  --focus: #1d5fd1;
+  --surface-2: #f3ede3; /* inset panels, chip rest state */
+  --surface-3: #ebe3d6; /* pressed, track of bars */
+  --text: #241c14;
+  --text-muted: #62574b; /* 6.6:1 on --bg */
+  --text-faint: #786b5d; /* 4.9:1 on --bg: captions, grams under chips */
+  --border: #e2d8c9;
+  --border-strong: #c9bba7;
+  --scrim: rgb(36 28 20 / 0.42);
 
+  /* Colour: brand and states (no red) */
+  --accent: #a84e24; /* clay; 5.4:1 on white */
+  --accent-hover: #8f421e;
+  --accent-text: #ffffff;
+  --accent-soft: #f7e6da;
+  --accent-soft-text: #7a3716;
+  --focus: #1d5fd1;
+  --selected: #2f5d4a; /* cardamom green for the chosen chip */
+  --selected-text: #ffffff;
+  --selected-soft: #e3efe8;
+  --over: #5b5148; /* neutral ink for "over" bars: information, not an alarm */
+  --planned: #6b5f53;
+
+  /* Halal chips: calm, never red, never a big green tick */
+  --halal-check-bg: #f6ecd6;
+  --halal-check-text: #5e4410;
+  --halal-check-border: #e2cf9f;
+  --halal-not-bg: #e9e7ef;
+  --halal-not-text: #3f3a52;
+  --halal-not-border: #cbc6da;
+
+  /* Nutrients (bars and dots; text uses --text) */
   --kcal: #b4532a;
   --protein: #2f6f4f;
   --carbs: #9a6a00;
@@ -39,15 +92,36 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
-    --bg: #15120f;
-    --surface: #211c17;
-    --text: #f3ede4;
-    --text-muted: #b9afa2;
-    --border: #3a322a;
-    --accent: #e08a5c;
-    --accent-text: #1a120c;
+    --bg: #16120e;
+    --surface: #211b15;
+    --surface-2: #2b241d;
+    --surface-3: #372e25;
+    --text: #f4ede3;
+    --text-muted: #c4b8a8;
+    --text-faint: #a99c8c;
+    --border: #3b3128;
+    --border-strong: #56493c;
+    --scrim: rgb(0 0 0 / 0.6);
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-2: 0 8px 28px rgb(0 0 0 / 0.55);
+    --accent: #e8915f;
+    --accent-hover: #f0a479;
+    --accent-text: #1c120b;
+    --accent-soft: #3a261a;
+    --accent-soft-text: #f2b892;
     --focus: #8db4ff;
-    --kcal: #e08a5c;
+    --selected: #8fcfae;
+    --selected-text: #10221a;
+    --selected-soft: #1f3329;
+    --over: #b9ad9f;
+    --planned: #b7aa9a;
+    --halal-check-bg: #3a3020;
+    --halal-check-text: #f0d9a0;
+    --halal-check-border: #5c4a26;
+    --halal-not-bg: #2c2a38;
+    --halal-not-text: #d6d1ea;
+    --halal-not-border: #4a4560;
+    --kcal: #e8915f;
     --protein: #7cc49d;
     --carbs: #e0b44c;
     --fat: #d38ac4;
@@ -57,15 +131,36 @@
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #15120f;
-  --surface: #211c17;
-  --text: #f3ede4;
-  --text-muted: #b9afa2;
-  --border: #3a322a;
-  --accent: #e08a5c;
-  --accent-text: #1a120c;
+  --bg: #16120e;
+  --surface: #211b15;
+  --surface-2: #2b241d;
+  --surface-3: #372e25;
+  --text: #f4ede3;
+  --text-muted: #c4b8a8;
+  --text-faint: #a99c8c;
+  --border: #3b3128;
+  --border-strong: #56493c;
+  --scrim: rgb(0 0 0 / 0.6);
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 8px 28px rgb(0 0 0 / 0.55);
+  --accent: #e8915f;
+  --accent-hover: #f0a479;
+  --accent-text: #1c120b;
+  --accent-soft: #3a261a;
+  --accent-soft-text: #f2b892;
   --focus: #8db4ff;
-  --kcal: #e08a5c;
+  --selected: #8fcfae;
+  --selected-text: #10221a;
+  --selected-soft: #1f3329;
+  --over: #b9ad9f;
+  --planned: #b7aa9a;
+  --halal-check-bg: #3a3020;
+  --halal-check-text: #f0d9a0;
+  --halal-check-border: #5c4a26;
+  --halal-not-bg: #2c2a38;
+  --halal-not-text: #d6d1ea;
+  --halal-not-border: #4a4560;
+  --kcal: #e8915f;
   --protein: #7cc49d;
   --carbs: #e0b44c;
   --fat: #d38ac4;

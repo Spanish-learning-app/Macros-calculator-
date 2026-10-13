@@ -51,7 +51,7 @@ export default [
   dhaba(4, 'dhaba-chai-extra-sugar', 'Dhaba chai, extra sugar (4 tsp per cup)'),
   {
     id: 'kashmiri-chai',
-    dish: 'Kashmiri chai (pink tea), sweet, with nuts',
+    dish: 'Kashmiri chai (pink tea), sweet (nut garnish not included)',
     sources: [
       { ref: 'F&S-kashmiri-chai', url: 'https://www.flourandspiceblog.com/karachi-style-kashmiri-chai-pink-tea/', used: 'Kahwa from 6 tbsp Kashmiri tea, 1 tsp soda, salt, cardamom in 8 cups water simmered to half and aerated; per cup: ⅓ cup kahwa + ⅔ cup milk + a splash of water, topped with a scant spoon of crushed pistachios/almonds.' },
       { ref: 'TfT-kashmiri-chai', url: 'https://www.teaforturmeric.com/20-minute-kashmiri-chai-pink-tea/', used: '2 mugs (2.5 cups): tea boiled in 1 cup water + 1 cup ice water; 1 cup whole milk + ½ cup half-and-half; ¼ tsp salt; 2–2.5 tbsp sugar; ½–1 tbsp almonds + ½ tbsp pistachios.' },
@@ -61,8 +61,6 @@ export default [
       ['milk-whole', CUP * (2 / 3) * MILK_D, '⅔ of the cup milk (F&S)'],
       ['tea-brewed', CUP / 3, '⅓ cup kahwa (tea concentrate)'],
       ['sugar', 2 * M.tspSugar, 'TfT 2–2.5 tbsp per 2.5 cups ≈ 2.3 tsp per 200 ml → 2 tsp'],
-      ['pistachio', 1.5, 'TfT ½ tbsp pistachios + ½–1 tbsp almonds per 2.5 cups ≈ 3 g nuts per cup'],
-      ['almonds', 1.5, ''],
       ['salt', 0.5, 'pinch (TfT ¼ tsp per 2.5 cups)'],
     ],
     addedFat: [],

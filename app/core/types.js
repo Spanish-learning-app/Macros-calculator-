@@ -98,6 +98,7 @@
  * @property {boolean} halalOnly       default true: hide 'not-halal' foods (meeting 002)
  * @property {'all'|'fish-prawns'|'fish-only'} seafood  reserved (Sprint 2 question); default 'all'
  * @property {number} dayStartMinutes  logging day starts here; default 240 (04:00), 0..300
+ * @property {'pending'|'done'|'skipped'} onboarding  default 'pending'; skipped = reference targets
  * @property {{ weight: 'kg'|'lb', height: 'cm'|'ftin' }} units
  * @property {0|1|6} weekStartsOn
  * @property {'system'|'light'|'dark'} theme
