@@ -20,14 +20,14 @@
  * @property {string} [nameUr]      Urdu script.
  * @property {string} [nameRoman]   Roman Urdu.
  * @property {string[]} aliases     HARD (may be empty).
- * @property {string} group         HARD. An id from RULES.foodGroups.
+ * @property {string} group         HARD. An id from RULES.vocab.groups.
  * @property {string} state         HARD for the Lab. What the numbers describe.
  * @property {'home'|'restaurant'|'dhaba'|'street'} [style]
  * @property {string} [family]      Links style variants of one dish.
  * @property {Per100g} per100g      HARD. Five required keys, all >= 0.
  * @property {number} [addedFatPer100g]
  * @property {Serving[]} servings   HARD. At least one; exactly one `default: true`.
- * @property {string[]} tags        HARD. Ids from RULES.tags (RULES.tagRules apply).
+ * @property {string[]} tags        HARD. Ids from RULES.vocab.tags (RULES.vocab.tagRules apply).
  * @property {string[]} [slots]     Meal-slot hints. Slot ids.
  * @property {Source} source        HARD `citation`.
  *
@@ -46,9 +46,9 @@
  * @typedef {{ date: string, entries: Entry[] }} Day   date = local 'YYYY-MM-DD'
  *
  * @typedef {'sedentary'|'light'|'moderate'|'very_active'|'extra_active'} ActivityLevel
- * @typedef {string} HealthFlag  an id from RULES.healthFlags (pregnant, eating_disorder,
- *   kidney_disease, diabetes_meds at Step 0). Derived flags (minor, underweight, age_over_80) are
- *   computed, never stored.
+ * @typedef {string} HealthFlag  an id from RULES.healthFlags (pregnant, breastfeeding,
+ *   eating_disorder, kidney_disease, diabetes_hypo_risk at Step 0). Derived flags (minor,
+ *   underweight, age_over_80) are computed from the profile, never stored.
  *
  * @typedef {object} Profile
  * @property {'male'|'female'} sex

@@ -16,9 +16,9 @@ export const GRAMS = 'g';
 
 /**
  * Structural check of one record against the HARD fields (§4.2). With `rules`, also checks
- * membership: group in RULES.foodGroups, tags in RULES.tags, style in RULES.styles, slots in
- * RULES.mealSlots.default, source.method in RULES.sourceMethods, source.confidence in
- * RULES.confidenceGrades. Numeric plausibility (energy, ranges, tagRules, banned words) is the data
+ * membership: group in RULES.vocab.groups, tags in RULES.vocab.tags, style in RULES.vocab.styles,
+ * slots in RULES.mealSlots.default, source.method in RULES.vocab.sourceMethods, source.confidence
+ * in RULES.vocab.confidenceGrades. Numeric plausibility (energy, ranges, tagRules, banned words) is the data
  * gate's job (tests/data), not this function's. Never throws.
  * @param {unknown} food @param {object|null} [rules=null] RULES from app/data/index.js
  * @returns {string[]} human-readable problems, each prefixed with the food id when known; [] = valid.

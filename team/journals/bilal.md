@@ -29,3 +29,9 @@
   0.5 kg/week, not MacroFactor's 2,300; NUTRITION.md is binding. Open asks: recents across slots,
   undo for copy-day and planned vs "left" (Lena/Priya); serving labels, frying oil in recipes and a
   daal chawal plate (Lab). Nothing committed.
+- 2026-10-13 22:30 UTC: Meeting 002 (Boss update: Barcelona, PhD, halal meal prep). Wrote
+  team/meetings/002-boss-update/memo-bilal.md (~800 words). It covers Sunday batch cooking (4 boxes,
+  Mon–Thu), what passes the colleagues test, halal in Barcelona (butchers, lard on labels and in
+  pastries, menú del día), meal-prep must-haves and budgets, A16–A19, and a request for a Barcelona
+  PhD meal-prep tester. Found that the CUSTOMER.md clock (Asia/Karachi) is wrong for the Boss; it
+  must be Europe/Madrid. CUSTOMER.md follow-up waits for Omar to set sprints. Nothing committed.

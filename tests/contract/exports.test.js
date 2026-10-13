@@ -79,7 +79,7 @@ const CONTRACT = {
       computeTargets: 2,
       resolveTargets: 2,
     },
-    constants: ['ACTIVITY_LEVELS', 'GOALS', 'HEALTH_FLAGS', 'TARGET_FLAGS'],
+    constants: ['ACTIVITY_LEVELS', 'GOALS'],
   },
   search: {
     functions: {

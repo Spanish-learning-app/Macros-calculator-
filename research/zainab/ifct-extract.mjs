@@ -54,4 +54,15 @@ for (let i = start; i < end; i++) {
   }
   rows.push(row);
 }
+// Table 6 (starch and individual sugars): the last column is TOTAL FREE SUGARS. Attach it as `sugars`.
+const t6 = txt.findIndex((l) => /^Table 6\. Starch and Individual Sugars/.test(l.trim()));
+const t7 = txt.findIndex((l, i) => i > t6 && /Table 7\. Fatty Acid Profile/i.test(l));
+const sug = {};
+for (let i = t6; i < t7; i++) {
+  const m = txt[i].match(/^\s+([A-T]\d{3})\s+(.*)$/);
+  if (!m) continue;
+  const nums = [...m[2].replace(/\(.*?\)/g, '').matchAll(/(\d+(?:\.\d+)?)(?:±\d+(?:\.\d+)?)?/g)].map((x) => Number(x[1]));
+  if (nums.length >= 3 && sug[m[1]] == null) sug[m[1]] = nums[nums.length - 1];
+}
+for (const r of rows) if (sug[r.code] != null) r.sugars = sug[r.code];
 console.log(JSON.stringify(rows, null, 0).replace(/},{/g, '},\n{'));

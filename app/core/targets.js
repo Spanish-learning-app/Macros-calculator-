@@ -49,8 +49,8 @@ export function bmr(profile, rules) {
 }
 
 /**
- * Checks types, enums (ACTIVITY_LEVELS, GOALS, RULES.healthFlags ids, rate in the goal's
- * ratesKgPerWeek) and RULES.profileLimits. Never throws.
+ * Checks types, enums (ACTIVITY_LEVELS, GOALS, RULES.healthFlags ids and appliesToSex, rate in
+ * RULES.goals[].ratesKgPerWeek) and RULES.profileLimits. Never throws.
  * @param {unknown} profile @param {object} rules @returns {string[]} problems; [] = valid.
  */
 export function validateProfile(profile, rules) {

@@ -88,7 +88,7 @@ const correctness = {
   'no-empty': 'error',
   'use-isnan': 'error',
   'valid-typeof': 'error',
-  eqeqeq: ['error', 'always'],
+  eqeqeq: ['error', 'always', { null: 'ignore' }], // `x == null` is the one allowed loose check
   'no-var': 'error',
   'prefer-const': 'error',
   'no-eval': 'error',

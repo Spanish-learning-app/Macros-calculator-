@@ -1,6 +1,10 @@
 # The code gate formats code only: app/, tests/ and root configs.
 # Prose (Markdown) and other teams' tooling are not checked here.
 **/*.md
+# Food data and rules (Nutrition Lab): layout is the Lab's choice (one record or group per line
+# reads and diffs better than Prettier's wrapping). Still linted by ESLint and checked by the data
+# gate (tests/data) and the RULES contract test (tests/contract/rules.test.js).
+app/data/
 team/
 dashboard/
 research/

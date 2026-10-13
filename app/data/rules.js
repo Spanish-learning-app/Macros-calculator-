@@ -70,7 +70,8 @@ export default {
       id: 'very_active',
       factor: 1.725,
       label: 'Very active',
-      description: 'Hard training 6 to 7 days a week, or a physical job such as labour or farm work.',
+      description:
+        'Hard training 6 to 7 days a week, or a physical job such as labour or farm work.',
     },
     {
       id: 'extra_active',
@@ -167,10 +168,17 @@ export default {
   healthFlags: [
     {
       id: 'pregnant',
-      label: 'Pregnant or breastfeeding',
+      label: 'Pregnant',
       appliesToSex: ['female'],
       effect: { lockGoal: 'maintain' },
-      note: 'During pregnancy and breastfeeding your needs are higher than this estimate. Please ask your doctor or a dietitian to set your targets. Logging food is still fine.',
+      note: 'During pregnancy your needs are higher than this estimate and change by trimester. Please ask your doctor or a dietitian to set your targets. Logging food is still fine.',
+    },
+    {
+      id: 'breastfeeding',
+      label: 'Breastfeeding',
+      appliesToSex: ['female'],
+      effect: { lockGoal: 'maintain' },
+      note: 'While breastfeeding your needs are higher than this estimate. Please ask your doctor or a dietitian to set your targets. Logging food is still fine.',
     },
     {
       id: 'eating_disorder',
@@ -187,8 +195,9 @@ export default {
       note: 'With kidney disease, protein needs a doctor or renal dietitian. We have capped protein at 0.8 g per kg. Please check your targets with them.',
     },
     {
-      id: 'diabetes_meds',
-      label: 'Diabetes treated with insulin or sulfonylurea tablets (such as gliclazide or glimepiride)',
+      id: 'diabetes_hypo_risk',
+      label:
+        'Diabetes treated with insulin or sulfonylurea tablets (such as gliclazide or glimepiride)',
       appliesToSex: ['female', 'male'],
       effect: {},
       note: 'Eating less, or fasting in Ramadan, can cause low blood sugar with these medicines. Talk to your doctor before changing how much you eat.',
@@ -222,163 +231,616 @@ export default {
     deficit_capped: 'We slowed your weight-loss pace to a safer rate.',
     surplus_capped: 'We slowed your weight-gain pace to a steadier rate.',
     kcal_floor: 'Your target is set to the lowest level we recommend without professional support.',
-    goal_changed: 'Because of the health information you gave, your goal is set to "Keep my weight".',
+    goal_changed:
+      'Because of the health information you gave, your goal is set to "Keep my weight".',
     fat_floor: 'Fat is set to the healthy minimum.',
-    low_carbs: 'Carbs are under 100 g a day. That is fine if you chose it, but most people feel better with more.',
+    low_carbs:
+      'Carbs are under 100 g a day. That is fine if you chose it, but most people feel better with more.',
     protein_capped: 'Protein is capped because of the health information you gave.',
     no_targets: 'No targets are set. You can still log food.',
   },
 
   // ---------------------------------------------------------------- meal slots
   // sharePct guides suggestions and templates only (never enforced). Shares sum to 100.
-  // hours are half-open [from, to) local-time windows used to pick a default slot from the clock.
-  // Within each set the windows cover all 24 hours; a window may wrap past midnight (from > to).
+  // hours = [startMinute, endMinute): minutes since local midnight, half-open, used to pick the
+  // default slot from the clock. Within each set the windows cover all 24 hours (0-1440) without
+  // overlap; a window may wrap past midnight (start > end). Comments give the same times as HH:MM.
   mealSlots: {
     default: [
-      { id: 'breakfast', label: 'Nashta', labelUr: 'ناشتہ', sharePct: 25, hours: { from: '04:00', to: '11:00' } },
-      { id: 'lunch', label: 'Lunch', labelUr: 'دوپہر کا کھانا', sharePct: 30, hours: { from: '11:00', to: '15:30' } },
-      { id: 'evening', label: 'Shaam ki chai', labelUr: 'شام کی چائے', sharePct: 10, hours: { from: '15:30', to: '18:30' } },
-      { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: { from: '18:30', to: '24:00' } },
-      { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: { from: '00:00', to: '04:00' } },
+      { id: 'breakfast', label: 'Nashta', labelUr: 'ناشتہ', sharePct: 25, hours: [240, 660] }, // 04:00-11:00
+      { id: 'lunch', label: 'Lunch', labelUr: 'دوپہر کا کھانا', sharePct: 30, hours: [660, 930] }, // 11:00-15:30
+      {
+        id: 'evening',
+        label: 'Shaam ki chai',
+        labelUr: 'شام کی چائے',
+        sharePct: 10,
+        hours: [930, 1110],
+      }, // 15:30-18:30
+      { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1110, 1440] }, // 18:30-24:00
+      { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: [0, 240] }, // 00:00-04:00
     ],
     // Ramadan mode (Sprint 2). Hours are typical for Pakistan and shift with sunrise and sunset.
     ramadan: [
-      { id: 'sehri', label: 'Sehri', labelUr: 'سحری', sharePct: 35, hours: { from: '01:00', to: '12:00' } },
-      { id: 'iftar', label: 'Iftar', labelUr: 'افطار', sharePct: 25, hours: { from: '12:00', to: '19:30' } },
-      { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: { from: '19:30', to: '21:30' } },
-      { id: 'after_taraweeh', label: 'After taraweeh', labelUr: 'تراویح کے بعد', sharePct: 10, hours: { from: '21:30', to: '01:00' } },
+      { id: 'sehri', label: 'Sehri', labelUr: 'سحری', sharePct: 35, hours: [60, 720] }, // 01:00-12:00
+      { id: 'iftar', label: 'Iftar', labelUr: 'افطار', sharePct: 25, hours: [720, 1170] }, // 12:00-19:30
+      { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1170, 1290] }, // 19:30-21:30
+      {
+        id: 'after_taraweeh',
+        label: 'After taraweeh',
+        labelUr: 'تراویح کے بعد',
+        sharePct: 10,
+        hours: [1290, 60],
+      }, // 21:30-01:00
     ],
   },
   ramadan: { minProteinGAtSehri: 30, fluidsReminder: true },
 
-  // ---------------------------------------------------------------- food groups (record.group, HARD)
-  // kcalPer100g: the record's per100g.kcal must lie within [min, max].
-  // fiberZero:   per100g.fiber must be exactly 0.
-  // servingGrams: every serving's grams must lie within [min, max].
-  // katoriServed: records must offer the servings katori-small, katori, katori-large and tbsp
-  //              (grams = ml × one density for the dish; see householdMeasures).
-  // If a genuine food falls outside a range, tell Ayesha: the range is changed here, never per record.
-  foodGroups: [
-    { id: 'bread', label: 'Breads', examples: 'roti, chapati, tandoori roti, naan, kulcha, sliced bread, pita, pan con tomate', kcalPer100g: { min: 180, max: 380 }, fiberZero: false, servingGrams: { min: 15, max: 250 } },
-    { id: 'bread-fried', label: 'Parathas and fried breads', examples: 'paratha, aloo paratha, lachha paratha, puri, bhatura', kcalPer100g: { min: 260, max: 450 }, fiberZero: false, servingGrams: { min: 20, max: 250 } },
-    { id: 'grain-cooked', label: 'Plain cooked rice, pasta and grains', examples: 'boiled rice, brown rice, plain pasta, couscous, quinoa, porridge', kcalPer100g: { min: 50, max: 180 }, fiberZero: false, katoriServed: true, servingGrams: { min: 30, max: 500 } },
-    { id: 'rice-dish', label: 'Rice dishes', examples: 'biryani, pulao, khichdi, zeera rice, fried rice, paella', kcalPer100g: { min: 110, max: 260 }, fiberZero: false, katoriServed: true, servingGrams: { min: 30, max: 600 } },
-    { id: 'curry-meat', label: 'Meat, chicken and fish curries', examples: 'salan, karahi, qorma, aloo gosht, keema, nihari, haleem, paye, albondigas', kcalPer100g: { min: 90, max: 360 }, fiberZero: false, katoriServed: true, servingGrams: { min: 30, max: 500 } },
-    { id: 'curry-veg', label: 'Vegetable dishes', examples: 'sabzi, bhindi, aloo matar, saag, karela, baingan, pisto', kcalPer100g: { min: 40, max: 250 }, fiberZero: false, katoriServed: true, servingGrams: { min: 30, max: 400 } },
-    { id: 'daal-legume', label: 'Daal and legume dishes', examples: 'daal masoor, mash, chana, moong, cholay, lobia, rajma, lentejas, garbanzos', kcalPer100g: { min: 60, max: 250 }, fiberZero: false, katoriServed: true, servingGrams: { min: 30, max: 450 } },
-    { id: 'grill-kebab', label: 'Kebabs, tikka, BBQ and fried chicken', examples: 'seekh kebab, chicken tikka, malai boti, chapli kebab, shami kebab, broast', kcalPer100g: { min: 120, max: 380 }, fiberZero: false, servingGrams: { min: 15, max: 400 } },
-    { id: 'meat-fish', label: 'Plain meat, poultry and fish', examples: 'chicken breast, mince, mutton, rohu, prawns, canned tuna (raw or simply cooked)', kcalPer100g: { min: 60, max: 350 }, fiberZero: true, servingGrams: { min: 15, max: 400 } },
-    { id: 'egg', label: 'Eggs and egg dishes', examples: 'boiled egg, fried egg, omelette, anda curry, tortilla de patatas, shakshuka', kcalPer100g: { min: 40, max: 260 }, fiberZero: false, servingGrams: { min: 30, max: 350 } },
-    { id: 'dairy', label: 'Milk, yogurt, cheese and cream', examples: 'milk, dahi, Greek yogurt, paneer, cheese, cream, khoya', kcalPer100g: { min: 30, max: 420 }, fiberZero: true, servingGrams: { min: 5, max: 500 } },
-    { id: 'fat-oil', label: 'Oils, ghee and butter', examples: 'cooking oil, desi ghee, banaspati, butter, olive oil, margarine', kcalPer100g: { min: 500, max: 900 }, fiberZero: true, servingGrams: { min: 2, max: 30 } },
-    { id: 'fruit', label: 'Fresh fruit', examples: 'banana, apple, mango, kinnow, guava, melon, avocado', kcalPer100g: { min: 15, max: 170 }, fiberZero: false, servingGrams: { min: 5, max: 600 } },
-    { id: 'fruit-dried', label: 'Dates and dried fruit', examples: 'khajoor, chhuhara, raisins, dried apricots, figs', kcalPer100g: { min: 230, max: 360 }, fiberZero: false, servingGrams: { min: 3, max: 100 } },
-    { id: 'vegetable', label: 'Vegetables and plain salad', examples: 'cucumber, tomato, onion, carrot, boiled potato, kachumber without dressing', kcalPer100g: { min: 10, max: 110 }, fiberZero: false, servingGrams: { min: 5, max: 400 } },
-    { id: 'nuts-seeds', label: 'Nuts, seeds and roasted pulses', examples: 'almonds, peanuts, walnuts, peanut butter, tahini, bhuna chana', kcalPer100g: { min: 350, max: 720 }, fiberZero: false, servingGrams: { min: 5, max: 100 } },
-    { id: 'side-dip', label: 'Raita, dressed salads and dips', examples: 'raita, chutney with yogurt, hummus, tzatziki, Greek salad', kcalPer100g: { min: 20, max: 350 }, fiberZero: false, katoriServed: true, servingGrams: { min: 10, max: 250 } },
-    { id: 'condiment', label: 'Sauces, pickles and spreads', examples: 'ketchup, mayonnaise, achaar, imli chutney, chilli sauce, mustard', kcalPer100g: { min: 10, max: 750 }, fiberZero: false, servingGrams: { min: 2, max: 60 } },
-    { id: 'sugar-sweetener', label: 'Sugar, gur, honey, jam and syrups', examples: 'cheeni, gur, shakkar, honey, jam, Rooh Afza syrup', kcalPer100g: { min: 240, max: 400 }, fiberZero: false, servingGrams: { min: 2, max: 40 } },
-    { id: 'drink-tea-coffee', label: 'Chai, tea and coffee', examples: 'doodh patti, dhaba chai, Kashmiri chai, green tea, qehwa, black coffee, latte', kcalPer100g: { min: 0, max: 160 }, fiberZero: true, servingGrams: { min: 30, max: 500 } },
-    { id: 'drink-milk', label: 'Milk drinks', examples: 'lassi, milkshake, doodh soda, Rooh Afza with milk, falooda', kcalPer100g: { min: 40, max: 220 }, fiberZero: false, servingGrams: { min: 100, max: 600 } },
-    { id: 'drink-other', label: 'Juices, soft drinks and sharbat', examples: 'fresh juice, sugarcane juice, cola, nimbu pani, sharbat, sports drinks', kcalPer100g: { min: 0, max: 90 }, fiberZero: false, servingGrams: { min: 30, max: 750 } },
-    { id: 'sweet-dessert', label: 'Desi sweets and desserts', examples: 'kheer, gulab jamun, jalebi, halwa, barfi, ras malai, custard, ice cream', kcalPer100g: { min: 90, max: 500 }, fiberZero: false, servingGrams: { min: 10, max: 300 } },
-    { id: 'biscuit-bakery', label: 'Biscuits, rusks and bakery', examples: 'tea biscuits, rusk, cake rusk, nankhatai, cake, croissant', kcalPer100g: { min: 280, max: 560 }, fiberZero: false, servingGrams: { min: 5, max: 150 } },
-    { id: 'snack-fried', label: 'Fried snacks', examples: 'samosa, pakora, fries, spring roll, croquetas, falafel, patatas bravas', kcalPer100g: { min: 150, max: 420 }, fiberZero: false, servingGrams: { min: 10, max: 400 } },
-    { id: 'snack-packaged', label: 'Chips, nimko and crackers', examples: 'crisps, nimko, dalmoth, salted crackers, popcorn', kcalPer100g: { min: 350, max: 600 }, fiberZero: false, servingGrams: { min: 5, max: 150 } },
-    { id: 'fastfood', label: 'Burgers, pizza, rolls and sandwiches', examples: 'zinger burger, bun kebab, shawarma, paratha roll, pizza, club sandwich', kcalPer100g: { min: 150, max: 350 }, fiberZero: false, servingGrams: { min: 50, max: 600 } },
-    { id: 'chaat', label: 'Chaat and cold street dishes', examples: 'fruit chaat, chana chaat, dahi bhalla, gol gappay, papri chaat', kcalPer100g: { min: 60, max: 260 }, fiberZero: false, servingGrams: { min: 50, max: 400 } },
-    { id: 'soup', label: 'Soups and broths', examples: 'yakhni, chicken corn soup, lentil soup, gazpacho', kcalPer100g: { min: 10, max: 150 }, fiberZero: false, katoriServed: true, servingGrams: { min: 100, max: 500 } },
-    { id: 'pasta-dish', label: 'Pasta and noodle dishes', examples: 'spaghetti bolognese, chicken pasta, chow mein, macaroni, lasagne', kcalPer100g: { min: 90, max: 260 }, fiberZero: false, servingGrams: { min: 100, max: 500 } },
-    { id: 'dry-staple', label: 'Flours, dry grains, dry pulses and cereals (as sold)', examples: 'atta, besan, raw rice, dry daal, oats, cornflakes, muesli, granola', kcalPer100g: { min: 300, max: 500 }, fiberZero: false, servingGrams: { min: 5, max: 200 } },
-    { id: 'protein-supplement', label: 'Protein powders and bars', examples: 'whey protein, plant protein, protein bar', kcalPer100g: { min: 300, max: 430 }, fiberZero: false, servingGrams: { min: 15, max: 100 } },
-  ],
+  // ---------------------------------------------------------------- vocabularies (RULES.vocab)
+  // Every record field that takes a fixed value is checked against these lists.
+  vocab: {
+    // ---------------------------------------------------------------- food groups (record.group, HARD)
+    // kcalPer100g: the record's per100g.kcal must lie within [min, max].
+    // fiberZero:   per100g.fiber must be exactly 0.
+    // servingGrams: every serving's grams must lie within [min, max].
+    // katoriServed: records must offer the servings katori-small, katori, katori-large and tbsp
+    //              (grams = ml × one density for the dish; see householdMeasures).
+    // If a genuine food falls outside a range, tell Ayesha: the range is changed here, never per record.
+    groups: [
+      {
+        id: 'bread',
+        label: 'Breads',
+        examples: 'roti, chapati, tandoori roti, naan, kulcha, sliced bread, pita, pan con tomate',
+        kcalPer100g: { min: 180, max: 380 },
+        fiberZero: false,
+        servingGrams: { min: 15, max: 250 },
+      },
+      {
+        id: 'bread-fried',
+        label: 'Parathas and fried breads',
+        examples: 'paratha, aloo paratha, lachha paratha, puri, bhatura',
+        kcalPer100g: { min: 260, max: 450 },
+        fiberZero: false,
+        servingGrams: { min: 20, max: 250 },
+      },
+      {
+        id: 'grain-cooked',
+        label: 'Plain cooked rice, pasta and grains',
+        examples: 'boiled rice, brown rice, plain pasta, couscous, quinoa, porridge',
+        kcalPer100g: { min: 50, max: 180 },
+        fiberZero: false,
+        katoriServed: true,
+        servingGrams: { min: 30, max: 500 },
+      },
+      {
+        id: 'rice-dish',
+        label: 'Rice dishes',
+        examples: 'biryani, pulao, khichdi, zeera rice, fried rice, paella',
+        kcalPer100g: { min: 110, max: 260 },
+        fiberZero: false,
+        katoriServed: true,
+        servingGrams: { min: 30, max: 600 },
+      },
+      {
+        id: 'curry-meat',
+        label: 'Meat, chicken and fish curries',
+        examples: 'salan, karahi, qorma, aloo gosht, keema, nihari, haleem, paye, albondigas',
+        kcalPer100g: { min: 90, max: 360 },
+        fiberZero: false,
+        katoriServed: true,
+        servingGrams: { min: 30, max: 500 },
+      },
+      {
+        id: 'curry-veg',
+        label: 'Vegetable dishes',
+        examples: 'sabzi, bhindi, aloo matar, saag, karela, baingan, pisto',
+        kcalPer100g: { min: 40, max: 250 },
+        fiberZero: false,
+        katoriServed: true,
+        servingGrams: { min: 30, max: 400 },
+      },
+      {
+        id: 'daal-legume',
+        label: 'Daal and legume dishes',
+        examples: 'daal masoor, mash, chana, moong, cholay, lobia, rajma, lentejas, garbanzos',
+        kcalPer100g: { min: 60, max: 250 },
+        fiberZero: false,
+        katoriServed: true,
+        servingGrams: { min: 30, max: 450 },
+      },
+      {
+        id: 'grill-kebab',
+        label: 'Kebabs, tikka, BBQ and fried chicken',
+        examples: 'seekh kebab, chicken tikka, malai boti, chapli kebab, shami kebab, broast',
+        kcalPer100g: { min: 120, max: 380 },
+        fiberZero: false,
+        servingGrams: { min: 15, max: 400 },
+      },
+      {
+        id: 'meat-fish',
+        label: 'Plain meat, poultry and fish',
+        examples: 'chicken breast, mince, mutton, rohu, prawns, canned tuna (raw or simply cooked)',
+        kcalPer100g: { min: 60, max: 350 },
+        fiberZero: true,
+        servingGrams: { min: 15, max: 400 },
+      },
+      {
+        id: 'egg',
+        label: 'Eggs and egg dishes',
+        examples: 'boiled egg, fried egg, omelette, anda curry, tortilla de patatas, shakshuka',
+        kcalPer100g: { min: 40, max: 260 },
+        fiberZero: false,
+        servingGrams: { min: 30, max: 350 },
+      },
+      {
+        id: 'dairy',
+        label: 'Milk, yogurt, cheese and cream',
+        examples: 'milk, dahi, Greek yogurt, paneer, cheese, cream, khoya',
+        kcalPer100g: { min: 30, max: 420 },
+        fiberZero: true,
+        servingGrams: { min: 5, max: 500 },
+      },
+      {
+        id: 'fat-oil',
+        label: 'Oils, ghee and butter',
+        examples: 'cooking oil, desi ghee, banaspati, butter, olive oil, margarine',
+        kcalPer100g: { min: 500, max: 900 },
+        fiberZero: true,
+        servingGrams: { min: 2, max: 30 },
+      },
+      {
+        id: 'fruit',
+        label: 'Fresh fruit',
+        examples: 'banana, apple, mango, kinnow, guava, melon, avocado',
+        kcalPer100g: { min: 15, max: 170 },
+        fiberZero: false,
+        servingGrams: { min: 5, max: 600 },
+      },
+      {
+        id: 'fruit-dried',
+        label: 'Dates and dried fruit',
+        examples: 'khajoor, chhuhara, raisins, dried apricots, figs',
+        kcalPer100g: { min: 230, max: 360 },
+        fiberZero: false,
+        servingGrams: { min: 3, max: 100 },
+      },
+      {
+        id: 'vegetable',
+        label: 'Vegetables and plain salad',
+        examples: 'cucumber, tomato, onion, carrot, boiled potato, kachumber without dressing',
+        kcalPer100g: { min: 10, max: 110 },
+        fiberZero: false,
+        servingGrams: { min: 5, max: 400 },
+      },
+      {
+        id: 'nuts-seeds',
+        label: 'Nuts, seeds and roasted pulses',
+        examples: 'almonds, peanuts, walnuts, peanut butter, tahini, bhuna chana',
+        kcalPer100g: { min: 350, max: 720 },
+        fiberZero: false,
+        servingGrams: { min: 5, max: 100 },
+      },
+      {
+        id: 'side-dip',
+        label: 'Raita, dressed salads and dips',
+        examples: 'raita, chutney with yogurt, hummus, tzatziki, Greek salad',
+        kcalPer100g: { min: 20, max: 350 },
+        fiberZero: false,
+        katoriServed: true,
+        servingGrams: { min: 10, max: 250 },
+      },
+      {
+        id: 'condiment',
+        label: 'Sauces, pickles and spreads',
+        examples: 'ketchup, mayonnaise, achaar, imli chutney, chilli sauce, mustard',
+        kcalPer100g: { min: 10, max: 750 },
+        fiberZero: false,
+        servingGrams: { min: 2, max: 60 },
+      },
+      {
+        id: 'sugar-sweetener',
+        label: 'Sugar, gur, honey, jam and syrups',
+        examples: 'cheeni, gur, shakkar, honey, jam, Rooh Afza syrup',
+        kcalPer100g: { min: 240, max: 400 },
+        fiberZero: false,
+        servingGrams: { min: 2, max: 40 },
+      },
+      {
+        id: 'drink-tea-coffee',
+        label: 'Chai, tea and coffee',
+        examples: 'doodh patti, dhaba chai, Kashmiri chai, green tea, qehwa, black coffee, latte',
+        kcalPer100g: { min: 0, max: 160 },
+        fiberZero: true,
+        servingGrams: { min: 30, max: 500 },
+      },
+      {
+        id: 'drink-milk',
+        label: 'Milk drinks',
+        examples: 'lassi, milkshake, doodh soda, Rooh Afza with milk, falooda',
+        kcalPer100g: { min: 40, max: 220 },
+        fiberZero: false,
+        servingGrams: { min: 100, max: 600 },
+      },
+      {
+        id: 'drink-other',
+        label: 'Juices, soft drinks and sharbat',
+        examples: 'fresh juice, sugarcane juice, cola, nimbu pani, sharbat, sports drinks',
+        kcalPer100g: { min: 0, max: 90 },
+        fiberZero: false,
+        servingGrams: { min: 30, max: 750 },
+      },
+      {
+        id: 'sweet-dessert',
+        label: 'Desi sweets and desserts',
+        examples: 'kheer, gulab jamun, jalebi, halwa, barfi, ras malai, custard, ice cream',
+        kcalPer100g: { min: 90, max: 500 },
+        fiberZero: false,
+        servingGrams: { min: 10, max: 300 },
+      },
+      {
+        id: 'biscuit-bakery',
+        label: 'Biscuits, rusks and bakery',
+        examples: 'tea biscuits, rusk, cake rusk, nankhatai, cake, croissant',
+        kcalPer100g: { min: 280, max: 560 },
+        fiberZero: false,
+        servingGrams: { min: 5, max: 150 },
+      },
+      {
+        id: 'snack-fried',
+        label: 'Fried snacks',
+        examples: 'samosa, pakora, fries, spring roll, croquetas, falafel, patatas bravas',
+        kcalPer100g: { min: 150, max: 420 },
+        fiberZero: false,
+        servingGrams: { min: 10, max: 400 },
+      },
+      {
+        id: 'snack-packaged',
+        label: 'Chips, nimko and crackers',
+        examples: 'crisps, nimko, dalmoth, salted crackers, popcorn',
+        kcalPer100g: { min: 350, max: 600 },
+        fiberZero: false,
+        servingGrams: { min: 5, max: 150 },
+      },
+      {
+        id: 'fastfood',
+        label: 'Burgers, pizza, rolls and sandwiches',
+        examples: 'zinger burger, bun kebab, shawarma, paratha roll, pizza, club sandwich',
+        kcalPer100g: { min: 150, max: 350 },
+        fiberZero: false,
+        servingGrams: { min: 50, max: 600 },
+      },
+      {
+        id: 'chaat',
+        label: 'Chaat and cold street dishes',
+        examples: 'fruit chaat, chana chaat, dahi bhalla, gol gappay, papri chaat',
+        kcalPer100g: { min: 60, max: 260 },
+        fiberZero: false,
+        servingGrams: { min: 50, max: 400 },
+      },
+      {
+        id: 'soup',
+        label: 'Soups and broths',
+        examples: 'yakhni, chicken corn soup, lentil soup, gazpacho',
+        kcalPer100g: { min: 10, max: 150 },
+        fiberZero: false,
+        katoriServed: true,
+        servingGrams: { min: 100, max: 500 },
+      },
+      {
+        id: 'pasta-dish',
+        label: 'Pasta and noodle dishes',
+        examples: 'spaghetti bolognese, chicken pasta, chow mein, macaroni, lasagne',
+        kcalPer100g: { min: 90, max: 260 },
+        fiberZero: false,
+        servingGrams: { min: 100, max: 500 },
+      },
+      {
+        id: 'dry-staple',
+        label: 'Flours, dry grains, dry pulses and cereals (as sold)',
+        examples: 'atta, besan, raw rice, dry daal, oats, cornflakes, muesli, granola',
+        kcalPer100g: { min: 300, max: 500 },
+        fiberZero: false,
+        servingGrams: { min: 5, max: 200 },
+      },
+      {
+        id: 'protein-supplement',
+        label: 'Protein powders and bars',
+        examples: 'whey protein, plant protein, protein bar',
+        kcalPer100g: { min: 300, max: 430 },
+        fiberZero: false,
+        servingGrams: { min: 15, max: 100 },
+      },
+    ],
 
-  // ---------------------------------------------------------------- vocabularies
-  // record.tags: every tag must be listed here. Rules: at least one `cuisine` tag;
-  // exactly one `halal` tag; `vegan` requires `vegetarian`.
-  tags: [
-    { id: 'pakistani', kind: 'cuisine', label: 'Pakistani' },
-    { id: 'desi-chinese', kind: 'cuisine', label: 'Desi Chinese' },
-    { id: 'spanish', kind: 'cuisine', label: 'Spanish' },
-    { id: 'mediterranean', kind: 'cuisine', label: 'Mediterranean' },
-    { id: 'middle-eastern', kind: 'cuisine', label: 'Middle Eastern' },
-    { id: 'western', kind: 'cuisine', label: 'Western' },
-    { id: 'international', kind: 'cuisine', label: 'International (generic food)' },
-    { id: 'vegetarian', kind: 'diet', label: 'Vegetarian' },
-    { id: 'vegan', kind: 'diet', label: 'Vegan' },
-    { id: 'contains-egg', kind: 'diet', label: 'Contains egg' },
-    { id: 'halal', kind: 'halal', label: 'Halal' },
-    { id: 'halal-check', kind: 'halal', label: 'Check halal status (gelatine, imported product)' },
-    { id: 'packaged', kind: 'other', label: 'Packaged product' },
-    { id: 'gym', kind: 'other', label: 'Gym staple' },
-    { id: 'fried', kind: 'other', label: 'Deep-fried' },
-    { id: 'iftar', kind: 'other', label: 'Iftar favourite' },
-  ],
-  tagRules: { minCuisineTags: 1, exactlyOneHalalTag: true, veganRequiresVegetarian: true },
+    // ---------------------------------------------------------------- vocabularies
+    // record.tags: every tag must be listed here. Rules: at least one `cuisine` tag;
+    // exactly one `halal` tag; `vegan` requires `vegetarian`.
+    tags: [
+      { id: 'pakistani', kind: 'cuisine', label: 'Pakistani' },
+      { id: 'desi-chinese', kind: 'cuisine', label: 'Desi Chinese' },
+      { id: 'spanish', kind: 'cuisine', label: 'Spanish' },
+      { id: 'mediterranean', kind: 'cuisine', label: 'Mediterranean' },
+      { id: 'middle-eastern', kind: 'cuisine', label: 'Middle Eastern' },
+      { id: 'western', kind: 'cuisine', label: 'Western' },
+      { id: 'international', kind: 'cuisine', label: 'International (generic food)' },
+      { id: 'vegetarian', kind: 'diet', label: 'Vegetarian' },
+      { id: 'vegan', kind: 'diet', label: 'Vegan' },
+      { id: 'contains-egg', kind: 'diet', label: 'Contains egg' },
+      { id: 'halal', kind: 'halal', label: 'Halal' },
+      {
+        id: 'halal-check',
+        kind: 'halal',
+        label: 'Check halal status (gelatine, imported product)',
+      },
+      { id: 'packaged', kind: 'other', label: 'Packaged product' },
+      { id: 'gym', kind: 'other', label: 'Gym staple' },
+      { id: 'fried', kind: 'other', label: 'Deep-fried' },
+      { id: 'iftar', kind: 'other', label: 'Iftar favourite' },
+    ],
+    tagRules: { minCuisineTags: 1, exactlyOneHalalTag: true, veganRequiresVegetarian: true },
 
-  // v1 ships no pork and no alcohol. The data gate rejects these words (whole words, any case)
-  // in name, nameRoman or aliases, unless the same text also contains an allowed qualifier.
-  banned: {
-    words: ['pork', 'bacon', 'ham', 'jamon', 'jamón', 'lard', 'chorizo', 'salami', 'pepperoni', 'sausage', 'wine', 'beer', 'rum', 'whisky', 'whiskey', 'vodka', 'sangria', 'brandy', 'liqueur', 'sherry', 'alcohol', 'manteca'],
-    allowedQualifiers: ['chicken', 'beef', 'turkey', 'halal', 'mutton', 'vinegar', 'non-alcoholic', 'alcohol-free', 'malt'],
+    // v1 ships no pork and no alcohol. The data gate rejects these words (whole words, any case)
+    // in name, nameRoman or aliases, unless the same text also contains an allowed qualifier.
+    banned: {
+      words: [
+        'pork',
+        'bacon',
+        'ham',
+        'jamon',
+        'jamón',
+        'lard',
+        'chorizo',
+        'salami',
+        'pepperoni',
+        'sausage',
+        'wine',
+        'beer',
+        'rum',
+        'whisky',
+        'whiskey',
+        'vodka',
+        'sangria',
+        'brandy',
+        'liqueur',
+        'sherry',
+        'alcohol',
+        'manteca',
+      ],
+      allowedQualifiers: [
+        'chicken',
+        'beef',
+        'turkey',
+        'halal',
+        'mutton',
+        'vinegar',
+        'non-alcoholic',
+        'alcohol-free',
+        'malt',
+      ],
+    },
+
+    styles: [
+      { id: 'home', label: 'Home-made', labelRoman: 'Ghar ka' },
+      { id: 'restaurant', label: 'Restaurant', labelRoman: 'Restaurant' },
+      { id: 'dhaba', label: 'Dhaba', labelRoman: 'Dhaba' },
+      { id: 'street', label: 'Street stall', labelRoman: 'Thela' },
+    ],
+
+    sourceMethods: [
+      {
+        id: 'direct',
+        label:
+          'Taken directly from a food composition table entry for the same food in the same state',
+      },
+      {
+        id: 'recipe',
+        label: 'Calculated from a standard recipe (ingredients, yield, added fat stated)',
+      },
+      { id: 'label', label: 'From a dated product label' },
+      { id: 'analogue', label: 'Borrowed from a close, named analogue food' },
+    ],
+
+    confidenceGrades: [
+      {
+        id: 'A',
+        label: 'Measured',
+        badge: null,
+        description: 'Direct match to an analysed table entry (method must be direct).',
+      },
+      {
+        id: 'B',
+        label: 'Good match',
+        badge: null,
+        description: 'Close analogue, product label, or recipe with a known cooked yield.',
+      },
+      {
+        id: 'C',
+        label: 'Estimate',
+        badge: 'estimate',
+        description:
+          'Recipe with assumed oil and yield, or a dish that varies a lot between cooks.',
+      },
+    ],
   },
-
-  styles: [
-    { id: 'home', label: 'Home-made', labelRoman: 'Ghar ka' },
-    { id: 'restaurant', label: 'Restaurant', labelRoman: 'Restaurant' },
-    { id: 'dhaba', label: 'Dhaba', labelRoman: 'Dhaba' },
-    { id: 'street', label: 'Street stall', labelRoman: 'Thela' },
-  ],
-
-  sourceMethods: [
-    { id: 'direct', label: 'Taken directly from a food composition table entry for the same food in the same state' },
-    { id: 'recipe', label: 'Calculated from a standard recipe (ingredients, yield, added fat stated)' },
-    { id: 'label', label: 'From a dated product label' },
-    { id: 'analogue', label: 'Borrowed from a close, named analogue food' },
-  ],
-
-  confidenceGrades: [
-    { id: 'A', label: 'Measured', badge: null, description: 'Direct match to an analysed table entry (method must be direct).' },
-    { id: 'B', label: 'Good match', badge: null, description: 'Close analogue, product label, or recipe with a known cooked yield.' },
-    { id: 'C', label: 'Estimate', badge: 'estimate', description: 'Recipe with assumed oil and yield, or a dish that varies a lot between cooks.' },
-  ],
 
   // ---------------------------------------------------------------- household measures (reference)
   // Researchers use these when a food is served in these units: serving grams = ml × the food's
   // density. Food-specific servings (a roti, a samosa) live on each record with their own source.
   householdMeasures: [
-    { id: 'katori-small', label: 'Small katori', labelUr: 'چھوٹی کٹوری', ml: 155, source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (standard katori C8, 155 ml)' },
-    { id: 'katori', label: 'Katori (medium)', labelUr: 'کٹوری', ml: 200, source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (standard katori C7, 200 ml; "1 cup/katori = 200 ml")' },
-    { id: 'katori-large', label: 'Large katori', labelUr: 'بڑی کٹوری', ml: 360, source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (standard katori C6, 360 ml)' },
-    { id: 'cup', label: 'Cup (chai cup)', labelUr: 'کپ', ml: 200, source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I ("1 cup/katori = 200 ml")' },
-    { id: 'mug', label: 'Mug or large cup', labelUr: 'مگ', ml: 250, source: 'Pakistan Dietary Guidelines for Better Nutrition (MoPD&R and FAO, 2019): "1 cup = 250 ml"' },
-    { id: 'glass', label: 'Glass', labelUr: 'گلاس', ml: 250, source: 'Pakistan Dietary Guidelines for Better Nutrition (MoPD&R and FAO, 2019): 8 glasses = 2 litres' },
-    { id: 'tbsp', label: 'Tablespoon (bara chamach)', labelUr: 'بڑا چمچ', ml: 15, source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (tablespoon 15)' },
-    { id: 'tsp', label: 'Teaspoon (chhota chamach)', labelUr: 'چھوٹا چمچ', ml: 5, source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (teaspoon 5)' },
+    {
+      id: 'katori-small',
+      label: 'Small katori',
+      labelUr: 'چھوٹی کٹوری',
+      ml: 155,
+      source:
+        'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (standard katori C8, 155 ml)',
+    },
+    {
+      id: 'katori',
+      label: 'Katori (medium)',
+      labelUr: 'کٹوری',
+      ml: 200,
+      source:
+        'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (standard katori C7, 200 ml; "1 cup/katori = 200 ml")',
+    },
+    {
+      id: 'katori-large',
+      label: 'Large katori',
+      labelUr: 'بڑی کٹوری',
+      ml: 360,
+      source:
+        'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (standard katori C6, 360 ml)',
+    },
+    {
+      id: 'cup',
+      label: 'Cup (chai cup)',
+      labelUr: 'کپ',
+      ml: 200,
+      source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I ("1 cup/katori = 200 ml")',
+    },
+    {
+      id: 'mug',
+      label: 'Mug or large cup',
+      labelUr: 'مگ',
+      ml: 250,
+      source:
+        'Pakistan Dietary Guidelines for Better Nutrition (MoPD&R and FAO, 2019): "1 cup = 250 ml"',
+    },
+    {
+      id: 'glass',
+      label: 'Glass',
+      labelUr: 'گلاس',
+      ml: 250,
+      source:
+        'Pakistan Dietary Guidelines for Better Nutrition (MoPD&R and FAO, 2019): 8 glasses = 2 litres',
+    },
+    {
+      id: 'tbsp',
+      label: 'Tablespoon (bara chamach)',
+      labelUr: 'بڑا چمچ',
+      ml: 15,
+      source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (tablespoon 15)',
+    },
+    {
+      id: 'tsp',
+      label: 'Teaspoon (chhota chamach)',
+      labelUr: 'چھوٹا چمچ',
+      ml: 5,
+      source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (teaspoon 5)',
+    },
   ],
   // Reference gram weights for common items (USDA FNDDS 2021-2023 / SR Legacy portion tables).
   referenceWeightsG: [
-    { id: 'roti-small', label: 'Roti, small (6 in / 15 cm)', grams: 27, source: 'USDA FNDDS 2707713 Bread, chappatti or roti' },
-    { id: 'roti-medium', label: 'Roti, medium (7 in / 18 cm)', grams: 40, source: 'USDA FNDDS 2707713 Bread, chappatti or roti' },
-    { id: 'roti-large', label: 'Roti, large (8 in / 20 cm)', grams: 52, source: 'USDA FNDDS 2707713 Bread, chappatti or roti' },
-    { id: 'paratha', label: 'Paratha, 1 piece', grams: 70, source: 'USDA FNDDS 2707715 Bread, paratha' },
-    { id: 'puri', label: 'Puri, 1 piece (12 cm)', grams: 36, source: 'USDA FNDDS 2707714 Bread, puri' },
-    { id: 'naan-whole', label: 'Naan, whole (10 in / 25 cm)', grams: 177, source: 'USDA FNDDS 2707613 Bread, naan' },
-    { id: 'egg-boiled', label: 'Egg, boiled, 1 (edible part)', grams: 50, source: 'USDA FNDDS Egg, whole, boiled or poached' },
-    { id: 'egg-fried', label: 'Egg, fried in oil, 1', grams: 55, source: 'USDA FNDDS Egg, whole, fried with oil' },
-    { id: 'sugar-tsp', label: 'Sugar, 1 level teaspoon', grams: 4.2, source: 'USDA SR Legacy 169655 Sugars, granulated' },
-    { id: 'oil-tsp', label: 'Oil, 1 teaspoon', grams: 4.5, source: 'USDA SR Legacy 171411 Oil, soybean' },
-    { id: 'oil-tbsp', label: 'Oil, 1 tablespoon', grams: 13.6, source: 'USDA SR Legacy 171411 Oil, soybean' },
+    {
+      id: 'roti-small',
+      label: 'Roti, small (6 in / 15 cm)',
+      grams: 27,
+      source: 'USDA FNDDS 2707713 Bread, chappatti or roti',
+    },
+    {
+      id: 'roti-medium',
+      label: 'Roti, medium (7 in / 18 cm)',
+      grams: 40,
+      source: 'USDA FNDDS 2707713 Bread, chappatti or roti',
+    },
+    {
+      id: 'roti-large',
+      label: 'Roti, large (8 in / 20 cm)',
+      grams: 52,
+      source: 'USDA FNDDS 2707713 Bread, chappatti or roti',
+    },
+    {
+      id: 'paratha',
+      label: 'Paratha, 1 piece',
+      grams: 70,
+      source: 'USDA FNDDS 2707715 Bread, paratha',
+    },
+    {
+      id: 'puri',
+      label: 'Puri, 1 piece (12 cm)',
+      grams: 36,
+      source: 'USDA FNDDS 2707714 Bread, puri',
+    },
+    {
+      id: 'naan-whole',
+      label: 'Naan, whole (10 in / 25 cm)',
+      grams: 177,
+      source: 'USDA FNDDS 2707613 Bread, naan',
+    },
+    {
+      id: 'egg-boiled',
+      label: 'Egg, boiled, 1 (edible part)',
+      grams: 50,
+      source: 'USDA FNDDS Egg, whole, boiled or poached',
+    },
+    {
+      id: 'egg-fried',
+      label: 'Egg, fried in oil, 1',
+      grams: 55,
+      source: 'USDA FNDDS Egg, whole, fried with oil',
+    },
+    {
+      id: 'sugar-tsp',
+      label: 'Sugar, 1 level teaspoon',
+      grams: 4.2,
+      source: 'USDA SR Legacy 169655 Sugars, granulated',
+    },
+    {
+      id: 'oil-tsp',
+      label: 'Oil, 1 teaspoon',
+      grams: 4.5,
+      source: 'USDA SR Legacy 171411 Oil, soybean',
+    },
+    {
+      id: 'oil-tbsp',
+      label: 'Oil, 1 tablespoon',
+      grams: 13.6,
+      source: 'USDA SR Legacy 171411 Oil, soybean',
+    },
   ],
   // Density (g per ml) for converting household volumes to grams. Use the food's own density
   // when its source gives one; otherwise the closest row here.
   densityGPerMl: [
-    { id: 'water-like', label: 'Chai, milk, juice, lassi, thin daal', value: 1.03, source: 'USDA SR Legacy 171265 whole milk, 1 cup = 244 g (237 ml)' },
-    { id: 'daal', label: 'Daal and thin curries', value: 1.0, source: 'USDA FNDDS 2707427 Dal, 1 cup = 240 g' },
-    { id: 'yogurt', label: 'Dahi and raita', value: 1.03, source: 'USDA FNDDS 2705418 Yogurt, whole milk, plain, 1 cup = 245 g' },
-    { id: 'rice-cooked', label: 'Plain cooked rice', value: 0.67, source: 'USDA FNDDS 2708408 Rice, white, cooked, 1 cup = 158 g' },
-    { id: 'biryani', label: 'Biryani and pulao', value: 0.83, source: 'USDA FNDDS 2706538 Biryani with chicken, 1 cup = 196 g' },
-    { id: 'oil', label: 'Oil and ghee', value: 0.91, source: 'USDA SR Legacy 171411 Oil, soybean, 1 tbsp = 13.6 g' },
-    { id: 'sugar', label: 'Sugar', value: 0.84, source: 'USDA SR Legacy 169655 Sugars, granulated, 1 cup = 200 g' },
+    {
+      id: 'water-like',
+      label: 'Chai, milk, juice, lassi, thin daal',
+      value: 1.03,
+      source: 'USDA SR Legacy 171265 whole milk, 1 cup = 244 g (237 ml)',
+    },
+    {
+      id: 'daal',
+      label: 'Daal and thin curries',
+      value: 1.0,
+      source: 'USDA FNDDS 2707427 Dal, 1 cup = 240 g',
+    },
+    {
+      id: 'yogurt',
+      label: 'Dahi and raita',
+      value: 1.03,
+      source: 'USDA FNDDS 2705418 Yogurt, whole milk, plain, 1 cup = 245 g',
+    },
+    {
+      id: 'rice-cooked',
+      label: 'Plain cooked rice',
+      value: 0.67,
+      source: 'USDA FNDDS 2708408 Rice, white, cooked, 1 cup = 158 g',
+    },
+    {
+      id: 'biryani',
+      label: 'Biryani and pulao',
+      value: 0.83,
+      source: 'USDA FNDDS 2706538 Biryani with chicken, 1 cup = 196 g',
+    },
+    {
+      id: 'oil',
+      label: 'Oil and ghee',
+      value: 0.91,
+      source: 'USDA SR Legacy 171411 Oil, soybean, 1 tbsp = 13.6 g',
+    },
+    {
+      id: 'sugar',
+      label: 'Sugar',
+      value: 0.84,
+      source: 'USDA SR Legacy 169655 Sugars, granulated, 1 cup = 200 g',
+    },
   ],
 };

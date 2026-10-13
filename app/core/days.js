@@ -151,9 +151,9 @@ export function averageTotals(rows) {
 }
 
 /**
- * Default slot for a new entry from the time of day, using RULES.mealSlots.default[].hours
- * ({ from: 'HH:MM', to: 'HH:MM' }, half-open, may wrap past midnight, '24:00' allowed).
- * No window matches -> 'snacks'.
+ * Default slot for a new entry from the time of day, using RULES.mealSlots.default[].hours =
+ * [startMinute, endMinute): minutes since local midnight, half-open, may wrap past midnight
+ * (start > end). No window matches -> 'snacks'.
  * @param {number} minutes 0..1439 @param {object} rules RULES @returns {SlotId}
  */
 export function slotForTime(minutes, rules) {
