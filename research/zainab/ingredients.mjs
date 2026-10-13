@@ -85,6 +85,8 @@ export default {
   'beef-stew': { src: 'fdc', code: 171206, label: 'Beef, chuck for stew, lean and fat, raw' },
   'beef-shank': { src: 'fdc', code: 169441, label: 'Beef, shank, lean, raw (nalli gosht)' },
   goat: { src: 'fdc', code: 175303, label: 'Goat meat, raw (mutton, bakra)' },
+  'beef-tallow': { src: 'fdc', code: 171400, label: 'Beef fat (tallow) — used as a negative line for fat that drips off on the grill' },
+  'tomato-paste': { src: 'fdc', code: 170459, label: 'Tomato paste' },
   egg: { src: 'fdc', code: 171287, label: 'Egg, whole, raw' },
   'egg-yolk': { src: 'fdc', code: 172184, label: 'Egg yolk, raw' },
   sesame: { src: 'ifct', code: 'H011', label: 'Sesame (til), white' },

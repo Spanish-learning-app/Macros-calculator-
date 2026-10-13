@@ -83,7 +83,6 @@ export function openDialog({
  *   icon?: string, onSelect: () => void, testid?: string }[] }} options
  */
 export function openActionSheet({ title, actions, testid = 'action-sheet' }) {
-  let handle;
   const list = h(
     'ul',
     { class: 'sheet-actions', role: 'list' },
@@ -113,6 +112,7 @@ export function openActionSheet({ title, actions, testid = 'action-sheet' }) {
       ),
     ),
   );
-  handle = openDialog({ title, content: list, testid, className: 'dlg--sheet' });
+  // `handle` is read only when an action is tapped, after it is assigned.
+  const handle = openDialog({ title, content: list, testid, className: 'dlg--sheet' });
   return handle;
 }

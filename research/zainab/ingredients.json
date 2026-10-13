@@ -943,6 +943,38 @@
   "sodiumMg": 82,
   "water": 75.84
  },
+ "beef-tallow": {
+  "label": "Beef fat (tallow) — used as a negative line for fat that drips off on the grill",
+  "src": "fdc",
+  "code": 171400,
+  "perMl": false,
+  "citation": "FDC 171400 (SR Legacy): Fat, beef tallow",
+  "kcal": 902,
+  "protein": 0,
+  "carbs": 0,
+  "fat": 100,
+  "fiber": 0,
+  "sugars": 0,
+  "satFat": 49.8,
+  "sodiumMg": 0,
+  "water": 0
+ },
+ "tomato-paste": {
+  "label": "Tomato paste",
+  "src": "fdc",
+  "code": 170459,
+  "perMl": false,
+  "citation": "FDC 170459 (SR Legacy): Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+  "kcal": 82,
+  "protein": 4.32,
+  "carbs": 14.81,
+  "fat": 0.47,
+  "fiber": 4.1,
+  "sugars": 12.18,
+  "satFat": 0.1,
+  "sodiumMg": 59,
+  "water": 73.5
+ },
  "egg": {
   "label": "Egg, whole, raw",
   "src": "fdc",
