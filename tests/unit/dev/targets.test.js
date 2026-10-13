@@ -18,7 +18,18 @@ import { deepFreeze, close } from './helpers.js';
 
 const FROZEN_RULES = deepFreeze(structuredClone(RULES));
 
-function profile(sex, ageYears, heightCm, weightKg, activity, goal, rate, lifts, flags = [], extra = {}) {
+function profile(
+  sex,
+  ageYears,
+  heightCm,
+  weightKg,
+  activity,
+  goal,
+  rate,
+  lifts,
+  flags = [],
+  extra = {},
+) {
   return deepFreeze({
     sex,
     ageYears,
@@ -40,7 +51,10 @@ const P = {
   D: profile('male', 25, 180, 70, 'very_active', 'gain', 0.5, true),
   E: profile('female', 60, 150, 50, 'sedentary', 'lose', 0.5, false),
   F: profile('male', 68, 170, 65, 'light', 'maintain', 0, false),
-  G: profile('male', 55, 172, 95, 'light', 'lose', 1.0, true, ['kidney_disease', 'diabetes_hypo_risk']),
+  G: profile('male', 55, 172, 95, 'light', 'lose', 1.0, true, [
+    'kidney_disease',
+    'diabetes_hypo_risk',
+  ]),
   H: profile('female', 28, 163, 62, 'light', 'lose', 0.5, false, ['pregnant']),
   I: profile('female', 16, 158, 50, 'light', 'lose', 0.5, false),
   J: profile('female', 24, 165, 48, 'light', 'lose', 0.5, false),
@@ -50,19 +64,70 @@ const PREFS = { K: deepFreeze({ proteinGPerKg: 2.2, fatPct: 25 }) };
 
 // [bmr, tdee, energyDelta | null, kcal, P, F, C, fibre, warnings, extra]
 const VECTORS = {
-  A: [1748.75, 2710.56, -550, 2160, 156, 72, 222, 30, [], { bmi: 26.12, prw: 77.94, formula: 'mifflin' }],
-  B: [1514.0, 1816.8, -454.2, 1360, 87, 45, 152, 25, ['deficit_capped'], { bmi: 33.2, prw: 72.4, rate: -0.41 }],
+  A: [
+    1748.75,
+    2710.56,
+    -550,
+    2160,
+    156,
+    72,
+    222,
+    30,
+    [],
+    { bmi: 26.12, prw: 77.94, formula: 'mifflin' },
+  ],
+  B: [
+    1514.0,
+    1816.8,
+    -454.2,
+    1360,
+    87,
+    45,
+    152,
+    25,
+    ['deficit_capped'],
+    { bmi: 33.2, prw: 72.4, rate: -0.41 },
+  ],
   C: [1786.96, 2769.79, -550, 2220, 156, 74, 233, 31, [], { formula: 'katch' }],
   D: [1705.0, 2941.13, 550, 3490, 126, 116, 486, 49, [], { rate: 0.5 }],
   E: [976.5, 1171.8, 0, 1170, 60, 39, 145, 25, ['deficit_capped', 'kcal_floor'], {}],
   F: [1377.5, 1894.06, 0, 1890, 78, 63, 253, 26, [], {}],
   G: [
-    1755.0, 2413.13, -603.28, 1810, 66, 60, 252, 25,
+    1755.0,
+    2413.13,
+    -603.28,
+    1810,
+    66,
+    60,
+    252,
+    25,
     ['kidney_disease', 'diabetes_hypo_risk', 'deficit_capped', 'protein_capped'],
     { bmi: 32.11, prw: 82.38 },
   ],
-  H: [1337.75, 1839.41, 0, 1840, 62, 61, 261, 26, ['pregnant', 'goal_changed'], { goal: 'maintain' }],
-  J: [1230.25, 1691.59, 0, 1690, 48, 56, 249, 25, ['underweight', 'goal_changed'], { goal: 'maintain' }],
+  H: [
+    1337.75,
+    1839.41,
+    0,
+    1840,
+    62,
+    61,
+    261,
+    26,
+    ['pregnant', 'goal_changed'],
+    { goal: 'maintain' },
+  ],
+  J: [
+    1230.25,
+    1691.59,
+    0,
+    1690,
+    48,
+    56,
+    249,
+    25,
+    ['underweight', 'goal_changed'],
+    { goal: 'maintain' },
+  ],
   K: [1748.75, 2710.56, -550, 2160, 171, 60, 234, 30, [], {}],
 };
 
@@ -109,8 +174,21 @@ test('NUTRITION.md §2.7 vector I: a minor gets no targets', () => {
 
 test('the result has exactly the TargetResult keys', () => {
   const keys = [
-    'ok', 'kcal', 'protein', 'carbs', 'fat', 'fiber', 'bmr', 'tdee', 'bmi', 'prw', 'bmrFormula',
-    'effectiveGoal', 'energyDelta', 'effectiveRateKgPerWeek', 'warnings',
+    'ok',
+    'kcal',
+    'protein',
+    'carbs',
+    'fat',
+    'fiber',
+    'bmr',
+    'tdee',
+    'bmi',
+    'prw',
+    'bmrFormula',
+    'effectiveGoal',
+    'energyDelta',
+    'effectiveRateKgPerWeek',
+    'warnings',
   ].sort();
   assert.deepEqual(Object.keys(computeTargets(P.A, RULES)).sort(), keys);
   assert.deepEqual(Object.keys(computeTargets(P.I, RULES)).sort(), keys);
@@ -156,11 +234,17 @@ test('constants come from RULES, not from the code', () => {
 
 test('flag effects: pregnant and breastfeeding lock the goal to maintain', () => {
   for (const flag of ['pregnant', 'breastfeeding']) {
-    const gain = computeTargets({ ...P.H, goal: 'gain', rateKgPerWeek: 0.25, healthFlags: [flag] }, RULES);
+    const gain = computeTargets(
+      { ...P.H, goal: 'gain', rateKgPerWeek: 0.25, healthFlags: [flag] },
+      RULES,
+    );
     assert.equal(gain.effectiveGoal, 'maintain');
     assert.equal(gain.energyDelta, 0);
     assertWarnings(gain, [flag, 'goal_changed']);
-    const maintain = computeTargets({ ...P.H, goal: 'maintain', rateKgPerWeek: 0, healthFlags: [flag] }, RULES);
+    const maintain = computeTargets(
+      { ...P.H, goal: 'maintain', rateKgPerWeek: 0, healthFlags: [flag] },
+      RULES,
+    );
     assertWarnings(maintain, [flag]); // no goal_changed when nothing changed
   }
   // appliesToSex: the flag is ignored for a man.
@@ -190,17 +274,21 @@ test('flag effects: kidney_disease caps protein at 0.8 g/kg PRW', () => {
   assert.equal(r.protein, Math.round(0.8 * r.prw));
   assertWarnings(r, ['kidney_disease', 'protein_capped']);
   // The cap also applies to a preference, and is silent when g is already <= 0.8.
-  const pref = computeTargets({ ...P.A, healthFlags: ['kidney_disease'] }, RULES, { proteinGPerKg: 2.5 });
+  const pref = computeTargets({ ...P.A, healthFlags: ['kidney_disease'] }, RULES, {
+    proteinGPerKg: 2.5,
+  });
   assert.equal(pref.protein, Math.round(0.8 * pref.prw));
-  const low = computeTargets({ ...P.A, healthFlags: ['kidney_disease'] }, RULES, { proteinGPerKg: 0.8 });
+  const low = computeTargets({ ...P.A, healthFlags: ['kidney_disease'] }, RULES, {
+    proteinGPerKg: 0.8,
+  });
   assertWarnings(low, ['kidney_disease']);
 });
 
 test('flag effects: diabetes_hypo_risk and age_over_80 are notes only', () => {
   const base = computeTargets(P.A, RULES);
   const diabetes = computeTargets({ ...P.A, healthFlags: ['diabetes_hypo_risk'] }, RULES);
-  const { warnings: w1, ...n1 } = base;
-  const { warnings: w2, ...n2 } = diabetes;
+  const n1 = { ...base, warnings: null };
+  const n2 = { ...diabetes, warnings: null };
   assert.deepEqual(n2, n1);
   assertWarnings(diabetes, ['diabetes_hypo_risk']);
   const old = computeTargets({ ...P.F, ageYears: 85 }, RULES);
@@ -211,7 +299,11 @@ test('flag effects: diabetes_hypo_risk and age_over_80 are notes only', () => {
 
 test('derived flags: minor below 18, underweight below BMI 18.5', () => {
   assert.equal(computeTargets({ ...P.J, ageYears: 17 }, RULES).ok, false);
-  assertWarnings(computeTargets({ ...P.J, ageYears: 17 }, RULES), ['minor', 'underweight', 'no_targets']);
+  assertWarnings(computeTargets({ ...P.J, ageYears: 17 }, RULES), [
+    'minor',
+    'underweight',
+    'no_targets',
+  ]);
   assert.equal(computeTargets({ ...P.F, ageYears: 18 }, RULES).ok, true);
   const gain = computeTargets({ ...P.J, goal: 'gain', rateKgPerWeek: 0.25 }, RULES);
   assert.equal(gain.effectiveGoal, 'gain');
@@ -241,7 +333,10 @@ test('prefs are clamped to RULES ranges; null means the default', () => {
   const min = computeTargets(P.A, RULES, { proteinGPerKg: 0.8, fatPct: 20 });
   assert.equal(lo.protein, min.protein);
   assert.equal(lo.fat, min.fat);
-  assert.deepEqual(computeTargets(P.A, RULES, { proteinGPerKg: null, fatPct: null }), computeTargets(P.A, RULES));
+  assert.deepEqual(
+    computeTargets(P.A, RULES, { proteinGPerKg: null, fatPct: null }),
+    computeTargets(P.A, RULES),
+  );
   assert.deepEqual(computeTargets(P.A, RULES, {}), computeTargets(P.A, RULES));
   assert.throws(() => computeTargets(P.A, RULES, { fatPct: 'lots' }), RangeError);
 });
@@ -326,7 +421,13 @@ test('validateProfile: never throws, reports each problem', () => {
 
 test('resolveTargets: overrides win per key; null without targets', () => {
   const r = computeTargets(P.A, RULES);
-  assert.deepEqual(resolveTargets(r, {}), { kcal: 2160, protein: 156, carbs: 222, fat: 72, fiber: 30 });
+  assert.deepEqual(resolveTargets(r, {}), {
+    kcal: 2160,
+    protein: 156,
+    carbs: 222,
+    fat: 72,
+    fiber: 30,
+  });
   assert.deepEqual(resolveTargets(r, { kcal: 2000, protein: null, fat: undefined }), {
     kcal: 2000,
     protein: 156,

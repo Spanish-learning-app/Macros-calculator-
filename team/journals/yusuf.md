@@ -37,3 +37,7 @@
   593/37.4/10.5 · 9 chana chaat 567/49.4/14.0 · 10 tuna-chickpea 560/42.0/12.9 · 11 hummus pasta
   618/49.1/13.8 · 12 tortilla+protein yogurt 607/41.7/8.3. Changes noted in each recipe .mjs.
 - Next: build.mjs → recipe sheets (.md), app/data/foods-mealprep.js, docs/MEALPREP.md; then check-foods.
+- 23:55 Omar: Boss widened meal prep to breakfast + dinner. Sprint 1 unchanged (12 lunch boxes).
+  TODO: "Planned for Sprint 2" section in docs/MEALPREP.md (5–6 breakfast preps, 25–40 g protein,
+  jars/portions; 6–8 freezer-friendly desi dinners with Zainab). Serving names follow the container
+  ("1 box", "1 jar", "1 portion"); `lunchbox` group may be generalised by Ayesha.

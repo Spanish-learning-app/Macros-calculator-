@@ -80,7 +80,8 @@ export function bmr(profile, rules) {
     return { value: constant + perKgLeanMass * leanKg, formula: 'katch' };
   }
   const m = rules.bmr.mifflinStJeor;
-  if (!Object.hasOwn(m.constant, profile.sex)) throw new RangeError(`unknown sex ${show(profile.sex)}`);
+  if (!Object.hasOwn(m.constant, profile.sex))
+    throw new RangeError(`unknown sex ${show(profile.sex)}`);
   const value =
     m.perKg * profile.weightKg +
     m.perCm * profile.heightCm +
@@ -166,7 +167,8 @@ function checkComputable(profile) {
 /** A user preference: null/undefined = none; a number is clamped; anything else is bad input. */
 function preference(value, range, name) {
   if (value == null) return null;
-  if (!isNumber(value)) throw new RangeError(`${name} must be a number or null, got ${show(value)}`);
+  if (!isNumber(value))
+    throw new RangeError(`${name} must be a number or null, got ${show(value)}`);
   return clampTo(value, range);
 }
 
@@ -198,7 +200,11 @@ function activeFlags(profile, rules, bmiValue) {
 export function computeTargets(profile, rules, prefs = {}) {
   checkComputable(profile);
   const R = rules;
-  const proteinPref = preference(prefs?.proteinGPerKg, R.protein.overrideGPerKgPrw, 'proteinGPerKg');
+  const proteinPref = preference(
+    prefs?.proteinGPerKg,
+    R.protein.overrideGPerKgPrw,
+    'proteinGPerKg',
+  );
   const fatPref = preference(prefs?.fatPct, R.fat.pctOfKcalRange, 'fatPct');
   const codes = [];
   const fire = (code) => codes.includes(code) || codes.push(code);
