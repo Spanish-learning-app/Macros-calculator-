@@ -78,3 +78,16 @@
   - Added settings.onboarding (pending/done/skipped) to the contract (types.js and the storage.js JSDoc). Told Hamza via Omar.
   - Tests: tests/unit/dev/store.test.js has 15 tests that are TODO in the repo until core lands. They pass 15/15 in Madrid, Karachi and LA against throwaway core stand-ins in the scratchpad (never in the repo).
   - ARCHITECTURE §7.3 rewritten. Omar told so he can tell Priya.
+- 2026-10-13 23:55 UTC: INTEGRATION in app/main.js.
+  - Boot order: router and tabs first (so they work even if the app can't start), then the food data module, then persistence (null backend if touching localStorage throws), then the store.
+  - Views mount by route through a dynamic import of ./ui/views/<name>.js, with a placeholder while a view is missing. The add route is handled by the day view; notfound goes to day.
+  - Redirect to #/welcome while onboarding is pending, for day, add and week only.
+  - Storage banner (.storage-banner) for unavailable, corrupt, future, quota and missing foods. Theme goes to html[data-theme]. flush() on pagehide and on a hidden tab.
+  - Kept a hidden [data-testid=data-status] for Kenji's smoke spec. It is deprecated; to be told to Kenji.
+  - Checked in Chromium against the scratch shim core (360 px, Madrid): a fresh start goes to welcome; throwing storage shows the banner and the app still works; skipped onboarding plus dark theme reaches week with Week marked current.
+  - E2E on the real repo is 8/8 (the core is still stubs, so the app shows the "still being assembled" placeholder).
+- 2026-10-13 23:58 UTC: My own tests are now router.test.js (4 pass) and store.test.js (15, TODO until core lands). Added scripts/publish-files.mjs (`npm run publish:files`), which prints the Artifact files map and checks that every import resolves. Today: 31 files besides the page.
+- 2026-10-14 00:00 UTC: REVIEW of Hamza's units.js: good (decimal-exact round, -0 fix, carried ft/in, guarded inputs). Minor: a non-number throws RangeError where §5 says TypeError.
+  - Mutation check on Kenji's units suite: 4 bugs planted in scratch copies (naive round, no ft/in carry, missing ¾ glyph, negative toGrams). All 4 CAUGHT, each by the right test.
+  - Bug in Kenji's test: "kgFromLb and lbFromKg are unrounded inverses" expects lbFromKg(82) = 180.7783, but the correct value is 180.779055. This makes `npm run check` red.
+  - Priya's work-in-progress dialog.js has one prefer-const lint error (hers to fix before hand-off).

@@ -126,7 +126,7 @@ test('validateFood: halal field (meeting 002)', () => {
 
 test('validateFood: other structural problems', () => {
   const cases = [
-    [(f) => (f.id = 'Roti Home'), /id 'Roti Home'.*kebab-case/i, "Roti Home: "],
+    [(f) => (f.id = 'Roti Home'), /id 'Roti Home'.*kebab-case/i, 'Roti Home: '],
     [(f) => (f.id = 'xx-roti'), /id 'xx-roti'.*prefix/i, 'xx-roti: '],
     [(f) => (f.name = ''), /name/i],
     [(f) => delete f.aliases, /aliases/i],
@@ -202,11 +202,11 @@ test('validateFood: never throws, even on junk', () => {
       },
     ),
   ];
-  for (const value of junk) {
+  junk.forEach((value, i) => {
     const problems = validateFood(value, RULES);
-    assert.ok(Array.isArray(problems) && problems.length > 0, String(value));
+    assert.ok(Array.isArray(problems) && problems.length > 0, `junk[${i}]`);
     assert.ok(problems.every((p) => typeof p === 'string'));
-  }
+  });
   assert.ok(validateFood({ id: 'pk-x' })[0].startsWith('pk-x: '));
   // A rules object with missing parts does not make it throw.
   assert.ok(Array.isArray(validateFood(fixture('pk-roti-home-fx'), {})));
@@ -325,7 +325,7 @@ test('energyCheck: Atwater from RULES, tolerance max(pct, kcal)', () => {
   const per = (kcal, carbs) => deepFreeze({ kcal, protein: 0, carbs, fat: 0, fiber: 0 });
   // Small food: the 10 kcal floor applies (10% of 50 is only 5).
   assert.equal(energyCheck(per(50, 15), RULES).ok, true); // computed 60, delta −10
-  assert.equal(energyCheck(per(50, 15).kcal && per(50, 15.125), RULES).ok, false); // 60.5
+  assert.equal(energyCheck(per(50, 15.125), RULES).ok, false); // computed 60.5
   assert.equal(energyCheck(per(50, 15.125), RULES).tolerance, 10);
   // Large food: 10% applies.
   assert.equal(energyCheck(per(200, 55), RULES).ok, true); // computed 220, delta −20
@@ -333,7 +333,12 @@ test('energyCheck: Atwater from RULES, tolerance max(pct, kcal)', () => {
   assert.equal(energyCheck(per(200, 55.25), RULES).tolerance, 20);
   assert.equal(energyCheck(per(200, 45), RULES).ok, true); // computed 180, delta +20
   // Uses RULES factors, not hard-coded ones.
-  const rules = { energy: { factors: { protein: 4, carbs: 4, fat: 9, fiber: 0 }, tolerance: RULES.energy.tolerance } };
+  const rules = {
+    energy: {
+      factors: { protein: 4, carbs: 4, fat: 9, fiber: 0 },
+      tolerance: RULES.energy.tolerance,
+    },
+  };
   const fibrous = { kcal: 100, protein: 0, carbs: 20, fat: 0, fiber: 10 };
   assert.equal(energyCheck(fibrous, rules).computed, 80);
   assert.equal(energyCheck(fibrous, RULES).computed, 100);

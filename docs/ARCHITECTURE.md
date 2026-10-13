@@ -592,6 +592,8 @@ Bugs go to the owner. Nobody fixes another person's file.
 
 ## 11. Publishing as an Artifact
 
+- **Manifest:** `npm run publish:files` prints `{ page, files }` for the Artifact `files` map and
+  fails if any relative import or `<link>`/`<script>` would not resolve once published.
 - **Page:** `app/index.html`.
 - **Files:** every other file under `app/`, at the same relative path, with no leading slash.
   `app/ui/dev/` (Priya's harness) is never published.

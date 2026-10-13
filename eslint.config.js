@@ -177,7 +177,7 @@ export default [
   },
   // Tests, Playwright config and tooling run in Node.
   {
-    files: ['tests/**/*.js', '*.config.js'],
+    files: ['tests/**/*.js', 'scripts/**/*.mjs', '*.config.js'],
     languageOptions: { globals: { ...nodeGlobals, ...browserGlobals } },
   },
 ];

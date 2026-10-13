@@ -918,22 +918,22 @@
  },
  "kashmiri-chai": {
   "id": "kashmiri-chai",
-  "dish": "Kashmiri chai (pink tea), sweet, with nuts",
-  "rawG": 215.9,
-  "cookedG": 215.9,
+  "dish": "Kashmiri chai (pink tea), sweet (nut garnish not included)",
+  "rawG": 212.9,
+  "cookedG": 212.9,
   "yield": 1,
   "removedG": 0,
   "per100g": {
-   "kcal": 63,
-   "protein": 2.3,
-   "carbs": 7.2,
-   "fat": 2.7,
-   "fiber": 0.2,
+   "kcal": 55,
+   "protein": 2,
+   "carbs": 7.1,
+   "fat": 2.1,
+   "fiber": 0,
    "sugars": 7.2,
-   "satFat": null,
-   "sodium": 118
+   "satFat": 1.2,
+   "sodium": 120
   },
-  "waterPer100g": 86.9,
+  "waterPer100g": 88.1,
   "addedFatPer100g": 0,
   "lines": [
    {
@@ -967,26 +967,6 @@
     "fat": 0
    },
    {
-    "id": "pistachio",
-    "qty": 1.5,
-    "unit": "g",
-    "grams": 1.5,
-    "note": "TfT ½ tbsp pistachios + ½–1 tbsp almonds per 2.5 cups ≈ 3 g nuts per cup",
-    "kcal": 8.1,
-    "protein": 0.35,
-    "fat": 0.64
-   },
-   {
-    "id": "almonds",
-    "qty": 1.5,
-    "unit": "g",
-    "grams": 1.5,
-    "note": "",
-    "kcal": 8.7,
-    "protein": 0.32,
-    "fat": 0.75
-   },
-   {
     "id": "salt",
     "qty": 0.5,
     "unit": "g",
@@ -998,11 +978,11 @@
    }
   ],
   "cookingDetail": null,
-  "kcalIngredientSum": 62,
-  "atwater": 63,
-  "atwaterGap": -0.016,
+  "kcalIngredientSum": 55,
+  "atwater": 55,
+  "atwaterGap": 0,
   "boneShareServed": 0,
-  "massCheck": 12.4,
+  "massCheck": 11.2,
   "file": "research/zainab/recipes/chai-drinks.mjs"
  },
  "rooh-afza-water": {
@@ -2750,6 +2730,908 @@
   "boneShareServed": 0,
   "massCheck": 34.2,
   "file": "research/zainab/recipes/daals.mjs"
+ },
+ "chicken-biryani-home": {
+  "id": "chicken-biryani-home",
+  "dish": "Chicken biryani, home style",
+  "rawG": 4545.2,
+  "cookedG": 3618.5,
+  "yield": 0.796,
+  "removedG": 250,
+  "per100g": {
+   "kcal": 146,
+   "protein": 6.7,
+   "carbs": 17.7,
+   "fat": 5.2,
+   "fiber": 0.9,
+   "sugars": 0.9,
+   "satFat": 0.9,
+   "sodium": 168
+  },
+  "waterPer100g": 68.3,
+  "addedFatPer100g": 4.1,
+  "lines": [
+   {
+    "id": "rice-basmati-raw",
+    "qty": 750,
+    "unit": "g",
+    "grams": 750,
+    "note": "Shan 750 g (3½ cups)",
+    "kcal": 2632.5,
+    "protein": 60.75,
+    "fat": 3.75
+   },
+   {
+    "id": "water",
+    "qty": 1431,
+    "unit": "g",
+    "grams": 1431,
+    "note": "water held by the cooked rice (CoFID 11-857 → 11-858)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "chicken-meat",
+    "qty": 1000,
+    "unit": "g",
+    "grams": 750,
+    "note": "meat on bones 1 kg (Shan); edible 0.75",
+    "kcal": 892.5,
+    "protein": 160.43,
+    "fat": 23.1
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 150,
+    "unit": "g",
+    "grams": 150,
+    "note": "",
+    "kcal": 1326,
+    "protein": 0,
+    "fat": 150
+   },
+   {
+    "id": "onion",
+    "qty": 250,
+    "unit": "g",
+    "grams": 250,
+    "note": "Shan 250 g",
+    "kcal": 120,
+    "protein": 3.75,
+    "fat": 0.6
+   },
+   {
+    "id": "tomato",
+    "qty": 300,
+    "unit": "g",
+    "grams": 300,
+    "note": "Shan 250–300 g",
+    "kcal": 58.8,
+    "protein": 2.7,
+    "fat": 1.41
+   },
+   {
+    "id": "yogurt",
+    "qty": 200,
+    "unit": "g",
+    "grams": 200,
+    "note": "Shan 1 cup / 200 g",
+    "kcal": 122,
+    "protein": 6.94,
+    "fat": 6.5
+   },
+   {
+    "id": "potato",
+    "qty": 125,
+    "unit": "g",
+    "grams": 125,
+    "note": "Karachi style (Shan Bombay 250 g)",
+    "kcal": 87.3,
+    "protein": 1.93,
+    "fat": 0.29
+   },
+   {
+    "id": "garlic",
+    "qty": 17,
+    "unit": "g",
+    "grams": 17,
+    "note": "2 tbsp paste (Shan Bombay)",
+    "kcal": 21,
+    "protein": 1.18,
+    "fat": 0.03
+   },
+   {
+    "id": "ginger",
+    "qty": 17,
+    "unit": "g",
+    "grams": 17,
+    "note": "2 tbsp paste",
+    "kcal": 9.4,
+    "protein": 0.38,
+    "fat": 0.14
+   },
+   {
+    "id": "green-chilli",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "",
+    "kcal": 8.5,
+    "protein": 0.47,
+    "fat": 0.14
+   },
+   {
+    "id": "coriander",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "½ cup (USDA ½ cup ≈ 8 g)",
+    "kcal": 2.5,
+    "protein": 0.28,
+    "fat": 0.06
+   },
+   {
+    "id": "mint",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "½ cup",
+    "kcal": 3,
+    "protein": 0.37,
+    "fat": 0.05
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "lemon / alu bukhara for sourness",
+    "kcal": 3.3,
+    "protein": 0.05,
+    "fat": 0.04
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 5.4,
+    "unit": "g",
+    "grams": 5.4,
+    "note": "biryani masala (red chilli, coriander, cumin, whole spices)",
+    "kcal": 12.8,
+    "protein": 0.69,
+    "fat": 0.35
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "",
+    "kcal": 9.7,
+    "protein": 0.38,
+    "fat": 0.63
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "garam-masala",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "whole spices",
+    "kcal": 9.1,
+    "protein": 0.42,
+    "fat": 0.5
+   },
+   {
+    "id": "salt",
+    "qty": 14,
+    "unit": "g",
+    "grams": 14,
+    "note": "masala salt; salt from the rice-boiling water is not counted (mostly drained)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "water",
+    "qty": 474,
+    "unit": "g",
+    "grams": 474,
+    "note": "Shan: chicken cooked in 2 cups water, then fried dry",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": [
+   "onions fried golden (C.onionBrown): 139 g",
+   "tomatoes fried until oil separates (C.tomatoBhuna): 197 g",
+   "chicken juices fried off (C.chickenJuice): 164 g",
+   "the 2 cups of cooking water fried off \"until oil separates\" (C.dryOff 0.9): 427 g"
+  ],
+  "kcalIngredientSum": 147,
+  "atwater": 146,
+  "atwaterGap": 0.007,
+  "boneShareServed": 0.065,
+  "massCheck": 30.5,
+  "file": "research/zainab/recipes/rice-dishes.mjs"
+ },
+ "chicken-biryani-restaurant": {
+  "id": "chicken-biryani-restaurant",
+  "dish": "Chicken biryani, restaurant style (Karachi, with potatoes)",
+  "rawG": 4820.2,
+  "cookedG": 3893.5,
+  "yield": 0.808,
+  "removedG": 250,
+  "per100g": {
+   "kcal": 173,
+   "protein": 6.2,
+   "carbs": 17,
+   "fat": 8.7,
+   "fiber": 0.8,
+   "sugars": 0.8,
+   "satFat": 4.2,
+   "sodium": 157
+  },
+  "waterPer100g": 66.1,
+  "addedFatPer100g": 7.7,
+  "lines": [
+   {
+    "id": "rice-basmati-raw",
+    "qty": 750,
+    "unit": "g",
+    "grams": 750,
+    "note": "Shan 750 g (3½ cups)",
+    "kcal": 2632.5,
+    "protein": 60.75,
+    "fat": 3.75
+   },
+   {
+    "id": "water",
+    "qty": 1431,
+    "unit": "g",
+    "grams": 1431,
+    "note": "water held by the cooked rice (CoFID 11-857 → 11-858)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "chicken-meat",
+    "qty": 1000,
+    "unit": "g",
+    "grams": 750,
+    "note": "meat on bones 1 kg (Shan); edible 0.75",
+    "kcal": 892.5,
+    "protein": 160.43,
+    "fat": 23.1
+   },
+   {
+    "id": "oil-palm",
+    "qty": 240,
+    "unit": "g",
+    "grams": 240,
+    "note": "",
+    "kcal": 2121.6,
+    "protein": 0,
+    "fat": 240
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 60,
+    "unit": "g",
+    "grams": 60,
+    "note": "ghee drizzled on the dum",
+    "kcal": 540,
+    "protein": 0,
+    "fat": 60
+   },
+   {
+    "id": "onion",
+    "qty": 250,
+    "unit": "g",
+    "grams": 250,
+    "note": "Shan 250 g",
+    "kcal": 120,
+    "protein": 3.75,
+    "fat": 0.6
+   },
+   {
+    "id": "tomato",
+    "qty": 300,
+    "unit": "g",
+    "grams": 300,
+    "note": "Shan 250–300 g",
+    "kcal": 58.8,
+    "protein": 2.7,
+    "fat": 1.41
+   },
+   {
+    "id": "yogurt",
+    "qty": 200,
+    "unit": "g",
+    "grams": 200,
+    "note": "Shan 1 cup / 200 g",
+    "kcal": 122,
+    "protein": 6.94,
+    "fat": 6.5
+   },
+   {
+    "id": "potato",
+    "qty": 250,
+    "unit": "g",
+    "grams": 250,
+    "note": "Karachi style (Shan Bombay 250 g)",
+    "kcal": 174.5,
+    "protein": 3.85,
+    "fat": 0.58
+   },
+   {
+    "id": "garlic",
+    "qty": 17,
+    "unit": "g",
+    "grams": 17,
+    "note": "2 tbsp paste (Shan Bombay)",
+    "kcal": 21,
+    "protein": 1.18,
+    "fat": 0.03
+   },
+   {
+    "id": "ginger",
+    "qty": 17,
+    "unit": "g",
+    "grams": 17,
+    "note": "2 tbsp paste",
+    "kcal": 9.4,
+    "protein": 0.38,
+    "fat": 0.14
+   },
+   {
+    "id": "green-chilli",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "",
+    "kcal": 8.5,
+    "protein": 0.47,
+    "fat": 0.14
+   },
+   {
+    "id": "coriander",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "½ cup (USDA ½ cup ≈ 8 g)",
+    "kcal": 2.5,
+    "protein": 0.28,
+    "fat": 0.06
+   },
+   {
+    "id": "mint",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "½ cup",
+    "kcal": 3,
+    "protein": 0.37,
+    "fat": 0.05
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "lemon / alu bukhara for sourness",
+    "kcal": 3.3,
+    "protein": 0.05,
+    "fat": 0.04
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 5.4,
+    "unit": "g",
+    "grams": 5.4,
+    "note": "biryani masala (red chilli, coriander, cumin, whole spices)",
+    "kcal": 12.8,
+    "protein": 0.69,
+    "fat": 0.35
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "",
+    "kcal": 9.7,
+    "protein": 0.38,
+    "fat": 0.63
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "garam-masala",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "whole spices",
+    "kcal": 9.1,
+    "protein": 0.42,
+    "fat": 0.5
+   },
+   {
+    "id": "salt",
+    "qty": 14,
+    "unit": "g",
+    "grams": 14,
+    "note": "masala salt; salt from the rice-boiling water is not counted (mostly drained)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "water",
+    "qty": 474,
+    "unit": "g",
+    "grams": 474,
+    "note": "Shan: chicken cooked in 2 cups water, then fried dry",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": [
+   "onions fried golden (C.onionBrown): 139 g",
+   "tomatoes fried until oil separates (C.tomatoBhuna): 197 g",
+   "chicken juices fried off (C.chickenJuice): 164 g",
+   "the 2 cups of cooking water fried off \"until oil separates\" (C.dryOff 0.9): 427 g"
+  ],
+  "kcalIngredientSum": 173,
+  "atwater": 173,
+  "atwaterGap": 0,
+  "boneShareServed": 0.06,
+  "massCheck": 32.7,
+  "file": "research/zainab/recipes/rice-dishes.mjs"
+ },
+ "chicken-pulao-home": {
+  "id": "chicken-pulao-home",
+  "dish": "Chicken yakhni pulao, home style",
+  "rawG": 2456.3,
+  "cookedG": 2263.7,
+  "yield": 0.922,
+  "removedG": 200,
+  "per100g": {
+   "kcal": 163,
+   "protein": 7.8,
+   "carbs": 17.8,
+   "fat": 6.6,
+   "fiber": 0.6,
+   "sugars": 0.5,
+   "satFat": 1.8,
+   "sodium": 193
+  },
+  "waterPer100g": 66,
+  "addedFatPer100g": 5.5,
+  "lines": [
+   {
+    "id": "rice-basmati-raw",
+    "qty": 500,
+    "unit": "g",
+    "grams": 500,
+    "note": "",
+    "kcal": 1755,
+    "protein": 40.5,
+    "fat": 2.5
+   },
+   {
+    "id": "water",
+    "qty": 954,
+    "unit": "g",
+    "grams": 954,
+    "note": "water held by the cooked rice (CoFID 11-857 → 11-858)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "chicken-meat",
+    "qty": 800,
+    "unit": "g",
+    "grams": 600,
+    "note": "bone-in pieces (TfT 1020, Shan 667 per 500 g rice); edible 0.75",
+    "kcal": 714,
+    "protein": 128.34,
+    "fat": 18.48
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 90,
+    "unit": "g",
+    "grams": 90,
+    "note": "",
+    "kcal": 795.6,
+    "protein": 0,
+    "fat": 90
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 35,
+    "unit": "g",
+    "grams": 35,
+    "note": "",
+    "kcal": 315,
+    "protein": 0,
+    "fat": 35
+   },
+   {
+    "id": "onion",
+    "qty": 110,
+    "unit": "g",
+    "grams": 110,
+    "note": "1 medium browned (TfT; F&S 1 cup)",
+    "kcal": 52.8,
+    "protein": 1.65,
+    "fat": 0.26
+   },
+   {
+    "id": "tomato",
+    "qty": 45,
+    "unit": "g",
+    "grams": 45,
+    "note": "TfT 1 small, optional",
+    "kcal": 8.8,
+    "protein": 0.41,
+    "fat": 0.21
+   },
+   {
+    "id": "yogurt",
+    "qty": 60,
+    "unit": "g",
+    "grams": 60,
+    "note": "TfT 1½ tbsp; Shan 200 g per 750 g rice",
+    "kcal": 36.6,
+    "protein": 2.08,
+    "fat": 1.95
+   },
+   {
+    "id": "garlic",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 18.6,
+    "protein": 1.04,
+    "fat": 0.02
+   },
+   {
+    "id": "ginger",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 5.5,
+    "protein": 0.22,
+    "fat": 0.09
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 1.2,
+    "protein": 0.14,
+    "fat": 0.03
+   },
+   {
+    "id": "mint",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 1.1,
+    "protein": 0.14,
+    "fat": 0.02
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "whole spices",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 1.8,
+    "unit": "g",
+    "grams": 1.8,
+    "note": "",
+    "kcal": 4.8,
+    "protein": 0.19,
+    "fat": 0.31
+   },
+   {
+    "id": "black-pepper",
+    "qty": 2.3,
+    "unit": "g",
+    "grams": 2.3,
+    "note": "",
+    "kcal": 5,
+    "protein": 0.23,
+    "fat": 0.06
+   },
+   {
+    "id": "garam-masala",
+    "qty": 2,
+    "unit": "g",
+    "grams": 2,
+    "note": "",
+    "kcal": 6.1,
+    "protein": 0.28,
+    "fat": 0.33
+   },
+   {
+    "id": "salt",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": [
+   "onion browned 10–12 min (C.onionBrown): 61 g",
+   "chicken juices go into the yakhni, which the rice absorbs or which steams off; only the rice water stays: 131 g"
+  ],
+  "kcalIngredientSum": 165,
+  "atwater": 163,
+  "atwaterGap": 0.012,
+  "boneShareServed": 0.081,
+  "massCheck": 32.8,
+  "file": "research/zainab/recipes/rice-dishes.mjs"
+ },
+ "chicken-pulao-restaurant": {
+  "id": "chicken-pulao-restaurant",
+  "dish": "Chicken pulao, restaurant style",
+  "rawG": 2521.3,
+  "cookedG": 2328.7,
+  "yield": 0.924,
+  "removedG": 200,
+  "per100g": {
+   "kcal": 184,
+   "protein": 7.6,
+   "carbs": 17.3,
+   "fat": 9.2,
+   "fiber": 0.6,
+   "sugars": 0.5,
+   "satFat": 4.5,
+   "sodium": 187
+  },
+  "waterPer100g": 64.1,
+  "addedFatPer100g": 8.2,
+  "lines": [
+   {
+    "id": "rice-basmati-raw",
+    "qty": 500,
+    "unit": "g",
+    "grams": 500,
+    "note": "",
+    "kcal": 1755,
+    "protein": 40.5,
+    "fat": 2.5
+   },
+   {
+    "id": "water",
+    "qty": 954,
+    "unit": "g",
+    "grams": 954,
+    "note": "water held by the cooked rice (CoFID 11-857 → 11-858)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "chicken-meat",
+    "qty": 800,
+    "unit": "g",
+    "grams": 600,
+    "note": "bone-in pieces (TfT 1020, Shan 667 per 500 g rice); edible 0.75",
+    "kcal": 714,
+    "protein": 128.34,
+    "fat": 18.48
+   },
+   {
+    "id": "oil-palm",
+    "qty": 140,
+    "unit": "g",
+    "grams": 140,
+    "note": "",
+    "kcal": 1237.6,
+    "protein": 0,
+    "fat": 140
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 50,
+    "unit": "g",
+    "grams": 50,
+    "note": "",
+    "kcal": 450,
+    "protein": 0,
+    "fat": 50
+   },
+   {
+    "id": "onion",
+    "qty": 110,
+    "unit": "g",
+    "grams": 110,
+    "note": "1 medium browned (TfT; F&S 1 cup)",
+    "kcal": 52.8,
+    "protein": 1.65,
+    "fat": 0.26
+   },
+   {
+    "id": "tomato",
+    "qty": 45,
+    "unit": "g",
+    "grams": 45,
+    "note": "TfT 1 small, optional",
+    "kcal": 8.8,
+    "protein": 0.41,
+    "fat": 0.21
+   },
+   {
+    "id": "yogurt",
+    "qty": 60,
+    "unit": "g",
+    "grams": 60,
+    "note": "TfT 1½ tbsp; Shan 200 g per 750 g rice",
+    "kcal": 36.6,
+    "protein": 2.08,
+    "fat": 1.95
+   },
+   {
+    "id": "garlic",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 18.6,
+    "protein": 1.04,
+    "fat": 0.02
+   },
+   {
+    "id": "ginger",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 5.5,
+    "protein": 0.22,
+    "fat": 0.09
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 1.2,
+    "protein": 0.14,
+    "fat": 0.03
+   },
+   {
+    "id": "mint",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 1.1,
+    "protein": 0.14,
+    "fat": 0.02
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "whole spices",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 1.8,
+    "unit": "g",
+    "grams": 1.8,
+    "note": "",
+    "kcal": 4.8,
+    "protein": 0.19,
+    "fat": 0.31
+   },
+   {
+    "id": "black-pepper",
+    "qty": 2.3,
+    "unit": "g",
+    "grams": 2.3,
+    "note": "",
+    "kcal": 5,
+    "protein": 0.23,
+    "fat": 0.06
+   },
+   {
+    "id": "garam-masala",
+    "qty": 2,
+    "unit": "g",
+    "grams": 2,
+    "note": "",
+    "kcal": 6.1,
+    "protein": 0.28,
+    "fat": 0.33
+   },
+   {
+    "id": "salt",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": [
+   "onion browned 10–12 min (C.onionBrown): 61 g",
+   "chicken juices go into the yakhni, which the rice absorbs or which steams off; only the rice water stays: 131 g"
+  ],
+  "kcalIngredientSum": 185,
+  "atwater": 184,
+  "atwaterGap": 0.005,
+  "boneShareServed": 0.079,
+  "massCheck": 34.7,
+  "file": "research/zainab/recipes/rice-dishes.mjs"
  },
  "aloo-gobi-home": {
   "id": "aloo-gobi-home",

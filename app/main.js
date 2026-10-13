@@ -1,6 +1,11 @@
-// Katori boot. Owner: Lena. Step 0 shell: brand, navigation and data status only.
-// Integration (store, views) lands after Step 0; see docs/ARCHITECTURE.md §7.
+// Katori boot and integration. Owner: Lena. Contract: docs/ARCHITECTURE.md §7.1.
+// Loads the food data, opens storage, creates the store and the router, and mounts one view per
+// route. Every step degrades instead of failing: no data, no storage or a missing view still
+// leaves a working shell.
 import { createRouter } from './ui/router.js';
+import { createStore } from './ui/store.js';
+import { createPersistence } from './core/storage.js';
+import { localDateTime } from './core/dates.js';
 
 const NAV = [
   { name: 'day', label: 'Day' },
@@ -9,14 +14,66 @@ const NAV = [
   { name: 'data', label: 'Data' },
 ];
 
-/** Loads app/data/index.js ({ RULES, FOODS }). Missing or broken data never stops the shell. */
+/** Route name -> view module in ./ui/views/ (the add sheet lives inside the day view). */
+const VIEW_FOR_ROUTE = {
+  day: 'day',
+  add: 'day',
+  week: 'week',
+  welcome: 'welcome',
+  profile: 'profile',
+  data: 'data',
+  about: 'about',
+};
+
+/** Routes that need a finished (or skipped) onboarding. */
+const NEEDS_ONBOARDING = new Set(['day', 'add', 'week']);
+
+const BANNER_TEXT = {
+  unavailable: 'Not saved on this device. Export your data from Data to keep it.',
+  corrupt: 'Saved data could not be read, so Katori started fresh. A copy was kept on this device.',
+  future: 'This data was saved by a newer version of Katori. Changes here will not be saved.',
+  quota: 'Storage on this device is full. Export your data from Data to keep it.',
+  foods: 'Food data is not available yet.',
+};
+
+// ------------------------------------------------------------------ platform helpers
+
+/** Food data module; never throws. */
 async function loadFoodData() {
   try {
     const mod = await import('./data/index.js');
-    return { ok: true, rules: mod.RULES ?? null, foods: Array.isArray(mod.FOODS) ? mod.FOODS : [] };
+    return {
+      status: 'ok',
+      rules: mod.RULES ?? null,
+      foods: Array.isArray(mod.FOODS) ? mod.FOODS : [],
+    };
   } catch (error) {
-    console.warn('Katori: food data not available yet.', error);
-    return { ok: false, rules: null, foods: [] };
+    console.error('Katori: food data could not be loaded.', error);
+    return { status: 'missing', rules: null, foods: [] };
+  }
+}
+
+/** window.localStorage, or null when even touching it throws (privacy modes, some Artifacts). */
+function storageBackend() {
+  try {
+    return window.localStorage ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function idMaker() {
+  if (typeof crypto?.randomUUID === 'function') return () => crypto.randomUUID();
+  let n = 0;
+  const seed = Date.now().toString(36);
+  return () => `${seed}-${(n += 1).toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function deviceTimeZone() {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone ?? null;
+  } catch {
+    return null;
   }
 }
 
@@ -27,9 +84,13 @@ function el(tag, attrs = {}, ...children) {
   return node;
 }
 
+// ------------------------------------------------------------------ shell
+
 function renderShell(root, router) {
-  const status = el('p', { class: 'shell-status', 'data-testid': 'data-status' }, 'Loading foods…');
-  const view = el('section', { class: 'shell-view', 'aria-live': 'polite' });
+  const banner = el('div', { class: 'storage-banner', role: 'status', hidden: '' });
+  // Food-data status for tests and debugging (Kenji's smoke spec); not shown to users.
+  const dataStatus = el('p', { 'data-testid': 'data-status', hidden: '' }, 'Loading foods…');
+  const view = el('section', { class: 'shell-view', id: 'view' });
   const nav = el(
     'nav',
     { class: 'shell-nav', 'aria-label': 'Main' },
@@ -48,33 +109,143 @@ function renderShell(root, router) {
       el('h1', { class: 'shell-brand' }, 'Katori'),
       el('p', { class: 'shell-tagline' }, 'Your daily meal & macro planner that knows desi food.'),
     ),
-    el('main', { class: 'shell-main', id: 'main' }, view, status),
+    banner,
+    el('main', { class: 'shell-main', id: 'main' }, view),
     nav,
+    dataStatus,
   );
-  return { status, view, nav };
+  return { root, banner, view, nav, dataStatus };
 }
 
-function showRoute(parts, route) {
-  const active = route.name === 'add' ? 'day' : route.name;
-  for (const link of parts.nav.querySelectorAll('a')) {
+function markActiveTab(shell, routeName) {
+  const active = routeName === 'add' ? 'day' : routeName;
+  shell.root.dataset.route = routeName;
+  for (const link of shell.nav.querySelectorAll('a')) {
     if (link.dataset.route === active) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   }
-  parts.view.textContent = `${route.name} view: coming in Sprint 1.`;
 }
 
+function placeholder(container, text) {
+  container.replaceChildren(el('p', { class: 'shell-status', 'data-testid': 'view-status' }, text));
+  return { update() {}, unmount() {} };
+}
+
+function renderBanner(shell, state) {
+  const key =
+    state.saveError === 'quota'
+      ? 'quota'
+      : ['unavailable', 'corrupt', 'future'].includes(state.storageStatus)
+        ? state.storageStatus
+        : state.foodsStatus === 'missing'
+          ? 'foods'
+          : null;
+  shell.banner.hidden = key === null;
+  shell.banner.dataset.kind = key ?? '';
+  shell.banner.textContent = key ? BANNER_TEXT[key] : '';
+}
+
+function applyTheme(theme) {
+  const html = document.documentElement;
+  if (theme === 'light' || theme === 'dark') html.dataset.theme = theme;
+  else delete html.dataset.theme;
+}
+
+// ------------------------------------------------------------------ view mounting
+
+function createViewHost(shell, ctx) {
+  let current = { name: null, handle: null };
+  let token = 0;
+
+  async function show(route) {
+    const name = VIEW_FOR_ROUTE[route.name];
+    if (current.name === name && current.handle) {
+      current.handle.update(route);
+      return;
+    }
+    const mine = (token += 1);
+    let mod = null;
+    try {
+      mod = await import(`./ui/views/${name}.js`);
+    } catch (error) {
+      console.warn(`Katori: view "${name}" is not built yet.`, error);
+    }
+    if (mine !== token) return; // a newer route won the race
+    current.handle?.unmount();
+    current = { name, handle: null };
+    try {
+      current.handle = mod?.mount
+        ? mod.mount(shell.view, ctx)
+        : placeholder(shell.view, `The ${name} screen is coming in Sprint 1.`);
+      current.handle.update(route);
+    } catch (error) {
+      console.error(`Katori: view "${name}" failed to start.`, error);
+      current.handle = placeholder(shell.view, 'Something went wrong on this screen.');
+    }
+  }
+
+  return { show };
+}
+
+// ------------------------------------------------------------------ boot
+
 async function boot() {
-  const root = document.getElementById('app');
   const router = createRouter(window);
-  const parts = renderShell(root, router);
-  router.subscribe((route) => showRoute(parts, route));
+  const shell = renderShell(document.getElementById('app'), router);
+  placeholder(shell.view, 'Loading…');
+  // Tabs follow the hash from the first moment, even if the app cannot start below.
+  router.subscribe((r) => markActiveTab(shell, r.name));
   router.start();
-  showRoute(parts, router.current());
+  markActiveTab(shell, router.current().name);
 
   const data = await loadFoodData();
-  parts.status.textContent = data.ok
-    ? `${data.foods.length} foods loaded.`
-    : 'Food data is not available yet.';
+  shell.dataStatus.textContent =
+    data.status === 'ok' ? `${data.foods.length} foods loaded.` : 'Food data is not available yet.';
+  let store;
+  try {
+    const backend = storageBackend();
+    const persistence = createPersistence(backend, { stamp: () => localDateTime(new Date()) });
+    store = createStore({
+      persistence,
+      rules: data.rules,
+      foods: data.foods,
+      foodsStatus: data.status,
+      makeId: idMaker(),
+      timeZone: deviceTimeZone(),
+    });
+  } catch (error) {
+    console.error('Katori: the app could not start.', error);
+    placeholder(shell.view, 'Katori is still being assembled. Please check back soon.');
+    return;
+  }
+  window.addEventListener('pagehide', () => store.flush());
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') store.flush();
+  });
+
+  const views = createViewHost(shell, { store, router, rules: data.rules });
+
+  function route(r) {
+    if (r.name === 'notfound') {
+      router.go({ name: 'day', params: { date: null } }, { replace: true });
+      return;
+    }
+    if (NEEDS_ONBOARDING.has(r.name) && store.needsOnboarding()) {
+      router.go({ name: 'welcome', params: {} }, { replace: true });
+      return;
+    }
+    views.show(r);
+  }
+
+  const syncChrome = (state) => {
+    renderBanner(shell, state);
+    applyTheme(state.data.settings?.theme);
+  };
+  store.subscribe(syncChrome);
+  syncChrome(store.getState());
+
+  router.subscribe(route);
+  route(router.current());
 }
 
 boot();

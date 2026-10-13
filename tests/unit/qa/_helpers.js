@@ -91,7 +91,8 @@ export function assertThrowsKind(fn, classes, message = '') {
 }
 
 /** Bad input: RangeError (bad numbers or enums) or TypeError (wrong shapes), ARCHITECTURE §5. */
-export const assertBadInput = (fn, message) => assertThrowsKind(fn, [RangeError, TypeError], message);
+export const assertBadInput = (fn, message) =>
+  assertThrowsKind(fn, [RangeError, TypeError], message);
 
 /** |actual − expected| ≤ eps. */
 export function assertClose(actual, expected, eps = 1e-9, message = '') {

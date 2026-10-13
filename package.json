@@ -17,6 +17,7 @@
     "test": "TZ=Europe/Madrid npm run -s test:unit && TZ=Asia/Karachi npm run -s test:unit && TZ=America/Los_Angeles npm run -s test:unit",
     "test:coverage": "node --test --experimental-test-coverage --test-coverage-include=\"app/core/**\" --test-coverage-lines=90 \"tests/{contract,unit}/**/*.test.js\"",
     "test:e2e": "playwright test",
+    "publish:files": "node scripts/publish-files.mjs",
     "check": "npm run -s lint && npm run -s format:check && npm test"
   }
 }
