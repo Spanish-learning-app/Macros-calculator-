@@ -579,8 +579,7 @@ legend {
   gap: var(--space-2);
 }
 
-.segmented legend {
-  width: 100%;
+.segmented-field legend {
   margin-bottom: var(--space-2);
 }
 

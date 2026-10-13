@@ -34,7 +34,8 @@ const GRADES = new Set(V.confidenceGrades.map((c) => c.id));
 const SLOT_IDS = new Set([...RULES.mealSlots.default, ...RULES.mealSlots.ramadan].map((s) => s.id));
 const MEASURES = new Map(RULES.householdMeasures.map((m) => [m.id, m]));
 const KATORI_IDS = ['katori-small', 'katori', 'katori-large'];
-const SPOON_IDS = new Set(['tbsp', 'tsp']); // spoon servings are checked by density (G11), not group range
+const SR = V.servingRules;
+const isWholeDish = (id) => typeof id === 'string' && (id === SR.wholeDish.idPrefix || id.startsWith(`${SR.wholeDish.idPrefix}-`));
 const ID_PREFIXES = ['pk-', 'es-', 'med-', 'intl-'];
 const RESTAURANT_STYLES = new Set(['restaurant', 'dhaba', 'street']);
 
@@ -165,19 +166,26 @@ function checkRecord(f, ctx) {
       if (s.default === true) defaults++;
       for (const k of Object.keys(s)) if (!KEYS.serving.has(k)) W('G20', `unknown serving key "${k}" in "${sid}"`);
       if (!isNum(s.grams) || s.grams <= 0) { F('G10', `serving "${sid}" grams must be > 0`); continue; }
-      if (group && !SPOON_IDS.has(sid)) {
+      const whole = isWholeDish(sid);
+      const measure = MEASURES.get(sid);
+      if (group && !measure) {
         const r = group.servingGrams;
-        if (s.grams < r.min || s.grams > r.max) F('G10', `serving "${sid}" = ${s.grams} g outside "${group.id}" serving range ${r.min}-${r.max} g`);
+        if (s.grams < r.min || (!whole && s.grams > r.max)) F('G10', `serving "${sid}" = ${s.grams} g outside "${group.id}" serving range ${r.min}-${r.max} g${whole ? '' : ' (a whole dish? use id "whole")'}`);
+      }
+      if (whole) {
+        if (s.grams > SR.wholeDish.maxGrams) F('G10', `whole-dish serving "${sid}" = ${s.grams} g > ${SR.wholeDish.maxGrams} g`);
+        if (s.default === true && !SR.wholeDish.mayBeDefault) F('G10', `whole-dish serving "${sid}" cannot be the default`);
       }
       if (nutrientsOk) {
         const kcal = (s.grams * p.kcal) / 100;
-        if (kcal > 1500) F('G10', `serving "${sid}" = ${fmt(kcal, 0)} kcal (> 1,500 for one unit)`);
+        const cap = whole ? SR.wholeDish.maxKcal : SR.maxKcalPerServing;
+        if (kcal > cap) F('G10', `serving "${sid}" = ${fmt(kcal, 0)} kcal (> ${cap} for one unit)`);
       }
-      const m = MEASURES.get(sid);
-      if (m) {
-        const d = s.grams / m.ml;
+      if (measure) {
+        const d = s.grams / measure.ml;
         density[sid] = d;
-        if (d < 0.3 || d > 1.5) F('G11', `serving "${sid}" = ${s.grams} g for ${m.ml} ml implies ${fmt(d, 2)} g/ml (allowed 0.3-1.5)`);
+        const r = SR.measureDensityGPerMl;
+        if (d < r.min || d > r.max) F('G11', `serving "${sid}" = ${s.grams} g for ${measure.ml} ml implies ${fmt(d, 2)} g/ml (allowed ${r.min}-${r.max})`);
       }
     }
     if (defaults !== 1) F('G10', `exactly one serving must have default: true (found ${defaults})`);

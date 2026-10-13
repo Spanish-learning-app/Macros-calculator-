@@ -1,0 +1,61 @@
+// R-MP-10 · Chickpea and tuna salad with egg (cold). Standard batch: 4 boxes. Raw edible grams.
+export default {
+  n: 10,
+  id: 'es-garbanzos-atun-salad-box',
+  name: 'Chickpea and tuna salad (cold lunch box)',
+  names: {
+    en: 'Chickpea and tuna salad with egg',
+    es: 'Ensalada de garbanzos con atún y huevo',
+    ca: 'Amanida de cigrons amb tonyina i ou',
+    roman: 'chana tuna salad',
+  },
+  aliases: ['ensalada de garbanzos', 'ensalada de garbanzos con atun', 'amanida de cigrons', 'chickpea salad', 'tuna salad', 'tuna chickpea salad', 'garbanzos con atun', 'cigrons amb tonyina', 'chanay tuna salad'],
+  pitch: 'The Spanish summer classic as a filling lunch: chickpeas, tuna, egg, peppers and tomato in olive oil and lemon.',
+  eat: 'cold',
+  tags: ['spanish', 'mediterranean', 'meal-prep', 'eat-cold', 'contains-egg', 'seafood-fish'],
+  references: [
+    { title: 'Directo al Paladar, Ensalada de garbanzos y atún con vinagreta de mostaza', url: 'https://www.directoalpaladar.com/recetas-de-ensaladas/ensalada-de-garbanzos-y-atun-con-vinagreta-de-mostaza-receta', used: 'for 4: 170 g chickpeas (dry), 200 g tinned tuna, 2 tomatoes, 12 cherry tomatoes, ½ spring onion, 100 g leaves, olive oil and vinegar', read: 'search-engine page extract' },
+    { title: 'Directo al Paladar, Ensalada de garbanzos con tomate y ventresca de atún', url: 'https://directoalpaladar.com/recetas-de-ensaladas/ensalada-primaveral-de-garbanzos-con-tomates-y-ventresca-de-atun', used: 'for 4: 300 g tinned chickpeas, 200 g cherry tomatoes, red onion, black olives, 250 g ventresca de atún, olive oil', read: 'search-engine page extract' },
+    { title: 'Tienda.com, Chickpea salad with tuna and eggs (ensalada de garbanzos)', url: 'https://www.tienda.com/recipes/chickpea-salad-with-tuna-and-eggs', used: '15.5 oz (440 g) chickpeas, 2 × 110 g tuna in olive oil, 2 eggs, ½ red onion, 1 green + 1 red pepper, parsley, garlic', read: 'search-engine page extract' },
+  ],
+  components: [
+    {
+      id: 'salad', label: 'Chickpea and tuna salad', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['chickpeas-jar', 600, 'drained, rinsed (1½ jars)'],
+        ['tuna', 440, 'atún claro al natural, drained weight (60 g per can, so 7–8 cans)'],
+        ['pepper-red', 200, 'diced'],
+        ['pepper-green', 100, 'diced'],
+        ['onion-red', 100, 'finely chopped'],
+        ['tomato-cherry', 320, 'halved'],
+        ['cucumber', 160, 'diced'],
+        ['parsley', 15, 'chopped'],
+        ['oil-olive', 60, 'extra virgin (15 g per box)'],
+        ['lemon-juice', 40, 'instead of wine vinegar'],
+        ['cumin', 2, 'ground (optional)'],
+        ['salt', 3, ''],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'egg', label: 'Hard-boiled egg (1 per box)', storage: 'egg-dish', yield: 'none', eat: 'cold',
+      lines: [['egg', 200, '4 eggs, boiled 10 min (a boiled egg weighs about the same as the raw edible egg: 50 g)']],
+    },
+  ],
+  method: [
+    'Boil the eggs 10 min, cool in cold water, peel.',
+    'Drain and rinse the chickpeas; drain the tuna well.',
+    'Mix chickpeas, tuna, peppers, onion, tomatoes, cucumber and parsley. Dress with olive oil, lemon, cumin, salt and pepper.',
+    'Each box: ¼ of the salad and 1 halved egg on top. Keep cold (insulated bag and ice pack).',
+  ],
+  storagePlan: 'Cold-only, no freezing. Dressed salad keeps 2 days, boiled eggs 3 days. Mix half on Sunday (Mon, Tue) and half on Tuesday night (Wed, Thu); unopened tuna cans and the chickpea jar wait in the cupboard. Boil all the eggs on Sunday.',
+  reheat: 'Not reheated (no fish or eggs in the microwave). Eat within 2 h of leaving the fridge (1 h above 32 °C).',
+  crossCheck: { fdc: 2706840, note: 'FNDDS "Tuna salad with egg" is a mayonnaise salad without chickpeas: much more fat, less fibre. Directional check only.' },
+  changes: [
+    'Chickpeas raised from the table\'s 120 g to 150 g per box and one boiled egg added (Tienda.com version) to reach 550 kcal with 110 g tuna.',
+    'Lemon juice instead of wine vinegar, so the dressing has no wine product at all.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Raw assembly (yield 1.0) of label and USDA values; the only cooking is boiling eggs, whose weight does not change (USDA large egg 50 g raw and boiled).',
+  halal: { status: 'halal', reason: 'Fish and plant foods only; tuna label: tuna, water, salt (checked 2026-10-13).' },
+};

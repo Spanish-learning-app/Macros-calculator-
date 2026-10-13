@@ -45,3 +45,10 @@
   - Personal targets need sex, age, height and weight; anything else missing defaults to light, maintain, no lifting, no flags.
   - Documented in NUTRITION.md §2.1a. The About-the-data text is in §7.4. Contract test 7/7, lint clean.
   Standing by for the researcher review (task 6). Not committed.
+- 2026-10-13 23:07 UTC — REVIEW OF JAVIER STARTED. He delivered 98 records; 131/131 pass. First I must fix 3 rule conflicts: side-dip serving cap vs katori-large, egg cap vs whole tortilla, tostada con aceite kcal range. Then review every composite plus a seeded 20% sample and write research/review/javier-sprint1.md.
+- 2026-10-13 23:08 UTC — RULE CONFLICTS RESOLVED (rules.js v1.3.0, NUTRITION.md v1.3, check-foods):
+  - (1) Household-measure servings (katori-*, cup, mug, glass, tbsp, tsp) are exempt from the group servingGrams range and checked by density (G11, 0.3–1.5 g/ml). This unblocks raita and hummus katori-large.
+  - (2) New vocab.servingRules.wholeDish: ids 'whole' or 'whole-*' are exempt from the group max (the min still applies), capped at 3000 g and 4000 kcal, and never the default. This allows the 742 g whole tortilla.
+  - (3) Tostada con aceite: the record is plausible. It is 2 × 30 g barra (UCM) + 20 g AOVE, between the two references' 6.75 and 13.5 g per slice, toasted with BEDCA moisture. The range was wrong for oil-dressed bread, so bread-fried is now 260–480 and covers oil-dressed toast; the record should use group bread-fried.
+  - Tested on scratch records; the whole database (153) passes; contract test 7/7.
+  - NOTE: Javier's build.mjs has a hardcoded HOLD map (raita, hummus), and the tostada record isn't in build.mjs at all. Those need Javier's edits; rerunning the build won't release them.

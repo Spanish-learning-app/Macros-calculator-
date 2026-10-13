@@ -32,3 +32,8 @@ carbs, fat and fiber.
   In the Boss's words: "I'm not gonna bring daal or something for lunch." Think portable, good cold
   or reheated in a microwave, and not messy.
 - The Boss asked the team to discuss how to fit this in.
+
+## Update from the Boss — 2026-10-13 (via the dashboard)
+
+- "Not only lunches, but meal prep can also go for breakfast and dinners too."
+  Meal prep covers every meal, not just packed lunches.

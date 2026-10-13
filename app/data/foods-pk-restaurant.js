@@ -325,8 +325,6 @@ export default [
     ],
     group: 'curry-meat',
     state: 'cooked, as served with masala/gravy, edible portion (bones removed)',
-    style: 'restaurant',
-    family: 'mutton-karahi',
     per100g: {
       kcal: 245,
       protein: 14.3,
@@ -588,7 +586,6 @@ export default [
       { id: 'katori', label: '1 katori (medium, 200 ml)', labelUr: 'کٹوری', grams: 200, default: true },
       { id: 'katori-large', label: '1 large katori (360 ml)', labelUr: 'بڑی کٹوری', grams: 360 },
       { id: 'tbsp', label: '1 tablespoon (chamach)', labelUr: 'بڑا چمچ', grams: 15 },
-      { id: 'plate', label: '1 plate (as served, ≈ 1 large katori)', labelUr: 'ایک پلیٹ', grams: 360 },
     ],
     tags: ['pakistani'],
     slots: ['breakfast', 'dinner'],

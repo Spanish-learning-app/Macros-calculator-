@@ -57,6 +57,7 @@ export default {
   storagePlan: 'Rice dish: box 1 in the fridge, boxes 2–4 in the freezer (1 month). Move the next day\'s box to the fridge the night before.',
   reheat: 'Sprinkle 1 tbsp water over the box, microwave with the lid ajar 3 min, stir, 30–60 s more until steaming hot right through (75 °C). Reheat once only.',
   crossCheck: { fdc: 2706438, note: 'FNDDS "Chicken curry with rice" (no pulao/pilaf entry in FNDDS). Pulao is drier, so a higher value per 100 g is expected.' },
+  extraChecks: [{ cofid: '11-968', note: 'CoFID "Rice, pilau, plain, homemade": no chicken or chana, so lower protein and similar energy per 100 g are expected.' }],
   changes: [
     'Added 80 g chickpeas per box ("chana pulao", a common Karachi variant): plain chicken pulao gives about 3 g fibre per box.', 'Chicken 160 g per box instead of the table\'s 170 g: with 170 g plus the chickpeas the box went over 50 g protein (51.6 g in the first version, which also had peas). Peas removed, chickpeas raised from 60 to 80 g.',
     'Used boneless breast instead of bone-in pieces so the box has no bones; whole spices give the yakhni its flavour. Oil cut to 7.5 g per box from the references\' 12–20 g.',

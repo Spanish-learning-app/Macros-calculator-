@@ -86,7 +86,7 @@ export function mount(container, ctx) {
         onclick: copyAnotherDay,
       },
       iconEl('calendar', 18),
-      h('span', null, 'Copy another day…'),
+      h('span', null, 'Copy a day…'),
     ),
   );
   const fab = h(
@@ -133,7 +133,10 @@ export function mount(container, ctx) {
       pushedAdd = false;
       window.history.back();
     } else {
-      router.go({ name: 'day', params: { date: date === store.today() ? null : date } }, { replace: true });
+      router.go(
+        { name: 'day', params: { date: date === store.today() ? null : date } },
+        { replace: true },
+      );
     }
   }
 

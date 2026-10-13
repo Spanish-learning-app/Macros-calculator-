@@ -54,7 +54,6 @@ function clock() {
 }
 
 const pad = (n) => String(n).padStart(2, '0');
-const iso = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 const shift = (s, n) => {
   const [y, m, d] = s.split('-').map(Number);
   const t = new Date(Date.UTC(y, m - 1, d + n));
@@ -147,7 +146,11 @@ async function boot() {
     'nav',
     { class: 'shell-nav', 'aria-label': 'Main' },
     NAV.map((item) =>
-      h('a', { href: router.href({ name: item.name, params: {} }), 'data-route': item.name }, item.label),
+      h(
+        'a',
+        { href: router.href({ name: item.name, params: {} }), 'data-route': item.name },
+        item.label,
+      ),
     ),
   );
   const root = document.getElementById('app');

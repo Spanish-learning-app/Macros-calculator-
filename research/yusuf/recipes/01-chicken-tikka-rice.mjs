@@ -71,6 +71,7 @@ export default {
   storagePlan: 'Box 1 in the fridge (Monday). Boxes 2–4 (rice and chicken) straight into the freezer; move the next day\'s box to the fridge the night before. Raita cannot be frozen and keeps 2 days: make half on Sunday (Mon, Tue) and half on Tuesday night (Wed, Thu), or mix each pot the night before (3 minutes).',
   reheat: 'Microwave the rice-and-chicken box (lid ajar) 2½–3 min at full power, stir halfway, until steaming hot right through (75 °C). Reheat once only. Never microwave the raita pot.',
   crossCheck: { fdc: 2706438, note: 'FNDDS "Chicken curry with rice" is a wet curry on more rice; the box should be denser in protein and similar in energy per 100 g.' },
+  extraChecks: [{ cofid: '17-832', comps: ['raita'], note: 'CoFID "Raita, homemade" for the raita pot.' }],
   changes: [
     'Added 60 g frozen peas per box to the rice and roasted 60 g red pepper + 50 g red onion per box with the chicken, to lift fibre towards 8 g (white basmati and chicken alone give about 3 g).',
   ],

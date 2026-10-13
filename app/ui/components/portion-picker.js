@@ -81,8 +81,17 @@ export function openPortionPicker(props) {
       refresh({ keepInput: true });
     },
   });
-  const error = h('p', { class: 'field-error', id: errorId, 'data-testid': 'qty-error', hidden: true });
-  const preview = h('div', { class: 'picker-preview', 'data-testid': 'portion-preview', 'aria-live': 'polite' });
+  const error = h('p', {
+    class: 'field-error',
+    id: errorId,
+    'data-testid': 'qty-error',
+    hidden: true,
+  });
+  const preview = h('div', {
+    class: 'picker-preview',
+    'data-testid': 'portion-preview',
+    'aria-live': 'polite',
+  });
   const primary = h('button', { type: 'submit', class: 'btn btn-primary btn-block' });
   const slotSelect =
     mode === 'edit'
@@ -102,7 +111,10 @@ export function openPortionPicker(props) {
     const parsed = parseQty(qtyInput);
     const base = parsed.ok ? qty : 0;
     const inc = servingId === 'g' ? 10 : 0.5;
-    let next = dir > 0 ? Math.floor(base / inc + 1e-9) * inc + inc : Math.ceil(base / inc - 1e-9) * inc - inc;
+    let next =
+      dir > 0
+        ? Math.floor(base / inc + 1e-9) * inc + inc
+        : Math.ceil(base / inc - 1e-9) * inc - inc;
     if (next <= 0) next = servingId === 'g' ? 10 : 0.5;
     qty = Math.round(next * 100) / 100;
     qtyInput = qtyText(qty);
@@ -112,10 +124,18 @@ export function openPortionPicker(props) {
   const stepper = h(
     'div',
     { class: 'stepper' },
-    h('button', { type: 'button', class: 'btn-step', 'aria-label': 'Less', onclick: () => step(-1) }, iconEl('minus')),
+    h(
+      'button',
+      { type: 'button', class: 'btn-step', 'aria-label': 'Less', onclick: () => step(-1) },
+      iconEl('minus'),
+    ),
     h('label', { class: 'sr-only', for: qtyId }, 'Quantity'),
     input,
-    h('button', { type: 'button', class: 'btn-step', 'aria-label': 'More', onclick: () => step(1) }, iconEl('plus')),
+    h(
+      'button',
+      { type: 'button', class: 'btn-step', 'aria-label': 'More', onclick: () => step(1) },
+      iconEl('plus'),
+    ),
   );
 
   const detailsBtn = h(
@@ -164,7 +184,14 @@ export function openPortionPicker(props) {
         error,
       ),
       preview,
-      slotSelect ? h('label', { class: 'field field--inline' }, h('span', { class: 'field-label' }, 'Meal'), slotSelect) : null,
+      slotSelect
+        ? h(
+            'label',
+            { class: 'field field--inline' },
+            h('span', { class: 'field-label' }, 'Meal'),
+            slotSelect,
+          )
+        : null,
       food ? detailsBtn : null,
     ),
     h(
@@ -197,7 +224,9 @@ export function openPortionPicker(props) {
       ...[
         food ? urduName(food) : null,
         food ? estimateBadge(food, rules) : null,
-        !food ? h('span', { class: 'picker-note' }, 'Quick add: one portion as you entered it.') : null,
+        !food
+          ? h('span', { class: 'picker-note' }, 'Quick add: one portion as you entered it.')
+          : null,
       ].filter(Boolean),
     );
     const halal = food ? halalChip(food, rules) : null;
@@ -219,23 +248,28 @@ export function openPortionPicker(props) {
     variantBox.replaceChildren(
       h(
         'fieldset',
-        { class: 'segmented', 'data-testid': 'variant-switch' },
-        h('legend', { class: 'field-label' }, 'Style'),
-        variants.map((v) => {
-          const label = rules?.vocab?.styles?.find((s) => s.id === v.style)?.label ?? v.style ?? v.name;
-          return h(
-            'label',
-            { class: 'seg' },
-            h('input', {
-              type: 'radio',
-              name,
-              value: v.id,
-              checked: v.id === food.id,
-              onchange: () => switchTo(v),
-            }),
-            h('span', null, label),
-          );
-        }),
+        { class: 'segmented-field', 'data-testid': 'variant-switch' },
+        h('legend', { class: 'field-label' }, 'Where it was made'),
+        h(
+          'div',
+          { class: 'segmented' },
+          variants.map((v) => {
+            const label =
+              rules?.vocab?.styles?.find((s) => s.id === v.style)?.label ?? v.style ?? v.name;
+            return h(
+              'label',
+              { class: 'seg' },
+              h('input', {
+                type: 'radio',
+                name,
+                value: v.id,
+                checked: v.id === food.id,
+                onchange: () => switchTo(v),
+              }),
+              h('span', null, label),
+            );
+          }),
+        ),
       ),
     );
   }
@@ -276,7 +310,11 @@ export function openPortionPicker(props) {
             }),
             s.id === 'g' ? null : measureDrawing(s, food),
             h('span', { class: 'serving-name' }, s.id === 'g' ? 'Grams' : unitName(s)),
-            h('span', { class: 'serving-grams' }, s.id === 'g' ? 'type the weight' : `${fmtGrams(s.grams)} g`),
+            h(
+              'span',
+              { class: 'serving-grams' },
+              s.id === 'g' ? 'type the weight' : `${fmtGrams(s.grams)} g`,
+            ),
           ),
         ),
       ),
@@ -359,7 +397,13 @@ export function openPortionPicker(props) {
         ),
       );
     } else {
-      preview.replaceChildren(h('p', { class: 'preview-main preview-main--muted' }, 'Choose how much to see the numbers.'));
+      preview.replaceChildren(
+        h(
+          'p',
+          { class: 'preview-main preview-main--muted' },
+          'Choose how much to see the numbers.',
+        ),
+      );
     }
 
     setText(primary, mode === 'edit' ? 'Save' : `Add to ${store.slotLabel(slot)}`);

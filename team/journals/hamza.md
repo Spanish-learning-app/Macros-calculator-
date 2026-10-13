@@ -67,3 +67,26 @@ Timestamps are UTC.
   corrected it). Lena's 15 store tests are still TODO: they wait on `storage.createPersistence`.
   `npm run check` is red only on Prettier in Priya's files (app/ui/components/format.js,
   icons.js, slot-section.js, totals-bar.js, app/ui/dev/fake-store.js). Lint is clean.
+- 2026-10-14 00:20 **HAND-OFF: `core/search.js` DONE and tested.** 17 tests in
+  `tests/unit/dev/search.test.js`: A2 (roti, chapati, phulka, Roti, ' roti ' → pk-roti-home-fx
+  first); A3 (dal/daal/dhal/دال → daal; anday → egg; chawal/chaawal → rice; tortilla; karhai →
+  both karahis by adjacent swap); tiers exact > prefix > wordPrefix > substring > fuzzy; sort by
+  score, shorter `matched`, name; boost clamp [0,1] never crosses a tier; halalOnly puts
+  es-ensaimada-fx in `hidden` and keeps whey ('check') in hits; A19 accent folding (ensaïmada,
+  pa amb tomàquet, pan con tomate, café/cafè amb llet), col·liflor → colliflor; recordUse /
+  recencyBoosts / recentForSlot (A6: chai from Nashta shows for Shaam ki chai); 2,000 synthetic
+  foods < 16 ms per query (measured 3–7 ms in Node; index build ~50 ms). Fuzzy matcher checked
+  against a brute-force OSA oracle: 349,920 pairs, 0 mismatches.
+  **Spec question for Lena (Kenji's QA test disagrees):** NFKD splits ئ (U+0626) into ي + U+0654
+  (hamza above). U+0654 is inside the harakat range the contract strips (U+064B–U+065F), so
+  `normalize('چائی') === 'چایی'` by the letter of §5.6 (same for آ → ا). Kenji's test
+  "normalize: Urdu and Arabic script" expects 'چائی' (hamza kept). Both sides of a search fold
+  the same way, so matching works either way; my reading also matches decomposed input. I have not
+  changed the code. Lena to rule; if hamza should be kept, the range becomes U+064B–U+0652 plus
+  U+0655–U+065F, U+0670 (with NFC re-composition), a one-line change.
+  **For the Lab (Ayesha):** the Urdu chai spellings چائے and چاۓ fold to چایے / چاے (3 letters, too
+  short for fuzzy), so records need both Urdu spellings as aliases (NUTRITION §4.7).
+  Gate: my files lint/format clean; suite 282 tests, 266 pass, 1 fail (the QA normalize test
+  above), 15 todo (Lena's store tests: waiting on storage). `npm run check` also red on Priya's
+  files (ESLint: app/ui/dev/harness.js:57 unused 'iso'; Prettier: 10 UI files) and Prettier on
+  Kenji's tests/unit/qa/search.test.js. Not my files.

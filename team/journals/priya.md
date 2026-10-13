@@ -55,3 +55,30 @@ Timestamps are UTC.
 | Month grid | `data-testid="month-grid"`; logged days carry `data-logged="true"`; each day is a link to `#/day/<date>` |
 | Onboarding | `data-testid="welcome"`; buttons "Start", "Skip for now"; results `data-testid="targets-result"`; button "Start logging" |
 | Data view | `data-testid="export-text"`, button "Copy"; `data-testid="import-text"`, file input "Choose a backup file", button "Check backup"; dialog buttons "Replace", "Merge" |
+
+### Progress
+
+- 2026-10-13 23:35 Task 1 done: `styles/tokens.css` (warm cream/clay/ink palette, type scale,
+  spacing, nutrient colours, halal chip colours, both themes, no red, no green "approved" tick),
+  `styles/base.css` (shell, buttons, chips, forms, switch, dialogs, toast, storage banner styled
+  for main.js's `.storage-banner`), `styles/views.css` (imported by base.css). `ui/dom.js`:
+  `h`, `svg`, `append`, `mountChildren`, `setText`, `srOnly`, `uid`.
+- 2026-10-13 23:35 `components/format.js`: the one display helper (kcal whole, grams per §7.5,
+  `formatQty` from Hamza's units.js, portion text "1½ katori", typed qty parser that accepts
+  "1,5", "½", "1/3"; date labels). Uses core dates/foods/days when implemented, a local fallback
+  while they are stubs (probed once at load), so no edit is needed when Hamza lands them.
+- 2026-10-13 23:40 Harness: `app/ui/dev/index.html` + `harness.js` (same shell and view host as
+  main.js), `fake-store.js` (final §7.3 API incl. targetInfo/portionFor/previewImport/loggedDates),
+  `fixture-foods.js` (copy of the 16 fixtures). URL: `/ui/dev/index.html?state=day&time=…#/day`
+  (`state=fresh|skip|setup|warm|day|week`, `store=real` once the core lands, `data=real`).
+- 2026-10-13 23:50 Day view done (`views/day.js`): totals bar (`components/totals-bar.js`), slot
+  sections, entry rows, day nav, copy yesterday / a day, slot menu (copy slot), entry menu (move
+  to day before / next day / another day, change portion, delete), Undo toast
+  (`components/toast.js`, 8 s). Add sheet (`components/add-sheet.js`), portion picker
+  (`components/portion-picker.js`), food details (`components/food-details.js`), halal chip and
+  badges (`components/food-bits.js`), dialogs/action sheets (`components/dialog.js`), icons and
+  katori/plate/cup/glass/spoon/box/roti drawings (`components/icons.js`).
+  Label changes vs the table above: copy button reads "Copy a day…" (testid `copy-day`); tick-all
+  reads "Tick all N as eaten" (name stays "Mark all <slot> eaten"); variant legend "Where it was
+  made". Entry menu items have testids `move-prev`, `move-next`, `move-other`, `delete-entry`;
+  slot menu `copy-slot-yesterday`, `copy-slot-other`.

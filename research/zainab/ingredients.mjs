@@ -55,6 +55,8 @@ export default {
   carrot: { src: 'ifct', code: 'F003', label: 'Carrot, red (desi gajar)' },
   spinach: { src: 'ifct', code: 'C033', label: 'Spinach (palak)' },
   'mustard-greens': { src: 'ifct', code: 'C026', label: 'Mustard leaves (sarson)' },
+  'fenugreek-leaves': { src: 'ifct', code: 'C020', label: 'Fenugreek leaves (methi)' },
+  'maize-flour': { src: 'ifct', code: 'A006', label: 'Maize, dry (makai ka atta)' },
   capsicum: { src: 'ifct', code: 'D033', label: 'Capsicum, green' },
   'bottle-gourd': { src: 'ifct', code: 'D007', label: 'Bottle gourd (lauki/ghiya)' },
   cucumber: { src: 'ifct', code: 'D043', label: 'Cucumber' },
@@ -78,6 +80,7 @@ export default {
   cream: { src: 'fdc', code: 170859, label: 'Cream, heavy (malai)' },
   'condensed-milk': { src: 'fdc', code: 171275, label: 'Milk, condensed, sweetened' },
   'milk-powder': { src: 'fdc', code: 170876, label: 'Milk powder, whole' },
+  'evaporated-milk': { src: 'fdc', code: 172194, label: 'Milk, evaporated (canned)' },
 
   // ---- meat and eggs (raw) ----
   'chicken-meat': { src: 'fdc', code: 171052, label: 'Chicken, broiler, meat only, raw (skinless)' },

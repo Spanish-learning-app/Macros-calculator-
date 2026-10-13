@@ -122,7 +122,11 @@ export function createAddSheet(props) {
         h('div', { class: 'sheet-titles' }, title, when),
         h(
           'button',
-          { type: 'button', class: 'btn btn-primary btn-done', onclick: () => props.onRequestClose() },
+          {
+            type: 'button',
+            class: 'btn btn-primary btn-done',
+            onclick: () => props.onRequestClose(),
+          },
           'Done',
         ),
       ),
@@ -140,8 +144,19 @@ export function createAddSheet(props) {
         h(
           'div',
           { class: 'sheet-filters' },
-          h('label', { class: 'field field--inline sheet-meal' }, h('span', { class: 'field-label' }, 'Meal'), slotSelect),
-          h('label', { class: 'switch' }, halalToggle, h('span', { class: 'switch-track', 'aria-hidden': 'true' }), h('span', null, 'Halal only')),
+          h(
+            'label',
+            { class: 'field field--inline sheet-meal' },
+            h('span', { class: 'field-label' }, 'Meal'),
+            slotSelect,
+          ),
+          h(
+            'label',
+            { class: 'switch' },
+            halalToggle,
+            h('span', { class: 'switch-track', 'aria-hidden': 'true' }),
+            h('span', null, 'Halal only'),
+          ),
         ),
         status,
       ),
@@ -298,7 +313,11 @@ export function createAddSheet(props) {
           )
         : hidden.length
           ? null
-          : h('p', { class: 'empty-note' }, `Nothing found for “${q}”. Try another spelling, or use Quick add below.`),
+          : h(
+              'p',
+              { class: 'empty-note' },
+              `Nothing found for “${q}”. Try another spelling, or use Quick add below.`,
+            ),
     );
     results.replaceChildren(list, hidden.length ? hiddenNote(hidden) : null);
     quick.setName(q);
@@ -310,7 +329,11 @@ export function createAddSheet(props) {
       return h(
         'div',
         { class: 'hidden-note', 'data-testid': 'hidden-note' },
-        h('p', null, `Showing ${n} not-halal ${n === 1 ? 'food' : 'foods'} for this search only. “Halal only” is still on.`),
+        h(
+          'p',
+          null,
+          `Showing ${n} not-halal ${n === 1 ? 'food' : 'foods'} for this search only. “Halal only” is still on.`,
+        ),
       );
     }
     return h(
@@ -320,9 +343,16 @@ export function createAddSheet(props) {
       h(
         'ul',
         { class: 'hidden-list', role: 'list' },
-        hidden.slice(0, 3).map((food) =>
-          h('li', null, h('strong', null, food.name), food.halal?.reason ? `: ${food.halal.reason}` : ''),
-        ),
+        hidden
+          .slice(0, 3)
+          .map((food) =>
+            h(
+              'li',
+              null,
+              h('strong', null, food.name),
+              food.halal?.reason ? `: ${food.halal.reason}` : '',
+            ),
+          ),
       ),
       h(
         'button',
@@ -346,11 +376,31 @@ export function createAddSheet(props) {
     const kcalId = uid('qa-kcal');
     const err = h('p', { class: 'field-error', hidden: true });
     const nameIn = h('input', { id: nameId, class: 'input', type: 'text', autocomplete: 'off' });
-    const kcalIn = h('input', { id: kcalId, class: 'input', type: 'text', inputmode: 'decimal', autocomplete: 'off' });
+    const kcalIn = h('input', {
+      id: kcalId,
+      class: 'input',
+      type: 'text',
+      inputmode: 'decimal',
+      autocomplete: 'off',
+    });
     const macro = (label) => {
       const id = uid('qa');
-      const input = h('input', { id, class: 'input', type: 'text', inputmode: 'decimal', autocomplete: 'off' });
-      return { input, field: h('div', { class: 'field' }, h('label', { class: 'field-label', for: id }, label), input) };
+      const input = h('input', {
+        id,
+        class: 'input',
+        type: 'text',
+        inputmode: 'decimal',
+        autocomplete: 'off',
+      });
+      return {
+        input,
+        field: h(
+          'div',
+          { class: 'field' },
+          h('label', { class: 'field-label', for: id }, label),
+          input,
+        ),
+      };
     };
     const protein = macro('Protein (g)');
     const carbs = macro('Carbs (g)');
@@ -366,15 +416,21 @@ export function createAddSheet(props) {
           event.preventDefault();
           const name = nameIn.value.trim();
           const kcal = num(kcalIn.value);
-          const extras = { protein: protein.input.value, carbs: carbs.input.value, fat: fat.input.value };
+          const extras = {
+            protein: protein.input.value,
+            carbs: carbs.input.value,
+            fat: fat.input.value,
+          };
           let problem = null;
           if (!name) problem = 'Give it a name, for example “Wedding dinner”.';
-          else if (kcalIn.value.trim() === '' || !Number.isFinite(kcal) || kcal < 0) problem = 'Type the kcal as a number, for example 650.';
+          else if (kcalIn.value.trim() === '' || !Number.isFinite(kcal) || kcal < 0)
+            problem = 'Type the kcal as a number, for example 650.';
           const nutrients = { kcal };
           for (const [k, v] of Object.entries(extras)) {
             if (String(v).trim() === '') continue;
             const n = num(v);
-            if (!Number.isFinite(n) || n < 0) problem = problem ?? 'Protein, carbs and fat must be numbers (or left empty).';
+            if (!Number.isFinite(n) || n < 0)
+              problem = problem ?? 'Protein, carbs and fat must be numbers (or left empty).';
             else nutrients[k] = n;
           }
           if (problem) {
@@ -385,14 +441,27 @@ export function createAddSheet(props) {
           err.hidden = true;
           store.quickAdd({ date, slot, name, nutrients });
           addedCount += 1;
-          setText(status, `Added ${name}, to ${store.slotLabel(slot)}. ${addedCount} added so far.`);
+          setText(
+            status,
+            `Added ${name}, to ${store.slotLabel(slot)}. ${addedCount} added so far.`,
+          );
           for (const i of [nameIn, kcalIn, protein.input, carbs.input, fat.input]) i.value = '';
           form.hidden = true;
           toggle.setAttribute('aria-expanded', 'false');
         },
       },
-      h('div', { class: 'field' }, h('label', { class: 'field-label', for: nameId }, 'Name'), nameIn),
-      h('div', { class: 'field' }, h('label', { class: 'field-label', for: kcalId }, 'kcal (calories)'), kcalIn),
+      h(
+        'div',
+        { class: 'field' },
+        h('label', { class: 'field-label', for: nameId }, 'Name'),
+        nameIn,
+      ),
+      h(
+        'div',
+        { class: 'field' },
+        h('label', { class: 'field-label', for: kcalId }, 'kcal (calories)'),
+        kcalIn,
+      ),
       h(
         'details',
         { class: 'quick-more' },

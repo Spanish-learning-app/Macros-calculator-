@@ -173,7 +173,12 @@ export function createFakeStore({
   // targets (simplified: the real algorithm is NUTRITION.md §2.2 in core/targets.js)
   function personal(profile) {
     if (!profile) return null;
-    const req = rules.skipDefaults?.requiredForPersonal ?? ['sex', 'ageYears', 'heightCm', 'weightKg'];
+    const req = rules.skipDefaults?.requiredForPersonal ?? [
+      'sex',
+      'ageYears',
+      'heightCm',
+      'weightKg',
+    ];
     if (req.some((k) => profile[k] == null)) return null;
     return { ...rules.skipDefaults?.defaultsWhenMissing, ...profile };
   }
@@ -182,31 +187,56 @@ export function createFakeStore({
     if (!p) return null;
     const warnings = ['estimate', ...(p.healthFlags ?? [])];
     if (p.ageYears < 18) {
-      return { ok: false, kcal: null, protein: null, carbs: null, fat: null, fiber: null,
-        warnings: ['minor', 'no_targets'], effectiveGoal: 'maintain' };
+      return {
+        ok: false,
+        kcal: null,
+        protein: null,
+        carbs: null,
+        fat: null,
+        fiber: null,
+        warnings: ['minor', 'no_targets'],
+        effectiveGoal: 'maintain',
+      };
     }
     const m = rules.bmr.mifflinStJeor;
-    const bmr = m.perKg * p.weightKg + m.perCm * p.heightCm + m.perYear * p.ageYears + m.constant[p.sex];
+    const bmr =
+      m.perKg * p.weightKg + m.perCm * p.heightCm + m.perYear * p.ageYears + m.constant[p.sex];
     const factor = rules.activityLevels.find((a) => a.id === p.activity)?.factor ?? 1.375;
     const tdee = bmr * factor;
     const dir = rules.goals.find((g) => g.id === p.goal)?.direction ?? 0;
     let delta = (dir * (p.rateKgPerWeek ?? 0) * rules.energy.kcalPerKgBodyWeight) / 7;
     delta = Math.max(delta, -tdee * 0.25);
     const kcal = Math.round((tdee + delta) / 10) * 10;
-    const gPerKg = (d().targetPrefs?.proteinGPerKg ??
-      rules.protein.gPerKgPrw[p.lifts ? 'lift' : 'noLift'][p.goal]) || 1;
+    const gPerKg =
+      (d().targetPrefs?.proteinGPerKg ??
+        rules.protein.gPerKgPrw[p.lifts ? 'lift' : 'noLift'][p.goal]) ||
+      1;
     const protein = Math.round(gPerKg * p.weightKg);
     const fat = Math.round((kcal * ((d().targetPrefs?.fatPct ?? 30) / 100)) / 9);
     const carbs = Math.round((kcal - 4 * protein - 9 * fat) / 4);
     const fiber = Math.round(Math.max(rules.fiber.minG, (kcal / 1000) * rules.fiber.gPer1000Kcal));
     if (carbs < rules.carbs.noteBelowG) warnings.push('low_carbs');
-    return { ok: true, kcal, protein, carbs, fat, fiber, bmr, tdee, warnings, effectiveGoal: p.goal };
+    return {
+      ok: true,
+      kcal,
+      protein,
+      carbs,
+      fat,
+      fiber,
+      bmr,
+      tdee,
+      warnings,
+      effectiveGoal: p.goal,
+    };
   }
   function targets() {
     const r = targetResult();
     const o = d().targetOverrides ?? {};
     let base = null;
-    if (r) base = r.ok ? { kcal: r.kcal, protein: r.protein, carbs: r.carbs, fat: r.fat, fiber: r.fiber } : null;
+    if (r)
+      base = r.ok
+        ? { kcal: r.kcal, protein: r.protein, carbs: r.carbs, fat: r.fat, fiber: r.fiber }
+        : null;
     else if (!personal(d().profile)) base = { ...rules.skipDefaults.targets };
     if (!base) return null;
     for (const [k, v] of Object.entries(o)) if (v != null) base[k] = v;
@@ -374,7 +404,11 @@ export function createFakeStore({
     search,
     recents,
     exportText: () =>
-      JSON.stringify({ kind: 'katori-backup', schemaVersion: 1, exportedAt: 'fake', data: d() }, null, 1),
+      JSON.stringify(
+        { kind: 'katori-backup', schemaVersion: 1, exportedAt: 'fake', data: d() },
+        null,
+        1,
+      ),
     previewImport(text) {
       if (!String(text).trim()) return { ok: false, error: 'EMPTY' };
       let parsed;
@@ -471,7 +505,9 @@ export function createFakeStore({
       );
     },
     setEntryStatus(date, entryId, status) {
-      commit(withDays({ [date]: mapEntries(date, (e) => (e.id === entryId ? { ...e, status } : e)) }));
+      commit(
+        withDays({ [date]: mapEntries(date, (e) => (e.id === entryId ? { ...e, status } : e)) }),
+      );
     },
     switchVariant(date, entryId, foodId) {
       const nf = index.get(foodId);
@@ -490,12 +526,16 @@ export function createFakeStore({
       );
     },
     setSlotStatus(date, slot, status) {
-      commit(withDays({ [date]: mapEntries(date, (e) => (e.slot === slot ? { ...e, status } : e)) }));
+      commit(
+        withDays({ [date]: mapEntries(date, (e) => (e.slot === slot ? { ...e, status } : e)) }),
+      );
     },
     removeEntry(date, entryId) {
       const e = day(date).entries.find((x) => x.id === entryId);
       commit(
-        withDays({ [date]: { ...day(date), entries: day(date).entries.filter((x) => x.id !== entryId) } }),
+        withDays({
+          [date]: { ...day(date), entries: day(date).entries.filter((x) => x.id !== entryId) },
+        }),
         `Deleted ${e.snapshot.name}`,
       );
     },
@@ -542,8 +582,7 @@ export function createFakeStore({
     importText(text, mode = 'replace') {
       const p = this.previewImport(text);
       if (!p.ok) return p;
-      const next =
-        mode === 'merge' ? { ...d(), days: { ...d().days, ...p.data.days } } : p.data;
+      const next = mode === 'merge' ? { ...d(), days: { ...d().days, ...p.data.days } } : p.data;
       commit(next, mode === 'merge' ? 'Merged backup' : 'Imported backup');
       return { ok: true, summary: p.summary };
     },

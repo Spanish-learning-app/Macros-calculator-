@@ -32,3 +32,15 @@
   horizontal scroll), FEATURES flags + `needs()` → test.fixme, `actions(page)` counter,
   `useFixtureFoods`, `breakLocalStorage` (A13.5), `ui.*` from Priya's selector contract. Smoke:
   8 pass, 8 fixme (redirect and notfound tests wait for the store).
+- 2026-10-14 00:10 UTC: days QA suite: 35 tests (createEntry/QuickEntry shape and bad input,
+  live-vs-snapshot values, add/update/remove incl. boxRef kept, A13 roti 2→3→2, switchEntryFood
+  keep-serving and keep-grams, setSlotStatus, copySlot/copyDay incl. no boxRef on copies and
+  same totals (A5 b), dayTotals all/eaten/planned, A6 4 chais, progress incl. "N over", weekSummary,
+  averageTotals, slotForTime edges for both presets incl. the Spanish dinner wrap, deep-frozen
+  random edits). 35/35 pass against Hamza's days.js.
+- 2026-10-14 00:20 UTC: search QA suite: 25 tests (normalize: case, punctuation, accents, middle
+  dot, Urdu/Arabic harakat and letters, doubled vowels, idempotence property; tiers; A2/A3/A19 on
+  fixtures; halal hidden vs check; fuzzy OSA edges; ranking and boosts; a boost never crosses a
+  tier (property); limit; recordUse; recencyBoosts incl. DST; recentForSlot (A6)). One expectation
+  of mine was wrong (ئ folds to ی by NFKD + harakat strip) and is fixed. 25/25 pass against
+  Hamza's search.js (implemented meanwhile).

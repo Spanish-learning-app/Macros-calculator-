@@ -1,7 +1,7 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 1, version 1.2 (2026-10-13). Version 1.2 adds skip defaults (§2.1a). Version 1.1 added the Meeting 002 changes: the halal field, seafood tags, not-halal
+**Status:** Sprint 1, version 1.3 (2026-10-14). Version 1.3 adds the serving rules (household measures and whole-dish servings) and widens `bread-fried` to 480. Version 1.2 added skip defaults (§2.1a). Version 1.1 added the Meeting 002 changes: the halal field, seafood tags, not-halal
 rules, the Spain slot preset, meal-prep storage and the `lunchbox` group.
 
 This document and `app/data/rules.js` are the specification for:
@@ -392,7 +392,7 @@ Each group has:
 | id | Examples | kcal/100 g | Fibre 0 | Serving g | Katori |
 |---|---|---|---|---|---|
 | `bread` | roti, tandoori roti, naan, sliced bread, pita | 180–380 | | 15–250 | |
-| `bread-fried` | paratha, puri, bhatura | 260–450 | | 20–250 | |
+| `bread-fried` | paratha, puri, bhatura, tostada con aceite (oil-dressed toast) | 260–480 | | 20–250 | |
 | `grain-cooked` | boiled rice, plain pasta, porridge | 50–180 | | 30–500 | yes |
 | `rice-dish` | biryani, pulao, khichdi, paella | 110–260 | | 30–600 | yes |
 | `curry-meat` | salan, karahi, qorma, keema, nihari, haleem | 90–360 | | 30–500 | yes |
@@ -428,6 +428,14 @@ Each group has:
 **`lunchbox` rule (G22):** the record needs a serving with id `box` (label "1 box") that is the
 default and gives 450–850 kcal. The design target is 550–750 kcal and 35–50 g protein
 (`RULES.mealPrep.boxTargets`).
+
+**Exceptions to the serving-gram range:**
+- **Household-measure servings** (`katori-small`, `katori`, `katori-large`, `cup`, `mug`, `glass`,
+  `tbsp`, `tsp`) are fixed volumes. The density check G11 covers them instead.
+- **Whole-dish servings** have the id `whole` or `whole-<word>`, e.g. a whole tortilla (742 g), a
+  whole pizza or a whole handi. They are exempt from the group maximum (the minimum still applies)
+  and are never the default. They are capped at 3,000 g and 4,000 kcal
+  (`RULES.vocab.servingRules.wholeDish`). Users log a share with the ½ and ¼ buttons.
 
 If a real food falls outside its group's range, **do not force it**. Tell Ayesha. The range is
 changed in `rules.js` after review; records never carry exceptions.
@@ -791,7 +799,7 @@ Show this text as written:
 | G7 | **Mass:** P + C + F + fibre ≤ 100.5 g; sugars ≤ carbs + 0.5; satFat ≤ fat | fail |
 | G8 | **Fibre zero:** groups with `fiberZero` have fibre exactly 0 | fail |
 | G9 | **Range:** kcal is within the group's `kcalPer100g` | fail |
-| G10 | **Servings:** non-empty; ids kebab-case, unique and not `g`; labels non-empty; grams > 0 and within the group's `servingGrams` (except `tbsp` and `tsp`, which G11 checks); exactly one default; kcal per serving ≤ 1,500 | fail |
+| G10 | **Servings:** non-empty; ids kebab-case, unique and not `g`; labels non-empty; grams > 0 and within the group's `servingGrams` (household measures are exempt; whole-dish servings are exempt from the max, capped at 3,000 g and 4,000 kcal, and never default); exactly one default; kcal per serving ≤ 1,500 | fail |
 | G11 | **Household ids:** a serving using a `RULES.householdMeasures` id has grams/ml between 0.3 and 1.5 | fail |
 | G12 | **Katori groups:** `katori-small`, `katori`, `katori-large` and `tbsp` are present, with one consistent density (±3%) | fail |
 | G13 | **Tags:** all in the vocabulary; ≥ 1 cuisine; at most one seafood tag; no old `halal` / `halal-check` tags; vegan → vegetarian | fail |

@@ -7,7 +7,7 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.2.0',
+  version: '1.3.0',
   updated: '2026-10-13',
 
   // ---------------------------------------------------------------- energy
@@ -340,6 +340,8 @@ export default {
     // katoriServed: records must offer the servings katori-small, katori, katori-large and tbsp
     //              (grams = ml × one density for the dish; see householdMeasures).
     // If a genuine food falls outside a range, tell Ayesha: the range is changed here, never per record.
+    // servingGrams does NOT apply to household-measure servings (ids in householdMeasures: katori-*,
+    // cup, mug, glass, tbsp, tsp; checked by density instead) or to whole-dish servings (servingRules).
     groups: [
       {
         id: 'bread',
@@ -351,9 +353,9 @@ export default {
       },
       {
         id: 'bread-fried',
-        label: 'Parathas and fried breads',
-        examples: 'paratha, aloo paratha, lachha paratha, puri, bhatura',
-        kcalPer100g: { min: 260, max: 450 },
+        label: 'Parathas, fried breads and oil-dressed toast',
+        examples: 'paratha, aloo paratha, lachha paratha, puri, bhatura, tostada con aceite',
+        kcalPer100g: { min: 260, max: 480 },
         fiberZero: false,
         servingGrams: { min: 20, max: 250 },
       },
@@ -617,6 +619,16 @@ export default {
         boxServing: { id: 'box', kcal: { min: 450, max: 850 } },
       },
     ],
+
+    // Serving rules that apply to every group (data gate G10-G11).
+    servingRules: {
+      maxKcalPerServing: 1500, // one unit of an ordinary serving
+      // Whole-dish servings: id 'whole' or 'whole-<word>' (a whole tortilla, a whole pizza, a whole
+      // handi). Exempt from the group's servingGrams max (the min still applies), never the default
+      // serving, and bounded by these limits instead. Users log a share with the ½ / ¼ buttons.
+      wholeDish: { idPrefix: 'whole', maxGrams: 3000, maxKcal: 4000, mayBeDefault: false },
+      measureDensityGPerMl: { min: 0.3, max: 1.5 }, // household-measure servings (G11)
+    },
 
     // ---------------------------------------------------------------- vocabularies
     // record.tags: every tag must be listed here. Rules: at least one `cuisine` tag; `vegan`

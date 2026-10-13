@@ -289,14 +289,22 @@ export function entryNutrientsOf(entry, food) {
   if (coreDaysReady) {
     return coreDays.entryNutrients(entry, food ? new Map([[food.id, food]]) : new Map());
   }
-  if (food && servingOf(food, entry.servingId)) return portionNutrients(food, entry.servingId, entry.qty);
+  if (food && servingOf(food, entry.servingId))
+    return portionNutrients(food, entry.servingId, entry.qty);
   const s = entry.snapshot ?? {};
-  return { kcal: s.kcal ?? 0, protein: s.protein ?? 0, carbs: s.carbs ?? 0, fat: s.fat ?? 0, fiber: s.fiber ?? 0 };
+  return {
+    kcal: s.kcal ?? 0,
+    protein: s.protein ?? 0,
+    carbs: s.carbs ?? 0,
+    fat: s.fat ?? 0,
+    fiber: s.fiber ?? 0,
+  };
 }
 
 /** Grams of one entry (live), or null for a quick add. */
 export function entryGramsOf(entry, food) {
   if (!entry.foodId) return null;
-  if (food && servingOf(food, entry.servingId)) return portionNutrients(food, entry.servingId, entry.qty).grams;
+  if (food && servingOf(food, entry.servingId))
+    return portionNutrients(food, entry.servingId, entry.qty).grams;
   return entry.snapshot?.grams ?? null;
 }

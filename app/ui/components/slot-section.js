@@ -18,7 +18,10 @@ export function renderSlotSection(props) {
   const headingId = `slot-title-${slot}`;
   const planned = entries.filter((e) => e.status === 'planned').length;
   const sub = entries.length
-    ? [hideKcal ? null : `${fmtKcal(subtotal.kcal)} kcal`, `${fmtGrams(subtotal.protein)} g protein`]
+    ? [
+        hideKcal ? null : `${fmtKcal(subtotal.kcal)} kcal`,
+        `${fmtGrams(subtotal.protein)} g protein`,
+      ]
         .filter(Boolean)
         .join(' · ')
     : 'Nothing yet';
@@ -71,7 +74,7 @@ export function renderSlotSection(props) {
             onclick: props.onTickAll,
           },
           iconEl('check', 18),
-          h('span', { 'aria-hidden': 'true' }, planned === 1 ? 'Ate it' : `Ate all ${planned}`),
+          h('span', { 'aria-hidden': 'true' }, planned === 1 ? 'Tick as eaten' : `Tick all ${planned} as eaten`),
         )
       : null,
     entries.length

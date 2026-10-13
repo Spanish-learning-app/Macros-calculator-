@@ -30,14 +30,23 @@ export function openFoodDetails({ food, rules, onClose = null }) {
     per.sugars != null ? ['of which sugars', `${fmtGrams(per.sugars)} g`] : null,
     per.satFat != null ? ['Saturated fat', `${fmtGrams(per.satFat)} g`] : null,
     per.sodium != null ? ['Sodium', `${fmtKcal(per.sodium)} mg`] : null,
-    food.addedFatPer100g != null ? ['Oil or ghee in it', `${fmtGrams(food.addedFatPer100g)} g`] : null,
+    food.addedFatPer100g != null
+      ? ['Oil or ghee in it', `${fmtGrams(food.addedFatPer100g)} g`]
+      : null,
   ].filter(Boolean);
 
   const content = h(
     'div',
     { class: 'details' },
     urduName(food),
-    food.state ? h('p', { class: 'details-state' }, h('strong', null, 'What the numbers describe: '), food.state) : null,
+    food.state
+      ? h(
+          'p',
+          { class: 'details-state' },
+          h('strong', null, 'What the numbers describe: '),
+          food.state,
+        )
+      : null,
     style ? h('p', { class: 'details-state' }, h('strong', null, 'Style: '), style.label) : null,
 
     h('h3', { class: 'details-h' }, 'Source'),
@@ -85,7 +94,11 @@ export function openFoodDetails({ food, rules, onClose = null }) {
           'li',
           null,
           h('span', null, s.label.replace(/\s*\([^)]*\)\s*$/, '')),
-          h('span', { class: 'details-sub' }, `${fmtGrams(s.grams)} g${servingNote(s) && !/\bg\b/.test(servingNote(s)) ? ` · ${servingNote(s)}` : ''}`),
+          h(
+            'span',
+            { class: 'details-sub' },
+            `${fmtGrams(s.grams)} g${servingNote(s) && !/\bg\b/.test(servingNote(s)) ? ` · ${servingNote(s)}` : ''}`,
+          ),
         ),
       ),
     ),

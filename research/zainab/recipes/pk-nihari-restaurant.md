@@ -63,5 +63,4 @@ No independent reference found for this dish.
 ## Assumptions and confidence
 
 - Gravy water 1.2 kg per kg beef (assumption); 320 g fat per kg beef including the tari.
-- Plate = one large katori (360 ml), a stated assumption.
 - Confidence **C**: recipe with assumed oil and/or yield.

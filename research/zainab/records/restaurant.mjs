@@ -116,8 +116,6 @@ export default [
     nameRoman: 'mutton karahi',
     aliases: uniq(SP.karahi, ['mutton karahi', 'mutton karai', 'gosht karahi', 'karahi gosht', 'bakra karahi', 'goat karahi', 'lamb karahi', 'namak mandi karahi', 'peshawari karahi', 'shinwari karahi', 'مٹن کڑاہی']),
     group: 'curry-meat',
-    style: 'restaurant',
-    family: 'mutton-karahi',
     state: BONE_STATE,
     servings: ({ katoriSet, res }) => [
       ...katoriSet(boneIn(D.curry, res), { suffix: ', edible part' }),
@@ -195,10 +193,10 @@ export default [
     style: 'restaurant',
     family: 'nihari',
     state: 'cooked, as served with gravy and tari (boneless shank)',
-    servings: ({ katoriSet }) => [...katoriSet(D.curry), { id: 'plate', label: '1 plate (as served, ≈ 1 large katori)', labelUr: 'ایک پلیٹ', grams: 360 }],
+    servings: ({ katoriSet }) => katoriSet(D.curry),
     tags: PK,
     slots: ['breakfast', 'dinner'],
-    assumptions: ['Gravy water 1.2 kg per kg beef (assumption); 320 g fat per kg beef including the tari.', 'Plate = one large katori (360 ml), a stated assumption.'],
+    assumptions: ['Gravy water 1.2 kg per kg beef (assumption); 320 g fat per kg beef including the tari.'],
     source: { confidence: 'C', notes: 'Skim the tari to cut fat; extra tari: log ghee as an add-on.' },
   },
   {

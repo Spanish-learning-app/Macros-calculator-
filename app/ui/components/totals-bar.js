@@ -8,11 +8,9 @@ import { h, setText } from '../dom.js';
 import { fmtKcal, fmtGrams, leftOrOver } from './format.js';
 
 const MACROS = [
-  { key: 'kcal', label: 'kcal', unit: '' },
-  { key: 'protein', label: 'Protein', unit: 'g' },
-  { key: 'carbs', label: 'Carbs', unit: 'g' },
-  { key: 'fat', label: 'Fat', unit: 'g' },
-  { key: 'fiber', label: 'Fibre', unit: 'g' },
+  { key: 'carbs', label: 'Carbs' },
+  { key: 'fat', label: 'Fat' },
+  { key: 'fiber', label: 'Fibre' },
 ];
 
 const pct = (value, target) =>
@@ -36,7 +34,12 @@ export function createTotalsBar({ store, router, rules }) {
   );
   const barEaten = h('span', { class: 'meter-fill' });
   const barPlanned = h('span', { class: 'meter-planned' });
-  const bar = h('span', { class: 'meter meter--kcal', 'aria-hidden': 'true' }, barEaten, barPlanned);
+  const bar = h(
+    'span',
+    { class: 'meter meter--kcal', 'aria-hidden': 'true' },
+    barEaten,
+    barPlanned,
+  );
   const planned = h('p', { class: 'totals-planned', 'data-testid': 'planned-total' });
 
   const el = h(
@@ -59,7 +62,7 @@ export function createTotalsBar({ store, router, rules }) {
     const row = h(
       'li',
       { class: `macro macro--${m.key}`, dataset: { key: m.key } },
-      h('span', { class: 'macro-name' }, m.key === 'kcal' ? 'Energy' : m.label),
+      h('span', { class: 'macro-name' }, m.label),
       value,
       h('span', { class: `meter meter--${m.key}`, 'aria-hidden': 'true' }, fill),
     );
@@ -68,9 +71,11 @@ export function createTotalsBar({ store, router, rules }) {
   const chip = h('span', { class: 'chip-kind', 'data-testid': 'target-kind' });
   const note = h('span', { class: 'targets-note' });
   const action = h('a', { class: 'link-btn' });
+  const eatenLine = h('p', { class: 'eaten-line' });
   const panel = h(
     'section',
     { class: 'macro-panel', 'aria-label': 'Eaten so far against your targets' },
+    eatenLine,
     h(
       'ul',
       { class: 'macro-list', role: 'list' },
@@ -137,18 +142,20 @@ export function createTotalsBar({ store, router, rules }) {
     );
 
     // macro panel
+    const of = (key, fmt, unit) =>
+      targets?.[key] != null
+        ? `${fmt(eaten[key])} of ${fmt(targets[key])}${unit}`
+        : `${fmt(eaten[key])}${unit}`;
+    setText(
+      eatenLine,
+      hideKcal
+        ? `Eaten so far: ${of('protein', fmtGrams, ' g')} protein`
+        : `Eaten so far: ${of('kcal', fmtKcal, ' kcal')} · ${of('protein', fmtGrams, ' g')} protein`,
+    );
     for (const r of rows) {
-      r.row.hidden = r.key === 'kcal' && hideKcal;
       const v = eaten[r.key];
       const t = targets?.[r.key] ?? null;
-      const shown = r.key === 'kcal' ? fmtKcal(v) : fmtGrams(v);
-      const unit = r.key === 'kcal' ? ' kcal' : ' g';
-      setText(
-        r.value,
-        t === null
-          ? `${shown}${unit}`
-          : `${shown} of ${r.key === 'kcal' ? fmtKcal(t) : fmtGrams(t)}${unit}`,
-      );
+      setText(r.value, t === null ? `${fmtGrams(v)} g` : `${fmtGrams(v)} / ${fmtGrams(t)} g`);
       r.fill.style.width = pct(v, t);
       r.row.classList.toggle('is-over', t !== null && v > t);
     }
@@ -163,7 +170,7 @@ export function createTotalsBar({ store, router, rules }) {
       action.href = router.href({ name: 'welcome', params: {} });
       action.hidden = false;
     } else if (info.kind === 'personal') {
-      setText(note, 'Targets are an estimate. You can change them.');
+      setText(note, 'Targets are an estimate, you can change them.');
       setText(action, 'Change');
       action.href = router.href({ name: 'profile', params: {} });
       action.hidden = false;

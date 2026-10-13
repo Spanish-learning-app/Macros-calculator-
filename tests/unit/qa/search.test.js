@@ -71,7 +71,7 @@ qa('normalize: accents fold (meeting 002: Catalan, Spanish)', [normalize], () =>
   assert.equal(normalize('truita de patates'), 'truita de patates');
   assert.equal(normalize('jamón'), 'jamon');
   assert.equal(normalize('über'), 'uber');
-  assert.equal(normalize('crème brûlée'), 'creme brulee'.replace('ee', 'i'));
+  assert.equal(normalize('crème brûlée'), 'creme bruli');
   assert.equal(normalize('café'), 'cafe', 'combining acute (already decomposed)');
 });
 
@@ -86,7 +86,7 @@ qa('normalize: Urdu and Arabic script (harakat stripped, letters unified)', [nor
   assert.equal(normalize('دَال'), 'دال', 'fatha stripped');
   assert.equal(normalize('دِال'), 'دال', 'kasra stripped');
   assert.equal(normalize('دُودھ'), 'دودھ', 'damma stripped');
-  assert.equal(normalize('چائي'), 'چائی', 'Arabic yeh → Farsi yeh');
+  assert.equal(normalize('چاي'), 'چای', 'Arabic yeh → Farsi yeh');
   assert.equal(normalize('كباب'), 'کباب', 'Arabic kaf → keheh');
   assert.equal(normalize('حلوة'), 'حلوہ', 'teh marbuta → heh goal');
   assert.equal(normalize('رحمٰن'), 'رحمن', 'superscript alef U+0670 stripped');
@@ -140,90 +140,120 @@ function hitFor(result, id) {
   return result.hits.find((h) => h.food.id === id) ?? result.hidden.find((h) => h.food.id === id);
 }
 
-qa('searchFoods returns { hits, hidden } with { food, score, tier, matched } hits', [buildSearchIndex, searchFoods], () => {
-  const r = searchFoods(index(), 'roti');
-  assert.ok(Array.isArray(r.hits) && Array.isArray(r.hidden));
-  const h = r.hits[0];
-  assert.deepEqual(Object.keys(h).sort(), ['food', 'matched', 'score', 'tier']);
-  assert.equal(h.food.id, ROTI);
-  assert.equal(h.tier, 'exact');
-  assert.equal(h.score, 100);
-  assert.equal(h.matched, 'roti', 'the original string that matched');
-});
+qa(
+  'searchFoods returns { hits, hidden } with { food, score, tier, matched } hits',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const r = searchFoods(index(), 'roti');
+    assert.ok(Array.isArray(r.hits) && Array.isArray(r.hidden));
+    const h = r.hits[0];
+    assert.deepEqual(Object.keys(h).sort(), ['food', 'matched', 'score', 'tier']);
+    assert.equal(h.food.id, ROTI);
+    assert.equal(h.tier, 'exact');
+    assert.equal(h.score, 100);
+    assert.equal(h.matched, 'roti', 'the original string that matched');
+  },
+);
 
-qa('A2: roti, chapati, phulka, Roti and " roti " put the roti first', [buildSearchIndex, searchFoods], () => {
-  const idx = index();
-  for (const q of ['roti', 'chapati', 'phulka', 'Roti', ' roti ', 'chapatti', 'ROTI']) {
-    const r = searchFoods(idx, q);
-    assert.equal(r.hits[0]?.food.id, ROTI, `"${q}"`);
-    assert.equal(r.hits[0].tier, 'exact', `"${q}" is an exact alias`);
-  }
-});
+qa(
+  'A2: roti, chapati, phulka, Roti and " roti " put the roti first',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const idx = index();
+    for (const q of ['roti', 'chapati', 'phulka', 'Roti', ' roti ', 'chapatti', 'ROTI']) {
+      const r = searchFoods(idx, q);
+      assert.equal(r.hits[0]?.food.id, ROTI, `"${q}"`);
+      assert.equal(r.hits[0].tier, 'exact', `"${q}" is an exact alias`);
+    }
+  },
+);
 
-qa('tiers: exact 100, prefix 80, wordPrefix 60, substring 40, fuzzy 20', [buildSearchIndex, searchFoods], () => {
-  const idx = index();
-  const cases = [
-    ['roti', ROTI, 'exact'],
-    ['chapa', ROTI, 'prefix'],
-    ['ghar', ROTI, 'prefix'],
-    ['ki roti', ROTI, 'wordPrefix'],
-    ['wheat', ROTI, 'wordPrefix'],
-    ['apati', ROTI, 'substring'],
-    ['dhal', DAAL, 'fuzzy'],
-    ['karhai', K_HOME, 'fuzzy'],
-    ['karhai', K_REST, 'fuzzy'],
-    ['دال', DAAL, 'wordPrefix'],
-  ];
-  for (const [q, id, tier] of cases) {
-    const h = hitFor(searchFoods(idx, q), id);
-    assert.ok(h, `"${q}" finds ${id}`);
-    assert.equal(h.tier, tier, `"${q}" → ${id}`);
-    assert.equal(h.score, TIERS[tier], `"${q}" score without boost`);
-  }
-});
+qa(
+  'tiers: exact 100, prefix 80, wordPrefix 60, substring 40, fuzzy 20',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const idx = index();
+    const cases = [
+      ['roti', ROTI, 'exact'],
+      ['chapa', ROTI, 'prefix'],
+      ['ghar', ROTI, 'prefix'],
+      ['ki roti', ROTI, 'wordPrefix'],
+      ['wheat', ROTI, 'wordPrefix'],
+      ['apati', ROTI, 'substring'],
+      ['dhal', DAAL, 'fuzzy'],
+      ['karhai', K_HOME, 'fuzzy'],
+      ['karhai', K_REST, 'fuzzy'],
+      ['دال', DAAL, 'wordPrefix'],
+    ];
+    for (const [q, id, tier] of cases) {
+      const h = hitFor(searchFoods(idx, q), id);
+      assert.ok(h, `"${q}" finds ${id}`);
+      assert.equal(h.tier, tier, `"${q}" → ${id}`);
+      assert.equal(h.score, TIERS[tier], `"${q}" score without boost`);
+    }
+  },
+);
 
-qa('A3 (fixtures): dal, daal, dhal, دال, anda, anday, egg, chawal, rice, kela, tortilla', [buildSearchIndex, searchFoods], () => {
-  const idx = index();
-  const top3 = (q) => ids(searchFoods(idx, q).hits).slice(0, 3);
-  for (const q of ['dal', 'daal', 'dhal', 'دال']) assert.ok(top3(q).includes(DAAL), q);
-  for (const q of ['anda', 'anday', 'ande', 'egg']) assert.equal(top3(q)[0], EGG, q);
-  for (const q of ['chawal', 'chaawal', 'rice']) assert.equal(top3(q)[0], RICE, q);
-  assert.equal(top3('kela')[0], 'intl-banana-fx');
-  assert.equal(top3('tortilla')[0], 'es-tortilla-de-patatas-fx');
-  assert.equal(top3('chai')[0], 'pk-chai-doodh-patti-home-fx');
-  assert.equal(top3('doodh patti')[0], 'pk-chai-doodh-patti-home-fx');
-});
+qa(
+  'A3 (fixtures): dal, daal, dhal, دال, anda, anday, egg, chawal, rice, kela, tortilla',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const idx = index();
+    const top3 = (q) => ids(searchFoods(idx, q).hits).slice(0, 3);
+    for (const q of ['dal', 'daal', 'dhal', 'دال']) assert.ok(top3(q).includes(DAAL), q);
+    for (const q of ['anda', 'anday', 'ande', 'egg']) assert.equal(top3(q)[0], EGG, q);
+    for (const q of ['chawal', 'chaawal', 'rice']) assert.equal(top3(q)[0], RICE, q);
+    assert.equal(top3('kela')[0], 'intl-banana-fx');
+    assert.equal(top3('tortilla')[0], 'es-tortilla-de-patatas-fx');
+    assert.equal(top3('chai')[0], 'pk-chai-doodh-patti-home-fx');
+    assert.equal(top3('doodh patti')[0], 'pk-chai-doodh-patti-home-fx');
+  },
+);
 
-qa('A19 (fixtures): Catalan, Spanish and English names, with or without accents', [buildSearchIndex, searchFoods], () => {
-  const idx = index();
-  const first = (q) => searchFoods(idx, q).hits[0]?.food.id;
-  for (const q of ['pa amb tomàquet', 'pa amb tomaquet', 'pan con tomate', 'bread with tomato']) {
-    assert.equal(first(q), 'es-pa-amb-tomaquet-fx', q);
-  }
-  for (const q of ['cafè amb llet', 'cafe amb llet', 'café con leche', 'cafe con leche', 'latte']) {
-    assert.equal(first(q), 'es-cafe-con-leche-fx', q);
-  }
-  for (const q of ['plátano', 'platano', 'PLÁTANO']) assert.equal(first(q), 'intl-banana-fx', q);
-});
+qa(
+  'A19 (fixtures): Catalan, Spanish and English names, with or without accents',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const idx = index();
+    const first = (q) => searchFoods(idx, q).hits[0]?.food.id;
+    for (const q of ['pa amb tomàquet', 'pa amb tomaquet', 'pan con tomate', 'bread with tomato']) {
+      assert.equal(first(q), 'es-pa-amb-tomaquet-fx', q);
+    }
+    for (const q of [
+      'cafè amb llet',
+      'cafe amb llet',
+      'café con leche',
+      'cafe con leche',
+      'latte',
+    ]) {
+      assert.equal(first(q), 'es-cafe-con-leche-fx', q);
+    }
+    for (const q of ['plátano', 'platano', 'PLÁTANO']) assert.equal(first(q), 'intl-banana-fx', q);
+  },
+);
 
-qa('halal filter: not-halal matches go to hidden; check stays in hits (meeting 002)', [buildSearchIndex, searchFoods], () => {
-  const idx = index();
-  for (const q of ['ensaïmada', 'ensaimada', 'Ensaimada']) {
-    const on = searchFoods(idx, q);
-    assert.ok(!ids(on.hits).includes(ENSAIMADA), `"${q}": not in hits by default`);
-    assert.deepEqual(ids(on.hidden), [ENSAIMADA], `"${q}": one hidden item`);
-    assert.equal(on.hidden[0].tier, 'exact');
-    assert.equal(on.hidden[0].food.halal.status, 'not-halal');
-    const explicit = searchFoods(idx, q, { halalOnly: true });
-    assert.deepEqual(ids(explicit.hidden), [ENSAIMADA]);
-    const off = searchFoods(idx, q, { halalOnly: false });
-    assert.equal(off.hits[0].food.id, ENSAIMADA, `"${q}": shown with the filter off`);
-    assert.deepEqual(off.hidden, []);
-  }
-  const whey = searchFoods(idx, 'whey');
-  assert.equal(whey.hits[0].food.id, WHEY, "'check' foods stay in hits");
-  assert.deepEqual(whey.hidden, []);
-});
+qa(
+  'halal filter: not-halal matches go to hidden; check stays in hits (meeting 002)',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const idx = index();
+    for (const q of ['ensaïmada', 'ensaimada', 'Ensaimada']) {
+      const on = searchFoods(idx, q);
+      assert.ok(!ids(on.hits).includes(ENSAIMADA), `"${q}": not in hits by default`);
+      assert.deepEqual(ids(on.hidden), [ENSAIMADA], `"${q}": one hidden item`);
+      assert.equal(on.hidden[0].tier, 'exact');
+      assert.equal(on.hidden[0].food.halal.status, 'not-halal');
+      const explicit = searchFoods(idx, q, { halalOnly: true });
+      assert.deepEqual(ids(explicit.hidden), [ENSAIMADA]);
+      const off = searchFoods(idx, q, { halalOnly: false });
+      assert.equal(off.hits[0].food.id, ENSAIMADA, `"${q}": shown with the filter off`);
+      assert.deepEqual(off.hidden, []);
+    }
+    const whey = searchFoods(idx, 'whey');
+    assert.equal(whey.hits[0].food.id, WHEY, "'check' foods stay in hits");
+    assert.deepEqual(whey.hidden, []);
+  },
+);
 
 qa('blank or unmatched queries give no hits', [buildSearchIndex, searchFoods], () => {
   const idx = index();
@@ -234,21 +264,25 @@ qa('blank or unmatched queries give no hits', [buildSearchIndex, searchFoods], (
   }
 });
 
-qa('fuzzy: distance 1 per query word of 4+ letters; shorter words must word-prefix', [buildSearchIndex, searchFoods], () => {
-  const idx = index();
-  const found = (q, id) => Boolean(hitFor(searchFoods(idx, q, { halalOnly: false }), id));
-  assert.ok(found('karhai', K_HOME), 'adjacent swap');
-  assert.ok(found('karahii', K_HOME), 'one insertion');
-  assert.ok(found('karai', K_HOME), 'one deletion (alias karahi)');
-  assert.ok(found('kerahi', K_HOME), 'one substitution');
-  assert.ok(!found('krhai', K_HOME), 'two edits: no match');
-  assert.ok(found('dhal', DAAL), 'dhal → dal');
-  assert.ok(!found('dl', DAAL), 'a short word must word-prefix');
-  assert.ok(found('masor', DAAL), 'masoor → masur, one edit from masor');
-  assert.ok(found('ensaymada', ENSAIMADA), 'y for i');
-  assert.ok(found('chicken karhai', K_HOME), 'every word must match: exact + fuzzy');
-  assert.ok(!found('chicken krhai', K_HOME), 'one word too far → no match');
-});
+qa(
+  'fuzzy: distance 1 per query word of 4+ letters; shorter words must word-prefix',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const idx = index();
+    const found = (q, id) => Boolean(hitFor(searchFoods(idx, q, { halalOnly: false }), id));
+    assert.ok(found('karhai', K_HOME), 'adjacent swap');
+    assert.ok(found('karahii', K_HOME), 'one insertion');
+    assert.ok(found('karai', K_HOME), 'one deletion (alias karahi)');
+    assert.ok(found('kerahi', K_HOME), 'one substitution');
+    assert.ok(!found('krhai', K_HOME), 'two edits: no match');
+    assert.ok(found('dhal', DAAL), 'dhal → dal');
+    assert.ok(!found('dl', DAAL), 'a short word must word-prefix');
+    assert.ok(found('masor', DAAL), 'masoor → masur, one edit from masor');
+    assert.ok(found('ensaymada', ENSAIMADA), 'y for i');
+    assert.ok(found('chicken karhai', K_HOME), 'every word must match: exact + fuzzy');
+    assert.ok(!found('chicken krhai', K_HOME), 'one word too far → no match');
+  },
+);
 
 // ------------------------------------------------------------------ ranking and boosts
 qa('ranking: score, then shorter matched, then name', [buildSearchIndex, searchFoods], () => {
@@ -284,25 +318,45 @@ qa('a full boost never lifts a food above a better tier', [buildSearchIndex, sea
   assert.ok(box && box.score <= TIERS.prefix + BOOST_WEIGHT);
 });
 
-qa('property: random boosts never cross a tier, hits stay sorted', [buildSearchIndex, searchFoods], () => {
-  const idx = index();
-  const random = rng(11);
-  const queries = ['ch', 'k', 'rice', 'karahi', 'egg', 'roti', 'dal', 'a', 'tikka', 'pa', 'ca', 'e'];
-  const rank = (tier) => Object.keys(TIERS).indexOf(tier);
-  for (let i = 0; i < 60; i++) {
-    const boosts = Object.fromEntries(FOODS.map((f) => [f.id, random() * 3 - 1]));
-    const q = queries[i % queries.length];
-    const { hits } = searchFoods(idx, q, { boosts: deepFreeze(boosts), halalOnly: false });
-    for (const h of hits) {
-      const extra = h.score - TIERS[h.tier];
-      assert.ok(extra >= 0 && extra <= BOOST_WEIGHT + 1e-9, `"${q}" ${h.food.id}: boost ${extra}`);
+qa(
+  'property: random boosts never cross a tier, hits stay sorted',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const idx = index();
+    const random = rng(11);
+    const queries = [
+      'ch',
+      'k',
+      'rice',
+      'karahi',
+      'egg',
+      'roti',
+      'dal',
+      'a',
+      'tikka',
+      'pa',
+      'ca',
+      'e',
+    ];
+    const rank = (tier) => Object.keys(TIERS).indexOf(tier);
+    for (let i = 0; i < 60; i++) {
+      const boosts = Object.fromEntries(FOODS.map((f) => [f.id, random() * 3 - 1]));
+      const q = queries[i % queries.length];
+      const { hits } = searchFoods(idx, q, { boosts: deepFreeze(boosts), halalOnly: false });
+      for (const h of hits) {
+        const extra = h.score - TIERS[h.tier];
+        assert.ok(
+          extra >= 0 && extra <= BOOST_WEIGHT + 1e-9,
+          `"${q}" ${h.food.id}: boost ${extra}`,
+        );
+      }
+      for (let j = 1; j < hits.length; j++) {
+        assert.ok(hits[j - 1].score >= hits[j].score, `"${q}": sorted by score`);
+        assert.ok(rank(hits[j - 1].tier) <= rank(hits[j].tier), `"${q}": tier order kept`);
+      }
     }
-    for (let j = 1; j < hits.length; j++) {
-      assert.ok(hits[j - 1].score >= hits[j].score, `"${q}": sorted by score`);
-      assert.ok(rank(hits[j - 1].tier) <= rank(hits[j].tier), `"${q}": tier order kept`);
-    }
-  }
-});
+  },
+);
 
 qa('limit applies to hits; hidden keeps rank order', [buildSearchIndex, searchFoods], () => {
   const idx = index();
@@ -314,50 +368,58 @@ qa('limit applies to hits; hidden keeps rank order', [buildSearchIndex, searchFo
   assert.ok(def.hits.length <= 20, 'default limit 20');
 });
 
-qa('searchFoods and buildSearchIndex do not mutate the foods', [buildSearchIndex, searchFoods], () => {
-  const foods = frozen(FOODS);
-  const idx = buildSearchIndex(foods);
-  searchFoods(idx, 'karahi', { boosts: deepFreeze({ [K_REST]: 1 }) });
-  assert.deepEqual(foods, FOODS);
-});
+qa(
+  'searchFoods and buildSearchIndex do not mutate the foods',
+  [buildSearchIndex, searchFoods],
+  () => {
+    const foods = frozen(FOODS);
+    const idx = buildSearchIndex(foods);
+    searchFoods(idx, 'karahi', { boosts: deepFreeze({ [K_REST]: 1 }) });
+    assert.deepEqual(foods, FOODS);
+  },
+);
 
 // ------------------------------------------------------------------ recents
-qa('recordUse: a first use, then a second in another slot (the one-tap "+" portion)', [recordUse], () => {
-  const r1 = recordUse(deepFreeze({}), {
-    foodId: 'chai',
-    servingId: 'cup',
-    qty: 1,
-    slot: 'breakfast',
-    date: '2026-10-12',
-  });
-  assert.deepEqual(r1, {
-    chai: { servingId: 'cup', qty: 1, count: 1, lastUsed: '2026-10-12', slots: { breakfast: 1 } },
-  });
-  const r2 = recordUse(deepFreeze(r1), {
-    foodId: 'chai',
-    servingId: 'mug',
-    qty: 2,
-    slot: 'evening',
-    date: '2026-10-13',
-  });
-  assert.deepEqual(r2.chai, {
-    servingId: 'mug',
-    qty: 2,
-    count: 2,
-    lastUsed: '2026-10-13',
-    slots: { breakfast: 1, evening: 1 },
-  });
-  const r3 = recordUse(deepFreeze(r2), {
-    foodId: 'roti',
-    servingId: 'medium',
-    qty: 2,
-    slot: 'dinner',
-    date: '2026-10-13',
-  });
-  assert.deepEqual(r3.chai, r2.chai, 'other foods untouched');
-  assert.equal(r3.roti.count, 1);
-  assert.equal(r1.chai.count, 1, 'input unchanged');
-});
+qa(
+  'recordUse: a first use, then a second in another slot (the one-tap "+" portion)',
+  [recordUse],
+  () => {
+    const r1 = recordUse(deepFreeze({}), {
+      foodId: 'chai',
+      servingId: 'cup',
+      qty: 1,
+      slot: 'breakfast',
+      date: '2026-10-12',
+    });
+    assert.deepEqual(r1, {
+      chai: { servingId: 'cup', qty: 1, count: 1, lastUsed: '2026-10-12', slots: { breakfast: 1 } },
+    });
+    const r2 = recordUse(deepFreeze(r1), {
+      foodId: 'chai',
+      servingId: 'mug',
+      qty: 2,
+      slot: 'evening',
+      date: '2026-10-13',
+    });
+    assert.deepEqual(r2.chai, {
+      servingId: 'mug',
+      qty: 2,
+      count: 2,
+      lastUsed: '2026-10-13',
+      slots: { breakfast: 1, evening: 1 },
+    });
+    const r3 = recordUse(deepFreeze(r2), {
+      foodId: 'roti',
+      servingId: 'medium',
+      qty: 2,
+      slot: 'dinner',
+      date: '2026-10-13',
+    });
+    assert.deepEqual(r3.chai, r2.chai, 'other foods untouched');
+    assert.equal(r3.roti.count, 1);
+    assert.equal(r1.chai.count, 1, 'input unchanged');
+  },
+);
 
 qa('recencyBoosts: 0.5·min(1, count/10) + 0.5·max(0, 1 − daysSince/30)', [recencyBoosts], () => {
   const recents = deepFreeze({
@@ -391,7 +453,13 @@ qa('recentForSlot (A6): every recent food, those used in the slot first', [recen
   const evening = recentForSlot(recents, 'evening');
   assert.deepEqual(evening, ['biscuit', 'apple', 'roti', 'chai', 'whey']);
   assert.ok(evening.includes('chai'), 'chai logged at Nashta still shows at Shaam ki chai');
-  assert.deepEqual(recentForSlot(recents, 'breakfast'), ['chai', 'roti', 'whey', 'apple', 'biscuit']);
+  assert.deepEqual(recentForSlot(recents, 'breakfast'), [
+    'chai',
+    'roti',
+    'whey',
+    'apple',
+    'biscuit',
+  ]);
   assert.deepEqual(recentForSlot(recents, 'dinner', { limit: 2 }), ['roti', 'chai']);
   assert.deepEqual(recentForSlot({}, 'lunch'), []);
 });

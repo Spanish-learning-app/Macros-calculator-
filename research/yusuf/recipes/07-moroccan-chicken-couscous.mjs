@@ -1,0 +1,72 @@
+// R-MP-7 · Moroccan-spiced chicken, roast vegetables, couscous. Standard batch: 4 boxes. Raw edible grams.
+export default {
+  n: 7,
+  id: 'med-moroccan-chicken-couscous-box',
+  name: 'Moroccan chicken couscous with roast vegetables (lunch box)',
+  names: {
+    en: 'Moroccan chicken couscous with roast vegetables',
+    es: 'Cuscús marroquí con pollo y verduras asadas',
+    ca: 'Cuscús marroquí amb pollastre i verdures rostides',
+    roman: 'moroccan chicken couscous',
+  },
+  aliases: ['chicken couscous', 'moroccan couscous', 'cuscus con pollo', 'cuscus de pollo', 'cous cous pollo', 'cuscús amb pollastre', 'couscous bowl', 'ras el hanout chicken', 'kuskus'],
+  pitch: 'Ras el hanout chicken and tray-roast courgette, carrot, pepper and onion on couscous; good hot or at room temperature.',
+  eat: 'either',
+  tags: ['mediterranean', 'middle-eastern', 'meal-prep', 'eat-cold'],
+  references: [
+    { title: 'Kookmutsjes, Couscous with chicken and vegetables', url: 'https://kookmutsjes.com/en/recipe/couscous-with-chicken-and-vegetables/', used: '450 g chicken, 300 g couscous, 8 g ras el hanout, 50 ml olive oil (+25 ml for the couscous), 125 g onion, 175 g courgette, 175 g carrot, 125 g red pepper; 4 portions', read: 'fetched 2026-10-13' },
+    { title: 'Monix, Cuscús con pollo y verduras', url: 'https://monix.es/en/blogs/blog/cuscus-con-pollo-y-verduras', used: 'chicken breast, couscous, onion, 150 g pumpkin, 2 carrots, 1 courgette, 2 tomatoes, ras el hanout, turmeric, cinnamon, olive oil', read: 'fetched 2026-10-13' },
+    { title: 'The Mediterranean Dish, Roasted vegetable couscous', url: 'https://www.themediterraneandish.com/roasted-vegetable-couscous', used: 'oven-roasting the vegetables with ras el hanout and olive oil instead of stewing them', read: 'search-engine page extract (direct fetch returned 403)' },
+  ],
+  components: [
+    {
+      id: 'chicken', label: 'Ras el hanout chicken', storage: 'cooked-meat', yield: 'breastRoast', eat: 'either',
+      lines: [
+        ['chicken-breast', 680, 'in strips'],
+        ['ras-el-hanout', 8, ''],
+        ['garlic', 10, 'grated', 'onionSoft'],
+        ['oil-olive', 12, ''],
+        ['lemon-juice', 20, '', 'none'],
+        ['salt', 5, ''],
+      ],
+    },
+    {
+      id: 'veg', label: 'Roast vegetables', storage: 'proposed:cooked-veg', yield: 'none', eat: 'either',
+      lines: [
+        ['courgette', 400, '2 cm chunks', 'zucchiniStew'],
+        ['carrot', 300, 'thick slices', 'carrotStew'],
+        ['pepper-red', 300, 'chunks', 'pepperStew'],
+        ['onion-red', 200, 'wedges', 'onionSoft'],
+        ['oil-olive', 25, ''],
+        ['ras-el-hanout', 6, ''],
+        ['cumin', 3, 'ground'],
+        ['salt', 4, ''],
+      ],
+    },
+    {
+      id: 'couscous', label: 'Couscous with herbs', storage: 'cooked-starch', yield: 'absorbed', eat: 'either',
+      lines: [
+        ['couscous', 240, 'medium'],
+        ['water', 336, 'boiling, 1.4 g per g of couscous'],
+        ['oil-olive', 5, ''],
+        ['salt', 2, ''],
+        ['parsley', 15, 'chopped', 'none'],
+      ],
+    },
+  ],
+  method: [
+    'Toss the vegetables with 25 g oil, ras el hanout, cumin and salt; roast at 220 °C for 30–35 min, turning once.',
+    'Toss the chicken strips with ras el hanout, garlic, 12 g oil and salt; roast on a second tray for the last 15–18 min (to 75 °C inside). Squeeze the lemon over.',
+    'Couscous: pour 336 g boiling water with the oil and salt over the couscous, cover 5 min, fluff and fold in the parsley.',
+    'Cool everything within 1 h. Each box: ¼ couscous, ¼ vegetables, ¼ chicken.',
+  ],
+  storagePlan: 'Couscous keeps 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer. Move the next day\'s box to the fridge the night before. Eaten cold, take it straight from the fridge in an insulated bag with an ice pack.',
+  reheat: 'Hot: microwave with the lid ajar 2½–3 min, stir, until steaming hot right through (75 °C), once only. Cold: eat within 2 hours of leaving the fridge (1 hour above 32 °C); a squeeze of lemon helps.',
+  crossCheck: { fdc: 2706438, note: 'FNDDS "Chicken curry with rice" as the nearest chicken-plus-grain plate; this box has more vegetables, so similar or lower energy per 100 g is expected.' },
+  changes: [
+    'No chickpeas: 60 g chickpeas per box would add 4.2 g protein (USDA 173801) and take the box to about 54 g, over the 50 g cap, so the fibre comes from 300 g of vegetables per box instead.',
+  ],
+  confidence: 'C',
+  confidenceWhy: 'Chicken yield is a USDA raw/roasted water balance; the roast-vegetable yields borrow Bognár\'s stew rows because the tables have no oven-roast row for these vegetables.',
+  halal: { status: 'halal', reason: 'Chicken from a halal butcher; couscous label is durum wheat semolina and water (checked 2026-10-13).' },
+};
