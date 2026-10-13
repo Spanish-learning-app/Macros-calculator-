@@ -49,6 +49,8 @@ kcal **158**, protein 5.7 g, available carbs 10.1 g, fat 10.3 g, fibre 1.3 g, sa
 
 Differences above 25 %: CoFID 2021 12-957 Omelette, Spanish, homemade. See notes below.
 
+CoFID 12-957 is a British recipe with green pepper and much less oil (7.6 g fat), so it sits 41 % lower; the two Spanish supermarket labels (158 and 193 kcal) bracket our value.
+
 ## Assumptions and confidence
 
 Confidence **C**: oil is a published household measure, but the egg and onion yields are assumed and home tortillas vary a lot in oil.

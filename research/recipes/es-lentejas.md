@@ -58,6 +58,8 @@ kcal **101**, protein 5.2 g, available carbs 10.4 g, fat 3.9 g, fibre 2 g.
 
 Differences above 25 %: USDA FDC FNDDS 2707424 Lentils, from dried, fat added (no broth). See notes below.
 
+FNDDS 2707424 is drained lentils with fat and no broth, so it is denser than a brothy stew; the two Spanish ready-meal labels (94 and 128 kcal) bracket our value.
+
 ## Assumptions and confidence
 
 Confidence **C**: evaporation and broth share are assumed; the sausage is a named analogue.

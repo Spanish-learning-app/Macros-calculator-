@@ -56,6 +56,8 @@ kcal **49**, protein 0.9 g, available carbs 4.2 g, fat 3 g, fibre 1 g.
 
 Differences above 25 %: BEDCA 2614 Gazpacho; USDA FDC FNDDS 2710106 Soup, gazpacho. See notes below.
 
+BEDCA 2614 (2.8 g fat, 1.6 g carbs) and FNDDS 2710106 (0.6 g fat, with tomato juice) are thinner, low-oil versions; our oil (50 ml per kg of tomato) follows both Spanish references and CoFID 17-795 agrees within 7 %.
+
 ## Assumptions and confidence
 
 Confidence **B**: no cooking (yield 1.0), quantities straight from the references; oil varies between cooks.

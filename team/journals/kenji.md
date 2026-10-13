@@ -19,3 +19,16 @@
   Saturday start has 6 rows). Hamza had already spotted the first. Prettier now run on my files.
 - 2026-10-13 23:45 UTC: Hamza has implemented units, dates and foods. QA units + dates: 41/41 pass
   in Madrid, Karachi and LA. days, targets, search, storage are still stubs (tests will be TODO).
+- 2026-10-13 23:55 UTC: foods QA suite: 64 tests (constants, validateFood: 34 broken-HARD-field
+  mutations + 7 vocabulary mutations + valid variations + never throws + id prefix on problems;
+  buildFoodIndex, servings, portions, sumNutrients order-independence property, energyCheck
+  boundaries and RULES-driven factors, variantsOf ordering, deep-frozen inputs). 64/64 pass against
+  Hamza's foods.js.
+- 2026-10-13 23:58 UTC: Lena's review (via Omar): (1) lbFromKg expectation already fixed; (2) smoke
+  spec no longer uses `data-status`: it checks the brand, title, nav, a mounted #view and a hidden
+  storage banner; (3) tab test seeds a skipped-onboarding document (`seed(page, userDoc())`, once
+  per tab via sessionStorage so reloads keep app writes). New `tests/e2e/_app.js`: global guards
+  (foreign requests, stubbed alert/confirm/prompt, console errors except stub 'not implemented',
+  horizontal scroll), FEATURES flags + `needs()` → test.fixme, `actions(page)` counter,
+  `useFixtureFoods`, `breakLocalStorage` (A13.5), `ui.*` from Priya's selector contract. Smoke:
+  8 pass, 8 fixme (redirect and notfound tests wait for the store).

@@ -50,6 +50,8 @@ kcal **278**, protein 10.3 g, available carbs 14.4 g, fat 19.8 g, fibre 0.7 g, s
 
 Differences above 25 %: BEDCA 2268 Croquetas de pollo. See notes below.
 
+BEDCA 2268 lists only 5.3 g fat, which is low for a fried croqueta; FNDDS 2706545 (fried chicken croquette) agrees within 6 %.
+
 ## Assumptions and confidence
 
 Confidence **C**: filling reduction, coating pick-up and frying oil are assumptions (UCM oil figure is a household estimate).

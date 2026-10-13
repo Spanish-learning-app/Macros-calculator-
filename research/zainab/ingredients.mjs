@@ -37,6 +37,8 @@ export default {
   'chana-dal': { src: 'ifct', code: 'B001', label: 'Bengal gram dal, split (chana)' },
   'chickpea-kabuli-dry': { src: 'fdc', code: 173756, label: 'Chickpeas, kabuli, mature seeds, raw (safed chanay)' },
   besan: { src: 'fdc', code: 174288, label: 'Chickpea flour (besan)' },
+  'chickpea-kabuli-boiled': { src: 'fdc', code: 173757, label: 'Chickpeas, boiled (cooked safed chanay, drained)' },
+  tamarind: { src: 'fdc', code: 167763, label: 'Tamarind pulp (imli)' },
 
   // ---- vegetables and herbs (IFCT 2017) ----
   onion: { src: 'ifct', code: 'G017', label: 'Onion, big' },
@@ -89,6 +91,7 @@ export default {
   'tomato-paste': { src: 'fdc', code: 170459, label: 'Tomato paste' },
   egg: { src: 'fdc', code: 171287, label: 'Egg, whole, raw' },
   'egg-yolk': { src: 'fdc', code: 172184, label: 'Egg yolk, raw' },
+  'egg-boiled': { src: 'fdc', code: 173424, label: 'Egg, whole, hard-boiled' },
   sesame: { src: 'ifct', code: 'H011', label: 'Sesame (til), white' },
 
   // ---- sugar, nuts, fruit, other ----

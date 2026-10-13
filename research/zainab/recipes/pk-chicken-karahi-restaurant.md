@@ -73,5 +73,5 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 261 (NUTRITION.md §6 step 7). Sum of th
 ## Assumptions and confidence
 
 - Same base recipe as the home karahi; restaurant fat load 200 g per kg bone-in chicken (140 g palm-olein-type oil + 60 g ghee) from MasalaTV dawat (175 ml), Shan white karahi pack (175 ml) and MasalaTV highway karahi (1 cup per ½ kg, half poured off).
-- "½ kg karahi" on Pakistani menus is taken as the dish made from ½ kg bone-in chicken (assumption, common menu usage); a share = edible cooked weight ÷ diners. The whole ½ kg handi (≈ see recipe file) exceeds the curry-meat serving limit of 500 g, so only shares are offered until RULES allow it.
+- "½ kg karahi" on Pakistani menus is taken as the dish made from ½ kg bone-in chicken (assumption, common menu usage); a share = edible cooked weight ÷ diners. The whole ½ kg handi exceeds the curry-meat serving limit of 500 g, so only shares are offered until RULES allow it.
 - Confidence **C**: recipe with assumed oil and/or yield.

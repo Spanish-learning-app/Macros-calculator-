@@ -2,7 +2,7 @@
    Theming contract (Artifact, ARCHITECTURE §7.5): light tokens on :root; dark tokens under
    prefers-color-scheme guarded by :root:not([data-theme='light']), and again under
    :root[data-theme='dark'] so the in-app theme switch can force either mode.
-   Palette: warm and calm (cream, clay, cardamom green). There is no red anywhere: going over a
+   Palette: warm and calm (cream, clay, ink). There is no red anywhere: going over a
    target is neutral information, never an error. Every text colour passes WCAG AA on --bg and
    --surface in its theme. */
 
@@ -67,11 +67,12 @@
   --accent-soft: #f7e6da;
   --accent-soft-text: #7a3716;
   --focus: #1d5fd1;
-  --selected: #2f5d4a; /* cardamom green for the chosen chip */
+  --selected: #8f421e; /* chosen chip: clay, never green (green reads as "halal approved") */
   --selected-text: #ffffff;
-  --selected-soft: #e3efe8;
+  --selected-soft: #f7e6da;
   --over: #5b5148; /* neutral ink for "over" bars: information, not an alarm */
   --planned: #6b5f53;
+  --measure-fill: #f1e2cc; /* katori, plate and cup drawings */
 
   /* Halal chips: calm, never red, never a big green tick */
   --halal-check-bg: #f6ecd6;
@@ -110,11 +111,12 @@
     --accent-soft: #3a261a;
     --accent-soft-text: #f2b892;
     --focus: #8db4ff;
-    --selected: #8fcfae;
-    --selected-text: #10221a;
-    --selected-soft: #1f3329;
+    --selected: #f0a479;
+    --selected-text: #1c120b;
+    --selected-soft: #3a261a;
     --over: #b9ad9f;
     --planned: #b7aa9a;
+    --measure-fill: #45372a;
     --halal-check-bg: #3a3020;
     --halal-check-text: #f0d9a0;
     --halal-check-border: #5c4a26;
@@ -149,11 +151,12 @@
   --accent-soft: #3a261a;
   --accent-soft-text: #f2b892;
   --focus: #8db4ff;
-  --selected: #8fcfae;
-  --selected-text: #10221a;
-  --selected-soft: #1f3329;
+  --selected: #f0a479;
+  --selected-text: #1c120b;
+  --selected-soft: #3a261a;
   --over: #b9ad9f;
   --planned: #b7aa9a;
+  --measure-fill: #45372a;
   --halal-check-bg: #3a3020;
   --halal-check-text: #f0d9a0;
   --halal-check-border: #5c4a26;

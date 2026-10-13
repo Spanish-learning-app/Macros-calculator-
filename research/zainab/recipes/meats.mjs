@@ -160,7 +160,7 @@ export default [
       ['coriander-powder', 2 * M.tspCoriander, ''],
       ['garam-masala', 5, 'nihari masala (fennel, whole spices)'],
       ['salt', 14, ''],
-      ['water', 1830, 'TfT slow cooker 3½ cups per lb (stovetop 9 cups boils down to a similar gravy)'],
+      ['water', 1200, 'gravy water per kg beef (assumption: TfT slow cooker 3½ cups per lb ≈ 1830 g/kg is thinner; Shan cooks 18 cups down for 6 h)'],
       ['lemon-juice', 10, 'garnish'],
     ],
     addedFat: style === 'home' ? ['oil-cooking', 'ghee-desi'] : ['oil-palm', 'ghee-desi'],
@@ -168,7 +168,7 @@ export default [
       method: 'steps',
       steps: [
         { ing: 'onion', frac: C.onionBrown, why: 'onion fried golden (tarka)' },
-        { ing: 'water', frac: 0.1, why: 'slow-cooked covered; the gravy volume is taken as the slow-cooker water (assumption)' },
+        { ing: 'water', frac: 0.1, why: 'covered low simmer for hours (assumption)' },
       ],
     },
   })),

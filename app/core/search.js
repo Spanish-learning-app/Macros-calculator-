@@ -1,13 +1,12 @@
 // Food search, ranking and recents. Pure. Must stay under 16 ms per query on 2,000 foods.
-// Owner: Hamza. Contract: docs/ARCHITECTURE.md §5.6. Step 0 stub: signatures are final.
+// Owner: Hamza. Contract: docs/ARCHITECTURE.md §5.6.
+
+import { isISODate, diffDays } from './dates.js';
+import { SLOT_IDS } from './days.js';
 
 /** @typedef {import('./types.js').Food} Food */
 /** @typedef {import('./types.js').Recent} Recent */
 /** @typedef {import('./types.js').SlotId} SlotId */
-
-const todo = (name) => {
-  throw new Error(`not implemented: search.${name}`);
-};
 
 /** Score of each match tier. Boost adds at most BOOST_WEIGHT, so it never crosses a tier. */
 export const TIERS = Object.freeze({
@@ -19,6 +18,22 @@ export const TIERS = Object.freeze({
 });
 export const BOOST_WEIGHT = 19;
 
+const FUZZY_MIN_LENGTH = 4;
+const RECENCY_DAYS = 30;
+const COUNT_FOR_FULL_BOOST = 10;
+const DEFAULT_RECENT_LIMIT = 12;
+
+const COMBINING_MARKS = /\p{M}/gu; // accents and Arabic harakat (U+064B–U+065F, U+0670) after NFKD
+const MIDDLE_DOTS = /[·‧]/g; // Catalan l·l (and U+0140, which NFKD splits into l + U+00B7)
+const FORMAT_CHARS = /\p{Cf}/gu; // ZWNJ, ZWJ, direction marks: removed so they never split a word
+const ARABIC_UNIFY = { ي: 'ی', ك: 'ک', ة: 'ہ' };
+const ARABIC_UNIFY_RE = /[يكة]/g;
+const PUNCTUATION = /[^\p{L}\p{N}\s]/gu;
+
+const isObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v);
+const COLLATOR = new Intl.Collator('en');
+const clamp01 = (x) => (Number.isFinite(x) ? Math.min(1, Math.max(0, x)) : 0);
+
 /**
  * Lowercase; NFKD and strip combining marks (accents folded: ñ->n, ç->c, à/è/é/í/ï/ò/ó/ú/ü ->
  * plain: 'ensaïmada' -> 'ensaimada', 'pa amb tomàquet' -> 'pa amb tomaquet', 'café' -> 'cafe');
@@ -28,12 +43,99 @@ export const BOOST_WEIGHT = 19;
  * @param {string} text @returns {string}
  */
 export function normalize(text) {
-  return todo('normalize');
+  if (typeof text !== 'string') throw new TypeError('normalize takes a string');
+  return text
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(COMBINING_MARKS, '')
+    .replace(MIDDLE_DOTS, '')
+    .replace(FORMAT_CHARS, '')
+    .replace(ARABIC_UNIFY_RE, (c) => ARABIC_UNIFY[c])
+    .replace(PUNCTUATION, ' ')
+    .replace(/a{2,}/g, 'a')
+    .replace(/e{2,}/g, 'i')
+    .replace(/o{2,}/g, 'u')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /** Searches name, nameRoman, nameUr and aliases. @param {Food[]} foods @returns {object} opaque index */
 export function buildSearchIndex(foods) {
-  return todo('buildSearchIndex');
+  if (!Array.isArray(foods)) throw new TypeError('buildSearchIndex takes an array of foods');
+  const entries = [];
+  for (const food of foods) {
+    if (!isObject(food)) continue;
+    const originals = [food.name, food.nameRoman, food.nameUr];
+    if (Array.isArray(food.aliases)) originals.push(...food.aliases);
+    const names = [];
+    for (const original of originals) {
+      if (typeof original !== 'string') continue;
+      const norm = normalize(original);
+      if (norm !== '') names.push({ original, norm, words: norm.split(' ') });
+    }
+    entries.push({ food, names, sortName: String(food.name ?? '') });
+  }
+  return { entries };
+}
+
+/** a[from + shift..] equals b[from..] to the end of b (no allocation). */
+function tailsEqual(a, b, from, shift) {
+  for (let k = from; k < b.length; k += 1) {
+    if (a.charCodeAt(k + shift) !== b.charCodeAt(k)) return false;
+  }
+  return true;
+}
+
+/** True when a and b are within Damerau-Levenshtein (OSA) distance 1. Linear, no allocation. */
+function withinOneEdit(a, b) {
+  if (a === b) return true;
+  const la = a.length;
+  const lb = b.length;
+  if (la - lb > 1 || lb - la > 1) return false;
+  let i = 0;
+  while (i < la && i < lb && a.charCodeAt(i) === b.charCodeAt(i)) i += 1;
+  if (la === lb + 1) return tailsEqual(a, b, i, 1); // delete a[i]
+  if (lb === la + 1) return tailsEqual(b, a, i, 1); // insert b[i]
+  if (tailsEqual(a, b, i + 1, 0)) return true; // substitute at i
+  return a[i] === b[i + 1] && a[i + 1] === b[i] && tailsEqual(a, b, i + 2, 0); // swap i, i + 1
+}
+
+function wordPrefixes(qWords, words) {
+  return qWords.every((q) => words.some((w) => w.startsWith(q)));
+}
+
+function fuzzyWords(qWords, words) {
+  return qWords.every((q) => {
+    if (q.length < FUZZY_MIN_LENGTH) return words.some((w) => w.startsWith(q));
+    return words.some(
+      (w) => withinOneEdit(q, w) || (w.length > q.length && withinOneEdit(q, w.slice(0, q.length))),
+    );
+  });
+}
+
+/** The best tier of one normalized name for the query, or null. */
+function tierOf(name, q, qWords) {
+  if (name.norm === q) return 'exact';
+  if (name.norm.startsWith(q)) return 'prefix';
+  if (wordPrefixes(qWords, name.words)) return 'wordPrefix';
+  if (name.norm.includes(q)) return 'substring';
+  if (fuzzyWords(qWords, name.words)) return 'fuzzy';
+  return null;
+}
+
+/** Best match of one food: highest tier, then the shortest original name. */
+function bestMatch(entry, q, qWords) {
+  let best = null;
+  for (const name of entry.names) {
+    const tier = tierOf(name, q, qWords);
+    if (!tier) continue;
+    const better =
+      !best ||
+      TIERS[tier] > TIERS[best.tier] ||
+      (TIERS[tier] === TIERS[best.tier] && name.original.length < best.matched.length);
+    if (better) best = { tier, matched: name.original };
+  }
+  return best;
 }
 
 /**
@@ -57,7 +159,41 @@ export function buildSearchIndex(foods) {
  *   SearchHit = { food: Food, score: number, tier: keyof TIERS, matched: string }
  */
 export function searchFoods(index, query, { limit = 20, boosts = {}, halalOnly = true } = {}) {
-  return todo('searchFoods');
+  if (!Array.isArray(index?.entries)) throw new TypeError('index must come from buildSearchIndex');
+  if (!(limit === Infinity || (Number.isInteger(limit) && limit >= 0))) {
+    throw new RangeError(`limit must be an integer >= 0, got ${limit}`);
+  }
+  const q = normalize(query ?? '');
+  if (q === '') return { hits: [], hidden: [] };
+  const qWords = q.split(' ');
+
+  const matches = [];
+  for (const entry of index.entries) {
+    const best = bestMatch(entry, q, qWords);
+    if (!best) continue;
+    const boost = clamp01(boosts?.[entry.food.id] ?? 0);
+    matches.push({
+      hit: { food: entry.food, score: TIERS[best.tier] + BOOST_WEIGHT * boost, ...best },
+      sortName: entry.sortName,
+    });
+  }
+  matches.sort(
+    (a, b) =>
+      b.hit.score - a.hit.score ||
+      a.hit.matched.length - b.hit.matched.length ||
+      COLLATOR.compare(a.sortName, b.sortName) ||
+      COLLATOR.compare(String(a.hit.food.id), String(b.hit.food.id)),
+  );
+
+  const hits = [];
+  const hidden = [];
+  for (const { hit } of matches) {
+    const { food, score, tier, matched } = hit;
+    const ordered = { food, score, tier, matched };
+    if (halalOnly && food.halal?.status === 'not-halal') hidden.push(ordered);
+    else if (hits.length < limit) hits.push(ordered);
+  }
+  return { hits, hidden };
 }
 
 /**
@@ -67,7 +203,22 @@ export function searchFoods(index, query, { limit = 20, boosts = {}, halalOnly =
  * @returns {Record<string, Recent>} new object
  */
 export function recordUse(recents, use) {
-  return todo('recordUse');
+  if (!isObject(use)) throw new TypeError('use must be an object');
+  const { foodId, servingId, qty, slot, date } = use;
+  if (typeof foodId !== 'string' || foodId === '') throw new TypeError('foodId must be a string');
+  if (typeof servingId !== 'string' || servingId === '') {
+    throw new TypeError('servingId must be a string');
+  }
+  if (!(Number.isFinite(qty) && qty > 0)) throw new RangeError(`qty must be > 0, got ${qty}`);
+  if (!SLOT_IDS.includes(slot)) throw new RangeError(`unknown slot '${slot}'`);
+  if (!isISODate(date)) throw new RangeError(`date must be 'YYYY-MM-DD', got '${date}'`);
+  const prev = recents?.[foodId];
+  const slots = { ...(prev?.slots ?? {}) };
+  slots[slot] = (slots[slot] ?? 0) + 1;
+  return {
+    ...(recents ?? {}),
+    [foodId]: { servingId, qty, count: (prev?.count ?? 0) + 1, lastUsed: date, slots },
+  };
 }
 
 /**
@@ -75,7 +226,16 @@ export function recordUse(recents, use) {
  * @param {Record<string, Recent>} recents @param {string} today @returns {Record<string, number>}
  */
 export function recencyBoosts(recents, today) {
-  return todo('recencyBoosts');
+  if (!isISODate(today)) throw new RangeError(`today must be 'YYYY-MM-DD', got '${today}'`);
+  const out = {};
+  for (const [id, r] of Object.entries(recents ?? {})) {
+    const count = Number.isFinite(r?.count) ? Math.max(0, r.count) : 0;
+    const frequency = Math.min(1, count / COUNT_FOR_FULL_BOOST);
+    const daysSince = isISODate(r?.lastUsed) ? Math.max(0, diffDays(r.lastUsed, today)) : Infinity;
+    const recency = Math.max(0, 1 - daysSince / RECENCY_DAYS);
+    out[id] = clamp01(0.5 * frequency + 0.5 * recency);
+  }
+  return out;
 }
 
 /**
@@ -86,6 +246,22 @@ export function recencyBoosts(recents, today) {
  * @param {{ limit?: number }} [options] default 12
  * @returns {string[]}
  */
-export function recentForSlot(recents, slot, { limit = 12 } = {}) {
-  return todo('recentForSlot');
+export function recentForSlot(recents, slot, { limit = DEFAULT_RECENT_LIMIT } = {}) {
+  if (!(limit === Infinity || (Number.isInteger(limit) && limit >= 0))) {
+    throw new RangeError(`limit must be an integer >= 0, got ${limit}`);
+  }
+  const rows = Object.entries(recents ?? {}).map(([id, r]) => ({
+    id,
+    inSlot: r?.slots?.[slot] ?? 0,
+    count: r?.count ?? 0,
+    lastUsed: typeof r?.lastUsed === 'string' ? r.lastUsed : '',
+  }));
+  rows.sort(
+    (a, b) =>
+      b.inSlot - a.inSlot ||
+      b.count - a.count ||
+      (a.lastUsed < b.lastUsed ? 1 : a.lastUsed > b.lastUsed ? -1 : 0) ||
+      (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
+  );
+  return rows.slice(0, limit).map((r) => r.id);
 }

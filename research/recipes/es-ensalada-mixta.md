@@ -56,6 +56,8 @@ kcal **87**, protein 4.7 g, available carbs 3.4 g, fat 5.8 g, fibre 1.5 g.
 
 Differences above 25 %: BEDCA 2389 Ensalada (undressed, no tuna or egg). See notes below.
 
+BEDCA 2389 is plain undressed salad (no oil, tuna, egg or olives), so it is not a like-for-like reference; it is listed only to show the vegetables alone.
+
 ## Assumptions and confidence
 
 Confidence **B**: no cooking; amounts from the references and UCM household measures.

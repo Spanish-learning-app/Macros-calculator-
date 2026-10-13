@@ -194,7 +194,7 @@ export async function breakLocalStorage(page) {
     };
     try {
       for (const name of ['getItem', 'setItem', 'removeItem', 'clear', 'key']) {
-        Storage.prototype[name] = fail;
+        window.Storage.prototype[name] = fail;
       }
     } catch {
       // ignore

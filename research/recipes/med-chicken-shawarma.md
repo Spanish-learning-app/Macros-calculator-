@@ -50,6 +50,8 @@ kcal **236**, protein 13.2 g, available carbs 17.6 g, fat 12.3 g, fibre 1 g, sat
 
 Differences above 25 %: USDA FDC FNDDS 2706962 Gyro sandwich. See notes below.
 
+FNDDS 2706962 gyro uses a yogurt sauce and more vegetables; CoFID 19-526 doner in pitta with salad agrees within 5 %.
+
 ## Assumptions and confidence
 
 Confidence **C**: street/restaurant item; sauce amount varies a lot between shops.

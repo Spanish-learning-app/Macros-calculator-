@@ -58,6 +58,8 @@ kcal **98**, protein 4.2 g, available carbs 9 g, fat 4.4 g, fibre 2.9 g.
 
 Differences above 25 %: Label: Nestlé Vegetal garbanzos con espinacas (OFF 7613034665706, read 2026-10-13); USDA FDC FNDDS 2707415 Chickpeas, from dried, fat added (no broth). See notes below.
 
+The Nestlé Vegetal ready meal (69 kcal) uses less oil and more water; FNDDS 2707415 is drained chickpeas with fat and no broth. Carrefour (81 kcal) is within 21 %.
+
 ## Assumptions and confidence
 
 Confidence **C**: evaporation and broth share are assumed.

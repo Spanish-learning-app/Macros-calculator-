@@ -303,6 +303,38 @@
   "sodiumMg": 64,
   "water": 10.28
  },
+ "chickpea-kabuli-boiled": {
+  "label": "Chickpeas, boiled (cooked safed chanay, drained)",
+  "src": "fdc",
+  "code": 173757,
+  "perMl": false,
+  "citation": "FDC 173757 (SR Legacy): Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+  "kcal": 164,
+  "protein": 8.86,
+  "carbs": 19.82,
+  "fat": 2.59,
+  "fiber": 7.6,
+  "sugars": 4.8,
+  "satFat": 0.269,
+  "sodiumMg": 7,
+  "water": 60.21
+ },
+ "tamarind": {
+  "label": "Tamarind pulp (imli)",
+  "src": "fdc",
+  "code": 167763,
+  "perMl": false,
+  "citation": "FDC 167763 (SR Legacy): Tamarinds, raw",
+  "kcal": 239,
+  "protein": 2.8,
+  "carbs": 57.4,
+  "fat": 0.6,
+  "fiber": 5.1,
+  "sugars": 38.8,
+  "satFat": 0.272,
+  "sodiumMg": 28,
+  "water": 31.4
+ },
  "onion": {
   "label": "Onion, big",
   "src": "ifct",
@@ -1006,6 +1038,22 @@
   "satFat": 9.551,
   "sodiumMg": 48,
   "water": 52.31
+ },
+ "egg-boiled": {
+  "label": "Egg, whole, hard-boiled",
+  "src": "fdc",
+  "code": 173424,
+  "perMl": false,
+  "citation": "FDC 173424 (SR Legacy): Egg, whole, cooked, hard-boiled",
+  "kcal": 155,
+  "protein": 12.58,
+  "carbs": 1.12,
+  "fat": 10.61,
+  "fiber": 0,
+  "sugars": 1.12,
+  "satFat": 3.267,
+  "sodiumMg": 124,
+  "water": 74.62
  },
  "sesame": {
   "label": "Sesame (til), white",

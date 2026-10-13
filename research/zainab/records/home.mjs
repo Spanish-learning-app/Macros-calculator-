@@ -184,4 +184,23 @@ export default [
     assumptions: ['1½ tbsp oil per 3 eggs (kfoods Lahori omelette); per-egg serving = cooked weight ÷ 3 (large eggs, 50 g).', 'Yield 0.91 (Bognár 2002 scrambled eggs).'],
     source: { confidence: 'C', notes: 'Oil varies widely between cooks; log extra oil as an add-on.' },
   },
+  {
+    id: 'pk-fruit-chaat',
+    recipe: 'fruit-chaat',
+    name: 'Fruit chaat',
+    nameUr: 'فروٹ چاٹ',
+    nameRoman: 'fruit chaat',
+    aliases: uniq(['fruit chaat', 'fruit chat', 'phal chaat', 'fruit salad', 'iftar fruit chaat', 'فروٹ چاٹ']),
+    group: 'chaat',
+    state: 'raw fruit with sugar, lemon and chaat masala',
+    servings: [
+      { id: 'katori', label: '1 katori (medium, 200 ml)', labelUr: 'کٹوری', grams: 150, default: true },
+      { id: 'katori-small', label: '1 small katori (155 ml)', labelUr: 'چھوٹی کٹوری', grams: 116 },
+      { id: 'katori-large', label: '1 large katori (360 ml)', labelUr: 'بڑی کٹوری', grams: 270 },
+    ],
+    tags: PKVG,
+    slots: ['evening', 'iftar'],
+    assumptions: ['Katori density 0.75 g/ml (diced fruit: USDA apple, chopped, 1 cup = 125 g; banana sliced 150 g; guava 165 g per 237 ml → mean 0.62–0.70; with juice and sugar ≈ 0.75, assumption).'],
+    source: { confidence: 'C' },
+  },
 ];
