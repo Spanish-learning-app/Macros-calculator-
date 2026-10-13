@@ -1,0 +1,571 @@
+<title>Team HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an architect's floor plan of the team's office (walled rooms, live people tokens, door swings),
+   then the record underneath: activity, sprint board, meetings, reports to the Boss, hiring, inbox.
+   Palette from Multani blue pottery: cobalt and turquoise glaze on white, saffron and pomegranate accents. */
+:root {
+  --ground: #f3f6f6;
+  --paper: #ffffff;
+  --ink: #142036;
+  --ink-2: #46546e;
+  --ink-3: #6f7a90;
+  --wall: #1d3a72;
+  --hair: #d6dee6;
+  --room: #edf2f5;
+  --meet: #e3f0ee;
+  --cobalt: #2556b0;
+  --teal: #11786b;
+  --saffron: #9a6407;
+  --rose: #a8344f;
+  --ok: #1b7f48;
+  --warn: #9a6407;
+  --idle: #7d879a;
+  --font-display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0c1322; --paper: #121b2e; --ink: #e6ecf5; --ink-2: #aeb9cc; --ink-3: #8592a8;
+    --wall: #7096e2; --hair: #253149; --room: #151f35; --meet: #11302d;
+    --cobalt: #86a8f2; --teal: #52c7b4; --saffron: #e4ad45; --rose: #ef8aa0;
+    --ok: #52c98f; --warn: #e4ad45; --idle: #7a86a0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0c1322; --paper: #121b2e; --ink: #e6ecf5; --ink-2: #aeb9cc; --ink-3: #8592a8;
+  --wall: #7096e2; --hair: #253149; --room: #151f35; --meet: #11302d;
+  --cobalt: #86a8f2; --teal: #52c7b4; --saffron: #e4ad45; --rose: #ef8aa0;
+  --ok: #52c98f; --warn: #e4ad45; --idle: #7a86a0; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.45; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 20px 56px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: 0.01em; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+button, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
+
+/* Header */
+.top { display: grid; gap: 14px; }
+.eyebrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--idle); }
+.live-dot.on { background: var(--ok); box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 50%, transparent); animation: pulse 2.4s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 45%, transparent); } 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+.title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+h1 { font-size: clamp(36px, 6vw, 58px); font-weight: 800; line-height: 0.95; text-transform: uppercase; }
+h1 small { display: block; font-family: var(--font-body); font-size: 15px; font-weight: 400; text-transform: none; color: var(--ink-2); letter-spacing: 0; margin-top: 8px; }
+.cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 8px; background: var(--cobalt); color: var(--paper); text-decoration: none; font-weight: 700; }
+.status-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--hair); background: var(--paper); font-size: 13px; font-weight: 700; }
+.pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--idle); }
+.pill[data-s="working"] i { background: var(--ok); }
+.pill[data-s="meeting"] i { background: var(--cobalt); }
+.pill[data-s="paused"] i { background: var(--warn); }
+.pill[data-s="delivered"] i { background: var(--rose); }
+.goal { color: var(--ink-2); }
+.notice { border: 1px solid color-mix(in srgb, var(--warn) 45%, var(--hair)); background: color-mix(in srgb, var(--warn) 9%, var(--paper)); padding: 10px 14px; border-radius: 8px; color: var(--ink); }
+
+/* Roadmap */
+.roadmap { display: flex; gap: 0; overflow-x: auto; padding-bottom: 2px; }
+.step { flex: 1 0 110px; display: grid; gap: 6px; padding-right: 8px; }
+.step .bar { height: 4px; border-radius: 2px; background: var(--hair); }
+.step[data-s="done"] .bar { background: var(--teal); }
+.step[data-s="current"] .bar { background: linear-gradient(90deg, var(--cobalt) 55%, var(--hair) 55%); }
+.step span { font-size: 12px; color: var(--ink-3); }
+.step[data-s="current"] span { color: var(--ink); font-weight: 700; }
+.step[data-s="done"] span { color: var(--ink-2); }
+
+/* Floor plan */
+.plan-wrap { display: grid; gap: 10px; }
+.plan-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.plan-head h2 { font-size: 22px; text-transform: uppercase; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.plan { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 3px; background: var(--wall); border: 4px solid var(--wall); border-radius: 4px; }
+.room { position: relative; background: var(--room); padding: 14px 14px 30px; min-height: 170px; display: grid; align-content: start; gap: 10px; min-width: 0; }
+.r-manager { grid-column: 1 / 3; }
+.r-meeting { grid-column: 3 / 5; background: var(--meet); }
+.r-customer { grid-column: 5 / 7; }
+.r-engineering { grid-column: 1 / 4; }
+.r-nutrition { grid-column: 4 / 7; }
+.room-label { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.room-label h3 { font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--wall); }
+.room-label .mono { font-size: 11px; color: var(--ink-3); }
+.door { position: absolute; bottom: -3px; width: 30px; height: 33px; pointer-events: none; }
+.door svg { display: block; width: 30px; height: 33px; }
+.desks { display: grid; gap: 8px; }
+.empty-room { font-size: 13px; color: var(--ink-3); font-style: italic; }
+
+.person { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 10px; align-items: center; text-align: left; width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--hair); background: var(--paper); cursor: pointer; }
+.person:hover { border-color: color-mix(in srgb, var(--tc) 55%, var(--hair)); }
+.person .who { min-width: 0; display: grid; }
+.person .who b { font-size: 14px; overflow-wrap: anywhere; }
+.person .who small { font-size: 12px; color: var(--ink-2); }
+.person .task { grid-column: 2; font-size: 13px; color: var(--ink); background: color-mix(in srgb, var(--tc) 8%, var(--paper)); border-radius: 6px; padding: 4px 8px; overflow-wrap: anywhere; }
+.person.ghost { background: transparent; border-style: dashed; cursor: default; }
+.person.ghost .who b, .person.ghost .who small { color: var(--ink-3); }
+.person.off { opacity: 0.7; }
+.token { position: relative; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 16px; letter-spacing: 0.04em; color: var(--paper); background: var(--tc); flex: none; }
+.token.ghost { background: transparent; color: var(--ink-3); border: 1.5px dashed var(--ink-3); }
+.token .dot { position: absolute; right: -2px; bottom: -2px; width: 13px; height: 13px; border-radius: 50%; border: 2.5px solid var(--paper); background: var(--idle); }
+.token .dot[data-s="working"] { background: var(--ok); }
+.token .dot[data-s="in-meeting"] { background: var(--cobalt); }
+.token .dot[data-s="idle"] { background: var(--warn); }
+.token .dot[data-s="off"] { background: var(--paper); border-color: var(--idle); }
+.token.sm { width: 26px; height: 26px; font-size: 11px; }
+
+/* Meeting room */
+.meeting-status { font-size: 13px; color: var(--ink-2); }
+.meeting-status b { color: var(--ink); }
+.table-area { display: grid; justify-items: center; gap: 8px; padding-block: 6px; }
+.seats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px; max-width: 100%; }
+.seat { display: grid; justify-items: center; gap: 4px; background: none; border: 0; padding: 0; cursor: pointer; min-width: 0; }
+.seat small { font-size: 11px; color: var(--ink-2); max-width: 76px; text-align: center; overflow-wrap: anywhere; }
+.table { width: min(220px, 90%); height: 46px; border-radius: 999px; border: 2px solid var(--wall); background: color-mix(in srgb, var(--wall) 7%, var(--meet)); display: grid; place-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); text-align: center; padding: 0 12px; }
+.r-meeting.active .table { border-color: var(--cobalt); color: var(--ink); }
+
+/* Lower sections */
+.grid2 { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.col { display: grid; gap: 28px; min-width: 0; }
+section.block { display: grid; gap: 12px; min-width: 0; }
+section.block > header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+section.block > header h2 { font-size: 21px; text-transform: uppercase; letter-spacing: 0.03em; }
+section.block > header .mono { font-size: 12px; color: var(--ink-3); }
+.muted { color: var(--ink-3); font-size: 14px; }
+
+.feed { list-style: none; margin: 0; padding: 0; display: grid; }
+.feed li { display: grid; grid-template-columns: 48px auto minmax(0, 1fr); gap: 10px; align-items: start; padding-block: 9px; border-bottom: 1px solid var(--hair); }
+.feed time { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); padding-top: 4px; }
+.feed p { margin: 0; font-size: 14px; overflow-wrap: anywhere; }
+.feed p b { font-weight: 700; }
+.kind { display: inline-block; font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); margin-right: 6px; }
+
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.lane { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.lane h3 { font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); display: flex; justify-content: space-between; }
+.card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; align-items: center; background: var(--paper); border: 1px solid var(--hair); border-left: 3px solid var(--tc, var(--hair)); border-radius: 6px; padding: 7px 8px; font-size: 13px; }
+.card span { overflow-wrap: anywhere; }
+.lane[data-l="done"] .card > span:last-child { color: var(--ink-2); }
+
+details.rec { border: 1px solid var(--hair); background: var(--paper); border-radius: 8px; }
+details.rec + details.rec { margin-top: 8px; }
+details.rec summary { cursor: pointer; padding: 10px 12px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; list-style: none; }
+details.rec summary::-webkit-details-marker { display: none; }
+details.rec summary b { font-size: 15px; overflow-wrap: anywhere; }
+details.rec summary .mono { font-size: 11.5px; color: var(--ink-3); }
+details.rec summary .sub { grid-column: 1 / -1; font-size: 13px; color: var(--ink-2); }
+details.rec[open] summary { border-bottom: 1px solid var(--hair); }
+.rec-body { padding: 10px 14px 14px; display: grid; gap: 8px; font-size: 14px; }
+.rec-body p, .rec-body ul { margin: 0; }
+.rec-body ul { padding-left: 18px; display: grid; gap: 3px; }
+.rec-body h4 { margin: 4px 0 0; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); }
+.attendees { display: flex; gap: 4px; flex-wrap: wrap; }
+.tag { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 6px; border-radius: 4px; background: color-mix(in srgb, var(--rose) 12%, var(--paper)); color: var(--rose); }
+
+.hires { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.hires th { text-align: left; font-family: var(--font-mono); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); padding: 6px 8px 6px 0; border-bottom: 1px solid var(--hair); }
+.hires td { padding: 8px 8px 8px 0; border-bottom: 1px solid var(--hair); vertical-align: top; }
+.scroll-x { overflow-x: auto; }
+
+.inbox-form { display: grid; gap: 8px; }
+.inbox-form textarea { width: 100%; min-height: 84px; resize: vertical; border: 1px solid var(--hair); border-radius: 8px; padding: 10px 12px; background: var(--paper); }
+.inbox-form .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.btn { border: 0; border-radius: 8px; padding: 9px 16px; background: var(--ink); color: var(--paper); font-weight: 700; cursor: pointer; }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.notes li { background: var(--paper); border: 1px solid var(--hair); border-radius: 8px; padding: 10px 12px; display: grid; gap: 4px; font-size: 14px; }
+.notes .meta { display: flex; gap: 8px; align-items: center; font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-3); flex-wrap: wrap; }
+.notes .reply { border-left: 3px solid var(--saffron); padding-left: 10px; color: var(--ink-2); }
+
+dialog { border: 1px solid var(--hair); border-radius: 12px; background: var(--paper); color: var(--ink); padding: 0; width: min(440px, calc(100vw - 32px)); }
+dialog::backdrop { background: rgb(10 16 30 / 0.45); }
+.dlg { padding: 20px; display: grid; gap: 12px; }
+.dlg-head { display: flex; gap: 12px; align-items: center; }
+.dlg-head .token { width: 54px; height: 54px; font-size: 21px; }
+.dlg h3 { font-size: 24px; text-transform: uppercase; }
+.dlg dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 14px; margin: 0; font-size: 14px; }
+.dlg dt { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); padding-top: 2px; }
+.dlg dd { margin: 0; overflow-wrap: anywhere; }
+.dlg form { display: flex; justify-content: flex-end; }
+
+@media (max-width: 860px) {
+  .grid2 { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .wrap { padding-inline: 16px; }
+  .plan { grid-template-columns: minmax(0, 1fr); }
+  .r-manager, .r-meeting, .r-customer, .r-engineering, .r-nutrition { grid-column: 1; }
+  .r-meeting { order: -1; }
+  .board { grid-template-columns: minmax(0, 1fr); }
+  .feed li { grid-template-columns: 44px auto minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-dot.on { animation: none; }
+  ::view-transition-group(*) { animation-duration: 0s !important; }
+}
+::view-transition-group(*) { animation-duration: 700ms; animation-timing-function: cubic-bezier(.3,.7,.2,1); }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow"><span class="live-dot" id="live-dot"></span><span id="live-label">Connecting to the office</span><span aria-hidden="true">·</span><span id="updated">—</span></div>
+    <div class="title-row">
+      <h1 id="project-name">Team HQ<small id="project-sub">Daily meal &amp; macro calculator · built by a virtual team for the Boss</small></h1>
+      <a class="cta" id="app-link" href="#" target="_blank" rel="noopener" hidden>Open the app</a>
+    </div>
+    <div class="status-row">
+      <span class="pill" id="status-pill" data-s=""><i></i><span>Waiting for the first update</span></span>
+      <span class="goal" id="goal"></span>
+    </div>
+    <div class="notice" id="stale" hidden></div>
+    <div class="roadmap" id="roadmap" aria-label="Project roadmap"></div>
+  </header>
+
+  <section class="plan-wrap" aria-labelledby="plan-title">
+    <div class="plan-head">
+      <h2 id="plan-title">Floor plan</h2>
+      <div class="legend">
+        <span><i style="background:var(--ok)"></i>Working</span>
+        <span><i style="background:var(--cobalt)"></i>In a meeting</span>
+        <span><i style="background:var(--warn)"></i>Waiting</span>
+        <span><i style="background:var(--paper);border:2px solid var(--idle)"></i>Off duty</span>
+      </div>
+    </div>
+    <div class="plan" id="plan"></div>
+  </section>
+
+  <div class="grid2">
+    <div class="col">
+      <section class="block" aria-labelledby="feed-title">
+        <header><h2 id="feed-title">Activity</h2><span class="mono" id="feed-count"></span></header>
+        <ul class="feed" id="feed"><li><span></span><span></span><p class="muted">Updates from the team appear here as they happen.</p></li></ul>
+      </section>
+      <section class="block" aria-labelledby="board-title">
+        <header><h2 id="board-title">Sprint board</h2><span class="mono" id="board-count"></span></header>
+        <div class="board" id="board"></div>
+      </section>
+    </div>
+    <div class="col">
+      <section class="block" aria-labelledby="reports-title">
+        <header><h2 id="reports-title">Reports to the Boss</h2><span class="mono" id="reports-count"></span></header>
+        <div id="reports"><p class="muted">Omar files a report here at each milestone.</p></div>
+      </section>
+      <section class="block" aria-labelledby="inbox-title">
+        <header><h2 id="inbox-title">Message the team</h2></header>
+        <form class="inbox-form" id="inbox-form">
+          <label class="muted" for="inbox-text">Your note goes to Omar. He reads new notes straight away while the team is working, and at the next hourly check-in otherwise.</label>
+          <textarea id="inbox-text" maxlength="2000" placeholder="For example: add a Ramadan mode, or I also eat a lot of daal mash."></textarea>
+          <div class="row"><span class="muted" id="inbox-hint"></span><button class="btn" id="inbox-send" type="submit" disabled>Send to the team</button></div>
+        </form>
+        <ul class="notes" id="notes"></ul>
+      </section>
+      <section class="block" aria-labelledby="meetings-title">
+        <header><h2 id="meetings-title">Meetings</h2><span class="mono" id="meetings-count"></span></header>
+        <div id="meetings"><p class="muted">Minutes appear here after each meeting.</p></div>
+      </section>
+      <section class="block" aria-labelledby="hires-title">
+        <header><h2 id="hires-title">Hiring log</h2><span class="mono" id="hires-count"></span></header>
+        <div class="scroll-x" id="hires"><p class="muted">No hires yet. Leads ask Omar when they need people.</p></div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<dialog id="profile"><div class="dlg" id="profile-body"></div></dialog>
+
+<script>
+(() => {
+  const TEAMS = {
+    management: { label: "Management", color: "var(--saffron)", room: "manager" },
+    engineering: { label: "Engineering", color: "var(--cobalt)", room: "engineering" },
+    nutrition: { label: "Nutrition Lab", color: "var(--teal)", room: "nutrition" },
+    customer: { label: "Customer Panel", color: "var(--rose)", room: "customer" },
+  };
+  const ROOMS = [
+    { id: "manager", name: "Manager's office", area: "14 m²", door: "right" },
+    { id: "meeting", name: "Meeting room", area: "24 m²", door: "left" },
+    { id: "customer", name: "Customer lounge", area: "16 m²", door: "left" },
+    { id: "engineering", name: "Engineering bay", area: "32 m²", door: "right" },
+    { id: "nutrition", name: "Nutrition lab", area: "28 m²", door: "left" },
+  ];
+  const STATUS_TEXT = { working: "Working", "in-meeting": "In a meeting", idle: "Waiting", off: "Off duty" };
+  const TEAM_STATUS = {
+    working: "Team at work",
+    meeting: "Meeting in progress",
+    paused: "Team on a break",
+    planning: "Planning",
+    delivered: "Delivered, waiting on the Boss",
+  };
+
+  const S = { hq: null, members: [], feed: [], tasks: [], meetings: [], reports: [], inbox: [], db: null, canWrite: false, connected: false };
+  const openDetails = new Set();
+  let lastRooms = {};
+  let queued = false;
+
+  const $ = (sel) => document.querySelector(sel);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const inline = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+  const md = (text) => {
+    const blocks = String(text || "").trim().split(/\n\s*\n/);
+    return blocks.map((b) => {
+      const lines = b.split("\n");
+      if (lines.every((l) => /^\s*[-*] /.test(l))) return "<ul>" + lines.map((l) => "<li>" + inline(l.replace(/^\s*[-*] /, "")) + "</li>").join("") + "</ul>";
+      if (/^#{1,4} /.test(lines[0])) return "<h4>" + inline(lines[0].replace(/^#+ /, "")) + "</h4>" + (lines.length > 1 ? md(lines.slice(1).join("\n")) : "");
+      return "<p>" + lines.map(inline).join("<br>") + "</p>";
+    }).join("");
+  };
+  const ts = (iso) => { const t = Date.parse(iso || ""); return Number.isFinite(t) ? t : 0; };
+  const ago = (iso) => {
+    const t = ts(iso); if (!t) return "";
+    const m = Math.round((Date.now() - t) / 60000);
+    if (m < 1) return "just now";
+    if (m < 60) return m + " min ago";
+    const h = Math.floor(m / 60), r = m % 60;
+    if (h < 24) return h + " h" + (r ? " " + r + " min" : "") + " ago";
+    const d = Math.floor(h / 24); return d + (d === 1 ? " day ago" : " days ago");
+  };
+  const clock = (iso) => {
+    const t = ts(iso); if (!t) return "";
+    const d = new Date(t), now = new Date();
+    const hm = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+    if (d.toDateString() === now.toDateString()) return hm;
+    return d.toLocaleDateString([], { day: "numeric", month: "short" }) + " " + hm;
+  };
+  const dateOnly = (iso) => { const t = ts(iso); return t ? new Date(t).toLocaleDateString([], { day: "numeric", month: "short", year: "numeric" }) : ""; };
+  const member = (id) => S.members.find((m) => m.id === id);
+  const teamOf = (m) => TEAMS[m?.team] || TEAMS.management;
+  const initials = (m) => m?.initials || String(m?.name || "?").split(/\s+/).filter((w) => !/^dr\.?$/i.test(w)).map((w) => w[0]).slice(0, 2).join("").toUpperCase();
+  const roomOf = (m) => (m.room === "meeting" ? "meeting" : teamOf(m).room);
+  const token = (m, opts = {}) => {
+    const vt = opts.vt ? ` style="view-transition-name:p-${esc(m.id)}"` : "";
+    const dot = opts.dot === false ? "" : `<i class="dot" data-s="${esc(m.status || "idle")}" aria-hidden="true"></i>`;
+    return `<span class="token${opts.sm ? " sm" : ""}${opts.ghost ? " ghost" : ""}"${vt} aria-hidden="true">${esc(initials(m))}${dot}</span>`;
+  };
+  const sortMembers = (list) => [...list].sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || String(a.name).localeCompare(String(b.name)));
+
+  function doorSvg(side) {
+    const flip = side === "right" ? ' transform="translate(30 0) scale(-1 1)"' : "";
+    return `<span class="door" style="${side === "right" ? "right:26px" : "left:26px"}" aria-hidden="true"><svg viewBox="0 0 30 33"><g${flip}><line x1="1" y1="31" x2="1" y2="3" stroke="var(--wall)" stroke-width="2"/><path d="M1 3 A28 28 0 0 1 29 31" fill="none" stroke="var(--wall)" stroke-width="1" stroke-dasharray="2 2"/></g></svg></span>`;
+  }
+
+  function renderPlan() {
+    const byRoom = Object.fromEntries(ROOMS.map((r) => [r.id, []]));
+    const homeGhosts = Object.fromEntries(ROOMS.map((r) => [r.id, []]));
+    for (const m of sortMembers(S.members)) {
+      const r = roomOf(m);
+      (byRoom[r] || byRoom.manager).push(m);
+      if (r === "meeting") homeGhosts[teamOf(m).room].push(m);
+    }
+    const meeting = S.hq?.meeting;
+    const meetingActive = !!meeting?.active && byRoom.meeting.length > 0;
+    const html = ROOMS.map((room) => {
+      const cls = `room r-${room.id}${room.id === "meeting" && meetingActive ? " active" : ""}`;
+      const label = `<div class="room-label"><h3>${esc(room.name)}</h3><span class="mono">${esc(room.area)}</span></div>`;
+      if (room.id === "meeting") {
+        const seat = (m) => `<button class="seat" type="button" data-person="${esc(m.id)}" style="--tc:${teamOf(m).color}" aria-label="${esc(m.name)}, in the meeting">${token(m, { vt: true })}<small>${esc(String(m.name).replace(/^Dr\.?\s+/, "").split(" ")[0])}</small></button>`;
+        const half = Math.ceil(byRoom.meeting.length / 2);
+        const above = byRoom.meeting.slice(0, half).map(seat).join("");
+        const below = byRoom.meeting.slice(half).map(seat).join("");
+        const status = !S.connected
+          ? `<p class="meeting-status">${S.triedDb && !S.db ? "Live team data shows when this page is opened on claude.ai." : "Connecting to the office…"}</p>`
+          : meetingActive
+            ? `<p class="meeting-status"><b>${esc(meeting.title || "Meeting")}</b> · started ${esc(clock(meeting.startedAt))}${meeting.agenda ? "<br>" + esc(meeting.agenda) : ""}</p>`
+            : `<p class="meeting-status">No meeting right now. Everyone is working in their own room.</p>`;
+        return `<div class="${cls}">${label}${status}<div class="table-area">${above ? `<div class="seats">${above}</div>` : ""}<div class="table">${meetingActive ? "in session" : "table free"}</div>${below ? `<div class="seats">${below}</div>` : ""}</div>${doorSvg(room.door)}</div>`;
+      }
+      const people = byRoom[room.id].map((m) => {
+        const t = teamOf(m);
+        return `<button class="person${m.status === "off" ? " off" : ""}" type="button" data-person="${esc(m.id)}" style="--tc:${t.color}">${token(m, { vt: true })}<span class="who"><b>${esc(m.name)}</b><small>${esc(m.role)} · ${esc(STATUS_TEXT[m.status] || "Waiting")}</small></span>${m.task ? `<span class="task">${esc(m.task)}</span>` : ""}</button>`;
+      });
+      const ghosts = homeGhosts[room.id].map((m) => `<div class="person ghost" style="--tc:${teamOf(m).color}">${token(m, { ghost: true, dot: false })}<span class="who"><b>${esc(m.name)}</b><small>Desk empty · in the meeting room</small></span></div>`);
+      const all = people.concat(ghosts);
+      const body = all.length ? `<div class="desks">${all.join("")}</div>` : `<p class="empty-room">${S.connected ? "Nobody here yet." : ""}</p>`;
+      return `<div class="${cls}">${label}${body}${doorSvg(room.door)}</div>`;
+    }).join("");
+    $("#plan").innerHTML = html;
+  }
+
+  function renderHeader() {
+    const hq = S.hq || {};
+    if (hq.appName) {
+      $("#project-name").innerHTML = `${esc(hq.appName)}<small>${esc(hq.tagline || "Daily meal & macro calculator · built by a virtual team for the Boss")}</small>`;
+    }
+    const link = $("#app-link");
+    if (hq.appUrl) { link.href = hq.appUrl; link.hidden = false; } else link.hidden = true;
+    const pill = $("#status-pill");
+    pill.dataset.s = hq.status || "";
+    pill.querySelector("span").textContent = TEAM_STATUS[hq.status] || (S.connected ? "Waiting for the first update" : "Connecting");
+    const bits = [];
+    if (hq.phase) bits.push(hq.phase);
+    if (hq.sprintGoal) bits.push("Goal: " + hq.sprintGoal);
+    $("#goal").textContent = bits.join(" · ");
+    $("#updated").textContent = hq.updatedAt ? "last update " + ago(hq.updatedAt) : "—";
+    const dot = $("#live-dot");
+    dot.classList.toggle("on", S.connected);
+    $("#live-label").textContent = S.connected ? "Live from the office" : (S.triedDb && !S.db ? "Offline view" : "Connecting to the office");
+    const stale = $("#stale");
+    const quietMin = hq.updatedAt ? (Date.now() - ts(hq.updatedAt)) / 60000 : 0;
+    if (S.connected && hq.status && hq.status !== "delivered" && quietMin > 90) {
+      stale.hidden = false;
+      stale.textContent = `No update for ${ago(hq.updatedAt).replace(" ago", "")}. Long tasks can run this long. If the Claude usage limit paused the team, the hourly check-in brings everyone back once the limit resets.`;
+    } else stale.hidden = true;
+    const steps = Array.isArray(hq.roadmap) ? hq.roadmap : [];
+    $("#roadmap").innerHTML = steps.map((s) => `<div class="step" data-s="${esc(s.state || "next")}"><div class="bar"></div><span>${esc(s.label)}</span></div>`).join("");
+  }
+
+  function renderFeed() {
+    const items = [...S.feed].sort((a, b) => ts(b.at) - ts(a.at)).slice(0, 60);
+    $("#feed-count").textContent = items.length ? items.length + " latest" : "";
+    if (!items.length) return;
+    $("#feed").innerHTML = items.map((f) => {
+      const m = member(f.who);
+      const tok = m ? `<span style="--tc:${teamOf(m).color}">${token(m, { sm: true, dot: false })}</span>` : `<span class="token sm" style="--tc:var(--ink)" aria-hidden="true">${f.who === "boss" ? "B" : "HQ"}</span>`;
+      return `<li><time datetime="${esc(f.at)}" title="${esc(new Date(ts(f.at)).toLocaleString())}">${esc(clock(f.at))}</time>${tok}<p>${f.kind ? `<span class="kind">${esc(f.kind)}</span>` : ""}${inline(f.text)}</p></li>`;
+    }).join("");
+  }
+
+  function renderBoard() {
+    const sprint = S.hq?.sprint;
+    const tasks = S.tasks.filter((t) => sprint == null || t.sprint == null || t.sprint === sprint);
+    const lanes = [["todo", "To do"], ["doing", "Doing"], ["done", "Done"]];
+    const done = tasks.filter((t) => t.status === "done").length;
+    $("#board-count").textContent = tasks.length ? `${done}/${tasks.length} done` : "";
+    if (!tasks.length) { $("#board").innerHTML = `<p class="muted" style="grid-column:1/-1">The sprint's tasks appear here once the plan is agreed.</p>`; return; }
+    $("#board").innerHTML = lanes.map(([k, label]) => {
+      const list = tasks.filter((t) => (k === "doing" ? t.status === "doing" || t.status === "review" : t.status === k)).sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+      return `<div class="lane" data-l="${k}"><h3><span>${label}</span><span>${list.length}</span></h3>${list.map((t) => {
+        const m = member(t.owner);
+        return `<div class="card" style="--tc:${m ? teamOf(m).color : "var(--hair)"}">${m ? token(m, { sm: true, dot: false }) : ""}<span>${esc(t.title)}${t.status === "review" ? " · in review" : ""}</span></div>`;
+      }).join("")}</div>`;
+    }).join("");
+  }
+
+  function recDetails(kind, rec, summaryInner, bodyHtml) {
+    const key = kind + ":" + rec.id;
+    return `<details class="rec" data-key="${esc(key)}"${openDetails.has(key) ? " open" : ""}><summary>${summaryInner}</summary><div class="rec-body">${bodyHtml}</div></details>`;
+  }
+
+  function renderMeetings() {
+    const list = [...S.meetings].sort((a, b) => ts(b.at) - ts(a.at));
+    $("#meetings-count").textContent = list.length ? list.length + " held" : "";
+    if (!list.length) return;
+    $("#meetings").innerHTML = list.map((m) => {
+      const att = (m.attendees || []).map((id) => member(id)).filter(Boolean).map((p) => `<span style="--tc:${teamOf(p).color}" title="${esc(p.name)}">${token(p, { sm: true, dot: false })}</span>`).join("");
+      const decisions = Array.isArray(m.decisions) && m.decisions.length ? `<h4>Decisions</h4><ul>${m.decisions.map((d) => `<li>${inline(d)}</li>`).join("")}</ul>` : "";
+      const actions = Array.isArray(m.actions) && m.actions.length ? `<h4>Actions</h4><ul>${m.actions.map((d) => `<li>${inline(d)}</li>`).join("")}</ul>` : "";
+      const inProg = m.status === "in-progress" ? ' <span class="tag">in progress</span>' : "";
+      return recDetails("m", m, `<b>${esc(m.title)}${inProg}</b><span class="mono">${esc(dateOnly(m.at))}</span><span class="sub"><span class="attendees">${att}</span></span>`, `${m.summary ? md(m.summary) : ""}${decisions}${actions}`);
+    }).join("");
+  }
+
+  function renderReports() {
+    const list = [...S.reports].sort((a, b) => ts(b.at) - ts(a.at));
+    $("#reports-count").textContent = list.length ? list.length + " filed" : "";
+    if (!list.length) return;
+    $("#reports").innerHTML = list.map((r) => {
+      const asks = Array.isArray(r.asks) && r.asks.length ? `<h4>Needs from you</h4><ul>${r.asks.map((d) => `<li>${inline(d)}</li>`).join("")}</ul>` : "";
+      return recDetails("r", r, `<b>${esc(r.title)}</b><span class="mono">${esc(dateOnly(r.at))}</span>${r.summary ? `<span class="sub">${inline(r.summary)}</span>` : ""}`, `${md(r.body || "")}${asks}`);
+    }).join("");
+  }
+
+  function renderHires() {
+    const hires = sortMembers(S.members.filter((m) => m.hiredBy));
+    $("#hires-count").textContent = hires.length ? hires.length + " hired" : "";
+    if (!hires.length) return;
+    $("#hires").innerHTML = `<table class="hires"><thead><tr><th>Name</th><th>Role</th><th>Hired by</th><th>Date</th></tr></thead><tbody>${hires.map((m) => {
+      const by = member(m.hiredBy);
+      return `<tr><td><b>${esc(m.name)}</b></td><td>${esc(m.role)}<br><span class="muted">${esc(teamOf(m).label)}</span></td><td>${esc(by ? by.name : m.hiredBy)}</td><td class="mono">${esc(dateOnly(m.hiredAt))}</td></tr>`;
+    }).join("")}</tbody></table>`;
+  }
+
+  function renderInbox() {
+    const list = [...S.inbox].sort((a, b) => ts(b.at) - ts(a.at));
+    const label = { new: "New · Omar reads it at the next check-in", read: "Read by Omar", answered: "Answered" };
+    $("#notes").innerHTML = list.map((n) => `<li><div class="meta"><span>${esc(clock(n.at))}</span><span aria-hidden="true">·</span><span>${esc(label[n.status] || n.status || "")}</span></div><div>${inline(n.text)}</div>${n.reply ? `<div class="reply">${inline(n.reply)}</div>` : ""}</li>`).join("");
+    const send = $("#inbox-send");
+    send.disabled = !(S.db && S.canWrite);
+    $("#inbox-hint").textContent = !S.db ? "Sending works when this page is open on claude.ai." : S.canWrite ? "" : "Only the Boss and editors can send notes.";
+  }
+
+  function render() {
+    queued = false;
+    const rooms = Object.fromEntries(S.members.map((m) => [m.id, roomOf(m)]));
+    const moved = Object.keys(rooms).some((id) => lastRooms[id] && lastRooms[id] !== rooms[id]);
+    lastRooms = rooms;
+    const paint = () => { renderHeader(); renderPlan(); renderFeed(); renderBoard(); renderMeetings(); renderReports(); renderHires(); renderInbox(); };
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (moved && !reduce && document.startViewTransition) document.startViewTransition(paint);
+    else paint();
+  }
+  const schedule = () => { if (!queued) { queued = true; requestAnimationFrame(render); } };
+
+  document.addEventListener("toggle", (e) => {
+    const d = e.target;
+    if (d instanceof HTMLDetailsElement && d.dataset.key) { if (d.open) openDetails.add(d.dataset.key); else openDetails.delete(d.dataset.key); }
+  }, true);
+
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-person]");
+    if (!b) return;
+    const m = member(b.dataset.person);
+    if (!m) return;
+    const t = teamOf(m);
+    const by = m.hiredBy ? member(m.hiredBy) : null;
+    $("#profile-body").innerHTML = `<div class="dlg-head" style="--tc:${t.color}">${token(m)}<div><h3>${esc(m.name)}</h3><div class="muted">${esc(m.role)} · ${esc(t.label)}</div></div></div>${m.bio ? `<p style="margin:0">${esc(m.bio)}</p>` : ""}<dl><dt>Status</dt><dd>${esc(STATUS_TEXT[m.status] || "Waiting")}${m.room === "meeting" ? " · in the meeting room" : ""}</dd>${m.task ? `<dt>Doing</dt><dd>${esc(m.task)}</dd>` : ""}${by ? `<dt>Hired by</dt><dd>${esc(by.name)} · ${esc(dateOnly(m.hiredAt))}</dd>` : ""}${m.owns ? `<dt>Owns</dt><dd>${esc(m.owns)}</dd>` : ""}</dl><form method="dialog"><button class="btn">Close</button></form>`;
+    const dlg = $("#profile");
+    if (typeof dlg.showModal === "function") dlg.showModal();
+  });
+
+  $("#inbox-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const ta = $("#inbox-text");
+    const text = ta.value.trim();
+    if (!text || !S.db) return;
+    const btn = $("#inbox-send");
+    btn.disabled = true;
+    try {
+      await S.db.collection("inbox").add({ text, at: new Date().toISOString(), status: "new" });
+      ta.value = "";
+      $("#inbox-hint").textContent = "Sent. Omar will pick it up.";
+    } catch (err) {
+      $("#inbox-hint").textContent = err && err.code === "invalid_argument" ? "Only the Boss and editors can send notes." : "Could not send. Check your connection and try again.";
+    } finally { btn.disabled = !(S.db && S.canWrite); }
+  });
+
+  setInterval(() => { renderHeader(); renderFeed(); renderInbox(); }, 30000);
+  render();
+
+  async function connect() {
+    let db = null;
+    try { db = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch { db = null; }
+    S.triedDb = true;
+    S.db = db;
+    if (!db) { schedule(); return; }
+    try {
+      const user = await window.claude.use("user");
+      if (user) {
+        const can = await user.can("data.write");
+        const edit = await user.canEdit();
+        S.canWrite = can === null ? true : !!(can || edit);
+        if (edit) S.canWrite = true;
+      } else S.canWrite = true;
+    } catch { S.canWrite = true; }
+    const onErr = () => {};
+    const mark = () => { S.connected = true; schedule(); };
+    db.doc("hq/state").onSnapshot((s) => { S.hq = s.exists ? s.data() : null; mark(); }, onErr);
+    db.collection("members").onSnapshot((s) => { S.members = s.docs.map((d) => ({ id: d.id, ...d.data() })); mark(); }, onErr);
+    db.collection("feed").orderBy("at", "desc").limit(60).onSnapshot((s) => { S.feed = s.docs.map((d) => ({ id: d.id, ...d.data() })); mark(); }, onErr);
+    db.collection("tasks").onSnapshot((s) => { S.tasks = s.docs.map((d) => ({ id: d.id, ...d.data() })); mark(); }, onErr);
+    db.collection("meetings").orderBy("at", "desc").limit(40).onSnapshot((s) => { S.meetings = s.docs.map((d) => ({ id: d.id, ...d.data() })); mark(); }, onErr);
+    db.collection("reports").orderBy("at", "desc").limit(40).onSnapshot((s) => { S.reports = s.docs.map((d) => ({ id: d.id, ...d.data() })); mark(); }, onErr);
+    db.collection("inbox").orderBy("at", "desc").limit(40).onSnapshot((s) => { S.inbox = s.docs.map((d) => ({ id: d.id, ...d.data() })); mark(); }, onErr);
+  }
+  connect();
+})();
+</script>

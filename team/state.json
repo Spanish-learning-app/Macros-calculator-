@@ -1,0 +1,59 @@
+{
+  "project": "Daily meal & macro calculator",
+  "status": "meeting",
+  "phase": "Kickoff",
+  "sprint": 0,
+  "sprintGoal": "Agree the plan, the data contract and who to hire",
+  "updatedAt": "2026-10-13T22:12:00Z",
+  "dashboard": {
+    "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
+  },
+  "app": {
+    "url": null
+  },
+  "meeting": {
+    "active": true,
+    "id": "001-kickoff",
+    "title": "Kickoff meeting",
+    "attendees": [
+      "omar",
+      "lena",
+      "ayesha",
+      "bilal"
+    ]
+  },
+  "members": {
+    "omar": {
+      "location": "meeting",
+      "status": "in-meeting",
+      "task": "Chairing the kickoff"
+    },
+    "lena": {
+      "location": "meeting",
+      "status": "in-meeting",
+      "task": "Presenting the engineering plan"
+    },
+    "ayesha": {
+      "location": "meeting",
+      "status": "in-meeting",
+      "task": "Presenting the nutrition plan"
+    },
+    "bilal": {
+      "location": "meeting",
+      "status": "in-meeting",
+      "task": "Presenting the customer view"
+    }
+  },
+  "inFlight": [
+    {
+      "member": "lena",
+      "task": "Kickoff memo",
+      "output": "team/meetings/001-kickoff/memo-lena.md"
+    },
+    {
+      "member": "ayesha",
+      "task": "Kickoff memo",
+      "output": "team/meetings/001-kickoff/memo-ayesha.md"
+    }
+  ]
+}
