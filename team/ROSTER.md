@@ -30,4 +30,11 @@ Hires are requested by a lead, approved by the Manager, and logged here with the
 
 | Id | Name | Role | Team | Hired by | Date | Why |
 |----|------|------|------|----------|------|-----|
-| — | — | — | — | — | — | No hires yet. The kickoff meeting decides. |
+| `hamza` | **Hamza Qureshi** | Core Logic Engineer | Engineering | Lena (approved by Omar) | 2026-10-13 | Every number on screen passes through the core; built test-first alongside the UI. |
+| `priya` | **Priya Raman** | UI Engineer (mobile-first) | Engineering | Lena (approved by Omar) | 2026-10-13 | The Boss uses a phone; the 60-second logging flow is a full-time job. |
+| `kenji` | **Kenji Tanaka** | QA / Test Engineer | Engineering | Lena (approved by Omar) | 2026-10-13 | Independent tests from the spec, the data gate, and end-to-end tests. |
+| `zainab` | **Zainab Rauf** | Pakistani Cuisine Food Researcher | Nutrition Lab | Ayesha (approved by Omar) | 2026-10-13 | ~60% of food records and most of the estimate risk: the Boss's daily food. |
+| `javier` | **Javier Morales** | International & Packaged Foods Researcher | Nutrition Lab | Ayesha (approved by Omar) | 2026-10-13 | Spanish/Mediterranean, gym staples, fruit, dairy, Pakistani packaged foods. |
+| `nasreen` | **Nasreen Akhtar** | Customer tester, beginner home cook | Customer Panel | Bilal (approved by Omar) | 2026-10-13 | Tests first-time use, katori portions and whole-pot cooking at a 1,600 kcal target. |
+
+Briefs for each hire are in `team/briefs/<id>.md`.

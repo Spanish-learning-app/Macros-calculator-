@@ -1,10 +1,10 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "meeting",
-  "phase": "Kickoff",
-  "sprint": 0,
-  "sprintGoal": "Agree the plan, the data contract and who to hire",
-  "updatedAt": "2026-10-13T22:12:00Z",
+  "status": "working",
+  "phase": "Sprint 1 · Build v1",
+  "sprint": 1,
+  "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
+  "updatedAt": "2026-10-13T22:30:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -12,52 +12,96 @@
     "url": null
   },
   "meeting": {
-    "active": true,
-    "id": "001-kickoff",
-    "title": "Kickoff meeting",
-    "attendees": [
-      "omar",
-      "lena",
-      "ayesha",
-      "bilal"
-    ]
+    "active": false
   },
   "members": {
     "omar": {
-      "location": "meeting",
-      "status": "in-meeting",
-      "task": "Chairing the kickoff"
+      "location": "office",
+      "status": "working",
+      "task": "Coordinating Sprint 1"
     },
     "lena": {
-      "location": "meeting",
-      "status": "in-meeting",
-      "task": "Presenting the engineering plan"
+      "location": "office",
+      "status": "working",
+      "task": "Step 0 scaffold"
     },
     "ayesha": {
-      "location": "meeting",
-      "status": "in-meeting",
-      "task": "Presenting the nutrition plan"
+      "location": "office",
+      "status": "working",
+      "task": "NUTRITION.md, rules.js, check-foods.mjs, index.js, templates.js"
     },
     "bilal": {
-      "location": "meeting",
-      "status": "in-meeting",
-      "task": "Presenting the customer view"
+      "location": "office",
+      "status": "working",
+      "task": "docs/CUSTOMER.md"
+    },
+    "hamza": {
+      "location": "office",
+      "status": "idle",
+      "task": "Waiting for step 0"
+    },
+    "priya": {
+      "location": "office",
+      "status": "idle",
+      "task": "Waiting for step 0"
+    },
+    "kenji": {
+      "location": "office",
+      "status": "idle",
+      "task": "Waiting for step 0"
+    },
+    "zainab": {
+      "location": "office",
+      "status": "working",
+      "task": "Pakistani food records (4 files)"
+    },
+    "javier": {
+      "location": "office",
+      "status": "working",
+      "task": "International/basics/Spanish/packaged records (4 files)"
+    },
+    "nasreen": {
+      "location": "office",
+      "status": "working",
+      "task": "team/feedback/nasreen-before.md"
     }
   },
   "inFlight": [
     {
       "member": "lena",
-      "task": "Kickoff memo",
-      "output": "team/meetings/001-kickoff/memo-lena.md"
+      "task": "Step 0 scaffold + sprint briefs",
+      "output": "package.json, docs/ARCHITECTURE.md, app shell, app/core stubs, tests/fixtures/foods.js, team/briefs/*-sprint1.md"
     },
     {
       "member": "ayesha",
-      "task": "Kickoff memo",
-      "output": "team/meetings/001-kickoff/memo-ayesha.md"
+      "task": "Nutrition contract",
+      "output": "docs/NUTRITION.md, app/data/rules.js, app/data/index.js, app/data/templates.js, research/check-foods.mjs"
+    },
+    {
+      "member": "bilal",
+      "task": "Customer doc",
+      "output": "docs/CUSTOMER.md"
+    },
+    {
+      "member": "zainab",
+      "task": "Pakistani food records",
+      "output": "app/data/foods-pk-*.js (not packaged), research/zainab/"
+    },
+    {
+      "member": "javier",
+      "task": "International food records",
+      "output": "app/data/foods-basics.js, foods-intl.js, foods-es-med.js, foods-pk-packaged.js, research/javier/"
+    },
+    {
+      "member": "nasreen",
+      "task": "Before interview",
+      "output": "team/feedback/nasreen-before.md"
     }
   ],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "9 * * * * (UTC, hourly)"
-  }
+  },
+  "appName": "Katori",
+  "next": "When step 0 lands: start Hamza, Priya, Kenji with team/briefs/<id>-sprint1.md; ask Lena for store/router/integration. After data lands: Ayesha reviews. Then Review 1 meeting."
 }
