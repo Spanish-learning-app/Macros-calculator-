@@ -1,7 +1,9 @@
 // Shared bits for Zainab's record specs.
-export const PK = ['pakistani', 'halal'];
-export const PKV = ['pakistani', 'vegetarian', 'halal'];
-export const PKVG = ['pakistani', 'vegetarian', 'vegan', 'halal'];
+// Halal is a field, not a tag (rules.js 1.1.0): build.mjs sets halal: { status: 'halal' } unless the
+// spec gives one. All of Zainab's records are Pakistani dishes with halal meat or no meat.
+export const PK = ['pakistani'];
+export const PKV = ['pakistani', 'vegetarian'];
+export const PKVG = ['pakistani', 'vegetarian', 'vegan'];
 export const MEAL = ['lunch', 'dinner'];
 
 // Densities (g/ml) for katori servings, NUTRITION.md §5.3 / RULES.densityGPerMl, or the food's own

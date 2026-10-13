@@ -1,26 +1,27 @@
 # Katori: customer spec
 
-This file has the user stories, acceptance tests A1–A15 and the test days. Kenji scripts the tests
-from it, and Priya, Hamza, Zainab, Javier and Nasreen work from it too.
+This file has the user stories, acceptance tests A1–A20 and the test days D0–D5. Kenji scripts the
+tests from it, and Priya, Hamza, Zainab, Javier, Yusuf, Nasreen and Mariam work from it too.
 
-**Owner:** Bilal Ahmed (Customer Lead). **Version:** 1, 2026-10-13, Sprint 1. **Based on:** minutes
-001, my kickoff memo, and Lena's and Ayesha's memos.
+**Owner:** Bilal Ahmed (Customer Lead). **Version:** 2, 2026-10-13, Sprint 1. **Based on:** minutes
+001 and 002, my memos, and Lena's and Ayesha's memos.
 
 **Ground rules**
 - **The Customer Panel supplies no measurements** (minutes, decision 10). Every gram weight in Katori
-  comes from the Lab. Portions here are the words a user says. Recipe amounts in D4 and A10 are what a
-  user would type into the app. They are not nutrition data.
+  comes from the Lab. Portions here are the words a user says. Recipe amounts in D4, A10 and A16 are
+  what a user would type into the app. They are not nutrition data.
 - If this file disagrees with `docs/NUTRITION.md` or `docs/ARCHITECTURE.md` on a number or a field
   name, those files win. Tell me and I will fix this one.
-- "Sprint" means where the minutes put a feature (decisions 3 and 4). **2\*** marks my proposal for
-  something the minutes don't mention. Omar confirms those.
+- "Sprint" means where the minutes put a feature: minutes 001 (decisions 3 and 4) as re-planned by
+  minutes 002 (decision 9).
 
 ---
 
 ## 1. Coverage list (the Lab must ship every food here)
 
-These are all the distinct foods in test days D0–D4, plus the few that A2 and A3 search for. The "I'd
-type" column lists my search words: every word in it should find that food (A2, A3, A14).
+These are all the distinct foods in test days D0–D5, plus the few that A2, A3 and A19 search for.
+The "I'd type" columns list my search words: every word in them should find that food (A2, A3, A14,
+A19).
 
 | # | Food | I'd type | Used in |
 |---|------|----------|---------|
@@ -31,10 +32,10 @@ type" column lists my search words: every word in it should find that food (A2, 
 | 5 | Anda paratha, home | anda paratha, egg paratha | D0 D2 |
 | 6 | Paratha, plain, home | paratha, parontha | D3 |
 | 7 | Daal chawal, home plate | daal chawal, dal chawal | D0 |
-| 8 | Rice, plain boiled | chawal, chaawal, rice | D0 fallback, A3, A8 |
-| 9 | Masoor daal, home | masoor, daal, dal, dhal, دال | D0 fallback, A3 |
+| 8 | Rice, plain boiled | chawal, chaawal, rice | D0 fallback, D5, A3, A8 |
+| 9 | Masoor daal, home | masoor, daal, dal, dhal, دال | D0 fallback, D5, A3 |
 | 10 | Daal mash (urad), home | daal mash, mash ki daal, urad | D1, A8 |
-| 11 | Chicken salan, home | chicken salan, murgh salan, chicken curry | D1 D3 |
+| 11 | Chicken salan, home | chicken salan, murgh salan, chicken curry | D1 D3 D5 |
 | 12 | Aloo gobi, home | aloo gobi, gobi aloo | D1 |
 | 13 | Chicken karahi, home | karahi, chicken karahi, karhai | D0, A9 |
 | 14 | Chicken karahi, restaurant (and dhaba, if the Lab makes one) | same as #13 | D2, A9 |
@@ -43,26 +44,43 @@ type" column lists my search words: every word in it should find that food (A2, 
 | 17 | Egg, boiled | boiled egg, ubla anda | D4 |
 | 18 | Dahi, plain full-fat | dahi, dahee, yogurt | D1 D2 D3 |
 | 19 | Raita | raita | D2 |
-| 20 | Milk, full-cream | doodh, milk | D3 |
-| 21 | Doodh patti chai, home, with **1 tsp** and **2 tsp** sugar | chai, doodh patti, tea | 1 tsp: D0; 2 tsp: D1–D4 |
+| 20 | Milk, full-cream | doodh, milk, leche, llet | D3, A20 |
+| 21 | Doodh patti chai, home, with **1 tsp** and **2 tsp** sugar | chai, doodh patti, tea | 1 tsp: D0 D5; 2 tsp: D1–D4 |
 | 22 | Dhaba chai, extra sugar | dhaba chai | D2 |
 | 23 | Rooh Afza with water | rooh afza, sharbat | D3 |
 | 24 | Cola, regular, 345 ml bottle | cold drink, coke, pepsi, cola | D2 |
 | 25 | Rusk | rusk, rusks, papay | D1 |
-| 26 | Tea biscuit, Marie type | biscuit, biscuits, marie | D0 D4 |
+| 26 | Tea biscuit, Marie type | biscuit, biscuits, marie, galletas maria | D0 D4 D5 |
 | 27 | Samosa, aloo | samosa, samosay | D2 D3 |
 | 28 | Pakora, mixed veg (besan) | pakora, pakoray, pakoda | D3 |
 | 29 | Kulfi | kulfi | D2 |
 | 30 | Fruit chaat | fruit chaat | D3 |
-| 31 | Apple | seb, apple | D1 |
-| 32 | Banana | kela, banana | D1 |
+| 31 | Apple | seb, apple, manzana, poma | D1 D5 |
+| 32 | Banana | kela, banana, plátano, plàtan | D1 D5, A20 |
 | 33 | Dates | khajoor, khajur, dates | D3 |
-| 34 | Salad, kachumber (kheera, tamatar, pyaz) | salad, kachumber | D1 D4 |
+| 34 | Salad, kachumber (kheera, tamatar, pyaz) | salad, kachumber | D1 D4 D5 |
 | 35 | Whey protein powder | whey, protein shake | D1 D3 |
-| 36 | Olive oil | olive oil, zaitoon, aceite | D4 |
-| 37 | Pan con tomate | pan con tomate, tostada | D4 |
+| 36 | Olive oil | olive oil, zaitoon, aceite, oli d'oliva | D4 |
+| 37 | Pan con tomate | pan con tomate, pa amb tomàquet, tomato bread | D4, A19 |
 | 38 | Lentejas (Spanish lentil stew, no pork) | lentejas, lentils | D4, A3 |
-| 39 | Tortilla de patatas | tortilla, tortilla de patatas, spanish omelette | D4, A3 |
+| 39 | Tortilla de patatas | tortilla, tortilla de patatas, truita de patates, spanish omelette | D4, A3 |
+
+**Barcelona café and meal-prep foods (Sprint 1; minutes 002, decisions 3 and 8).** Each must be found
+by any of its three names, with or without accents. "Halal I expect" is my guess as a customer; the
+Lab sets the real status and reason.
+
+| # | Food | Catalan | Spanish | English | Halal I expect | Used in |
+|---|------|---------|---------|---------|----------------|---------|
+| 40 | Café con leche | cafè amb llet | café con leche | coffee with milk, latte | halal | D5, A19 |
+| 41 | Cortado | tallat | cortado | cortado | halal | D5, A19 |
+| 42 | Croissant, bakery | croissant | cruasán, croissant | croissant | check (may use lard) | D5, A19 |
+| 43 | Napolitana de chocolate | napolitana de xocolata | napolitana de chocolate | chocolate croissant, pain au chocolat | check | A19 |
+| 44 | Fresh orange juice | suc de taronja | zumo de naranja | orange juice | halal | A19 |
+| 45 | Tortilla sandwich | entrepà de truita | bocadillo de tortilla | tortilla sandwich | halal | A19 |
+| 46 | Ensaïmada | ensaïmada | ensaimada | ensaimada | not-halal (made with lard) | A19 |
+| 47 | Toast with olive oil | torrada amb oli | tostada con aceite | toast with olive oil | halal | A19 |
+| 48 | Skyr, plain | skyr | skyr, yogur proteico | skyr, protein yogurt | halal | D5 |
+| 49 | Chicken tikka rice bowl, lunch box ("1 box" serving in `foods-mealprep.js`) | — | — | tikka bowl, chicken tikka rice bowl | halal (halal butcher meat) | D5, A16 |
 
 **Sprint 2 recipe ingredients (A10):** raw egg, raw potato, raw onion, olive oil (#36), dry brown
 lentils, carrot and halal beef sausage.
@@ -75,8 +93,11 @@ lentils, carrot and halal beef sausage.
 - roti: S/M/L
 - everything else: katori, plate, piece, cup or glass, whichever fits
 
-**Search must win these:** "tortilla" puts #39 above any Mexican wheat tortilla. "chai" puts the
-home doodh patti first.
+**Search must win these:**
+- "tortilla" and "truita" put #39 first, above any Mexican wheat tortilla or trout ("truita" also
+  means trout in Catalan).
+- "chai" puts the home doodh patti first.
+- "croissant" puts #42 above #43.
 
 ---
 
@@ -88,15 +109,44 @@ home doodh patti first.
   desktop), unless a test says otherwise.
 - **Person run:** me on the phone project, first attempt, no practice. I time from my first tap to
   the last entry showing.
-- **Clock:** Asia/Karachi. Tests set the time wherever a slot or date depends on it.
+- **Clock:** **Europe/Madrid is the primary clock for every test** (minutes 002, decision 1). Every
+  time in this file is Madrid wall-clock time, and tests set it wherever a slot or date depends on it.
+  - Asia/Karachi and America/Los_Angeles are extra checks: Kenji also runs A4, A5(b), A7, A12, A13,
+    A19 and A20 in both.
+  - A20 covers the 25 October 2026 clock change.
 - **Starting states:**
   - *Fresh*: empty storage, first launch.
   - *Set up*: onboarding done with P1.
   - *Warm*: set up, with D1 logged the day before, so recents exist.
 - **P1 (me):** male, 31, 178 cm, 82 kg, Moderate, lifts weights, losing at the default rate
   (0.5 kg/week), no health flags.
-- **Slots:** `breakfast` Nashta, `lunch` Lunch, `evening` Shaam ki chai, `dinner` Dinner,
-  `snacks` Snacks. In Sprint 2 Ramadan mode adds Sehri, Iftar, Dinner and After-taraweeh.
+- **Slots and presets:** tests address slots by id; labels come from `RULES`.
+  - The **Spanish preset** is the default on Madrid time (minutes 002, decision 2):
+
+    | Slot id | Label | Hours |
+    |---------|-------|-------|
+    | `breakfast` | Breakfast / café | 05:00–12:30 |
+    | `lunch` | Lunch box | 12:30–16:30 |
+    | `evening` | Merienda / chai | 16:30–20:00 |
+    | `dinner` | Dinner | 20:00–01:00 |
+    | `snacks` | Snacks | 01:00–05:00 |
+
+  - The **Pakistani preset** uses the same ids with the labels Nashta, Lunch, Shaam ki chai, Dinner
+    and Snacks (hours in `docs/NUTRITION.md` §4.5).
+  - D0, D5, A19 and A20 run on the Spanish preset, which is the Boss's real setting. D1–D4 are my
+    Lahore days and run on the Pakistani preset, switched during setup (not counted in any budget).
+  - Ramadan mode (Sehri, Iftar, Dinner, After-taraweeh) is Sprint 3.
+- **Halal** (minutes 002, decisions 4 and 5): every food has a status (`halal`, `check` or
+  `not-halal`) and a reason unless it is `halal`.
+  - **"Halal only" is on by default** in every starting state, and every test runs with it on unless
+    the test says otherwise.
+  - A food row shows a halal chip only when the status is `check` or `not-halal`. The reason is at
+    most 1 action away.
+  - "Halal only" hides `not-halal` foods, never `check` ones.
+  - A search whose only match is hidden must say so: one line naming the hidden food and its reason,
+    with a 1-action way to show it. An empty list is a fail.
+  - `not-halal` foods never appear in suggestions, templates or recipe ingredient pickers.
+  - Katori ships no pork meat products.
 - **"Script portion"** in the day tables means serving × quantity, using the Lab's serving for that
   food.
 
@@ -104,8 +154,12 @@ home doodh patti first.
 
 ## 3. User stories
 
-Personas: **Boss** (owner, eats Pakistani and international food), **Bilal** (lifter, cutting,
-7 years of tracking), **Nasreen** (beginner home cook, ~1,600 kcal, no scale, thinks in Urdu words).
+Personas:
+- **Boss**: owner, lives in Barcelona, eats Pakistani, Spanish and café food, starting a PhD.
+- **Bilal**: lifter, cutting, 7 years of tracking.
+- **Nasreen**: beginner home cook, ~1,600 kcal, no scale, thinks in Urdu words.
+- **Mariam**: halal-eating PhD student in Barcelona, meal-preps on Sundays, gym 3x a week, keeping
+  her weight steady.
 
 | ID | Sprint | As… | I want… | So that… | Tests |
 |----|--------|-----|---------|----------|-------|
@@ -127,23 +181,35 @@ Personas: **Boss** (owner, eats Pakistani and international food), **Bilal** (li
 | US-16 | 1 | Nasreen | phone-first, light and dark, no sideways scrolling, buttons big enough for a thumb | it feels easy on my Android | A15 |
 | US-17 | 2 | Nasreen | a whole-pot recipe that I log as katoris or a share of the pot | my family salan is one entry | A10 |
 | US-18 | 2 | Bilal | saved meals ("weekday lunch") | four foods take one tap | A5(c) |
-| US-19 | 2 | Bilal | Ramadan mode: Sehri, Iftar, Dinner and After-taraweeh, with after-midnight food counting toward the fast | Ramadan logs make sense | A11 |
-| US-20 | 2 | Boss | a desi protein nudge when I'm behind ("2 anday + 1 katori dahi") | I hit protein with ghar ka khana | spec in S2 |
-| US-21 | 2 | Bilal | a weight log | I see whether the cut works | spec in S2 |
-| US-22 | 2\* | Bilal | to set my chai once (milk share, sugar spoons) | my 1.5-spoon chai is exact | A6 |
+| US-19 | 3 | Bilal | Ramadan mode: Sehri, Iftar, Dinner and After-taraweeh, with after-midnight food counting toward the fast | Ramadan logs make sense | A11 |
+| US-20 | 3 | Boss | a desi protein nudge when I'm behind ("2 anday + 1 katori dahi") | I hit protein with ghar ka khana | spec in S3 |
+| US-21 | 3 | Bilal | a weight log | I see whether the cut works | spec in S3 |
+| US-22 | 2 | Bilal | to set my chai once (milk share, sugar spoons) | my 1.5-spoon chai is exact | A6 |
 | US-23 | 3 | Nasreen | screen reader and large text to work | anyone in the family can use it | A15 (extended) |
 | US-24 | 3 | Boss | the app to open fast on a mid-range Android and keep up with my typing | it's quicker than a notebook | spec in S3 |
 | US-25 | 3 | Boss | every food re-audited before I get it | the numbers hold up | A14 (rerun) |
+| US-26 | 1 | Boss | Spanish meal times by default on Madrid time, switchable to the Pakistani preset | my 11:30 cortado isn't "lunch" | A19 A20 |
+| US-27 | 1 | Boss | a halal status with a reason on every food, "Halal only" on by default, and an explanation when a search hits a hidden food | I never have to wonder about the croissant | A19 A14 |
+| US-28 | 1 | Mariam | café and bakery food found by its Catalan, Spanish or English name | the menu board and the app use the same words | A19 |
+| US-29 | 2 | Boss | to pick a library lunch box or build a batch recipe, say "4 boxes" and see the macros per box | Sunday prep is one entry | A16 |
+| US-30 | 2 | Mariam | to drop a box into Lunch on chosen days, one tap each, with boxes left always shown | I plan the week in seconds | A17 |
+| US-31 | 2 | Boss | each box marked fridge or freezer, with a use-by from its shortest-lived part | I never eat a risky rice box | A18 |
+| US-32 | 2 | Mariam | a shopping list that scales with the boxes, split between the halal butcher and the supermarket, and copies as text | one trip to the Raval, one to Mercadona | A18 |
+| US-33 | 2 | Mariam | to answer the seafood question once | prawns are flagged by my own choice, never by a ruling | spec in S2 |
+| US-34 | 3 | Nasreen | kam tel (home-light) versions of salan and daal | my lighter cooking counts | spec in S3 |
 
 **Not scheduled (for later reviews):** training-day and rest-day targets, targets that adapt to my
-weight trend, barcode scanning, sharing a day as text on WhatsApp, a full Urdu interface.
+weight trend, barcode scanning, sharing a day as text on WhatsApp, a full Urdu interface, cost per
+box (a nice-to-have in minutes 002).
 
 ---
 
 ## 4. Acceptance tests
 
-Each test lists its start state, steps, pass rule and budget. A10 and A11 are Sprint 2; the rest
-are Sprint 1.
+Each test lists its start state, steps, pass rule and budget.
+- **Sprint 1:** A1–A9, A12–A15, A19, A20.
+- **Sprint 2:** A10, A16–A18, A5(c).
+- **Sprint 3:** A11.
 
 ### A1: First open to targets (Sprint 1, US-01)
 - **Start:** Fresh, on the phone and small projects.
@@ -295,8 +361,8 @@ are Sprint 1.
 - **Open question for Ayesha:** how should a recipe count frying oil that is poured off? The 3 tbsp
   above is my guess at what stays in, as a user would enter it.
 
-### A11: A Ramadan fasting day (Sprint 2, US-19)
-- **Start:** Set up. Ramadan mode switched on (≤ 3 actions from Profile). Date D.
+### A11: A Ramadan fasting day (Sprint 3, US-19)
+- **Start:** Set up, Sprint 3 build. Ramadan mode switched on (≤ 3 actions from Profile). Date D.
 - **Steps:**
   1. Log D3, with the clock set to each row's time (04:30, 18:05 and 20:30 on D; 00:15 on D+1).
   2. At 04:30 on D+1, log one Sehri item.
@@ -344,13 +410,15 @@ are Sprint 1.
 ### A14: Numbers I can trust (Sprint 1; rerun in the Sprint 3 audit; US-10, US-25)
 - **Script:**
   - The data gate runs on every shipped food.
-  - Each of the 39 coverage foods is found in the top 5 by the first word in its "I'd type" column.
-- **Person:** I open the source of #1, 5, 7, 10, 13, 14, 21, 27, 38 and 39.
+  - Each of the 49 coverage foods is found in the top 5 by the first word in its "I'd type" column
+    (Catalan column for #40–#48, English for #49), with "Halal only" switched off for #46.
+- **Person:** I open the source of #1, 5, 7, 10, 13, 14, 21, 27, 38, 39, 42 and 49.
 - **Pass:**
   - Every food has a citation and a confidence of A, B or C.
   - C foods show "estimate" in search results and in the picker.
   - kcal per 100 g is within ±10% or ±10 kcal (whichever is larger) of 4P + 4C + 9F + 2·fibre.
   - Fibre shows in the Day totals and in the picker.
+  - Every food has a halal status, and a reason unless the status is `halal`.
 - **Budget:** a source opens in ≤ 1 action.
 
 ### A15: Phone, dark mode, thumbs (Sprint 1; full accessibility pass in Sprint 3; US-16, US-23)

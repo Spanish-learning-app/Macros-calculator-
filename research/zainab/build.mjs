@@ -220,6 +220,7 @@ for (const key of Object.keys(FILES)) {
       servings: typeof spec.servings === 'function' ? spec.servings({ per100g, katoriSet, res: spec.recipe ? RESULTS[spec.recipe] : null }) : spec.servings,
       tags: spec.tags,
       slots: spec.slots,
+      halal: spec.halal || { status: 'halal' },
       source: { citation, method, confidence: spec.source.confidence, reviewer: 'zainab', date: TODAY, notes: notes || undefined },
     };
     built[spec.id] = rec;

@@ -1,7 +1,8 @@
 # Katori: Architecture and engineering contract
 
 **Owner:** Lena Hoffmann (Lead Software Engineer). **Status:** Sprint 1, Step 0 (2026-10-13).
-**Binding inputs:** `team/meetings/001-kickoff.md` (decisions), `docs/NUTRITION.md` and
+**Binding inputs:** `team/meetings/001-kickoff.md` and `team/meetings/002-boss-update.md`
+(decisions), `docs/NUTRITION.md` and
 `app/data/rules.js` (every nutrition rule and constant; Ayesha), `docs/CUSTOMER.md` (acceptance
 tests A1–A15; Bilal).
 
@@ -104,7 +105,8 @@ details. They are not summed in v1.
 | `per100g` | HARD | `{ kcal, protein, carbs, fat, fiber }` required, all ≥ 0; kcal whole, macros to 0.1 g; optional `sugars`, `satFat`, `sodium` |
 | `addedFatPer100g` | soft (Lab-required when `source.method` is `recipe`) | grams of oil or ghee per 100 g as served, ≤ `per100g.fat` |
 | `servings` | HARD | `[{ id, label, labelUr?, grams, default? }]`, ≥ 1, ids unique within the food, never `'g'`, exactly one `default: true`, grams > 0 |
-| `tags` | HARD | ids from `RULES.vocab.tags`; `RULES.vocab.tagRules` apply |
+| `tags` | HARD | ids from `RULES.vocab.tags` (cuisine incl. `catalan`, diet, seafood, `meal-prep`, `eat-cold`, …); `RULES.vocab.tagRules` apply. **No halal tags** any more. |
+| `halal` | HARD (meeting 002) | `{ status: 'halal'\|'check'\|'not-halal', reason? }`; `reason` required unless `halal` (`RULES.vocab.halalStatuses`). `not-halal` is only for non-meat foods whose standard recipe has lard (`RULES.vocab.halalRules.notHalal`). |
 | `slots` | soft | meal-slot hints: ids from `RULES.mealSlots.default` or `.ramadan`; used to rank search |
 | `source` | HARD `citation` (Lab: method, confidence, reviewer, date too) | `{ citation, method, confidence: 'A'\|'B'\|'C', reviewer, date, notes? }`; A only with `direct`; C shows an "estimate" badge |
 
@@ -117,7 +119,11 @@ Rules the code depends on:
 - **Volume:** the code never converts volume to mass. Every serving states its grams.
 - **Variants:** each one is a full record. Variants in a family should share serving ids for the
   same vessel (`katori`, `plate`) so the variant switch keeps the portion.
-- **v1 content:** no pork or alcohol (`RULES.vocab.banned`).
+- **v1 content:** no pork meat products and no alcohol (`RULES.vocab.banned`). A few `not-halal`
+  non-meat foods (e.g. ensaïmada) exist so search can explain instead of showing nothing; they are
+  never suggested (recents, templates, recipe pickers) and "Halal only" hides them.
+- **Lunch boxes** (meeting 002, decision 8): group `lunchbox`, serving id `box` (`foods.BOX`), in
+  `app/data/foods-mealprep.js`. They are ordinary foods in Sprint 1.
 
 ### 4.3 Entries and days
 
@@ -135,6 +141,11 @@ Day = { date: 'YYYY-MM-DD', entries: Entry[] }   // entries in display order
 - **Totals** use the live food database, so the Lab's corrections reach past days.
 - **The snapshot** is used only when `foodId` is missing from the index (a deleted food, or a quick
   add). It also keeps exports self-contained.
+- **Logical day.** An entry's date is the *logical* day: `todayISO(now, dayStartMinutes(rules,
+  preset))`. With the Spain preset, dinner runs 20:00–01:00, so food logged at 00:30 belongs to the
+  previous date. The same rule will give Ramadan's after-taraweeh slot its fasting day.
+- **Sprint 2** adds one optional field, `boxRef: { batchId, boxId }`, for a box placed from a
+  meal-prep batch (§13). Sprint 1 code must keep unknown entry fields when copying or updating.
 
 ### 4.4 Profile and targets (kickoff decision 6)
 
@@ -165,11 +176,19 @@ UserData = {
   profile: Profile | null,                 // null until onboarding is done or skipped
   targetPrefs: TargetPrefs,
   targetOverrides: Partial<Nutrients>,     // manual numbers; each wins for its key
-  settings: { slots: [{ id, label }], units: { weight: 'kg'|'lb', height: 'cm'|'ftin' },
-              weekStartsOn: 0|1|6, theme: 'system'|'light'|'dark', hideCalories: boolean },
+  settings: {
+    slotPreset: 'default'|'spain',         // RULES.mealSlotPresetDefault picks it from the time zone
+    slotLabels: { [slot]: string },        // user renames; a missing key = the preset's label
+    halalOnly: boolean,                    // default RULES.vocab.halalRules.halalOnlyFilterDefault (true)
+    seafood: 'all'|'fish-prawns'|'fish-only',   // reserved; the question is Sprint 2
+    units: { weight: 'kg'|'lb', height: 'cm'|'ftin' },
+    weekStartsOn: 0|1|6, theme: 'system'|'light'|'dark', hideCalories: boolean,
+  },
   days: { [date]: Day },                   // days with no entries may be absent
-  customFoods: Food[],                     // empty in Sprint 1 (recipes and saved meals are Sprint 2)
+  customFoods: Food[],                     // empty in Sprint 1
   recents: { [foodId]: { servingId, qty, count, lastUsed, slots: { [slot]: count } } },
+  recipes: [],                             // reserved for Sprint 2 (§13); always [] in Sprint 1
+  batches: [],                             // reserved for Sprint 2 (§13); always [] in Sprint 1
 }
 ```
 
@@ -203,12 +222,14 @@ These rules apply to every function:
 ### 5.2 `dates.js`
 
 All values are local calendar dates. Do the day arithmetic on UTC midnights internally, so DST never
-moves a day. The tests run in Asia/Karachi (no DST) and Europe/Madrid (DST, where the Boss lives).
+moves a day. Tests run in **Europe/Madrid (primary, where the Boss lives)**, Asia/Karachi and
+America/Los_Angeles, and must cover **Sunday 25 October 2026**, when Madrid's clocks go back from
+03:00 to 02:00 (a 25-hour day; 02:30 happens twice). LA changes on 1 November 2026.
 
 | Export | Contract |
 |---|---|
 | `isISODate(v)` | true only for a real date (`2026-02-30` is false) |
-| `todayISO(now)` | local date of `now` |
+| `todayISO(now, dayStartMinutes = 0)` | local *logical* date of `now`: the previous date while the local time is before `dayStartMinutes` |
 | `localDateTime(now)` | local `'YYYY-MM-DDTHH:mm'` for export stamps |
 | `minutesOfDay(now)` | 0–1439, local |
 | `addDays(iso, n)`, `diffDays(from, to)` | whole days; `diffDays` is `to − from` |
@@ -220,8 +241,9 @@ moves a day. The tests run in Asia/Karachi (no DST) and Europe/Madrid (DST, wher
 
 | Export | Contract |
 |---|---|
-| `NUTRIENT_KEYS`, `STYLES`, `GRAMS = 'g'` | frozen constants |
-| `validateFood(food, rules = null)` | never throws; `string[]` of problems. Checks the HARD fields structurally, and with `rules` also vocabulary membership (`vocab.groups`, `vocab.tags`, `vocab.styles`, `mealSlots.default`, `vocab.sourceMethods`, `vocab.confidenceGrades`). Numeric plausibility is the data gate's job (§10). |
+| `NUTRIENT_KEYS`, `STYLES`, `GRAMS = 'g'`, `BOX = 'box'` | frozen constants |
+| `HALAL_STATUSES` | `['halal', 'check', 'not-halal']`, best to worst; binding (meeting 002); must equal `RULES.vocab.halalStatuses` ids |
+| `validateFood(food, rules = null)` | never throws; `string[]` of problems. Checks the HARD fields structurally (including `halal`), and with `rules` also vocabulary membership (`vocab.groups`, `vocab.tags`, `vocab.styles`, `mealSlots.default`, `vocab.sourceMethods`, `vocab.confidenceGrades`). Numeric plausibility is the data gate's job (§10). |
 | `buildFoodIndex(...lists)` | `Map` id → food; throws on a duplicate id |
 | `defaultServing(food)`, `findServing(food, id)` | `findServing(food, 'g')` → `{ id: 'g', label: 'g', grams: 1 }`; an unknown id gives `null` |
 | `gramsForPortion(food, servingId, qty)` | `serving.grams × qty`; `RangeError` on an unknown serving or `qty <= 0` or a non-finite qty |
@@ -250,7 +272,8 @@ moves a day. The tests run in Asia/Karachi (no DST) and Europe/Madrid (DST, wher
 | `progress(total, targets)` | per key `{ value, target, pct, remaining }`; `pct` and `remaining` are `null` when the target is missing or 0 |
 | `weekSummary(daysByDate, dates, index, targets)` | one row per date `{ date, total, entries, pct }`; a missing day gives zeros |
 | `averageTotals(rows)` | mean over rows with `entries > 0` |
-| `slotForTime(minutes, rules)` | uses `RULES.mealSlots.default[].hours = [start, end)` in minutes, which may wrap; falls back to `'snacks'` |
+| `slotForTime(minutes, rules, preset = 'default')` | uses `RULES.mealSlots[preset][].hours = [start, end)` in minutes, which may wrap; falls back to `'snacks'` |
+| `dayStartMinutes(rules, preset = 'default')` | end minute of the preset's window that wraps past midnight, else 0 (`spain` → 60) |
 
 ### 5.5 `targets.js`
 
@@ -274,23 +297,23 @@ K applies prefs `{ proteinGPerKg: 2.2, fatPct: 25 }`.
 | Export | Contract |
 |---|---|
 | `TIERS`, `BOOST_WEIGHT = 19` | `{ exact 100, prefix 80, wordPrefix 60, substring 40, fuzzy 20 }`; a boost never crosses a tier |
-| `normalize(text)` | lowercase; NFKD with combining marks stripped; Arabic harakat stripped; ي→ی, ك→ک, ة→ہ; punctuation becomes a space; Latin `aa→a`, `ee→i`, `oo→u`; whitespace collapsed and trimmed |
+| `normalize(text)` | lowercase; NFKD with combining marks stripped, so accents fold (`ensaïmada`, `pa amb tomàquet`, `café con leche`, `ñ`, `ç`); the Catalan middle dot `·` deleted (`col·liflor` → `colliflor`); Arabic harakat stripped; ي→ی, ك→ک, ة→ہ; other punctuation becomes a space; Latin `aa→a`, `ee→i`, `oo→u`; whitespace collapsed and trimmed |
 | `buildSearchIndex(foods)` | indexes `name`, `nameRoman`, `nameUr` and `aliases` |
-| `searchFoods(index, query, { limit = 20, boosts = {} } = {})` | best tier per food. Fuzzy is Damerau-Levenshtein (OSA) distance ≤ 1 per query word of 4 or more characters. `score = tier + 19 × clamp(boost)`. Sort by score, then shorter `matched`, then name. A blank query gives `[]`. |
+| `searchFoods(index, query, { limit = 20, boosts = {}, halalOnly = true } = {})` | returns `{ hits, hidden }`. Best tier per food. Fuzzy is Damerau-Levenshtein (OSA) distance ≤ 1 per query word of 4 or more characters. `score = tier + 19 × clamp(boost)`. Sort by score, then shorter `matched`, then name. With `halalOnly`, `not-halal` matches go to `hidden` (the UI says "1 hidden: not halal" and shows the reason); `check` stays in `hits`. A blank query gives no hits. |
 | `recordUse(recents, { foodId, servingId, qty, slot, date })` | adds 1 to `count` and to `slots[slot]`; sets `lastUsed`; remembers the last serving and qty (the one-tap "+") |
 | `recencyBoosts(recents, today)` | `0.5·min(1, count/10) + 0.5·max(0, 1 − daysSince/30)` |
 | `recentForSlot(recents, slot, { limit = 12 } = {})` | **every** recent food; ones used in `slot` first (A6) |
 
 Performance budget: `searchFoods` takes under 16 ms per call on 2,000 foods, and Kenji measures it.
-Acceptance: A2 and A3 in `docs/CUSTOMER.md` (roti, chapati, phulka, dal, dhal, دال, anday, karhai,
-lentejas and the rest).
+Acceptance: A2, A3 and A19 in `docs/CUSTOMER.md` (roti, chapati, phulka, dal, dhal, دال, anday,
+karhai, lentejas, and Barcelona café food by its Catalan, Spanish or English name).
 
 ### 5.7 `storage.js`
 
 | Export | Contract |
 |---|---|
 | `STORAGE_KEY = 'mmc.v1'`, `SCHEMA_VERSION = 1`, `EXPORT_KIND = 'katori-backup'` | |
-| `defaultData()` | a fresh `UserData` with the default slot labels |
+| `defaultData({ timeZone, rules } = {})` | a fresh `UserData`. With `rules`, `slotPreset` comes from `RULES.mealSlotPresetDefault` (Madrid, Ceuta and the Canaries → `spain`), `halalOnly` and `seafood` from `RULES.vocab.halalRules`. |
 | `createPersistence(backend, { stamp } = {})` | never throws. `load()` gives `{ data, status }`, where status is one of the five below. `save(data)` gives `{ ok, error? }` and refuses when the status is `future`. |
 | `migrate(raw)` | upgrades older versions and fills defaults; throws with `.code` `FUTURE_VERSION` or `INVALID` |
 | `validateUserData(data)` | `string[]` |
@@ -322,13 +345,16 @@ The five `load()` statuses:
     `protein.overrideGPerKgPrw`
   - fat, carbs and fibre: `fat`, `carbs`, `fiber`, `rounding`
   - flags and warnings: `healthFlags[]`, `derivedFlags[]`, `warnings`
-  - slots: `mealSlots.default[]`
+  - slots: `mealSlots.default[]`, `mealSlots.spain[]` (same ids), `mealSlotPresetDefault`
+  - halal: `vocab.halalStatuses`, `vocab.halalRules` (filter default, not-halal rules, seafood)
   - vocabularies: `vocab.groups`, `vocab.tags`, `vocab.tagRules`, `vocab.banned`, `vocab.styles`,
     `vocab.sourceMethods`, `vocab.confidenceGrades`
 
   If a renamed field breaks the contract test, the Lab and Lena fix it together.
 - **Enums that must agree with the core:** activity ids = `ACTIVITY_LEVELS`; goal ids = `GOALS`;
-  `mealSlots.default` ids and labels = `SLOT_IDS` and `DEFAULT_SLOT_LABELS`; style ids = `STYLES`.
+  `mealSlots.default` ids and labels = `SLOT_IDS` and `DEFAULT_SLOT_LABELS`; `mealSlots.spain` ids =
+  `SLOT_IDS`; style ids = `STYLES`; `vocab.halalStatuses` ids = `HALAL_STATUSES`.
+- **`mealPrep.*`** (storage lives, thawing, box targets) is read from Sprint 2 (§13).
 - **Until real data lands:** the engineers build against `tests/fixtures/index.js`. It holds the
   real RULES and 12 fixture foods, which pass every gate and are never shipped.
 - **When data is missing:** the app shows "Food data is not available yet" and keeps working.
@@ -340,7 +366,8 @@ The five `load()` statuses:
 1. Render the shell: header, view container and navigation.
 2. Load `./data/index.js` with a dynamic `import()`. If it fails, show a banner and use empty data.
 3. Create persistence with `createPersistence(safeLocalStorage)` and `load()` it. Show the banner
-   for `unavailable`, `corrupt` and `future`.
+   for `unavailable`, `corrupt` and `future`. A fresh document is
+   `defaultData({ timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, rules })`.
 4. Create the store with `{ persistence, rules, foods, now: () => new Date(), makeId }`. `makeId`
    uses `crypto.randomUUID()` and falls back to a counter plus the time.
 5. Start the router.
@@ -373,8 +400,9 @@ store.getState() → { data: UserData, storageStatus, saveError, undo: { label }
 store.subscribe((state) => void) → unsubscribe
 
 // selectors (memoized on state)
-store.today() → 'YYYY-MM-DD'
-store.defaultSlot() → SlotId               // slotForTime(minutesOfDay(now()))
+store.today() → 'YYYY-MM-DD'               // logical day: todayISO(now(), dayStartMinutes(rules, preset))
+store.defaultSlot() → SlotId               // slotForTime(minutesOfDay(now()), rules, preset)
+store.slotLabel(slot) → string             // settings.slotLabels[slot] ?? the preset's label
 store.targetResult() → TargetResult | null // null before onboarding
 store.targets() → Nutrients | null
 store.hideCaloriesOffered() → boolean      // an active flag has effect.offerHideCalories
@@ -384,13 +412,13 @@ store.left(date) → progress(eaten.total, targets)  // "left" = eaten only (A7,
 store.week(date) → { rows, average }
 store.food(id) → Food | undefined
 store.variants(foodId) → Food[]
-store.search(query, { slot }) → SearchHit[]   // boosted by recents
-store.recents(slot) → { food, servingId, qty }[]
+store.search(query, { slot }) → { hits, hidden }   // boosted by recents; settings.halalOnly
+store.recents(slot) → { food, servingId, qty }[]  // never a 'not-halal' food
 
 // actions (each one persists; saves are debounced 300 ms and flushed on pagehide)
 store.completeOnboarding(profile, prefs?)  store.skipOnboarding()
 store.setProfile(profile)  store.setTargetPrefs(prefs)  store.setTargetOverride(key, value|null)
-store.updateSettings(patch)
+store.updateSettings(patch)                // includes slotPreset, slotLabels, halalOnly
 store.addFood({ date, slot, foodId, servingId, qty, status? }) → entryId
       // default status: 'planned' for a future date, otherwise 'eaten' (A12); calls recordUse
 store.quickAdd({ date, slot, name, nutrients, status? }) → entryId
@@ -432,6 +460,9 @@ export function mount(container, ctx) → { update(route), unmount() }
   - **Add sheet:** recents first, one-tap "+" with the last portion (A6), search as you type, each
     result showing its default portion and kcal (A2), and an "estimate" badge on confidence C
     (A14).
+  - **Halal (meeting 002):** a chip on food rows for `check` and `not-halal`, with the reason one
+    tap away; a "Halal only" toggle (on by default, also in Profile); when the filter hides
+    matches, a line such as "1 hidden: not halal" that reveals the reason. Calm wording, no red.
   - **Portion picker:** serving chips, a qty stepper in 0.5 steps that accepts typed decimals,
     live grams and kcal, and inline errors for 0, an empty box or a negative number (A8). It also
     holds the variant switch (A9).
@@ -440,7 +471,7 @@ export function mount(container, ctx) → { update(route), unmount() }
   - **Storage banner.**
   - **Week and month view.**
   - **Onboarding:** with Skip (A1).
-  - **Profile.**
+  - **Profile:** includes the meal-times preset (Pakistani or Spanish) and slot renaming.
   - **Data:** export textarea and Copy, import by paste or file, Replace or Merge.
   - **About the data.**
 
@@ -498,9 +529,9 @@ export function mount(container, ctx) → { update(route), unmount() }
 |---|---|
 | `npm run setup` | once per checkout: `npm link playwright`, which links the preinstalled 1.56.1 (**never** `playwright install`) |
 | `npm run check` | `eslint .`, then `prettier --check .`, then `npm test`. **Must pass before every hand-off.** |
-| `npm test` | `node --test tests/{contract,unit,data}/**/*.test.js`, run twice: `TZ=Asia/Karachi` and `TZ=Europe/Madrid` |
+| `npm test` | `node --test tests/{contract,unit,data}/**/*.test.js`, run three times: `TZ=Europe/Madrid` (primary), `TZ=Asia/Karachi`, `TZ=America/Los_Angeles` |
 | `npm run test:coverage` | line coverage of `app/core`, threshold 90% (joins `check` once the core is implemented) |
-| `npm run test:e2e` | Playwright on `phone` (Pixel 7), `phone-dark`, `small` (360 px) and `desktop` (1280 × 800), against `http-server app` on port 4173 |
+| `npm run test:e2e` | Playwright on `phone` (Pixel 7), `phone-dark`, `small` (360 px) and `desktop` (1280 × 800), against `http-server app` on port 4173, clock `Europe/Madrid` |
 | `npm run serve` | the app at http://localhost:4173 |
 
 ### 10.2 Unit tests
@@ -556,3 +587,50 @@ Bugs go to the owner. Nobody fixes another person's file.
   `tests/contract/*.test.js`, and tells Kenji.
 - **Food ids** are permanent once shipped.
 - **Schema changes** to `UserData` bump `SCHEMA_VERSION` and come with a `migrate` step and a test.
+
+## 13. Sprint 2 design: whole-pot recipes and meal prep (draft for Review 1)
+
+Meeting 002 made meal prep Sprint 2's headline. Sprint 1 already reserves the room, so Sprint 2 needs
+no schema bump unless these shapes change. Omar's suggestion (a box is an ordinary entry pointing at
+a recipe-derived food, and a `batches` collection tracks the boxes) is adopted.
+
+**Recipes** (`UserData.recipes`, user-made; ids `my-recipe-<uuid>`):
+
+```js
+Recipe = { id, name, createdAt, ingredients: [{ foodId, servingId, qty }],
+           cookedWeightG: number|null,        // weighed pot; null = sum of ingredient grams
+           boxes: number }                    // how many boxes the pot makes (≥ 1)
+```
+
+- `foodFromRecipe(recipe, foodIndex, rules) → Food`, a pure core function: per100g = Σ ingredient
+  nutrients / cooked weight × 100; servings `box` (cooked weight / boxes, default), the katori set
+  and `g`; `halal` = the worst status among the ingredients (`RULES.vocab.halalRules.worstFirst`);
+  `source = { citation: 'Your recipe', method: 'recipe', confidence: 'C' }`; `group` `lunchbox`.
+- The store builds the food index from `FOODS`, `customFoods` and the derived recipe foods
+  (`buildFoodIndex(...lists)` already takes several lists). Every existing day function works
+  unchanged: a box in Lunch is `{ foodId: recipe.id, servingId: 'box', qty: 1 }`.
+- **Library boxes** (Yusuf's 12) keep their Sprint 1 food ids and Lab-reviewed numbers. Sprint 2 adds
+  Lab data `app/data/recipes-mealprep.js`: `{ foodId, ingredients, boxes, storage }` for the
+  shopping list and storage. Logging a library box always uses the Lab food, never a recomputation.
+
+**Batches** (`UserData.batches`):
+
+```js
+Batch = { id, recipeId,                       // a user recipe id or a library box foodId
+          cookedOn: 'YYYY-MM-DD',
+          boxes: [{ id, storage: 'fridge'|'freezer', movedToFridgeOn: date|null,
+                    placed: { date, entryId } | null, status: 'available'|'placed'|'eaten'|'discarded' }] }
+```
+
+- **Use-by** (`RULES.mealPrep`): a fridge box gets cookedOn + min(fridgeDays of its components); a
+  freezer box has none until moved, then movedToFridgeOn + `thawedFridgeDays`. Pure function
+  `boxUseBy(batch, box, recipe, foodIndex, rules) → date|null`. The Day view says "last day" on the
+  date and "past use-by, best not to eat" after it, calmly.
+- **Placing a box** in Lunch on chosen days (1 action per day, A17) adds an entry with
+  `boxRef: { batchId, boxId }` and sets the box to `placed`. Ticking the entry eaten sets the box
+  to `eaten`; deleting the entry frees the box. Boxes left = boxes with `available`.
+- **Shopping list:** ingredients × batches, merged by food, as copyable text (no downloads in an
+  Artifact).
+- **New core module** `app/core/mealprep.js` (Hamza): `foodFromRecipe`, `worstHalal`, `boxUseBy`,
+  `boxesLeft`, `placeBox`, `shoppingList`. Pure, contract-tested like §5.
+

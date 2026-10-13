@@ -42,34 +42,34 @@ Record id: `pk-chicken-karahi-home` · sheet: `research/zainab/recipes/chicken-k
 
 ## Added fat
 
-Fat per kg bone-in chicken in the home sources: TfT 2 tbsp ghee (27 g) + 2.5 tbsp oil (34 g) = 61 g for 907 g → 67 g/kg; SuperChef 4 tbsp (54 g) for 500 g → 109 g/kg; SBS 150 ml × 0.92 = 138 g/kg. Median 109 g/kg → standard 100 g/kg (80 g cooking oil + 20 g desi ghee, after TfT). Lands at ~8% added fat of served weight, inside Ayesha's home 6–10%.
+Fat per kg bone-in chicken in the home sources: TfT 2 tbsp ghee (27 g) + 2.5 tbsp oil (34 g) = 61 g for 907 g → 67 g/kg; SuperChef 4 tbsp (54 g) for 500 g → 109 g/kg; SBS 150 ml × 0.92 = 138 g/kg. Median 109 g/kg → standard 100 g/kg (80 g cooking oil + 20 g desi ghee, after TfT). Lands near the top of the home 6–10% range (see the recipe file).
 
-Added fat in the served dish: **9.8 g per 100 g** (oil-cooking, ghee-desi).
+Added fat in the served dish: **9.9 g per 100 g** (oil-cooking, ghee-desi).
 
 ## Yield
 
 Water balance (NUTRITION.md §6 step 5, "a stated water balance"), with the Lab conventions in `research/zainab/conventions.mjs`:
 
 - tomatoes reduced to a paste until oil separates (C.tomatoBhuna 0.7): 328 g
-- onion browned (C.onionBrown 0.5): 24 g
+- onion browned (C.onionBrown 0.5): 31 g
 - chicken juices (USDA stewed yield 0.784 → 29% of its water) reduced off in the bhuna: 164 g
 
-**Cooked weight:** 1022.2 g edible (yield 0.665 of the raw edible total); bones are 20% of the weight on the plate. Water in the dish: 64.2 g/100 g.
+**Cooked weight:** 1015.1 g edible (yield 0.66 of the raw edible total); bones are 20% of the weight on the plate. Water in the dish: 63.9 g/100 g.
 
 ## Result per 100 g as served
 
 | kcal | Protein | Carbs (available) | Fat | Fibre | Sugars | Sat fat | Sodium |
 |---|---|---|---|---|---|---|---|
-| 197 | 16.8 | 3.1 | 12.6 | 1.8 | 1.3 | 3.1 | 513 mg |
+| 198 | 16.9 | 3.1 | 12.7 | 1.8 | 1.4 | 3.1 | 517 mg |
 
 ## Energy check
 
-kcal = round(4P + 4C + 9F + 2·fibre) = 197 (NUTRITION.md §6 step 7). Sum of the tables' own energy values: 196 kcal/100 g (-0.5%).
+kcal = round(4P + 4C + 9F + 2·fibre) = 198 (NUTRITION.md §6 step 7). Sum of the tables' own energy values: 198 kcal/100 g (0.0%).
 
 ## Cross-check
 
-- CoFID 2021 19-322 "Curry, chicken, average, takeaway": 145 kcal, P 11.7, C 2.4, F 9.8, fibre 2.2 per 100 g → our value is +36% kcal. **Over 25%: see note.** UK takeaway chicken curries (korma, tikka masala, dhansak, jalfrezi, dopiaza), meat and sauce; no karahi analysed anywhere we found.
-- USDA FDC FNDDS 2706437 "Chicken curry": 107 kcal, P 6.48, C 5.1, F 6.48, fibre 1.4 per 100 g → our value is +84% kcal. **Over 25%: see note.**
+- CoFID 2021 19-322 "Curry, chicken, average, takeaway": 145 kcal, P 11.7, C 2.4, F 9.8, fibre 2.2 per 100 g → our value is +37% kcal. **Over 25%: see note.** UK takeaway chicken curries (korma, tikka masala, dhansak, jalfrezi, dopiaza), meat and sauce; no karahi analysed anywhere we found.
+- USDA FDC FNDDS 2706437 "Chicken curry": 107 kcal, P 6.48, C 5.1, F 6.48, fibre 1.4 per 100 g → our value is +85% kcal. **Over 25%: see note.**
 
 ## Assumptions and confidence
 
