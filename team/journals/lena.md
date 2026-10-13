@@ -16,3 +16,7 @@
   - Confidence uses A/B/C.
   - Her fields are adopted in camelCase: nameUr, nameRoman, family, state, style, labelUr, source {citation, method, confidence, reviewer, date}.
   - The code-hard fields are unchanged: id, name, aliases, per100g (5 fields), servings {id, label, grams, default}, tags, source.citation.
+- 2026-10-13 22:20 UTC: SPRINT 1 / STEP 0 started. Read the minutes (team/meetings/001-kickoff.md; binding) and the briefs for Hamza, Priya and Kenji.
+  - Binding items: name Katori; five scope additions (copy day, family variant switch, fractional portions, source in one tap, kcal/protein left); the Profile type with the activity enum sedentary|light|moderate|very_active|extra_active; `group` is HARD; app/data/index.js exports RULES and FOODS.
+  - docs/NUTRITION.md and app/data/rules.js do not exist yet. I will propose the RULES fields that code reads, using the values in Ayesha's memo, and reconcile once her files land.
+  - `npm link playwright` touches neither package.json nor a root lockfile. An empty `node --test` glob exits 0.

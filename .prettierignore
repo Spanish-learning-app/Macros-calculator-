@@ -1,0 +1,10 @@
+# The code gate formats code only: app/, tests/ and root configs.
+# Prose (Markdown) and other teams' tooling are not checked here.
+**/*.md
+team/
+dashboard/
+research/
+node_modules/
+test-results/
+playwright-report/
+package-lock.json
