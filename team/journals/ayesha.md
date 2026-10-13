@@ -11,3 +11,6 @@
   - Volumes (FNDDS, per cup): rice 158 g, biryani 196 g, dal 240 g.
   - Spoons (SR Legacy): sugar 1 tsp 4.2 g; oil 1 tsp 4.5 g, 1 tbsp 13.6 g.
   - No published source found for karchi (serving spoon) or a Pakistani plate, so both stay open.
+- 2026-10-13 22:27 UTC — TASK 1 DONE: app/data/rules.js (plain data; it loads in Node; slot shares sum to 100). It has 32 food groups with kcal ranges, fiberZero, servingGrams and katoriServed, plus the tag vocabulary, banned words, styles, methods, grades, household measures (S/M/L katori 155/200/360 ml), reference weights and densities.
+  - Test vectors A–J come from a scratch reference implementation (scratchpad/ref-targets.mjs, not in the repo): A 2160 kcal (156/72/222/30); B 1360 (87/45/152/25); C 2220 (156/74/233/31, a half-up tie on carbs); D 3490; E 1170 (floor = TDEE); F 1890; G 1810 (kidney cap, protein 66); H 1840 (pregnant, goal set to maintain); I minor, no targets; J underweight, goal set to maintain.
+  - BUG FOUND, not mine to fix: research/usda.mjs drops all of FNDDS. FNDDS food_nutrient.csv uses legacy nutrient numbers (208/203/204/205/291), not ids (1008…). The index has only foundation and sr_legacy. Zainab has made her own fndds index. Report to Omar.

@@ -15,8 +15,11 @@ export const STYLES = Object.freeze(['home', 'restaurant', 'dhaba', 'street']);
 export const GRAMS = 'g';
 
 /**
- * Structural check of one record against the HARD fields (§4.2). With `rules`, also checks that
- * group, tags and slots come from RULES.vocab. Never throws.
+ * Structural check of one record against the HARD fields (§4.2). With `rules`, also checks
+ * membership: group in RULES.foodGroups, tags in RULES.tags, style in RULES.styles, slots in
+ * RULES.mealSlots.default, source.method in RULES.sourceMethods, source.confidence in
+ * RULES.confidenceGrades. Numeric plausibility (energy, ranges, tagRules, banned words) is the data
+ * gate's job (tests/data), not this function's. Never throws.
  * @param {unknown} food @param {object|null} [rules=null] RULES from app/data/index.js
  * @returns {string[]} human-readable problems, each prefixed with the food id when known; [] = valid.
  */
@@ -74,8 +77,9 @@ export function scaleNutrients(nutrients, factor) {
 }
 
 /**
- * Atwater check from RULES.energyCheck (factors 4/4/9/2 for protein/carbs/fat/fiber; pass when
- * |stated - computed| <= max(tolerancePct% of computed, toleranceKcal)).
+ * Atwater check from RULES.energy: computed = Σ factors[k] * per100g[k] (4/4/9/2 for
+ * protein/carbs/fat/fiber); pass when |stated - computed| <= max(stated * tolerance.pct / 100,
+ * tolerance.kcal).
  * @param {import('./types.js').Per100g} per100g @param {object} rules RULES
  * @returns {{ computed: number, stated: number, delta: number, tolerance: number, ok: boolean }}
  *   delta = stated - computed.

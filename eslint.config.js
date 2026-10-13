@@ -117,7 +117,8 @@ export default [
         'error',
         {
           property: 'toISOString',
-          message: 'Dates are local YYYY-MM-DD strings. Use core/dates.js (todayISO, localDateTime).',
+          message:
+            'Dates are local YYYY-MM-DD strings. Use core/dates.js (todayISO, localDateTime).',
         },
       ],
     },

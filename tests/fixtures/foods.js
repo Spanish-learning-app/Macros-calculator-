@@ -62,7 +62,9 @@ export default [
     family: 'daal-masoor',
     per100g: { kcal: 114, protein: 6.5, carbs: 13, fat: 3.2, fiber: 3.5 },
     addedFatPer100g: 3,
-    servings: [{ id: 'katori', label: '1 katori (150 g)', labelUr: '1 کٹوری', grams: 150, default: true }],
+    servings: [
+      { id: 'katori', label: '1 katori (150 g)', labelUr: '1 کٹوری', grams: 150, default: true },
+    ],
     tags: ['pakistani', 'vegetarian', 'halal'],
     slots: ['lunch', 'dinner'],
     source: source('B'),

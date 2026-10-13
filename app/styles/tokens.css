@@ -1,0 +1,73 @@
+/* Design tokens. Owner: Priya (starter by Lena in Step 0; restyle freely, keep the structure).
+   Theming contract (Artifact): light tokens on :root; dark tokens under prefers-color-scheme
+   guarded by :root:not([data-theme='light']), and again under :root[data-theme='dark'] so the
+   in-app theme switch can force either mode. */
+
+:root {
+  color-scheme: light;
+
+  --font-sans:
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Nastaliq Urdu', sans-serif;
+  --font-size-base: 1rem;
+  --line-height: 1.5;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --radius: 12px;
+  --tap: 44px; /* minimum touch target */
+  --gutter: 16px; /* phone side gutter */
+
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --text: #1f1a14;
+  --text-muted: #5f574d;
+  --border: #e4ddd2;
+  --accent: #b4532a;
+  --accent-text: #ffffff;
+  --focus: #1d5fd1;
+
+  --kcal: #b4532a;
+  --protein: #2f6f4f;
+  --carbs: #9a6a00;
+  --fat: #8a3f7a;
+  --fiber: #3c6a8a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #15120f;
+    --surface: #211c17;
+    --text: #f3ede4;
+    --text-muted: #b9afa2;
+    --border: #3a322a;
+    --accent: #e08a5c;
+    --accent-text: #1a120c;
+    --focus: #8db4ff;
+    --kcal: #e08a5c;
+    --protein: #7cc49d;
+    --carbs: #e0b44c;
+    --fat: #d38ac4;
+    --fiber: #8cbbe0;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #15120f;
+  --surface: #211c17;
+  --text: #f3ede4;
+  --text-muted: #b9afa2;
+  --border: #3a322a;
+  --accent: #e08a5c;
+  --accent-text: #1a120c;
+  --focus: #8db4ff;
+  --kcal: #e08a5c;
+  --protein: #7cc49d;
+  --carbs: #e0b44c;
+  --fat: #d38ac4;
+  --fiber: #8cbbe0;
+}

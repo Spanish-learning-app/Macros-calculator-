@@ -7,7 +7,7 @@
  *   Grams, except kcal. `carbs` = available carbohydrate (fibre excluded).
  *
  * @typedef {Nutrients & { sugars?: number, satFat?: number, sodium?: number }} Per100g
- *   sodium in mg; everything else in g (kcal in kcal).
+ *   sodium in mg; everything else in g (kcal in kcal). kcal whole, macros to 0.1 g.
  *
  * @typedef {{ id: string, label: string, labelUr?: string, grams: number, default?: boolean }} Serving
  *
@@ -20,14 +20,14 @@
  * @property {string} [nameUr]      Urdu script.
  * @property {string} [nameRoman]   Roman Urdu.
  * @property {string[]} aliases     HARD (may be empty).
- * @property {string} group         HARD. From RULES.vocab.groups.
+ * @property {string} group         HARD. An id from RULES.foodGroups.
  * @property {string} state         HARD for the Lab. What the numbers describe.
  * @property {'home'|'restaurant'|'dhaba'|'street'} [style]
  * @property {string} [family]      Links style variants of one dish.
  * @property {Per100g} per100g      HARD. Five required keys, all >= 0.
  * @property {number} [addedFatPer100g]
  * @property {Serving[]} servings   HARD. At least one; exactly one `default: true`.
- * @property {string[]} tags        HARD (may be empty). From RULES.vocab.tags.
+ * @property {string[]} tags        HARD. Ids from RULES.tags (RULES.tagRules apply).
  * @property {string[]} [slots]     Meal-slot hints. Slot ids.
  * @property {Source} source        HARD `citation`.
  *
@@ -46,7 +46,9 @@
  * @typedef {{ date: string, entries: Entry[] }} Day   date = local 'YYYY-MM-DD'
  *
  * @typedef {'sedentary'|'light'|'moderate'|'very_active'|'extra_active'} ActivityLevel
- * @typedef {'pregnant'|'breastfeeding'|'eating_disorder'|'kidney_disease'|'diabetes_hypo_risk'} HealthFlag
+ * @typedef {string} HealthFlag  an id from RULES.healthFlags (pregnant, eating_disorder,
+ *   kidney_disease, diabetes_meds at Step 0). Derived flags (minor, underweight, age_over_80) are
+ *   computed, never stored.
  *
  * @typedef {object} Profile
  * @property {'male'|'female'} sex
@@ -56,14 +58,15 @@
  * @property {number} [bodyFatPct]
  * @property {ActivityLevel} activity
  * @property {'lose'|'maintain'|'gain'} goal
- * @property {number} rateKgPerWeek   0 for maintain; positive number for lose and gain.
+ * @property {number} rateKgPerWeek   one of RULES.goals[goal].ratesKgPerWeek (0 for maintain).
  * @property {boolean} lifts          Weight training at least twice a week.
  * @property {HealthFlag[]} healthFlags
  *
- * @typedef {{ proteinGPerKg?: number|null, fatPct?: number|null }} TargetPrefs
+ * @typedef {{ proteinGPerKgPrw?: number|null, fatPctOfKcal?: number|null }} TargetPrefs
+ *   The user's own choices; clamped to RULES.protein.overrideGPerKgPrw / RULES.fat.pctOfKcalRange.
  *
  * @typedef {object} TargetResult
- * @property {boolean} ok            false = no targets may be shown (logging only).
+ * @property {boolean} ok            false = a noTargets effect applies (e.g. minor): logging only.
  * @property {number|null} kcal
  * @property {number|null} protein
  * @property {number|null} carbs
@@ -74,10 +77,12 @@
  * @property {number|null} bmi
  * @property {number|null} prw
  * @property {'mifflin'|'katch'|null} bmrFormula
- * @property {'lose'|'maintain'|'gain'|null} effectiveGoal
- * @property {number|null} energyDelta            Unrounded kcal/day vs TDEE (negative = deficit).
- * @property {number|null} effectiveRateKgPerWeek Signed (negative = loss).
- * @property {string[]} flags                     Machine codes; see ARCHITECTURE.md §5.5.
+ * @property {'lose'|'maintain'|'gain'} effectiveGoal  After flag effects (lockGoal, disallowGoals).
+ * @property {number|null} energyDelta            Unrounded kcal/day vs TDEE after rails (negative = deficit).
+ * @property {number|null} effectiveRateKgPerWeek Signed kg/week after rails (negative = loss).
+ * @property {boolean} offerHideCalories          true when an active flag has offerHideCalories.
+ * @property {string[]} warnings                  Keys of RULES.warnings that fired ('estimate'
+ *   first) + ids of active health and derived flags. The UI shows RULES text for each.
  *
  * @typedef {{ servingId: string, qty: number, count: number, lastUsed: string,
  *   slots: Partial<Record<SlotId, number>> }} Recent

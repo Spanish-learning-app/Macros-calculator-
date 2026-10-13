@@ -10,7 +10,13 @@ const todo = (name) => {
 };
 
 /** Score of each match tier. Boost adds at most BOOST_WEIGHT, so it never crosses a tier. */
-export const TIERS = Object.freeze({ exact: 100, prefix: 80, wordPrefix: 60, substring: 40, fuzzy: 20 });
+export const TIERS = Object.freeze({
+  exact: 100,
+  prefix: 80,
+  wordPrefix: 60,
+  substring: 40,
+  fuzzy: 20,
+});
 export const BOOST_WEIGHT = 19;
 
 /**
