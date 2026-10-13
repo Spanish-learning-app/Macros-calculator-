@@ -1,7 +1,8 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 1, version 1.0 (2026-10-13)
+**Status:** Sprint 1, version 1.1 (2026-10-13). Version 1.1 adds the Meeting 002 changes: the halal field, seafood tags, not-halal
+rules, the Spain slot preset, meal-prep storage and the `lunchbox` group.
 
 This document and `app/data/rules.js` are the specification for:
 - every nutrition number in the app,
@@ -261,7 +262,7 @@ Intermediate values:
 
 ## 3. Food record format
 
-Every file `app/data/foods-*.js` is `export default [ …records ]`. `app/data/index.js` exports
+Every file `app/data/foods-*.js` (nine files, including `foods-mealprep.js`) is `export default [ …records ]`. `app/data/index.js` exports
 `RULES` and `FOODS` (one flat array).
 
 | Field | Status | Meaning and rules |
@@ -270,7 +271,7 @@ Every file `app/data/foods-*.js` is `export default [ …records ]`. `app/data/i
 | `name` | HARD | English display name, short and plain, e.g. "Chicken karahi (home-made)". |
 | `nameUr` | Lab-required for `pk-` | Urdu script, e.g. `چکن کڑاہی`. |
 | `nameRoman` | Lab-required for `pk-` | Roman Urdu as people type it, e.g. `chicken karahi`. |
-| `aliases` | HARD (may be `[]`) | Other spellings and names. **Include WhatsApp-style Roman Urdu** (see §4.6), Spanish names for Spanish foods, and English synonyms. |
+| `aliases` | HARD (may be `[]`) | Other spellings and names. **Include WhatsApp-style Roman Urdu** (see §4.7), Spanish names for Spanish foods, and English synonyms. |
 | `group` | HARD | One id from `RULES.vocab.groups`. Drives the kcal range, the fibre-zero rule and serving sanity. |
 | `state` | HARD (Lab) | Exactly what the numbers describe, e.g. "cooked, as served with gravy, edible portion (bones removed)", "raw", "dry, as sold", "as served with milk and 1 tsp sugar per cup". |
 | `style` | SOFT | One of `home`, `restaurant`, `dhaba` or `street`. Use only when the dish has style variants. |
@@ -278,7 +279,8 @@ Every file `app/data/foods-*.js` is `export default [ …records ]`. `app/data/i
 | `per100g` | HARD | `{ kcal, protein, carbs, fat, fiber }`, all numbers ≥ 0, plus optional `sugars`, `satFat` (g) and `sodium` (mg). Values are per 100 g **as eaten** (cooked, oil included, edible part only). kcal is a whole number; the others have at most 1 decimal. |
 | `addedFatPer100g` | Lab-required when `source.method` is `recipe` | Grams of cooking oil or ghee in 100 g as served. Must be ≤ `per100g.fat`. |
 | `servings` | HARD | At least one serving. Each is `{ id, label, labelUr?, grams, default? }`. Rules: `id` is kebab-case and unique within the food, and never `g` (reserved for raw grams); `label` names **one** unit, e.g. "1 roti (medium)" or "1 katori (medium)"; `grams` is the edible weight of one unit; **exactly one** serving has `default: true`. |
-| `tags` | HARD | Ids from `RULES.vocab.tags`. At least one cuisine tag and exactly one of `halal` or `halal-check`. `vegan` requires `vegetarian`. |
+| `tags` | HARD | Ids from `RULES.vocab.tags`. At least one cuisine tag; `vegan` requires `vegetarian`; at most one seafood tag. Halal is **not** a tag any more. |
+| `halal` | HARD | `{ status, reason? }`. `status` is `'halal'`, `'check'` or `'not-halal'`. `reason` is one plain, factual line, **required unless status is `halal`**. See §4.6. |
 | `slots` | SOFT | Meal-slot hints: ids from `RULES.mealSlots.default` (or `.ramadan`), e.g. `['breakfast']` for paratha. Used to rank search results. |
 | `source.citation` | HARD | See §7.3. |
 | `source.method` | HARD (Lab) | `direct`, `recipe`, `label` or `analogue`. |
@@ -287,8 +289,11 @@ Every file `app/data/foods-*.js` is `export default [ …records ]`. `app/data/i
 | `source.date` | HARD (Lab) | `YYYY-MM-DD` of entry or last check. For `label`, the date the label was read. |
 | `source.notes` | SOFT | Free text, e.g. assumptions or conversions ("USDA carbs by difference minus fibre"). |
 
-**v1 has no pork and no alcohol.** The data gate rejects the banned words in `RULES.vocab.banned`.
-"Chicken sausage", "beef pepperoni" and "vinegar" are allowed.
+**No pork meat and no alcohol, ever** (Meeting 002 amends kickoff decision 7).
+- The data gate rejects the banned words in `RULES.vocab.banned`. "Chicken sausage", "beef
+  pepperoni" and "vinagre" are allowed.
+- **Lard words** (lard, manteca, saïm) are allowed only on records whose `halal.status` is
+  `not-halal`. "Manteca de cacao" (cocoa butter) is fine.
 
 ### Example (direct record)
 
@@ -306,7 +311,8 @@ Every file `app/data/foods-*.js` is `export default [ …records ]`. `app/data/i
     { id: 'piece', label: '1 breast (cooked)', grams: 120, default: true },
     { id: '100g', label: '100 g', grams: 100 },
   ],
-  tags: ['international', 'halal', 'gym'],
+  tags: ['international', 'gym'],
+  halal: { status: 'halal' },
   slots: ['lunch', 'dinner'],
   source: {
     citation: 'USDA FDC SR Legacy 171477',
@@ -329,7 +335,7 @@ Every file `app/data/foods-*.js` is `export default [ …records ]`. `app/data/i
   state: 'cooked, as served with gravy, edible portion (bones removed)',
   per100g: { kcal: …, protein: …, carbs: …, fat: …, fiber: … }, addedFatPer100g: …,
   servings: [ /* katori-small, katori (default), katori-large, tbsp — see §5 */ ],
-  tags: ['pakistani', 'halal'], slots: ['lunch', 'dinner'],
+  tags: ['pakistani'], slots: ['lunch', 'dinner'], halal: { status: 'halal' },
   source: { citation: 'Recipe R-pk-chicken-karahi-home (research/recipes/pk-chicken-karahi-home.md)',
             method: 'recipe', confidence: 'C', reviewer: 'zainab', date: '2026-10-14' },
 }
@@ -381,6 +387,11 @@ Each group has:
 | `pasta-dish` | bolognese, chow mein, macaroni | 90–260 | | 100–500 | |
 | `dry-staple` | atta, besan, raw rice, dry daal, oats, cereal | 300–500 | | 5–200 | |
 | `protein-supplement` | whey, protein bars | 300–430 | | 15–100 | |
+| `lunchbox` | meal-prep boxes (one record = one packed box) | 90–260 | | 50–800 | |
+
+**`lunchbox` rule (G22):** the record needs a serving with id `box` (label "1 box") that is the
+default and gives 450–850 kcal. The design target is 550–750 kcal and 35–50 g protein
+(`RULES.mealPrep.boxTargets`).
 
 If a real food falls outside its group's range, **do not force it**. Tell Ayesha. The range is
 changed in `rules.js` after review; records never carry exceptions.
@@ -389,10 +400,15 @@ changed in `rules.js` after review; records never carry exceptions.
 
 | Kind | Tags |
 |---|---|
-| Cuisine (at least one) | `pakistani`, `desi-chinese`, `spanish`, `mediterranean`, `middle-eastern`, `western`, `international` |
+| Cuisine (at least one) | `pakistani`, `desi-chinese`, `spanish`, `catalan`, `mediterranean`, `middle-eastern`, `western`, `international` |
 | Diet | `vegetarian`, `vegan`, `contains-egg` |
-| Halal (exactly one) | `halal`, or `halal-check` (gelatine, imported or unclear products) |
-| Other | `packaged`, `gym`, `fried`, `iftar` |
+| Seafood (at most one) | `seafood-fish`, `seafood-prawn`, `seafood-other` (squid, octopus, mussels, clams, crab, lobster) |
+| Other | `packaged`, `gym`, `fried`, `iftar`, `meal-prep`, `eat-cold` |
+
+**Seafood tags:**
+- Every fish or seafood food carries exactly one seafood tag.
+- A mixed dish takes the most restrictive one: other > prawn > fish. For example, paella de marisco
+  is `seafood-other`.
 
 ### 4.3 Styles
 
@@ -436,6 +452,21 @@ Restaurant, dhaba and street variants are always C.
 | `dinner` | Dinner | 30% | 18:30–24:00 |
 | `snacks` | Snacks | 5% | 00:00–04:00 |
 
+**Spain slots** (`RULES.mealSlots.spain`, Meeting 002). Same ids, Spanish clock:
+
+| id | Label | Share | Auto-pick hours |
+|---|---|---|---|
+| `breakfast` | Nashta | 20% | 05:00–12:30 (includes the mid-morning café) |
+| `lunch` | Lunch | 35% | 12:30–16:30 (lunch box) |
+| `evening` | Shaam ki chai | 10% | 16:30–20:00 (merienda) |
+| `dinner` | Dinner | 30% | 20:00–01:00 |
+| `snacks` | Snacks | 5% | 01:00–05:00 |
+
+**Which preset a new user gets** (`RULES.mealSlotPresetDefault`):
+- It is chosen by the device time zone (`Intl.DateTimeFormat().resolvedOptions().timeZone`).
+- `Europe/Madrid`, `Africa/Ceuta` and `Atlantic/Canary` get `spain`; everything else gets `default`.
+- The user can switch preset or rename slots in Profile.
+
 **Ramadan slots (Sprint 2):**
 
 | id | Label | Share | Auto-pick hours |
@@ -452,7 +483,28 @@ How the hours are stored and used:
   never enforced.
 - `RULES.ramadan` sets ≥ 30 g protein at sehri and a fluids reminder.
 
-### 4.6 Spelling aliases (researchers)
+### 4.6 Halal status (`record.halal`, `RULES.vocab.halalStatuses` and `halalRules`)
+
+| status | Use when | Example `reason` |
+|---|---|---|
+| `halal` | Plant foods, dairy, eggs, fish. Meat **only** from a halal butcher or with halal certification. | (optional) |
+| `check` | Possible lard (pastries), gelatine, often cooked with wine, restaurant meat in Spain, imported product without a halal seal | "Cheap pastries may use lard (manteca). Ask the bakery." |
+| `not-halal` | **Only** non-meat foods whose standard recipe contains lard | "Traditionally made with pork lard (saïm)." |
+
+**Rules:**
+- `reason` is required for `check` and `not-halal`. Write it as a fact, never a ruling.
+- `not-halal` is never allowed in the groups `meat-fish`, `curry-meat`, `grill-kebab` or
+  `lunchbox`, and its reason must name the lard. Pork meat products never ship.
+- `not-halal` foods are never suggested and never appear in templates or recipe pickers. "Halal
+  only" (on by default) hides them, and search says that one item is hidden and why.
+- A recipe or box takes the **worst** status of its ingredients: not-halal > check > halal.
+- **Cross-contact** (shared slicers, grills, fryers) is not tagged per food. One line on the About
+  screen covers it (`halalRules.crossContactNote`).
+- **Seafood:** records keep `halal` status. The user's seafood choice (All / Fish and prawns / Fish
+  only; the question comes in Sprint 2, default All) turns foods outside it into a `check` chip with
+  "Depends on your school of thought." No rulings, no red.
+
+### 4.7 Spelling aliases (researchers)
 
 Search normalises case, diacritics and doubled vowels (ARCHITECTURE.md). Aliases must still cover
 how people actually type, for example on WhatsApp.
@@ -536,7 +588,32 @@ Peshawari paratha, only with a cited source. If the source is weak, set confiden
 
 Use the food's own density when its source gives one.
 
-### 5.4 Open (no published source found yet)
+### 5.4 Meal-prep storage (`RULES.mealPrep`, Sprint 2 feature)
+
+| Component (`storage[].id`) | Fridge (≤ 5 °C) | Freezer | Source |
+|---|---|---|---|
+| `cooked-starch`: rice, pasta, couscous, bulgur | **1 day** | 1 month | NHS and UK FSA (*Bacillus cereus*) |
+| `cooked-meat`: chicken, meat, keema, kebabs | **3 days** | 3 months | USDA FSIS (3–4 days; lower bound used) |
+| `egg-dish`: tortilla, egg dishes | 3 days | do not freeze | USDA FSIS |
+| `cold-salad`: tuna or chickpea salad, raita, cut salad, yogurt sauces | 2 days | do not freeze | Lab rule |
+
+**Use-by**
+- Use-by = cooked date + the **shortest** `fridgeDays` among the box's components.
+- A frozen box has no use-by. When it is moved to the fridge, use-by = the date moved + 1 day
+  (`thawedFridgeDays`).
+- On the use-by date the app shows "last day"; after it, "past use-by, best not to eat". Calm, no
+  red.
+
+**Handling**
+- Chill within 60 min.
+- Reheat once, to 75 °C right through.
+- Discard after 2 h unchilled, or 1 h above 32 °C.
+- In a Sunday rice batch, box 1 goes in the fridge and boxes 2–4 in the freezer.
+
+Yusuf records each box's components and their storage ids in his recipe sheets
+(`research/yusuf/`).
+
+### 5.5 Open (no published source found yet)
 
 - **Karchi (serving ladle).** It is not defined. A researcher may add a `karchi` serving to a
   specific dish only with a published source.
@@ -614,9 +691,8 @@ composite has a recipe file `research/recipes/<record id>.md`, which is committe
 
 ### 7.2 Tools
 
-- `node research/usda.mjs search <words>` and `get <fdcId>`. Known issue: FNDDS rows are missing
-  from its index (FNDDS uses nutrient *numbers* 208, 203, 204, 205, 291), and this has been reported
-  to the owner. Until it is fixed, read FNDDS from `research/cache/usda/fndds/`.
+- `node research/usda.mjs search <words>` and `get <fdcId>`, covering SR Legacy, Foundation and
+  FNDDS. The FNDDS indexing bug was fixed on 2026-10-13.
 - Downloads go in `research/cache/`, which is never committed.
 
 ### 7.3 Citation format (`source.citation`)
@@ -655,12 +731,16 @@ Show this text as written:
 >   for Better Nutrition* (2019), household measures.
 > - Product labels, as printed on the date shown on each food.
 >
+> **Halal:** every food shows halal, check or not halal, with the reason. Cafés and restaurants may
+> share slicers, grills or fryers with pork; Katori does not track this per food, so ask if it matters
+> to you.
+>
 > Katori is not medical advice. If you are pregnant or breastfeeding, under 18, have kidney
 > disease, diabetes on medication, or an eating disorder, please ask a doctor or dietitian.
 
 ---
 
-## 8. Data gates (`node research/check-foods.mjs [file…]`)
+## 8. Data gates (`node research/check-foods.mjs [file…]`), G1–G22
 
 **Fail** blocks shipping. **Warn** is shown but does not block. The gates are:
 
@@ -678,14 +758,16 @@ Show this text as written:
 | G10 | **Servings:** non-empty; ids kebab-case, unique and not `g`; labels non-empty; grams > 0 and within the group's `servingGrams` (except `tbsp` and `tsp`, which G11 checks); exactly one default; kcal per serving ≤ 1,500 | fail |
 | G11 | **Household ids:** a serving using a `RULES.householdMeasures` id has grams/ml between 0.3 and 1.5 | fail |
 | G12 | **Katori groups:** `katori-small`, `katori`, `katori-large` and `tbsp` are present, with one consistent density (±3%) | fail |
-| G13 | **Tags:** all in the vocabulary; ≥ 1 cuisine; exactly one halal tag; vegan → vegetarian | fail |
+| G13 | **Tags:** all in the vocabulary; ≥ 1 cuisine; at most one seafood tag; no old `halal` / `halal-check` tags; vegan → vegetarian | fail |
 | G14 | **Slots and style:** slots are valid slot ids; style is in the vocabulary; style requires family; family is kebab-case | fail |
 | G15 | **Source:** citation non-empty; method and confidence valid; confidence A only with `direct`; reviewer non-empty; date is `YYYY-MM-DD` | fail |
 | G16 | **Recipe records:** `addedFatPer100g` is present, ≥ 0 and ≤ fat + 0.1; restaurant, dhaba and street styles are confidence C | fail |
-| G17 | **No pork or alcohol:** no banned words in name, nameRoman or aliases | fail |
+| G17 | **No pork meat or alcohol:** no banned words in name, nameRoman or aliases; lard words only when `halal.status` is `not-halal` | fail |
 | G18 | **Family:** members of a family share a group | warn |
 | G19 | **Review:** reviewer is not `ayesha` yet | warn (counted) |
 | G20 | **Unknown field:** the record has a key not in §3 | warn |
+| G21 | **Halal:** `halal { status, reason }` present; status valid; reason required unless `halal`; `not-halal` only outside meat groups and with a reason naming the lard | fail |
+| G22 | **Lunch box:** `lunchbox` records have a default `box` serving of 450–850 kcal | fail |
 
 Kenji's official data gate (`tests/data/`) implements the same rules from this table.
 
@@ -707,13 +789,20 @@ Kenji's official data gate (`tests/data/`) implements the same rules from this t
 
 ---
 
-## 10. Planned for Sprint 2
+## 10. Planned (per Meeting 002)
 
-- "Kam tel" home variants for the top 10 dishes, as a new style `home-light` (label "Ghar ka, kam
-  tel"). This needs engineering's variant switch to accept a fifth style.
-- Whole-pot recipes (portion logging), using the same §6 method.
-- Ramadan mode: Ramadan slots; protein at sehri; diabetes note shown when fasting.
-- A published weight for the "plate"; karchi if a source exists.
+- **Sprint 2:**
+  - meal prep on whole-pot recipes (§6 method, storage per §5.4);
+  - Yusuf's 12-box library, which ships in Sprint 1 as `lunchbox` records;
+  - the seafood question;
+  - "set my chai once".
+- **Sprint 3:**
+  - Ramadan mode;
+  - protein nudges;
+  - "kam tel" home variants for the top 10 dishes, as style `home-light` (needs the variant switch to
+    accept a fifth style);
+  - the final data audit.
+- **Open:** a published weight for the "plate"; karchi if a source exists.
 
 ---
 

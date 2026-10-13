@@ -7,7 +7,7 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.0.0',
+  version: '1.1.0',
   updated: '2026-10-13',
 
   // ---------------------------------------------------------------- energy
@@ -259,6 +259,14 @@ export default {
       { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1110, 1440] }, // 18:30-24:00
       { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: [0, 240] }, // 00:00-04:00
     ],
+    // Spanish meal times (Meeting 002, decision 2): same ids, Spanish clock and shares.
+    spain: [
+      { id: 'breakfast', label: 'Nashta', labelUr: 'ناشتہ', sharePct: 20, hours: [300, 750] }, // 05:00-12:30 (incl. mid-morning café)
+      { id: 'lunch', label: 'Lunch', labelUr: 'دوپہر کا کھانا', sharePct: 35, hours: [750, 990] }, // 12:30-16:30 (lunch box)
+      { id: 'evening', label: 'Shaam ki chai', labelUr: 'شام کی چائے', sharePct: 10, hours: [990, 1200] }, // 16:30-20:00 (merienda)
+      { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1200, 60] }, // 20:00-01:00
+      { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: [60, 300] }, // 01:00-05:00
+    ],
     // Ramadan mode (Sprint 2). Hours are typical for Pakistan and shift with sunrise and sunset.
     ramadan: [
       { id: 'sehri', label: 'Sehri', labelUr: 'سحری', sharePct: 35, hours: [60, 720] }, // 01:00-12:00
@@ -273,7 +281,34 @@ export default {
       }, // 21:30-01:00
     ],
   },
+  // Which slot preset a new user starts with: by the device's IANA time zone
+  // (Intl.DateTimeFormat().resolvedOptions().timeZone); anything not listed gets `fallback`.
+  // The user can switch preset or rename slots in Profile.
+  mealSlotPresetDefault: {
+    byTimeZone: { 'Europe/Madrid': 'spain', 'Africa/Ceuta': 'spain', 'Atlantic/Canary': 'spain' },
+    fallback: 'default',
+  },
   ramadan: { minProteinGAtSehri: 30, fluidsReminder: true },
+
+  // ---------------------------------------------------------------- meal prep (Sprint 2 feature)
+  // Use-by of a box = cookedDate + min(fridgeDays of its components). A frozen box has no use-by;
+  // when moved to the fridge, useBy = movedDate + thawedFridgeDays. On the use-by date show
+  // "last day"; after it "past use-by, best not to eat" (calm, no red).
+  mealPrep: {
+    storage: [
+      { id: 'cooked-starch', label: 'Cooked rice, pasta, couscous, bulgur', fridgeDays: 1, freezerMonths: 1, freezable: true, source: 'NHS "Can reheating rice cause food poisoning?" and UK FSA (Bacillus cereus): chill within 1 hour, keep in the fridge no more than 1 day' },
+      { id: 'cooked-meat', label: 'Cooked chicken, meat, keema, kebabs', fridgeDays: 3, freezerMonths: 3, freezable: true, source: 'USDA FSIS "Leftovers and Food Safety": 3-4 days in the fridge (lower bound used), 3-4 months frozen' },
+      { id: 'egg-dish', label: 'Tortilla and other egg dishes', fridgeDays: 3, freezerMonths: null, freezable: false, source: 'USDA FSIS: egg dishes 3-4 days (lower bound used); quality suffers when frozen' },
+      { id: 'cold-salad', label: 'Tuna or chickpea salad, raita, cut salad, yogurt sauces', fridgeDays: 2, freezerMonths: null, freezable: false, source: 'Nutrition Lab conservative rule' },
+    ],
+    thawedFridgeDays: 1,
+    chillWithinMinutes: 60,
+    fridgeMaxC: 5,
+    reheat: { minCoreTempC: 75, maxTimes: 1 },
+    unchilledMaxHours: 2,
+    unchilledMaxHoursAbove32C: 1,
+    boxTargets: { kcal: { min: 550, max: 750 }, proteinG: { min: 35, max: 50 }, minFiberG: 8 },
+  },
 
   // ---------------------------------------------------------------- vocabularies (RULES.vocab)
   // Every record field that takes a fixed value is checked against these lists.
@@ -549,15 +584,29 @@ export default {
         fiberZero: false,
         servingGrams: { min: 15, max: 100 },
       },
+      {
+        // Meal-prep lunch boxes (Yusuf): one record = one whole packed box, values per 100 g of box.
+        // boxServing: the record must have a serving with this id, default: true, whose energy is in
+        // the kcal range (design target 550-750 kcal and 35-50 g protein; the gate allows 450-850).
+        id: 'lunchbox',
+        label: 'Meal-prep lunch boxes',
+        examples: 'chicken tikka rice bowl, keema matar with rice, chickpea and tuna salad',
+        kcalPer100g: { min: 90, max: 260 },
+        fiberZero: false,
+        servingGrams: { min: 50, max: 800 },
+        boxServing: { id: 'box', kcal: { min: 450, max: 850 } },
+      },
     ],
 
     // ---------------------------------------------------------------- vocabularies
-    // record.tags: every tag must be listed here. Rules: at least one `cuisine` tag;
-    // exactly one `halal` tag; `vegan` requires `vegetarian`.
+    // record.tags: every tag must be listed here. Rules: at least one `cuisine` tag; `vegan`
+    // requires `vegetarian`; at most one `seafood` tag (use the most restrictive one in the dish:
+    // other > prawn > fish). Halal status is NOT a tag: see record.halal and halalStatuses below.
     tags: [
       { id: 'pakistani', kind: 'cuisine', label: 'Pakistani' },
       { id: 'desi-chinese', kind: 'cuisine', label: 'Desi Chinese' },
       { id: 'spanish', kind: 'cuisine', label: 'Spanish' },
+      { id: 'catalan', kind: 'cuisine', label: 'Catalan' },
       { id: 'mediterranean', kind: 'cuisine', label: 'Mediterranean' },
       { id: 'middle-eastern', kind: 'cuisine', label: 'Middle Eastern' },
       { id: 'western', kind: 'cuisine', label: 'Western' },
@@ -565,57 +614,64 @@ export default {
       { id: 'vegetarian', kind: 'diet', label: 'Vegetarian' },
       { id: 'vegan', kind: 'diet', label: 'Vegan' },
       { id: 'contains-egg', kind: 'diet', label: 'Contains egg' },
-      { id: 'halal', kind: 'halal', label: 'Halal' },
-      {
-        id: 'halal-check',
-        kind: 'halal',
-        label: 'Check halal status (gelatine, imported product)',
-      },
+      { id: 'seafood-fish', kind: 'seafood', label: 'Fish' },
+      { id: 'seafood-prawn', kind: 'seafood', label: 'Prawns or shrimp' },
+      { id: 'seafood-other', kind: 'seafood', label: 'Other seafood (squid, octopus, mussels, clams, crab, lobster)' },
       { id: 'packaged', kind: 'other', label: 'Packaged product' },
       { id: 'gym', kind: 'other', label: 'Gym staple' },
       { id: 'fried', kind: 'other', label: 'Deep-fried' },
       { id: 'iftar', kind: 'other', label: 'Iftar favourite' },
+      { id: 'meal-prep', kind: 'other', label: 'Good for meal prep' },
+      { id: 'eat-cold', kind: 'other', label: 'Good cold (no microwave needed)' },
     ],
-    tagRules: { minCuisineTags: 1, exactlyOneHalalTag: true, veganRequiresVegetarian: true },
+    tagRules: { minCuisineTags: 1, veganRequiresVegetarian: true, maxSeafoodTags: 1 },
 
-    // v1 ships no pork and no alcohol. The data gate rejects these words (whole words, any case)
-    // in name, nameRoman or aliases, unless the same text also contains an allowed qualifier.
+    // record.halal = { status, reason? }. Required on every record (Meeting 002, decision 4).
+    // reason: one plain, factual line; required unless status is 'halal'.
+    // A recipe or box takes the WORST status of its ingredients (order: not-halal > check > halal).
+    halalStatuses: [
+      { id: 'halal', label: 'Halal', reasonRequired: false, description: 'Plant foods, dairy, eggs, fish, and meat from a halal butcher or with halal certification.' },
+      { id: 'check', label: 'Check', reasonRequired: true, description: 'Possible lard (pastries), gelatine, often cooked with wine, restaurant meat in Spain, imported product without a halal seal.' },
+      { id: 'not-halal', label: 'Not halal', reasonRequired: true, description: 'Only non-meat foods whose standard recipe contains lard (e.g. ensaïmada). Never suggested; hidden by "Halal only".' },
+    ],
+    halalRules: {
+      worstFirst: ['not-halal', 'check', 'halal'],
+      halalOnlyFilterDefault: true, // the search filter "Halal only" starts ON
+      notHalal: {
+        // A not-halal record must be a non-meat item whose standard recipe contains lard.
+        forbiddenGroups: ['meat-fish', 'curry-meat', 'grill-kebab', 'lunchbox'],
+        reasonMustMention: ['lard', 'manteca', 'saïm', 'saim'],
+        neverSuggested: true, // not in suggestions, templates or recipe pickers
+      },
+      // Seafood setting (onboarding question in Sprint 2). Records stay status 'halal'; the app
+      // shows 'check' with seafoodNote when a food's seafood tag is outside the user's choice.
+      seafoodChoices: [
+        { id: 'all', label: 'All seafood', allows: ['seafood-fish', 'seafood-prawn', 'seafood-other'] },
+        { id: 'fish-prawns', label: 'Fish and prawns', allows: ['seafood-fish', 'seafood-prawn'] },
+        { id: 'fish-only', label: 'Fish only', allows: ['seafood-fish'] },
+      ],
+      seafoodDefault: 'all',
+      seafoodNote: 'Depends on your school of thought.',
+      crossContactNote: 'Cafés and restaurants may share slicers, grills or fryers with pork. Katori does not track this per food; ask if it matters to you.',
+    },
+
+    // Pork meat and alcohol stay out of the database. The data gate rejects `words` (whole words,
+    // any case) in name, nameRoman or aliases, unless the same text also has an allowed qualifier.
+    // `lardWords` are allowed only on records whose halal.status is 'not-halal' (unless qualified,
+    // e.g. "manteca de cacao" = cocoa butter).
     banned: {
       words: [
-        'pork',
-        'bacon',
-        'ham',
-        'jamon',
-        'jamón',
-        'lard',
-        'chorizo',
-        'salami',
-        'pepperoni',
-        'sausage',
-        'wine',
-        'beer',
-        'rum',
-        'whisky',
-        'whiskey',
-        'vodka',
-        'sangria',
-        'brandy',
-        'liqueur',
-        'sherry',
-        'alcohol',
-        'manteca',
+        'pork', 'bacon', 'ham', 'jamon', 'jamón', 'pernil', 'chorizo', 'salami', 'pepperoni', 'sausage',
+        'fuet', 'sobrasada', 'sobrassada', 'butifarra', 'botifarra', 'panceta', 'morcilla', 'cerdo', 'porc',
+        'wine', 'vino', 'beer', 'cerveza', 'cervesa', 'cava', 'rum', 'whisky', 'whiskey', 'vodka',
+        'sangria', 'brandy', 'coñac', 'liqueur', 'licor', 'sherry', 'alcohol',
       ],
       allowedQualifiers: [
-        'chicken',
-        'beef',
-        'turkey',
-        'halal',
-        'mutton',
-        'vinegar',
-        'non-alcoholic',
-        'alcohol-free',
-        'malt',
+        'chicken', 'pollo', 'pollastre', 'beef', 'ternera', 'vedella', 'vacuno', 'turkey', 'pavo',
+        'halal', 'mutton', 'cordero', 'vinegar', 'vinagre', 'non-alcoholic', 'alcohol-free',
       ],
+      lardWords: ['lard', 'manteca', 'saïm', 'saim'],
+      lardQualifiers: ['cacao', 'cacahuete', 'karité'],
     },
 
     styles: [

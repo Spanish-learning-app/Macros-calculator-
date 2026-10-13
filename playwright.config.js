@@ -13,7 +13,9 @@ export default defineConfig({
   reporter: [['list']],
   use: {
     baseURL: `http://localhost:${PORT}`,
-    timezoneId: 'Asia/Karachi', // docs/CUSTOMER.md §2: the test clock is Asia/Karachi
+    // Meeting 002: Europe/Madrid is the primary clock. Specs that need Karachi or Los Angeles
+    // override it with test.use({ timezoneId }).
+    timezoneId: 'Europe/Madrid',
     locale: 'en-GB',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',

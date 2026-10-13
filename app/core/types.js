@@ -30,6 +30,10 @@
  * @property {string[]} tags        HARD. Ids from RULES.vocab.tags (RULES.vocab.tagRules apply).
  * @property {string[]} [slots]     Meal-slot hints. Slot ids.
  * @property {Source} source        HARD `citation`.
+ * @property {Halal} halal          HARD (meeting 002). Replaces the halal tags.
+ *
+ * @typedef {{ status: 'halal'|'check'|'not-halal', reason?: string }} Halal
+ *   reason: required and non-empty unless status is 'halal'. Shown one tap from the chip.
  *
  * @typedef {'breakfast'|'lunch'|'evening'|'dinner'|'snacks'} SlotId
  * @typedef {'planned'|'eaten'} EntryStatus
@@ -89,7 +93,10 @@
  *   slots: Partial<Record<SlotId, number>> }} Recent
  *
  * @typedef {object} Settings
- * @property {{ id: SlotId, label: string }[]} slots
+ * @property {'default'|'spain'} slotPreset  RULES.mealSlots preset; 'spain' by default on Madrid time
+ * @property {Partial<Record<SlotId, string>>} slotLabels  user renames; missing = the preset's label
+ * @property {boolean} halalOnly       default true: hide 'not-halal' foods (meeting 002)
+ * @property {'all'|'fish-prawns'|'fish-only'} seafood  reserved (Sprint 2 question); default 'all'
  * @property {{ weight: 'kg'|'lb', height: 'cm'|'ftin' }} units
  * @property {0|1|6} weekStartsOn
  * @property {'system'|'light'|'dark'} theme
@@ -104,6 +111,8 @@
  * @property {Record<string, Day>} days
  * @property {Food[]} customFoods
  * @property {Record<string, Recent>} recents
+ * @property {object[]} recipes   reserved for Sprint 2 (whole-pot recipes); [] in Sprint 1
+ * @property {object[]} batches   reserved for Sprint 2 (meal-prep batches and boxes); [] in Sprint 1
  */
 
 export {};

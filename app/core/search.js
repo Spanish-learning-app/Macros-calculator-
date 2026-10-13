@@ -20,9 +20,11 @@ export const TIERS = Object.freeze({
 export const BOOST_WEIGHT = 19;
 
 /**
- * Lowercase; NFKD and strip combining marks (ñ -> n); strip Arabic harakat (U+064B–U+065F,
- * U+0670); unify ي->ی, ك->ک, ة->ہ; punctuation -> space; collapse 'aa'->'a', 'ee'->'i',
- * 'oo'->'u' (Latin only); collapse whitespace; trim.
+ * Lowercase; NFKD and strip combining marks (accents folded: ñ->n, ç->c, à/è/é/í/ï/ò/ó/ú/ü ->
+ * plain: 'ensaïmada' -> 'ensaimada', 'pa amb tomàquet' -> 'pa amb tomaquet', 'café' -> 'cafe');
+ * delete the Catalan middle dot (U+00B7, U+2027: 'col·liflor' -> 'colliflor'); strip Arabic harakat
+ * (U+064B–U+065F, U+0670); unify ي->ی, ك->ک, ة->ہ; other punctuation -> space; collapse 'aa'->'a',
+ * 'ee'->'i', 'oo'->'u' (Latin only); collapse whitespace; trim.
  * @param {string} text @returns {string}
  */
 export function normalize(text) {
@@ -45,12 +47,16 @@ export function buildSearchIndex(foods) {
  *              prefix of the same length; shorter query words must word-prefix
  *              (karhai -> karahi, dhal -> dal, anday -> anda, samosay -> samosa).
  * score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1). Sort: score desc, then shorter
- * `matched`, then name (en). Blank query -> []. `matched` = the original (unnormalized) string.
+ * `matched`, then name (en). Blank query -> no hits. `matched` = the original (unnormalized) string.
+ * Halal filter (meeting 002): with halalOnly (default true), foods whose halal.status is
+ * 'not-halal' are moved from `hits` to `hidden` (same order), so the UI can say
+ * "1 hidden: not halal" and show the reason. 'check' foods stay in hits. `limit` applies to hits.
  * @param {object} index @param {string} query
- * @param {{ limit?: number, boosts?: Record<string, number> }} [options] limit default 20
- * @returns {{ food: Food, score: number, tier: keyof TIERS, matched: string }[]}
+ * @param {{ limit?: number, boosts?: Record<string, number>, halalOnly?: boolean }} [options]
+ * @returns {{ hits: SearchHit[], hidden: SearchHit[] }}
+ *   SearchHit = { food: Food, score: number, tier: keyof TIERS, matched: string }
  */
-export function searchFoods(index, query, { limit = 20, boosts = {} } = {}) {
+export function searchFoods(index, query, { limit = 20, boosts = {}, halalOnly = true } = {}) {
   return todo('searchFoods');
 }
 

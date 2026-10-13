@@ -12,8 +12,17 @@ export const STORAGE_KEY = 'mmc.v1';
 export const SCHEMA_VERSION = 1;
 export const EXPORT_KIND = 'katori-backup';
 
-/** @returns {UserData} a fresh document (profile null, default slots/labels, no days). */
-export function defaultData() {
+/**
+ * A fresh document: profile null, no days, recipes [] and batches [] (reserved for Sprint 2).
+ * With `rules`: settings.slotPreset = rules.mealSlotPresetDefault.byTimeZone[timeZone] ??
+ * .fallback (Madrid, Ceuta, Canary -> 'spain'); settings.halalOnly =
+ * rules.vocab.halalRules.halalOnlyFilterDefault; settings.seafood = rules.vocab.halalRules
+ * .seafoodDefault. Without `rules`: 'default', true, 'all'.
+ * @param {{ timeZone?: string|null, rules?: object|null }} [options] timeZone from
+ *   Intl.DateTimeFormat().resolvedOptions().timeZone, passed in by the UI
+ * @returns {UserData}
+ */
+export function defaultData({ timeZone = null, rules = null } = {}) {
   return todo('defaultData');
 }
 

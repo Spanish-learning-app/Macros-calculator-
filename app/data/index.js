@@ -13,6 +13,7 @@ import pkPackaged from './foods-pk-packaged.js';
 import basics from './foods-basics.js';
 import intl from './foods-intl.js';
 import esMed from './foods-es-med.js';
+import mealprep from './foods-mealprep.js';
 
 export const RULES = rules;
 
@@ -25,4 +26,5 @@ export const FOODS = [
   ...basics,
   ...intl,
   ...esMed,
+  ...mealprep,
 ];

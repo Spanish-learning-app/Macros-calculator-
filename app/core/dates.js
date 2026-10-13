@@ -11,8 +11,13 @@ export function isISODate(value) {
   return todo('isISODate');
 }
 
-/** @param {Date} now @returns {string} the LOCAL calendar date of `now`, 'YYYY-MM-DD'. */
-export function todayISO(now) {
+/**
+ * The LOCAL "logical" date of `now`: the calendar date, or the previous date when the local time is
+ * before `dayStartMinutes` (a Spanish dinner at 00:30 still belongs to yesterday; see
+ * days.dayStartMinutes). Uses the local Y-M-D and minutes, so a DST change never shifts it.
+ * @param {Date} now @param {number} [dayStartMinutes=0] 0..1439 @returns {string} 'YYYY-MM-DD'
+ */
+export function todayISO(now, dayStartMinutes = 0) {
   return todo('todayISO');
 }
 

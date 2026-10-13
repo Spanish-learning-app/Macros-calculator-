@@ -46,7 +46,7 @@ const CONTRACT = {
       energyCheck: 2,
       variantsOf: 2,
     },
-    constants: ['NUTRIENT_KEYS', 'STYLES', 'GRAMS'],
+    constants: ['NUTRIENT_KEYS', 'STYLES', 'GRAMS', 'HALAL_STATUSES', 'BOX'],
   },
   days: {
     functions: {
@@ -67,6 +67,7 @@ const CONTRACT = {
       weekSummary: 4,
       averageTotals: 1,
       slotForTime: 2,
+      dayStartMinutes: 1,
     },
     constants: ['SLOT_IDS', 'DEFAULT_SLOT_LABELS'],
   },
@@ -147,6 +148,8 @@ test('binding constants match the kickoff minutes', async () => {
   assert.deepEqual(foods.NUTRIENT_KEYS, ['kcal', 'protein', 'carbs', 'fat', 'fiber']);
   assert.deepEqual(foods.STYLES, ['home', 'restaurant', 'dhaba', 'street']);
   assert.equal(foods.GRAMS, 'g');
+  assert.deepEqual(foods.HALAL_STATUSES, ['halal', 'check', 'not-halal']); // meeting 002
+  assert.equal(foods.BOX, 'box');
 });
 
 test('core modules import nothing outside app/core', async () => {

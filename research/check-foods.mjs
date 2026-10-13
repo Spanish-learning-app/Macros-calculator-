@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Nutrition Lab self-check: applies every data gate in docs/NUTRITION.md §8 (G1-G20) to food records.
+// Nutrition Lab self-check: applies every data gate in docs/NUTRITION.md §8 (G1-G22) to food records.
 // Researchers run it before every hand-off. Owner: Dr. Ayesha Siddiqui (Nutrition Lab).
 //
 //   node research/check-foods.mjs                       # all app/data/foods-*.js
@@ -39,10 +39,11 @@ const ID_PREFIXES = ['pk-', 'es-', 'med-', 'intl-'];
 const RESTAURANT_STYLES = new Set(['restaurant', 'dhaba', 'street']);
 
 const KEYS = {
-  record: new Set(['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'tags', 'slots', 'source']),
+  record: new Set(['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'tags', 'slots', 'halal', 'source']),
   per100g: new Set(['kcal', 'protein', 'carbs', 'fat', 'fiber', 'sugars', 'satFat', 'sodium']),
   serving: new Set(['id', 'label', 'labelUr', 'grams', 'default']),
   source: new Set(['citation', 'method', 'confidence', 'reviewer', 'date', 'notes']),
+  halal: new Set(['status', 'reason']),
 };
 const REQUIRED_NUTRIENTS = ['kcal', 'protein', 'carbs', 'fat', 'fiber'];
 const OPTIONAL_NUTRIENTS = ['sugars', 'satFat', 'sodium'];
@@ -55,6 +56,11 @@ const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const wordRe = (w) => new RegExp(`(?<![\\p{L}\\p{N}])${escapeRe(w)}(?![\\p{L}\\p{N}])`, 'iu');
 const BANNED = V.banned.words.map((w) => [w, wordRe(w)]);
 const QUALIFIERS = V.banned.allowedQualifiers.map(wordRe);
+const LARD = V.banned.lardWords.map((w) => [w, wordRe(w)]);
+const LARD_QUALIFIERS = V.banned.lardQualifiers.map(wordRe);
+const HALAL_STATUSES = new Map(V.halalStatuses.map((h) => [h.id, h]));
+const NOT_HALAL = V.halalRules.notHalal;
+const NOT_HALAL_REASON = NOT_HALAL.reasonMustMention.map(wordRe);
 
 const isNum = (v) => typeof v === 'number' && Number.isFinite(v);
 const isStr = (v) => typeof v === 'string' && v.trim().length > 0;
@@ -197,8 +203,9 @@ function checkRecord(f, ctx) {
     const kinds = f.tags.map((t) => TAGS.get(t)?.kind);
     const cuisines = kinds.filter((k) => k === 'cuisine').length;
     if (cuisines < V.tagRules.minCuisineTags) F('G13', 'needs at least one cuisine tag');
-    const halal = kinds.filter((k) => k === 'halal').length;
-    if (V.tagRules.exactlyOneHalalTag && halal !== 1) F('G13', `needs exactly one of halal / halal-check (found ${halal})`);
+    const seafood = kinds.filter((k) => k === 'seafood').length;
+    if (seafood > V.tagRules.maxSeafoodTags) F('G13', `at most ${V.tagRules.maxSeafoodTags} seafood tag (use the most restrictive: other > prawn > fish)`);
+    if (f.tags.includes('halal') || f.tags.includes('halal-check')) F('G13', 'halal is no longer a tag: use the halal field { status, reason } (Meeting 002)');
     if (V.tagRules.veganRequiresVegetarian && f.tags.includes('vegan') && !f.tags.includes('vegetarian')) F('G13', 'vegan requires vegetarian');
     if (new Set(f.tags).size !== f.tags.length) W('G13', 'duplicate tags');
   }
@@ -238,11 +245,45 @@ function checkRecord(f, ctx) {
   }
   if (f.addedFatPer100g !== undefined && (!isNum(f.addedFatPer100g) || f.addedFatPer100g < 0)) F('G16', 'addedFatPer100g must be a number >= 0');
 
-  // G17 banned words (no pork, no alcohol)
+  // G21 halal field (Meeting 002): { status, reason }; reason required unless status is 'halal'.
+  const h = f.halal;
+  const status = h && typeof h === 'object' ? h.status : undefined;
+  if (!h || typeof h !== 'object' || Array.isArray(h)) F('G21', 'halal { status, reason } missing');
+  else {
+    const def = HALAL_STATUSES.get(h.status);
+    if (!def) F('G21', `halal.status "${h.status}" must be one of ${[...HALAL_STATUSES.keys()].join(', ')}`);
+    else if (def.reasonRequired && !isStr(h.reason)) F('G21', `halal.reason is required when status is "${h.status}" (one plain line)`);
+    if (h.reason !== undefined && !isStr(h.reason)) F('G21', 'halal.reason must be a non-empty string when present');
+    for (const k of Object.keys(h)) if (!KEYS.halal.has(k)) W('G20', `unknown halal key "${k}"`);
+    if (h.status === 'not-halal') {
+      if (NOT_HALAL.forbiddenGroups.includes(f.group)) F('G21', `not-halal is only for non-meat foods with lard; group "${f.group}" is not allowed (pork meat stays out)`);
+      if (isStr(h.reason) && !NOT_HALAL_REASON.some((re) => re.test(h.reason))) F('G21', `not-halal reason must name the lard (${NOT_HALAL.reasonMustMention.join(' / ')})`);
+      if (Array.isArray(f.slots) && f.slots.length) W('G21', 'not-halal foods are never suggested: slot hints are ignored');
+    }
+  }
+
+  // G17 banned words: no pork meat and no alcohol, ever; lard words only on not-halal records
   const texts = [f.name, f.nameRoman, ...(Array.isArray(f.aliases) ? f.aliases : [])].filter((t) => typeof t === 'string');
   for (const t of texts) {
     for (const [w, re] of BANNED) {
-      if (re.test(t) && !QUALIFIERS.some((q) => q.test(t))) F('G17', `"${t}" contains banned word "${w}" (v1 has no pork or alcohol)`);
+      if (re.test(t) && !QUALIFIERS.some((q) => q.test(t))) F('G17', `"${t}" contains banned word "${w}" (no pork meat or alcohol)`);
+    }
+    for (const [w, re] of LARD) {
+      if (re.test(t) && !LARD_QUALIFIERS.some((q) => q.test(t)) && status !== 'not-halal') F('G17', `"${t}" mentions lard ("${w}"): such a food must be halal.status "not-halal"`);
+    }
+  }
+
+  // G22 lunch boxes: a default "box" serving whose energy is within the group's box range
+  if (group && group.boxServing && Array.isArray(f.servings)) {
+    const bs = group.boxServing;
+    const box = f.servings.find((s) => s && s.id === bs.id);
+    if (!box) F('G22', `"${group.id}" records need a serving with id "${bs.id}" (1 box)`);
+    else {
+      if (box.default !== true) F('G22', `the "${bs.id}" serving must be the default`);
+      if (nutrientsOk && isNum(box.grams)) {
+        const kcal = (box.grams * p.kcal) / 100;
+        if (kcal < bs.kcal.min || kcal > bs.kcal.max) F('G22', `1 box = ${fmt(kcal, 0)} kcal, outside ${bs.kcal.min}-${bs.kcal.max}`);
+      }
     }
   }
 

@@ -153,11 +153,23 @@ export function averageTotals(rows) {
 }
 
 /**
- * Default slot for a new entry from the time of day, using RULES.mealSlots.default[].hours =
+ * Default slot for a new entry from the time of day, using RULES.mealSlots[preset][].hours =
  * [startMinute, endMinute): minutes since local midnight, half-open, may wrap past midnight
- * (start > end). No window matches -> 'snacks'.
- * @param {number} minutes 0..1439 @param {object} rules RULES @returns {SlotId}
+ * (start > end). No window matches -> 'snacks'. Unknown preset -> RangeError.
+ * @param {number} minutes 0..1439 @param {object} rules RULES
+ * @param {'default'|'spain'} [preset='default'] settings.slotPreset
+ * @returns {SlotId}
  */
-export function slotForTime(minutes, rules) {
+export function slotForTime(minutes, rules, preset = 'default') {
   return todo('slotForTime');
+}
+
+/**
+ * When the logical day starts for a preset: the end minute of the window that wraps past midnight
+ * (start > end), or 0 when no window wraps. Spain: dinner 20:00–01:00 -> 60, so food logged at
+ * 00:30 counts toward the previous day. Default (Pakistani) preset -> 0.
+ * @param {object} rules RULES @param {'default'|'spain'} [preset='default'] @returns {number}
+ */
+export function dayStartMinutes(rules, preset = 'default') {
+  return todo('dayStartMinutes');
 }

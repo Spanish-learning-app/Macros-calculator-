@@ -13,9 +13,14 @@ export const NUTRIENT_KEYS = Object.freeze(['kcal', 'protein', 'carbs', 'fat', '
 export const STYLES = Object.freeze(['home', 'restaurant', 'dhaba', 'street']);
 /** servingId meaning "qty is grams". Never used as a serving id inside a food record. */
 export const GRAMS = 'g';
+/** Binding (meeting 002, decision 4). Order = best to worst ("worst status" of a recipe, Sprint 2). */
+export const HALAL_STATUSES = Object.freeze(['halal', 'check', 'not-halal']);
+/** Serving id reserved for "1 box" of a lunch box (meeting 002, decision 8). */
+export const BOX = 'box';
 
 /**
- * Structural check of one record against the HARD fields (§4.2). With `rules`, also checks
+ * Structural check of one record against the HARD fields (§4.2), including
+ * `halal: { status, reason }` (status in HALAL_STATUSES; non-empty reason unless 'halal'). With `rules`, also checks
  * membership: group in RULES.vocab.groups, tags in RULES.vocab.tags, style in RULES.vocab.styles,
  * slots in RULES.mealSlots.default or .ramadan, source.method in RULES.vocab.sourceMethods,
  * source.confidence in RULES.vocab.confidenceGrades. Numeric plausibility (energy, ranges, tagRules, banned words) is the data

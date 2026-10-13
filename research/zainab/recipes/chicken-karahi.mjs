@@ -87,7 +87,7 @@ export default [
     style: 'home',
     sources,
     fatBasis:
-      'Fat per kg bone-in chicken in the home sources: TfT 2 tbsp ghee (27 g) + 2.5 tbsp oil (34 g) = 61 g for 907 g → 67 g/kg; SuperChef 4 tbsp (54 g) for 500 g → 109 g/kg; SBS 150 ml × 0.92 = 138 g/kg. Median 109 g/kg → standard 100 g/kg (80 g cooking oil + 20 g desi ghee, after TfT). Lands at ~8% added fat of served weight, inside Ayesha\'s home 6–10%.',
+      'Fat per kg bone-in chicken in the home sources: TfT 2 tbsp ghee (27 g) + 2.5 tbsp oil (34 g) = 61 g for 907 g → 67 g/kg; SuperChef 4 tbsp (54 g) for 500 g → 109 g/kg; SBS 150 ml × 0.92 = 138 g/kg. Median 109 g/kg → standard 100 g/kg (80 g cooking oil + 20 g desi ghee, after TfT). Lands near the top of the home 6–10% range (see the recipe file).',
     ingredients: base([
       ['oil-cooking', 80, 'home cooking oil'],
       ['ghee-desi', 20, 'desi ghee (TfT uses ghee + oil)'],
@@ -101,7 +101,7 @@ export default [
     style: 'restaurant',
     sources,
     fatBasis:
-      'Restaurant fat loads per kg bone-in chicken: MasalaTV dawat 175 ml (161 g) as listed, 1 cup (218 g) in its method; Shan white karahi pack 175 ml (161 g); MasalaTV highway karahi 1 cup per 500 g with half poured off ≈ 218 g/kg kept. Standard 200 g/kg (140 g palm-olein-type cooking oil + 60 g desi ghee finish) → ~15% added fat of served weight, mid of Ayesha\'s restaurant 12–20%.',
+      'Restaurant fat loads per kg bone-in chicken: MasalaTV dawat 175 ml (161 g) as listed, 1 cup (218 g) in its method; Shan white karahi pack 175 ml (161 g); MasalaTV highway karahi 1 cup per 500 g with half poured off ≈ 218 g/kg kept. Standard 200 g/kg (140 g palm-olein-type cooking oil + 60 g desi ghee finish), inside the restaurant 12–20% range (see the recipe file).',
     ingredients: base([
       ['oil-palm', 140, 'restaurant cooking oil / banaspati proxy'],
       ['ghee-desi', 60, 'ghee finish'],

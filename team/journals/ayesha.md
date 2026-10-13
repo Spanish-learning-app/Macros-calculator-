@@ -30,3 +30,12 @@
   - rules.js: mealSlots.spain plus the time-zone default rule, mealPrep.storage, halal field vocabulary (old halal tags removed), seafood tags, lunchbox group, not-halal = lard-only non-meat items.
   - Then NUTRITION.md, check-foods.mjs and index.js.
   The researchers are waiting on this, so speed matters.
+- 2026-10-13 22:44 UTC — MEETING 002 ACTIONS DONE.
+  - rules.js v1.1.0 adds: mealSlots.spain (05:00/12:30/16:30/20:00/01:00, 20/35/10/30/5) and mealSlotPresetDefault {byTimeZone {Europe/Madrid, Africa/Ceuta, Atlantic/Canary → spain}, fallback 'default'}; mealPrep {storage table, thawedFridgeDays 1, chill 60 min, reheat 75 °C once, unchilled 2 h / 1 h above 32 °C, boxTargets}; vocab.halalStatuses and vocab.halalRules (worst-first, Halal-only filter on, notHalal forbiddenGroups and reasonMustMention lard, seafood choices and note, cross-contact note); seafood tags; catalan, meal-prep and eat-cold tags; group lunchbox (90–260 kcal/100 g, serving 50–800 g, boxServing {id 'box', 450–850 kcal}).
+  - Removed: the halal and halal-check tags and tagRules.exactlyOneHalalTag; tagRules now has maxSeafoodTags 1.
+  - banned: pork-meat and alcohol words (ES/CA added) always rejected; lardWords allowed only on not-halal records (lardQualifiers: cacao, cacahuete).
+  - check-foods: G21 halal field, G22 lunch box, G13 and G17 updated. Tested on 7 scratch records; all gates behave correctly.
+  - NUTRITION.md v1.1: new §4.6 halal and §5.4 storage; slots, tags, groups, gates, About text and plan updated.
+  - index.js now includes foods-mealprep.js. Contract test 7/7, eslint clean.
+  - Zainab's two karahi records already pass every gate except the halal migration, which is expected.
+  Not committed.
