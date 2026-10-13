@@ -46,7 +46,10 @@ export const test = base.extend({
       const consoleErrors = [];
       page.on('request', (req) => {
         const url = new URL(req.url());
-        if (!['data:', 'blob:', 'about:'].includes(url.protocol) && !LOCAL_HOSTS.has(url.hostname)) {
+        if (
+          !['data:', 'blob:', 'about:'].includes(url.protocol) &&
+          !LOCAL_HOSTS.has(url.hostname)
+        ) {
           foreign.push(req.url());
         }
       });
@@ -56,7 +59,8 @@ export const test = base.extend({
         }
       });
       page.on('pageerror', (error) => {
-        if (!TOLERATED_CONSOLE.some((re) => re.test(String(error)))) consoleErrors.push(String(error));
+        if (!TOLERATED_CONSOLE.some((re) => re.test(String(error))))
+          consoleErrors.push(String(error));
       });
       await page.addInitScript(() => {
         window.__qaDialogs = [];
@@ -142,11 +146,21 @@ export const P1 = Object.freeze({
 });
 
 /** P1 targets from NUTRITION.md §2.2 (checked by hand with the §2.7 method): 2210 kcal, 161/74/225/31. */
-export const P1_TARGETS = Object.freeze({ kcal: 2210, protein: 161, fat: 74, carbs: 225, fiber: 31 });
+export const P1_TARGETS = Object.freeze({
+  kcal: 2210,
+  protein: 161,
+  fat: 74,
+  carbs: 225,
+  fiber: 31,
+});
 
 /** The "Set up" state: onboarding done with P1. */
 export const setUpDoc = (patch = {}) =>
-  userDoc({ profile: { ...P1 }, ...patch, settings: { onboarding: 'done', ...(patch.settings ?? {}) } });
+  userDoc({
+    profile: { ...P1 },
+    ...patch,
+    settings: { onboarding: 'done', ...(patch.settings ?? {}) },
+  });
 
 /** Writes localStorage['mmc.v1'] once per tab, before the app boots (a reload keeps app writes). */
 export async function seed(page, doc) {
