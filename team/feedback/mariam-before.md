@@ -12,8 +12,7 @@ weigh food, so there are no gram weights here. Where I don't know a number, I sa
 - **17:30, merienda.** Lab chai: teabag, milk, one sugar sachet. Fruit or biscuits with it.
 - **19:00, gym** three days a week. I want more protein, so a skyr after.
 - **21:30, dinner.** Desi if there's keema left, or anda bhurji with toast. Otherwise quick: pasta
-  with tuna, or a Mercadona tortilla with salad. Some nights it's toast and milk at 00:30 over
-  papers.
+  with tuna, or a Mercadona tortilla with salad. Some nights, toast and milk at 00:30 over papers.
 
 My portions are "one box", "my mug of chai", "half a tortilla". Never grams.
 
@@ -28,7 +27,7 @@ What goes wrong:
 - **Thursday:** tikka again, so I buy a sandwich and the box dies.
 - **Rice:** hard from the fridge, soggy from the microwave, and raita leaks onto it.
 - **The forgotten box:** found on Saturday at the back of the fridge. Which Sunday? Bin.
-- **The ice brick:** I forgot to move tomorrow's box out of the freezer.
+- **The ice brick:** I forgot to move the box out of the freezer, so at 13:30 it was frozen.
 
 What I want Katori to remember: what I cooked and when, boxes left and where (fridge or freezer),
 a quiet evening line ("tomorrow's box is still in the freezer"), and last week's recipe, so I can
@@ -36,14 +35,13 @@ repeat it in a few taps or notice it's my third tikka week.
 
 ## 3. Halal life
 
-- **Butcher:** certificate on the wall, and my whole community buys there. It's the only meat I
-  cook.
+- **Butcher:** certificate on the wall; my whole community buys there. The only meat I cook.
 - **Mercadona:** I check *manteca* (lard, not *mantequilla*), *gelatina*, "grasa animal" and E471.
   "Sin cerdo" isn't enough. Wraps and biscuits surprise me most.
 - **Bakeries and cafés:** "croissant de mantequilla" on the sign and I relax; just "croissant" and
-  I wonder. Ensaïmada is lard. Bocadillos are mostly jamón, so I order tortilla or atún.
-- **Menú del día:** lentejas come with chorizo and the chicken isn't halal, so I take salad and
-  grilled fish. I eat fish and prawns, not calamares. My Moroccan labmate eats all seafood. Don't
+  I wonder. Ensaïmada is made with lard. Bocadillos are mostly jamón, so I order tortilla or atún.
+- **Menú del día:** lentejas usually come with chorizo and the chicken is almost never halal, so
+  I take salad and grilled fish. I eat fish and prawns, not calamares. My Moroccan labmate eats all seafood. Don't
   choose for us. Ask.
 
 **I'd trust** a `check` with one plain reason ("may be made with lard, ask the bakery") over a
