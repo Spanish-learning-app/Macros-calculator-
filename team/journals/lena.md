@@ -91,3 +91,12 @@
   - Mutation check on Kenji's units suite: 4 bugs planted in scratch copies (naive round, no ft/in carry, missing ¾ glyph, negative toGrams). All 4 CAUGHT, each by the right test.
   - Bug in Kenji's test: "kgFromLb and lbFromKg are unrounded inverses" expects lbFromKg(82) = 180.7783, but the correct value is 180.779055. This makes `npm run check` red.
   - Priya's work-in-progress dialog.js has one prefer-const lint error (hers to fix before hand-off).
+- 2026-10-14 00:10 UTC: REVIEW of Hamza's dates.js: excellent (UTC day numbers, correct leap rule, checked inputs; todayISO(now, dayStart) per DECISIONS).
+  - Mutation check on Kenji's dates suite (32 tests), run in 3 time zones: 4 planted bugs (leap year without the century rule, todayISO ignoring the day start, local-time addDays (DST), weekStart ignoring weekStartsOn). All 4 CAUGHT.
+  - foods.js code review: matches the contract (halal field and no halal tags, 'g' reserved, energy tolerance on stated kcal, variants by style then name). Mutation check waits for Kenji's foods suite.
+  - Hamza found Kenji's lbFromKg expected-value bug on his own, matching my finding.
+- 2026-10-14 00:20 UTC: Cross-checks.
+  - Priya's fake store and my real store have identical method sets.
+  - Her dom.js and components use text nodes only: no innerHTML, no alert/confirm, no other origins.
+  - All 33 real foods in app/data pass Hamza's validateFood and energyCheck, and Ayesha's check-foods (33/33).
+  - Waiting (monitor armed) for days, targets, search and storage (Hamza), Kenji's foods/days/search suites, and Priya's views. Then: mutation reviews, store tests live, end-to-end on real data, and the preview manifest.

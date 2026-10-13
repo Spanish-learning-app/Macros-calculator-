@@ -26,7 +26,7 @@ const CATEGORIES = {
   126: 'Tomate', 60: 'Pan de molde y otras especialidades', 62: 'Pan tostado y rallado',
   142: 'Platos preparados fríos', 897: 'Listo para Comer', 145: 'Congelados fruta y verdura',
   129: 'Sopa y caldo', 133: 'Frutos secos', 53: 'Queso untable, fresco y especialidades',
-  72: 'Leche y bebidas vegetales',
+  72: 'Leche y bebidas vegetales', 89: 'Azúcar y edulcorante', 38: 'Aves y pollo (non-halal; reference only)',
 };
 
 fs.mkdirSync(CACHE, { recursive: true });

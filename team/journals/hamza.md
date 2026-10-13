@@ -50,3 +50,20 @@ Timestamps are UTC.
   contract's 1 lb = 453.59237 g is 180.779054991… (checked with exact fractions); 180.7783 lb is
   81.99966 kg. I believe the test's expected value is wrong, not the code. Raised for Lena; I did
   not open his test file.
+- 2026-10-13 23:50 **HAND-OFF: `core/days.js` DONE and tested.** 23 tests in
+  `tests/unit/dev/days.test.js` (inputs deep-frozen): createEntry/createQuickEntry; live values
+  first, then snapshot (deleted food, renamed serving → live per100g at the snapshot's grams);
+  updateEntry refreshes the snapshot and keeps `boxRef`; quick add/deleted food scale pro rata;
+  switchEntryFood home→restaurant karahi keeps katori × 1.5 (654 kcal), roti→tortilla keeps 80 g
+  as 'g'; copySlot/copyDay fresh ids, status, §4.3 fields only (no boxRef); dayTotals all/eaten/
+  planned; progress null on missing/0 targets; weekSummary/averageTotals; slotForTime every
+  minute of both presets, Spain 00:30→dinner, 01:30→snacks, 12:45→lunch, 17:00→evening, default
+  03:59→snacks, 23:59→dinner, unknown preset RangeError; A20 at the core level (Madrid): both
+  02:30s → 24 Oct, Snacks; 26th copies them unchanged.
+  Choices to confirm with Lena: addEntry duplicate throws RangeError('duplicate entry id: x');
+  updateEntry throws RangeError on a patch key outside qty/servingId/status/slot;
+  weekSummary uses dayTotals 'all' (planned + eaten) because the contract names no option.
+  Suite: 205 tests, 0 fail in all 3 zones (Kenji's lbFromKg test now passes; he must have
+  corrected it). Lena's 15 store tests are still TODO: they wait on `storage.createPersistence`.
+  `npm run check` is red only on Prettier in Priya's files (app/ui/components/format.js,
+  icons.js, slot-section.js, totals-bar.js, app/ui/dev/fake-store.js). Lint is clean.

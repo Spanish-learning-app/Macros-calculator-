@@ -6,6 +6,7 @@
 import { round, formatQty } from '../../core/units.js';
 import * as coreDates from '../../core/dates.js';
 import * as coreFoods from '../../core/foods.js';
+import * as coreDays from '../../core/days.js';
 
 /** @param {() => boolean} probe @returns {boolean} true when the core function works. */
 function works(probe) {
@@ -263,4 +264,39 @@ export function relativeDay(iso, today) {
 /** "04:00" from minutes since midnight. */
 export function fmtMinutes(minutes) {
   return `${pad(Math.floor(minutes / 60))}:${pad(minutes % 60)}`;
+}
+
+// ------------------------------------------------------------------ entries
+
+const coreDaysReady = works(() => {
+  const food = {
+    id: 'x',
+    name: 'x',
+    servings: [{ id: 'a', label: '1 a', grams: 100, default: true }],
+    per100g: { kcal: 100, protein: 1, carbs: 1, fat: 1, fiber: 1 },
+  };
+  const e = { id: 'e', slot: 'lunch', foodId: 'x', servingId: 'a', qty: 2, status: 'eaten' };
+  return coreDays.entryNutrients(e, new Map([['x', food]])).kcal === 200;
+});
+
+/**
+ * Live nutrients of one entry (the same rule as the day totals: the live food when it exists,
+ * otherwise the snapshot). Unrounded.
+ * @param {object} entry @param {object|undefined} food store.food(entry.foodId)
+ * @returns {{ kcal: number, protein: number, carbs: number, fat: number, fiber: number }}
+ */
+export function entryNutrientsOf(entry, food) {
+  if (coreDaysReady) {
+    return coreDays.entryNutrients(entry, food ? new Map([[food.id, food]]) : new Map());
+  }
+  if (food && servingOf(food, entry.servingId)) return portionNutrients(food, entry.servingId, entry.qty);
+  const s = entry.snapshot ?? {};
+  return { kcal: s.kcal ?? 0, protein: s.protein ?? 0, carbs: s.carbs ?? 0, fat: s.fat ?? 0, fiber: s.fiber ?? 0 };
+}
+
+/** Grams of one entry (live), or null for a quick add. */
+export function entryGramsOf(entry, food) {
+  if (!entry.foodId) return null;
+  if (food && servingOf(food, entry.servingId)) return portionNutrients(food, entry.servingId, entry.qty).grams;
+  return entry.snapshot?.grams ?? null;
 }
