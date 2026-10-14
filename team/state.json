@@ -1,10 +1,10 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "working",
+  "status": "paused",
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T10:00:00Z",
+  "updatedAt": "2026-10-14T14:12:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -83,7 +83,7 @@
   "inFlight": [
     {
       "member": "lena",
-      "task": "Sprint 2 recipes + meal prep + my chai + saved meals + seafood setting",
+      "task": "Sprint 2: recipes + meal-prep batches + my chai + saved meals + seafood setting (see the Sprint 2 prompt in team/journals/omar.md entry 2026-10-14 10:02)",
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
@@ -130,6 +130,18 @@
       "to": "2026-10-14T09:10:00Z",
       "reason": "Claude usage limit (reset 09:10 UTC); burned fast because 6 agents were resumed with very large transcripts",
       "resumedBy": "hourly check-in"
+    },
+    {
+      "from": "2026-10-14T10:05:00Z",
+      "to": "2026-10-14T16:09:00Z",
+      "reason": "Usage limit (reset 14:10 UTC), then Boss's daytime off-duty rule until 18:00 Madrid"
     }
-  ]
+  ],
+  "workingHours": {
+    "tz": "Europe/Madrid",
+    "work": "18:00-10:00",
+    "offDuty": "10:00-18:00",
+    "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
+    "note": "Boss can prompt the session during the day to work anyway"
+  }
 }

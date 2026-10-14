@@ -62,5 +62,10 @@ Run this whenever a check-in fires or a new session starts on this repo:
    resumes used up a full usage window in about ten minutes. Run at most three agents at once, and
    give each a tight, single deliverable.
 
-A recurring check-in routine fires into the session every hour to run this protocol. It turns
+8. **Working hours (Boss's rule, 2026-10-14).** The team works only **18:00–10:00 Europe/Madrid**.
+   From 10:00 to 18:00 the Boss uses Claude for other work, so no agents run and no check-ins fire.
+   The 09:09 check-in starts no new agents: it commits, pushes and marks the team off duty. If the
+   Boss messages the session during the day and asks the team to work, that is fine: it is their call.
+
+A recurring check-in routine fires into the session every hour from 18:09 to 09:09 Madrid time to run this protocol. It turns
 itself off once the project is delivered and three check-ins in a row find nothing new.
