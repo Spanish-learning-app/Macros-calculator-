@@ -88,3 +88,4 @@ Timestamps are UTC.
 - 2026-10-14 Read _common, priya, priya-design-study briefs, BRIEF.md, MEALPREP.md, Bilal review 1.
   Plan: (1) screenshot Katori at 400 px light/dark, Madrid time, into team/feedback/design-study/;
   (2) web research on the 7 apps + HIG/M3 (~20 sources); (3) write docs/DESIGN-STUDY.md.
+- 2026-10-14 Screens taken (24 PNGs, light/dark, 400x860, 13:10 Madrid) with team/feedback/design-study/shoot.mjs. Seen: Day/Add/Picker/Week/Welcome/Targets polished; Prep library unstyled mid-change (bullets, grey default buttons, missing spaces 'walnuts1 jar', 'My chaiSet'). Day shows only kcal+protein. Web reachable (WebSearch/WebFetch work).

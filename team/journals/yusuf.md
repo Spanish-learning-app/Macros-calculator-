@@ -81,3 +81,13 @@
   section?, note? }` and storage is `(id | { id, pot: true })[]` per component. Following §13.1, so
   missing raw foods go in as `name` lines. Kenji's gate M2 (tests/data/_gate.js) still requires a
   known foodId on every ingredient → conflicts with §13.1; tell Omar/Kenji.
+- 20:10 Madrid Resumed after second usage pause. State on disk (commit 8dc7242) checked: build.mjs rebuild
+  is byte-identical; recipes-mealprep.js = 25 entries (12 lunch, 6 breakfast, 7 dinner) in the §13.1 shape
+  (ingredients `{ foodId?, name?, grams, section?, note? }`, storage `(id | { id, pot: true })[]`).
+- docs/MEALPREP.md "How to batch in the app" rewritten short for Lena's Prep tab (Library → Cook a batch →
+  boxes with use-by → place into a slot by day chips → Shopping list / Copy list). Edited in build.mjs, rebuilt.
+- Checks: check-foods foods-mealprep 25/25 PASS, full run 197/197 PASS (G19: 13 awaiting Ayesha). Prettier OK.
+  npm test 523 pass / 1 fail / 2 todo. The fail is Kenji's gate M2 (tests/data/_gate.js): 257 of 384
+  ingredient lines are name-only (allowed by §13.1) and M2 still requires a foodId. All other M checks clean
+  (0 bad foodIds, boxes, storage ids). Reported to Omar for Kenji. index.js needs no change for the app
+  (main.js imports recipes-mealprep.js itself); optional re-export line given in the report.

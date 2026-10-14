@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T19:24:00Z",
+  "updatedAt": "2026-10-14T19:45:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -51,8 +51,8 @@
     },
     "kenji": {
       "location": "office",
-      "status": "idle",
-      "task": "Queued: e2e A16-A18"
+      "status": "working",
+      "task": "Gate M2 + e2e A16-A18"
     },
     "zainab": {
       "location": "office",
@@ -71,8 +71,8 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "working",
-      "task": "recipes-mealprep.js + breakfast/dinner preps"
+      "status": "idle",
+      "task": "Done: 13 breakfast/dinner preps, 25 recipes"
     },
     "mariam": {
       "location": "office",
@@ -87,14 +87,14 @@
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
-      "member": "yusuf",
-      "task": "Finish recipes-mealprep.js per §13.1, breakfast/dinner preps, MEALPREP.md",
-      "output": "app/data/foods-mealprep.js, app/data/recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
-    },
-    {
       "member": "priya",
       "task": "Design study of market-leading apps (team/briefs/priya-design-study.md) for Meeting 004",
       "output": "docs/DESIGN-STUDY.md, team/feedback/design-study/**"
+    },
+    {
+      "member": "kenji",
+      "task": "Gate M2 accepts §13.1 name-only ingredients; e2e A16-A18, Thora sa, Spanish slot names",
+      "output": "tests/**"
     }
   ],
   "checkIn": {
@@ -161,9 +161,9 @@
   },
   "queued": [
     {
-      "member": "kenji",
-      "task": "E2E A16-A18 + Thora sa + Spanish slot names; fix gate M2 to accept §13.1 name-only ingredients. Unit suite done (61 pass).",
-      "output": "tests/**"
+      "member": "ayesha",
+      "task": "Add the raw ingredients Yusuf lists (chicken thigh/mince, beef cubes, dry basmati/brown rice, couscous, bulgur, wholewheat pasta, chana/masoor dal, atta, egg whites, chia, pita, crushed tomato, breadcrumbs, peppers, courgette, frozen peas/beans, spinach) and review the 13 new prep records",
+      "output": "app/data/foods-basics.js etc, docs/NUTRITION.md"
     }
   ]
 }

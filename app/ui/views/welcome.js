@@ -167,6 +167,7 @@ export function mount(container, ctx) {
         { class: 'result-notes', role: 'list' },
         targetNotes(store.targetResult(), rules).map((t) => h('li', null, t)),
       ),
+      seafoodQuestion(),
       h(
         'div',
         { class: 'form-actions' },
@@ -184,6 +185,45 @@ export function mount(container, ctx) {
           { type: 'button', class: 'btn btn-quiet', onclick: () => go('form') },
           'Change my answers',
         ),
+      ),
+    );
+  }
+
+  /**
+   * Seafood (meeting 002, decision 6), asked once after the targets so it adds no step before
+   * them. Already answered with the default; one tap changes it. Never a ruling.
+   */
+  function seafoodQuestion() {
+    const halalRules = rules?.vocab?.halalRules;
+    const choices = halalRules?.seafoodChoices ?? [];
+    if (!choices.length) return null;
+    const current = store.settings().seafood ?? halalRules.seafoodDefault ?? 'all';
+    return h(
+      'fieldset',
+      { class: 'field welcome-seafood', 'data-testid': 'seafood-question' },
+      h('legend', { class: 'field-label' }, 'Which seafood do you eat?'),
+      h(
+        'div',
+        { class: 'choice-row' },
+        choices.map((c) =>
+          h(
+            'label',
+            { class: 'choice' },
+            h('input', {
+              type: 'radio',
+              name: 'welcome-seafood',
+              value: c.id,
+              checked: c.id === current,
+              onchange: () => store.updateSettings({ seafood: c.id }),
+            }),
+            h('span', { class: 'choice-text' }, h('span', { class: 'choice-label' }, c.label)),
+          ),
+        ),
+      ),
+      h(
+        'p',
+        { class: 'field-help' },
+        `Anything else is marked “check”. ${halalRules.seafoodNote ?? 'Depends on your school of thought.'} You can change this in Profile.`,
       ),
     );
   }

@@ -335,6 +335,22 @@ export function mount(container, ctx) {
         { class: 'field-help' },
         'Hides foods whose usual recipe has lard. Search always tells you when something is hidden, and why.',
       ),
+      seafoodField(),
+    );
+  }
+
+  /** Seafood (meeting 002, decision 6): the person's own choice; Katori never rules on it. */
+  function seafoodField() {
+    const choices = rules.vocab?.halalRules?.seafoodChoices ?? [];
+    if (!choices.length) return null;
+    const note = rules.vocab.halalRules.seafoodNote ?? 'Depends on your school of thought.';
+    return radioGroup(
+      'Seafood I eat',
+      'seafood',
+      choices.map((c) => [c.id, c.label]),
+      settings().seafood ?? rules.vocab.halalRules.seafoodDefault ?? 'all',
+      (value) => store.updateSettings({ seafood: value }),
+      `Other seafood shows a “check” label: ${note.charAt(0).toLowerCase()}${note.slice(1)} Katori never decides this for you.`,
     );
   }
 
