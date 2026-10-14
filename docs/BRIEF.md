@@ -37,3 +37,10 @@ carbs, fat and fiber.
 
 - "Not only lunches, but meal prep can also go for breakfast and dinners too."
   Meal prep covers every meal, not just packed lunches.
+
+## Suggestion from the Boss — 2026-10-14 (evening)
+
+- Have someone on the engineering team study the big, popular apps (their apps and websites): how
+  they design things and which design language works in the market, so Katori is inspired by them
+  or better, not a generic design. Hire only if needed; otherwise use someone who is free. Then
+  meet and decide whether to keep the current design or change it. "It's your call."

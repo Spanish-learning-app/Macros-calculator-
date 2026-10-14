@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T16:14:00Z",
+  "updatedAt": "2026-10-14T19:24:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -47,12 +47,12 @@
     "priya": {
       "location": "office",
       "status": "working",
-      "task": "UI per team/briefs/priya-sprint1.md"
+      "task": "Design study for Meeting 004"
     },
     "kenji": {
       "location": "office",
-      "status": "working",
-      "task": "Sprint 2 independent tests"
+      "status": "idle",
+      "task": "Queued: e2e A16-A18"
     },
     "zainab": {
       "location": "office",
@@ -83,18 +83,18 @@
   "inFlight": [
     {
       "member": "lena",
-      "task": "Sprint 2: recipes + meal-prep batches + my chai + saved meals + seafood setting (see the Sprint 2 prompt in team/journals/omar.md entry 2026-10-14 10:02)",
+      "task": "Sprint 2: finish meal-prep UI (prep view, recipe builder, batches, use-by, shopping list, chai, saved meals, seafood). Core done.",
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
-      "member": "kenji",
-      "task": "Sprint 2 independent tests from ARCHITECTURE §13",
-      "output": "tests/unit/qa/**, tests/data/**, tests/e2e/**"
+      "member": "yusuf",
+      "task": "Finish recipes-mealprep.js per §13.1, breakfast/dinner preps, MEALPREP.md",
+      "output": "app/data/foods-mealprep.js, app/data/recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
     },
     {
-      "member": "yusuf",
-      "task": "recipes-mealprep.js + breakfast/dinner preps + MEALPREP.md",
-      "output": "app/data/foods-mealprep.js, app/data/recipes-mealprep.js, docs/MEALPREP.md"
+      "member": "priya",
+      "task": "Design study of market-leading apps (team/briefs/priya-design-study.md) for Meeting 004",
+      "output": "docs/DESIGN-STUDY.md, team/feedback/design-study/**"
     }
   ],
   "checkIn": {
@@ -102,7 +102,7 @@
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *"
   },
   "appName": "Katori",
-  "next": "When Sprint 2 wave lands: add recipes-mealprep export to app/data/index.js if needed, integrate, Review 2 (customer panel), republish.",
+  "next": "When the wave lands: add recipes-mealprep export to app/data/index.js, run Kenji (queued), integrate, Meeting 004 (design review), Review 2 (customer panel), republish.",
   "meetingsHeld": [
     "001-kickoff",
     "002-boss-update",
@@ -120,6 +120,10 @@
     {
       "at": "2026-10-14T16:10:37Z",
       "result": "Night shift 1: inbox had nothing new; restarted lena, kenji (sonnet), yusuf with fresh agents from journals."
+    },
+    {
+      "at": "2026-10-14T19:22:00Z",
+      "result": "Three check-ins (17:10, 18:10, 19:09) were delivered late during the pause. Committed partial work; restarted lena and yusuf fresh; started priya (design study, Boss idea); kenji queued."
     }
   ],
   "pauses": [
@@ -140,6 +144,12 @@
       "to": "2026-10-14T16:09:00Z",
       "reason": "Usage limit (reset 14:10 UTC), then Boss's daytime off-duty rule until 18:00 Madrid",
       "resumedBy": "night-shift check-in 16:10 UTC"
+    },
+    {
+      "from": "2026-10-14T17:00:00Z",
+      "to": "2026-10-14T19:22:00Z",
+      "reason": "Usage limit (reset 19:10 UTC)",
+      "resumedBy": "Boss message + check-in"
     }
   ],
   "workingHours": {
@@ -148,5 +158,12 @@
     "offDuty": "10:00-18:00",
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
     "note": "Boss can prompt the session during the day to work anyway"
-  }
+  },
+  "queued": [
+    {
+      "member": "kenji",
+      "task": "E2E A16-A18 + Thora sa + Spanish slot names; fix gate M2 to accept §13.1 name-only ingredients. Unit suite done (61 pass).",
+      "output": "tests/**"
+    }
+  ]
 }

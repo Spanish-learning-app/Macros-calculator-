@@ -82,3 +82,9 @@ Timestamps are UTC.
   reads "Tick all N as eaten" (name stays "Mark all <slot> eaten"); variant legend "Where it was
   made". Entry menu items have testids `move-prev`, `move-next`, `move-other`, `delete-entry`;
   slot menu `copy-slot-yesterday`, `copy-slot-other`.
+
+## Design study (Boss's suggestion, brief `team/briefs/priya-design-study.md`)
+
+- 2026-10-14 Read _common, priya, priya-design-study briefs, BRIEF.md, MEALPREP.md, Bilal review 1.
+  Plan: (1) screenshot Katori at 400 px light/dark, Madrid time, into team/feedback/design-study/;
+  (2) web research on the 7 apps + HIG/M3 (~20 sources); (3) write docs/DESIGN-STUDY.md.

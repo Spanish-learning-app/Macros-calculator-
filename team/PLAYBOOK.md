@@ -52,7 +52,8 @@ Run this whenever a check-in fires or a new session starts on this repo:
 2. Read the Boss inbox on the dashboard (`ArtifactData list` on collection `inbox`). Anything new
    from the Boss comes first.
 3. For every entry in `state.json → inFlight`: read that person's journal, check the files they
-   own, and restart them with a fresh agent told to continue from their journal.
+   own, and restart them with a fresh agent told to continue from their journal. Then start
+   `state.json → queued` entries as desks free up (still at most three agents at once).
 4. Set `status` back to `working` on the dashboard and write a feed entry ("Team back at work").
 5. If `status` is `delivered` and the inbox has nothing new, do nothing else.
 6. Commit and push after every completed task, meeting or report, so a pause loses at most one
