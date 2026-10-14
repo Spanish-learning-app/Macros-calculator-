@@ -63,10 +63,12 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 168 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
+- USDA FDC FNDDS 2707424 "Lentils, from dried, fat added": 166 kcal, P 8.38, C 11.4, F 6.86, fibre 7.3 per 100 g → our value is +1% kcal. Lentils cooked from dried with fat added: the same dry, oiled form; its portion sets our katori density.
 - CoFID 2021 12-468 "Urad dahl, homemade": 81 kcal, P 4.8, C 8, F 3.2, fibre 2.7 per 100 g → our value is +107% kcal. **Over 25%: see note.** Analysed homemade urad dahl (Univ. of Leeds), a thinner dal.
 
 ## Assumptions and confidence
 
 - Dal hydrated to CoFID 13-059 boiled urad dahl water (72%); all other water cooked off, as TfT describes.
 - Oil ~70 g per 200 g dal (median of 3 Pakistani recipes).
+- Katori density 0.78 g/ml (FNDDS 2707424 lentils from dried, fat added, 1 cup = 185 g): a dry daal packs like cooked whole lentils.
 - Confidence **C**: recipe with assumed oil and/or yield.

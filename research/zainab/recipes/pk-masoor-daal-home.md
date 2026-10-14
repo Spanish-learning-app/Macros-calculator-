@@ -60,7 +60,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 126 (NUTRITION.md §6 step 7). Sum of th
 ## Cross-check
 
 - CoFID 2021 15-762 "Curry, lentil, red/masoor dahl, Punjabi, homemade": 141 kcal, P 7.2, C 16.3, F 4.6, fibre 2 per 100 g → our value is -11% kcal. Punjabi, thick consistency.
-- CoFID 2021 15-125 "Curry, lentil, red/masoor dahl, mung bean dahl and tomato, homemade": 92 kcal, P 4.4, C 8.8, F 4.3, fibre 1.6 per 100 g → our value is +37% kcal. **Over 25%: see note.** Punjabi masoor + mung + tomato (UK dietary-survey records).
+- CoFID 2021 15-125 "Curry, lentil, red/masoor dahl, mung bean dahl and tomato, homemade": 92 kcal, P 4.4, C 8.8, F 4.3, fibre 1.6 per 100 g → our value is +37% kcal. **Over 25%: see note.** Punjabi masoor + mung + tomato (UK dietary-survey records). Why: a thinner mixed dal (78.9% water vs 72.9%); the like-for-like thick Punjabi masoor (15-762) is −11%. Explained (Ayesha, 2026-10-14).
 - USDA FDC FNDDS 2707427 "Dal": 145 kcal, P 8.6, C 11.7, F 4.31, fibre 7.5 per 100 g → our value is -13% kcal.
 
 ## Assumptions and confidence

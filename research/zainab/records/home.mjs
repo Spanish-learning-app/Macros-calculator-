@@ -19,8 +19,8 @@ export default [
     tags: PK,
     slots: MEAL,
     crossCheck: [
-      { src: 'cofid', code: '19-322', note: 'UK takeaway chicken curries (korma, tikka masala, dhansak, jalfrezi, dopiaza), meat and sauce; no karahi analysed anywhere we found.' },
-      { src: 'fndds', code: '2706437' },
+      { src: 'cofid', code: '19-322', note: 'UK takeaway chicken curries (korma, tikka masala, dhansak, jalfrezi, dopiaza), meat and sauce; no karahi analysed anywhere we found. Why: karahi is a dry bhuna of meat in oil with little gravy, so it carries more meat (P 16.9 vs 11.7 g) and more fat (12.7 vs 9.8 g) per 100 g than saucy UK takeaway curries; added fat 9.9% is inside the §6 home range (6–10%). Explained (Ayesha, 2026-10-14).' },
+      { src: 'fndds', code: '2706437', note: 'Why: the US "chicken curry" is a thin, low-oil curry with vegetables (P 6.5, F 6.5 g); not a like-for-like dish. Explained (Ayesha, 2026-10-14).' },
     ],
     assumptions: [
       'Bone: karahi-cut skinless pieces taken as 75% edible (CoFID weighed-with-bone factors for casseroled chicken). Katori grams count only the edible part: density 1.00 g/ml (FNDDS chicken curry 1 cup = 240 g) × (1 − bone share on the plate).',
@@ -68,7 +68,7 @@ export default [
     slots: MEAL,
     crossCheck: [
       { src: 'cofid', code: '15-762', note: 'Punjabi, thick consistency.' },
-      { src: 'cofid', code: '15-125', note: 'Punjabi masoor + mung + tomato (UK dietary-survey records).' },
+      { src: 'cofid', code: '15-125', note: 'Punjabi masoor + mung + tomato (UK dietary-survey records). Why: a thinner mixed dal (78.9% water vs 72.9%); the like-for-like thick Punjabi masoor (15-762) is −11%. Explained (Ayesha, 2026-10-14).' },
       { src: 'fndds', code: '2707427' },
     ],
     assumptions: ['Water: ~900 g per cup of dal, 30 min lid-ajar simmer (Lab convention 0.3 of free water per 30 min).', 'Oil ¼ cup per cup of dal (both references).'],
@@ -86,7 +86,7 @@ export default [
     servings: ({ katoriSet }) => katoriSet(D.daal),
     tags: PKV,
     slots: MEAL,
-    crossCheck: [{ src: 'cofid', code: '15-132', note: 'Punjabi mung dahl and tomato (UK dietary-survey records).' }],
+    crossCheck: [{ src: 'fndds', code: '2707427', note: 'US dal (1 cup = 240 g).' }, { src: 'cofid', code: '15-132', note: 'Punjabi mung dahl and tomato (UK dietary-survey records). Why: this UK survey dal is thinner (74.8% water vs 68.7%) and leaner (F 3.6 vs 6.1 g); against FNDDS 2707427 Dal our value is within 1%. Explained (Ayesha, 2026-10-14).' }],
     assumptions: ['Water halves in the boil, as TfT states.', 'Moong with ~¼ masoor, as both references do.'],
     source: { confidence: 'C', notes: 'Pulses IFCT 2017 B010/B013; ghee + oil tarka.' },
   },
@@ -99,12 +99,17 @@ export default [
     aliases: uniq(SP.daal, ['daal mash', 'dal mash', 'mash ki daal', 'maash ki daal', 'mash daal', 'maash', 'urad', 'urad dal', 'urad daal', 'white lentils', 'safaid daal', 'khushk daal', 'دال ماش', 'ماش کی دال']),
     group: 'daal-legume',
     state: 'cooked, as served (dry, bhuna style)',
-    servings: ({ katoriSet }) => katoriSet(D.daal),
+    // Fix wave 2026-10-14 (Ayesha): dry mash has no free liquid, so a katori holds it like whole cooked lentils,
+    // not like liquid daal: FNDDS 2707424 "Lentils, from dried, fat added", 1 cup = 185 g (0.78 g/ml).
+    servings: ({ katoriSet }) => katoriSet(D.dryDaal),
     tags: PKVG,
     slots: MEAL,
-    crossCheck: [{ src: 'cofid', code: '12-468', note: 'Analysed homemade urad dahl (Univ. of Leeds), a thinner dal.' }],
-    assumptions: ['Dal hydrated to CoFID 13-059 boiled urad dahl water (72%); all other water cooked off, as TfT describes.', 'Oil ~70 g per 200 g dal (median of 3 Pakistani recipes).'],
-    source: { confidence: 'C', notes: 'Pulses IFCT 2017 B003; density taken as daal (1.00 g/ml) although dry mash packs less densely.' },
+    crossCheck: [
+      { src: 'fndds', code: '2707424', note: 'Lentils cooked from dried with fat added: the same dry, oiled form; its portion sets our katori density.' },
+      { src: 'cofid', code: '12-468', note: 'Analysed homemade urad dahl (Univ. of Leeds), a thinner dal.' },
+    ],
+    assumptions: ['Dal hydrated to CoFID 13-059 boiled urad dahl water (72%); all other water cooked off, as TfT describes.', 'Oil ~70 g per 200 g dal (median of 3 Pakistani recipes).', 'Katori density 0.78 g/ml (FNDDS 2707424 lentils from dried, fat added, 1 cup = 185 g): a dry daal packs like cooked whole lentils.'],
+    source: { confidence: 'C', notes: 'Pulses IFCT 2017 B003. Katori grams at 0.78 g/ml (FNDDS 2707424, 1 cup = 185 g), since dry mash has no free liquid (was 1.00 g/ml; Ayesha, 2026-10-14).' },
   },
   {
     id: 'pk-chana-daal-home',
@@ -120,7 +125,10 @@ export default [
     servings: ({ katoriSet }) => katoriSet(D.daal),
     tags: PKV,
     slots: MEAL,
-    crossCheck: [{ src: 'cofid', code: '15-641', note: 'Punjabi chana dhal (UK dietary-survey records): its water content sets our yield.' }],
+    crossCheck: [
+      { src: 'cofid', code: '15-641', note: 'Punjabi chana dhal (UK dietary-survey records): its water content sets our yield.' },
+      { src: 'fndds', code: '2707424', note: 'Lentils from dried, fat added.' },
+    ],
     assumptions: ['Consistency (water 64.1 g/100 g) from CoFID 15-641.'],
     source: { confidence: 'C', notes: 'Pulses IFCT 2017 B001.' },
   },
@@ -138,7 +146,7 @@ export default [
     slots: MEAL,
     crossCheck: [
       { src: 'cofid', code: '15-679', note: 'Bangladeshi cauliflower and potato bhaji.' },
-      { src: 'cofid', code: '15-022', note: 'Punjabi cauliflower, potato and pea, vegetable oil.' },
+      { src: 'cofid', code: '15-022', note: 'Punjabi cauliflower, potato and pea, vegetable oil. Why: this Punjabi bhaji with peas is cooked in more oil (F 13.7 g); the Bangladeshi version (15-679) is +8%. Explained (Ayesha, 2026-10-14).' },
     ],
     assumptions: ['Katori density 0.70 g/ml (FNDDS cooked okra/cauliflower, 1 cup = 160–165 g).'],
     source: { confidence: 'C' },
@@ -155,7 +163,7 @@ export default [
     servings: ({ katoriSet }) => katoriSet(D.drySabzi),
     tags: PKVG,
     slots: MEAL,
-    crossCheck: [{ src: 'cofid', code: '15-627', note: 'Analysed homemade bhindi subji (Leeds); its water content sets our yield.' }],
+    crossCheck: [{ src: 'cofid', code: '15-627', note: 'Analysed homemade bhindi subji (Leeds); its water content sets our yield. Why: NOT explained yet: same water (74.3%), so the gap is oil (analysed F 4.6 g vs our 10.4 g from ¼ cup oil per lb okra in both recipes). Sprint 2 (Zainab): check how much stir-fry oil stays in the pan, or move toward the analysed value (Ayesha, 2026-10-14).' }],
     assumptions: ['Water 74.3 g/100 g from the analysed CoFID 15-627.', 'Katori density 0.70 g/ml (FNDDS cooked okra, 1 cup = 165 g).'],
     source: { confidence: 'C' },
   },
@@ -167,7 +175,7 @@ export default [
     nameRoman: 'desi omelette',
     aliases: uniq(SP.anda, ['omelette', 'omelet', 'omlet', 'amlet', 'amlate', 'masala omelette', 'desi omelet', 'anday ka omelette', 'anda omelette', 'lahori omelette', 'آملیٹ', 'انڈا']),
     group: 'egg',
-    state: 'cooked (pan-fried in a little oil), with onion, tomato and green chilli',
+    state: 'cooked (pan-fried, about 1½ tsp oil per egg), with onion, tomato and green chilli',
     servings: ({ res }) => {
       const perEgg = Math.round(res.cookedG / 3);
       return [
@@ -198,6 +206,7 @@ export default [
     ],
     tags: PKVG,
     slots: ['evening', 'iftar'],
+    crossCheck: [{ src: 'cofid', code: '14-333', note: 'UK homemade fruit salad with sugar (no chaat masala or lemon). Why: chaat is 37% banana by weight (89 kcal/100 g) plus 3% sugar, against a UK salad of apples, oranges, kiwi and grapes. Explained (Ayesha, 2026-10-14).' }],
     assumptions: ['Katori density 0.75 g/ml (diced fruit: USDA apple, chopped, 1 cup = 125 g; banana sliced 150 g; guava 165 g per 237 ml → mean 0.62–0.70; with juice and sugar ≈ 0.75, assumption).'],
     source: { confidence: 'C' },
   },
@@ -252,7 +261,7 @@ export default [
     servings: ({ katoriSet }) => katoriSet(D.curry),
     tags: PK,
     slots: MEAL,
-    crossCheck: [{ src: 'cofid', code: '19-549', note: 'Homemade beef curry.' }, { src: 'fndds', code: '2706388' }],
+    crossCheck: [{ src: 'cofid', code: '19-549', note: 'Homemade beef curry. Why: a meat-only beef curry (P 17.7, F 15.4 g) with no potato; aloo gosht is half potato. FNDDS beef curry is +12%. Explained (Ayesha, 2026-10-14).' }, { src: 'fndds', code: '2706388' }],
     assumptions: ['Boneless beef; 150 g fat per kg meat; shorba water as TfT.'],
     source: { confidence: 'C' },
   },
@@ -265,10 +274,16 @@ export default [
     aliases: uniq(SP.qeema, ['keema matar', 'qeema matar', 'aloo keema', 'aloo qeema', 'keema aloo', 'beef keema', 'mince curry', 'kheema', 'قیمہ']),
     group: 'curry-meat',
     state: 'cooked, as served (dry, with some potato and peas)',
-    servings: ({ katoriSet }) => katoriSet(D.curry),
+    // Fix wave 2026-10-14 (Ayesha): dry keema packs lighter than curry; FNDDS 2706396 stewed seasoned
+    // ground beef, 1 cup = 200 g (0.85 g/ml). Cross-checks added (the record had none, NUTRITION.md §6 step 8).
+    servings: ({ katoriSet }) => katoriSet(D.keema),
     tags: ['pakistani', 'meal-prep'],
     slots: MEAL,
-    assumptions: ['Half 80/20, half 90/10 beef mince; oil 140 g per kg mince (median of 3 recipes).', 'Katori density 1.00 g/ml (FNDDS beef curry) — dry keema may pack lighter.'],
+    crossCheck: [
+      { src: 'fndds', code: '2706396', note: 'Stewed seasoned ground beef, Puerto Rican style: a dry, oily mince stew like bhuna keema; its portion sets our katori density.' },
+      { src: 'cofid', code: '19-587', note: 'UK homemade beef kheema. Why: wetter (69.5% water) and made with less oil; our keema is a dry bhuna with 140 g oil per kg mince (median of 3 Pakistani recipes). Explained (Ayesha, 2026-10-14).' },
+    ],
+    assumptions: ['Half 80/20, half 90/10 beef mince; oil 140 g per kg mince (median of 3 recipes).', 'Katori density 0.85 g/ml (FNDDS 2706396 stewed seasoned ground beef, 1 cup = 200 g): dry keema packs lighter than curry (was 1.00 g/ml; Ayesha, 2026-10-14).'],
     source: { confidence: 'C' },
   },
   {
@@ -402,7 +417,7 @@ export default [
     servings: ({ katoriSet, res }) => katoriSet(boneIn(D.curry, res), { suffix: ', edible part' }),
     tags: PK,
     slots: MEAL,
-    crossCheck: [{ src: 'cofid', code: '19-565', note: 'UK homemade chicken korma (a different, creamier dish).' }],
+    crossCheck: [{ src: 'cofid', code: '19-565', note: 'UK homemade chicken korma (a different, creamier dish). Why: the UK homemade korma is a lean, yogurt-and-water korma (F 5.1 g); Pakistani korma is cooked in oil that rises to the top (added fat 9.0%, inside §6 home 6–10%). Explained (Ayesha, 2026-10-14).' }],
     assumptions: ['Fat 120 g per kg bone-in chicken (TfT 108, Shan 161).'],
     source: { confidence: 'C' },
   },
@@ -425,6 +440,7 @@ export default [
     },
     tags: ['pakistani', 'vegetarian', 'contains-egg'],
     slots: ['breakfast'],
+    crossCheck: [{ src: 'cofid', code: '12-963', note: 'Scrambled whole eggs without milk (no onion, tomato or added oil).' }],
     assumptions: ['27 g oil per 4 eggs (TfT 41 g; F&S unquantified).'],
     source: { confidence: 'C' },
   },

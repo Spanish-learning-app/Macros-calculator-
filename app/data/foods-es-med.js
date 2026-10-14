@@ -38,7 +38,7 @@ export default [
     ],
     tags: ['spanish', 'meal-prep'],
     slots: ['lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'halal', reason: 'Our recipe uses halal beef sausage. Lentejas in Spanish bars and menús usually contain chorizo (pork).' },
     source: { citation: 'Recipe R-es-lentejas (research/recipes/es-lentejas.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 1897.2 g for 4 servings; evaporation and broth share are assumed; the sausage is a named analogue.' },
   },
   {
@@ -77,7 +77,7 @@ export default [
     ],
     tags: ['spanish'],
     slots: ['lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'check', reason: 'Halal when you cook it with halal chicken. Restaurant chicken in Spain is rarely halal.' },
     source: { citation: 'Recipe R-es-paella-de-pollo (research/recipes/es-paella-de-pollo.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 2 references; cooked weight 1845.3 g for 4 servings; edible chicken weight and sofrito reduction are assumed. Ración = ¼ of a 400 g-rice paella (UCM: arroz 90–100 g raw per person).' },
   },
   {
@@ -434,6 +434,23 @@ export default [
     slots: ['breakfast'],
     halal: { status: 'halal' },
     source: { citation: 'USDA FDC SR Legacy 169098', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 10.4 − fibre 0.2 = 10.2 g available. Cross-check BEDCA 2468 Zumo de naranja 41 kcal. Servings: UCM zumos vaso 200 g; glass 250 ml × 1.048 g/ml (USDA 169098: 1 fl oz = 31 g) = 262 g.' },
+  },
+  {
+    id: 'es-yogur-griego',
+    name: 'Yogur griego (Spanish style, full-fat)',
+    aliases: ['yogur griego', 'yogur griego natural', 'griego', 'iogurt grec', 'iogurt grec natural', 'spanish greek yogurt', 'greek style yogurt', 'greek yogurt'],
+    group: 'dairy',
+    state: 'plain, unsweetened, full-fat (milk and cream), as sold',
+    per100g: { kcal: 138, protein: 6.4, carbs: 5.4, fat: 10.2, fiber: 0, satFat: 6.8, sodium: 71 },
+    servings: [
+      { id: 'pot', label: '1 pot (125 g)', grams: 125, default: true },
+      { id: 'katori-small', label: '1 small katori (155 ml)', grams: 159.7 },
+      { id: 'tbsp', label: '1 tablespoon', grams: 15.5 },
+    ],
+    tags: ['spanish', 'vegetarian'],
+    slots: ['breakfast', 'evening', 'snacks'],
+    halal: { status: 'halal' },
+    source: { citation: 'BEDCA 2520 Yogur griego', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'BEDCA energy 578.0 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Spanish-style yogur griego (milk and cream, about 10% fat, 6 g protein); for strained Greek yogurt see intl-greek-yogurt-whole, for 0% see intl-greek-yogurt. Serving: UCM (Carbajal Azcona 2015) yogur unidad = 125 g; katori × 1.03 g/ml (RULES yogurt).' },
   },
   {
     id: 'es-bocadillo-de-tortilla',

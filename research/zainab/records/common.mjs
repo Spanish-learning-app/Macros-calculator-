@@ -15,6 +15,8 @@ export const D = {
   biryani: 0.83, // RULES 'biryani' — FNDDS 2706538, 1 cup = 196 g
   drySabzi: 0.7, // FNDDS 2709946 Okra, cooked, 1 cup = 165 g; 2709899 Cauliflower, cooked, 1 cup = 160 g (237 ml)
   chickpeas: 0.78, // FNDDS 2707415 Chickpeas, from dried, fat added, 1 cup = 185 g
+  keema: 0.85, // FNDDS 2706396 Stewed seasoned ground beef (closest analogue to bhuna keema), 1 cup = 200 g
+  dryDaal: 0.78, // FNDDS 2707424 Lentils, from dried, fat added, 1 cup = 185 g: dry (bhuna) daal with no free liquid
   milk: 1.03, // RULES 'water-like'
   yogurt: 1.03, // RULES 'yogurt'
   pudding: 1.1, // FNDDS 2705685 Pudding, rice, 1 cup = 260 g

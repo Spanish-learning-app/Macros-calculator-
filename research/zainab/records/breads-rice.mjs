@@ -55,14 +55,20 @@ export default [
     aliases: uniq(['tandoori roti', 'tandoori', 'tandoor roti', 'tandoor ki roti', 'tandori roti', 'tanduri roti', 'tandoori chapati', 'تندوری روٹی']),
     group: 'bread',
     state: 'baked in a tandoor, plain, as sold',
-    servings: [
-      { id: 'piece', label: '1 tandoori roti (100 g, as notified)', labelUr: 'ایک تندوری روٹی', grams: 100, default: true },
-      { id: 'half', label: '½ tandoori roti', labelUr: 'آدھی روٹی', grams: 50 },
-    ],
+    servings: ({ res }) => {
+      // The notified weight is the dough ball (paira), not the baked roti (Ayesha, fix wave 2026-10-14):
+      // Karachi's notification fixes "a tandoori roti made from 110 grams paira" (ARY News, 14 Jan 2020).
+      // Baked weight = 100 g dough × (baked ÷ raw dough).
+      const g = Math.round(100 * res.yield);
+      return [
+        { id: 'piece', label: '1 tandoori roti (from a 100 g dough ball)', labelUr: 'ایک تندوری روٹی', grams: g, default: true },
+        { id: 'half', label: '½ tandoori roti', labelUr: 'آدھی روٹی', grams: Math.round(g / 2) },
+      ];
+    },
     tags: PKVG,
     slots: ['lunch', 'dinner'],
-    assumptions: ['Weight 100 g: district price notifications (Islamabad ICT and Hyderabad, April 2024; Gujranwala) fix tandoor roti at 100 g.', 'Moisture as chapatti (no tandoor-roti analysis found).'],
-    source: { confidence: 'C', notes: 'Serving: ICT deputy commissioner notification, Apr 2024 (Daily Pakistan, 15 Apr 2024); Hyderabad district administration, Apr 2024 (Express Tribune).' },
+    assumptions: ['Weight: district price notifications (Islamabad ICT and Hyderabad, April 2024; Gujranwala) fix tandoor roti at 100 g. This is the dough-ball (paira) weight: Karachi\'s notification states "made from 110 grams paira" (ARY News, 14 Jan 2020). Baked roti = 100 g × the recipe yield.', 'Moisture as chapatti (no tandoor-roti analysis found).'],
+    source: { confidence: 'C', notes: 'Serving: ICT deputy commissioner notification, Apr 2024 (Daily Pakistan, 15 Apr 2024); Hyderabad district administration, Apr 2024 (Express Tribune). The notified 100 g is the dough ball (Karachi notification, ARY News 14 Jan 2020: "made from 110 grams paira"), so 1 roti = 100 g × baked yield (Ayesha, 2026-10-14).' },
   },
   {
     id: 'pk-naan',
@@ -73,18 +79,24 @@ export default [
     aliases: uniq(['naan', 'nan', 'plain naan', 'tandoori naan', 'khamiri naan', 'naan roti', 'نان']),
     group: 'bread',
     state: 'baked in a tandoor, plain (no butter on top), as sold',
-    servings: [
-      { id: 'piece', label: '1 naan (120 g, as notified)', labelUr: 'ایک نان', grams: 120, default: true },
-      { id: 'half', label: '½ naan', labelUr: 'آدھا نان', grams: 60 },
-    ],
+    servings: ({ res }) => {
+      // The notified 120 g is the dough ball (paira): Karachi's notification fixes "a tandoori naan prepared
+      // from 120 grams of paira" (ARY News, 14 Jan 2020). Baked naan = 120 g × (baked ÷ raw dough), the same
+      // rule as the roghni naan (Ayesha, fix wave 2026-10-14: it was 120 g baked, heavier than roghni).
+      const g = Math.round(120 * res.yield);
+      return [
+        { id: 'piece', label: '1 naan (from a 120 g dough ball)', labelUr: 'ایک نان', grams: g, default: true },
+        { id: 'half', label: '½ naan', labelUr: 'آدھا نان', grams: Math.round(g / 2) },
+      ];
+    },
     tags: PKV,
     slots: ['lunch', 'dinner'],
     crossCheck: [
       { src: 'cofid', code: '11-973', note: 'UK retail naan (12 samples).' },
       { src: 'fndds', code: '2707613' },
     ],
-    assumptions: ['Weight 120 g: district price notifications (Islamabad, Hyderabad, Gujranwala 2024) fix naan at 120 g.'],
-    source: { confidence: 'C', notes: 'Serving: ICT notification, Apr 2024 (Daily Pakistan); Hyderabad, Apr 2024 (Express Tribune).' },
+    assumptions: ['Weight: district price notifications (Islamabad, Hyderabad, Gujranwala 2024) fix naan at 120 g. That is the dough-ball (paira) weight: Karachi\'s notification says "a tandoori naan prepared from 120 grams of paira" (ARY News, 14 Jan 2020). Baked naan = 120 g × the recipe yield, as for the roghni naan.'],
+    source: { confidence: 'C', notes: 'Serving: ICT notification, Apr 2024 (Daily Pakistan); Hyderabad, Apr 2024 (Express Tribune). The notified 120 g is the dough ball (Karachi notification, ARY News 14 Jan 2020: "prepared from 120 grams of paira"), so 1 naan = 120 g × baked yield (Ayesha, 2026-10-14).' },
   },
   {
     id: 'pk-roghni-naan',
@@ -175,7 +187,6 @@ export default [
   },
   {
     id: 'pk-aloo-paratha',
-    hold: 'kcal 247/100 g is below the bread-fried minimum (260). Stuffed parathas are wetter: CoFID 11-912 mooli paratha (analysed) is 171 kcal. Ask Ayesha to lower bread-fried min to ~160 or add stuffed parathas to bread.',
     recipe: 'aloo-paratha-home',
     name: 'Aloo paratha (home)',
     nameUr: 'آلو کا پراٹھا',
@@ -189,7 +200,7 @@ export default [
     ],
     tags: PKV,
     slots: ['breakfast'],
-    crossCheck: [{ src: 'cofid', code: '11-912', note: 'Analysed mooli (radish) paratha; its water sets ours.' }, { src: 'fndds', code: '2707715' }],
+    crossCheck: [{ src: 'cofid', code: '11-912', note: 'Analysed mooli (radish) paratha; its water sets ours. Why: the analysed mooli paratha was cooked almost dry (F 2.3 g); ours carries 1 tbsp ghee on the tawa (Food Fusion). FNDDS plain paratha is −24%, as expected for a wetter stuffed paratha. Explained (Ayesha, 2026-10-14).' }, { src: 'fndds', code: '2707715' }],
     assumptions: ['One paratha = 100 g dough ball (Food Fusion) + 1/7.5 of the filling + 1 tbsp ghee.'],
     source: { confidence: 'C' },
   },
@@ -202,13 +213,20 @@ export default [
     aliases: uniq(SP.chawal, ['saada chawal', 'sada chawal', 'plain rice', 'boiled rice', 'ublay chawal', 'ubly chawal', 'white rice', 'basmati', 'basmati rice', 'steamed rice', 'چاول']),
     group: 'grain-cooked',
     state: 'boiled in unsalted water, drained',
-    servings: ({ katoriSet }) => [
-      ...katoriSet(D.rice),
-      { id: 'cup', label: '1 cup (200 ml)', labelUr: 'کپ', grams: Math.round(200 * D.rice) },
-    ],
+    servings: ({ katoriSet }) => {
+      const k = Math.round(200 * D.rice); // 1 medium katori (ICMR-NIN 200 ml) at 0.67 g/ml
+      return [
+        ...katoriSet(D.rice),
+        { id: 'cup', label: '1 cup (200 ml)', labelUr: 'کپ', grams: k },
+        // No published served-plate weight exists (NUTRITION.md §5.5). Lab assumption, labelled as such
+        // (RULES.vocab.servingRules.assumedPlate): a home plate of chawal = 2 medium katori, as in pk-daal-chawal.
+        { id: 'plate', label: '1 plate (home), assumed 2 katori', labelUr: 'ایک پلیٹ', grams: 2 * k },
+        { id: 'half-plate', label: '½ plate, assumed 1 katori', labelUr: 'آدھی پلیٹ', grams: k },
+      ];
+    },
     tags: PKVG,
     slots: MEAL,
-    source: { confidence: 'A', notes: 'CoFID 2021 11-858 "Rice, white, basmati, boiled in unsalted water" (11 samples); carbs converted from monosaccharide equivalents to weight (starch ÷ 1.10). Katori grams at 0.67 g/ml (FNDDS rice 1 cup = 158 g). No published "plate" weight yet (NUTRITION.md §5.4).' },
+    source: { confidence: 'A', notes: 'CoFID 2021 11-858 "Rice, white, basmati, boiled in unsalted water" (11 samples); carbs converted from monosaccharide equivalents to weight (starch ÷ 1.10). Katori grams at 0.67 g/ml (FNDDS rice 1 cup = 158 g). Plate: no published served-plate weight (NUTRITION.md §5.5), so "1 plate (home)" is a labelled Lab assumption of 2 medium katori (268 g), the same plate as pk-daal-chawal.' },
   },
   {
     id: 'pk-daal-chawal',
@@ -223,8 +241,8 @@ export default [
     group: 'rice-dish',
     state: 'plain boiled basmati rice with home masoor daal, 2 : 1 by katori',
     servings: ({ katoriSet }) => [
-      { id: 'plate', label: '1 plate (2 katori chawal + 1 katori daal)', labelUr: 'ایک پلیٹ', grams: 468, default: true },
-      { id: 'half-plate', label: '½ plate', labelUr: 'آدھی پلیٹ', grams: 234 },
+      { id: 'plate', label: '1 plate (home), assumed 2 katori chawal + 1 katori daal', labelUr: 'ایک پلیٹ', grams: 468, default: true },
+      { id: 'half-plate', label: '½ plate, assumed', labelUr: 'آدھی پلیٹ', grams: 234 },
       ...katoriSet(+(468 / 600).toFixed(3), { defaultId: null }),
     ],
     tags: PKVG,

@@ -22,6 +22,8 @@ import {
 } from './format.js';
 
 const FRACTIONS = [0.5, 1, 1.5, 2];
+/** "Thora sa (a taste)": ¼ of the default serving, on every food (Meeting 003 item 4). */
+export const TASTE_QTY = 0.25;
 const ERRORS = {
   empty: 'Type how much, for example 1 or 1.5.',
   nan: 'Use a number, like 1.5 or ½.',
@@ -338,12 +340,13 @@ export function openPortionPicker(props) {
     const parsed = parseQty(qtyInput);
     if (!keepInput && input.value !== qtyInput) input.value = qtyInput;
 
-    // fraction chips (not for grams)
+    // "Thora sa" (¼ of the default serving, on every food), then fraction chips (not for grams)
     const grams = servingId === 'g';
-    fractionBox.hidden = grams;
-    if (!grams) {
+    fractionBox.hidden = !food && grams;
+    if (food || !grams) {
       fractionBox.replaceChildren(
-        ...FRACTIONS.map((f) =>
+        food ? tasteChip(parsed) : null,
+        ...(grams ? [] : FRACTIONS).map((f) =>
           h(
             'button',
             {
@@ -407,6 +410,31 @@ export function openPortionPicker(props) {
     }
 
     setText(primary, mode === 'edit' ? 'Save' : `Add to ${store.slotLabel(slot)}`);
+  }
+
+  function tasteChip(parsed) {
+    const base = defaultServingOf(food);
+    const on = parsed.ok && servingId === base.id && Math.abs(qty - TASTE_QTY) < 1e-9;
+    return h(
+      'button',
+      {
+        type: 'button',
+        class: 'qty-chip qty-chip--taste',
+        'data-testid': 'taste-chip',
+        'aria-pressed': String(on),
+        'aria-label': `Thora sa, a taste: a quarter ${unitName(base)}`,
+        onclick: () => {
+          const changed = servingId !== base.id;
+          servingId = base.id;
+          qty = TASTE_QTY;
+          qtyInput = qtyText(qty);
+          if (changed) renderServings();
+          refresh();
+        },
+      },
+      h('span', { class: 'qty-chip-main' }, 'Thora sa'),
+      h('span', { class: 'qty-chip-sub' }, `a taste, ${fmtQty(TASTE_QTY)}`),
+    );
   }
 
   function scaledSnapshot(e, q) {

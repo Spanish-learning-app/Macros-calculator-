@@ -68,7 +68,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 261 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 19-322 "Curry, chicken, average, takeaway": 145 kcal, P 11.7, C 2.4, F 9.8, fibre 2.2 per 100 g → our value is +80% kcal. **Over 25%: see note.** UK takeaway curries, meat and sauce.
+- CoFID 2021 19-322 "Curry, chicken, average, takeaway": 145 kcal, P 11.7, C 2.4, F 9.8, fibre 2.2 per 100 g → our value is +80% kcal. **Over 25%: see note.** UK takeaway curries, meat and sauce. Why: restaurant karahi is a meat-dense bhuna with restaurant oil (added fat 17.9%, inside the §6 range 12–20%), against saucy UK takeaway curries. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

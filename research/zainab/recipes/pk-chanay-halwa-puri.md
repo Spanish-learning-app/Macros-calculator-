@@ -62,7 +62,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 173 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 15-108 "Curry, chick pea, whole and tomato, Punjabi, with vegetable oil, homemade": 112 kcal, P 5.6, C 11.3, F 4.9, fibre 2.9 per 100 g → our value is +54% kcal. **Over 25%: see note.** Punjabi chick pea and tomato curry with vegetable oil.
+- CoFID 2021 15-108 "Curry, chick pea, whole and tomato, Punjabi, with vegetable oil, homemade": 112 kcal, P 5.6, C 11.3, F 4.9, fibre 2.9 per 100 g → our value is +54% kcal. **Over 25%: see note.** Punjabi chick pea and tomato curry with vegetable oil. Why: a homemade curry with home oil; halwa-puri cholay is street food with a heavy tarka (added fat 9.7%). Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

@@ -63,7 +63,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 184 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 11-968 "Rice, pilau, plain, homemade": 134 kcal, P 2.5, C 22.2, F 3.7, fibre 0.6 per 100 g → our value is +37% kcal. **Over 25%: see note.** Plain homemade pilau rice, for scale.
+- CoFID 2021 11-968 "Rice, pilau, plain, homemade": 134 kcal, P 2.5, C 22.2, F 3.7, fibre 0.6 per 100 g → our value is +37% kcal. **Over 25%: see note.** Plain homemade pilau rice, for scale. Why: plain pilau rice has no meat and little oil; chicken and restaurant oil (added fat 8.2%) explain the gap. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { usda, bedca, cofid, toPer100g, r1, ROOT } from './lib.mjs';
 import { computeAll } from './recipes.mjs';
+import { stampReview } from '../review/reviewed.mjs';
 
 const DATE = '2026-10-13';
 const REV = 'javier';
@@ -92,6 +93,10 @@ const sv = (id, label, grams, isDefault = false, labelUr) => {
 };
 const HALAL = { status: 'halal' };
 const check = (reason) => ({ status: 'check', reason });
+// Ayesha's review (research/review/javier-sprint1.md, cross-cutting request 1): plain meat stays 'halal' but says why.
+const HALAL_MEAT = { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' };
+// Ayesha, fix wave 2026-10-14: records added by the Lab lead carry her name and date directly.
+const byAyesha = (source) => ({ ...source, reviewer: 'ayesha', date: '2026-10-14' });
 
 // ================================================================= foods-basics.js
 const basics = [
@@ -313,7 +318,7 @@ const basics = [
     group: 'meat-fish', state: 'cooked (roasted), meat only, no skin, no bone',
     ...fromUsda(171477, 'A', 'Serving: FNDDS 2705956 chicken breast, skin not eaten, 1 medium breast = 120 g.', { zeroFiber: true }),
     servings: [sv('piece', '1 breast (cooked)', 120, true), sv('100g', '100 g', 100)],
-    tags: ['international', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+    tags: ['international', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
   },
   {
     id: 'intl-chicken-breast-raw', name: 'Chicken breast, raw (boneless, skinless)', nameUr: 'کچا مرغی کا سینہ', nameRoman: 'kacha chicken breast',
@@ -321,7 +326,7 @@ const basics = [
     group: 'meat-fish', state: 'raw, boneless, skinless (weigh before cooking)',
     ...fromUsda(2646170, 'A', 'Serving: USDA SR 171077 4 oz = 113 g.', { zeroFiber: true }),
     servings: [sv('100g', '100 g raw', 100, true), sv('4oz', '4 oz raw', 113)],
-    tags: ['international', 'gym'], slots: ['lunch', 'dinner'], halal: HALAL,
+    tags: ['international', 'gym'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
   },
   {
     id: 'intl-chicken-thigh-roasted', name: 'Chicken thigh, roasted (no skin)', nameUr: 'مرغی کی ران', nameRoman: 'murghi ki raan',
@@ -329,7 +334,7 @@ const basics = [
     group: 'meat-fish', state: 'cooked (roasted), meat only, no skin, no bone',
     ...fromUsda(172388, 'A', 'Serving: USDA 1 thigh without skin = 116 g (cooked, edible).', { zeroFiber: true }),
     servings: [sv('thigh', '1 thigh (cooked, boneless)', 116, true), sv('100g', '100 g', 100)],
-    tags: ['international', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+    tags: ['international', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
   },
   {
     id: 'intl-beef-mince-cooked', name: 'Beef mince, cooked (qeema, 85 % lean)', nameUr: 'قیمہ', nameRoman: 'qeema',
@@ -337,7 +342,7 @@ const basics = [
     group: 'meat-fish', state: 'pan-browned, fat drained, no added oil',
     ...fromUsda(174034, 'A', 'Plain mince only (for cooked qeema dishes use the Pakistani records). Serving: USDA 3 oz = 85 g.', { zeroFiber: true }),
     servings: [sv('3oz', '3 oz (85 g)', 85, true), sv('100g', '100 g', 100)],
-    tags: ['international', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+    tags: ['international', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
   },
   {
     id: 'intl-beef-mince-raw', name: 'Beef mince, raw (85 % lean)', nameUr: 'کچا قیمہ', nameRoman: 'kacha qeema',
@@ -345,7 +350,7 @@ const basics = [
     group: 'meat-fish', state: 'raw (weigh before cooking)',
     ...fromUsda(171796, 'A', '', { zeroFiber: true }),
     servings: [sv('100g', '100 g raw', 100, true), sv('250g', '¼ kg raw', 250)],
-    tags: ['international'], slots: ['lunch', 'dinner'], halal: HALAL,
+    tags: ['international'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
   },
   {
     id: 'intl-mutton-roasted', name: 'Mutton (goat), roasted, lean', nameUr: 'بکرے کا گوشت', nameRoman: 'bakray ka gosht',
@@ -353,7 +358,7 @@ const basics = [
     group: 'meat-fish', state: 'cooked (roasted), meat only, no bone',
     ...fromUsda(175304, 'A', 'Plain meat; for salan and karahi use the Pakistani dish records. Serving: USDA 3 oz = 85 g.', { zeroFiber: true }),
     servings: [sv('3oz', '3 oz (85 g)', 85, true), sv('100g', '100 g', 100)],
-    tags: ['international'], slots: ['lunch', 'dinner'], halal: HALAL,
+    tags: ['international'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
   },
   {
     id: 'intl-fish-rohu', name: 'Fish, rohu or carp, cooked (dry heat)', nameUr: 'روہو مچھلی', nameRoman: 'rohu machhli',
@@ -387,7 +392,7 @@ const basics = [
       group: 'meat-fish', state: 'pre-cooked beef frankfurter, as sold (heated)',
       per100g: { ...toPer100g(u), fiber: 0 },
       servings: [sv('large', '1 sausage (large)', 45, true), sv('small', '1 sausage (small)', 25)],
-      tags: ['international'], slots: ['breakfast', 'lunch', 'dinner'], halal: HALAL,
+      tags: ['international'], slots: ['breakfast', 'lunch', 'dinner'], halal: HALAL_MEAT,
       source: src(`Analogue of ${u.src} (Frankfurter, beef, unheated: same product type as halal beef sausages sold in Pakistan and Spain)`, 'analogue', 'B', `${carbNote(u)} Used in place of chorizo in es-lentejas. Servings: UCM (Carbajal Azcona 2015) salchichas tipo Frankfurt grande 45 g, pequeña 25 g.`),
     };
   })(),
@@ -489,12 +494,37 @@ const intl = [
     tags: ['international', 'vegetarian', 'vegan', 'gym'], slots: ['breakfast'], halal: HALAL,
   },
   {
-    id: 'intl-greek-yogurt', name: 'Greek yogurt, plain, nonfat',
-    aliases: ['greek yogurt', 'greek yoghurt', 'strained yogurt', 'hung curd', 'yogur griego', 'iogurt grec', 'dahi'],
+    // Ayesha fix wave 2026-10-14: renamed "(0%)", "dahi" alias removed (dahi is intl-dahi), pot label.
+    id: 'intl-greek-yogurt', name: 'Greek yogurt, plain, nonfat (0%)',
+    aliases: ['greek yogurt', 'greek yoghurt', 'greek yogurt 0%', 'nonfat greek yogurt', 'fat free greek yogurt', 'strained yogurt', 'yogur griego 0%', 'yogur griego desnatado', 'iogurt grec 0%'],
     group: 'dairy', state: 'plain, nonfat, strained',
-    ...fromUsda(330137, 'A', 'Serving: USDA Foundation 330137 1 container = 156 g; katori × 1.03 g/ml.', { zeroFiber: true }),
-    servings: [sv('container', '1 container', 156, true), sv('katori-small', '1 small katori (155 ml)', 159.7)],
+    ...fromUsda(330137, 'A', 'Serving: USDA Foundation 330137 1 container = 156 g; katori × 1.03 g/ml. Full-fat versions: intl-greek-yogurt-whole (strained) and es-yogur-griego (Spanish style).', { zeroFiber: true }),
+    servings: [sv('container', '1 pot (156 g)', 156, true), sv('katori-small', '1 small katori (155 ml)', 159.7)],
     tags: ['international', 'vegetarian', 'gym'], slots: ['breakfast', 'snacks'], halal: HALAL,
+  },
+  (() => {
+    // Meeting 003 item 5 (Ayesha, fix wave 2026-10-14): plain full-fat strained Greek yogurt with pot servings.
+    const u = fromUsda(2259794, 'A', 'Servings: FNDDS 2705422 "Yogurt, Greek, whole milk, plain": 1 5.3 oz container = 150 g, 1 6 oz container = 170 g, 1 cup = 245 g (1.03 g/ml for the katori).', { zeroFiber: true });
+    return {
+      id: 'intl-greek-yogurt-whole', name: 'Greek yogurt, plain, whole milk (full-fat)',
+      aliases: ['greek yogurt', 'greek yoghurt', 'full fat greek yogurt', 'whole milk greek yogurt', 'greek yogurt full fat', 'strained yogurt', 'hung curd', 'lataka dahi', 'tanga dahi', 'yogur griego natural', 'iogurt grec'],
+      group: 'dairy', state: 'plain, whole milk, strained (as sold)',
+      per100g: u.per100g,
+      servings: [sv('pot', '1 pot (150 g)', 150, true), sv('pot-large', '1 large pot (170 g)', 170), sv('katori-small', '1 small katori (155 ml)', 159.7), sv('tbsp', '1 tablespoon', 15.5)],
+      tags: ['international', 'vegetarian', 'gym'], slots: ['breakfast', 'snacks', 'evening'], halal: HALAL,
+      source: byAyesha(u.source),
+    };
+  })(),
+  {
+    // Meeting 003 item 5 (Ayesha, fix wave 2026-10-14). No skyr in USDA, CoFID or BEDCA, so the maker's specification.
+    id: 'intl-skyr', name: 'Skyr, plain (0% fat)',
+    aliases: ['skyr', 'skyr natural', 'plain skyr', 'skyr natur', 'icelandic yogurt', 'icelandic style yogurt', 'yogur skyr', 'yogur proteico', 'yogur alto en proteinas', 'yogur alto en proteínas', 'iogurt skyr', 'protein yogurt'],
+    group: 'dairy', state: 'plain, 0% fat, strained (as sold)',
+    per100g: { kcal: 63, protein: 10.6, carbs: 4.0, fat: 0.2, fiber: 0, sugars: 4.0, satFat: 0.1, sodium: 56 },
+    servings: [sv('pot', '1 pot (150 g)', 150, true), sv('katori-small', '1 small katori (155 ml)', 159.7), sv('tbsp', '1 tablespoon', 15.5)],
+    tags: ['international', 'vegetarian', 'gym'], slots: ['breakfast', 'snacks', 'evening'], halal: HALAL,
+    source: byAyesha(src('Label: Arla Skyr 0% Fat Natural Yogurt (Arla Foods UK product specification, EAN 5000181039580), 1 kg, read 2026-10-14', 'label', 'B',
+      'Per 100 g as printed: 63.2 kcal (275 kJ), fat 0.2 g (saturates 0.1), carbohydrate 4 g (sugars 4), protein 10.6 g, salt 0.14 g (sodium = salt ÷ 2.5 = 56 mg); EU label carbohydrate is available carbohydrate; fibre 0 (milk only). Ingredients: skyr yogurt (milk). Retail Arla Skyr natural 150 g pot (Fitatu listing: 65 kcal, P 11.0, C 4.0, F 0.2) agrees within 4%. Serving: Arla Skyr Natur 150 g pot (Lebensmittel Zeitung product listing, Arla Foods Deutschland, 6 × 150 g); katori and tbsp × 1.03 g/ml (RULES yogurt). Other plain skyrs (Isey, Siggi\'s, supermarket own brands) are 57–66 kcal and 10–11 g protein per 100 g; flavoured skyr has added sugar, so log it as a flavoured yogurt.')),
   },
   {
     id: 'intl-peanut-butter', name: 'Peanut butter (smooth)', nameUr: 'پینٹ بٹر', nameRoman: 'peanut butter',
@@ -662,6 +692,7 @@ const esmed = [
     group: 'daal-legume', state: 'cooked stew as served, with vegetables, olive oil and halal beef sausage (no chorizo)',
     servings: (res) => katori(res.density.gPerMl),
     tags: ['spanish', 'meal-prep'], slots: ['lunch', 'dinner'],
+    halal: { status: 'halal', reason: 'Our recipe uses halal beef sausage. Lentejas in Spanish bars and menús usually contain chorizo (pork).' },
   }),
   recipeRecord('es-garbanzos-con-espinacas', {
     name: 'Garbanzos con espinacas (chickpea and spinach stew)',
@@ -676,6 +707,7 @@ const esmed = [
     group: 'rice-dish', state: 'cooked, as served (rice, chicken, green beans, garrofó, olive oil)',
     servings: (res) => [...katori(res.density.gPerMl), sv('ration', '1 ración (¼ paella)', r1(res.cookedG / 4))],
     tags: ['spanish'], slots: ['lunch', 'dinner'],
+    halal: check('Halal when you cook it with halal chicken. Restaurant chicken in Spain is rarely halal.'),
     sourceNotes: 'Ración = ¼ of a 400 g-rice paella (UCM: arroz 90–100 g raw per person).',
   }),
   recipeRecord('es-gazpacho', {
@@ -844,6 +876,20 @@ const esmed = [
     servings: [sv('vaso', '1 glass (vaso, 200 g)', 200, true), sv('glass', '1 large glass (250 ml)', 262)],
     tags: ['spanish', 'vegetarian', 'vegan'], slots: ['breakfast'], halal: HALAL,
   },
+  (() => {
+    // Javier review cross-cutting request 2 + Meeting 003 item 5 (Ayesha, fix wave 2026-10-14): Spanish
+    // "yogur griego" is a cream-enriched full-fat yogurt (about 10% fat), not a strained high-protein one.
+    const b = fromBedca(2520, 'A', 'Spanish-style yogur griego (milk and cream, about 10% fat, 6 g protein); for strained Greek yogurt see intl-greek-yogurt-whole, for 0% see intl-greek-yogurt. Serving: UCM (Carbajal Azcona 2015) yogur unidad = 125 g; katori × 1.03 g/ml (RULES yogurt).');
+    return {
+      id: 'es-yogur-griego', name: 'Yogur griego (Spanish style, full-fat)',
+      aliases: ['yogur griego', 'yogur griego natural', 'griego', 'iogurt grec', 'iogurt grec natural', 'spanish greek yogurt', 'greek style yogurt', 'greek yogurt'],
+      group: 'dairy', state: 'plain, unsweetened, full-fat (milk and cream), as sold',
+      per100g: b.per100g,
+      servings: [sv('pot', '1 pot (125 g)', 125, true), sv('katori-small', '1 small katori (155 ml)', 159.7), sv('tbsp', '1 tablespoon', 15.5)],
+      tags: ['spanish', 'vegetarian'], slots: ['breakfast', 'evening', 'snacks'], halal: HALAL,
+      source: byAyesha(b.source),
+    };
+  })(),
   recipeRecord('es-bocadillo-de-tortilla', {
     name: 'Bocadillo de tortilla (tortilla sandwich)',
     aliases: ['bocadillo de tortilla', 'bocata de tortilla', 'entrepà de truita', 'tortilla sandwich', 'bocadillo', 'bocata'],
@@ -992,7 +1038,7 @@ function recordJs(r) {
   return lines.join('\n');
 }
 function writeFile(file, header, records) {
-  const body = `${header}\n// Generated by research/javier/build.mjs from cited lookups (do not hand-edit numbers; edit the build script and rerun).\n\nexport default [\n${records.map(recordJs).join('\n')}\n];\n`;
+  const body = `${header}\n// Generated by research/javier/build.mjs from cited lookups (do not hand-edit numbers; edit the build script and rerun).\n\nexport default [\n${records.map(stampReview).map(recordJs).join('\n')}\n];\n`;
   fs.writeFileSync(path.join(ROOT, 'app', 'data', file), body);
   console.log(`${file}: ${records.length} records`);
 }

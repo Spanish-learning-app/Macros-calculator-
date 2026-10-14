@@ -14,6 +14,7 @@ import {
   fmtDateShort,
   monthGrid,
   dayOfWeek,
+  AT_LEAST_KEYS,
 } from '../components/format.js';
 
 const pct = (v, t) => (t ? `${Math.max(0, Math.min(100, (v / t) * 100)).toFixed(1)}%` : '0%');
@@ -32,16 +33,21 @@ export function mount(container, ctx) {
   function measure(label, value, target, fmt, unit, key, hideKcal) {
     if (key === 'kcal' && hideKcal) return null;
     const over = target ? value - target : null;
+    const above = over !== null && over > 0;
+    // Protein (and fibre) above target is good news: "+12 ✓", never "over" (Meeting 003 item 6).
+    const atLeast = AT_LEAST_KEYS.includes(key);
     return h(
       'span',
-      { class: ['week-measure', over !== null && over > 0 ? 'is-over' : null] },
+      { class: ['week-measure', above && !atLeast ? 'is-over' : null] },
       h(
         'span',
         { class: 'week-measure-text' },
         h('span', { class: 'week-measure-label' }, label),
         ' ',
         target ? `${fmt(value)} / ${fmt(target)}${unit}` : `${fmt(value)}${unit}`,
-        over !== null && over > 0 ? h('span', { class: 'week-over' }, ` +${fmt(over)} over`) : null,
+        above
+          ? h('span', { class: 'week-over' }, ` +${fmt(over)}${atLeast ? ' ✓' : ' over'}`)
+          : null,
       ),
       h(
         'span',

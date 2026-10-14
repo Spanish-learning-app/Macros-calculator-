@@ -1,6 +1,7 @@
 // Hash router. parseRoute/formatRoute are pure (Node-testable); createRouter binds to a window.
 // Owner: Lena. Contract: docs/ARCHITECTURE.md §7.2.
 import { SLOT_IDS } from '../core/days.js';
+import { isISODate } from '../core/dates.js';
 
 /** @typedef {{ name: string, params: { date?: string|null, slot?: string } }} Route */
 
@@ -15,21 +16,24 @@ export const ROUTE_NAMES = Object.freeze([
   'notfound',
 ]);
 
-const DATE = /^\d{4}-\d{2}-\d{2}$/;
-
 /**
  * '#/', '' -> day (date null = today). '#/day/D', '#/day/D/add/SLOT', '#/week[/D]', '#/welcome',
  * '#/profile', '#/data', '#/about'. Anything else -> notfound.
  * @param {string} hash @returns {Route}
  */
 export function parseRoute(hash) {
-  const parts = String(hash || '')
-    .replace(/^#\/?/, '')
-    .split('/')
-    .filter(Boolean)
-    .map((p) => decodeURIComponent(p));
+  let parts;
+  try {
+    parts = String(hash || '')
+      .replace(/^#\/?/, '')
+      .split('/')
+      .filter(Boolean)
+      .map((p) => decodeURIComponent(p));
+  } catch {
+    return { name: 'notfound', params: {} }; // a malformed escape such as '%E0'
+  }
   const [head, date, sub, slot] = parts;
-  const okDate = (d) => d === undefined || DATE.test(d);
+  const okDate = (d) => d === undefined || isISODate(d); // a real date only (BUG-R1: 2026-02-30)
 
   if (parts.length === 0) return { name: 'day', params: { date: null } };
   if (head === 'day' && okDate(date)) {

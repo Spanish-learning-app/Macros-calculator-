@@ -483,7 +483,7 @@ export default [
     ],
     tags: ['international', 'gym', 'meal-prep'],
     slots: ['lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
     source: { citation: 'USDA FDC SR Legacy 171477', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Serving: FNDDS 2705956 chicken breast, skin not eaten, 1 medium breast = 120 g.' },
   },
   {
@@ -501,7 +501,7 @@ export default [
     ],
     tags: ['international', 'gym'],
     slots: ['lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
     source: { citation: 'USDA FDC Foundation 2646170', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Fibre not reported by USDA; 0 for this animal food. Serving: USDA SR 171077 4 oz = 113 g.' },
   },
   {
@@ -519,7 +519,7 @@ export default [
     ],
     tags: ['international', 'meal-prep'],
     slots: ['lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
     source: { citation: 'USDA FDC SR Legacy 172388', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Serving: USDA 1 thigh without skin = 116 g (cooked, edible).' },
   },
   {
@@ -537,7 +537,7 @@ export default [
     ],
     tags: ['international', 'gym', 'meal-prep'],
     slots: ['lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
     source: { citation: 'USDA FDC SR Legacy 174034', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Plain mince only (for cooked qeema dishes use the Pakistani records). Serving: USDA 3 oz = 85 g.' },
   },
   {
@@ -555,7 +555,7 @@ export default [
     ],
     tags: ['international'],
     slots: ['lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
     source: { citation: 'USDA FDC SR Legacy 171796', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs.' },
   },
   {
@@ -573,7 +573,7 @@ export default [
     ],
     tags: ['international'],
     slots: ['lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
     source: { citation: 'USDA FDC SR Legacy 175304', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Plain meat; for salan and karahi use the Pakistani dish records. Serving: USDA 3 oz = 85 g.' },
   },
   {
@@ -645,7 +645,7 @@ export default [
     ],
     tags: ['international'],
     slots: ['breakfast', 'lunch', 'dinner'],
-    halal: { status: 'halal' },
+    halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
     source: { citation: 'Analogue of USDA FDC SR Legacy 173862 (Frankfurter, beef, unheated: same product type as halal beef sausages sold in Pakistan and Spain)', method: 'analogue', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 2.97 g (no fibre), used as available carbs. Used in place of chorizo in es-lentejas. Servings: UCM (Carbajal Azcona 2015) salchichas tipo Frankfurt grande 45 g, pequeña 25 g.' },
   },
   {

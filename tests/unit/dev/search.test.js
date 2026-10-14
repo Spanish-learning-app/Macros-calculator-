@@ -117,8 +117,10 @@ test('karhai finds both karahis by an adjacent swap (Damerau)', () => {
   ]);
   // Two typos is too many.
   assert.deepEqual(top('krhia'), []);
-  // A typo inside a word prefix still matches (first 4 letters of "karahi").
-  assert.ok(top('karh').includes('pk-chicken-karahi-home-fx'));
+  // A typo inside a word prefix still matches from 5 letters ("karha" ~ "karah" of "karahi"),
+  // but not at 4 (Review 1: "kela" ~ "keba" of "kebab" was junk).
+  assert.ok(top('karha').includes('pk-chicken-karahi-home-fx'));
+  assert.ok(!top('karh').includes('pk-chicken-karahi-home-fx'));
   // Short query words never go fuzzy: "dak" does not find "dal".
   assert.ok(!top('dak').includes('pk-daal-masoor-home-fx'));
 });

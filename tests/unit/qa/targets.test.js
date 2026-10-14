@@ -13,7 +13,7 @@ import {
   computeTargets,
   resolveTargets,
 } from '../../../app/core/targets.js';
-import { qa, knownBug, RULES, deepFreeze, assertClose, assertBadInput, rng } from './_helpers.js';
+import { qa, RULES, deepFreeze, assertClose, assertBadInput, rng } from './_helpers.js';
 
 deepFreeze(RULES); // the core must never write to RULES
 
@@ -650,10 +650,8 @@ qa('low_carbs below 100 g, never clamped up', [computeTargets], () => {
   );
 });
 
-knownBug(
-  'BUG-T1',
-  'Hamza',
-  'ruling 2026-10-14: carbs never go negative; protein gives way (NUTRITION worked example)',
+qa(
+  'BUG-T1 (fixed): ruling 2026-10-14: carbs never go negative; protein gives way (NUTRITION worked example)',
   [computeTargets],
   () => {
     // Woman, 200 cm, 100 kg (BMI 25 → PRW 100), 60% body fat (Katch 1234), sedentary, lose 1 kg:
@@ -683,10 +681,8 @@ knownBug(
   },
 );
 
-knownBug(
-  'BUG-T1',
-  'Hamza',
-  'ruling 2026-10-14: a fatPct preference gives way first, down to the fat floor only',
+qa(
+  'BUG-T1 (fixed): ruling 2026-10-14: a fatPct preference gives way first, down to the fat floor only',
   [computeTargets],
   () => {
     // Woman, 150 cm, 100 kg (PRW 73.75), 60% body fat, sedentary, lose 1 kg → kcal 1200.
@@ -706,10 +702,8 @@ knownBug(
   },
 );
 
-knownBug(
-  'BUG-T1',
-  'Hamza',
-  'property: high protein prefs at low kcal never give negative carbs (step 12 holds)',
+qa(
+  'BUG-T1 (fixed): property: high protein prefs at low kcal never give negative carbs (step 12 holds)',
   [computeTargets],
   () => {
     const random = rng(1405);

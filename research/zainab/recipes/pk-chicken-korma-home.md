@@ -63,7 +63,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 183 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 19-565 "Curry, chicken korma, homemade": 127 kcal, P 14.6, C 4, F 5.1, fibre 0.7 per 100 g → our value is +44% kcal. **Over 25%: see note.** UK homemade chicken korma (a different, creamier dish).
+- CoFID 2021 19-565 "Curry, chicken korma, homemade": 127 kcal, P 14.6, C 4, F 5.1, fibre 0.7 per 100 g → our value is +44% kcal. **Over 25%: see note.** UK homemade chicken korma (a different, creamier dish). Why: the UK homemade korma is a lean, yogurt-and-water korma (F 5.1 g); Pakistani korma is cooked in oil that rises to the top (added fat 9.0%, inside §6 home 6–10%). Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

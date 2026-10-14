@@ -297,7 +297,7 @@ export function computeTargets(profile, rules, prefs = {}) {
     gPerKg = Math.min(...caps);
     fire('protein_capped');
   }
-  const protein = round(gPerKg * prw);
+  let protein = round(gPerKg * prw);
 
   // 11. Fat, carbs, fibre
   const factors = R.energy.factors;
@@ -310,16 +310,23 @@ export function computeTargets(profile, rules, prefs = {}) {
     fat = fatFloor;
     fire('fat_floor');
   }
-  const carbs = Math.max(
-    0,
-    round((kcal - factors.protein * protein - factors.fat * fat) / factors.carbs),
-  );
+  // Ruling 2026-10-14 (NUTRITION.md §2.2 step 11): carbs never go negative. A fat preference
+  // gives way first, down to the fat floor only; then protein drops to the most that fits.
+  const room = () => kcal - factors.protein * protein - factors.fat * fat;
+  if (room() < 0 && fat > fatFloor) {
+    fat = Math.max(fatFloor, fat - Math.ceil(-room() / factors.fat));
+  }
+  if (room() < 0) {
+    protein = Math.floor((kcal - factors.fat * fat) / factors.protein);
+    fire('protein_reduced_to_fit');
+  }
+  const carbs = round(room() / factors.carbs);
   if (carbs < R.carbs.noteBelowG) fire('low_carbs');
   const fiber = Math.max(R.fiber.minG, round((R.fiber.gPer1000Kcal * kcal) / 1000));
 
-  // 12. Check (true by construction unless carbs were clamped at 0, which low_carbs reports)
+  // 12. Check (true by construction)
   const energy = factors.protein * protein + factors.carbs * carbs + factors.fat * fat;
-  if (carbs > 0 && Math.abs(energy - kcal) > R.rounding.checkToleranceKcal) {
+  if (Math.abs(energy - kcal) > R.rounding.checkToleranceKcal) {
     throw new Error(`targets check failed: ${energy} kcal from macros vs ${kcal}`);
   }
 

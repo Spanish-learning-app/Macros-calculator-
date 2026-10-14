@@ -17,6 +17,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { compute, loadSheets } from './calc.mjs';
+import { stampReview } from '../review/reviewed.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(here, '..', '..');
@@ -226,7 +227,7 @@ for (const key of Object.keys(FILES)) {
     built[spec.id] = rec;
     // hold: computed and documented, but not shipped until a rules question is settled (see spec.hold)
     if (spec.hold) { console.log(`HOLD ${spec.id}: ${spec.hold}`); continue; }
-    outRecords[key].push(rec);
+    outRecords[key].push(stampReview(rec));
   }
 }
 

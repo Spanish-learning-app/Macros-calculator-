@@ -19,17 +19,16 @@ test('shell loads: brand, title, navigation, a mounted view, no storage banner',
 
 test('hash routes mark the active tab', async ({ page }) => {
   await seed(page, userDoc());
+  // Tabs are looked up in the main navigation: Profile also links to the Data page.
+  const nav = page.getByRole('navigation', { name: 'Main' });
   await page.goto('/#/week');
-  await expect(page.getByRole('link', { name: 'Week' })).toHaveAttribute('aria-current', 'page');
-  await page.getByRole('link', { name: 'Profile' }).click();
+  await expect(nav.getByRole('link', { name: 'Week' })).toHaveAttribute('aria-current', 'page');
+  await nav.getByRole('link', { name: 'Profile' }).click();
   await expect(page).toHaveURL(/#\/profile$/);
-  await expect(page.getByRole('link', { name: 'Profile' })).toHaveAttribute('aria-current', 'page');
-  await expect(page.getByRole('link', { name: 'Week' })).not.toHaveAttribute(
-    'aria-current',
-    'page',
-  );
-  await page.getByRole('link', { name: 'Data' }).click();
-  await expect(page.getByRole('link', { name: 'Data' })).toHaveAttribute('aria-current', 'page');
+  await expect(nav.getByRole('link', { name: 'Profile' })).toHaveAttribute('aria-current', 'page');
+  await expect(nav.getByRole('link', { name: 'Week' })).not.toHaveAttribute('aria-current', 'page');
+  await nav.getByRole('link', { name: 'Data' }).click();
+  await expect(nav.getByRole('link', { name: 'Data' })).toHaveAttribute('aria-current', 'page');
 });
 
 test('a fresh user is sent to onboarding from the day and week routes', async ({ page }) => {

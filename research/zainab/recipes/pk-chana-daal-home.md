@@ -57,6 +57,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 169 (NUTRITION.md §6 step 7). Sum of th
 ## Cross-check
 
 - CoFID 2021 15-641 "Curry, chick pea dhal, homemade": 152 kcal, P 7.9, C 15.1, F 6.1, fibre 0 per 100 g → our value is +11% kcal. Punjabi chana dhal (UK dietary-survey records): its water content sets our yield.
+- USDA FDC FNDDS 2707424 "Lentils, from dried, fat added": 166 kcal, P 8.38, C 11.4, F 6.86, fibre 7.3 per 100 g → our value is +2% kcal. Lentils from dried, fat added.
 
 ## Assumptions and confidence
 

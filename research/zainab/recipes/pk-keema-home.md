@@ -66,10 +66,11 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 236 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- USDA FDC FNDDS 2706396 "Stewed seasoned ground beef, Puerto Rican style": 278 kcal, P 13.75, C 2.9, F 22.81, fibre 0.9 per 100 g → our value is -15% kcal. Stewed seasoned ground beef, Puerto Rican style: a dry, oily mince stew like bhuna keema; its portion sets our katori density.
+- CoFID 2021 19-587 "Kheema, beef, homemade": 160 kcal, P 11.7, C 3.9, F 10.8, fibre 1.1 per 100 g → our value is +48% kcal. **Over 25%: see note.** UK homemade beef kheema. Why: wetter (69.5% water) and made with less oil; our keema is a dry bhuna with 140 g oil per kg mince (median of 3 Pakistani recipes). Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 
 - Half 80/20, half 90/10 beef mince; oil 140 g per kg mince (median of 3 recipes).
-- Katori density 1.00 g/ml (FNDDS beef curry) — dry keema may pack lighter.
+- Katori density 0.85 g/ml (FNDDS 2706396 stewed seasoned ground beef, 1 cup = 200 g): dry keema packs lighter than curry (was 1.00 g/ml; Ayesha, 2026-10-14).
 - Confidence **C**: recipe with assumed oil and/or yield.

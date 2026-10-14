@@ -71,7 +71,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 173 (NUTRITION.md §6 step 7). Sum of th
 ## Cross-check
 
 - CoFID 2021 19-454 "Biryani, chicken, takeaway": 163 kcal, P 8.5, C 15.2, F 7.4, fibre 1.2 per 100 g → our value is +6% kcal. UK takeaway chicken biryani (10 samples).
-- USDA FDC FNDDS 2706538 "Biryani with chicken": 104 kcal, P 7.15, C 12.5, F 2.38, fibre 1.1 per 100 g → our value is +66% kcal. **Over 25%: see note.**
+- USDA FDC FNDDS 2706538 "Biryani with chicken": 104 kcal, P 7.15, C 12.5, F 2.38, fibre 1.1 per 100 g → our value is +66% kcal. **Over 25%: see note.** Why: the US biryani recipe uses little oil (F 2.4 g); the UK takeaway biryani (10 samples) is within 6%. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

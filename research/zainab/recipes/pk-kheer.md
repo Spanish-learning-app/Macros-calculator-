@@ -48,7 +48,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 144 (NUTRITION.md §6 step 7). Sum of th
 ## Cross-check
 
 - CoFID 2021 12-608 "Pudding, rice, homemade, with whole milk": 145 kcal, P 4.2, C 17.5, F 6.5, fibre 0.1 per 100 g → our value is -1% kcal. UK homemade rice pudding with whole milk.
-- USDA FDC FNDDS 2705685 "Pudding, rice": 108 kcal, P 3.23, C 18.1, F 2.15, fibre 0.3 per 100 g → our value is +33% kcal. **Over 25%: see note.**
+- USDA FDC FNDDS 2705685 "Pudding, rice": 108 kcal, P 3.23, C 18.1, F 2.15, fibre 0.3 per 100 g → our value is +33% kcal. **Over 25%: see note.** Why: the US rice pudding is made with low-fat milk (F 2.2 g); the like-for-like UK whole-milk rice pudding is within 1%. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

@@ -5,7 +5,7 @@
 // - Macro panel: carbs, fat and fibre (and kcal/protein eaten) against targets, labelled as
 //   estimates (or the Lab's "Reference" chip after Skip, NUTRITION.md §2.1a).
 import { h, setText } from '../dom.js';
-import { fmtKcal, fmtGrams, leftOrOver } from './format.js';
+import { fmtKcal, fmtGrams, leftOrOver, ESTIMATE_LINE, AT_LEAST_KEYS } from './format.js';
 
 const MACROS = [
   { key: 'carbs', label: 'Carbs' },
@@ -115,11 +115,12 @@ export function createTotalsBar({ store, router, rules }) {
       setText(protLbl, 'protein eaten');
       protBox.dataset.value = '';
     } else {
-      setText(protNum, `${fmtGrams(p.amount)} g`);
-      setText(protLbl, p.over ? 'protein over' : 'protein left');
+      // Protein is a goal to reach: above it is good news, never "over" (Meeting 003 item 6).
+      setText(protNum, `${p.over ? '+' : ''}${fmtGrams(p.amount)} g`);
+      setText(protLbl, p.over ? 'above target ✓' : 'protein left');
       protBox.dataset.value = fmtGrams(left.protein.remaining);
     }
-    protBox.classList.toggle('is-over', p.over);
+    protBox.classList.toggle('is-met', p.over);
 
     // bar: eaten, then planned as a lighter segment
     const barKey = hideKcal ? 'protein' : 'kcal';
@@ -157,7 +158,7 @@ export function createTotalsBar({ store, router, rules }) {
       const t = targets?.[r.key] ?? null;
       setText(r.value, t === null ? `${fmtGrams(v)} g` : `${fmtGrams(v)} / ${fmtGrams(t)} g`);
       r.fill.style.width = pct(v, t);
-      r.row.classList.toggle('is-over', t !== null && v > t);
+      r.row.classList.toggle('is-over', t !== null && v > t && !AT_LEAST_KEYS.includes(r.key));
     }
 
     // estimate / reference line
@@ -170,7 +171,7 @@ export function createTotalsBar({ store, router, rules }) {
       action.href = router.href({ name: 'welcome', params: {} });
       action.hidden = false;
     } else if (info.kind === 'personal') {
-      setText(note, 'Targets are an estimate, you can change them.');
+      setText(note, ESTIMATE_LINE);
       setText(action, 'Change');
       action.href = router.href({ name: 'profile', params: {} });
       action.hidden = false;

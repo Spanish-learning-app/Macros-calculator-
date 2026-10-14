@@ -68,8 +68,8 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 198 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 19-322 "Curry, chicken, average, takeaway": 145 kcal, P 11.7, C 2.4, F 9.8, fibre 2.2 per 100 g → our value is +37% kcal. **Over 25%: see note.** UK takeaway chicken curries (korma, tikka masala, dhansak, jalfrezi, dopiaza), meat and sauce; no karahi analysed anywhere we found.
-- USDA FDC FNDDS 2706437 "Chicken curry": 107 kcal, P 6.48, C 5.1, F 6.48, fibre 1.4 per 100 g → our value is +85% kcal. **Over 25%: see note.**
+- CoFID 2021 19-322 "Curry, chicken, average, takeaway": 145 kcal, P 11.7, C 2.4, F 9.8, fibre 2.2 per 100 g → our value is +37% kcal. **Over 25%: see note.** UK takeaway chicken curries (korma, tikka masala, dhansak, jalfrezi, dopiaza), meat and sauce; no karahi analysed anywhere we found. Why: karahi is a dry bhuna of meat in oil with little gravy, so it carries more meat (P 16.9 vs 11.7 g) and more fat (12.7 vs 9.8 g) per 100 g than saucy UK takeaway curries; added fat 9.9% is inside the §6 home range (6–10%). Explained (Ayesha, 2026-10-14).
+- USDA FDC FNDDS 2706437 "Chicken curry": 107 kcal, P 6.48, C 5.1, F 6.48, fibre 1.4 per 100 g → our value is +85% kcal. **Over 25%: see note.** Why: the US "chicken curry" is a thin, low-oil curry with vegetables (P 6.5, F 6.5 g); not a like-for-like dish. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

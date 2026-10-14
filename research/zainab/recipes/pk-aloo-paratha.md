@@ -53,7 +53,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 247 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 11-912 "Mooli paratha, homemade": 171 kcal, P 5.9, C 30.9, F 2.3, fibre 4.8 per 100 g → our value is +44% kcal. **Over 25%: see note.** Analysed mooli (radish) paratha; its water sets ours.
+- CoFID 2021 11-912 "Mooli paratha, homemade": 171 kcal, P 5.9, C 30.9, F 2.3, fibre 4.8 per 100 g → our value is +44% kcal. **Over 25%: see note.** Analysed mooli (radish) paratha; its water sets ours. Why: the analysed mooli paratha was cooked almost dry (F 2.3 g); ours carries 1 tbsp ghee on the tawa (Food Fusion). FNDDS plain paratha is −24%, as expected for a wetter stuffed paratha. Explained (Ayesha, 2026-10-14).
 - USDA FDC FNDDS 2707715 "Bread, paratha": 326 kcal, P 6.36, C 35.8, F 13.2, fibre 9.6 per 100 g → our value is -24% kcal.
 
 ## Assumptions and confidence

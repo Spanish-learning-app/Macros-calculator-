@@ -60,7 +60,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 114 (NUTRITION.md §6 step 7). Sum of th
 ## Cross-check
 
 - CoFID 2021 15-679 "Bhaji, cauliflower and potato, homemade": 106 kcal, P 3.3, C 9.5, F 6.8, fibre 2.3 per 100 g → our value is +8% kcal. Bangladeshi cauliflower and potato bhaji.
-- CoFID 2021 15-022 "Bhaji, cauliflower, potato and pea, with vegetable oil": 166 kcal, P 3.4, C 7.6, F 13.7, fibre 1.9 per 100 g → our value is -31% kcal. **Over 25%: see note.** Punjabi cauliflower, potato and pea, vegetable oil.
+- CoFID 2021 15-022 "Bhaji, cauliflower, potato and pea, with vegetable oil": 166 kcal, P 3.4, C 7.6, F 13.7, fibre 1.9 per 100 g → our value is -31% kcal. **Over 25%: see note.** Punjabi cauliflower, potato and pea, vegetable oil. Why: this Punjabi bhaji with peas is cooked in more oil (F 13.7 g); the Bangladeshi version (15-679) is +8%. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

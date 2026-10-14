@@ -99,7 +99,16 @@ const correctness = {
 
 export default [
   {
-    ignores: ['node_modules/**', 'research/**', 'test-results/**', 'playwright-report/**'],
+    // team/ holds testers' throwaway scripts; dashboard/ and tools/ are the Manager's tooling.
+    ignores: [
+      'node_modules/**',
+      'research/**',
+      'test-results/**',
+      'playwright-report/**',
+      'team/**',
+      'dashboard/**',
+      'tools/**',
+    ],
   },
   {
     files: ['**/*.js', '**/*.mjs'],

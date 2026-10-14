@@ -50,7 +50,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 175 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- CoFID 2021 12-963 "Eggs, chicken, whole, scrambled, without milk": 152 kcal, P 14.6, C 0, F 10.4, fibre 0 per 100 g → our value is +15% kcal. Scrambled whole eggs without milk (no onion, tomato or added oil).
 
 ## Assumptions and confidence
 

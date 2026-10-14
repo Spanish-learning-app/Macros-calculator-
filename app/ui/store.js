@@ -46,9 +46,6 @@ const SETTINGS_FALLBACK = Object.freeze({
   hideCalories: false,
 });
 
-/** Extra search boost for foods whose `slots` hint matches the slot being filled (0..1 scale). */
-const SLOT_HINT_BOOST = 0.25;
-
 /**
  * @param {object} options
  * @param {{ load(): { data: object, status: string }, save(data: object): { ok: boolean, error?: string } } | null} options.persistence
@@ -283,6 +280,7 @@ export function createStore({
     // selectors
     today,
     defaultSlot: () => slotForTime(minutesOfDay(now()), rules, preset()),
+    clockDate: () => todayISO(now(), 0), // the wall-clock date; differs from today() after midnight
     settings,
     slots: () => SLOT_IDS.map((id) => ({ id, label: slotLabel(id) })),
     slotLabel,
@@ -315,16 +313,12 @@ export function createStore({
     portionFor,
     search(query, { slot = null, limit = 20 } = {}) {
       const idx = index();
-      let boosts = recencyBoosts(data().recents ?? {}, today());
-      if (slot) {
-        boosts = { ...boosts };
-        for (const id of slotHintsOf(idx, slot)) {
-          boosts[id] = Math.min(1, (boosts[id] ?? 0) + SLOT_HINT_BOOST);
-        }
-      }
+      // Recency is the user's own signal and lifts a food within its tier. The slot's meal hints
+      // only break ties, after style, so a hint never puts dhaba chai above home chai (Review 1).
       return searchFoods(searchIndexOf(idx), query, {
         limit,
-        boosts,
+        boosts: recencyBoosts(data().recents ?? {}, today()),
+        hints: slot ? slotHintsOf(idx, slot) : [],
         halalOnly: settings().halalOnly,
       });
     },

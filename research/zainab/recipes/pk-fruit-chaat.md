@@ -47,7 +47,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 80 (NUTRITION.md §6 step 7). Sum of the
 
 ## Cross-check
 
-No independent reference found for this dish.
+- CoFID 2021 14-333 "Fruit salad, homemade": 59 kcal, P 0.7, C 14.1, F 0.3, fibre 1.1 per 100 g → our value is +36% kcal. **Over 25%: see note.** UK homemade fruit salad with sugar (no chaat masala or lemon). Why: chaat is 37% banana by weight (89 kcal/100 g) plus 3% sugar, against a UK salad of apples, oranges, kiwi and grapes. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

@@ -53,7 +53,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 137 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 15-627 "Curry, bhindi subji, homemade": 71 kcal, P 2.9, C 4.9, F 4.6, fibre 7.2 per 100 g → our value is +93% kcal. **Over 25%: see note.** Analysed homemade bhindi subji (Leeds); its water content sets our yield.
+- CoFID 2021 15-627 "Curry, bhindi subji, homemade": 71 kcal, P 2.9, C 4.9, F 4.6, fibre 7.2 per 100 g → our value is +93% kcal. **Over 25%: see note.** Analysed homemade bhindi subji (Leeds); its water content sets our yield. Why: NOT explained yet: same water (74.3%), so the gap is oil (analysed F 4.6 g vs our 10.4 g from ¼ cup oil per lb okra in both recipes). Sprint 2 (Zainab): check how much stir-fry oil stays in the pan, or move toward the analysed value (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

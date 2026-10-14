@@ -58,7 +58,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 318 (NUTRITION.md §6 step 7). Sum of th
 ## Cross-check
 
 - USDA FDC FNDDS 2708730 "Samosa": 310 kcal, P 5.14, C 31.4, F 17.47, fibre 1.8 per 100 g → our value is +3% kcal.
-- CoFID 2021 15-305 "Samosas, vegetable, retail": 217 kcal, P 5.1, C 27.4, F 9.3, fibre 3.5 per 100 g → our value is +47% kcal. **Over 25%: see note.** UK retail vegetable samosas.
+- CoFID 2021 15-305 "Samosas, vegetable, retail": 217 kcal, P 5.1, C 27.4, F 9.3, fibre 3.5 per 100 g → our value is +47% kcal. **Over 25%: see note.** UK retail vegetable samosas. Why: UK retail samosas are thinner-pastried and often oven-baked (F 9.3 g); FNDDS fried samosa is within 3%. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

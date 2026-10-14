@@ -49,6 +49,6 @@ No independent reference found for this dish.
 
 ## Assumptions and confidence
 
-- Weight 100 g: district price notifications (Islamabad ICT and Hyderabad, April 2024; Gujranwala) fix tandoor roti at 100 g.
+- Weight: district price notifications (Islamabad ICT and Hyderabad, April 2024; Gujranwala) fix tandoor roti at 100 g. This is the dough-ball (paira) weight: Karachi's notification states "made from 110 grams paira" (ARY News, 14 Jan 2020). Baked roti = 100 g × the recipe yield.
 - Moisture as chapatti (no tandoor-roti analysis found).
 - Confidence **C**: recipe with assumed oil and/or yield.

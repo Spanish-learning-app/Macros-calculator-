@@ -55,5 +55,5 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 291 (NUTRITION.md §6 step 7). Sum of th
 
 ## Assumptions and confidence
 
-- Weight 120 g: district price notifications (Islamabad, Hyderabad, Gujranwala 2024) fix naan at 120 g.
+- Weight: district price notifications (Islamabad, Hyderabad, Gujranwala 2024) fix naan at 120 g. That is the dough-ball (paira) weight: Karachi's notification says "a tandoori naan prepared from 120 grams of paira" (ARY News, 14 Jan 2020). Baked naan = 120 g × the recipe yield, as for the roghni naan.
 - Confidence **C**: recipe with assumed oil and/or yield.

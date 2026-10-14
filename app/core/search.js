@@ -3,6 +3,7 @@
 
 import { isISODate, diffDays } from './dates.js';
 import { SLOT_IDS } from './days.js';
+import { STYLES } from './foods.js';
 
 /** @typedef {import('./types.js').Food} Food */
 /** @typedef {import('./types.js').Recent} Recent */
@@ -18,7 +19,9 @@ export const TIERS = Object.freeze({
 });
 export const BOOST_WEIGHT = 19;
 
-const FUZZY_MIN_LENGTH = 4;
+const FUZZY_MIN_LENGTH = 4; // a query word needs 4+ letters to match fuzzily, and a query 4+ for substring
+const FUZZY_PREFIX_MIN_LENGTH = 5; // a typo inside a longer word's prefix needs 5+ letters ("kela" ≠ kebab)
+const FUZZY_FILL_BELOW = 3; // fuzzy matches only fill in when the other tiers find fewer foods (Review 1)
 const RECENCY_DAYS = 30;
 const COUNT_FOR_FULL_BOOST = 10;
 const DEFAULT_RECENT_LIMIT = 12;
@@ -78,6 +81,12 @@ export function buildSearchIndex(foods) {
   return { entries };
 }
 
+/** Everyday foods (no style) and home style rank 0, then restaurant, dhaba, street (STYLES order). */
+function styleRank(food) {
+  const i = STYLES.indexOf(food?.style);
+  return i <= 0 ? 0 : i;
+}
+
 /** a[from + shift..] equals b[from..] to the end of b (no allocation). */
 function tailsEqual(a, b, from, shift) {
   for (let k = from; k < b.length; k += 1) {
@@ -104,12 +113,20 @@ function wordPrefixes(qWords, words) {
   return qWords.every((q) => words.some((w) => w.startsWith(q)));
 }
 
+function fuzzyWord(q, w) {
+  if (q.charCodeAt(0) !== w.charCodeAt(0)) return false; // typos rarely hit the first letter
+  if (withinOneEdit(q, w)) return true;
+  return (
+    q.length >= FUZZY_PREFIX_MIN_LENGTH &&
+    w.length > q.length &&
+    withinOneEdit(q, w.slice(0, q.length))
+  );
+}
+
 function fuzzyWords(qWords, words) {
   return qWords.every((q) => {
     if (q.length < FUZZY_MIN_LENGTH) return words.some((w) => w.startsWith(q));
-    return words.some(
-      (w) => withinOneEdit(q, w) || (w.length > q.length && withinOneEdit(q, w.slice(0, q.length))),
-    );
+    return words.some((w) => fuzzyWord(q, w));
   });
 }
 
@@ -118,16 +135,17 @@ function tierOf(name, q, qWords) {
   if (name.norm === q) return 'exact';
   if (name.norm.startsWith(q)) return 'prefix';
   if (wordPrefixes(qWords, name.words)) return 'wordPrefix';
-  if (name.norm.includes(q)) return 'substring';
+  if (q.length >= FUZZY_MIN_LENGTH && name.norm.includes(q)) return 'substring';
   if (fuzzyWords(qWords, name.words)) return 'fuzzy';
   return null;
 }
 
 /** Best match of one food: highest tier, then the shortest original name. */
-function bestMatch(entry, q, qWords) {
+function bestMatch(entry, q, qWords, allowFuzzy) {
   let best = null;
   for (const name of entry.names) {
     const tier = tierOf(name, q, qWords);
+    if (tier === 'fuzzy' && !allowFuzzy) continue;
     if (!tier) continue;
     const better =
       !best ||
@@ -143,22 +161,32 @@ function bestMatch(entry, q, qWords) {
  *   exact      whole name === query
  *   prefix     name starts with query
  *   wordPrefix every query word is a prefix of some word of the name (any order)
- *   substring  name contains query
- *   fuzzy      every query word of >= 4 chars is within Damerau-Levenshtein (OSA: insert, delete,
- *              substitute, adjacent swap) distance 1 of some word of the name, or of that word's
- *              prefix of the same length; shorter query words must word-prefix
+ *   substring  name contains query (a query of 4+ chars: "naan" -> "nan" is not banana)
+ *   fuzzy      every query word of >= 4 chars has the same first letter as some word of the name
+ *              and is within Damerau-Levenshtein (OSA: insert, delete, substitute, adjacent swap)
+ *              distance 1 of that word, or (query word of >= 5 chars) of that word's prefix of the
+ *              same length; shorter query words must word-prefix
  *              (karhai -> karahi, dhal -> dal, anday -> anda, samosay -> samosa).
+ *              Fuzzy only fills in: it is used only when the other tiers match fewer than 3 foods
+ *              (Review 1: "kela" no longer brings kebab and corn flakes).
  * score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1). Sort: score desc, then shorter
- * `matched`, then name (en). Blank query -> no hits. `matched` = the original (unnormalized) string.
+ * `matched`, then style (everyday or home first, then restaurant, dhaba, street: Review 1, home
+ * chai before dhaba chai), then foods whose id is in `hints` (the slot's meal hints) first, then
+ * name (en). Blank query -> no hits. `matched` = the original (unnormalized) string.
  * Halal filter (meeting 002): with halalOnly (default true), foods whose halal.status is
  * 'not-halal' are moved from `hits` to `hidden` (same order), so the UI can say
  * "1 hidden: not halal" and show the reason. 'check' foods stay in hits. `limit` applies to hits.
  * @param {object} index @param {string} query
- * @param {{ limit?: number, boosts?: Record<string, number>, halalOnly?: boolean }} [options]
+ * @param {{ limit?: number, boosts?: Record<string, number>, halalOnly?: boolean,
+ *   hints?: Iterable<string> }} [options]
  * @returns {{ hits: SearchHit[], hidden: SearchHit[] }}
  *   SearchHit = { food: Food, score: number, tier: keyof TIERS, matched: string }
  */
-export function searchFoods(index, query, { limit = 20, boosts = {}, halalOnly = true } = {}) {
+export function searchFoods(
+  index,
+  query,
+  { limit = 20, boosts = {}, halalOnly = true, hints = [] } = {},
+) {
   if (!Array.isArray(index?.entries)) throw new TypeError('index must come from buildSearchIndex');
   if (!(limit === Infinity || (Number.isInteger(limit) && limit >= 0))) {
     throw new RangeError(`limit must be an integer >= 0, got ${limit}`);
@@ -167,20 +195,30 @@ export function searchFoods(index, query, { limit = 20, boosts = {}, halalOnly =
   if (q === '') return { hits: [], hidden: [] };
   const qWords = q.split(' ');
 
-  const matches = [];
-  for (const entry of index.entries) {
-    const best = bestMatch(entry, q, qWords);
-    if (!best) continue;
-    const boost = clamp01(boosts?.[entry.food.id] ?? 0);
-    matches.push({
-      hit: { food: entry.food, score: TIERS[best.tier] + BOOST_WEIGHT * boost, ...best },
-      sortName: entry.sortName,
-    });
-  }
+  const hinted = new Set(hints ?? []);
+  const collect = (allowFuzzy) => {
+    const out = [];
+    for (const entry of index.entries) {
+      const best = bestMatch(entry, q, qWords, allowFuzzy);
+      if (!best) continue;
+      const boost = clamp01(boosts?.[entry.food.id] ?? 0);
+      out.push({
+        hit: { food: entry.food, score: TIERS[best.tier] + BOOST_WEIGHT * boost, ...best },
+        sortName: entry.sortName,
+        style: styleRank(entry.food),
+        hint: hinted.has(entry.food.id) ? 0 : 1,
+      });
+    }
+    return out;
+  };
+  let matches = collect(false);
+  if (matches.length < FUZZY_FILL_BELOW) matches = collect(true);
   matches.sort(
     (a, b) =>
       b.hit.score - a.hit.score ||
       a.hit.matched.length - b.hit.matched.length ||
+      a.style - b.style ||
+      a.hint - b.hint ||
       COLLATOR.compare(a.sortName, b.sortName) ||
       COLLATOR.compare(String(a.hit.food.id), String(b.hit.food.id)),
   );

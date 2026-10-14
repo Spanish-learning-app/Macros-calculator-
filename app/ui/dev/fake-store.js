@@ -352,6 +352,7 @@ export function createFakeStore({
 
     today,
     defaultSlot: () => slotForTime(minutes()),
+    clockDate: () => localISO(now()),
     settings,
     slots: () => SLOT_IDS.map((id) => ({ id, label: slotLabel(id) })),
     slotLabel,

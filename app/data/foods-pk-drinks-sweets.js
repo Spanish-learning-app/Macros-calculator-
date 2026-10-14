@@ -473,8 +473,14 @@ export default [
     per100g: { kcal: 357, protein: 3.2, carbs: 42.7, fat: 19, fiber: 1.1, satFat: 10.9, sodium: 1 },
     addedFatPer100g: 18.1,
     servings: [
-      { id: 'katori-small', label: '1 small katori (155 ml)', labelUr: 'چھوٹی کٹوری', grams: 171 },
-      { id: 'katori', label: '1 katori (medium, 200 ml)', labelUr: 'کٹوری', grams: 220, default: true },
+      {
+        id: 'katori-small',
+        label: '1 small katori (155 ml)',
+        labelUr: 'چھوٹی کٹوری',
+        grams: 171,
+        default: true,
+      },
+      { id: 'katori', label: '1 katori (medium, 200 ml)', labelUr: 'کٹوری', grams: 220 },
       { id: 'tbsp', label: '1 tablespoon (chamach)', labelUr: 'بڑا چمچ', grams: 16.5 },
     ],
     tags: ['pakistani', 'vegetarian'],

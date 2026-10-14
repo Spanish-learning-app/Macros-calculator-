@@ -37,6 +37,34 @@ export function fmtQty(qty) {
   return formatQty(qty);
 }
 
+/** One plain line that explains "Estimate" wherever targets show it (Meeting 003 item 6). */
+export const ESTIMATE_LINE = 'Estimate means a good guess from your answers. You can change it.';
+
+/**
+ * Targets that are a minimum to reach, not a limit: going above them is good news, never "over"
+ * (Meeting 003 item 6: protein never reads as if it were bad).
+ */
+export const AT_LEAST_KEYS = Object.freeze(['protein', 'fiber']);
+
+/**
+ * The note for a capped weight-change pace, without blame (Meeting 003 item 6), or null.
+ * @param {string} code 'deficit_capped' | 'surplus_capped' | other
+ * @param {{ effectiveRateKgPerWeek?: number|null }|null} result TargetResult
+ * @returns {string|null}
+ */
+export function paceNote(code, result) {
+  const rate = Math.abs(Number(result?.effectiveRateKgPerWeek));
+  if (!Number.isFinite(rate) || rate === 0) return null;
+  const kg = String(Math.max(0.1, round(rate, 1)));
+  if (code === 'deficit_capped') {
+    return `Your target keeps weight loss to a safe pace of about ${kg} kg a week.`;
+  }
+  if (code === 'surplus_capped') {
+    return `Your target keeps weight gain to a steady pace of about ${kg} kg a week.`;
+  }
+  return null;
+}
+
 /**
  * Remaining against a target as plain words, never as an error.
  * @param {number|null} remaining target − eaten (unrounded); null = no target

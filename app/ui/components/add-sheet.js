@@ -7,10 +7,11 @@
 // - "Halal only" toggle (settings.halalOnly); when the filter hides matches, one line names them
 //   with the reason and offers "Show hidden" (meeting 002, A19 step 5).
 // - The sheet stays open for the next food. Quick add: name and kcal, macros optional.
-import { h, uid, setText } from '../dom.js';
+import { h, uid, setText, mountChildren } from '../dom.js';
 import { iconEl } from './icons.js';
 import { halalChip, estimateBadge, styleLabel, urduName } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
+import { normalize } from '../../core/search.js';
 import {
   fmtKcal,
   fmtGrams,
@@ -18,10 +19,36 @@ import {
   servingOf,
   portionNutrients,
   fmtDateShort,
+  fmtMinutes,
   relativeDay,
 } from './format.js';
 
 const SUGGESTIONS = ['chai', 'roti', 'anda', 'daal', 'café con leche', 'croissant'];
+
+/** Words people type for a taste or leftovers (Meeting 003 item 4); they show TASTE_HELP. */
+const TASTE_WORDS = [
+  'taste',
+  'tasting',
+  'thora sa',
+  'thoda sa',
+  'thori si',
+  'bacha hua',
+  'bachi hui',
+  'bacha',
+  'leftover',
+  'leftovers',
+  'chakhna',
+].map(normalize);
+export const TASTE_HELP =
+  'A taste or leftovers? Search the food itself (for example daal), open it and tap “Thora sa” ' +
+  'for a taste (¼ of a serving), or ½ for a small leftover bowl.';
+
+/** True when the query asks how to log a taste or leftovers ("taste", "thora sa", "bacha hua"…). */
+export function isTasteQuery(query) {
+  const q = normalize(String(query ?? ''));
+  if (q.length < 4) return false;
+  return TASTE_WORDS.some((w) => w.startsWith(q) || q.startsWith(w));
+}
 
 /** "1 cup (200 ml) · 148 kcal" for qty 1, else "2 medium roti (80 g) · 216 kcal". */
 export function plusPortionText(food, servingId, qty) {
@@ -32,6 +59,23 @@ export function plusPortionText(food, servingId, qty) {
       ? serving.label
       : `${portionText(serving, qty)}${serving?.id === 'g' ? '' : ` (${fmtGrams(n.grams)} g)`}`;
   return `${what} · ${fmtKcal(n.kcal)} kcal`;
+}
+
+/**
+ * The sheet header line: which day the food counts for (Review 1). After midnight and before the
+ * day start, food still counts for the evening before, and the line says so.
+ * @returns {string} e.g. "Counts for Today, Wed 14 Oct" or
+ *   "Counts for Wed 14 Oct: your day runs until 04:00"
+ */
+export function countsForText(date, store) {
+  const today = store.today();
+  const rel = relativeDay(date, today);
+  const day = rel ? `${rel}, ${fmtDateShort(date)}` : fmtDateShort(date);
+  if (date === today && store.clockDate?.() && store.clockDate() !== today) {
+    const until = fmtMinutes(store.settings().dayStartMinutes ?? 240);
+    return `Counts for ${fmtDateShort(date)}: your day runs until ${until}`;
+  }
+  return `Counts for ${day}`;
 }
 
 /**
@@ -302,16 +346,20 @@ export function createAddSheet(props) {
     const hits = found.hits.map((hit) => hit.food);
     const hidden = found.hidden.map((hit) => hit.food);
     const shown = revealHidden ? [...hits, ...hidden] : hits;
+    const help = isTasteQuery(q)
+      ? h('p', { class: 'help-row', 'data-testid': 'taste-help', role: 'note' }, TASTE_HELP)
+      : null;
     const list = h(
       'section',
       { class: 'result-group', 'data-testid': 'results', 'aria-label': 'Search results' },
+      help,
       shown.length
         ? h(
             'ul',
             { class: 'food-list', role: 'list' },
             shown.map((food) => foodRow(food, store.portionFor(food.id))),
           )
-        : hidden.length
+        : hidden.length || help
           ? null
           : h(
               'p',
@@ -319,7 +367,8 @@ export function createAddSheet(props) {
               `Nothing found for “${q}”. Try another spelling, or use Quick add below.`,
             ),
     );
-    results.replaceChildren(list, hidden.length ? hiddenNote(hidden) : null);
+    // mountChildren drops null; replaceChildren(list, null) printed the text "null" (Review 1).
+    mountChildren(results, list, hidden.length ? hiddenNote(hidden) : null);
     quick.setName(q);
   }
 
@@ -506,8 +555,7 @@ export function createAddSheet(props) {
   function renderHead() {
     const label = store.slotLabel(slot);
     setText(title, `Add to ${label}`);
-    const rel = relativeDay(date, store.today());
-    setText(when, rel ? `${rel}, ${fmtDateShort(date)}` : fmtDateShort(date));
+    setText(when, countsForText(date, store));
     slotSelect.replaceChildren(
       ...store.slots().map((s) => h('option', { value: s.id, selected: s.id === slot }, s.label)),
     );

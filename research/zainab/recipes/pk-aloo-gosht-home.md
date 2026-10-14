@@ -63,7 +63,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 126 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 19-549 "Curry, beef, homemade": 209 kcal, P 17.7, C 0.8, F 15.4, fibre 0.1 per 100 g → our value is -40% kcal. **Over 25%: see note.** Homemade beef curry.
+- CoFID 2021 19-549 "Curry, beef, homemade": 209 kcal, P 17.7, C 0.8, F 15.4, fibre 0.1 per 100 g → our value is -40% kcal. **Over 25%: see note.** Homemade beef curry. Why: a meat-only beef curry (P 17.7, F 15.4 g) with no potato; aloo gosht is half potato. FNDDS beef curry is +12%. Explained (Ayesha, 2026-10-14).
 - USDA FDC FNDDS 2706388 "Beef curry": 113 kcal, P 7.57, C 5.1, F 6.57, fibre 1.4 per 100 g → our value is +12% kcal.
 
 ## Assumptions and confidence

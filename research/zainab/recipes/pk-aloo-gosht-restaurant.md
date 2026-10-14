@@ -64,7 +64,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 156 (NUTRITION.md §6 step 7). Sum of th
 ## Cross-check
 
 - CoFID 2021 19-549 "Curry, beef, homemade": 209 kcal, P 17.7, C 0.8, F 15.4, fibre 0.1 per 100 g → our value is -25% kcal. Homemade beef curry.
-- USDA FDC FNDDS 2706388 "Beef curry": 113 kcal, P 7.57, C 5.1, F 6.57, fibre 1.4 per 100 g → our value is +38% kcal. **Over 25%: see note.**
+- USDA FDC FNDDS 2706388 "Beef curry": 113 kcal, P 7.57, C 5.1, F 6.57, fibre 1.4 per 100 g → our value is +38% kcal. **Over 25%: see note.** Why: a low-oil US beef curry; restaurant oil explains the gap (added fat 9.2%). Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

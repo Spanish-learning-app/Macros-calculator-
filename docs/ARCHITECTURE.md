@@ -304,7 +304,7 @@ K applies prefs `{ proteinGPerKg: 2.2, fatPct: 25 }`.
 | `TIERS`, `BOOST_WEIGHT = 19` | `{ exact 100, prefix 80, wordPrefix 60, substring 40, fuzzy 20 }`; a boost never crosses a tier |
 | `normalize(text)` | lowercase; NFKD with combining marks stripped, so accents fold (`ensaïmada`, `pa amb tomàquet`, `café con leche`, `ñ`, `ç`); the Catalan middle dot `·` deleted (`col·liflor` → `colliflor`); Arabic harakat stripped; ي→ی, ك→ک, ة→ہ; other punctuation becomes a space; Latin `aa→a`, `ee→i`, `oo→u`; whitespace collapsed and trimmed |
 | `buildSearchIndex(foods)` | indexes `name`, `nameRoman`, `nameUr` and `aliases` |
-| `searchFoods(index, query, { limit = 20, boosts = {}, halalOnly = true } = {})` | returns `{ hits, hidden }`. Best tier per food. Fuzzy is Damerau-Levenshtein (OSA) distance ≤ 1 per query word of 4 or more characters. `score = tier + 19 × clamp(boost)`. Sort by score, then shorter `matched`, then name. With `halalOnly`, `not-halal` matches go to `hidden` (the UI says "1 hidden: not halal" and shows the reason); `check` stays in `hits`. A blank query gives no hits. |
+| `searchFoods(index, query, { limit = 20, boosts = {}, halalOnly = true, hints = [] } = {})` | returns `{ hits, hidden }`. Best tier per food. Substring needs a query of 4+ characters. Fuzzy (Review 1, meeting 003 item 8) only fills in when the other tiers match fewer than 3 foods; each query word of 4+ characters must share its first letter with a name word and be within Damerau-Levenshtein (OSA) distance 1 of it, or, from 5 characters, of its same-length prefix. `score = tier + 19 × clamp(boost)`. Sort by score, then shorter `matched`, then style (no style or `home` first, then `restaurant`, `dhaba`, `street`; item 2), then ids in `hints` first (the slot's meal hints), then name. With `halalOnly`, `not-halal` matches go to `hidden` (the UI says "1 hidden: not halal" and shows the reason); `check` stays in `hits`. A blank query gives no hits. |
 | `recordUse(recents, { foodId, servingId, qty, slot, date })` | adds 1 to `count` and to `slots[slot]`; sets `lastUsed`; remembers the last serving and qty (the one-tap "+") |
 | `recencyBoosts(recents, today)` | `0.5·min(1, count/10) + 0.5·max(0, 1 − daysSince/30)` |
 | `recentForSlot(recents, slot, { limit = 12 } = {})` | **every** recent food; ones used in `slot` first (A6) |
@@ -408,6 +408,7 @@ store.flush()                                           // save now (main.js: pa
 // selectors (cheap; derived data is memoized)
 store.today() → 'YYYY-MM-DD'               // logical day: todayISO(now(), settings.dayStartMinutes)
 store.defaultSlot() → SlotId               // slotForTime(minutesOfDay(now()), rules, preset)
+store.clockDate() → 'YYYY-MM-DD'           // the wall-clock date: after midnight it differs from today()
 store.settings() → Settings                // with fallbacks filled in
 store.slots() → [{ id, label }]            // the five slots in order, with display labels
 store.slotLabel(slot) → string             // settings.slotLabels[slot] ?? the preset's label
@@ -424,7 +425,8 @@ store.left(date) → progress(eaten.total, targets)  // "left" = eaten only (A7,
 store.week(date) → { dates, rows, average }
 store.food(id) → Food | undefined          store.variants(foodId) → Food[]
 store.portionFor(foodId) → { servingId, qty }   // last-used portion, else default serving × 1
-store.search(query, { slot, limit }) → { hits, hidden }   // recency + slot-hint boosts; halalOnly
+store.search(query, { slot, limit }) → { hits, hidden }   // recency boosts; slot hints as `hints`
+      // (a tie-break after style, so a hint never puts dhaba chai above home chai); halalOnly
 store.recents(slot, { limit }) → { food, servingId, qty }[]  // never a 'not-halal' food
 store.exportText() → string                store.previewImport(text) → parseImport result
 

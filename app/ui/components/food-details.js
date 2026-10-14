@@ -2,8 +2,48 @@
 // per-100 g values, portions and the halal reason. An overlay, not a route. Owner: Priya.
 import { h } from '../dom.js';
 import { openDialog } from './dialog.js';
-import { fmtKcal, fmtGrams, servingNote } from './format.js';
+import { fmtKcal, fmtGrams, servingNote, fmtDateLong } from './format.js';
 import { estimateBadge, urduName } from './food-bits.js';
+
+// Internal pointers that mean nothing to a customer (Review 1 item 9): file paths, doc sections,
+// recipe and record ids, and the Lab's working figures (yield, added fat, cross-check deltas).
+const PATH_IN_BRACKETS = /\s*\([^()]*(?:\/|\.md\b|RULES\.)[^()]*\)/g;
+const INTERNAL_SENTENCE =
+  /\.md\b|§|research\/|\bR-[A-Za-z0-9-]+|\b(?:pk|es|med|intl|my)-[a-z0-9]+-[a-z0-9-]+|\balways [ABC]\b|cooked yield|added fat [\d.]+ ?g\/100 ?g|cross-check/i;
+const RECIPE_CITATION = /^Recipe R-[A-Za-z0-9-]+(?::\s*(.+))?$/;
+
+/**
+ * The human citation for the Source panel: no file paths, doc sections or recipe ids.
+ * "Recipe R-pk-roti (research/…/pk-roti.md)" → "Standard recipe, calculated from food tables";
+ * "Recipe R-MP-1: Chicken tikka rice bowl…, batch of 4 boxes (research/…)" → "Recipe: Chicken…".
+ * @param {string} citation @returns {string}
+ */
+export function displayCitation(citation) {
+  const text = String(citation ?? '')
+    .replace(PATH_IN_BRACKETS, '')
+    .trim();
+  if (!text) return 'Not given';
+  const recipe = text.match(RECIPE_CITATION);
+  if (recipe) {
+    return recipe[1]
+      ? `Recipe: ${recipe[1]}`
+      : 'Standard recipe, calculated from food-table values for its ingredients';
+  }
+  return text;
+}
+
+/**
+ * The customer-facing part of the Lab's source notes: sentences with internal pointers or working
+ * figures are left out. @param {string} notes @returns {string} '' when nothing is left
+ */
+export function displayNotes(notes) {
+  return String(notes ?? '')
+    .replace(PATH_IN_BRACKETS, '')
+    .split(/(?<=[.!?])\s+(?=[A-Z"“])/)
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence && !INTERNAL_SENTENCE.test(sentence))
+    .join(' ');
+}
 
 function row(term, ...value) {
   return [h('dt', null, term), h('dd', null, ...value)];
@@ -20,6 +60,7 @@ export function openFoodDetails({ food, rules, onClose = null }) {
   const halalMeta = vocab.halalStatuses?.find((s) => s.id === food.halal?.status);
   const per = food.per100g ?? {};
   const style = vocab.styles?.find((s) => s.id === food.style);
+  const notes = displayNotes(src.notes);
 
   const nutrientRows = [
     ['Energy', `${fmtKcal(per.kcal)} kcal`],
@@ -53,21 +94,19 @@ export function openFoodDetails({ food, rules, onClose = null }) {
     h(
       'dl',
       { class: 'details-dl' },
-      row('Citation', h('span', { class: 'details-citation' }, src.citation ?? 'Not given')),
+      row('Citation', h('span', { class: 'details-citation' }, displayCitation(src.citation))),
       method ? row('Method', method.label) : null,
       grade
         ? row(
             'Confidence',
-            h('span', null, `${grade.id}: ${grade.label}`),
+            h('span', null, `${grade.label} (${grade.id})`),
             ' ',
             estimateBadge(food, rules),
             h('span', { class: 'details-sub' }, grade.description),
           )
         : null,
-      src.reviewer || src.date
-        ? row('Checked', [src.reviewer, src.date].filter(Boolean).join(', '))
-        : null,
-      src.notes ? row('Notes', src.notes) : null,
+      src.date ? row('Checked', fmtDateLong(src.date)) : null,
+      notes ? row('Notes', notes) : null,
     ),
 
     h('h3', { class: 'details-h' }, 'Halal'),

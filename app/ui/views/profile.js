@@ -6,7 +6,7 @@
 import { h, mountChildren, uid } from '../dom.js';
 import { createProfileForm } from '../components/profile-form.js';
 import { createUndoToast } from '../components/toast.js';
-import { fmtKcal, fmtGrams, fmtMinutes } from '../components/format.js';
+import { fmtKcal, fmtGrams, fmtMinutes, ESTIMATE_LINE } from '../components/format.js';
 import { targetNotes } from './welcome.js';
 
 const PRESET_NAMES = { default: 'Pakistani meal times', spain: 'Spanish meal times' };
@@ -141,7 +141,7 @@ export function mount(container, ctx) {
           ? h('span', { class: 'chip-kind', 'data-testid': 'target-kind' }, info.chip)
           : null,
         ' ',
-        h('span', null, info.kind === 'reference' ? info.label : 'An estimate, you can change it.'),
+        h('span', null, info.kind === 'reference' ? info.label : ESTIMATE_LINE),
       ),
       info.kind === 'none'
         ? h('p', { class: 'field-help' }, rules.warnings?.no_targets ?? '')

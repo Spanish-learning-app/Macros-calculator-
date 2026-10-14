@@ -57,7 +57,8 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 143 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 15-132 "Curry, mung bean dahl and tomato, homemade": 95 kcal, P 5.6, C 10.3, F 3.6, fibre 2.6 per 100 g → our value is +51% kcal. **Over 25%: see note.** Punjabi mung dahl and tomato (UK dietary-survey records).
+- USDA FDC FNDDS 2707427 "Dal": 145 kcal, P 8.6, C 11.7, F 4.31, fibre 7.5 per 100 g → our value is -1% kcal. US dal (1 cup = 240 g).
+- CoFID 2021 15-132 "Curry, mung bean dahl and tomato, homemade": 95 kcal, P 5.6, C 10.3, F 3.6, fibre 2.6 per 100 g → our value is +51% kcal. **Over 25%: see note.** Punjabi mung dahl and tomato (UK dietary-survey records). Why: this UK survey dal is thinner (74.8% water vs 68.7%) and leaner (F 3.6 vs 6.1 g); against FNDDS 2707427 Dal our value is within 1%. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

@@ -62,7 +62,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 245 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 19-595 "Curry, lamb rogan josh, homemade": 149 kcal, P 14.4, C 3.1, F 9.1, fibre 1.8 per 100 g → our value is +64% kcal. **Over 25%: see note.** Homemade lamb rogan josh.
+- CoFID 2021 19-595 "Curry, lamb rogan josh, homemade": 149 kcal, P 14.4, C 3.1, F 9.1, fibre 1.8 per 100 g → our value is +64% kcal. **Over 25%: see note.** Homemade lamb rogan josh. Why: a homemade rogan josh with home-level oil; the gap is the restaurant oil (added fat 17.1%, inside §6 12–20%). Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

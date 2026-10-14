@@ -4,14 +4,25 @@
 // flag notes all come from RULES (never hard-coded nutrition text). Targets are labelled as
 // estimates; after Skip the Lab's reference values carry the "Reference" chip (NUTRITION §2.1a).
 import { h, mountChildren } from '../dom.js';
-import { fmtKcal, fmtGrams } from '../components/format.js';
+import { fmtKcal, fmtGrams, paceNote, ESTIMATE_LINE } from '../components/format.js';
 import { createProfileForm } from '../components/profile-form.js';
 
-/** Texts for the warning codes and flag ids of a TargetResult (RULES.warnings and flag notes). */
+/**
+ * Texts for the warning codes and flag ids of a TargetResult (RULES.warnings and flag notes).
+ * 'estimate' is said once next to the chip (ESTIMATE_LINE), and a capped pace is told as the pace
+ * the target keeps, with its number (Meeting 003 item 6).
+ */
 export function targetNotes(result, rules) {
   const flags = [...(rules.healthFlags ?? []), ...(rules.derivedFlags ?? [])];
   return (result?.warnings ?? [])
-    .map((code) => rules.warnings?.[code] ?? flags.find((f) => f.id === code)?.note ?? null)
+    .filter((code) => code !== 'estimate')
+    .map(
+      (code) =>
+        paceNote(code, result) ??
+        rules.warnings?.[code] ??
+        flags.find((f) => f.id === code)?.note ??
+        null,
+    )
     .filter(Boolean);
 }
 
@@ -134,7 +145,7 @@ export function mount(container, ctx) {
                 ? h('span', { class: 'chip-kind', 'data-testid': 'target-kind' }, info.chip)
                 : null,
               ' ',
-              h('span', null, 'An estimate, you can change it.'),
+              h('span', null, ESTIMATE_LINE),
             ),
             h(
               'dl',

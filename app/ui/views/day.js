@@ -109,10 +109,18 @@ export function mount(container, ctx) {
     h(
       'div',
       { class: 'day-layout' },
-      h('div', { class: 'day-side' }, totals.el, totals.panel, tools),
+      // The add button sits in a docked bar (phones) or the side column (wide screens), never
+      // floating over slot buttons, menus or entry text (Meeting 003 item 7).
+      h(
+        'div',
+        { class: 'day-side' },
+        totals.el,
+        totals.panel,
+        tools,
+        h('div', { class: 'fab-bar' }, fab),
+      ),
       slotsBox,
     ),
-    fab,
     toast.el,
   );
   mountChildren(container, root);

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Nutrition Lab self-check: applies every data gate in docs/NUTRITION.md §8 (G1-G22) to food records.
+// Nutrition Lab self-check: applies every data gate in docs/NUTRITION.md §8 (G1-G23) to food records.
 // Researchers run it before every hand-off. Owner: Dr. Ayesha Siddiqui (Nutrition Lab).
 //
 //   node research/check-foods.mjs                       # all app/data/foods-*.js
@@ -294,6 +294,22 @@ function checkRecord(f, ctx) {
     else if (def && nutrientsOk && isNum(def.grams)) {
       const kcal = (def.grams * p.kcal) / 100;
       if (kcal < band.min || kcal > band.max) F('G22', `1 ${def.id} = ${fmt(kcal, 0)} kcal, outside ${band.min}-${band.max} for a ${slot} prep`);
+    }
+  }
+
+  // G23 assumed plates (rules v1.6, Meeting 003): a 'plate' / 'half-plate' serving has no published weight,
+  // so its label must say it is assumed, and it must be stated in katoris (a multiple of the katori serving).
+  if (SR.assumedPlate && Array.isArray(f.servings)) {
+    const ap = SR.assumedPlate;
+    const katori = f.servings.find((s) => s && s.id === 'katori');
+    for (const s of f.servings) {
+      if (!s || !ap.ids.includes(s.id)) continue;
+      if (!isStr(s.label) || !s.label.toLowerCase().includes(ap.labelMustInclude)) F('G23', `serving "${s.id}" has no published weight: its label must say "${ap.labelMustInclude}" (e.g. "1 plate (home), assumed 2 katori")`);
+      if (katori && isNum(katori.grams) && isNum(s.grams)) {
+        const n = s.grams / katori.grams;
+        const near = Math.round(n / ap.katoriMultipleStep) * ap.katoriMultipleStep;
+        if (near === 0 || Math.abs(n - near) / near > ap.tolerancePct / 100) F('G23', `serving "${s.id}" = ${fmt(n, 2)} katori; state the plate as a multiple of ${ap.katoriMultipleStep} katori`);
+      }
     }
   }
 

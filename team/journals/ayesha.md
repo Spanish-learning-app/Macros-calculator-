@@ -67,6 +67,28 @@
   - Result: 39 PASS, 3 FIX (paella halal → check; lentejas halal reason; falafel re-source, since CoFID 183 kcal at 60% water under-counts shop falafel), 0 reject. All 15 sampled values match their sources exactly.
   - Cross-cutting requests: an "assumes halal meat" reason on 7 meat records; Spanish full-fat yogur griego.
   Next: Zainab's 67.
-- 2026-10-14 (fix wave) — RESUMED for the Meeting 003 fix wave. Omar gave me edit authority over all Lab files (app/data/**, research/**, NUTRITION.md, MEALPREP.md) for this wave; changes to scripted food files go into the build-script inputs and get rebuilt. Lena handles app code in parallel; I don't touch app/core, app/ui or tests.
+- 2026-10-14 09:37 UTC — RESUMED for the Meeting 003 fix wave. Omar gave me edit authority over all Lab files (app/data/**, research/**, NUTRITION.md, MEALPREP.md) for this wave; changes to scripted food files go into the build-script inputs and get rebuilt. Lena handles app code in parallel; I don't touch app/core, app/ui or tests.
   Items: (1) skyr, Greek yogurt and a rice plate serving; (2) recheck roghni naan, desi omelette and home daal; (3) the ¼ "thora sa" chip rule; (4) Spanish slot labels; (5) Sprint 1 review → research/review/sprint1.md.
-- 2026-10-14 (fix wave) — ITEM 4 DONE: rules.js v1.6.0: mealSlots.spain labels are now Breakfast / café, Lunch, Merienda, Dinner, Snacks (labelUr ناشتہ / کافی and میرینڈا (شام کا ناشتہ)). Ids, hours and shares are unchanged.
+- 2026-10-14 09:37 UTC — ITEM 4 DONE: rules.js v1.6.0: mealSlots.spain labels are now Breakfast / café, Lunch, Merienda, Dinner, Snacks (labelUr ناشتہ / کافی and میرینڈا (شام کا ناشتہ)). Ids, hours and shares are unchanged.
+- 2026-10-14 09:40 UTC — BUILD SETUP. All three researcher builds (javier, zainab, yusuf) reproduce the committed files byte for byte, so I edit their inputs and rebuild. New review ledger research/review/reviewed.mjs (REVIEWS map + stampReview()); all three builds call it, so a passed record gets reviewer 'ayesha' and survives rebuilds.
+- 2026-10-14 09:43 UTC — ITEM 2 RECHECKS (against the sources):
+  - Roghni vs plain naan: per 100 g both are right (roghni 326 > naan 291, more oil). The **plain naan serving was wrong**: it used the notified 120 g as the baked weight. The notified weight is the dough ball: Karachi's notification fixes "a tandoori naan prepared from 120 grams of paira" (ARY News, 14 Jan 2020). Roghni already used dough × yield. Fix: naan = 120 g × 0.818 = 98 g = 285 kcal (was 120 g = 349). Roghni 89 g = 290, so roghni is now the heavier one.
+  - Same rule for the tandoori roti (notified 100 g; Karachi "made from 110 grams paira"): 100 × yield = 83 g = 203 kcal (was 100 g = 244).
+  - Desi omelette: matches its sources. kfoods Lahori omelette is 1½ tbsp oil per 3 eggs, and the other two references are richer (TfT 2 tbsp oil + 2 tbsp butter; Food Fusion 60 g butter). Per 100 g it is 15% under FNDDS 2707200. The per-egg serving (90 g, 147 kcal) is heavier than a fried egg because it carries ~40 g onion/tomato and ~7 g oil. No number change. I made the state say "about 1½ tsp oil per egg".
+  - Home daal: masoor (126/100 g, 252/katori) is −11% vs CoFID 15-762 and −13% vs FNDDS Dal, so it passes. Chana (169) is +11% vs CoFID 15-641 and +2% vs FNDDS 2707424 lentils with fat, so it passes. **Mash was wrong at the katori level.** Per 100 g it is fine (168 vs FNDDS 2707424, 166), but it was filled into the katori at 1.00 g/ml like liquid daal. Dry bhuna mash has no free liquid, so it packs like FNDDS 2707424 (1 cup = 185 g, 0.78 g/ml). Katori 200 → 156 g: 336 → 262 kcal. Added the FNDDS cross-checks to mash and chana.
+  - Inputs edited: research/zainab/records/breads-rice.mjs (naan, tandoori roti), records/home.mjs (mash, chana, omelette state), records/common.mjs (D.dryDaal 0.78).
+- 2026-10-14 09:46 UTC — ITEM 1 FOODS:
+  - intl-skyr: Arla Skyr 0% natural spec sheet (EAN 5000181039580): 63 kcal, P 10.6, C 4.0, F 0.2. Label method, B. Pot 150 g (Arla 150 g pot); aliases include skyr and yogur proteico.
+  - intl-greek-yogurt-whole: USDA Foundation 2259794 (95 kcal, P 8.8, F 4.4). Pots 150 and 170 g (FNDDS 2705422).
+  - es-yogur-griego: BEDCA 2520 (138 kcal, F 10.2, P 6.4). Spanish griego is cream-enriched, not strained. Pot 125 g (UCM yogur).
+  - intl-greek-yogurt is now "nonfat (0%)". Its pot label is fixed, and the wrong 'dahi' alias is removed.
+  - Plain rice: plate = "1 plate (home), assumed 2 katori" 268 g, plus ½ plate 134 g. These are the same assumption as the daal chawal plate, whose labels now also say "assumed".
+  - Released pk-aloo-paratha (its hold was stale: bread-fried min has been 200 since rules v1.5).
+  - In Javier's build I also did my javier-sprint1 fixes 1, 2 and 4: paella → check with reason; lentejas halal reason (chorizo note); "Assumes halal meat" reason on 7 meat records. Falafel needs a Spanish label, and OFF search is down today (HTML error page), so it goes to Sprint 2.
+  - Gate: 184/184 pass.
+- 2026-10-14 09:48 UTC — ITEM 3 and RULES (rules.js v1.6.0, NUTRITION.md v1.6):
+  - **Taste chip ruling (§5.6, RULES.portionChips.taste).** "Thora sa (a taste)" = qty 0.25 of the default serving, stored as a quantity, never as a serving. It is acceptable on most foods. Hide it when: the group is fat-oil, sugar-sweetener or condiment; the default serving is tsp or tbsp; or ¼ of the default is under 5 g (one biscuit, one date). searchWords are listed for Lena's help entry.
+  - **Assumed plate** (§5.5, vocab.servingRules.assumedPlate, new gate **G23** in check-foods). Ids plate and half-plate; the label must contain "assumed"; grams are a multiple of ½ katori. Tested on a bad scratch record: both failures are caught.
+  - §5.2 now says notified naan and roti weights are dough weights. §5.3 adds the dry-daal density 0.78. §4.5 has the Spain labels.
+  - Kenji's tests/data/_gate.js does not know G23 yet (I don't edit tests). Flag it to Omar.
+  - npm test: 410 tests, 0 failures in all three time zones. Gate: 184/184.

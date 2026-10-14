@@ -1,7 +1,8 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 1, version 1.5 (2026-10-14).
+**Status:** Sprint 1, version 1.6 (2026-10-14).
+- Version 1.6 (Meeting 003 fix wave): the Spanish slot labels; the "thora sa" taste chip rule (§5.6); assumed plate servings and gate G23 (§5.5); notified naan and roti weights are dough weights (§5.2); dry daal density (§5.3).
 - Version 1.5: the carbs-below-zero ruling; `bread-fried` minimum lowered to 200; `drink-milk` minimum lowered to 25.
 - Version 1.4: meal prep for any meal (the `lunchbox` group, extra storage rows).
 - Version 1.3 added the serving rules (household measures and whole-dish servings) and widens `bread-fried` to 480. Version 1.2 added skip defaults (§2.1a). Version 1.1 added the Meeting 002 changes: the halal field, seafood tags, not-halal
@@ -541,13 +542,14 @@ Restaurant, dhaba and street variants are always C.
 | `dinner` | Dinner | 30% | 18:30–24:00 |
 | `snacks` | Snacks | 5% | 00:00–04:00 |
 
-**Spain slots** (`RULES.mealSlots.spain`, Meeting 002). Same ids, Spanish clock:
+**Spain slots** (`RULES.mealSlots.spain`, Meeting 002; labels from Meeting 003). Same ids, Spanish clock and
+Spanish meal names (Urdu labels: ناشتہ / کافی, دوپہر کا کھانا, میرینڈا (شام کا ناشتہ), رات کا کھانا, اسنیکس):
 
 | id | Label | Share | Auto-pick hours |
 |---|---|---|---|
-| `breakfast` | Nashta | 20% | 05:00–12:30 (includes the mid-morning café) |
+| `breakfast` | Breakfast / café | 20% | 05:00–12:30 (includes the mid-morning café) |
 | `lunch` | Lunch | 35% | 12:30–16:30 (lunch box) |
-| `evening` | Shaam ki chai | 10% | 16:30–20:00 (merienda) |
+| `evening` | Merienda | 10% | 16:30–20:00 |
 | `dinner` | Dinner | 30% | 20:00–01:00 |
 | `snacks` | Snacks | 5% | 01:00–05:00 |
 
@@ -622,7 +624,8 @@ Add the Urdu word **and** the English word. Spanish foods also get their Spanish
 
 Every serving needs grams from a **published source**. Our Customer Panel members are personas and
 never supply measurements. Cite the serving source in `source.notes` when it differs from the
-nutrient source.
+nutrient source. The one exception is the **assumed plate** (§5.5): a Lab assumption stated in
+katoris and labelled "assumed".
 
 ### 5.1 Standard household measures (`RULES.householdMeasures`)
 
@@ -646,7 +649,8 @@ grains, rice dishes, raita and dips, and soups.
   for the dish.
 - The default is `katori`.
 - `tbsp` (label "1 tablespoon (chamach)") covers the "taste while cooking" case. Together with the
-  UI's ¼ and ½ buttons, it covers "thora sa". We do **not** define a separate named "taste" serving.
+  UI's "Thora sa" (¼) and ½ chips (§5.6), it covers tasting and leftovers. We do **not** define a
+  separate named "taste" serving.
 
 ### 5.2 Reference weights (`RULES.referenceWeightsG`)
 
@@ -663,6 +667,14 @@ grains, rice dishes, raita and dips, and soups.
 A researcher may use a different weight for a specific food, such as a restaurant naan or a
 Peshawari paratha, only with a cited source. If the source is weak, set confidence C.
 
+**Notified bazaar weights are dough weights.** District price notifications in Pakistan fix "naan
+120 g" and "tandoori roti 100 g" (Islamabad and Hyderabad, April 2024). These are the weights of the
+dough ball (*paira*), not of the baked bread: Karachi's notification fixes "a tandoori naan prepared
+from 120 grams of paira" and "a tandoori roti … made from 110 grams paira" (ARY News, 14 Jan 2020).
+So the served piece is the dough weight × the recipe's baked yield (plain naan 120 g → 98 g; tandoori
+roti 100 g → 83 g; roghni naan 120 g → 89 g). Fixed in the Meeting 003 fix wave, when roghni naan
+came out lighter than plain naan.
+
 ### 5.3 Densities (`RULES.densityGPerMl`), used for ml → g
 
 | Food type | g/ml | Source |
@@ -672,6 +684,7 @@ Peshawari paratha, only with a cited source. If the source is weak, set confiden
 | Dahi and raita | 1.03 | FNDDS yogurt |
 | Plain cooked rice | 0.67 | FNDDS rice, 1 cup = 158 g |
 | Biryani and pulao | 0.83 | FNDDS biryani, 1 cup = 196 g |
+| Dry (bhuna) daal with no free liquid, e.g. daal mash | 0.78 | FNDDS 2707424 lentils from dried, fat added, 1 cup = 185 g |
 | Oil and ghee | 0.91 | SR Legacy |
 | Sugar | 0.84 | SR Legacy |
 
@@ -711,8 +724,39 @@ Yusuf and Zainab record each prep's components and their storage ids in the reci
 - **Karchi (serving ladle).** It is not defined. A researcher may add a `karchi` serving to a
   specific dish only with a published source.
 - **"Plate" of rice or biryani.** The Pakistan guidelines' "1 plate = 100 g" is a menu-planning
-  convention, not a served plate, so we do **not** use it. Until a source is found, rice uses the
-  katori sizes and `cup`, and Zainab looks for a published plate weight.
+  convention, not a served plate, so we do **not** use it. No published served-plate weight has been
+  found (search again 2026-10-14). Until one is, a plate is a **labelled Lab assumption**
+  (`RULES.vocab.servingRules.assumedPlate`, gate G23):
+  - Serving ids `plate` and `half-plate` only.
+  - The label says "assumed" and gives the plate in katoris, e.g. "1 plate (home), assumed 2 katori".
+  - The grams are a multiple of ½ of the food's own `katori` serving (±2%).
+  - A home plate of plain chawal = **2 medium katori** (2 × 134 g = 268 g); ½ plate = 1 katori.
+    Daal chawal uses the same plate: 2 katori rice + 1 katori daal = 468 g.
+  - Zainab keeps looking for a published plate weight (Sprint 2). A sourced weight replaces the
+    assumption and drops "assumed" from the label.
+
+### 5.6 Portion chips and "thora sa" (`RULES.portionChips`, Meeting 003)
+
+The UI offers quick quantity chips on every food. Each is a quantity of the food's **default
+serving**, stored as `{ servingId: <default id>, qty }`; it is never a separate serving. The
+**"Thora sa (a taste)"** chip is `qty 0.25` of the default serving, for tasting while cooking and
+leftovers ("bacha hua"). This is acceptable nutritionally: a quarter of a katori of salan (≈ 50 g),
+a quarter roti or a quarter cup of chai is a fair "taste", and logging it beats skipping it.
+
+**Do not show the taste chip** (`portionChips.taste.hideWhen`) when:
+1. the food's group is `fat-oil`, `sugar-sweetener` or `condiment`: these are add-ons already logged
+   in spoons, and a quarter teaspoon of oil or sugar is not a useful entry;
+2. the default serving is `tsp` or `tbsp`: it is already a taste-sized measure (hummus, peanut butter);
+3. a quarter of the default serving weighs **under 5 g** (one biscuit, one date, a nugget-sized
+   piece): use ½ or type grams.
+
+Other rules:
+- The chip shows its grams like the other chips, e.g. "Thora sa · ¼ katori · 50 g".
+- It never becomes a default, a template item or a suggestion.
+- Search words that open the help for it: `portionChips.taste.searchWords` (taste, tasting, thora
+  sa, chakhna, bacha hua, leftover).
+- For a big plate default (daal chawal, 468 g) the chip still means ¼ plate (117 g). That is "a little",
+  not a lick of the spoon; the tablespoon serving covers the smallest tastes on katori-served dishes.
 
 ---
 
@@ -833,7 +877,7 @@ Show this text as written:
 
 ---
 
-## 8. Data gates (`node research/check-foods.mjs [file…]`), G1–G22
+## 8. Data gates (`node research/check-foods.mjs [file…]`), G1–G23
 
 **Fail** blocks shipping. **Warn** is shown but does not block. The gates are:
 
@@ -861,6 +905,7 @@ Show this text as written:
 | G20 | **Unknown field:** the record has a key not in §3 | warn |
 | G21 | **Halal:** `halal { status, reason }` present; status valid; reason required unless `halal`; `not-halal` only outside meat groups and with a reason naming the lard | fail |
 | G22 | **Meal prep:** `lunchbox` records have `slots` (primary slot first) and a default `box`, `jar` or `portion` serving whose kcal fits the primary slot's band | fail |
+| G23 | **Assumed plate:** a `plate` or `half-plate` serving's label contains "assumed", and its grams are a multiple of ½ katori (±2%) when the food has a `katori` serving | fail |
 
 Kenji's official data gate (`tests/data/`) implements the same rules from this table.
 
@@ -896,7 +941,7 @@ Kenji's official data gate (`tests/data/`) implements the same rules from this t
   - "kam tel" home variants for the top 10 dishes, as style `home-light` (needs the variant switch to
     accept a fifth style);
   - the final data audit.
-- **Open:** a published weight for the "plate"; karchi if a source exists.
+- **Open:** a published weight for the "plate" (replaces the assumed plate, §5.5); karchi if a source exists.
 
 ---
 

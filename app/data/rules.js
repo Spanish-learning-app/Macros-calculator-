@@ -656,6 +656,11 @@ export default {
       // serving, and bounded by these limits instead. Users log a share with the ½ / ¼ buttons.
       wholeDish: { idPrefix: 'whole', maxGrams: 3000, maxKcal: 4000, mayBeDefault: false },
       measureDensityGPerMl: { min: 0.3, max: 1.5 }, // household-measure servings (G11)
+      // "Plate" servings (Meeting 003, item 5). No published served-plate weight exists (NUTRITION.md §5.5),
+      // so a serving with one of these ids is a Lab assumption: its label must contain `labelMustInclude`,
+      // and when the food has a `katori` serving its grams must be a whole or half multiple of it (±2%),
+      // so the plate is stated in katoris. Checked by gate G23.
+      assumedPlate: { ids: ['plate', 'half-plate'], labelMustInclude: 'assumed', katoriMultipleStep: 0.5, tolerancePct: 2 },
     },
 
     // ---------------------------------------------------------------- vocabularies
@@ -844,6 +849,23 @@ export default {
       source: 'ICMR-NIN Dietary Guidelines for Indians 2024, Annexure I (teaspoon 5)',
     },
   ],
+  // Quick portion chips the UI offers on every food, as a quantity of the food's DEFAULT serving
+  // (Meeting 003, item 4; NUTRITION.md §5.6). They are not servings: the entry is stored as
+  // { servingId: <default id>, qty }. The taste chip ("thora sa") is hidden when any `hideWhen` rule is
+  // true, because a quarter of a spoon of oil, sugar or ketchup, or of one biscuit, is not a useful entry.
+  portionChips: {
+    taste: {
+      qty: 0.25,
+      label: 'Thora sa (a taste)',
+      labelUr: 'تھوڑا سا',
+      hideWhen: {
+        groups: ['fat-oil', 'sugar-sweetener', 'condiment'], // add-ons already measured in spoons
+        defaultServingIds: ['tsp', 'tbsp'], // the default is already a taste-sized measure
+        quarterGramsBelow: 5, // a quarter of the default weighs under 5 g (one biscuit, one date)
+      },
+      searchWords: ['taste', 'tasting', 'thora sa', 'thora', 'chakhna', 'bacha hua', 'leftover', 'leftovers'],
+    },
+  },
   // Reference gram weights for common items (USDA FNDDS 2021-2023 / SR Legacy portion tables).
   referenceWeightsG: [
     {

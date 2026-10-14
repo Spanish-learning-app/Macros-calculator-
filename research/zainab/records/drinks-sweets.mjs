@@ -151,7 +151,7 @@ export default [
     servings: ({ katoriSet }) => katoriSet(D.pudding).filter((s) => s.id !== 'katori-large'),
     tags: PKV,
     slots: ['dinner', 'snacks'],
-    crossCheck: [{ src: 'cofid', code: '12-608', note: 'UK homemade rice pudding with whole milk.' }, { src: 'fndds', code: '2705685' }],
+    crossCheck: [{ src: 'cofid', code: '12-608', note: 'UK homemade rice pudding with whole milk.' }, { src: 'fndds', code: '2705685', note: 'Why: the US rice pudding is made with low-fat milk (F 2.2 g); the like-for-like UK whole-milk rice pudding is within 1%. Explained (Ayesha, 2026-10-14).' }],
     assumptions: ['Milk reduced to the CoFID 12-608 rice-pudding water (70.2%).', 'Katori density 1.10 g/ml (FNDDS 2705685 rice pudding, 1 cup = 260 g).'],
     source: { confidence: 'C' },
   },
@@ -164,7 +164,9 @@ export default [
     aliases: uniq(['suji halwa', 'sooji halwa', 'suji ka halwa', 'sooji ka halwa', 'halwa', 'halwa puri halwa', 'semolina halwa', 'sheera', 'حلوہ']),
     group: 'sweet-dessert',
     state: 'cooked in desi ghee, as served',
-    servings: ({ katoriSet }) => katoriSet(D.pudding).filter((s) => s.id !== 'katori-large'),
+    // Fix wave 2026-10-14 (Ayesha): a medium katori of halwa (220 g, 785 kcal) is not a usual portion; the
+    // small katori is the default until Sprint 2 finds a sourced halwa-puri portion.
+    servings: ({ katoriSet }) => katoriSet(D.pudding, { defaultId: 'katori-small' }).filter((s) => s.id !== 'katori-large'),
     tags: PKV,
     slots: ['breakfast'],
     crossCheck: [{ src: 'cofid', code: '17-799', note: 'Homemade semolina halva (its water sets our yield).' }],

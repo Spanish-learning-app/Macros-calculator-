@@ -10,6 +10,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { compute, loadSheets, YIELDS, PROPOSED_STORAGE, priceOf } from './calc.mjs';
 import REG from './ingredients.mjs';
 import { BUTCHER, DESI } from './prices.mjs';
+import { stampReview } from '../review/reviewed.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..', '..');
@@ -226,7 +227,7 @@ function record(s, r) {
       notes: `Labels, prices and table values read ${DATE}. 1 box = ${r.box.grams} g = ${r.box.kcal} kcal, ${r1(r.box.protein)} g protein, ${r1(r.box.fiber)} g fibre. Eat ${EAT[s.eat]}; use-by ${r.fridgeDays} day${r.fridgeDays > 1 ? 's' : ''} in the fridge${r.fridgeDays === 1 ? ' (boxes 2–4 frozen)' : ''}. Ingredients: USDA FDC (SR Legacy/Foundation), dated labels (Open Food Facts, checked against tienda.mercadona.es), IFCT 2017; yields: Bognár 2002 and USDA water balances. USDA carbs by difference minus fibre. Computed by research/yusuf/calc.mjs.`,
     },
   };
-  return rec;
+  return stampReview(rec);
 }
 function serialize(recs) {
   const q = (v) => `'${String(v).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;

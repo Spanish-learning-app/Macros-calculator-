@@ -238,7 +238,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Pulses IFCT 2017 B010/B013; ghee + oil tarka. Cooked yield 0.608; added fat 5.7 g/100 g. Cross-check: CoFID 2021 15-132 95 kcal (+51%).',
+      notes: 'Pulses IFCT 2017 B010/B013; ghee + oil tarka. Cooked yield 0.608; added fat 5.7 g/100 g. Cross-check: USDA FDC FNDDS 2707427 145 kcal (-1%); CoFID 2021 15-132 95 kcal (+51%).',
     },
   },
   {
@@ -271,10 +271,10 @@ export default [
     per100g: { kcal: 168, protein: 6, carbs: 14.3, fat: 8.7, fiber: 4, sugars: 1.3, satFat: 1.3, sodium: 311 },
     addedFatPer100g: 8,
     servings: [
-      { id: 'katori-small', label: '1 small katori (155 ml)', labelUr: 'چھوٹی کٹوری', grams: 155 },
-      { id: 'katori', label: '1 katori (medium, 200 ml)', labelUr: 'کٹوری', grams: 200, default: true },
-      { id: 'katori-large', label: '1 large katori (360 ml)', labelUr: 'بڑی کٹوری', grams: 360 },
-      { id: 'tbsp', label: '1 tablespoon (chamach)', labelUr: 'بڑا چمچ', grams: 15 },
+      { id: 'katori-small', label: '1 small katori (155 ml)', labelUr: 'چھوٹی کٹوری', grams: 121 },
+      { id: 'katori', label: '1 katori (medium, 200 ml)', labelUr: 'کٹوری', grams: 156, default: true },
+      { id: 'katori-large', label: '1 large katori (360 ml)', labelUr: 'بڑی کٹوری', grams: 281 },
+      { id: 'tbsp', label: '1 tablespoon (chamach)', labelUr: 'بڑا چمچ', grams: 11.7 },
     ],
     tags: ['pakistani', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
@@ -285,7 +285,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Pulses IFCT 2017 B003; density taken as daal (1.00 g/ml) although dry mash packs less densely. Cooked yield 0.851; added fat 8 g/100 g. Cross-check: CoFID 2021 12-468 81 kcal (+107%).',
+      notes: 'Pulses IFCT 2017 B003. Katori grams at 0.78 g/ml (FNDDS 2707424, 1 cup = 185 g), since dry mash has no free liquid (was 1.00 g/ml; Ayesha, 2026-10-14). Cooked yield 0.851; added fat 8 g/100 g. Cross-check: USDA FDC FNDDS 2707424 166 kcal (+1%); CoFID 2021 12-468 81 kcal (+107%).',
     },
   },
   {
@@ -328,7 +328,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Pulses IFCT 2017 B001. Cooked yield 0.566; added fat 6.6 g/100 g. Cross-check: CoFID 2021 15-641 152 kcal (+11%).',
+      notes: 'Pulses IFCT 2017 B001. Cooked yield 0.566; added fat 6.6 g/100 g. Cross-check: CoFID 2021 15-641 152 kcal (+11%); USDA FDC FNDDS 2707424 166 kcal (+2%).',
     },
   },
   {
@@ -444,7 +444,7 @@ export default [
       'انڈا',
     ],
     group: 'egg',
-    state: 'cooked (pan-fried in a little oil), with onion, tomato and green chilli',
+    state: 'cooked (pan-fried, about 1½ tsp oil per egg), with onion, tomato and green chilli',
     per100g: { kcal: 163, protein: 7.7, carbs: 3.1, fat: 13.1, fiber: 1, sugars: 1.7, satFat: 3, sodium: 296 },
     addedFatPer100g: 7.6,
     servings: [
@@ -501,7 +501,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Cooked yield 1; added fat 0 g/100 g.',
+      notes: 'Cooked yield 1; added fat 0 g/100 g. Cross-check: CoFID 2021 14-333 59 kcal (+36%).',
     },
   },
   {
@@ -719,10 +719,10 @@ export default [
     },
     addedFatPer100g: 8.3,
     servings: [
-      { id: 'katori-small', label: '1 small katori (155 ml)', labelUr: 'چھوٹی کٹوری', grams: 155 },
-      { id: 'katori', label: '1 katori (medium, 200 ml)', labelUr: 'کٹوری', grams: 200, default: true },
-      { id: 'katori-large', label: '1 large katori (360 ml)', labelUr: 'بڑی کٹوری', grams: 360 },
-      { id: 'tbsp', label: '1 tablespoon (chamach)', labelUr: 'بڑا چمچ', grams: 15 },
+      { id: 'katori-small', label: '1 small katori (155 ml)', labelUr: 'چھوٹی کٹوری', grams: 132 },
+      { id: 'katori', label: '1 katori (medium, 200 ml)', labelUr: 'کٹوری', grams: 170, default: true },
+      { id: 'katori-large', label: '1 large katori (360 ml)', labelUr: 'بڑی کٹوری', grams: 306 },
+      { id: 'tbsp', label: '1 tablespoon (chamach)', labelUr: 'بڑا چمچ', grams: 12.8 },
     ],
     tags: ['pakistani', 'meal-prep'],
     slots: ['lunch', 'dinner'],
@@ -733,7 +733,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Cooked yield 0.664; added fat 8.3 g/100 g.',
+      notes: 'Cooked yield 0.664; added fat 8.3 g/100 g. Cross-check: USDA FDC FNDDS 2706396 278 kcal (-15%); CoFID 2021 19-587 160 kcal (+48%).',
     },
   },
   {
@@ -1126,7 +1126,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Cooked yield 0.91; added fat 8 g/100 g.',
+      notes: 'Cooked yield 0.91; added fat 8 g/100 g. Cross-check: CoFID 2021 12-963 152 kcal (+15%).',
     },
   },
   {
