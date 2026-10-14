@@ -1,0 +1,13 @@
+import { open, shot, fullshot, txt, onboard, openAdd, search, pick, confirm } from './common.mjs';
+const S = await open('2026-10-14T20:00:00+02:00');
+const { page } = S;
+await onboard(page);
+console.log('scrollW', await page.evaluate(()=>[document.documentElement.scrollWidth, innerWidth]));
+await page.getByRole('button',{name:/More for Nashta/}).click(); await page.waitForTimeout(300);
+await shot(page,'27-slot-more-menu'); console.log('MORE:\n'+(await txt(page)).split('Snacks').pop().slice(0,400));
+await page.keyboard.press('Escape'); await page.waitForTimeout(300);
+await page.goto('http://localhost:8772/#/profile'); await page.waitForTimeout(500);
+await shot(page,'28-profile'); console.log('PROFILE:\n'+(await txt(page)).slice(0,900));
+await page.goto('http://localhost:8772/#/data'); await page.waitForTimeout(500);
+await shot(page,'29-data'); console.log('DATA:\n'+(await txt(page)).slice(0,900));
+await S.browser.close();
