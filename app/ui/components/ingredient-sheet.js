@@ -177,7 +177,12 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
           type: 'button',
           class: 'btn-plus',
           'aria-label': `Add ${food.name} to the recipe`,
-          onclick: () => pickNow(food, portion.servingId, portion.qty),
+          onclick: () => {
+            pickNow(food, portion.servingId, portion.qty);
+            // Ready for the next "200 g dahi": one field fill replaces the text.
+            input.focus();
+            input.select();
+          },
         },
         iconEl('plus', 22),
       ),

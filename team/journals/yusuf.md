@@ -91,3 +91,17 @@
   ingredient lines are name-only (allowed by §13.1) and M2 still requires a foodId. All other M checks clean
   (0 bad foodIds, boxes, storage ids). Reported to Omar for Kenji. index.js needs no change for the app
   (main.js imports recipes-mealprep.js itself); optional re-export line given in the report.
+
+## 2026-10-14 — Sprint 2 add-on: no-cook preps, ready picks, low-cook week (brief s2-market-preps.md)
+
+- 21:50 Madrid Start. Read brief, ARCHITECTURE §13.1 (Lena has added `effort` and `minutes`), Javier's 48 market
+  records (all ids present in app/data). Plan: (1) build.mjs maps research ingredients to Javier's foodIds
+  (milk, protein yogurt, egg whites, dry rices, pasta, couscous, bulgur, atta, chana/masoor dal, chickpeas, crushed
+  tomato, pita, breadcrumbs, frozen peas/beans, peppers, courgette, spinach, chia); record numbers do not move
+  because calc.mjs uses its own dated ingredient values, not the database foods. (2) 14 assemble preps, numbers
+  from Javier's records (new registry source `db`). (3) effort/minutes on all preps. (4) MEALPREP sections.
+- Mercadona: new `snap` command → research/cache/yusuf/mercadona-snap/2026-10-14/ (39 categories, bcn1) so the
+  Sprint 1/2 sheets keep their own price dates and the no-cook preps + low-cook week are priced on one date.
+- FINDING: Mercadona fresh barras (83202.1 Barra de pan, 17912.1 Barra pan integral 100%) list emulgente E-472e
+  with no origin (product pages read 2026-10-14). Javier's es-pan-barra (BEDCA generic) is `halal`; a Mercadona
+  barra would be `check`. Tell Javier. My pa amb tomàquet prep says: bakery barra of flour, water, salt, yeast.
