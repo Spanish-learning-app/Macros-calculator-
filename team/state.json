@@ -4,12 +4,16 @@
   "phase": "Sprint 1 · Build v1",
   "sprint": 1,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T04:12:00Z",
+  "updatedAt": "2026-10-14T09:16:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
   "app": {
-    "url": null
+    "url": "https://claude.ai/artifact/GusJdyjFkPK4yftNRPzFrY",
+    "version": "Sprint 1 preview",
+    "publishedAt": "2026-10-14T09:16:00Z",
+    "page": "tools/artifact-page.html",
+    "files": "npm run publish:files"
   },
   "meeting": {
     "active": false
@@ -76,62 +80,13 @@
       "task": "Waiting for Review 1"
     }
   },
-  "inFlight": [
-    {
-      "member": "zainab",
-      "task": "Pakistani food records",
-      "output": "app/data/foods-pk-*.js (not packaged), research/zainab/"
-    },
-    {
-      "member": "javier",
-      "task": "International food records",
-      "output": "app/data/foods-basics.js, foods-intl.js, foods-es-med.js, foods-pk-packaged.js, research/javier/"
-    },
-    {
-      "member": "yusuf",
-      "task": "12 halal lunch boxes + café review",
-      "output": "app/data/foods-mealprep.js, research/yusuf/, docs/MEALPREP.md"
-    },
-    {
-      "member": "lena",
-      "task": "store.js, integration, reviews, preview",
-      "output": "app/ui/store.js, app/main.js, app/ui/router.js"
-    },
-    {
-      "member": "hamza",
-      "task": "Core engine",
-      "brief": "team/briefs/hamza-sprint1.md",
-      "output": "app/core/**, tests/unit/dev/**"
-    },
-    {
-      "member": "priya",
-      "task": "UI",
-      "brief": "team/briefs/priya-sprint1.md",
-      "output": "app/ui/views/**, app/ui/components/**, app/ui/dom.js, app/styles/**"
-    },
-    {
-      "member": "kenji",
-      "task": "QA",
-      "brief": "team/briefs/kenji-sprint1.md",
-      "output": "tests/unit/qa/**, tests/data/**, tests/e2e/**, tests/fixtures/**"
-    },
-    {
-      "member": "ayesha",
-      "task": "skipDefaults then record review",
-      "output": "app/data/rules.js, docs/NUTRITION.md"
-    },
-    {
-      "member": "javier",
-      "task": "Release raita, hummus, tostada, whole tortilla",
-      "output": "app/data/foods-*.js (Javier's)"
-    }
-  ],
+  "inFlight": [],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "9 * * * * (UTC, hourly)"
   },
   "appName": "Katori",
-  "next": "Wait for: Lena store (tell Priya), Hamza units (Priya), researchers' data (Ayesha review), integration -> preview publish -> Review 1 meeting with Bilal, Nasreen, Mariam hands-on tests.",
+  "next": "Review 1: customer panel hands-on tests of the preview (Bilal, Nasreen, Mariam) -> meeting -> Sprint 1 fix wave (fresh agents, max 3 at a time).",
   "meetingsHeld": [
     "001-kickoff",
     "002-boss-update"
@@ -151,6 +106,12 @@
       "from": "2026-10-13T23:15:00Z",
       "to": "2026-10-14T04:10:00Z",
       "reason": "Claude usage limit (reset 03:50 UTC)",
+      "resumedBy": "hourly check-in"
+    },
+    {
+      "from": "2026-10-14T04:20:00Z",
+      "to": "2026-10-14T09:10:00Z",
+      "reason": "Claude usage limit (reset 09:10 UTC); burned fast because 6 agents were resumed with very large transcripts",
       "resumedBy": "hourly check-in"
     }
   ]

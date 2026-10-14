@@ -57,6 +57,10 @@ Run this whenever a check-in fires or a new session starts on this repo:
 5. If `status` is `delivered` and the inbox has nothing new, do nothing else.
 6. Commit and push after every completed task, meeting or report, so a pause loses at most one
    task's worth of work.
+7. **Budget rule (learned 2026-10-14).** Restart people with a *fresh* agent that reads their brief
+   and journal. Never resume a long-running agent by replaying its whole transcript: six such
+   resumes used up a full usage window in about ten minutes. Run at most three agents at once, and
+   give each a tight, single deliverable.
 
 A recurring check-in routine fires into the session every hour to run this protocol. It turns
 itself off once the project is delivered and three check-ins in a row find nothing new.
