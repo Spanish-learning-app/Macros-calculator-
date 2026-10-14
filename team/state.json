@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T19:44:00Z",
+  "updatedAt": "2026-10-14T19:49:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -32,7 +32,7 @@
     "ayesha": {
       "location": "office",
       "status": "working",
-      "task": "skipDefaults; then review researchers' records"
+      "task": "Raw meats + review new records"
     },
     "bilal": {
       "location": "office",
@@ -51,8 +51,8 @@
     },
     "kenji": {
       "location": "office",
-      "status": "working",
-      "task": "Gate M2 + e2e A16-A18"
+      "status": "idle",
+      "task": "Done: gate M2, e2e A16-A18 (144 pass, 0 fail)"
     },
     "zainab": {
       "location": "office",
@@ -83,18 +83,18 @@
   "inFlight": [
     {
       "member": "lena",
-      "task": "Sprint 2: finish meal-prep UI (prep view, recipe builder, batches, use-by, shopping list, chai, saved meals, seafood). Core done.",
+      "task": "Sprint 2 features done (recipes, batches, chai, saved meals, seafood, effort filter, Priya notes). Finishing BUG-TC1 (taste chip hideWhen).",
       "output": "app/** (not data), tests/unit/dev/**"
-    },
-    {
-      "member": "kenji",
-      "task": "Gate M2 accepts §13.1 name-only ingredients; e2e A16-A18, Thora sa, Spanish slot names",
-      "output": "tests/**"
     },
     {
       "member": "yusuf",
       "task": "Assemble preps (12-16), effort/minutes tags, swap name-only lines to Javier foodIds, ready picks, low-cook week (team/briefs/s2-market-preps.md)",
       "output": "app/data/foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
+    },
+    {
+      "member": "ayesha",
+      "task": "Raw meats (chicken thigh, mince, beef cubes) + review Javier/Yusuf records",
+      "output": "app/data/foods-basics.js etc, docs/NUTRITION.md"
     }
   ],
   "checkIn": {
@@ -161,14 +161,9 @@
   },
   "queued": [
     {
-      "member": "ayesha",
-      "task": "Raw meats Yusuf lists (chicken thigh, chicken mince, beef cubes) + review the new prep and market records",
-      "output": "app/data/*, docs/NUTRITION.md"
-    },
-    {
-      "member": "omar",
-      "task": "Meeting 004 (design review): Priya, Lena, Bilal, Mariam on docs/DESIGN-STUDY.md (Priya recommends B: refine)",
-      "output": "team/meetings/004-design-review.md"
+      "member": "bilal+mariam+nasreen",
+      "task": "Review 2: customer panel tests Sprint 2 (meal prep incl. low-cook week) and comments on docs/DESIGN-STUDY.md. Then Meeting 004 = Review 2 + design decision.",
+      "output": "team/feedback/review2/**"
     }
   ]
 }

@@ -4,7 +4,8 @@
 //
 //   node research/yusuf/mercadona.mjs fetch                 # cache every category we shop in (Barcelona warehouse)
 //   node research/yusuf/mercadona.mjs add <categoryId…>          # cache extra categories (own read date)
-//   node research/yusuf/mercadona.mjs find <words…>         # search the cached categories by name
+//   node research/yusuf/mercadona.mjs snap [categoryId…]    # dated snapshot of categories → cache/yusuf/mercadona-snap/<date>/
+//   node research/yusuf/mercadona.mjs find <words…>         # search the cached categories by name (and the latest snapshot)
 //   node research/yusuf/mercadona.mjs product <id…>         # full product page: price, ingredients, allergens
 //
 // Warehouse: the shop maps postal code 08001 (Barcelona, Raval) to warehouse "bcn1" (response header
@@ -31,6 +32,12 @@ const CATEGORIES = {
   // Sprint 2 (breakfast and dinner preps), added with `add` so the Sprint 1 prices keep their date:
   78: 'Cereales', 69: 'Harina y preparado repostería', 90: 'Mermelada y miel',
 };
+// Sprint 2 add-on (no-cook preps and the low-cook week): extra categories for the dated snapshot.
+const SNAP_EXTRA = {
+  59: 'Pan de horno', 64: 'Picos, rosquilletas y picatostes', 79: 'Tortitas', 130: 'Gazpacho y cremas',
+  135: 'Aceitunas y encurtidos', 147: 'Congelados arroz y pasta', 54: 'Queso curado, semicurado y tierno',
+};
+const SNAP_ROOT = path.join(CACHE, '..', 'mercadona-snap');
 
 fs.mkdirSync(CACHE, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -86,10 +93,26 @@ if (cmd === 'fetch') {
     await sleep(400);
   }
   fs.writeFileSync(path.join(CACHE, 'fetched.json'), JSON.stringify(meta));
+} else if (cmd === 'snap') {
+  // A full dated snapshot in its own folder, so the Sprint 1 and Sprint 2 sheets keep the prices of their own
+  // read date and the no-cook preps and the low-cook week are priced on one date.
+  const stamp = new Date().toISOString().slice(0, 10);
+  const dir = path.join(SNAP_ROOT, stamp);
+  fs.mkdirSync(dir, { recursive: true });
+  const ids = args.length ? args : Object.keys({ ...CATEGORIES, ...SNAP_EXTRA });
+  for (const id of ids) {
+    await getJson(`${API}/categories/${id}/?lang=es&wh=${WH}`, path.join(dir, `cat_${id}.json`));
+    process.stdout.write(`snap ${stamp} cat ${id} ${CATEGORIES[id] ?? SNAP_EXTRA[id] ?? ''} ok\n`);
+    await sleep(400);
+  }
+  fs.writeFileSync(path.join(dir, 'fetched.json'), JSON.stringify({ date: stamp, warehouse: WH }));
 } else if (cmd === 'find') {
   const terms = args.map((a) => a.toLowerCase());
-  for (const f of fs.readdirSync(CACHE).filter((n) => n.startsWith('cat_'))) {
-    const cat = JSON.parse(fs.readFileSync(path.join(CACHE, f), 'utf8'));
+  const snaps = fs.existsSync(SNAP_ROOT) ? fs.readdirSync(SNAP_ROOT).sort() : [];
+  const dirs = snaps.length ? [path.join(SNAP_ROOT, snaps.at(-1))] : [CACHE];
+  for (const dir of dirs)
+  for (const f of fs.readdirSync(dir).filter((n) => n.startsWith('cat_'))) {
+    const cat = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
     for (const p of flatten(cat)) {
       const name = `${p.display_name} ${p.packaging ?? ''}`.toLowerCase();
       if (terms.every((t) => name.includes(t))) console.log(`${p.id}\t${p.display_name} | ${p.packaging ?? ''} | ${priceLine(p)} | ${p._cat}`);

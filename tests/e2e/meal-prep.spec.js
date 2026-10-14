@@ -631,7 +631,7 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     const tonight = page.getByTestId('move-tonight');
     await expect(tonight).toBeVisible();
     await expect(tonight).toContainText(/box 2/i);
-    await tonight.getByRole('button', { name: 'Moved to fridge' }).click();
+    await tonight.getByRole('button', { name: /fridge/i }).click();
     await expect(page.getByTestId('move-tonight')).toHaveCount(0);
     await savedWhere(
       page,

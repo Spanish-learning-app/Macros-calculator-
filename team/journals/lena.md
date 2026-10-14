@@ -121,14 +121,14 @@
 - 2026-10-14 16:15 UTC: SPRINT 2 (meal prep and recipes, core + UI) started fresh after the usage-limit pause. Reading brief, §13, A16–A18, NUTRITION mealPrep.storage.
 - 2026-10-14 16:40 UTC: §13 completed with binding signatures (13.1 shapes, 13.2 core/mealprep.js table), before writing code, so Kenji can test them. Kenji's gate assumes library ingredients carry foodId + grams; §13.1 allows foodId or name.
 - 2026-10-14 17:20 UTC: core/mealprep.js done (11 functions, §13.2) + tests/unit/dev/mealprep.test.js (10 pass) + contract entry. Aligned with Kenji's qa/mealprep.test.js where §13 was open: movedToFridgeOn wins over storage, boxes must be whole, cookedWeightG null or > 0, tbsp joins the katori set, halal.reason = the ingredient's own reason (+ halal.ingredient). His 29 non-TODO tests pass in Madrid and Karachi. savedMeals is optional (absent = none) so Kenji's storage round-trip tests stay green; mergeImport unions it when present. Store: recipe foods in the index, seafood applied in the index, syncBatches on every commit, placeBox/fillDays/cookBatch/setBoxStorage/discard/delete, saveChai, saved meals.
-- 2026-10-14 19:55 UTC: SPRINT 2 resumed after the usage-limit pause (prep view, editor, sheets were in Omar's checkpoints). Done since:
+- 2026-10-14 19:35 UTC: SPRINT 2 resumed after the usage-limit pause (prep view, editor, sheets were in Omar's checkpoints). Done since:
   - Seafood choice in Profile (Food card) and onboarding (on the targets screen, so A1 gains no step). Out-of-choice seafood shows "check" with RULES' seafoodNote; never a ruling.
   - Add sheet: "Ready to add" group (prep boxes with some left, saved meals), one tap each.
   - app/styles/prep.css (new, imported by base.css): batch cards, box rows, fridge/freezer pair, day chips, calm notes (last day = clay-soft, past = neutral ink), recipe editor, chai, shopping. `.day-main` keeps the slots' order on phones.
   - Fake store: read-only Sprint 2 stand-ins so Priya's harness doesn't throw.
   - BUG fixed in core storagePlan: a side pot with the same id as a box component (Lab chana chaat: 'cold-salad' + { id: 'cold-salad', pot: true }) made the chaat freezable. Now judged per entry. Dev test added.
   - Verified in Chromium 400 px Madrid: A16(1) per box after 2 taps, cook in 3; A17 Fill Mon–Thu in 1 tap (4 day chips = 4 taps); 5th box shows the inline note + Undo; Mon 22:00 "Tonight" card; shopping list 4 → 8 doubles, butcher first, copies.
-- 2026-10-14 20:45 UTC: SPRINT 2 UI finished and verified.
+- 2026-10-14 19:48 UTC: SPRINT 2 UI finished and verified.
   - Recipe builder: "800 g" typed in the portion picker switches to grams (A16 within budget); "+" twice merges into one line; no doubled grams text.
   - Priya's six notes folded in: halal chip always (quiet static "Halal" chip for halal), two-line box rows ("Box 2 · Lunch, Tue 3" + use-by), Day-view dates with lowercase today/tomorrow, "Fill Mon–Thu · 2–5 Nov" fits at 360, "Cooked" as Yesterday/Today/Tomorrow chips (no US-order date input), meal chips instead of the drop-down. Day chips show weekdays only (today underlined) so nothing overflows.
   - Boss's "less cooking" hook: §13.1 LibraryRecipe += effort?/minutes?; Prep library filter "All · Cook · No-cook (≤15 min)", time on each card, "Make" for no-cook. Helpers effortOf/matchesEffort/effortText + tests/unit/dev/prep-bits.test.js (5) with a fixture. "Ready to eat" picks row: Sprint 3 (Lab list is docs-only).
@@ -136,3 +136,4 @@
   - Tap counts: A10 first recipe 24 (≤25), re-log 2; A16(1) 2 to per-box, 3 to cook; A16(2) 25 incl. Done and Save (≤25), box change 1; A17 Fill Mon–Thu 1 (+1 to reach Prep), 4 day chips = 4, tick 1; A5(c) 2 (slot menu or add sheet).
   - Data gaps: raw boneless chicken thigh and dry basmati are not in FOODS (A16 uses roasted thigh / boiled rice meanwhile); no prawn or other-seafood food exists yet, so seafood was checked with a routed fixture.
   - npm run check green: 534 tests, 0 fail, 2 todo per TZ (Madrid, Karachi, LA).
+  - E2E: meal-prep.spec 44 pass / 4 skipped on 4 projects; full suite 140 pass, 28 skipped (one mid-edit run showed 4 transient fails on the tonight test; rerun green).

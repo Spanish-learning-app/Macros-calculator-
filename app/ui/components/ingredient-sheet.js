@@ -8,6 +8,51 @@ import { halalChip, estimateBadge } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
 import { fmtKcal, fmtGrams, portionText, defaultServingOf, portionNutrients } from './format.js';
 
+const UNITS = {
+  g: 'g',
+  gm: 'g',
+  gr: 'g',
+  gram: 'g',
+  grams: 'g',
+  kg: 'kg',
+  tbsp: 'tbsp',
+  tablespoon: 'tbsp',
+  tablespoons: 'tbsp',
+  tsp: 'tsp',
+  teaspoon: 'tsp',
+  teaspoons: 'tsp',
+};
+
+/**
+ * Quick amounts in the ingredient search (A16 budget): "800 g chicken thigh", "2 tbsp oil",
+ * "2 cucumbers", "1.5 kg rice". Returns { amount: { unit: 'g'|'tbsp'|'tsp'|null, qty }, query }
+ * or { amount: null, query } when the text does not start with a number.
+ * @param {string} text
+ */
+export function parseQuickAmount(text) {
+  const m = String(text ?? '').match(
+    /^\s*(\d+(?:[.,]\d+)?)\s*(kg|grams?|gram|gm|gr|g|tablespoons?|tbsp|teaspoons?|tsp)?\.?\s+(.+)$/i,
+  );
+  if (!m) return { amount: null, query: String(text ?? '').trim() };
+  const value = Number(m[1].replace(',', '.'));
+  if (!(value > 0)) return { amount: null, query: String(text ?? '').trim() };
+  const unit = m[2] ? UNITS[m[2].toLowerCase()] : null;
+  return unit === 'kg'
+    ? { amount: { unit: 'g', qty: value * 1000 }, query: m[3].trim() }
+    : { amount: { unit, qty: value }, query: m[3].trim() };
+}
+
+/** The serving and qty a quick amount means for `food` (a unit the food lacks → its default). */
+export function quickPortion(food, amount) {
+  const base = defaultServingOf(food);
+  if (!amount) return { servingId: base.id, qty: 1 };
+  if (amount.unit === 'g') return { servingId: 'g', qty: amount.qty };
+  if (amount.unit && food.servings.some((s) => s.id === amount.unit)) {
+    return { servingId: amount.unit, qty: amount.qty };
+  }
+  return { servingId: base.id, qty: amount.unit ? 1 : amount.qty };
+}
+
 /**
  * @param {{ store: object, rules: object, date: string,
  *   onPick: (p: { foodId: string, servingId: string, qty: number }) => void,
@@ -24,7 +69,7 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
     id: searchId,
     class: 'search-input',
     type: 'search',
-    placeholder: 'Search: chicken, rice, egg…',
+    placeholder: 'e.g. 800 g chicken thigh, 2 eggs…',
     autocomplete: 'off',
     autocapitalize: 'off',
     spellcheck: 'false',
@@ -81,9 +126,13 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
     setText(status, `Added ${portionText(serving, qty)} ${food.name}. ${added} added so far.`);
   }
 
-  function row(food) {
-    const serving = defaultServingOf(food);
-    const n = portionNutrients(food, serving.id, 1);
+  function row(food, amount = null) {
+    const portion = quickPortion(food, amount);
+    const serving =
+      portion.servingId === 'g'
+        ? { id: 'g', label: 'grams' }
+        : food.servings.find((s) => s.id === portion.servingId);
+    const n = portionNutrients(food, portion.servingId, portion.qty);
     const halal = halalChip(food, rules);
     return h(
       'li',
@@ -99,8 +148,8 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
               store,
               rules,
               food,
-              servingId: serving.id,
-              qty: 1,
+              servingId: portion.servingId,
+              qty: portion.qty,
               slot: 'lunch',
               date,
               mode: 'add',
@@ -117,7 +166,9 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
         h(
           'span',
           { class: 'food-portion' },
-          `${serving.label} (${fmtGrams(n.grams)} g) · ${fmtKcal(n.kcal)} kcal`,
+          portion.servingId === 'g'
+            ? `${fmtGrams(n.grams)} g · ${fmtKcal(n.kcal)} kcal`
+            : `${portion.qty === 1 ? serving.label : portionText(serving, portion.qty)} (${fmtGrams(n.grams)} g) · ${fmtKcal(n.kcal)} kcal`,
         ),
       ),
       h(
@@ -126,7 +177,7 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
           type: 'button',
           class: 'btn-plus',
           'aria-label': `Add ${food.name} to the recipe`,
-          onclick: () => pickNow(food, serving.id, 1),
+          onclick: () => pickNow(food, portion.servingId, portion.qty),
         },
         iconEl('plus', 22),
       ),
@@ -136,14 +187,14 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
   }
 
   function render() {
-    const q = input.value.trim();
+    const { amount, query: q } = parseQuickAmount(input.value);
     if (!q) {
       mountChildren(
         results,
         h(
           'p',
           { class: 'sheet-hint' },
-          'Type an ingredient. Use raw amounts (dry rice, raw chicken) and, if you can, weigh the cooked pot at the end.',
+          'Type an ingredient, or the amount first: “800 g chicken thigh”, “2 tbsp oil”, “2 cucumbers”. Use raw amounts (dry rice, raw chicken) and, if you can, weigh the cooked pot at the end.',
         ),
       );
       return;
@@ -155,7 +206,11 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
     mountChildren(
       results,
       ok.length
-        ? h('ul', { class: 'food-list', role: 'list' }, ok.slice(0, 20).map(row))
+        ? h(
+            'ul',
+            { class: 'food-list', role: 'list' },
+            ok.slice(0, 20).map((f) => row(f, amount)),
+          )
         : blocked.length
           ? null
           : h('p', { class: 'empty-note' }, `Nothing found for “${q}”. Try another spelling.`),

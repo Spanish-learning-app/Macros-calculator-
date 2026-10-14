@@ -103,3 +103,7 @@
   chana chaat (freezer off, use-by Tue), shopping list (once each, doubles at 8, butcher vs supermarket, copy to clipboard as text).
   Clock jumps use `page.clock.setSystemTime` + reload (the document persists), all on Sun 1 Nov 2026 (after the DST change, UTC+1).
 - The Thora-sa and Spanish-slot specs already existed from Review 1 (taste-chip.spec.js, spanish-slots.spec.js); kept, run green.
+- 2026-10-14 ~20:40 UTC: FINAL RUN. `npm run check` (lint, prettier, unit) exit 0 in Europe/Madrid and Asia/Karachi (npm test runs Madrid, Karachi, LA inside each):
+  534 tests per zone, 532/531/531 pass, 0 fail, 2 todo (A16 raw thigh and dry basmati missing in FOODS: Ayesha/Yusuf), 1 skip in Karachi and LA (a Madrid-only DST case).
+  `npm run test:e2e`: 144 passed, 28 skipped (per project: 5 taste-chip BUG-TC1 fixme, 1 A16(2) budget KNOWN GAP, 1 smoke wait-for-store), 0 failed.
+  Lena's wording moved under me twice (place-slot select -> chips, "Use by Tomorrow, Mon 2 Nov" -> "Use by tomorrow", "Moved to fridge" label); the specs now accept both.

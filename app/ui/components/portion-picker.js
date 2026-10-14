@@ -24,6 +24,23 @@ import {
 const FRACTIONS = [0.5, 1, 1.5, 2];
 /** "Thora sa (a taste)": ¼ of the default serving, on every food (Meeting 003 item 4). */
 export const TASTE_QTY = 0.25;
+
+/**
+ * BUG-TC1: the "Thora sa" chip follows RULES.portionChips.taste.hideWhen (NUTRITION §5.6): no chip
+ * on add-ons already measured in spoons (groups), on foods whose default is a tsp or tbsp, or when
+ * a quarter of the default weighs under `quarterGramsBelow` g. Without RULES: always shown.
+ * @param {object} food @param {object|null} rules @returns {boolean}
+ */
+export function tasteChipHidden(food, rules) {
+  const hideWhen = rules?.portionChips?.taste?.hideWhen;
+  if (!food || !hideWhen) return false;
+  const base = defaultServingOf(food);
+  if ((hideWhen.groups ?? []).includes(food.group)) return true;
+  if ((hideWhen.defaultServingIds ?? []).includes(base?.id)) return true;
+  const below = hideWhen.quarterGramsBelow;
+  const grams = Number(base?.grams);
+  return Number.isFinite(below) && Number.isFinite(grams) && grams * TASTE_QTY < below;
+}
 const ERRORS = {
   empty: 'Type how much, for example 1 or 1.5.',
   nan: 'Use a number, like 1.5 or ½.',
@@ -352,7 +369,7 @@ export function openPortionPicker(props) {
     fractionBox.hidden = !food && grams;
     if (food || !grams) {
       fractionBox.replaceChildren(
-        food ? tasteChip(parsed) : null,
+        food && !tasteChipHidden(food, rules) ? tasteChip(parsed) : null,
         ...(grams ? [] : FRACTIONS).map((f) =>
           h(
             'button',
