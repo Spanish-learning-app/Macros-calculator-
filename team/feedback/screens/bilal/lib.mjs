@@ -3,9 +3,9 @@ import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
 export const URL = 'http://localhost:8771/';
 export const OUT = '/home/user/Macros-calculator-/team/feedback/screens/bilal/';
 
-export async function launch({ width = 400, height = 860, time = '2026-10-14T21:30:00+02:00', tz = 'Europe/Madrid', colorScheme = 'light', throwStorage = false } = {}) {
+export async function launch({ width = 400, height = 860, time = '2026-10-14T21:30:00+02:00', tz = 'Europe/Madrid', colorScheme = 'light', throwStorage = false, storageState = undefined } = {}) {
   const browser = await chromium.launch();
-  const ctx = await browser.newContext({ viewport: { width, height }, timezoneId: tz, locale: 'en-GB', colorScheme, hasTouch: width < 600, isMobile: width < 600 });
+  const ctx = await browser.newContext({ viewport: { width, height }, timezoneId: tz, locale: 'en-GB', colorScheme, hasTouch: width < 600, isMobile: width < 600, storageState });
   const page = await ctx.newPage();
   const errors = [];
   const foreign = [];
@@ -88,3 +88,27 @@ export async function entries(run) {
   for (let i = 0; i < n; i++) out.push((await e.nth(i).innerText()).replace(/\n+/g, ' | '));
   return out;
 }
+
+// logFood: person-style flow inside the open add sheet. opts: {serving: regex for chip, qty: number}
+export async function logFood(run, q, rowRe, opts = {}) {
+  const p = run.page; const sh = sheet(run);
+  await search(run, q);
+  const row = rows(run).filter({ hasText: rowRe }).first();
+  if (!(await row.count())) throw new Error('no row for ' + q + ' ' + rowRe);
+  if (!opts.serving && (opts.qty == null || opts.qty === 1)) { await tap(run, row.locator('.btn-plus')); return; }
+  await tap(run, row.locator('.food-main'));
+  const pk = p.locator('[data-testid=portion-picker]');
+  await pk.waitFor();
+  await p.waitForTimeout(250);
+  if (opts.serving) await tap(run, pk.locator('label,button').filter({ hasText: opts.serving }).first());
+  if (opts.qty != null && opts.qty !== 1) {
+    const quick = { 0.5: '½', 1.5: '1½', 2: '2' }[opts.qty];
+    if (quick) await tap(run, pk.getByRole('button', { name: quick, exact: true }));
+    else await type(run, pk.locator('[data-testid=qty-input]'), String(opts.qty));
+  }
+  if (opts.shot) await shot(run, opts.shot);
+  await tap(run, pk.getByRole('button', { name: /^Add to/ }));
+  await p.waitForTimeout(250);
+}
+export async function setMeal(run, label) { await sheet(run).locator('select').selectOption({ label }); run.actions++; }
+export async function done(run) { await tap(run, sheet(run).getByRole('button', { name: 'Done' })); await run.page.waitForTimeout(250); }

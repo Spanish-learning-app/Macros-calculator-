@@ -1,0 +1,26 @@
+import * as L from './lib.mjs';
+const ST='/tmp/claude-0/d1-state.json';
+const run = await L.launch({time:'2026-10-15T17:00:00+02:00', storageState:ST}); const p = run.page;
+await p.goto(L.URL); await p.waitForSelector('[data-testid=kcal-left]');
+const before = await L.totals(run);
+L.start(run);
+await L.openSlot(run,'Shaam ki chai');
+await p.waitForTimeout(300);
+await L.shot(run,'a6-01-recents');
+console.log('sheet empty-state text:', (await L.sheet(run).locator('.sheet-results').innerText()).replace(/\n+/g,' | ').slice(0,700));
+const rec = L.sheet(run).locator('[data-testid=recents] [data-testid=food-row]');
+console.log('recents count', await rec.count());
+for (let i=0;i<Math.min(await rec.count(),8);i++) console.log('  recent', i, (await rec.nth(i).innerText()).replace(/\n+/g,' | '));
+const chai = rec.filter({hasText:/Chai, doodh patti \(home\), 2 tsp/}).first();
+await L.tap(run, chai.locator('.btn-plus'));
+await p.waitForTimeout(300);
+console.log('A6 actions from Day view', run.actions);
+for (let i=0;i<3;i++){ await L.tap(run, L.sheet(run).locator('[data-testid=recents] [data-testid=food-row]').filter({hasText:/2 tsp/}).first().locator('.btn-plus')); await p.waitForTimeout(200);} 
+await L.shot(run,'a6-02-after-4');
+await L.done(run);
+const after = await L.totals(run);
+console.log('before', before.all, 'after 4x', after.all);
+console.log('evening entries', (await p.locator('[data-testid=slot-evening]').innerText()).replace(/\n+/g,' | '));
+await p.evaluate(()=>window.scrollTo(0,0));
+await L.shot(run,'a6-03-day');
+await run.browser.close();

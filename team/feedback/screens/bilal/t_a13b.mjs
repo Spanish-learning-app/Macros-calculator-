@@ -1,0 +1,52 @@
+import * as L from './lib.mjs';
+const ST='/tmp/claude-0/d1-state.json';
+// export from normal context
+let run = await L.launch({time:'2026-10-14T21:30:00+02:00', storageState:ST}); let p = run.page;
+await p.goto(L.URL); await p.waitForSelector('[data-testid=kcal-left]');
+const e0 = await L.entries(run), t0=(await L.totals(run)).all;
+L.start(run);
+await L.tap(run, p.getByRole('link',{name:'Data'}));
+await p.waitForSelector('[data-testid=export-text]');
+const text = await p.locator('[data-testid=export-text]').inputValue();
+await run.ctx.grantPermissions(['clipboard-read','clipboard-write']).catch(()=>{});
+await L.tap(run, p.getByRole('button',{name:'Copy'}));
+await p.waitForTimeout(400);
+await L.shot(run,'a13-06-after-copy');
+console.log('(6) export actions', run.actions, 'export chars', text.length, 'status:', (await p.innerText('body')).match(/Copied[^\n]*|Could not[^\n]*|Select[^\n]*/g));
+await run.browser.close();
+// fresh context import
+run = await L.launch({time:'2026-10-14T21:30:00+02:00'}); p = run.page;
+await L.skipOnboarding(run);
+L.start(run);
+await L.tap(run, p.getByRole('link',{name:'Data'}));
+await L.type(run, p.locator('[data-testid=import-text]'), '');
+await p.locator('[data-testid=import-text]').fill(text); // paste = one action
+await L.tap(run, p.getByRole('button',{name:'Check backup'}));
+await p.waitForTimeout(400);
+await L.shot(run,'a13-07-import-dialog');
+console.log('import dialog:', (await p.locator('[data-testid=import-dialog]').innerText()).replace(/\n+/g,' | '));
+const btns = await p.locator('[data-testid=import-dialog] button').allInnerTexts(); console.log('dialog buttons', btns);
+await L.tap(run, p.locator('[data-testid=import-dialog] button',{hasText:/Replace/}));
+await p.waitForTimeout(500);
+await L.shot(run,'a13-08-after-import');
+await L.tap(run, p.getByRole('link',{name:'Day'}));
+await p.waitForSelector('[data-testid=kcal-left]');
+const e1 = await L.entries(run), t1=(await L.totals(run)).all;
+console.log('(6) import actions', run.actions, 'entries', e1.length, 'same as original', JSON.stringify(e1)===JSON.stringify(e0), 'totals same', t1===t0, t1);
+console.log('errors', run.errors, run.dialogs);
+await run.browser.close();
+// (5) storage throws
+run = await L.launch({time:'2026-10-14T21:30:00+02:00', throwStorage:true}); p = run.page;
+await p.goto(L.URL); await p.waitForTimeout(800);
+await L.shot(run,'a13-09-nostorage-first');
+console.log('welcome text', (await p.innerText('body')).replace(/\n+/g,' | ').slice(0,300));
+await L.tap(run, p.getByRole('button',{name:'Skip for now'}));
+await p.waitForSelector('[data-testid=kcal-left]');
+await L.openSlot(run,'Nashta');
+await L.logFood(run,'roti',/Roti \/ chapati/);
+await L.logFood(run,'chai',/1 tsp sugar/);
+await L.done(run);
+await L.shot(run,'a13-10-nostorage-day');
+console.log('(5) entries', (await L.entries(run)).length, 'banner:', await p.locator('.storage-banner').innerText().catch(()=>'none'), 'visible', await p.locator('.storage-banner').isVisible());
+console.log('errors', run.errors, run.dialogs);
+await run.browser.close();
