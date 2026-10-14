@@ -79,6 +79,12 @@ export function openPortionPicker(props) {
     value: qtyInput,
     oninput: () => {
       qtyInput = input.value;
+      // "800 g" or "800g" switches to grams in one go (Sprint 2: recipe amounts, A16 budget).
+      const grams = food ? qtyInput.match(/^\s*(\d+(?:[.,]\d+)?)\s*(?:g|gm|gr|grams?)\s*$/i) : null;
+      if (grams) {
+        servingId = 'g';
+        qtyInput = grams[1];
+      }
       const parsed = parseQty(qtyInput);
       if (parsed.ok) qty = parsed.value;
       refresh({ keepInput: true });
