@@ -44,3 +44,16 @@
   tier (property); limit; recordUse; recencyBoosts incl. DST; recentForSlot (A6)). One expectation
   of mine was wrong (ئ folds to ی by NFKD + harakat strip) and is fixed. 25/25 pass against
   Hamza's search.js (implemented meanwhile).
+- 2026-10-14 (resumed after the usage-limit pause; journal re-read): Lena's three notes are done
+  (lbFromKg 180.779055; no data-status selector; tab tests seed onboarding 'skipped').
+- targets QA suite: 38 tests (vectors A–K exact/±0.01/warning sets, result keys, bmi/PRW/bmr,
+  every health and derived flag effect incl. sex filter and age/BMI boundaries, prefs clamping,
+  65+ rule skipped by a pref, fat floor, low_carbs, all four rails incl. the male floor, RULES-driven
+  constants, a 500-profile invariant property, validateProfile, resolveTargets). Validated against
+  my reference first (one PRW expectation of mine fixed). 38/38 pass against Hamza's targets.js.
+- storage QA suite: 21 tests (defaults incl. Madrid/Ceuta/Canary preset and RULES-driven halal
+  defaults, the five load() statuses with memory/null/throwing/quota backends, corrupt copy key,
+  future refusal, 17-entry reload, migrate fill + codes, validateUserData, export → import round
+  trip with summary, every parseImport code, replace/merge). 21/21 pass against my reference;
+  TODO against the stub.
+- All QA unit suites: 224 tests, 204 pass, 20 todo (storage), 0 fail, in all 3 zones.

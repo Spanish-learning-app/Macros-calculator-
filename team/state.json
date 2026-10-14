@@ -4,7 +4,7 @@
   "phase": "Sprint 1 · Build v1",
   "sprint": 1,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-13T23:12:00Z",
+  "updatedAt": "2026-10-14T04:12:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -119,6 +119,11 @@
       "member": "ayesha",
       "task": "skipDefaults then record review",
       "output": "app/data/rules.js, docs/NUTRITION.md"
+    },
+    {
+      "member": "javier",
+      "task": "Release raita, hummus, tostada, whole tortilla",
+      "output": "app/data/foods-*.js (Javier's)"
     }
   ],
   "checkIn": {
@@ -135,6 +140,18 @@
     {
       "at": "2026-10-13T23:10:33Z",
       "result": "Agents running; handled 1 new Boss note (meal prep for breakfast and dinner too)."
+    },
+    {
+      "at": "2026-10-14T04:10:13Z",
+      "result": "Resume protocol: committed partial work; restarted hamza, priya, kenji, zainab, yusuf, ayesha from journals; javier released held records; Boss note answered."
+    }
+  ],
+  "pauses": [
+    {
+      "from": "2026-10-13T23:15:00Z",
+      "to": "2026-10-14T04:10:00Z",
+      "reason": "Claude usage limit (reset 03:50 UTC)",
+      "resumedBy": "hourly check-in"
     }
   ]
 }

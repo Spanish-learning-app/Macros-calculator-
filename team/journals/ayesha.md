@@ -52,3 +52,7 @@
   - (3) Tostada con aceite: the record is plausible. It is 2 × 30 g barra (UCM) + 20 g AOVE, between the two references' 6.75 and 13.5 g per slice, toasted with BEDCA moisture. The range was wrong for oil-dressed bread, so bread-fried is now 260–480 and covers oil-dressed toast; the record should use group bread-fried.
   - Tested on scratch records; the whole database (153) passes; contract test 7/7.
   - NOTE: Javier's build.mjs has a hardcoded HOLD map (raita, hummus), and the tostada record isn't in build.mjs at all. Those need Javier's edits; rerunning the build won't release them.
+- 2026-10-14 04:11 UTC — RESUMED after the usage-limit pause.
+  - Recovered unjournalled work from before the pause, all present on disk: rules.js v1.4.0 (lunchbox group generalised to meal-prep portions for any slot, keeping id 'lunchbox' because engineering uses it; prepServing {ids box/jar/portion, kcalBySlot}; slots[0] = primary slot; mealPrep.targetsBySlot; storage adds cooked-curry, egg-muffin, overnight-oats, cooked-flatbread); check-foods G22 generalised and tested.
+  - Started on Javier's review. Seeded sample drawn (seed "javier-sprint1", 15 of 74). All 15 match their sources. Composite notes are in progress.
+  - TODO now: NUTRITION.md meal-prep text; Hamza ruling (negative carbs); Zainab rulings (aloo paratha 247, salted lassi 30); write research/review/javier-sprint1.md; then review Zainab's 67.

@@ -107,3 +107,9 @@ Timestamps are UTC.
   fires. **Question for Ayesha:** what should happen there?
 - 2026-10-14 00:45 Read new DECISIONS row: meal prep covers any meal (Sprint 2; Sprint 1
   unchanged). Sprint 2 note for Lena: `foods.BOX = 'box'` may need a jar/portion serving id.
+- 2026-10-14 (after the usage-limit pause, ~23:15 UTC) Resumed from this journal. State: units,
+  dates, foods, days, search, targets done; `tests/unit/dev/storage.test.js` written (test-first),
+  `app/core/storage.js` still the stub. Omar: Kenji's search QA suite passes 25/25 against my
+  search.js; Ayesha has my carbs-below-0 question. Until she rules, keep the clamp at 0 plus
+  `low_carbs` (that is what targets.js does now). Next: storage.js incl. settings.onboarding, then
+  full check + Lena's store tests + Kenji's QA suites in all 3 zones.
