@@ -51,6 +51,35 @@ function detectMealPrepUi() {
 
 const RUN_ALL = process.env.KATORI_E2E_ALL === '1';
 
+/**
+ * The text of the app's UI sources (a cheap, build-free feature detector). A test id counts as built
+ * when it appears as a quoted string in app/ui, whichever way the code passes it to the DOM.
+ */
+export function uiSource() {
+  try {
+    const walk = (dir) =>
+      readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+        e.isDirectory() ? walk(new URL(`${e.name}/`, dir)) : [new URL(e.name, dir)],
+      );
+    return walk(new URL('../../app/ui/', import.meta.url))
+      .filter((f) => f.pathname.endsWith('.js'))
+      .map((f) => readFileSync(f, 'utf8'))
+      .join('\n');
+  } catch {
+    return '';
+  }
+}
+
+/** Marks the current test fixme unless the UI source carries every named test id. */
+export function needsUi(...testIds) {
+  const src = uiSource();
+  const missing = testIds.filter((id) => !src.includes(`'${id}'`) && !src.includes(`"${id}"`));
+  base.fixme(
+    !RUN_ALL && missing.length > 0,
+    `UI not built yet, no data-testid: ${missing.join(', ')}`,
+  );
+}
+
 /** Marks the current test fixme unless every named feature has landed. */
 export function needs(...names) {
   const missing = names.filter((n) => !FEATURES[n]);

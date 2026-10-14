@@ -2,6 +2,7 @@
    900 px. Rules: no horizontal scroll, 44 x 44 px targets, visible focus, AA contrast in both
    themes, reduced motion respected, no red. View-specific styles live in views.css. */
 @import url('./views.css');
+@import url('./prep.css');
 
 *,
 *::before,

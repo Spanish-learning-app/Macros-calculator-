@@ -202,7 +202,12 @@ test('meal-prep gate: an unknown foodId still fails even when a name is given (M
 });
 
 test('meal-prep gate: a line with neither foodId nor name fails M2', () => {
-  for (const line of [{ grams: 5 }, { grams: 5, name: '' }, { grams: 5, name: '   ' }, { grams: 5, name: 3 }]) {
+  for (const line of [
+    { grams: 5 },
+    { grams: 5, name: '' },
+    { grams: 5, name: '   ' },
+    { grams: 5, name: 3 },
+  ]) {
     const r = good();
     r.ingredients[1] = line;
     assert.deepEqual(failGates(r), ['M2'], JSON.stringify(line));

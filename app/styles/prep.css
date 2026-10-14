@@ -1,0 +1,664 @@
+/* Meal prep, recipes, chai and saved meals (Sprint 2). Owner: Lena, on Priya's tokens.
+   Imported by base.css after views.css. Use-by notes are calm: "last day" is clay-soft and
+   "past use-by" is a neutral ink panel. Nothing here is red, and nothing pops up. */
+
+/* ------------------------------------------------------------------ Prep view */
+
+.prep-lead {
+  margin: calc(-1 * var(--space-2)) 0 var(--space-4);
+}
+
+.prep-section {
+  margin-top: var(--space-6);
+}
+
+.prep-section:first-of-type {
+  margin-top: 0;
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.section-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.section-head .section-title {
+  margin: 0;
+}
+
+.prep-notices:empty {
+  display: none;
+}
+
+.prep-notices {
+  margin-bottom: var(--space-4);
+}
+
+/* Lists of recipes and library boxes */
+.prep-list {
+  margin: 0 0 var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+.prep-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.prep-main {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  gap: 2px;
+  min-height: var(--tap-lg);
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  text-align: left;
+}
+
+.prep-main:hover {
+  background: var(--surface-2);
+}
+
+.prep-name {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  line-height: 1.3;
+}
+
+.prep-line {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.prep-row > .entry-halal {
+  grid-column: 1;
+  grid-row: 2;
+  margin: -6px 0 var(--space-1) var(--space-2);
+}
+
+.prep-row > .halal-reason {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
+.btn-small {
+  min-height: var(--tap);
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.library-group {
+  margin-bottom: var(--space-2);
+}
+
+.library-group > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  cursor: pointer;
+}
+
+/* Chai card */
+.chai-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.chai-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1 1 200px;
+}
+
+.chai-text .muted {
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------------------------ Batch cards */
+
+.batch-card + .batch-card {
+  margin-top: var(--space-4);
+}
+
+.batch-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.batch-titles {
+  min-width: 0;
+}
+
+.batch-name {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: 1.3;
+}
+
+.batch-sub {
+  font-size: var(--text-sm);
+}
+
+.batch-left {
+  flex: none;
+  display: grid;
+  justify-items: end;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.batch-left strong {
+  font-size: var(--text-2xl);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.batch-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-2) 0;
+  font-size: var(--text-sm);
+}
+
+.batch-halal {
+  font-size: var(--text-sm);
+}
+
+/* One row per box: name, where it is, use-by, fridge/freezer switch */
+.box-list {
+  margin: var(--space-2) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.box-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--border);
+}
+
+.box-row--done {
+  color: var(--text-muted);
+}
+
+.box-text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1 1 160px;
+}
+
+.box-name {
+  font-weight: var(--weight-medium);
+}
+
+.box-what {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.box-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Fridge / Freezer pair (buttons, aria-pressed) */
+.seg-pair {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+}
+
+.seg-btn {
+  min-height: calc(var(--tap) - 6px);
+  min-width: var(--tap);
+  padding: var(--space-1) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.seg-btn.is-on {
+  background: var(--selected);
+  color: var(--selected-text);
+}
+
+.seg-btn:disabled {
+  cursor: not-allowed;
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+
+/* The pair's outer box is 44 px tall; each half is a full-height target. */
+.seg-pair .seg-btn {
+  min-height: 38px;
+}
+
+.seg-pair {
+  min-height: var(--tap);
+  align-items: stretch;
+}
+
+/* Calm notes (use-by, "no boxes left", placed) */
+.prep-note {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.prep-note--info {
+  color: var(--text-muted);
+}
+
+.prep-note--last,
+.prep-note--past {
+  justify-self: start;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-weight: var(--weight-medium);
+}
+
+.prep-note--last {
+  background: var(--accent-soft);
+  color: var(--accent-soft-text);
+}
+
+.prep-note--past {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.batch-note {
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* Placing: meal select, 7 day chips, Fill Mon–Thu */
+.place {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.place-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.place-head .select {
+  width: auto;
+  min-width: 150px;
+}
+
+.day-chips {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.day-chip {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-height: var(--tap-lg);
+  min-width: var(--tap);
+  padding: var(--space-1) 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  line-height: 1.15;
+}
+
+.day-chip:hover {
+  background: var(--surface-2);
+}
+
+.day-chip.is-on {
+  border-color: var(--selected);
+  background: var(--selected-soft);
+  box-shadow: inset 0 0 0 1px var(--selected);
+}
+
+.day-chip-dow {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.day-chip-num {
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.day-chip-mark {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: grid;
+  color: var(--selected);
+}
+
+.batch-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* "Tonight: move box 2 to the fridge" */
+.prep-tonight {
+  display: grid;
+  gap: var(--space-2);
+  background: var(--accent-soft);
+  border-color: transparent;
+  color: var(--accent-soft-text);
+}
+
+.prep-tonight .card-title {
+  margin-bottom: 0;
+  color: inherit;
+}
+
+.tonight-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.tonight-row p {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.day-prep:empty {
+  display: none;
+}
+
+.day-prep {
+  margin-bottom: var(--space-3);
+}
+
+/* ------------------------------------------------------------------ Cook a batch dialog */
+
+.cook-per {
+  font-variant-numeric: tabular-nums;
+}
+
+.cook-halal {
+  display: grid;
+  gap: var(--space-1);
+  margin: var(--space-2) 0;
+}
+
+.recipe-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+.boxes-count {
+  display: block;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.cook-boxes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cook-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  border-top: 1px solid var(--border);
+}
+
+.cook-box-name {
+  font-weight: var(--weight-medium);
+}
+
+/* ------------------------------------------------------------------ Shopping list */
+
+.shop-section + .shop-section {
+  margin-top: var(--space-3);
+}
+
+.shop-items {
+  margin: 0;
+  padding-left: var(--space-5);
+}
+
+.shop-items li {
+  padding: 2px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.shop-body {
+  margin-top: var(--space-3);
+}
+
+.shop-status:empty {
+  display: none;
+}
+
+.shop-status .textarea {
+  width: 100%;
+  margin-top: var(--space-2);
+  font: inherit;
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------------------------ Recipe editor */
+
+.ing-list {
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.ing-row {
+  border-bottom: 1px solid var(--border);
+}
+
+.ing-main {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  min-height: var(--tap-lg);
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  text-align: left;
+}
+
+.ing-main:hover {
+  background: var(--surface-2);
+}
+
+.ing-name {
+  font-weight: var(--weight-medium);
+}
+
+.ing-line {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.recipe-summary {
+  margin-top: var(--space-3);
+}
+
+.recipe-numbers {
+  display: grid;
+  gap: var(--space-1);
+  background: var(--surface-2);
+  border-color: transparent;
+}
+
+.recipe-macros {
+  font-variant-numeric: tabular-nums;
+}
+
+.recipe-total,
+.recipe-source {
+  font-size: var(--text-sm);
+}
+
+.recipe-halal {
+  font-size: var(--text-sm);
+}
+
+.recipe-halal--check {
+  justify-self: start;
+  padding: 2px var(--space-2);
+  border: 1px solid var(--halal-check-border);
+  border-radius: var(--radius-sm);
+  background: var(--halal-check-bg);
+  color: var(--halal-check-text);
+}
+
+.recipe-halal--not-halal {
+  justify-self: start;
+  padding: 2px var(--space-2);
+  border: 1px solid var(--halal-not-border);
+  border-radius: var(--radius-sm);
+  background: var(--halal-not-bg);
+  color: var(--halal-not-text);
+}
+
+.input--num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------ Chai dialog */
+
+.seg--stack {
+  flex-direction: column;
+  gap: 0;
+  border-radius: var(--radius);
+  line-height: 1.2;
+}
+
+.seg-sub {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-normal);
+  color: var(--text-muted);
+}
+
+.segmented-field + .segmented-field {
+  margin-top: var(--space-3);
+}
+
+.chai-preview {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------ Day view and add sheet */
+
+/* The note under a meal-prep box entry. */
+.entry-note {
+  justify-self: start;
+  font-size: var(--text-sm);
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.entry-note--last,
+.entry-note--past {
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-weight: var(--weight-medium);
+}
+
+.entry-note--last {
+  background: var(--accent-soft);
+  color: var(--accent-soft-text);
+}
+
+.entry-note--past {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.food-main--static {
+  cursor: default;
+}
+
+.food-main--static:hover {
+  background: transparent;
+}
+
+.welcome-seafood {
+  margin-top: var(--space-4);
+}
+
+/* day.js wraps the slots with the prep notice; the wrapper takes the slots' place in the order. */
+.day-main {
+  order: 2;
+  min-width: 0;
+}

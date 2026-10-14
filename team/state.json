@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T19:45:00Z",
+  "updatedAt": "2026-10-14T20:05:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -46,8 +46,8 @@
     },
     "priya": {
       "location": "office",
-      "status": "working",
-      "task": "Design study for Meeting 004"
+      "status": "idle",
+      "task": "Design study done: recommends refine (Option B)"
     },
     "kenji": {
       "location": "office",
@@ -62,7 +62,7 @@
     "javier": {
       "location": "office",
       "status": "working",
-      "task": "International/basics/Spanish/packaged records (4 files)"
+      "task": "Market and ready-to-eat foods"
     },
     "nasreen": {
       "location": "office",
@@ -87,14 +87,14 @@
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
-      "member": "priya",
-      "task": "Design study of market-leading apps (team/briefs/priya-design-study.md) for Meeting 004",
-      "output": "docs/DESIGN-STUDY.md, team/feedback/design-study/**"
-    },
-    {
       "member": "kenji",
       "task": "Gate M2 accepts §13.1 name-only ingredients; e2e A16-A18, Thora sa, Spanish slot names",
       "output": "tests/**"
+    },
+    {
+      "member": "javier",
+      "task": "Market/ready-to-eat food records + market staples for Yusuf (team/briefs/s2-market-preps.md)",
+      "output": "app/data/foods-es-med.js, foods-intl.js, foods-basics.js, research/javier/**"
     }
   ],
   "checkIn": {
@@ -161,9 +161,19 @@
   },
   "queued": [
     {
+      "member": "yusuf",
+      "task": "Assemble-tier preps (12-16), effort/minutes on all library recipes, ready-to-eat picks, low-cook week plan (team/briefs/s2-market-preps.md). Start after Javier lands.",
+      "output": "app/data/foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
+    },
+    {
       "member": "ayesha",
-      "task": "Add the raw ingredients Yusuf lists (chicken thigh/mince, beef cubes, dry basmati/brown rice, couscous, bulgur, wholewheat pasta, chana/masoor dal, atta, egg whites, chia, pita, crushed tomato, breadcrumbs, peppers, courgette, frozen peas/beans, spinach) and review the 13 new prep records",
-      "output": "app/data/foods-basics.js etc, docs/NUTRITION.md"
+      "task": "Raw meats Yusuf lists (chicken thigh, chicken mince, beef cubes) + review the new prep and market records",
+      "output": "app/data/*, docs/NUTRITION.md"
+    },
+    {
+      "member": "omar",
+      "task": "Meeting 004 (design review): Priya, Lena, Bilal, Mariam on docs/DESIGN-STUDY.md (Priya recommends B: refine)",
+      "output": "team/meetings/004-design-review.md"
     }
   ]
 }

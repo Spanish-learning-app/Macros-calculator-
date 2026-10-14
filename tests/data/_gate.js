@@ -442,7 +442,7 @@ export function checkRecord(food, rules) {
     }
   }
 
-  return { fails, warns, stats };
+  return { fails, warns };
 }
 
 /** G18 (warn): members of a family share a group. */
@@ -541,7 +541,11 @@ export function checkMealprepRecipes(recipes, { foodsById, rules }) {
         } else if (hasName) stats.nameOnly += 1;
         else fail(id, 'M2', `ingredient ${j} has neither a foodId nor a name`);
         if (!(finite(ing.grams) && ing.grams > 0))
-          fail(id, 'M2', `ingredient ${j}: grams must be a number > 0 (got ${JSON.stringify(ing.grams)})`);
+          fail(
+            id,
+            'M2',
+            `ingredient ${j}: grams must be a number > 0 (got ${JSON.stringify(ing.grams)})`,
+          );
       });
     }
     // M3

@@ -89,3 +89,16 @@ Timestamps are UTC.
   Plan: (1) screenshot Katori at 400 px light/dark, Madrid time, into team/feedback/design-study/;
   (2) web research on the 7 apps + HIG/M3 (~20 sources); (3) write docs/DESIGN-STUDY.md.
 - 2026-10-14 Screens taken (24 PNGs, light/dark, 400x860, 13:10 Madrid) with team/feedback/design-study/shoot.mjs. Seen: Day/Add/Picker/Week/Welcome/Targets polished; Prep library unstyled mid-change (bullets, grey default buttons, missing spaces 'walnuts1 jar', 'My chaiSet'). Day shows only kcal+protein. Web reachable (WebSearch/WebFetch work).
+- 2026-10-14 Research done, ~20 sources: MacroFactor FLSI 2025 + App Store + help (recipes/servings),
+  MFP Today-tab backlash (unstar.app analysis, MFP team post via Reddit mirror), Cronometer App Store
+  + reviews, Lose It reviews, Lifesum (Pratt IxD critique, rating explainer, calorie-trackers review),
+  Yazio (App Store/Trustpilot/feature board/giga.de), HealthifyMe (YourStory 2012/2015, TechCrunch
+  Snap 2023), Apple HIG tab bars + dark mode (JSON endpoint; HTML is JS-only), M3 nav bar (MDC docs).
+  WebFetch of m3.material.io and HIG HTML returned only titles; worked around via raw sources.
+- 2026-10-14 Extra screens via shoot-prep.mjs (cook dialog, batch card, Fill Mon–Thu, Day with box).
+  Prep batch card mid-change: native grey buttons for Fridge/Freezer, bullets, joined strings
+  ("Halal1 box", "Box 1Not placed yet", "Today18"). Tab bar is text only (main.js, Lena's).
+  Contrast check: all text tokens ≥ 4.7:1; HIG asks 7:1 for small custom text: faint text is 5.2 (L) / 6.4 (D).
+- 2026-10-14 Writing docs/DESIGN-STUDY.md. Pick: Option 2 (refine), ~3–4 days for me + prep finish for Lena.
+- 2026-10-14 docs/DESIGN-STUDY.md written (25 sources, 9 ranked refinements, 8 prep fixes for Lena). Pick: Option B refine; ~3–4 days for me, prep markup/CSS for Lena. Not committed (Omar commits). Server on :8790 used for shots.
+- 2026-10-14 Lena's prep.css landed mid-study; re-shot Prep (09, 11–14) and rewrote DESIGN-STUDY §5 to list only what is still open (halal chip, box rows, date words, Fill wrap, Cooked-on field, meal select).

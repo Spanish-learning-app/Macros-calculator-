@@ -393,6 +393,16 @@ export function createFakeStore({
       return { dates, rows, average };
     },
     food: (id) => index.get(id),
+    // Sprint 2 read-only stand-ins (meal prep lives in the real store; the harness shows none).
+    recipes: () => [],
+    recipe: () => null,
+    library: () => [],
+    batches: () => [],
+    boxesLeft: () => 0,
+    boxInfo: () => null,
+    prepNotices: () => ({ moveTonight: [] }),
+    chai: () => null,
+    savedMeals: () => [],
     variants(foodId) {
       const f = index.get(foodId);
       if (!f.family) return [f];

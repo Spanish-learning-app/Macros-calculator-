@@ -11,6 +11,7 @@ import { h, uid, setText, mountChildren } from '../dom.js';
 import { iconEl } from './icons.js';
 import { halalChip, estimateBadge, styleLabel, urduName } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
+import { boxWord } from './prep-bits.js';
 import { normalize } from '../../core/search.js';
 import {
   fmtKcal,
@@ -299,7 +300,9 @@ export function createAddSheet(props) {
     const q = query.trim();
     if (!q) {
       const recents = store.recents(slot);
-      results.replaceChildren(
+      mountChildren(
+        results,
+        prepGroup(),
         recents.length
           ? h(
               'section',
@@ -370,6 +373,93 @@ export function createAddSheet(props) {
     // mountChildren drops null; replaceChildren(list, null) printed the text "null" (Review 1).
     mountChildren(results, list, hidden.length ? hiddenNote(hidden) : null);
     quick.setName(q);
+  }
+
+  /**
+   * Sprint 2: meal-prep boxes with some left (one tap places a box, A17) and saved meals (one tap
+   * adds every food, A5 c), above the recents while nothing is typed.
+   */
+  function prepGroup() {
+    const boxes = store
+      .batches()
+      .map((batch) => ({ batch, left: store.boxesLeft(batch.id) }))
+      .filter((b) => b.left > 0);
+    const meals = store.savedMeals();
+    if (!boxes.length && !meals.length) return null;
+    const row = ({ testid, id, name, line, label, onAdd }) => {
+      const plus = h(
+        'button',
+        {
+          type: 'button',
+          class: 'btn-plus',
+          'aria-label': label,
+          onclick: () => {
+            onAdd();
+            renderResults();
+          },
+        },
+        iconEl('plus', 22),
+      );
+      return h(
+        'li',
+        { class: 'food-row food-row--prep', 'data-testid': testid, 'data-id': id },
+        h(
+          'div',
+          { class: 'food-main food-main--static' },
+          h('span', { class: 'food-name' }, name),
+          h('span', { class: 'food-portion' }, line),
+        ),
+        plus,
+      );
+    };
+    return h(
+      'section',
+      {
+        class: 'result-group',
+        'data-testid': 'prep-group',
+        'aria-label': 'Meal prep and saved meals',
+      },
+      h('h3', { class: 'group-title' }, 'Ready to add'),
+      h(
+        'ul',
+        { class: 'food-list', role: 'list' },
+        boxes.map(({ batch, left }) => {
+          const food = store.food(batch.recipeId);
+          const word = boxWord(food, rules);
+          const name = store.batchName(batch);
+          return row({
+            testid: 'prep-box-row',
+            id: batch.id,
+            name,
+            line: `1 ${word} · ${left} left · meal prep`,
+            label: `Add a ${word} of ${name}`,
+            onAdd: () => {
+              store.placeBox({ batchId: batch.id, date, slot });
+              addedCount += 1;
+              setText(
+                status,
+                `Added a ${word} of ${name} to ${store.slotLabel(slot)}. ${left - 1} left.`,
+              );
+            },
+          });
+        }),
+        meals.map((meal) =>
+          row({
+            testid: 'saved-meal-row',
+            id: meal.id,
+            name: meal.name,
+            line: `Saved meal · ${meal.items.length} ${meal.items.length === 1 ? 'food' : 'foods'}`,
+            label: `Add ${meal.name}`,
+            onAdd: () => {
+              const n = store.addSavedMeal({ mealId: meal.id, date, slot });
+              addedCount += 1;
+              setText(status, `Added ${meal.name} to ${store.slotLabel(slot)}.`);
+              return n;
+            },
+          }),
+        ),
+      ),
+    );
   }
 
   function hiddenNote(hidden) {

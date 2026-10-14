@@ -44,3 +44,9 @@ carbs, fat and fiber.
   they design things and which design language works in the market, so Katori is inspired by them
   or better, not a generic design. Hire only if needed; otherwise use someone who is free. Then
   meet and decide whether to keep the current design or change it. "It's your call."
+
+## Update from the Boss — 2026-10-14 (evening): less cooking
+
+- Meal prep should also use healthy food bought ready from the market (fruit and more) and things
+  from Mercadona and other shops that need little or no cooking (salads and more), to reduce the
+  cooking load. The Boss's examples are only examples: "don't be limited to that."

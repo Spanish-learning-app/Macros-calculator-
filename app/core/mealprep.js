@@ -278,12 +278,13 @@ export function storagePlan(recipe, boxes, foodIndex, rules) {
   const fridgeDays = fridgeDaysOf(found);
   // A side pot packed on its own ({ id, pot: true }, e.g. the raita) does not stop the box from
   // being frozen; it still counts for the fridge life.
-  const pots = new Set(
-    (Array.isArray(recipe.storage) ? recipe.storage : [])
-      .filter((s) => isObject(s) && s.pot === true)
-      .map((s) => s.id),
-  );
-  const main = found.filter((s) => !pots.has(s.id));
+  // Judged per entry, not per id: the same id can be both in the box and in a side pot (chana
+  // chaat: the chaat is a cold salad and so is its raita pot), and the box one still counts.
+  const own = Array.isArray(recipe.storage) && recipe.storage.length ? recipe.storage : null;
+  const mainIds = own
+    ? own.filter((s) => !(isObject(s) && s.pot === true)).map((s) => (isObject(s) ? s.id : s))
+    : null;
+  const main = mainIds ? found.filter((s) => mainIds.includes(s.id)) : found;
   const judged = main.length ? main : found;
   const freezable = judged.length > 0 && judged.every((s) => s.freezable === true);
   const storage = Array.from({ length: boxes }, (_, i) =>

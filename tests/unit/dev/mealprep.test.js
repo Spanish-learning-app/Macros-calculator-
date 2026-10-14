@@ -392,4 +392,14 @@ test('storagePlan: a side pot (raita) does not stop freezing; a mixed-in salad d
   assert.equal(plan.freezable, false);
   assert.equal(plan.fridgeDays, 2);
   assert.deepEqual(storageIds(tikka, INDEX, RULES), ['cooked-starch', 'cooked-meat', 'cold-salad']);
+  // The Lab's real chana chaat: a cold salad in the box AND a raita pot with the same id (A18 6).
+  const labChaat = {
+    ingredients: [],
+    storage: ['cooked-meat', 'cold-salad', { id: 'cold-salad', pot: true }],
+  };
+  assert.deepEqual(storagePlan(labChaat, 4, INDEX, RULES), {
+    fridgeDays: 2,
+    freezable: false,
+    storage: ['fridge', 'fridge', 'fridge', 'fridge'],
+  });
 });
