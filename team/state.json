@@ -1,10 +1,10 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "paused",
+  "status": "working",
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T14:12:00Z",
+  "updatedAt": "2026-10-14T16:14:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -22,12 +22,12 @@
     "omar": {
       "location": "office",
       "status": "working",
-      "task": "Coordinating Sprint 1"
+      "task": "Night shift: coordinating Sprint 2"
     },
     "lena": {
       "location": "office",
       "status": "working",
-      "task": "store.js + integration + reviews + preview"
+      "task": "Sprint 2 meal prep build"
     },
     "ayesha": {
       "location": "office",
@@ -52,7 +52,7 @@
     "kenji": {
       "location": "office",
       "status": "working",
-      "task": "QA per team/briefs/kenji-sprint1.md"
+      "task": "Sprint 2 independent tests"
     },
     "zainab": {
       "location": "office",
@@ -72,7 +72,7 @@
     "yusuf": {
       "location": "office",
       "status": "working",
-      "task": "12 halal lunch boxes"
+      "task": "recipes-mealprep.js + breakfast/dinner preps"
     },
     "mariam": {
       "location": "office",
@@ -99,7 +99,7 @@
   ],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
-    "cron": "9 * * * * (UTC, hourly)"
+    "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *"
   },
   "appName": "Katori",
   "next": "When Sprint 2 wave lands: add recipes-mealprep export to app/data/index.js if needed, integrate, Review 2 (customer panel), republish.",
@@ -116,6 +116,10 @@
     {
       "at": "2026-10-14T04:10:13Z",
       "result": "Resume protocol: committed partial work; restarted hamza, priya, kenji, zainab, yusuf, ayesha from journals; javier released held records; Boss note answered."
+    },
+    {
+      "at": "2026-10-14T16:10:37Z",
+      "result": "Night shift 1: inbox had nothing new; restarted lena, kenji (sonnet), yusuf with fresh agents from journals."
     }
   ],
   "pauses": [
@@ -134,7 +138,8 @@
     {
       "from": "2026-10-14T10:05:00Z",
       "to": "2026-10-14T16:09:00Z",
-      "reason": "Usage limit (reset 14:10 UTC), then Boss's daytime off-duty rule until 18:00 Madrid"
+      "reason": "Usage limit (reset 14:10 UTC), then Boss's daytime off-duty rule until 18:00 Madrid",
+      "resumedBy": "night-shift check-in 16:10 UTC"
     }
   ],
   "workingHours": {

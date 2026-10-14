@@ -118,3 +118,4 @@
   - Verified in Chromium at 400 px, Madrid (light and dark) and 1280 px; screenshots looked at: no "null", help row, taste chip, docked bar, source panel, "+70 g above target ✓", 00:30 header. No console errors, no sideways scroll.
   - Lab asks (Ayesha): (1) pk-chai-dhaba-extra-sugar needs style 'dhaba' (family 'chai'); without it "chai" lists it first in Lunch/Merienda/Dinner/Snacks and "+" logs 256 kcal. (2) spain hours above. (3) Optional: RULES deficit_capped text is now only a fallback; serving labels still say "as notified"; "pizza chain" matches "chai" as a word prefix.
   - Process note: I briefly ran `git stash` / `git stash pop` to check a smoke failure on the baseline; it popped cleanly, but it touched Ayesha's working files for ~10 s. Won't repeat during parallel work.
+- 2026-10-14 16:15 UTC: SPRINT 2 (meal prep and recipes, core + UI) started fresh after the usage-limit pause. Reading brief, §13, A16–A18, NUTRITION mealPrep.storage.

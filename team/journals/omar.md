@@ -14,3 +14,4 @@
 - 2026-10-14 10:02 UTC — Sprint 2 launched: Lena (recipes, meal-prep batches for any meal, fridge/freezer + use-by, shopping list, my chai, saved meals, seafood setting; ARCHITECTURE §13), Kenji (independent §13 tests, data gates, e2e A16–A18), Yusuf (recipes-mealprep.js per §13, 5–6 breakfast + 6–8 dinner preps, MEALPREP.md).
 - 2026-10-14 ~10:05 UTC — Third usage-limit pause: all three Sprint 2 agents stopped at their first step (reset 14:10 UTC).
 - 2026-10-14 14:12 UTC — Boss's new rule: team works 18:00–10:00 Madrid only. Check-in routine re-scheduled (CRON_TZ=Europe/Madrid 9 0-9,18-23). Sprint 2 wave restarts at 18:09 Madrid with fresh agents.
+- 2026-10-14 16:10 UTC (18:10 Madrid) — Night shift 1. Inbox: nothing new. Restarted Sprint 2 with fresh agents from the same prompts plus a restart note: Lena, Kenji (sonnet), Yusuf. Dashboard back to working.
