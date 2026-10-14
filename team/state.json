@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T19:49:00Z",
+  "updatedAt": "2026-10-14T19:55:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -26,8 +26,8 @@
     },
     "lena": {
       "location": "office",
-      "status": "working",
-      "task": "Sprint 2 meal prep build"
+      "status": "idle",
+      "task": "Sprint 2 done incl. BUG-TC1 and quick-amount ingredient entry"
     },
     "ayesha": {
       "location": "office",
@@ -81,11 +81,6 @@
     }
   },
   "inFlight": [
-    {
-      "member": "lena",
-      "task": "Sprint 2 features done (recipes, batches, chai, saved meals, seafood, effort filter, Priya notes). Finishing BUG-TC1 (taste chip hideWhen).",
-      "output": "app/** (not data), tests/unit/dev/**"
-    },
     {
       "member": "yusuf",
       "task": "Assemble preps (12-16), effort/minutes tags, swap name-only lines to Javier foodIds, ready picks, low-cook week (team/briefs/s2-market-preps.md)",

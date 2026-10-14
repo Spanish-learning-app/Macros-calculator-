@@ -1278,6 +1278,117 @@ for (const [id, extra] of [
 }
 basics.push(...marketBasics);
 
+// ================================================================= Sprint 2: raw meats and aromatics (Ayesha)
+// Added by Dr. Ayesha Siddiqui (Lab lead), 2026-10-14 evening: the raw ingredients that Yusuf's meal-prep
+// recipes (recipes-mealprep.js) still list by name only and that no researcher owns (brief s2-market-preps:
+// "Ayesha owns the raw meats"). USDA values through fromUsda() (method direct, grade A unless stated).
+const ay = (fdc, conf, notes, opts) => {
+  const x = u2(fdc, conf, notes, opts);
+  return { per100g: x.per100g, source: byAyesha(x.source) };
+};
+const labRawMeats = [
+  {
+    id: 'intl-chicken-thigh-raw', name: 'Chicken thigh, raw (boneless, skinless)', nameUr: 'کچی مرغی کی ران (بغیر ہڈی)', nameRoman: 'kachi murghi ki raan (boneless)',
+    aliases: ['raw chicken thigh', 'chicken thigh', 'boneless chicken thigh', 'thigh fillet', 'boneless chicken', 'raan boneless', 'contramuslo', 'contramuslo de pollo', 'contramuslo deshuesado', 'cuixa de pollastre desossada'],
+    group: 'meat-fish', state: 'raw, boneless, skinless (weigh before cooking)',
+    ...ay(2646171, 'A', 'USDA Foundation retail boneless skinless thighs (as sold, some trimmable fat left on). Cross-checks: Spanish retail labels for contramuslo deshuesado (Open Food Facts, read 2026-10-14: Hacendado 2302789003516 127 kcal, P 19, F 4.9; Uvesa 2302789004162 145, P 19, F 7.4; Pujante 2325258005378 155, P 18.4, F 8.9) span 127–155; USDA SR 173627 thigh meat only, fully trimmed: 121 kcal, P 19.7, F 4.1. Weigh raw; for roasted thigh use intl-chicken-thigh-roasted. Servings: USDA SR 173627 4 oz = 113 g; ¼ kg as bought at the butcher.', { zeroFiber: true }),
+    servings: [sv('100g', '100 g raw', 100, true), sv('4oz', '4 oz raw', 113), sv('250g', '¼ kg raw', 250)],
+    tags: ['international', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
+  },
+  {
+    id: 'intl-chicken-mince-raw', name: 'Chicken mince, raw', nameUr: 'مرغی کا کچا قیمہ', nameRoman: 'chicken qeema (kacha)',
+    aliases: ['chicken mince', 'raw chicken mince', 'ground chicken', 'chicken qeema', 'chicken keema', 'murgh qeema', 'carne picada de pollo', 'picada de pollo', 'carn picada de pollastre'],
+    group: 'meat-fish', state: 'raw, minced thigh and breast meat (weigh before cooking)',
+    ...ay(171116, 'A', 'USDA SR "Chicken, ground, raw" (8 % fat): mince from a halal butcher is usually mixed thigh and breast. Leaner breast-only mince is close to intl-chicken-breast-raw. Servings: USDA SR 171116 4 oz = 113 g; ¼ kg as bought.', { zeroFiber: true }),
+    servings: [sv('100g', '100 g raw', 100, true), sv('4oz', '4 oz raw', 113), sv('250g', '¼ kg raw', 250)],
+    tags: ['international', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
+  },
+  {
+    id: 'intl-beef-mince-lean-raw', name: 'Beef mince, lean, raw (90 % lean)', nameUr: 'کچا قیمہ (کم چکنائی)', nameRoman: 'kacha qeema (lean)',
+    aliases: ['lean beef mince', 'lean mince', 'lean qeema', 'lean keema', 'extra lean mince', 'beef mince 10% fat', 'carne picada magra', 'carne picada de ternera magra', 'carn picada magra'],
+    group: 'meat-fish', state: 'raw, 90 % lean / 10 % fat (weigh before cooking)',
+    ...ay(174030, 'A', 'The "magra" mince a halal butcher grinds from lean cuts; the meal-prep recipes (keema, seekh kebab, albóndigas, mandonguilles, shami) are calculated with it. Ordinary mince is intl-beef-mince-raw (85 % lean, 215 kcal). Servings: USDA SR 174030 4 oz = 113 g; ¼ kg as bought.', { zeroFiber: true }),
+    servings: [sv('100g', '100 g raw', 100, true), sv('4oz', '4 oz raw', 113), sv('250g', '¼ kg raw', 250)],
+    tags: ['international', 'pakistani', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
+  },
+  {
+    id: 'intl-beef-cubes-raw', name: 'Beef, boneless stewing cubes, raw (lean)', nameUr: 'کچا گوشت (بغیر ہڈی)', nameRoman: 'kacha gosht (boneless)',
+    aliases: ['beef cubes', 'boneless beef', 'stewing beef', 'beef stew meat', 'gosht', 'boneless gosht', 'bade ka gosht', 'carne de ternera para guisar', 'carne sin hueso', 'carne a tacos', 'ternera a tacos', 'vedella per guisar'],
+    group: 'meat-fish', state: 'raw, boneless lean cubes for stewing, visible fat trimmed (weigh before cooking)',
+    ...ay(171206, 'A', 'USDA SR beef chuck for stew, separable lean and fat, all grades, raw (4.5 % fat): the lean boneless stewing cut (ternera para guisar) a halal butcher cubes for salan and aloo gosht. Fattier cuts with marbling run 180–250 kcal (SR 168668 chuck pot roast, lean and fat: 249). Servings: USDA SR 171206 4 oz = 113 g; ¼ kg as bought.', { zeroFiber: true }),
+    servings: [sv('100g', '100 g raw', 100, true), sv('4oz', '4 oz raw', 113), sv('250g', '¼ kg raw', 250)],
+    tags: ['international', 'pakistani', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL_MEAT,
+  },
+];
+const labAromatics = [
+  {
+    id: 'intl-garlic', name: 'Garlic, raw', nameUr: 'لہسن', nameRoman: 'lehsan',
+    aliases: ['garlic', 'lehsan', 'lahsun', 'lehsun', 'garlic clove', 'ajo', 'ajos', 'all', 'garlic paste'],
+    group: 'condiment', state: 'raw, peeled cloves (fresh, or as home-made paste with no oil)',
+    ...ay(169230, 'A', 'Group condiment because garlic (149 kcal/100 g) is above the vegetable range; it is used as a seasoning. Servings: USDA SR 169230 1 clove = 3 g, 1 tsp = 2.8 g, 3 cloves = 9 g.'),
+    servings: [sv('clove', '1 clove', 3, true, '1 جوا'), sv('3-cloves', '3 cloves (about 1 tbsp paste)', 9), sv('tsp', '1 teaspoon chopped or paste', 2.8)],
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-ginger', name: 'Ginger, fresh root', nameUr: 'ادرک', nameRoman: 'adrak',
+    aliases: ['ginger', 'adrak', 'adrakh', 'fresh ginger', 'ginger paste', 'jengibre', 'gingebre'],
+    group: 'vegetable', state: 'raw, peeled (fresh, or as home-made paste with no oil)',
+    ...ay(169231, 'A', 'Servings: USDA SR 169231 1 tsp = 2 g, so 1 tbsp = 6 g; 5 slices of 1-inch diameter = 11 g (about a thumb-size piece).'),
+    servings: [sv('tbsp', '1 tablespoon grated or paste', 6, true), sv('piece', '1 thumb-size piece (5 slices)', 11)],
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-green-chilli', name: 'Green chillies, fresh (hari mirch)', nameUr: 'ہری مرچ', nameRoman: 'hari mirch',
+    aliases: ['hari mirch', 'hari mirchi', 'green chilli', 'green chillies', 'green chili', 'chilli', 'guindilla verde', 'chile verde', 'bitxo verd'],
+    group: 'vegetable', state: 'raw, whole or chopped, with seeds',
+    ...ay(170497, 'A', 'Servings: USDA SR 170497 ½ cup chopped = 75 g, so 1 tbsp = 9.4 g. USDA "1 pepper" (45 g) is a large chilli; a Pakistani hari mirch is much smaller, so no per-chilli serving is given.'),
+    servings: [sv('tbsp', '1 tablespoon chopped', 9.4, true), sv('half-cup', '½ cup chopped', 75)],
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-lemon-juice', name: 'Lemon juice, fresh', nameUr: 'لیموں کا رس', nameRoman: 'nimbu ka ras',
+    aliases: ['lemon juice', 'lemon', 'lemons', 'nimbu', 'nimboo', 'limbu', 'lime juice', 'zumo de limón', 'zumo de limon', 'limón', 'suc de llimona'],
+    group: 'condiment', state: 'freshly squeezed juice (no pulp, no sugar)',
+    ...ay(167747, 'A', 'Servings: USDA SR 167747 1 lemon yields 48 g juice; 1 cup = 244 g, so 1 tbsp = 15.25 g; 1 wedge yields 5.9 g.'),
+    servings: [sv('tbsp', '1 tablespoon', 15.25, true, 'بڑا چمچ'), sv('lemon', 'juice of 1 lemon', 48), sv('wedge', '1 wedge squeezed', 5.9)],
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner', 'snacks'], halal: HALAL,
+  },
+  {
+    id: 'intl-coriander-fresh', name: 'Coriander leaves, fresh (dhania)', nameUr: 'ہرا دھنیا', nameRoman: 'hara dhania',
+    aliases: ['dhania', 'hara dhania', 'dhaniya', 'coriander', 'fresh coriander', 'cilantro', 'cilantro fresco', 'coriandre'],
+    group: 'vegetable', state: 'raw leaves and tender stems',
+    ...ay(169997, 'A', 'Servings: USDA SR 169997 ¼ cup = 4 g, so ½ cup = 8 g; 9 sprigs = 20 g (about a small bunch).'),
+    servings: [sv('half-cup', '½ cup chopped (a big handful)', 8, true), sv('bunch', '1 small bunch (9 sprigs)', 20)],
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-mint-fresh', name: 'Mint leaves, fresh (podina)', nameUr: 'پودینہ', nameRoman: 'podina',
+    aliases: ['podina', 'pudina', 'podeena', 'mint', 'fresh mint', 'hierbabuena', 'menta', 'menta fresca'],
+    group: 'vegetable', state: 'raw leaves',
+    ...ay(173475, 'A', 'USDA spearmint (the garden mint sold as hierbabuena). Servings: USDA SR 173475 2 tbsp = 11.4 g; ¼ cup = 22.8 g.'),
+    servings: [sv('2-tbsp', '2 tablespoons chopped', 11.4, true), sv('quarter-cup', '¼ cup chopped', 22.8)],
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-parsley-fresh', name: 'Parsley, fresh',
+    aliases: ['parsley', 'fresh parsley', 'perejil', 'julivert', 'flat leaf parsley'],
+    group: 'vegetable', state: 'raw leaves and tender stems',
+    ...ay(170416, 'A', 'Servings: USDA SR 170416 10 sprigs = 10 g; 1 cup chopped = 60 g (¼ cup = 15 g).'),
+    servings: [sv('sprigs', '10 sprigs', 10, true), sv('quarter-cup', '¼ cup chopped', 15), sv('cup', '1 cup chopped (tabbouleh)', 60)],
+    tags: ['international', 'mediterranean', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-spinach-frozen', name: 'Spinach, frozen chopped (uncooked)', nameUr: 'پالک', nameRoman: 'palak (frozen)',
+    aliases: ['frozen spinach', 'spinach', 'palak', 'espinaca congelada', 'espinacas ultracongeladas', 'espinaca troceada', 'espinacs congelats'],
+    group: 'vegetable', state: 'frozen, chopped, as sold (weigh before cooking)',
+    ...ay(169287, 'A', 'Servings: USDA SR 169287 1 cup = 156 g; 1 package (10 oz) = 284 g. Fresh bagged spinach is intl-spinach-raw.'),
+    servings: [sv('half-cup', '½ cup', 78, true), sv('cup', '1 cup', 156)],
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+];
+basics.splice(basics.findIndex((x) => x.id === 'intl-beef-mince-raw') + 1, 0, ...labRawMeats);
+basics.splice(basics.findIndex((x) => x.id === 'intl-green-beans-frozen') + 1, 0, ...labAromatics);
+
 const marketIntl = [
   // ---------------------------------------------------------------- ready grains, bread and dry staples
   {

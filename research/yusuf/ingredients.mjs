@@ -9,12 +9,15 @@
 //                fiberFrom / zeroFiber: how a missing label fibre value is filled (stated per entry).
 //      'ifct'  → IFCT 2017 Table 1, read from research/zainab/ifct-table1.json (Zainab's extract of Table 1)
 //      'analogue' → another entry's values, with the reason
+//      'db'    → a Lab food record in app/data (foodId), read at build time; used for the market foods Javier
+//                Morales added on 2026-10-14 (labels read that day, USDA/BEDCA otherwise). Its citation is kept.
 //
 // buy: where the Boss buys it. shop 'mercadona' = product id at tienda.mercadona.es (warehouse bcn1,
 //      Barcelona 08001), priced live by calc.mjs from the cached product list. shop 'butcher' = halal
 //      butcher (carnicería halal); priced from the halal price table in prices.mjs. shop 'desi' = the
 //      Pakistani/Moroccan grocery shelf at or next to the halal butcher (Raval). `perUnitG` = edible grams
-//      of one purchase unit when the shop prices per piece.
+//      of one purchase unit when the shop prices per piece. `snap: 'YYYY-MM-DD'` = priced from the dated
+//      Mercadona snapshot (research/cache/yusuf/mercadona-snap/<date>/) instead of the Sprint 1 cache.
 // halal: 'halal' unless a label check says otherwise; labelCheck says what was checked.
 
 export default {
@@ -84,6 +87,32 @@ export default {
   'spinach-frozen': { src: 'fdc', code: 169287, label: 'Spinach, frozen, chopped (espinaca en porciones ultracongelada)', buy: { shop: 'mercadona', id: 61279 } },
   chia: { src: 'fdc', code: 170554, label: 'Chia seeds, dry', buy: { shop: 'mercadona', id: 5464 } },
   walnuts: { src: 'fdc', code: 170187, label: 'Walnuts, shelled (USDA; the OFF entry for Hacendado nuez shows 21 g protein, which looks mistyped)', buy: { shop: 'mercadona', id: 34024 } },
+
+  // ---------------------------------------------------------------- market foods (no-cook preps, 2026-10-14)
+  // Values from Javier Morales's records (src 'db'); prices from the 2026-10-14 Mercadona snapshot.
+  'queso-batido': { src: 'db', foodId: 'es-queso-fresco-batido', label: 'Queso fresco batido desnatado 0% Hacendado (whipped fresh cheese)', buy: { shop: 'mercadona', id: 51071, snap: '2026-10-14' }, labelCheck: 'Mercadona 51071 (Javier, 2026-10-14): leche desnatada pasteurizada, fermentos lácticos. No cuajo, no gelatina.' },
+  'burgos-0': { src: 'db', foodId: 'es-queso-burgos-0', label: 'Queso fresco de Burgos desnatado 0% Hacendado (4 × 62.5 g tubs)', buy: { shop: 'mercadona', id: 52409, snap: '2026-10-14' }, labelCheck: 'Mercadona 52409 (Javier, 2026-10-14): leche desnatada pasteurizada, sal, aroma, cuajo microbiano (not animal).' },
+  feta: { src: 'db', foodId: 'intl-feta', label: 'Queso feta Hacendado en dados (370 g tub, 150 g drained)', buy: { shop: 'mercadona', id: 51197, snap: '2026-10-14' }, labelCheck: 'Mercadona 51197 (Javier, 2026-10-14): leche de oveja y cabra, sal, fermentos, cuajo (origin not stated) → halal check.' },
+  'salmon-can': { src: 'db', foodId: 'intl-salmon-canned', label: 'Salmón al natural Hacendado (3 × 80 g cans)', buy: { shop: 'mercadona', id: 18817, snap: '2026-10-14', perUnitG: 80, units: 3 } },
+  mackerel: { src: 'db', foodId: 'intl-mackerel-olive-oil', label: 'Filetes de caballa en aceite de oliva Hacendado (2 × 85 g drained)', buy: { shop: 'mercadona', id: 13628, snap: '2026-10-14', perUnitG: 85, units: 2 }, labelCheck: 'Mercadona 13628, 2026-10-14: caballa del sur (71%), aceite de oliva (28%), sal.' },
+  'lentils-jar': { src: 'db', foodId: 'es-lentejas-cocidas', label: 'Lenteja cocida Hacendado (570 g jar = 400 g drained), drained and rinsed', buy: { shop: 'mercadona', id: 26030, snap: '2026-10-14' } },
+  'rice-cup-brown': { src: 'db', foodId: 'intl-rice-cup-brown', label: 'Arroz cocido integral Sabroz (microwave cup, 2 × 125 g)', buy: { shop: 'mercadona', id: 22281, snap: '2026-10-14' } },
+  'rice-cup-basmati': { src: 'db', foodId: 'intl-rice-cup-basmati', label: 'Arroz cocido basmati Sabroz (microwave cup, 2 × 125 g)', buy: { shop: 'mercadona', id: 22280, snap: '2026-10-14' } },
+  salmorejo: { src: 'db', foodId: 'es-salmorejo-envasado', label: 'Salmorejo al estilo cordobés Hacendado (1 l brik)', buy: { shop: 'mercadona', id: 39902, snap: '2026-10-14', densityGPerMl: 1.03 }, labelCheck: 'Mercadona 39902 (Javier, 2026-10-14): tomate, agua, aceite de oliva virgen extra, pan rallado, pimiento, sal, vinagre de Jerez, ajo. No jamón. Vinegar is allowed by the Lab (NUTRITION.md §3).' },
+  picos: { src: 'db', foodId: 'es-picos-integrales', label: 'Picos 100% integral Hacendado (wholemeal breadsticks)', buy: { shop: 'mercadona', id: 86215, snap: '2026-10-14' }, labelCheck: 'Mercadona 86215 (Javier, 2026-10-14): harina integral de trigo 87%, aceite de girasol alto oleico, levadura, sal, E300. No manteca.' },
+  'pan-barra': { src: 'db', foodId: 'es-pan-barra', label: 'Barra de pan from a bakery (forn): flour, water, salt, yeast', buy: { shop: 'bakery', item: 'barra' }, labelCheck: 'Mercadona\'s own barras (83202.1, 17912.1) list emulgente E-472e with no origin (2026-10-14): buy at a forn and ask for a barra without mejorante, or treat it as check.' },
+  'egg-boiled': { src: 'db', foodId: 'intl-egg-boiled', label: 'Egg, hard-boiled (1 large egg = 50 g edible)', buy: { shop: 'mercadona', id: 31504, snap: '2026-10-14', perUnitG: 50, units: 12 } },
+  kiwi: { src: 'db', foodId: 'intl-kiwi', label: 'Kiwi verde (1 = 69 g edible)', buy: { shop: 'mercadona', id: 3820, snap: '2026-10-14' } },
+  orange: { src: 'db', foodId: 'intl-orange', label: 'Naranja de mesa (1 = 131 g edible)', buy: { shop: 'mercadona', id: 3235, snap: '2026-10-14' } },
+  mandarin: { src: 'db', foodId: 'intl-kinnow', label: 'Mandarina / clementina (1 = 88 g edible)', buy: { shop: 'mercadona', id: 3238, snap: '2026-10-14' } },
+  apple: { src: 'db', foodId: 'intl-apple', label: 'Apple, with skin (manzana Golden)', buy: { shop: 'mercadona', id: 3028, snap: '2026-10-14' } },
+  pear: { src: 'db', foodId: 'intl-pear', label: 'Pera Conferencia', buy: { shop: 'mercadona', id: 3119, snap: '2026-10-14' } },
+  pomegranate: { src: 'db', foodId: 'intl-pomegranate', label: 'Granada, arils (1 fruit = 282 g arils)', buy: { shop: 'mercadona', id: 3915, snap: '2026-10-14', perUnitG: 282, units: 1 } },
+  blueberries: { src: 'db', foodId: 'intl-blueberries', label: 'Arándanos (225 g tub)', buy: { shop: 'mercadona', id: 5501, snap: '2026-10-14' } },
+  rocket: { src: 'db', foodId: 'intl-rocket', label: 'Rúcula lavada (50 g bag)', buy: { shop: 'mercadona', id: 69753, snap: '2026-10-14' } },
+  'leaves-mixed': { src: 'db', foodId: 'intl-salad-leaves-mixed', label: 'Ensalada mezcla brotes tiernos (100 g bag)', buy: { shop: 'mercadona', id: 69757, snap: '2026-10-14' } },
+  avocado: { src: 'db', foodId: 'intl-avocado', label: 'Aguacate, flesh (½ avocado = 100 g)', buy: { shop: 'mercadona', id: 3830, snap: '2026-10-14', perUnitG: 201, units: 1 } },
+  almonds: { src: 'db', foodId: 'intl-almonds', label: 'Almendra natural Hacendado (200 g)', buy: { shop: 'mercadona', id: 34865, snap: '2026-10-14' } },
 
   // ---------------------------------------------------------------- spices and seasonings
   salt: { src: 'fdc', code: 173468, label: 'Salt', buy: { shop: 'mercadona', id: 19731 } },

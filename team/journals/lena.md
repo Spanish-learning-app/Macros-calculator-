@@ -137,3 +137,7 @@
   - Data gaps: raw boneless chicken thigh and dry basmati are not in FOODS (A16 uses roasted thigh / boiled rice meanwhile); no prawn or other-seafood food exists yet, so seafood was checked with a routed fixture.
   - npm run check green: 534 tests, 0 fail, 2 todo per TZ (Madrid, Karachi, LA).
   - E2E: meal-prep.spec 44 pass / 4 skipped on 4 projects; full suite 140 pass, 28 skipped (one mid-edit run showed 4 transient fails on the tonight test; rerun green).
+- 2026-10-14 19:55 UTC: Kenji's two items.
+  - BUG-TC1 fixed: portion-picker.js exports tasteChipHidden(food, rules) and applies RULES.portionChips.taste.hideWhen (groups, tsp/tbsp default, quarter under 5 g). Checked: olive oil and pakora have no chip; daal keeps it.
+  - A16(2) budget: the ingredient search takes the amount first ("800 g chicken thigh", "2 tbsp oil", "1.5 kg rice", "2 cucumbers"). The row shows that amount, and "+" adds it; the search then reselects its text. Tikka bowls now takes 15 actions to save (+1 to change 4 → 5), down from 30. It uses intl-rice-basmati-dry; raw thigh is still missing, so roasted thigh is the stand-in. Tests in tests/unit/dev/quick-amount.test.js (3).
+  - Prep testids unchanged. Check green: 537 tests, 0 fail, 1 todo (Madrid, Karachi, LA). E2E full suite: 164 pass, 8 skipped.

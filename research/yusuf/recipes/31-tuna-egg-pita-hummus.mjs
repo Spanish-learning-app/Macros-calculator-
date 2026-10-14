@@ -1,0 +1,69 @@
+// R-MP-31 · Tuna and egg pita pockets with hummus and salad (lunch box). Batch: 2 boxes.
+export default {
+  n: 31,
+  serving: 'box',
+  boxes: 2,
+  effort: 'assemble',
+  minutes: 12,
+  id: 'med-tuna-egg-pita-hummus-box',
+  name: 'Tuna and egg pita pockets with hummus and salad (lunch box)',
+  names: {
+    en: 'Tuna and egg pita pockets with hummus and salad',
+    es: 'Pan de pita relleno de atún, huevo, hummus y ensalada',
+    ca: 'Pa de pita farcit de tonyina, ou, hummus i amanida',
+  },
+  aliases: ['tuna pita', 'pita de atun', 'pita pocket', 'tuna egg pita', 'pitta pocket', 'tunisian tuna sandwich', 'pita amb tonyina', 'hummus pita'],
+  pitch: 'A Tunisian-style sandwich you build at lunch: hummus in the pita, then tuna, egg and crunchy salad from the box.',
+  eat: 'cold',
+  tags: ['mediterranean', 'meal-prep', 'eat-cold', 'contains-egg', 'seafood-fish'],
+  references: [
+    { title: 'Ocado blog, Stuffed pitta pockets', url: 'https://blog.ocado.com/food/stuffed-pitta-pockets/', used: 'pitta pockets filled to taste: houmous and falafel, or tuna and salad', read: 'search-engine page extract, 2026-10-14' },
+    { title: 'Ainsley Harriott, Tuna and egg salad pitta pocket with herby yoghurt dressing', url: 'https://www.ainsley-harriott.com/?p=2545', used: 'tuna with olives, lettuce, radish and sliced boiled egg in pitta', read: 'search-engine page extract, 2026-10-14' },
+    { title: 'Restaurant Business, Tunisian tuna sandwich', url: 'https://restaurantbusinessonline.com/recipedia/tunisian-tuna-sandwich', used: 'tuna, boiled egg, olives, peppers in bread (fricassé style)', read: 'search-engine page extract, 2026-10-14' },
+  ],
+  components: [
+    {
+      id: 'filling', label: 'Tuna salad with peppers, cucumber and lettuce', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['tuna', 240, '4 cans atún claro al natural, drained (120 g per box)'],
+        ['pepper-red', 100, 'diced'],
+        ['cucumber', 100, 'diced'],
+        ['lettuce', 60, 'shredded, packed on top'],
+        ['onion-red', 20, 'finely chopped'],
+        ['oil-olive', 10, '5 g per box'],
+        ['lemon-juice', 20, ''],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'egg', label: 'Hard-boiled egg (1 per box)', storage: 'egg-dish', yield: 'none', eat: 'cold',
+      lines: [['egg-boiled', 100, '2 eggs, boiled 10 min']],
+    },
+    {
+      id: 'hummus', label: 'Hummus pot', storage: 'cold-salad', pot: true, yield: 'none', eat: 'cold',
+      lines: [['hummus', 100, '50 g per box in a small pot']],
+    },
+    {
+      id: 'pita', label: 'Pita bread (2 per box, in their bag)', storage: 'proposed:bread', yield: 'none', eat: 'cold',
+      lines: [['pita', 240, '2 Mission pitas (60 g each) per box']],
+    },
+  ],
+  method: [
+    'Boil 2 eggs 10 min, cool and peel (or take 2 from the Sunday batch).',
+    'Drain the tuna; mix with pepper, cucumber, onion, olive oil, lemon and pepper. Put half in each box, with the lettuce on top and a sliced egg.',
+    'Spoon 50 g hummus into a small pot per box. Pitas stay in their bag.',
+    'At lunch: open each pita, spread the hummus inside, fill with the tuna salad and egg. Building it at lunch keeps the bread dry.',
+  ],
+  keeps: '2 days in the fridge; do not freeze',
+  storagePlan: 'Tuna salad and hummus keep 2 days, eggs 3 days; the pitas keep in their bag to the pack date (freeze if not used in 3 days). Make 2 boxes at a time.',
+  reheat: 'Not reheated. Eat within 2 h of leaving the fridge (1 h above 32 °C).',
+  crossCheck: null,
+  changes: [
+    'Hummus replaces the mayonnaise of the references (Ocado suggests it), so there is no label to check for E471.',
+    'Two pitas and 120 g tuna per box to reach a full lunch with 35 g protein or more.',
+    'Mission pita chosen because it has no E471 (label 2026-10-13); the Mercadona wheat wraps all list E471 of unstated origin.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'No cooking: dated labels (tuna, hummus, pita) and USDA SR Legacy values (egg, vegetables).',
+  halal: { status: 'halal', reason: 'Tuna (tuna, water, salt), hummus with additives de origen vegetal, pita without E471, eggs and vegetables (labels read 2026-10-13/14).' },
+};

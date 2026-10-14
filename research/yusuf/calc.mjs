@@ -88,6 +88,7 @@ const ADDED_FAT = new Set(['oil-olive', 'oil-sunflower']);
 export const PROPOSED_STORAGE = {
   'proposed:bread': { label: 'Bread (pita)', note: 'room temperature until the pack date; freeze if not used in 3 days (manufacturer storage text). Not a use-by item.' },
   'proposed:whole-fruit': { label: 'Whole fruit (banana) and nuts', note: 'room temperature; not a use-by item.' },
+  'proposed:sealed-pack': { label: 'Sealed pack (microwave rice cup, can, single cheese tub)', note: 'stays sealed in the box until you eat it; keeps to the date on the pack (rice cups and cans in the cupboard, Burgos tubs in the fridge). Once opened it follows the class of what it is mixed into.' },
 };
 
 // ------------------------------------------------------------------ prices
@@ -106,12 +107,34 @@ function mercadonaIndex() {
 }
 const MERC_IDX = mercadonaIndex();
 const MERC_DATE = MERC_META.date;
+// Dated snapshots (research/yusuf/mercadona.mjs snap): one read date for every category in the folder.
+const SNAP_ROOT = path.join(root, 'research', 'cache', 'yusuf', 'mercadona-snap');
+const SNAPS = new Map();
+function snapIndex(date) {
+  if (SNAPS.has(date)) return SNAPS.get(date);
+  const dir = path.join(SNAP_ROOT, date);
+  if (!fs.existsSync(dir)) throw new Error(`Mercadona snapshot ${date} missing: run node research/yusuf/mercadona.mjs snap`);
+  const idx = new Map();
+  for (const f of fs.readdirSync(dir).filter((n) => n.startsWith('cat_'))) {
+    const walk = (c) => {
+      for (const p of c.products || []) if (!idx.has(String(p.id))) idx.set(String(p.id), { ...p, _date: date });
+      for (const sc of c.categories || []) walk(sc);
+    };
+    walk(JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')));
+  }
+  SNAPS.set(date, idx);
+  return idx;
+}
 
-export function priceOf(ingId) {
+// opts.snap = 'YYYY-MM-DD': price every Mercadona item from that snapshot (the low-cook week), else each
+// item's own buy.snap, else the Sprint 1 cache with its category read dates.
+export function priceOf(ingId, opts = {}) {
   const buy = REG[ingId]?.buy;
   if (!buy) return { shop: 'none', eurPerG: null, why: 'not bought separately' };
+  if (buy.shop === 'bakery') return { shop: 'bakery', name: REG[ingId].label, eurPerG: null, note: 'bakery (forn) price not looked up' };
   if (buy.shop === 'mercadona') {
-    const p = MERC_IDX.get(String(buy.id));
+    const snap = opts.snap ?? buy.snap;
+    const p = (snap ? snapIndex(snap).get(String(buy.id)) : null) ?? MERC_IDX.get(String(buy.id));
     if (!p) return { shop: 'mercadona', eurPerG: null, why: `Mercadona product ${buy.id} not in the cache` };
     const pi = p.price_instructions;
     const price = Number(pi.unit_price);
@@ -250,6 +273,8 @@ export function compute(sheet) {
     id: sheet.id,
     n: sheet.n,
     file: sheet.file,
+    effort: sheet.effort ?? 'cook',
+    minutes: sheet.minutes ?? null,
     slot,
     serving: sheet.serving ?? 'box',
     boxes,

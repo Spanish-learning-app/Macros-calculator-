@@ -9,6 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import REG from './ingredients.mjs';
 import { off } from './off.mjs';
+import { FOODS } from '../../app/data/index.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..', '..');
@@ -42,6 +43,18 @@ function ifct(code) {
     citation: `IFCT 2017 ${code} (${r.name}), Table 1 via research/zainab/ifct-table1.json`,
     kcal: r.kcal, protein: r.protein, carbs: r.carbs, fat: r.fat, fiber: r.fiber,
     sugars: r.sugars ?? null, satFat: null, sodiumMg: null,
+  };
+}
+// A Lab food record (Javier's market foods): per 100 g as stored, carbs already available carbohydrate.
+function db(foodId) {
+  const f = FOODS.find((x) => x.id === foodId);
+  if (!f) throw new Error(`db ${foodId} not found`);
+  const p = f.per100g;
+  return {
+    citation: `Lab record ${foodId} (${f.source.citation}; ${f.source.method}, confidence ${f.source.confidence}, ${f.source.reviewer} ${f.source.date})`,
+    kcal: p.kcal, protein: p.protein, carbs: p.carbs, fat: p.fat, fiber: p.fiber ?? 0,
+    sugars: p.sugars ?? null, satFat: p.satFat ?? null, sodiumMg: p.sodium ?? null,
+    halal: f.halal,
   };
 }
 async function offLabel(e) {
@@ -79,12 +92,13 @@ for (const id of ids) {
   if (e.src === 'fdc') v = fdc(e.code);
   else if (e.src === 'ifct') v = ifct(e.code);
   else if (e.src === 'off') v = await offLabel(e);
+  else if (e.src === 'db') v = db(e.foodId);
   else if (e.src === 'analogue') {
     const base = out[e.of];
     if (!base) throw new Error(`${id}: analogue base ${e.of} not resolved`);
     v = { ...base, citation: `Analogue of ${base.citation} (${e.why})` };
   } else throw new Error(`${id}: unknown src`);
-  out[id] = { label: e.label, src: e.src, code: e.code ?? e.of, ...v };
+  out[id] = { label: e.label, src: e.src, code: e.code ?? e.of ?? e.foodId, ...v };
 }
 fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n');
 const f = (x) => (x == null ? '–' : Math.round(x * 10) / 10);
