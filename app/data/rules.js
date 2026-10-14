@@ -7,7 +7,7 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.3.0',
+  version: '1.4.0',
   updated: '2026-10-13',
 
   // ---------------------------------------------------------------- energy
@@ -320,6 +320,10 @@ export default {
       { id: 'cooked-meat', label: 'Cooked chicken, meat, keema, kebabs', fridgeDays: 3, freezerMonths: 3, freezable: true, source: 'USDA FSIS "Leftovers and Food Safety": 3-4 days in the fridge (lower bound used), 3-4 months frozen' },
       { id: 'egg-dish', label: 'Tortilla and other egg dishes', fridgeDays: 3, freezerMonths: null, freezable: false, source: 'USDA FSIS: egg dishes 3-4 days (lower bound used); quality suffers when frozen' },
       { id: 'cold-salad', label: 'Tuna or chickpea salad, raita, cut salad, yogurt sauces', fridgeDays: 2, freezerMonths: null, freezable: false, source: 'Nutrition Lab conservative rule' },
+      { id: 'cooked-curry', label: 'Cooked daal, sabzi and other cooked vegetable or legume dishes', fridgeDays: 3, freezerMonths: 3, freezable: true, source: 'USDA FSIS "Leftovers and Food Safety": cooked leftovers 3-4 days (lower bound used), 3-4 months frozen' },
+      { id: 'egg-muffin', label: 'Baked egg muffins and egg bites', fridgeDays: 3, freezerMonths: 2, freezable: true, source: 'USDA FSIS cold storage chart: quiche/egg casseroles 3-5 days refrigerated, 2-3 months frozen (lower bounds used)' },
+      { id: 'overnight-oats', label: 'Overnight oats and chia pudding (soaked in milk, yogurt or plant milk; not cooked)', fridgeDays: 3, freezerMonths: null, freezable: false, source: 'Nutrition Lab conservative rule (dairy-based, uncooked; opened milk is used within 3 days)' },
+      { id: 'cooked-flatbread', label: 'Cooked parathas and rotis', fridgeDays: 2, freezerMonths: 2, freezable: true, source: 'Nutrition Lab rule (quality and staling); freeze between sheets of baking paper, reheat on the tawa until hot' },
     ],
     thawedFridgeDays: 1,
     chillWithinMinutes: 60,
@@ -327,7 +331,16 @@ export default {
     reheat: { minCoreTempC: 75, maxTimes: 1 },
     unchilledMaxHours: 2,
     unchilledMaxHoursAbove32C: 1,
-    boxTargets: { kcal: { min: 550, max: 750 }, proteinG: { min: 35, max: 50 }, minFiberG: 8 },
+    boxTargets: { kcal: { min: 550, max: 750 }, proteinG: { min: 35, max: 50 }, minFiberG: 8 }, // = targetsBySlot.lunch
+    // Design targets per primary slot for library recipes (the data gate uses looser bands).
+    targetsBySlot: {
+      breakfast: { kcal: { min: 300, max: 550 }, proteinG: { min: 25, max: 40 }, minFiberG: 5 },
+      lunch: { kcal: { min: 550, max: 750 }, proteinG: { min: 35, max: 50 }, minFiberG: 8 },
+      dinner: { kcal: { min: 500, max: 800 }, proteinG: { min: 30, max: 50 }, minFiberG: 8 },
+      snacks: { kcal: { min: 150, max: 300 }, proteinG: { min: 15, max: 30 }, minFiberG: 3 },
+    },
+    // Container serving ids for prepared portions (label "1 box", "1 jar", "1 portion").
+    prepServingIds: ['box', 'jar', 'portion'],
   },
 
   // ---------------------------------------------------------------- vocabularies (RULES.vocab)
@@ -607,16 +620,28 @@ export default {
         servingGrams: { min: 15, max: 100 },
       },
       {
-        // Meal-prep lunch boxes (Yusuf): one record = one whole packed box, values per 100 g of box.
-        // boxServing: the record must have a serving with this id, default: true, whose energy is in
-        // the kcal range (design target 550-750 kcal and 35-50 g protein; the gate allows 450-850).
+        // Meal-prep portions for ANY slot (Meeting 002 + the Boss's widening): lunch boxes, breakfast
+        // jars and preps, freezer dinners. The id stays `lunchbox` (engineering contract, foods.BOX).
+        // One record = one prepared portion; values per 100 g as eaten.
+        // prepServing (gate G22): the record's DEFAULT serving must have one of `ids`; its energy must
+        // fall in kcalBySlot for the record's PRIMARY slot = slots[0] (slots is required here).
+        // Design targets (tighter) are in RULES.mealPrep.targetsBySlot.
         id: 'lunchbox',
-        label: 'Meal-prep lunch boxes',
-        examples: 'chicken tikka rice bowl, keema matar with rice, chickpea and tuna salad',
-        kcalPer100g: { min: 90, max: 260 },
+        label: 'Meal-prep portions (box, jar or portion; any meal)',
+        examples: 'chicken tikka rice bowl, keema matar with rice, overnight oats jar, egg muffins, frozen chicken qorma portion',
+        kcalPer100g: { min: 80, max: 350 },
         fiberZero: false,
         servingGrams: { min: 50, max: 800 },
-        boxServing: { id: 'box', kcal: { min: 450, max: 850 } },
+        prepServing: {
+          ids: ['box', 'jar', 'portion'],
+          kcalBySlot: {
+            breakfast: { min: 250, max: 650 },
+            lunch: { min: 450, max: 850 },
+            evening: { min: 100, max: 400 },
+            dinner: { min: 400, max: 900 },
+            snacks: { min: 100, max: 400 },
+          },
+        },
       },
     ],
 

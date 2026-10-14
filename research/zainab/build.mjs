@@ -224,6 +224,8 @@ for (const key of Object.keys(FILES)) {
       source: { citation, method, confidence: spec.source.confidence, reviewer: 'zainab', date: TODAY, notes: notes || undefined },
     };
     built[spec.id] = rec;
+    // hold: computed and documented, but not shipped until a rules question is settled (see spec.hold)
+    if (spec.hold) { console.log(`HOLD ${spec.id}: ${spec.hold}`); continue; }
     outRecords[key].push(rec);
   }
 }

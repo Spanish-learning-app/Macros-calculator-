@@ -281,17 +281,19 @@ function checkRecord(f, ctx) {
     }
   }
 
-  // G22 lunch boxes: a default "box" serving whose energy is within the group's box range
-  if (group && group.boxServing && Array.isArray(f.servings)) {
-    const bs = group.boxServing;
-    const box = f.servings.find((s) => s && s.id === bs.id);
-    if (!box) F('G22', `"${group.id}" records need a serving with id "${bs.id}" (1 box)`);
-    else {
-      if (box.default !== true) F('G22', `the "${bs.id}" serving must be the default`);
-      if (nutrientsOk && isNum(box.grams)) {
-        const kcal = (box.grams * p.kcal) / 100;
-        if (kcal < bs.kcal.min || kcal > bs.kcal.max) F('G22', `1 box = ${fmt(kcal, 0)} kcal, outside ${bs.kcal.min}-${bs.kcal.max}`);
-      }
+  // G22 meal-prep portions (group with prepServing): the DEFAULT serving is a box / jar / portion,
+  // the record has a primary slot (slots[0]), and that serving's energy fits the slot's band.
+  if (group && group.prepServing && Array.isArray(f.servings)) {
+    const ps = group.prepServing;
+    const def = f.servings.find((s) => s && s.default === true);
+    if (!def || !ps.ids.includes(def.id)) F('G22', `"${group.id}" records need a default serving with id ${ps.ids.join(' / ')} (e.g. "1 box")`);
+    const slot = Array.isArray(f.slots) ? f.slots[0] : undefined;
+    const band = slot ? ps.kcalBySlot[slot] : undefined;
+    if (!slot) F('G22', `"${group.id}" records need slots, with the primary slot first (e.g. ['lunch'])`);
+    else if (!band) F('G22', `primary slot "${slot}" has no energy band for "${group.id}" (use ${Object.keys(ps.kcalBySlot).join(', ')})`);
+    else if (def && nutrientsOk && isNum(def.grams)) {
+      const kcal = (def.grams * p.kcal) / 100;
+      if (kcal < band.min || kcal > band.max) F('G22', `1 ${def.id} = ${fmt(kcal, 0)} kcal, outside ${band.min}-${band.max} for a ${slot} prep`);
     }
   }
 

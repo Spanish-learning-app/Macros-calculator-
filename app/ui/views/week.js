@@ -41,9 +41,7 @@ export function mount(container, ctx) {
         h('span', { class: 'week-measure-label' }, label),
         ' ',
         target ? `${fmt(value)} / ${fmt(target)}${unit}` : `${fmt(value)}${unit}`,
-        over !== null && over > 0
-          ? h('span', { class: 'week-over' }, ` +${fmt(over)} over`)
-          : null,
+        over !== null && over > 0 ? h('span', { class: 'week-over' }, ` +${fmt(over)} over`) : null,
       ),
       h(
         'span',
@@ -196,7 +194,15 @@ export function mount(container, ctx) {
       h(
         'table',
         { class: 'month-grid', 'data-testid': 'month-grid' },
-        h('thead', null, h('tr', null, headers.map((d) => h('th', { scope: 'col' }, d)))),
+        h(
+          'thead',
+          null,
+          h(
+            'tr',
+            null,
+            headers.map((d) => h('th', { scope: 'col' }, d)),
+          ),
+        ),
         h(
           'tbody',
           null,

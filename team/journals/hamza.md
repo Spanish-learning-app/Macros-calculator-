@@ -90,3 +90,20 @@ Timestamps are UTC.
   above), 15 todo (Lena's store tests: waiting on storage). `npm run check` also red on Priya's
   files (ESLint: app/ui/dev/harness.js:57 unused 'iso'; Prettier: 10 UI files) and Prettier on
   Kenji's tests/unit/qa/search.test.js. Not my files.
+- 2026-10-14 00:45 **HAND-OFF: `core/targets.js` DONE and tested.** 27 tests in
+  `tests/unit/dev/targets.test.js`: all binding vectors A–K (rounded exact, unrounded ±0.01,
+  warnings as a set with 'estimate' first; C's carbs 232.5 → 233; E kcal floor; G kidney cap; H
+  pregnant lock; I minor ok:false; K prefs 2.2 / 25 %), passed first run. One test per flag
+  effect (pregnant/breastfeeding lock + appliesToSex, eating_disorder, kidney cap incl. prefs,
+  diabetes and age_over_80 notes only, minor, underweight incl. BMI exactly 18.5), older-adult
+  rule, pref clamping, fat floor, low carbs, surplus/1 %/1,000 kcal rails, a test that the
+  constants come from RULES (changed RULES → changed output), validateProfile, resolveTargets.
+  Choices to confirm: (1) for `ok: false` I return the computed `bmi` and set every later value
+  (bmr, tdee, prw, energyDelta, rate, bmrFormula) to null; `effectiveGoal` = the chosen goal.
+  (2) computeTargets throws only when it cannot compute (bad sex/activity/goal, non-positive
+  numbers, missing rate for lose/gain); profileLimits and allowed rates are validateProfile's
+  job. (3) Step 12 "assert": I throw only if the check fails while carbs > 0. When carbs are
+  clamped at 0 (huge protein pref + fat floor on a low kcal) the check cannot hold; low_carbs
+  fires. **Question for Ayesha:** what should happen there?
+- 2026-10-14 00:45 Read new DECISIONS row: meal prep covers any meal (Sprint 2; Sprint 1
+  unchanged). Sprint 2 note for Lena: `foods.BOX = 'box'` may need a jar/portion serving id.

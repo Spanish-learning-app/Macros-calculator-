@@ -292,4 +292,22 @@ export default [
     assumptions: ['Same base as home cholay with 110 g oil per ~490 g cooked chickpeas.'],
     source: { confidence: 'C' },
   },
+
+  {
+    id: 'pk-chicken-korma-restaurant',
+    recipe: 'chicken-korma-restaurant',
+    name: 'Chicken korma (shadi / restaurant)',
+    nameUr: 'شادی والا قورمہ',
+    nameRoman: 'shadi wala qorma',
+    aliases: uniq(['chicken korma', 'chicken qorma', 'shadi korma', 'shaadi qorma', 'shadi wala qorma', 'wedding korma', 'degi korma', 'korma', 'qorma', 'قورمہ']),
+    group: 'curry-meat',
+    style: 'restaurant',
+    family: 'chicken-korma',
+    state: BONE_STATE,
+    servings: ({ katoriSet, res }) => katoriSet(boneIn(D.curry, res), { suffix: ', edible part' }),
+    tags: PK,
+    slots: ['dinner'],
+    assumptions: ['220 g fat per kg bone-in chicken; Shan pack 161 g is the floor.'],
+    source: { confidence: 'C' },
+  },
 ];

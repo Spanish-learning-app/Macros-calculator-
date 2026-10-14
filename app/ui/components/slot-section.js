@@ -74,7 +74,11 @@ export function renderSlotSection(props) {
             onclick: props.onTickAll,
           },
           iconEl('check', 18),
-          h('span', { 'aria-hidden': 'true' }, planned === 1 ? 'Tick as eaten' : `Tick all ${planned} as eaten`),
+          h(
+            'span',
+            { 'aria-hidden': 'true' },
+            planned === 1 ? 'Tick as eaten' : `Tick all ${planned} as eaten`,
+          ),
         )
       : null,
     entries.length
