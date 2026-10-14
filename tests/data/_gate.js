@@ -442,7 +442,7 @@ export function checkRecord(food, rules) {
     }
   }
 
-  return { fails, warns };
+  return { fails, warns, stats };
 }
 
 /** G18 (warn): members of a family share a group. */
@@ -469,13 +469,14 @@ export function checkFamilies(records) {
 
 // ---------------------------------------------------------------------------------------------
 // Meal-prep recipe data gate (ARCHITECTURE §13): app/data/recipes-mealprep.js is an array of
-// { foodId, ingredients, boxes, storage } for the shopping list and the use-by. Gate M1–M5:
+// { foodId, ingredients, boxes, storage } for the shopping list and the use-by. Gate M1–M4:
 //   M1 foodId is a known food (and unique, and a lunchbox food: warn when not)
-//   M2 ingredients is a non-empty array and every ingredient foodId is a known food
+//   M2 ingredients is a non-empty array; every ingredient is { foodId?, name?, grams, section?, note? }
+//      (§13.1): grams > 0, and a foodId or a name. A foodId, when given, must be a known food. A
+//      name-only line (no foodId) is valid; the count is reported as `stats.nameOnly`, not a failure.
 //   M3 boxes is a whole number ≥ 1
 //   M4 storage is a non-empty list of ids from RULES.mealPrep.storage. The shape is not fixed by
 //      §13, so an array of ids, an array of { id } or an object keyed by id are all accepted.
-//   M5 (warn) an ingredient carries a positive amount (grams, or qty with a servingId)
 
 /** The storage ids named by a recipe's `storage`, or null when the shape is not recognised. */
 export function storageIdsOf(storage) {
@@ -490,17 +491,19 @@ export function storageIdsOf(storage) {
 /**
  * @param {unknown} recipes the module's array
  * @param {{ foodsById: Map<string, object>, rules: object }} ctx
- * @returns {{ fails: Issue[], warns: Issue[] }} Issue = { gate, id, message }
+ * @returns {{ fails: Issue[], warns: Issue[], stats: { ingredients: number, nameOnly: number } }}
+ *   Issue = { gate, id, message }
  */
 export function checkMealprepRecipes(recipes, { foodsById, rules }) {
   const fails = [];
   const warns = [];
+  const stats = { ingredients: 0, nameOnly: 0 };
   const known = new Set((rules.mealPrep?.storage ?? []).map((s) => s.id));
   const fail = (id, gate, message) => fails.push({ gate, id, message });
   const warn = (id, gate, message) => warns.push({ gate, id, message });
   if (!Array.isArray(recipes)) {
     fail('(file)', 'M1', 'the module must export an array of recipes');
-    return { fails, warns };
+    return { fails, warns, stats };
   }
   const seen = new Set();
   recipes.forEach((r, i) => {
@@ -524,17 +527,21 @@ export function checkMealprepRecipes(recipes, { foodsById, rules }) {
       fail(id, 'M2', 'ingredients must be a non-empty array');
     } else {
       r.ingredients.forEach((ing, j) => {
+        stats.ingredients += 1;
         if (!isObject(ing)) return fail(id, 'M2', `ingredient ${j} is not an object`);
-        if (typeof ing.foodId !== 'string' || !foodsById.has(ing.foodId))
-          fail(
-            id,
-            'M2',
-            `ingredient ${j}: foodId ${JSON.stringify(ing.foodId)} is not a known food`,
-          );
-        const grams = finite(ing.grams) && ing.grams > 0;
-        const portion = finite(ing.qty) && ing.qty > 0 && typeof ing.servingId === 'string';
-        if (!grams && !portion)
-          warn(id, 'M5', `ingredient ${j} (${ing.foodId}) has no positive grams or qty`);
+        const hasFoodId = ing.foodId !== undefined && ing.foodId !== null;
+        const hasName = typeof ing.name === 'string' && ing.name.trim() !== '';
+        if (hasFoodId) {
+          if (typeof ing.foodId !== 'string' || !foodsById.has(ing.foodId))
+            fail(
+              id,
+              'M2',
+              `ingredient ${j}: foodId ${JSON.stringify(ing.foodId)} is not a known food`,
+            );
+        } else if (hasName) stats.nameOnly += 1;
+        else fail(id, 'M2', `ingredient ${j} has neither a foodId nor a name`);
+        if (!(finite(ing.grams) && ing.grams > 0))
+          fail(id, 'M2', `ingredient ${j}: grams must be a number > 0 (got ${JSON.stringify(ing.grams)})`);
       });
     }
     // M3
@@ -548,5 +555,5 @@ export function checkMealprepRecipes(recipes, { foodsById, rules }) {
         if (!known.has(sid))
           fail(id, 'M4', `storage ${JSON.stringify(sid)} is not in RULES.mealPrep.storage`);
   });
-  return { fails, warns };
+  return { fails, warns, stats };
 }

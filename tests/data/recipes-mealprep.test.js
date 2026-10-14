@@ -29,7 +29,10 @@ test('recipes-mealprep.js: foodIds, ingredient foodIds, boxes and storage ids ar
     t.diagnostic('app/data/recipes-mealprep.js does not exist yet: nothing to check');
     return;
   }
-  const { fails, warns } = checkMealprepRecipes(recipes, { foodsById, rules: RULES });
+  const { fails, warns, stats } = checkMealprepRecipes(recipes, { foodsById, rules: RULES });
+  t.diagnostic(
+    `${recipes.length} recipes, ${stats.ingredients} ingredient lines, ${stats.nameOnly} name-only (no foodId)`,
+  );
   for (const w of warns) t.diagnostic(`warn ${w.gate} ${w.id}: ${w.message}`);
   assert.deepEqual(
     fails.map((x) => `${x.id} ${x.gate}: ${x.message}`),

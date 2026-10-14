@@ -173,15 +173,55 @@ test('meal-prep gate: storage ids must exist in RULES.mealPrep.storage (M4)', ()
     assert.deepEqual(failGates({ ...good(), storage: [entry.id] }), [], entry.id);
 });
 
-test('meal-prep gate: an ingredient with no amount only warns (M5)', () => {
+test('meal-prep gate: a name-only ingredient (no foodId) is valid and counted, not failed (M2)', () => {
   const r = good();
-  r.ingredients[0] = { foodId: 'intl-chicken' };
+  r.ingredients.push({ name: 'Garam masala', grams: 6 }, { name: 'Ginger paste', grams: 30 });
   const out = mp(r);
   assert.deepEqual(out.fails, []);
-  assert.deepEqual(
-    out.warns.map((w) => w.gate),
-    ['M5'],
-  );
+  assert.deepEqual(out.warns, []);
+  assert.deepEqual(out.stats, { ingredients: 4, nameOnly: 2 });
+  // foodId + name, section and note are all allowed; only a foodId-less line counts as name-only
+  const full = {
+    ...good(),
+    ingredients: [
+      { foodId: 'intl-chicken', name: 'Chicken thigh', grams: 720, section: 'butcher', note: 'x' },
+      { name: 'Salt', grams: 8, section: 'supermarket' },
+    ],
+  };
+  const o2 = mp(full);
+  assert.deepEqual(o2.fails, []);
+  assert.equal(o2.stats.nameOnly, 1);
+});
+
+test('meal-prep gate: an unknown foodId still fails even when a name is given (M2)', () => {
+  const r = good();
+  r.ingredients[0] = { foodId: 'intl-nope', name: 'Chicken', grams: 100 };
+  assert.deepEqual(failGates(r), ['M2']);
+  r.ingredients[0] = { foodId: 7, name: 'Chicken', grams: 100 };
+  assert.deepEqual(failGates(r), ['M2']);
+});
+
+test('meal-prep gate: a line with neither foodId nor name fails M2', () => {
+  for (const line of [{ grams: 5 }, { grams: 5, name: '' }, { grams: 5, name: '   ' }, { grams: 5, name: 3 }]) {
+    const r = good();
+    r.ingredients[1] = line;
+    assert.deepEqual(failGates(r), ['M2'], JSON.stringify(line));
+  }
+});
+
+test('meal-prep gate: grams must be a number > 0, for foodId lines and name-only lines (M2)', () => {
+  for (const grams of [0, -5, NaN, Infinity, '30', null, undefined]) {
+    for (const line of [{ foodId: 'intl-chicken' }, { name: 'Salt' }]) {
+      const r = good();
+      r.ingredients[0] = { ...line, grams };
+      assert.deepEqual(failGates(r), ['M2'], `${JSON.stringify(line)} grams ${grams}`);
+    }
+  }
+  // qty + servingId no longer stands in for grams (§13.1)
+  const r = good();
   r.ingredients[0] = { foodId: 'intl-chicken', servingId: 'tbsp', qty: 2 };
-  assert.deepEqual(mp(r).warns, []);
+  assert.deepEqual(failGates(r), ['M2']);
+  const ok = good();
+  ok.ingredients[0] = { name: 'Salt', grams: 0.5 };
+  assert.deepEqual(failGates(ok), []);
 });
