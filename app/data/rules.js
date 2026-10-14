@@ -7,7 +7,7 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.4.0',
+  version: '1.5.0',
   updated: '2026-10-13',
 
   // ---------------------------------------------------------------- energy
@@ -257,6 +257,8 @@ export default {
     low_carbs:
       'Carbs are under 100 g a day. That is fine if you chose it, but most people feel better with more.',
     protein_capped: 'Protein is capped because of the health information you gave.',
+    protein_reduced_to_fit:
+      'Your protein choice did not fit inside your calories with the minimum healthy fat, so we lowered protein to the most that fits.',
     no_targets: 'No targets are set. You can still log food.',
   },
 
@@ -368,7 +370,7 @@ export default {
         id: 'bread-fried',
         label: 'Parathas, fried breads and oil-dressed toast',
         examples: 'paratha, aloo paratha, lachha paratha, puri, bhatura, tostada con aceite',
-        kcalPer100g: { min: 260, max: 480 },
+        kcalPer100g: { min: 200, max: 480 }, // stuffed parathas (aloo, mooli, gobhi) are ~200-260
         fiberZero: false,
         servingGrams: { min: 20, max: 250 },
       },
@@ -524,9 +526,9 @@ export default {
       },
       {
         id: 'drink-milk',
-        label: 'Milk drinks',
+        label: 'Milk and yogurt drinks',
         examples: 'lassi, milkshake, doodh soda, Rooh Afza with milk, falooda',
-        kcalPer100g: { min: 40, max: 220 },
+        kcalPer100g: { min: 25, max: 220 }, // salted lassi and chaas are ~25-35
         fiberZero: false,
         servingGrams: { min: 100, max: 600 },
       },
