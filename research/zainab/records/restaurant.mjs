@@ -18,6 +18,7 @@ export default [
     servings: ({ katoriSet, res }) => [
       ...katoriSet(boneIn(D.curry, res), { suffix: ', edible part' }),
       // "½ kg karahi" = made from ½ kg bone-in chicken = half of the standard pot (1 kg chicken).
+      { id: 'whole-handi', label: 'Whole ½ kg karahi (handi), edible part', labelUr: 'آدھا کلو کڑاہی (پوری)', grams: Math.round(res.cookedG / 2) },
       { id: 'handi-half-kg-share-3', label: '1 share of a ½ kg karahi split 3 ways', labelUr: 'آدھا کلو کڑاہی کا تیسرا حصہ', grams: Math.round(res.cookedG / 2 / 3) },
       { id: 'handi-half-kg-share-2', label: '1 share of a ½ kg karahi split 2 ways', labelUr: 'آدھا کلو کڑاہی کا آدھا حصہ', grams: Math.round(res.cookedG / 2 / 2) },
     ],
@@ -26,7 +27,7 @@ export default [
     crossCheck: [{ src: 'cofid', code: '19-322', note: 'UK takeaway curries, meat and sauce.' }],
     assumptions: [
       'Same base recipe as the home karahi; restaurant fat load 200 g per kg bone-in chicken (140 g palm-olein-type oil + 60 g ghee) from MasalaTV dawat (175 ml), Shan white karahi pack (175 ml) and MasalaTV highway karahi (1 cup per ½ kg, half poured off).',
-      '"½ kg karahi" on Pakistani menus is taken as the dish made from ½ kg bone-in chicken (assumption, common menu usage); a share = edible cooked weight ÷ diners. The whole ½ kg handi exceeds the curry-meat serving limit of 500 g, so only shares are offered until RULES allow it.',
+      '"½ kg karahi" on Pakistani menus is taken as the dish made from ½ kg bone-in chicken (assumption, common menu usage); the whole ½ kg handi = half the cooked edible weight of the 1 kg pot (a whole-dish serving, NUTRITION.md 1.3); shares for 2 or 3 diners are also offered.',
     ],
     source: { confidence: 'C', notes: 'Restaurant style: always C (NUTRITION.md §4.4).' },
   },
@@ -119,6 +120,7 @@ export default [
     state: BONE_STATE,
     servings: ({ katoriSet, res }) => [
       ...katoriSet(boneIn(D.curry, res), { suffix: ', edible part' }),
+      { id: 'whole-handi', label: 'Whole ½ kg karahi (handi), edible part', labelUr: 'آدھا کلو کڑاہی (پوری)', grams: Math.round(res.cookedG / 2) },
       { id: 'handi-half-kg-share-3', label: '1 share of a ½ kg karahi split 3 ways', labelUr: 'آدھا کلو کڑاہی کا تیسرا حصہ', grams: Math.round(res.cookedG / 2 / 3) },
       { id: 'handi-half-kg-share-2', label: '1 share of a ½ kg karahi split 2 ways', labelUr: 'آدھا کلو کڑاہی کا آدھا حصہ', grams: Math.round(res.cookedG / 2 / 2) },
     ],

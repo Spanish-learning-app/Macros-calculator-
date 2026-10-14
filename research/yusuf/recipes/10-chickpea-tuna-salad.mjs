@@ -48,6 +48,7 @@ export default {
     'Mix chickpeas, tuna, peppers, onion, tomatoes, cucumber and parsley. Dress with olive oil, lemon, cumin, salt and pepper.',
     'Each box: ¼ of the salad and 1 halved egg on top. Keep cold (insulated bag and ice pack).',
   ],
+  keeps: '2 days, mixed twice; no freezing',
   storagePlan: 'Cold-only, no freezing. Dressed salad keeps 2 days, boiled eggs 3 days. Mix half on Sunday (Mon, Tue) and half on Tuesday night (Wed, Thu); unopened tuna cans and the chickpea jar wait in the cupboard. Boil all the eggs on Sunday.',
   reheat: 'Not reheated (no fish or eggs in the microwave). Eat within 2 h of leaving the fridge (1 h above 32 °C).',
   crossCheck: { fdc: 2706840, note: 'FNDDS "Tuna salad with egg" is a mayonnaise salad without chickpeas: much more fat, less fibre. Directional check only.' },

@@ -56,3 +56,14 @@
   - Recovered unjournalled work from before the pause, all present on disk: rules.js v1.4.0 (lunchbox group generalised to meal-prep portions for any slot, keeping id 'lunchbox' because engineering uses it; prepServing {ids box/jar/portion, kcalBySlot}; slots[0] = primary slot; mealPrep.targetsBySlot; storage adds cooked-curry, egg-muffin, overnight-oats, cooked-flatbread); check-foods G22 generalised and tested.
   - Started on Javier's review. Seeded sample drawn (seed "javier-sprint1", 15 of 74). All 15 match their sources. Composite notes are in progress.
   - TODO now: NUTRITION.md meal-prep text; Hamza ruling (negative carbs); Zainab rulings (aloo paratha 247, salted lassi 30); write research/review/javier-sprint1.md; then review Zainab's 67.
+- 2026-10-14 04:13 UTC — RULINGS DONE (rules.js v1.5.0, NUTRITION.md v1.5):
+  - Hamza (carbs < 0): fat comes down to its floor first, but only if a fat pref raised it; then protein = floor((kcal − 9F)/4); carbs ≥ 0 always; new warning protein_reduced_to_fit. Worked example and a feasibility note are in §2.2.
+  - Zainab: aloo paratha (247) stays in bread-fried and the range min is now 200 (stuffed parathas are ~200–260). Salted lassi (~30) fits because drink-milk is now 25–220, "Milk and yogurt drinks"; no new group.
+  - NUTRITION.md meal-prep text done: lunchbox = any-slot prep, G22 bands, targetsBySlot, 4 new storage rows.
+  - check-foods passes on all records; contract test 7/7; lint clean.
+  Next: write the Javier review file, then review Zainab.
+- 2026-10-14 04:14 UTC — JAVIER REVIEW WRITTEN: research/review/javier-sprint1.md.
+  - Reviewed 42 of 101: 17 composites, 10 flagged/analogue/released, and a seeded 15 of 74 (seed javier-sprint1, FNV-1a 4186115464).
+  - Result: 39 PASS, 3 FIX (paella halal → check; lentejas halal reason; falafel re-source, since CoFID 183 kcal at 60% water under-counts shop falafel), 0 reject. All 15 sampled values match their sources exactly.
+  - Cross-cutting requests: an "assumes halal meat" reason on 7 meat records; Spanish full-fat yogur griego.
+  Next: Zainab's 67.

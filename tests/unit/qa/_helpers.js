@@ -45,7 +45,7 @@ export function isStub(fn) {
  */
 export function qa(name, fns, body, options = {}) {
   const stubs = fns.filter(isStub).map((fn) => fn.name);
-  const todo = stubs.length ? `stub: ${stubs.join(', ')}` : undefined;
+  const todo = stubs.length ? `stub: ${stubs.join(', ')}` : options.todo;
   return test(name, { ...options, todo }, async (t) => {
     try {
       await body(t);
@@ -57,6 +57,15 @@ export function qa(name, fns, body, options = {}) {
       throw error;
     }
   });
+}
+
+/**
+ * A test for a bug already reported to its owner in finished code. It stays TODO (shown, but not
+ * failing `npm run check`) until the owner fixes it; then it passes and the marker is removed.
+ * @param {string} id e.g. 'BUG-R1' @param {string} owner e.g. 'Lena'
+ */
+export function knownBug(id, owner, name, fns, body) {
+  return qa(`${id} (${owner}): ${name}`, fns, body, { todo: `${id} reported to ${owner}` });
 }
 
 /** Recursively freezes plain objects and arrays (inputs to pure functions must not change). */

@@ -1,7 +1,10 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 1, version 1.3 (2026-10-14). Version 1.3 adds the serving rules (household measures and whole-dish servings) and widens `bread-fried` to 480. Version 1.2 added skip defaults (§2.1a). Version 1.1 added the Meeting 002 changes: the halal field, seafood tags, not-halal
+**Status:** Sprint 1, version 1.5 (2026-10-14).
+- Version 1.5: the carbs-below-zero ruling; `bread-fried` minimum lowered to 200; `drink-milk` minimum lowered to 25.
+- Version 1.4: meal prep for any meal (the `lunchbox` group, extra storage rows).
+- Version 1.3 added the serving rules (household measures and whole-dish servings) and widens `bread-fried` to 480. Version 1.2 added skip defaults (§2.1a). Version 1.1 added the Meeting 002 changes: the halal field, seafood tags, not-halal
 rules, the Spain slot preset, meal-prep storage and the `lunchbox` group.
 
 This document and `app/data/rules.js` are the specification for:
@@ -181,7 +184,15 @@ All arithmetic is unrounded until step 12. `R` stands for RULES. `round` means r
     floor = ceil( max(20% × kcal / 9,  0.6 × prw) )
     if fat < floor:
       fat = floor                                               (add 'fat_floor')
-    carbs = max(0, round((kcal − 4·protein − 9·fat) / 4))
+    room  = kcal − 4·protein − 9·fat
+    if room < 0:                                    (RULING 2026-10-14: carbs never go negative)
+      1. if fat > floor (a fatPct pref):
+           fat = max(floor, fat − ceil(−room / 9))   (lower fat, never below its floor)
+           room = kcal − 4·protein − 9·fat
+      2. if room is still < 0:
+           protein = floor((kcal − 9·fat) / 4)       (lower protein to the most that fits)
+           add 'protein_reduced_to_fit'
+    carbs = round((kcal − 4·protein − 9·fat) / 4)              (now ≥ 0)
     if carbs < 100:
       add 'low_carbs'                                           (never clamped up)
     fiber = max(25, round(14 × kcal / 1000))
@@ -204,6 +215,25 @@ the UI rounds them for display.
 - It always starts with `'estimate'` when `ok` is true.
 - It contains the codes added above, plus the id of every active health or derived flag.
 - The order after `'estimate'` is not significant, so tests should compare it as a set.
+
+**Ruling: carbs below zero (2026-10-14, for Hamza)**
+
+A high protein preference plus the fat floor can leave no energy for carbs at a low kcal target.
+Neither the fat floor (a health minimum) nor the kcal target (already railed) moves, so protein gives
+way. Fat comes down first, to its floor only, if a fat preference raised it. Then protein drops to
+the most that fits. The app keeps the calculation rather than refusing it. It shows the
+`protein_reduced_to_fit` warning, and Profile shows the effective g/kg so the user can choose again.
+
+With real profiles this is rare, because the rails keep kcal high enough. Feasibility needs roughly
+kcal ≥ 15.4 × PRW at the extreme preferences. The rule still matters for edge cases and for any later
+feature that sets kcal by hand. Kenji: test the function with these inputs directly.
+
+**Worked example** (arithmetic only, not a reachable profile):
+- kcal 1,200, PRW 100 kg, prefs `{ proteinGPerKg: 2.5 }`.
+- Protein 250 g and fat floor max(26.7, 60) = 60 g leave room = 1200 − 1000 − 540 = −340.
+- Fat is already at its floor, so protein = floor((1200 − 540) / 4) = 165 g.
+- Carbs = 0, so 4P + 4C + 9F = 1,200 kcal exactly.
+- Warnings: `protein_reduced_to_fit` and `low_carbs`.
 
 ### 2.3 Activity levels (`RULES.activityLevels`)
 
@@ -392,7 +422,7 @@ Each group has:
 | id | Examples | kcal/100 g | Fibre 0 | Serving g | Katori |
 |---|---|---|---|---|---|
 | `bread` | roti, tandoori roti, naan, sliced bread, pita | 180–380 | | 15–250 | |
-| `bread-fried` | paratha, puri, bhatura, tostada con aceite (oil-dressed toast) | 260–480 | | 20–250 | |
+| `bread-fried` | paratha, aloo/mooli/gobhi paratha (stuffed), puri, bhatura, tostada con aceite | 200–480 | | 20–250 | |
 | `grain-cooked` | boiled rice, plain pasta, porridge | 50–180 | | 30–500 | yes |
 | `rice-dish` | biryani, pulao, khichdi, paella | 110–260 | | 30–600 | yes |
 | `curry-meat` | salan, karahi, qorma, keema, nihari, haleem | 90–360 | | 30–500 | yes |
@@ -411,7 +441,7 @@ Each group has:
 | `condiment` | ketchup, mayo, achaar, chutney | 10–750 | | 2–60 | |
 | `sugar-sweetener` | cheeni, gur, honey, jam, syrups | 240–400 | | 2–40 | |
 | `drink-tea-coffee` | chai, tea, coffee | 0–160 | yes | 30–500 | |
-| `drink-milk` | lassi, milkshake, doodh soda | 40–220 | | 100–600 | |
+| `drink-milk` | milk and yogurt drinks: sweet and salted lassi, chaas, milkshake, doodh soda | 25–220 | | 100–600 | |
 | `drink-other` | juice, soft drinks, sharbat | 0–90 | | 30–750 | |
 | `sweet-dessert` | kheer, gulab jamun, jalebi, halwa | 90–500 | | 10–300 | |
 | `biscuit-bakery` | biscuits, rusk, cake | 280–560 | | 5–150 | |
@@ -423,11 +453,26 @@ Each group has:
 | `pasta-dish` | bolognese, chow mein, macaroni | 90–260 | | 100–500 | |
 | `dry-staple` | atta, besan, raw rice, dry daal, oats, cereal | 300–500 | | 5–200 | |
 | `protein-supplement` | whey, protein bars | 300–430 | | 15–100 | |
-| `lunchbox` | meal-prep boxes (one record = one packed box) | 90–260 | | 50–800 | |
+| `lunchbox` | **meal-prep portions for any meal**: lunch boxes, breakfast jars and preps, freezer dinners | 80–350 | | 50–800 | |
 
-**`lunchbox` rule (G22):** the record needs a serving with id `box` (label "1 box") that is the
-default and gives 450–850 kcal. The design target is 550–750 kcal and 35–50 g protein
-(`RULES.mealPrep.boxTargets`).
+**Meal-prep group (G22).** The Boss widened meal prep to every meal. The group keeps the id
+`lunchbox`, because engineering's `foods.BOX` and `foodFromRecipe` use it, but it now covers any
+slot. One record is one prepared portion.
+
+The rules:
+- `slots` is required, and `slots[0]` is the **primary slot**.
+- The **default** serving has the id `box`, `jar` or `portion` (labels "1 box", "1 jar",
+  "1 portion").
+- That serving's energy must fall in the gate band for the primary slot:
+
+| Primary slot | Gate band (kcal) | Design target: kcal / protein / fibre (`RULES.mealPrep.targetsBySlot`) |
+|---|---|---|
+| breakfast | 250–650 | 300–550 / 25–40 g / ≥ 5 g |
+| lunch | 450–850 | 550–750 / 35–50 g / ≥ 8 g |
+| dinner | 400–900 | 500–800 / 30–50 g / ≥ 8 g |
+| evening, snacks | 100–400 | 150–300 / 15–30 g / ≥ 3 g |
+
+These bands apply to Lab records. They do not apply to recipes users build themselves.
 
 **Exceptions to the serving-gram range:**
 - **Household-measure servings** (`katori-small`, `katori`, `katori-large`, `cup`, `mug`, `glass`,
@@ -640,6 +685,10 @@ Use the food's own density when its source gives one.
 | `cooked-meat`: chicken, meat, keema, kebabs | **3 days** | 3 months | USDA FSIS (3–4 days; lower bound used) |
 | `egg-dish`: tortilla, egg dishes | 3 days | do not freeze | USDA FSIS |
 | `cold-salad`: tuna or chickpea salad, raita, cut salad, yogurt sauces | 2 days | do not freeze | Lab rule |
+| `cooked-curry`: daal, sabzi, cooked vegetable or legume dishes | 3 days | 3 months | USDA FSIS leftovers (3–4 days) |
+| `egg-muffin`: baked egg muffins and egg bites | 3 days | 2 months | USDA FSIS cold-storage chart (quiche or egg casserole) |
+| `overnight-oats`: overnight oats, chia pudding (uncooked, soaked in milk or yogurt) | 3 days | do not freeze | Lab rule |
+| `cooked-flatbread`: cooked parathas and rotis | 2 days | 2 months | Lab rule (quality); reheat on the tawa |
 
 **Use-by**
 - Use-by = cooked date + the **shortest** `fridgeDays` among the box's components.
@@ -654,8 +703,8 @@ Use the food's own density when its source gives one.
 - Discard after 2 h unchilled, or 1 h above 32 °C.
 - In a Sunday rice batch, box 1 goes in the fridge and boxes 2–4 in the freezer.
 
-Yusuf records each box's components and their storage ids in his recipe sheets
-(`research/yusuf/`).
+Yusuf and Zainab record each prep's components and their storage ids in the recipe sheets
+(`research/yusuf/`). The use-by rule is the same for boxes, jars and portions.
 
 ### 5.5 Open (no published source found yet)
 
@@ -811,7 +860,7 @@ Show this text as written:
 | G19 | **Review:** reviewer is not `ayesha` yet | warn (counted) |
 | G20 | **Unknown field:** the record has a key not in §3 | warn |
 | G21 | **Halal:** `halal { status, reason }` present; status valid; reason required unless `halal`; `not-halal` only outside meat groups and with a reason naming the lard | fail |
-| G22 | **Lunch box:** `lunchbox` records have a default `box` serving of 450–850 kcal | fail |
+| G22 | **Meal prep:** `lunchbox` records have `slots` (primary slot first) and a default `box`, `jar` or `portion` serving whose kcal fits the primary slot's band | fail |
 
 Kenji's official data gate (`tests/data/`) implements the same rules from this table.
 
@@ -837,7 +886,8 @@ Kenji's official data gate (`tests/data/`) implements the same rules from this t
 
 - **Sprint 2:**
   - meal prep on whole-pot recipes (§6 method, storage per §5.4);
-  - Yusuf's 12-box library, which ships in Sprint 1 as `lunchbox` records;
+  - Yusuf's library: 12 lunch boxes (shipping in Sprint 1 as `lunchbox` records), plus 5–6
+    breakfast preps and 6–8 freezer dinners (desi curries welcome, with Zainab);
   - the seafood question;
   - "set my chai once".
 - **Sprint 3:**

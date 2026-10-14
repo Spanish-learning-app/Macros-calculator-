@@ -88,9 +88,15 @@ export function unitName(serving) {
   if (!serving) return '';
   if (serving.id === 'g') return 'g';
   return String(serving.label)
-    .replace(/\s*\([^)]*\)\s*$/, '')
+    .replace(/\s*\([^)]*\)/g, '')
     .replace(/^1\s+/, '')
+    .replace(/^per\s+/i, '')
     .trim();
+}
+
+/** True when the label names one unit ("1 cup", "per egg"), so a quantity can go in front. */
+function countable(serving) {
+  return /^(1\s|per\s)/i.test(String(serving.label));
 }
 
 /** The parenthesis of a serving label, if any ("1 cup (200 ml)" → "200 ml"). */
@@ -100,14 +106,15 @@ export function servingNote(serving) {
 }
 
 /**
- * "1½ katori", "2 medium roti", "300 g", "⅓ × ½ kg handi" (labels that do not start with "1 ").
+ * "1½ katori", "2 medium roti", "300 g", "3 egg" ("per egg"), and "½ plate" or "2 × ½ plate"
+ * for labels that do not name a single unit.
  * @param {{ id: string, label: string }|null} serving @param {number} qty
  */
 export function portionText(serving, qty) {
   if (!serving) return fmtQty(qty);
   if (serving.id === 'g') return `${fmtGrams(qty)} g`;
   const unit = unitName(serving);
-  if (!/^1\s/.test(String(serving.label))) return `${fmtQty(qty)} × ${unit}`;
+  if (!countable(serving)) return qty === 1 ? unit : `${fmtQty(qty)} × ${unit}`;
   return `${fmtQty(qty)} ${unit}`;
 }
 

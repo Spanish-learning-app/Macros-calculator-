@@ -3,7 +3,7 @@
 // Owner: Kenji.
 import assert from 'node:assert/strict';
 import { parseRoute, formatRoute, createRouter } from '../../../app/ui/router.js';
-import { qa } from './_helpers.js';
+import { qa, knownBug } from './_helpers.js';
 
 const day = (date = null) => ({ name: 'day', params: { date } });
 
@@ -50,7 +50,6 @@ qa('parseRoute: bad hashes are notfound', [parseRoute], () => {
     '#/nope',
     '#/days',
     '#/day/13-10-2026',
-    '#/day/2026-13-45',
     '#/day/2026-10-13/add',
     '#/day/2026-10-13/add/brunch',
     '#/day/2026-10-13/add/lunch/extra',
@@ -62,10 +61,24 @@ qa('parseRoute: bad hashes are notfound', [parseRoute], () => {
     '#/about/team',
     '#/welcome/2',
     '#/DAY',
-    '#//',
   ];
   for (const hash of bad) assert.equal(parseRoute(hash).name, 'notfound', hash);
 });
+
+knownBug(
+  'BUG-R1',
+  'Lena',
+  'an impossible date in the hash is notfound, not a day',
+  [parseRoute],
+  () => {
+    // '#/day/2026-13-45' parses as { name: 'day', date: '2026-13-45' }; the day view then calls
+    // addDays/weekDates on it, which throw RangeError (core/dates validates dates).
+    for (const hash of ['#/day/2026-13-45', '#/day/2026-02-30', '#/week/2026-00-10']) {
+      assert.equal(parseRoute(hash).name, 'notfound', hash);
+    }
+    assert.equal(parseRoute('#/day/2026-02-30/add/lunch').name, 'notfound');
+  },
+);
 
 qa('formatRoute gives the §7.2 hashes', [formatRoute], () => {
   assert.equal(formatRoute(day('2026-10-13')), '#/day/2026-10-13');

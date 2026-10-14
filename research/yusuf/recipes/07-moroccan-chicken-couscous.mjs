@@ -60,6 +60,7 @@ export default {
     'Couscous: pour 336 g boiling water with the oil and salt over the couscous, cover 5 min, fluff and fold in the parsley.',
     'Cool everything within 1 h. Each box: ¼ couscous, ¼ vegetables, ¼ chicken.',
   ],
+  keeps: 'Box 1 fridge, 2–4 freezer',
   storagePlan: 'Couscous keeps 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer. Move the next day\'s box to the fridge the night before. Eaten cold, take it straight from the fridge in an insulated bag with an ice pack.',
   reheat: 'Hot: microwave with the lid ajar 2½–3 min, stir, until steaming hot right through (75 °C), once only. Cold: eat within 2 hours of leaving the fridge (1 hour above 32 °C); a squeeze of lemon helps.',
   crossCheck: { fdc: 2706438, note: 'FNDDS "Chicken curry with rice" as the nearest chicken-plus-grain plate; this box has more vegetables, so similar or lower energy per 100 g is expected.' },

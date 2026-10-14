@@ -54,6 +54,7 @@ export default {
     'Return the chicken, sprinkle garam masala, cover tightly (foil under the lid) and steam on the lowest heat 12–15 min. Fold in coriander and mint.',
     'Spread on a tray to cool within 1 h, then divide into 4 boxes.',
   ],
+  keeps: 'Box 1 fridge, 2–4 freezer',
   storagePlan: 'Rice dish: box 1 in the fridge, boxes 2–4 in the freezer (1 month). Move the next day\'s box to the fridge the night before.',
   reheat: 'Sprinkle 1 tbsp water over the box, microwave with the lid ajar 3 min, stir, 30–60 s more until steaming hot right through (75 °C). Reheat once only.',
   crossCheck: { fdc: 2706438, note: 'FNDDS "Chicken curry with rice" (no pulao/pilaf entry in FNDDS). Pulao is drier, so a higher value per 100 g is expected.' },

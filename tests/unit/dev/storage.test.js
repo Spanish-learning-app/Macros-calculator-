@@ -60,13 +60,16 @@ function sampleData() {
     d2,
     createQuickEntry({ id: 'b2', slot: 'dinner', name: 'Shawarma', nutrients: { kcal: 550 } }),
   );
-  let recents = recordUse({}, {
-    foodId: 'pk-roti-home-fx',
-    servingId: 'medium',
-    qty: 2,
-    slot: 'lunch',
-    date: '2026-10-12',
-  });
+  let recents = recordUse(
+    {},
+    {
+      foodId: 'pk-roti-home-fx',
+      servingId: 'medium',
+      qty: 2,
+      slot: 'lunch',
+      date: '2026-10-12',
+    },
+  );
   recents = recordUse(recents, {
     foodId: 'pk-chai-doodh-patti-home-fx',
     servingId: 'cup',
@@ -130,7 +133,13 @@ test('defaultData: slot preset from the time zone, halal and seafood from RULES'
   for (const timeZone of ['Europe/Madrid', 'Africa/Ceuta', 'Atlantic/Canary']) {
     assert.equal(defaultData({ timeZone, rules }).settings.slotPreset, 'spain', timeZone);
   }
-  for (const timeZone of ['Asia/Karachi', 'America/Los_Angeles', 'Europe/London', null, 'toString']) {
+  for (const timeZone of [
+    'Asia/Karachi',
+    'America/Los_Angeles',
+    'Europe/London',
+    null,
+    'toString',
+  ]) {
     assert.equal(defaultData({ timeZone, rules }).settings.slotPreset, 'default', String(timeZone));
   }
   assert.equal(defaultData({ timeZone: 'Europe/Madrid' }).settings.slotPreset, 'default'); // no rules
@@ -142,23 +151,24 @@ test('defaultData: slot preset from the time zone, halal and seafood from RULES'
   flipped.vocab.halalRules.seafoodDefault = 'fish-only';
   flipped.mealSlotPresetDefault.fallback = 'spain';
   const f = defaultData({ timeZone: 'Asia/Karachi', rules: flipped });
-  assert.deepEqual([f.settings.halalOnly, f.settings.seafood, f.settings.slotPreset], [
-    false,
-    'fish-only',
-    'spain',
-  ]);
+  assert.deepEqual(
+    [f.settings.halalOnly, f.settings.seafood, f.settings.slotPreset],
+    [false, 'fish-only', 'spain'],
+  );
 });
 
 test('validateUserData: settings ranges, including dayStartMinutes 0..300 and onboarding', () => {
   const base = defaultData();
   const withSettings = (patch) => ({ ...base, settings: { ...base.settings, ...patch } });
-  for (const m of [0, 60, 240, 300]) assert.deepEqual(validateUserData(withSettings({ dayStartMinutes: m })), []);
+  for (const m of [0, 60, 240, 300])
+    assert.deepEqual(validateUserData(withSettings({ dayStartMinutes: m })), []);
   for (const m of [-1, 301, 30.5, '240', null]) {
     const p = validateUserData(withSettings({ dayStartMinutes: m }));
     assert.equal(p.length, 1, String(m));
     assert.match(p[0], /dayStartMinutes/);
   }
-  for (const s of ['pending', 'done', 'skipped']) assert.deepEqual(validateUserData(withSettings({ onboarding: s })), []);
+  for (const s of ['pending', 'done', 'skipped'])
+    assert.deepEqual(validateUserData(withSettings({ onboarding: s })), []);
   assert.match(validateUserData(withSettings({ onboarding: 'maybe' }))[0], /onboarding/);
   const bad = [
     [{ slotPreset: 'mexico' }, /slotPreset/],
@@ -180,6 +190,11 @@ test('validateUserData: settings ranges, including dayStartMinutes 0..300 and on
 
 test('validateUserData: document shape', () => {
   assert.deepEqual(validateUserData(sampleData()), []);
+  // Custom foods are checked structurally here (validateFood runs where they are made).
+  assert.deepEqual(
+    validateUserData({ ...sampleData(), customFoods: [{ id: 'my-x', name: 'X' }] }),
+    [],
+  );
   for (const junk of [null, 42, 'x', []]) assert.ok(validateUserData(junk).length > 0);
   const d = sampleData();
   const cases = [
@@ -188,12 +203,53 @@ test('validateUserData: document shape', () => {
     [{ days: [] }, /days/],
     [{ days: { '2026-02-30': emptyDay('2026-02-28') } }, /2026-02-30/],
     [{ days: { '2026-10-12': { ...d.days['2026-10-12'], date: '2026-10-13' } } }, /date/],
-    [{ days: { '2026-10-12': { date: '2026-10-12', entries: [{ ...d.days['2026-10-12'].entries[0], qty: 0 }] } } }, /qty/],
-    [{ days: { '2026-10-12': { date: '2026-10-12', entries: [{ ...d.days['2026-10-12'].entries[0], slot: 'brunch' }] } } }, /slot/],
-    [{ days: { '2026-10-12': { date: '2026-10-12', entries: [d.days['2026-10-12'].entries[0], d.days['2026-10-12'].entries[0]] } } }, /duplicate/],
-    [{ days: { '2026-10-12': { date: '2026-10-12', entries: [{ ...d.days['2026-10-12'].entries[0], snapshot: { name: 'x' } }] } } }, /snapshot/],
+    [
+      {
+        days: {
+          '2026-10-12': {
+            date: '2026-10-12',
+            entries: [{ ...d.days['2026-10-12'].entries[0], qty: 0 }],
+          },
+        },
+      },
+      /qty/,
+    ],
+    [
+      {
+        days: {
+          '2026-10-12': {
+            date: '2026-10-12',
+            entries: [{ ...d.days['2026-10-12'].entries[0], slot: 'brunch' }],
+          },
+        },
+      },
+      /slot/,
+    ],
+    [
+      {
+        days: {
+          '2026-10-12': {
+            date: '2026-10-12',
+            entries: [d.days['2026-10-12'].entries[0], d.days['2026-10-12'].entries[0]],
+          },
+        },
+      },
+      /duplicate/,
+    ],
+    [
+      {
+        days: {
+          '2026-10-12': {
+            date: '2026-10-12',
+            entries: [{ ...d.days['2026-10-12'].entries[0], snapshot: { name: 'x' } }],
+          },
+        },
+      },
+      /snapshot/,
+    ],
     [{ customFoods: {} }, /customFoods/],
-    [{ customFoods: [{ id: 'my-x' }] }, /customFoods/],
+    [{ customFoods: [{ name: 'no id' }] }, /customFoods/],
+    [{ customFoods: [{ id: 'my-x' }, { id: 'my-x' }] }, /duplicate/],
     [{ recents: { x: { count: 'many' } } }, /recents/],
     [{ recipes: null }, /recipes/],
     [{ batches: {} }, /batches/],
@@ -203,7 +259,10 @@ test('validateUserData: document shape', () => {
   for (const [patch, pattern] of cases) {
     const p = validateUserData({ ...d, ...patch });
     assert.ok(p.length >= 1, JSON.stringify(patch));
-    assert.ok(p.some((m) => pattern.test(m)), `${JSON.stringify(patch)} -> ${p}`);
+    assert.ok(
+      p.some((m) => pattern.test(m)),
+      `${JSON.stringify(patch)} -> ${p}`,
+    );
   }
 });
 
@@ -232,12 +291,30 @@ test('migrate: fills defaults, keeps data, never mutates, throws coded errors', 
     }
     return 'no throw';
   };
-  assert.equal(code(() => migrate({ schemaVersion: 2 })), 'FUTURE_VERSION');
-  assert.equal(code(() => migrate({ schemaVersion: 0 })), 'INVALID');
-  assert.equal(code(() => migrate({})), 'INVALID');
-  assert.equal(code(() => migrate(null)), 'INVALID');
-  assert.equal(code(() => migrate([])), 'INVALID');
-  assert.equal(code(() => migrate({ schemaVersion: 1, days: 'x' })), 'INVALID');
+  assert.equal(
+    code(() => migrate({ schemaVersion: 2 })),
+    'FUTURE_VERSION',
+  );
+  assert.equal(
+    code(() => migrate({ schemaVersion: 0 })),
+    'INVALID',
+  );
+  assert.equal(
+    code(() => migrate({})),
+    'INVALID',
+  );
+  assert.equal(
+    code(() => migrate(null)),
+    'INVALID',
+  );
+  assert.equal(
+    code(() => migrate([])),
+    'INVALID',
+  );
+  assert.equal(
+    code(() => migrate({ schemaVersion: 1, days: 'x' })),
+    'INVALID',
+  );
 });
 
 test('createPersistence: empty, then save and load round-trip', () => {
@@ -266,7 +343,12 @@ test('createPersistence: null backend and a backend that throws are "unavailable
 });
 
 test('createPersistence: corrupt JSON keeps the raw text under mmc.v1.corrupt.<stamp>', () => {
-  for (const raw of ['{"schemaVersion": 1, "days": ', 'not json', '[]', '{"schemaVersion":1,"days":"x"}']) {
+  for (const raw of [
+    '{"schemaVersion": 1, "days": ',
+    'not json',
+    '[]',
+    '{"schemaVersion":1,"days":"x"}',
+  ]) {
     const backend = memoryBackend({ [STORAGE_KEY]: raw });
     const p = createPersistence(backend, { stamp: () => '2026-10-13T22:30' });
     const r = p.load();
@@ -279,9 +361,12 @@ test('createPersistence: corrupt JSON keeps the raw text under mmc.v1.corrupt.<s
     assert.equal(backend.store.get('mmc.v1.corrupt.2026-10-13T22:30'), raw);
   }
   // A stamp that throws, and a backend whose setItem fails, still never throw.
-  const broken = { ...memoryBackend({ [STORAGE_KEY]: 'x' }), setItem() {
-    throw new Error('nope');
-  } };
+  const broken = {
+    ...memoryBackend({ [STORAGE_KEY]: 'x' }),
+    setItem() {
+      throw new Error('nope');
+    },
+  };
   const r = createPersistence(broken, {
     stamp() {
       throw new Error('clock');
@@ -344,7 +429,13 @@ test('serializeExport -> parseImport round-trips to a deep-equal document', () =
   assert.deepEqual(bare.data, data);
   // Empty document.
   const fresh = parseImport(serializeExport(defaultData(), 'x'));
-  assert.deepEqual(fresh.summary, { days: 0, entries: 0, customFoods: 0, firstDate: null, lastDate: null });
+  assert.deepEqual(fresh.summary, {
+    days: 0,
+    entries: 0,
+    customFoods: 0,
+    firstDate: null,
+    lastDate: null,
+  });
 });
 
 test('parseImport returns every error code', () => {
@@ -360,7 +451,12 @@ test('parseImport returns every error code', () => {
   assert.deepEqual(err('{"kind":"other-app","data":{}}'), { ok: false, error: 'NOT_KATORI' });
   const future = serializeExport({ ...sampleData(), schemaVersion: 2 }, 'x');
   assert.deepEqual(err(future), { ok: false, error: 'FUTURE_VERSION' });
-  const futureEnvelope = JSON.stringify({ kind: EXPORT_KIND, schemaVersion: 2, exportedAt: 'x', data: {} });
+  const futureEnvelope = JSON.stringify({
+    kind: EXPORT_KIND,
+    schemaVersion: 2,
+    exportedAt: 'x',
+    data: {},
+  });
   assert.deepEqual(err(futureEnvelope), { ok: false, error: 'FUTURE_VERSION' });
   const invalid = serializeExport({ ...sampleData(), days: 'lots' }, 'x');
   assert.deepEqual(err(invalid), { ok: false, error: 'INVALID' });
@@ -389,12 +485,27 @@ test('mergeImport: merge unions days and entries (incoming wins), keeps current 
         date: '2026-10-13',
         entries: [changedB1, entry('c1', 'intl-banana-fx', 'medium', 1, 'snacks')],
       },
-      '2026-10-14': { date: '2026-10-14', entries: [entry('d1', 'intl-egg-boiled-fx', 'egg', 2, 'breakfast')] },
+      '2026-10-14': {
+        date: '2026-10-14',
+        entries: [entry('d1', 'intl-egg-boiled-fx', 'egg', 2, 'breakfast')],
+      },
     },
     customFoods: [{ id: 'my-x', name: 'X' }],
     recents: {
-      'pk-roti-home-fx': { servingId: 'large', qty: 1, count: 1, lastUsed: '2026-10-14', slots: { dinner: 1 } },
-      'intl-banana-fx': { servingId: 'medium', qty: 1, count: 3, lastUsed: '2026-10-10', slots: { snacks: 3 } },
+      'pk-roti-home-fx': {
+        servingId: 'large',
+        qty: 1,
+        count: 1,
+        lastUsed: '2026-10-14',
+        slots: { dinner: 1 },
+      },
+      'intl-banana-fx': {
+        servingId: 'medium',
+        qty: 1,
+        count: 3,
+        lastUsed: '2026-10-10',
+        slots: { snacks: 3 },
+      },
     },
   });
   const m = mergeImport(current, incoming, 'merge');
@@ -431,8 +542,18 @@ test('mergeImport: an empty current profile takes the incoming profile and setti
   assert.deepEqual(m.targetOverrides, incoming.targetOverrides);
   assert.deepEqual(m.days, incoming.days);
   // Recents: larger count and later lastUsed.
-  const a = deepFreeze({ ...current, recents: { x: { servingId: 'a', qty: 1, count: 9, lastUsed: '2026-10-01', slots: { lunch: 9 } } } });
-  const b = deepFreeze({ ...current, recents: { x: { servingId: 'b', qty: 2, count: 2, lastUsed: '2026-10-05', slots: { dinner: 2 } } } });
+  const a = deepFreeze({
+    ...current,
+    recents: {
+      x: { servingId: 'a', qty: 1, count: 9, lastUsed: '2026-10-01', slots: { lunch: 9 } },
+    },
+  });
+  const b = deepFreeze({
+    ...current,
+    recents: {
+      x: { servingId: 'b', qty: 2, count: 2, lastUsed: '2026-10-05', slots: { dinner: 2 } },
+    },
+  });
   const r = mergeImport(a, b, 'merge').recents.x;
   assert.equal(r.count, 9);
   assert.equal(r.lastUsed, '2026-10-05');

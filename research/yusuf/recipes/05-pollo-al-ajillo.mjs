@@ -54,6 +54,7 @@ export default {
     'Boil the green beans 8 min and drain well.',
     'Cool within 1 h. Each box: ¼ of the rice and peas, ¼ of the beans, ¼ of the chicken with its garlic glaze.',
   ],
+  keeps: 'Box 1 fridge, 2–4 freezer',
   storagePlan: 'Box 1 in the fridge, boxes 2–4 in the freezer (rice 1 month, chicken 3 months). Move the next day\'s box to the fridge the night before.',
   reheat: 'Microwave with the lid ajar 3 min at full power, stir, 30–60 s more until steaming hot right through (75 °C). Reheat once only. A squeeze of fresh lemon after reheating lifts it.',
   crossCheck: { fdc: 2706438, note: 'FNDDS "Chicken curry with rice" as the nearest chicken-and-rice plate in FNDDS (no pollo al ajillo entry).' },

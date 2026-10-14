@@ -13,7 +13,7 @@ import {
   computeTargets,
   resolveTargets,
 } from '../../../app/core/targets.js';
-import { qa, RULES, deepFreeze, assertClose, assertBadInput, rng } from './_helpers.js';
+import { qa, knownBug, RULES, deepFreeze, assertClose, assertBadInput, rng } from './_helpers.js';
 
 deepFreeze(RULES); // the core must never write to RULES
 
@@ -649,6 +649,102 @@ qa('low_carbs below 100 g, never clamped up', [computeTargets], () => {
     '50.5 rounds half up to 51',
   );
 });
+
+knownBug(
+  'BUG-T1',
+  'Hamza',
+  'ruling 2026-10-14: carbs never go negative; protein gives way (NUTRITION worked example)',
+  [computeTargets],
+  () => {
+    // Woman, 200 cm, 100 kg (BMI 25 → PRW 100), 60% body fat (Katch 1234), sedentary, lose 1 kg:
+    // kcal 1200 (floor); 2.5 g/kg → 250 g protein; fat floor 60 g; room = −340 → protein 165, carbs 0.
+    const p = P('female', 40, 200, 100, 'sedentary', 'lose', 1, false, [], { bodyFatPct: 60 });
+    check(
+      computeTargets(p, RULES, { proteinGPerKg: 2.5 }),
+      {
+        kcal: 1200,
+        protein: 165,
+        fat: 60,
+        carbs: 0,
+        prw: 100,
+        formula: 'katch',
+        warnings: [
+          'estimate',
+          'deficit_capped',
+          'kcal_floor',
+          'fat_floor',
+          'protein_reduced_to_fit',
+          'low_carbs',
+        ],
+      },
+      'worked example',
+    );
+    assert.ok('protein_reduced_to_fit' in RULES.warnings, 'the warning has RULES text');
+  },
+);
+
+knownBug(
+  'BUG-T1',
+  'Hamza',
+  'ruling 2026-10-14: a fatPct preference gives way first, down to the fat floor only',
+  [computeTargets],
+  () => {
+    // Woman, 150 cm, 100 kg (PRW 73.75), 60% body fat, sedentary, lose 1 kg → kcal 1200.
+    // Prefs 2.5 g/kg and 40% fat: protein 184, fat 53, floor 45; room −13 → fat 51, carbs 1.
+    const p = P('female', 40, 150, 100, 'sedentary', 'lose', 1, false, [], { bodyFatPct: 60 });
+    check(
+      computeTargets(p, RULES, { proteinGPerKg: 2.5, fatPct: 40 }),
+      {
+        kcal: 1200,
+        protein: 184,
+        fat: 51,
+        carbs: 1,
+        warnings: ['estimate', 'deficit_capped', 'kcal_floor', 'low_carbs'],
+      },
+      'fat lowered, protein kept',
+    );
+  },
+);
+
+knownBug(
+  'BUG-T1',
+  'Hamza',
+  'property: high protein prefs at low kcal never give negative carbs (step 12 holds)',
+  [computeTargets],
+  () => {
+    const random = rng(1405);
+    let reduced = 0;
+    for (let i = 0; i < 300; i++) {
+      const profile = P(
+        random() < 0.5 ? 'female' : 'male',
+        20 + Math.floor(random() * 60),
+        170 + Math.round(random() * 60),
+        90 + Math.round(random() * 110),
+        'sedentary',
+        'lose',
+        1,
+        false,
+        [],
+        { bodyFatPct: 40 + Math.round(random() * 20) },
+      );
+      const prefs = deepFreeze({
+        proteinGPerKg: 2 + random() * 0.5,
+        fatPct: random() < 0.5 ? 40 : null,
+      });
+      const r = computeTargets(profile, RULES, prefs);
+      const label = `${JSON.stringify(profile)} ${JSON.stringify(prefs)}`;
+      assert.ok(r.carbs >= 0, `${label}: carbs ${r.carbs}`);
+      const err = Math.abs(4 * r.protein + 4 * r.carbs + 9 * r.fat - r.kcal);
+      assert.ok(err <= 5, `${label}: step 12 off by ${err}`);
+      assert.ok(
+        r.fat >= Math.ceil(Math.max((0.2 * r.kcal) / 9, 0.6 * r.prw)),
+        `${label}: fat ≥ floor`,
+      );
+      if (r.warnings.includes('protein_reduced_to_fit')) reduced += 1;
+    }
+    assert.ok(reduced > 20, `the ruling is exercised (${reduced} cases)`);
+  },
+);
 
 qa('rails: surplus cap 20% of TDEE (surplus_capped)', [computeTargets], () => {
   check(

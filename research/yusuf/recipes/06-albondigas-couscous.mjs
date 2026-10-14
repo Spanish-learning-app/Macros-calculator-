@@ -61,9 +61,10 @@ export default {
     'Couscous: pour 336 g boiling water with the oil and salt over the couscous, cover 5 min, fluff with a fork.',
     'Cool within 1 h. Each box: ¼ of the couscous, 6 meatballs with ¼ of the sauce. Use a box with a tight lid, or put the sauce side in a deeper compartment.',
   ],
+  keeps: 'Box 1 fridge, 2–4 freezer',
   storagePlan: 'Box 1 in the fridge, boxes 2–4 in the freezer (couscous 1 month, meatballs 3 months). Move the next day\'s box to the fridge the night before.',
   reheat: 'Microwave with the lid ajar 3 min at full power, stir the sauce, 30–60 s more until steaming hot right through (75 °C). Reheat once only.',
-  crossCheck: { fdc: 2706467, comps: ['meatballs'], note: 'FNDDS "Meatballs, NS as to type of meat, with sauce" for the meatball part; couscous dilutes the whole box.' },
+  crossCheck: { fdc: 2706467, comps: ['meatballs'], note: 'Our component is 59% tomato-pepper-carrot sauce by cooked weight (935 g sauce, 640 g meatballs per batch), while the FNDDS item is almost all meatball (18 g protein, 0.2 g carbohydrate per 100 g). That explains the 31% lower energy; the CoFID homemade meatballs-in-tomato-sauce recipe, which has a similar sauce share, agrees within 5%.' },
   extraChecks: [{ cofid: '19-613', comps: ['meatballs'], note: 'CoFID "Meatballs ... in tomato sauce, homemade" (a mixed-meat recipe, used only as a numeric comparison for meatballs in sauce).' }],
   changes: [
     'Wine left out (MDZ uses white wine); the sauce gets its depth from pimentón and a longer simmer. Classic Spanish albóndigas often mix beef and pork: here they are 100% halal beef.',

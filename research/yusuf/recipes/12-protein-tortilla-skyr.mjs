@@ -49,6 +49,7 @@ export default {
     'Cool on a rack, cut into 4 wedges and wrap each wedge.',
     'Portion the yogurt into 4 pots; add the walnuts in the morning so they stay crunchy.',
   ],
+  keeps: 'Tortilla 3 days, no freezing',
   storagePlan: 'Tortilla keeps 3 days in the fridge and should not be frozen, so this batch does not stretch to Thursday from a Sunday cook: cook it Sunday for Mon–Wed and eat the 4th wedge as a dinner or merienda, or cook it on a weekday evening for the next 3 lunches. Yogurt pots: 2 days once portioned (keep the tub closed until then). Banana and walnuts at room temperature.',
   reheat: 'Eaten cold (insulated bag and ice pack; within 2 h of leaving the fridge). Do not microwave the tortilla in the box: eggs are on the no-reheat list for boxes.',
   crossCheck: { fdc: 2707278, comps: ['tortilla'], note: 'FNDDS "Egg omelet or scrambled egg, with potatoes and/or onions, no added fat" for the tortilla part.' },

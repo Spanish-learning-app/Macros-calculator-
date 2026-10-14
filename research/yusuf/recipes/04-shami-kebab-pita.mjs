@@ -74,10 +74,11 @@ export default {
     'Make the salad and the mint-yogurt pot. Cool the kebabs on a rack (within 1 h).',
     'Each box: 3 kebabs, 1 pita (wrapped separately), ¼ of the salad, 1 yogurt pot. Build the pita at lunch so it does not go soggy.',
   ],
+  keeps: 'Kebabs 3 days or frozen; salad and yogurt made twice',
   storagePlan: 'No rice, so the kebabs keep 3 days in the fridge: boxes 1–3 in the fridge (Mon–Wed) and box 4\'s kebabs frozen, or freeze all and move one portion each night. Salad and mint yogurt keep 2 days and cannot be frozen: make them for Mon–Tue on Sunday and again on Tuesday night. Pitas: keep the pack closed at room temperature, or freeze and toast from frozen.',
   reheat: 'Good cold. To eat warm: microwave the 3 kebabs alone, covered, 60–90 s until hot right through (75 °C), then build the pita. Do not microwave the salad or the yogurt.',
-  crossCheck: { fdc: 2706730, comps: ['kebabs'], note: 'FNDDS "Beef shish kabob with vegetables" (no shami entry); kebab component only. Shami has dal, so more carbohydrate and fibre are expected.' },
-  extraChecks: [{ cofid: '19-642', comps: ['kebabs'], note: 'CoFID "Kofta, beef, homemade": all-meat kofta, so more fat and energy per 100 g than a dal-and-beef shami is expected.' }],
+  crossCheck: { fdc: 2706730, comps: ['kebabs'], note: 'No shami entry exists. The shish kabob is lean grilled beef with vegetables and no added fat; shami adds chana dal (carbohydrate), a fried egg coat and 6 g of oil per box, so it is 47% higher in energy. Explained, see the kofta line.' },
+  extraChecks: [{ cofid: '19-642', comps: ['kebabs'], note: 'All-meat kofta with fattier mince (20.5 g fat per 100 g) and no dal or water from boiling: 38% higher than our shami. Our value sits between the two references, as a boiled-then-fried beef-and-dal patty should.' }],
   changes: [
     'Wholemeal wrap swapped for a Mission pita: every wheat wrap on sale at Mercadona Barcelona (Hacendado normal, wholemeal, maxi and mini; Delibreads) lists emulsifier E471 without saying whether it is plant or animal, which makes the box "check". The pita has no E471. If you prefer a wrap, choose one labelled "E471 de origen vegetal" or from a halal bakery.',
     'Kebabs made bigger than Tea for Turmeric\'s (12 from 500 g mince instead of about 15) so 3 kebabs give about 34 g protein from the kebabs alone; Greek-style light yogurt in the pot (80 g) adds about 5 g.',

@@ -67,9 +67,10 @@ export default {
     'Mix the yogurt with mint and salt for the pot.',
     'Each box: ¼ of the chaat topped with ¼ of the chicken; yogurt in its own pot. Keep cold (insulated bag and ice pack).',
   ],
+  keeps: 'Chaat 2 days, mixed twice; chicken 3 days or frozen',
   storagePlan: 'Cold-only box. The dressed chaat keeps 2 days and cannot be frozen; cooked chicken keeps 3 days or freezes. Sunday: cook all the chicken and potato, assemble boxes for Mon–Tue, freeze the rest of the chicken. Tuesday night: thaw the chicken in the fridge, mix the second half of the chaat (10 minutes). A dressed box is past use-by 2 days after mixing.',
   reheat: 'Not reheated. Keep it cold and eat it within 2 h of leaving the fridge (1 h above 32 °C).',
-  crossCheck: { fdc: null, note: 'No chaat entry in FNDDS or CoFID; checked by components only (chicken against USDA cooked breast, chickpeas against the jar label).' },
+  crossCheck: { fdc: null, note: 'No chaat entry in FNDDS or CoFID, so the main ingredient was checked instead. Chickpeas: USDA 173801 (drained, rinsed) 138 kcal per 100 g; the Hacendado jar label gives 90 kcal per 100 g of the whole 570 g jar, i.e. 90 × 570 ÷ 400 g drained = 128 kcal per 100 g drained; CoFID 13-670 (canned, drained) 129 kcal. USDA is 7–8% above both, so the box may be 1–2% high in energy.' },
   changes: [
     'Added 150 g boiled potato and an 80 g mint-yogurt pot per box (both appear in Hebbar\'s and The Big Sweet Tooth versions): chicken, chickpeas and salad alone came to about 420 kcal. A first version with 100 g potato and 15 g oil per batch gave 535 kcal, still under the 550 kcal floor, so potato went to 150 g and the oil to 20 g per batch. Protein was then at the 50 g cap, so chickpeas were trimmed from 120 to 110 g per box.',
   ],

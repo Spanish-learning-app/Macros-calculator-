@@ -58,6 +58,7 @@ export default {
     'Cook the basmati by absorption (about 1 : 1.5 rice to water by volume, 12 min + 5 min rest).',
     'Cool within 1 h, then pack ¼ of the rice and ¼ of the keema per box.',
   ],
+  keeps: 'Box 1 fridge, 2–4 freezer',
   storagePlan: 'Box 1 in the fridge. Boxes 2–4 in the freezer (keema and rice both freeze: 1 month for the rice, 3 months for the keema). Move the next day\'s box to the fridge the night before.',
   reheat: 'Microwave 3 min at full power with the lid ajar, stir, then 30–60 s more until steaming hot right through (75 °C). A spoon of water on the rice stops it drying. Reheat once only.',
   crossCheck: { fdc: 2706438, note: 'FNDDS "Chicken curry with rice" (closest FNDDS rice-and-curry plate; no keema entry). Our box is drier and higher in protein.' },

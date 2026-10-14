@@ -69,6 +69,7 @@ export default {
     'Tabbouleh: chop the herbs and vegetables; dress with lemon, olive oil and salt; fold in the cooled bulgur.',
     'Each box: 4 kebabs and ¼ of the tabbouleh.',
   ],
+  keeps: 'Kebabs 3 days or frozen; bulgur frozen; salad made twice',
   storagePlan: 'Kebabs keep 3 days in the fridge or 3 months frozen. Soaked bulgur counts as cooked grain (1 day in the fridge): use ¼ on Monday and freeze the other three portions plain. The chopped salad keeps 2 days and does not freeze: dress half on Sunday (Mon, Tue) and half on Tuesday night (Wed, Thu); each evening thaw one bulgur portion in the fridge and mix it in the next morning.',
   reheat: 'Made to eat cold (insulated bag and ice pack; within 2 h of leaving the fridge). To eat the kebabs warm, microwave them alone 60–90 s until hot right through (75 °C); never the tabbouleh.',
   crossCheck: { fdc: 2709131, comps: ['bulgur', 'salad'], note: 'FNDDS "Tabbouleh" for the tabbouleh part (a more oil-rich, less bulgur-rich version is expected).' },

@@ -60,7 +60,59 @@ const shift = (s, n) => {
   return `${t.getUTCFullYear()}-${pad(t.getUTCMonth() + 1)}-${pad(t.getUTCDate())}`;
 };
 
-function seed(store, state) {
+/** Food ids per role: [fixture id, serving] and [real id, serving]. */
+const ROLES = {
+  chai: [
+    ['pk-chai-doodh-patti-home-fx', 'cup'],
+    ['pk-chai-doodh-patti-1tsp', 'cup'],
+  ],
+  roti: [
+    ['pk-roti-home-fx', 'medium'],
+    ['pk-roti', 'roti'],
+  ],
+  daal: [
+    ['pk-daal-masoor-home-fx', 'katori'],
+    ['pk-masoor-daal-home', 'katori'],
+  ],
+  rice: [
+    ['pk-rice-plain-fx', 'katori'],
+    ['pk-rice-plain', 'katori'],
+  ],
+  karahi: [
+    ['pk-chicken-karahi-home-fx', 'katori'],
+    ['pk-chicken-karahi-home', 'katori'],
+  ],
+  karahiOut: [
+    ['pk-chicken-karahi-restaurant-fx', 'katori'],
+    ['pk-chicken-karahi-restaurant', 'katori'],
+  ],
+  coffee: [
+    ['es-cafe-con-leche-fx', 'cup'],
+    ['es-cafe-con-leche', 'taza'],
+  ],
+  bread: [
+    ['es-pa-amb-tomaquet-fx', 'slice'],
+    ['es-croissant', 'medium'],
+  ],
+  egg: [
+    ['intl-egg-boiled-fx', 'egg'],
+    ['intl-egg-boiled', 'egg'],
+  ],
+  box: [
+    ['pk-chicken-tikka-rice-box-fx', 'box'],
+    ['pk-chicken-tikka-rice-box', 'box'],
+  ],
+  banana: [
+    ['intl-banana-fx', 'medium'],
+    ['intl-banana', 'medium'],
+  ],
+  whey: [
+    ['intl-whey-protein-fx', 'scoop'],
+    ['intl-whey-protein', 'scoop'],
+  ],
+};
+
+function seed(store, state, real) {
   if (state === 'fresh') return;
   if (state === 'skip') {
     store.skipOnboarding();
@@ -69,27 +121,29 @@ function seed(store, state) {
   store.completeOnboarding(P1);
   const today = store.today();
   const yesterday = shift(today, -1);
-  const add = (date, slot, foodId, servingId, qty, status) =>
+  const add = (date, slot, role, qty, status) => {
+    const [foodId, servingId] = ROLES[role][real ? 1 : 0];
     store.addFood({ date, slot, foodId, servingId, qty, status });
+  };
   if (state === 'warm' || state === 'day' || state === 'week') {
-    add(yesterday, 'breakfast', 'pk-chai-doodh-patti-home-fx', 'cup', 1);
-    add(yesterday, 'breakfast', 'pk-roti-home-fx', 'medium', 1);
-    add(yesterday, 'lunch', 'pk-daal-masoor-home-fx', 'katori', 1);
-    add(yesterday, 'lunch', 'pk-rice-plain-fx', 'katori', 1);
-    add(yesterday, 'dinner', 'pk-chicken-karahi-home-fx', 'katori', 1.5);
-    add(yesterday, 'dinner', 'pk-roti-home-fx', 'medium', 2);
+    add(yesterday, 'breakfast', 'chai', 1);
+    add(yesterday, 'breakfast', 'roti', 1);
+    add(yesterday, 'lunch', 'daal', 1);
+    add(yesterday, 'lunch', 'rice', 1);
+    add(yesterday, 'dinner', 'karahi', 1.5);
+    add(yesterday, 'dinner', 'roti', 2);
   }
   if (state === 'day' || state === 'week') {
-    add(today, 'breakfast', 'es-cafe-con-leche-fx', 'cup', 1);
-    add(today, 'breakfast', 'es-pa-amb-tomaquet-fx', 'slice', 2);
-    add(today, 'breakfast', 'intl-egg-boiled-fx', 'egg', 2);
-    add(today, 'lunch', 'pk-chicken-tikka-rice-box-fx', 'box', 1);
-    add(today, 'lunch', 'intl-banana-fx', 'medium', 1);
-    add(today, 'evening', 'pk-chai-doodh-patti-home-fx', 'cup', 1);
-    add(today, 'evening', 'intl-whey-protein-fx', 'scoop', 1);
-    add(today, 'dinner', 'pk-chicken-karahi-restaurant-fx', 'katori', 1.5, 'planned');
-    add(today, 'dinner', 'pk-roti-home-fx', 'medium', 2, 'planned');
-    add(today, 'dinner', 'pk-daal-masoor-home-fx', 'katori-small', 0.5, 'planned');
+    add(today, 'breakfast', 'coffee', 1);
+    add(today, 'breakfast', 'bread', real ? 1 : 2);
+    add(today, 'breakfast', 'egg', 2);
+    add(today, 'lunch', 'box', 1);
+    add(today, 'lunch', 'banana', 1);
+    add(today, 'evening', 'chai', 1);
+    add(today, 'evening', 'whey', 1);
+    add(today, 'dinner', 'karahiOut', 1.5, 'planned');
+    add(today, 'dinner', 'roti', 2, 'planned');
+    add(today, 'dinner', 'daal', 0.5, 'planned');
     store.quickAdd({
       date: today,
       slot: 'snacks',
@@ -102,10 +156,10 @@ function seed(store, state) {
     for (let i = 2; i < 12; i += 1) {
       if (i % 3 === 0) continue;
       const d = shift(today, -i);
-      add(d, 'breakfast', 'pk-chai-doodh-patti-home-fx', 'cup', 1);
-      add(d, 'lunch', 'pk-chicken-tikka-rice-box-fx', 'box', 1);
-      add(d, 'dinner', 'pk-chicken-karahi-home-fx', 'katori', 1 + (i % 2));
-      add(d, 'dinner', 'pk-roti-home-fx', 'medium', 2);
+      add(d, 'breakfast', 'chai', 1);
+      add(d, 'lunch', 'box', 1);
+      add(d, 'dinner', 'karahi', 1 + (i % 2));
+      add(d, 'dinner', 'roti', 2);
     }
   }
   store.dismissUndo();
@@ -123,10 +177,16 @@ async function boot() {
   const storageStatus = params.get('storage') ?? 'ok';
   let store;
   if (params.get('store') === 'real') {
+    // Lena's store on Hamza's core. Until core/storage.js lands, persistence is a stand-in that
+    // hands over a fresh document (fake defaultData) and accepts saves.
     const { createStore } = await import('../store.js');
+    const { fakeDefaultData } = await import('./fake-store.js');
     let n = 0;
     store = createStore({
-      persistence: null,
+      persistence: {
+        load: () => ({ data: fakeDefaultData({ timeZone, rules }), status: 'ok' }),
+        save: () => ({ ok: true }),
+      },
       rules,
       foods,
       now,
@@ -136,7 +196,7 @@ async function boot() {
   } else {
     store = createFakeStore({ rules, foods, now, timeZone, storageStatus });
   }
-  seed(store, params.get('state') ?? 'day');
+  seed(store, params.get('state') ?? 'day', params.get('data') === 'real');
   if (params.get('theme')) store.updateSettings({ theme: params.get('theme') });
 
   const router = createRouter(window);

@@ -57,3 +57,16 @@
   trip with summary, every parseImport code, replace/merge). 21/21 pass against my reference;
   TODO against the stub.
 - All QA unit suites: 224 tests, 204 pass, 20 todo (storage), 0 fail, in all 3 zones.
+- router QA suite (Lena's code): 10 tests (every §7.2 route, all slot ids, 15 bad hashes,
+  formatRoute, round trips, createRouter via a fake window: current/href/go/subscribe/unsubscribe/
+  replace/stop). 9 pass. **BUG-R1 (Lena):** `#/day/2026-13-45` (and 2026-02-30, week 2026-00-10)
+  parse as a day/week route with an impossible date instead of notfound; the day view would hand
+  it to addDays/weekDates, which throw RangeError. Kept as a TODO test via the new
+  `knownBug(id, owner, …)` helper so `npm run check` stays green until she fixes it.
+- 2026-10-14 ~04:30 UTC: NUTRITION 1.5 ruling (carbs never negative; fatPct pref gives way to its
+  floor, then protein = floor((kcal − 9F)/4), warning protein_reduced_to_fit). Found reachable
+  profiles: woman 200 cm/100 kg/60% fat, sedentary, lose 1, 2.5 g/kg reproduces the §2.2 worked
+  example exactly (1200 kcal, P 165, F 60, C 0); woman 150 cm/100 kg/60% fat with {2.5, 40%}
+  lowers fat 53 → 51 and keeps protein 184. 3 tests (2 cases + a 300-profile property) pass on my
+  reference and are **BUG-T1 (Hamza)** TODO: targets.js predates the ruling (protein 250, fat 53).
+  The general property now also draws random prefs and asserts carbs ≥ 0 and step 12 always.

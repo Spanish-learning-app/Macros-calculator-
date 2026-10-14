@@ -239,9 +239,13 @@ const DRAW = {
 export function measureDrawing(serving, food = {}) {
   const id = serving?.id ?? '';
   if (DRAW[id] && id !== 'roti') return DRAW[id]();
-  if (id === 'mug') return DRAW.cup();
+  if (/^(mug|taza|small-cup|cup-)/.test(id)) return DRAW.cup();
+  if (id === 'half-plate') return DRAW.plate();
   if (id === 'tbsp' || id === 'tsp') return DRAW.spoon();
-  if (id === 'bottle') return DRAW.glass();
+  if (id === 'bottle' || id.startsWith('glass')) return DRAW.glass();
+  if (id === 'half-box') return DRAW.box();
+  const roti = { 'roti-small': 0.7, roti: 0.85, 'roti-large': 1 }[id];
+  if (roti) return DRAW.roti(roti);
   if (food.group === 'bread' && /^(small|medium|large)$/.test(id)) {
     return DRAW.roti({ small: 0.7, medium: 0.85, large: 1 }[id]);
   }

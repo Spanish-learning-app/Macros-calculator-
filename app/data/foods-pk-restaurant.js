@@ -68,6 +68,12 @@ export default [
       },
       { id: 'tbsp', label: '1 tablespoon (chamach)', labelUr: 'بڑا چمچ', grams: 12.3 },
       {
+        id: 'whole-handi',
+        label: 'Whole ½ kg karahi (handi), edible part',
+        labelUr: 'آدھا کلو کڑاہی (پوری)',
+        grams: 558,
+      },
+      {
         id: 'handi-half-kg-share-3',
         label: '1 share of a ½ kg karahi split 3 ways',
         labelUr: 'آدھا کلو کڑاہی کا تیسرا حصہ',
@@ -357,6 +363,12 @@ export default [
         grams: 297,
       },
       { id: 'tbsp', label: '1 tablespoon (chamach)', labelUr: 'بڑا چمچ', grams: 12.4 },
+      {
+        id: 'whole-handi',
+        label: 'Whole ½ kg karahi (handi), edible part',
+        labelUr: 'آدھا کلو کڑاہی (پوری)',
+        grams: 586,
+      },
       {
         id: 'handi-half-kg-share-3',
         label: '1 share of a ½ kg karahi split 3 ways',

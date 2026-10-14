@@ -42,3 +42,8 @@
   jars/portions; 6–8 freezer-friendly desi dinners with Zainab). Serving names follow the container
   ("1 box", "1 jar", "1 portion"); `lunchbox` group may be generalised by Ayesha.
 - 00:20 (14 Oct) Resumed after usage pause. rules.js 1.4.0: lunchbox = any-slot prep group (default box/jar/portion, energy band by slots[0]); new storage 'cooked-curry' → used for roast veg and green beans (boxes 5, 7). NUTRITION.md still shows old G22 text (box only, 90–260) → tell Ayesha.
+- 00:45 build.mjs DONE: generates 12 recipe sheets research/yusuf/recipes/<id>.md, app/data/foods-mealprep.js
+  (12 records, check-foods 12/12 PASS, full run 180/180 PASS, eslint OK) and docs/MEALPREP.md
+  (library table, Sunday plan, Halal shopping in Barcelona, cross-contact line, Sprint 2 plan per
+  rules.js 1.4.0 targetsBySlot / prepServingIds / new storage classes). Cross-checks >25% explained
+  (boxes 4, 6, 10, 11). Next: café review of Javier's records (research/yusuf/cafe-review.md).
