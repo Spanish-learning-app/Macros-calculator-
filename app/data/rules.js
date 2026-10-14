@@ -7,8 +7,8 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.5.0',
-  updated: '2026-10-13',
+  version: '1.6.0',
+  updated: '2026-10-14',
 
   // ---------------------------------------------------------------- energy
   energy: {
@@ -283,9 +283,10 @@ export default {
     ],
     // Spanish meal times (Meeting 002, decision 2): same ids, Spanish clock and shares.
     spain: [
-      { id: 'breakfast', label: 'Nashta', labelUr: 'ناشتہ', sharePct: 20, hours: [300, 750] }, // 05:00-12:30 (incl. mid-morning café)
+      // Labels per Meeting 003 item 3: Spanish meal names on the Spanish clock.
+      { id: 'breakfast', label: 'Breakfast / café', labelUr: 'ناشتہ / کافی', sharePct: 20, hours: [300, 750] }, // 05:00-12:30 (incl. mid-morning café)
       { id: 'lunch', label: 'Lunch', labelUr: 'دوپہر کا کھانا', sharePct: 35, hours: [750, 990] }, // 12:30-16:30 (lunch box)
-      { id: 'evening', label: 'Shaam ki chai', labelUr: 'شام کی چائے', sharePct: 10, hours: [990, 1200] }, // 16:30-20:00 (merienda)
+      { id: 'evening', label: 'Merienda', labelUr: 'میرینڈا (شام کا ناشتہ)', sharePct: 10, hours: [990, 1200] }, // 16:30-20:00 (merienda)
       { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1200, 60] }, // 20:00-01:00
       { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: [60, 300] }, // 01:00-05:00
     ],

@@ -67,3 +67,6 @@
   - Result: 39 PASS, 3 FIX (paella halal → check; lentejas halal reason; falafel re-source, since CoFID 183 kcal at 60% water under-counts shop falafel), 0 reject. All 15 sampled values match their sources exactly.
   - Cross-cutting requests: an "assumes halal meat" reason on 7 meat records; Spanish full-fat yogur griego.
   Next: Zainab's 67.
+- 2026-10-14 (fix wave) — RESUMED for the Meeting 003 fix wave. Omar gave me edit authority over all Lab files (app/data/**, research/**, NUTRITION.md, MEALPREP.md) for this wave; changes to scripted food files go into the build-script inputs and get rebuilt. Lena handles app code in parallel; I don't touch app/core, app/ui or tests.
+  Items: (1) skyr, Greek yogurt and a rice plate serving; (2) recheck roghni naan, desi omelette and home daal; (3) the ¼ "thora sa" chip rule; (4) Spanish slot labels; (5) Sprint 1 review → research/review/sprint1.md.
+- 2026-10-14 (fix wave) — ITEM 4 DONE: rules.js v1.6.0: mealSlots.spain labels are now Breakfast / café, Lunch, Merienda, Dinner, Snacks (labelUr ناشتہ / کافی and میرینڈا (شام کا ناشتہ)). Ids, hours and shares are unchanged.
