@@ -104,14 +104,14 @@ Pick a different lunch and dinner each week, one hot and one cold lunch, so Thur
 
 ## How to batch in the app
 
-Meal prep in Katori follows ARCHITECTURE §13. Button names may change slightly as the screens are finished; the steps stay the same.
+Everything happens in the **Prep** tab.
 
-1. **Pick a prep.** Every jar, box and portion on this page is a food in the app (search its name, in English, Spanish, Catalan or Urdu). Its standard batch (3 or 4) and its ingredient list come with it.
-2. **Cook a batch.** Tell the app you cooked it and on which day. It makes one entry per jar, box or portion and suggests where each goes: the first ones in the fridge (as many as the fridge life allows), the rest in the freezer. You can change fridge or freezer for each one.
-3. **Place it on your days.** Put a box in Breakfast, Lunch or Dinner on the days you will eat it. One action per day; the day's totals count it straight away. Ticking it eaten marks that box as eaten; deleting the entry frees the box again.
-4. **Watch the use-by.** On a box's last fridge day the app says "last day"; after it, "past use-by, best not to eat". When you move a frozen box to the fridge, its 1-day clock starts.
-5. **Shopping list.** Choose the batches for the week and copy the list: halal butcher first, then the supermarket, merged across recipes (no download needed). Ingredients the food database does not hold yet (dry rice, raw chicken thigh, spices…) appear by name.
-6. **Your own recipes.** Build a recipe from foods in the database, weigh the pot if you can, say how many boxes it makes, and it becomes a food with a "1 box" serving. Its halal status is the strictest of its ingredients.
+1. **Cook a batch.** Under *Library*, tap a prep (grouped by breakfast, lunch and dinner), set the day you cooked it and how many jars, boxes or portions it made (standard: 3 or 4). The app puts the first ones in the fridge, as many as the fridge life allows, and the rest in the freezer; change any of them.
+2. **Your boxes.** The batch card lists each box with its use-by: "last day" on the day, "past use-by, best not to eat" after it. Moving a frozen box to the fridge starts its 1-day clock.
+3. **Place into a slot.** Pick the meal (Breakfast, Lunch, Dinner…) and tap the days you will eat it, one tap per day. The day's totals count it at once; ticking it eaten uses the box, deleting the entry frees it.
+4. **Shopping list.** On the batch card, *Shopping list* → *Copy list*: halal butcher first, then the supermarket. Ingredients the food database does not hold yet (dry rice, raw chicken thigh, spices…) appear by name.
+
+Your own pots work the same way: *New recipe* in the Prep tab, then cook a batch of it.
 
 The nutrition of a library prep always comes from its Lab record (this page), never from adding up the shopping list.
 
