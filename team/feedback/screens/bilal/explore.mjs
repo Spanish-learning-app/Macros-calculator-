@@ -1,0 +1,12 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+const b = await chromium.launch();
+const ctx = await b.newContext({ viewport:{width:400,height:860}, timezoneId:'Europe/Madrid', locale:'en-GB' });
+const page = await ctx.newPage();
+page.on('pageerror', e=>console.log('PAGEERR', String(e)));
+await page.goto('http://localhost:8771/');
+await page.getByRole('button',{name:'Start'}).click();
+await page.waitForTimeout(500);
+await page.screenshot({path:'team/feedback/screens/bilal/x1.png', fullPage:true});
+console.log(await page.evaluate(()=>document.body.innerText));
+console.log(await page.evaluate(()=>[...document.querySelectorAll('button,a,input,select,[role]')].map(e=>e.tagName+'['+e.getAttribute('role')+']:'+(e.getAttribute('aria-label')||e.innerText||e.name||e.id||e.type).replace(/\n/g,' ').slice(0,40)).join('\n')));
+await b.close();
