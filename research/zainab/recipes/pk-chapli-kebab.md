@@ -57,7 +57,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 259 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- CoFID 2021 19-642 "Kofta, beef, homemade": 290 kcal, P 25.3, C 0.8, F 20.5, fibre 0.3 per 100 g → our value is -11% kcal. UK homemade beef kofta (fried mince patty), the closest analysed-recipe analogue.
 
 ## Assumptions and confidence
 

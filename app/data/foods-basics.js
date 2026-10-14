@@ -58,7 +58,7 @@ export default [
     tags: ['international', 'pakistani', 'vegetarian', 'vegan', 'iftar'],
     slots: ['evening', 'snacks', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171726', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 75.03 − fibre 8 = 67 g available. Analogue match: Deglet Noor is a semi-dry date like Pakistani Aseel. Serving: USDA 1 pitted date = 7.1 g; a published Aseel fruit averages 6.89 g (PMC6610949, table 2); UCM dátil seco sin hueso = 8 g.' },
+    source: { citation: 'USDA FDC SR Legacy 171726', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 75.03 − fibre 8 = 67 g available. Analogue match: Deglet Noor is a semi-dry date like Pakistani Aseel. Serving: USDA 1 pitted date = 7.1 g; a published Aseel fruit averages 6.89 g (PMC6610949, table 2); UCM dátil seco sin hueso = 8 g.' },
   },
   {
     id: 'intl-dates-medjool',
@@ -75,7 +75,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'iftar'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 168191', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 74.97 − fibre 6.7 = 68.3 g available. Serving: USDA 1 pitted Medjool date = 24 g.' },
+    source: { citation: 'USDA FDC SR Legacy 168191', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 74.97 − fibre 6.7 = 68.3 g available. Serving: USDA 1 pitted Medjool date = 24 g.' },
   },
   {
     id: 'intl-mango',
@@ -112,7 +112,7 @@ export default [
     tags: ['international', 'pakistani', 'vegetarian', 'vegan'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169105', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 13.34 − fibre 1.8 = 11.5 g available. Analogue: kinnow is a mandarin hybrid; USDA tangerine (mandarin) values. Servings: USDA portions.' },
+    source: { citation: 'USDA FDC SR Legacy 169105', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 13.34 − fibre 1.8 = 11.5 g available. Analogue: kinnow is a mandarin hybrid; USDA tangerine (mandarin) values. Servings: USDA portions.' },
   },
   {
     id: 'intl-guava',
@@ -130,7 +130,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173044', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 14.32 − fibre 5.4 = 8.9 g available. Servings: USDA 1 fruit without refuse = 55 g (Pakistani guavas are often larger; use 2 or a katori); USDA 1 cup = 165 g (0.697 g/ml) → katori 200 ml = 139.5 g.' },
+    source: { citation: 'USDA FDC SR Legacy 173044', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 14.32 − fibre 5.4 = 8.9 g available. Servings: USDA 1 fruit without refuse = 55 g (Pakistani guavas are often larger; use 2 or a katori); USDA 1 cup = 165 g (0.697 g/ml) → katori 200 ml = 139.5 g.' },
   },
   {
     id: 'intl-orange',
@@ -202,7 +202,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 168409', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 3.63 − fibre 0.5 = 3.1 g available. Servings: UCM (Carbajal Azcona 2015) pepino mediano = 125 g; USDA ½ cup slices = 52 g.' },
+    source: { citation: 'USDA FDC SR Legacy 168409', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 3.63 − fibre 0.5 = 3.1 g available. Servings: UCM (Carbajal Azcona 2015) pepino mediano = 125 g; USDA ½ cup slices = 52 g.' },
   },
   {
     id: 'intl-tomato',
@@ -240,7 +240,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170000', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 9.34 − fibre 1.7 = 7.6 g available. Servings: USDA portions.' },
+    source: { citation: 'USDA FDC SR Legacy 170000', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 9.34 − fibre 1.7 = 7.6 g available. Servings: USDA portions.' },
   },
   {
     id: 'intl-carrot',
@@ -278,7 +278,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170440', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 20.01 − fibre 1.8 = 18.2 g available. Servings: USDA portions.' },
+    source: { citation: 'USDA FDC SR Legacy 170440', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 20.01 − fibre 1.8 = 18.2 g available. Servings: USDA portions.' },
   },
   {
     id: 'intl-potato-raw',
@@ -297,7 +297,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170026', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 17.49 − fibre 2.1 = 15.4 g available. For cooking from scratch (Sprint 2 recipes). Servings: USDA portions.' },
+    source: { citation: 'USDA FDC SR Legacy 170026', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 17.49 − fibre 2.1 = 15.4 g available. For cooking from scratch (Sprint 2 recipes). Servings: USDA portions.' },
   },
   {
     id: 'intl-lettuce',
@@ -336,7 +336,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-intl-salad-kachumber (research/recipes/intl-salad-kachumber.md)', method: 'recipe', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 2 references; cooked weight 572 g for about 4 katoris; no cooking and no oil; vegetables straight from USDA. Katori servings use 0.548 g/ml (from USDA cup weights of each chopped ingredient (572 g fill 1044 ml)).' },
+    source: { citation: 'Recipe R-intl-salad-kachumber (research/recipes/intl-salad-kachumber.md)', method: 'recipe', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 2 references; cooked weight 572 g for about 4 katoris; no cooking and no oil; vegetables straight from USDA. Katori servings use 0.548 g/ml (from USDA cup weights of each chopped ingredient (572 g fill 1044 ml)).' },
   },
   {
     id: 'intl-egg-boiled',
@@ -370,7 +370,7 @@ export default [
     tags: ['international', 'vegetarian', 'contains-egg'],
     slots: ['breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC FNDDS 2707158', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0.9 g (no fibre), used as available carbs. FNDDS values are calculated (egg plus absorbed oil). Serving: RULES.referenceWeightsG egg-fried 55 g (FNDDS 2707158 "1 egg").' },
+    source: { citation: 'USDA FDC FNDDS 2707158', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 0.9 g (no fibre), used as available carbs. FNDDS values are calculated (egg plus absorbed oil). Serving: RULES.referenceWeightsG egg-fried 55 g (FNDDS 2707158 "1 egg").' },
   },
   {
     id: 'intl-egg-raw',
@@ -466,7 +466,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-intl-raita (research/recipes/intl-raita.md)', method: 'recipe', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 517.5 g for about 2½ katoris; no cooking; agrees with CoFID within 15 %.' },
+    source: { citation: 'Recipe R-intl-raita (research/recipes/intl-raita.md)', method: 'recipe', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 517.5 g for about 2½ katoris; no cooking; agrees with CoFID within 15 %.' },
   },
   {
     id: 'intl-chicken-breast-roasted',
@@ -538,7 +538,7 @@ export default [
     tags: ['international', 'gym', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
-    source: { citation: 'USDA FDC SR Legacy 174034', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Plain mince only (for cooked qeema dishes use the Pakistani records). Serving: USDA 3 oz = 85 g.' },
+    source: { citation: 'USDA FDC SR Legacy 174034', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Plain mince only (for cooked qeema dishes use the Pakistani records). Serving: USDA 3 oz = 85 g.' },
   },
   {
     id: 'intl-beef-mince-raw',
@@ -556,7 +556,7 @@ export default [
     tags: ['international'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
-    source: { citation: 'USDA FDC SR Legacy 171796', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs.' },
+    source: { citation: 'USDA FDC SR Legacy 171796', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs.' },
   },
   {
     id: 'intl-mutton-roasted',
@@ -574,7 +574,7 @@ export default [
     tags: ['international'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
-    source: { citation: 'USDA FDC SR Legacy 175304', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Plain meat; for salan and karahi use the Pakistani dish records. Serving: USDA 3 oz = 85 g.' },
+    source: { citation: 'USDA FDC SR Legacy 175304', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Plain meat; for salan and karahi use the Pakistani dish records. Serving: USDA 3 oz = 85 g.' },
   },
   {
     id: 'intl-fish-rohu',
@@ -628,7 +628,7 @@ export default [
     tags: ['international', 'seafood-fish', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173708', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Servings: USDA 3 oz = 85 g, 1 can = 171 g.' },
+    source: { citation: 'USDA FDC SR Legacy 173708', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Servings: USDA 3 oz = 85 g, 1 can = 171 g.' },
   },
   {
     id: 'intl-beef-sausage-halal',
@@ -646,7 +646,7 @@ export default [
     tags: ['international'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
-    source: { citation: 'Analogue of USDA FDC SR Legacy 173862 (Frankfurter, beef, unheated: same product type as halal beef sausages sold in Pakistan and Spain)', method: 'analogue', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 2.97 g (no fibre), used as available carbs. Used in place of chorizo in es-lentejas. Servings: UCM (Carbajal Azcona 2015) salchichas tipo Frankfurt grande 45 g, pequeña 25 g.' },
+    source: { citation: 'Analogue of USDA FDC SR Legacy 173862 (Frankfurter, beef, unheated: same product type as halal beef sausages sold in Pakistan and Spain)', method: 'analogue', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 2.97 g (no fibre), used as available carbs. Used in place of chorizo in es-lentejas. Servings: UCM (Carbajal Azcona 2015) salchichas tipo Frankfurt grande 45 g, pequeña 25 g.' },
   },
   {
     id: 'intl-cooking-oil',
@@ -700,7 +700,7 @@ export default [
     tags: ['international', 'vegetarian'],
     slots: ['breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173410', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0.06 g (no fibre), used as available carbs. Servings: USDA 1 pat = 5 g; 1 tbsp = 14.2 g.' },
+    source: { citation: 'USDA FDC SR Legacy 173410', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 0.06 g (no fibre), used as available carbs. Servings: USDA 1 pat = 5 g; 1 tbsp = 14.2 g.' },
   },
   {
     id: 'intl-sugar',
@@ -754,7 +754,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'CoFID 2021 17-709 Tomato ketchup', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'CoFID carbohydrate is available carbohydrate; fibre = AOAC fibre. Analysed: 10 samples, 5 brands. USDA SR 168556 (101 kcal, specific Atwater factors) fails the 4/4/9/2 energy check by 11 %, so CoFID is used. Servings: USDA 168556 1 tbsp = 17 g (UCM also 17 g); 1 sachet = 9 g.' },
+    source: { citation: 'CoFID 2021 17-709 Tomato ketchup', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'CoFID carbohydrate is available carbohydrate; fibre = AOAC fibre. Analysed: 10 samples, 5 brands. USDA SR 168556 (101 kcal, specific Atwater factors) fails the 4/4/9/2 energy check by 11 %, so CoFID is used. Servings: USDA 168556 1 tbsp = 17 g (UCM also 17 g); 1 sachet = 9 g.' },
   },
   {
     id: 'intl-mayonnaise',

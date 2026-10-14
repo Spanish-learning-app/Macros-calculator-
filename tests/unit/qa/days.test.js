@@ -689,9 +689,10 @@ qa(
       [1200, 'dinner'],
       [1290, 'dinner'],
       [1439, 'dinner'],
-      [0, 'dinner'],
-      [30, 'dinner'],
-      [59, 'dinner'],
+      // Meeting 003: 00:00-05:00 is Snacks on the Spanish preset.
+      [0, 'snacks'],
+      [30, 'snacks'],
+      [59, 'snacks'],
       [60, 'snacks'],
       [150, 'snacks'],
       [299, 'snacks'],

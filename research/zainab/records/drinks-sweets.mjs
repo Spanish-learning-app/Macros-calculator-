@@ -60,6 +60,9 @@ export default [
     nameRoman: 'dhaba chai zyada cheeni',
     aliases: uniq(CHAI_ALIASES, ['dhaba chai extra sugar', 'zyada cheeni chai', 'ziada cheeni', 'meethi chai', 'sweet chai', 'karak chai extra sugar', 'ڈھابہ چائے']),
     group: 'drink-tea-coffee',
+    // Fix wave 2026-10-14 (Omar/Lena): without a style, ranking treated this as everyday chai and put it first.
+    style: 'dhaba',
+    family: 'chai',
     state: 'as served: whole milk boiled down by a third, 4 level tsp sugar per 200 ml cup',
     servings: chaiServings,
     tags: PKV,

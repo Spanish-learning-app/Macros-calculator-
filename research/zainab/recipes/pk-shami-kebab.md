@@ -62,7 +62,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 183 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- CoFID 2021 19-642 "Kofta, beef, homemade": 290 kcal, P 25.3, C 0.8, F 20.5, fibre 0.3 per 100 g → our value is -37% kcal. **Over 25%: see note.** UK homemade beef kofta, for scale. Why the gap: shami is about half boiled chana daal, so it has less fat and more carbohydrate than an all-meat kofta. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

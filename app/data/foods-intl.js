@@ -19,7 +19,7 @@ export default [
     tags: ['international', 'vegetarian', 'gym', 'packaged'],
     slots: ['snacks', 'breakfast'],
     halal: { status: 'check', reason: 'Imported supplement; halal certification differs by brand and flavour. Check the tub.' },
-    source: { citation: 'Label: Optimum Nutrition Gold Standard 100% Whey (Double Rich Chocolate), EU label, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 5060469987712 (last modified 2026-03-25): per 100 g 374 kcal, P 76, C 5.3, F 4.6, fibre 2.3; serving 1 scoop = 31 g. EU label: carbohydrate excludes fibre. US vanilla label (OFF 0748927052404): 31 g scoop = 110 kcal, 24 g protein, consistent.' },
+    source: { citation: 'Label: Optimum Nutrition Gold Standard 100% Whey (Double Rich Chocolate), EU label, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Open Food Facts 5060469987712 (last modified 2026-03-25): per 100 g 374 kcal, P 76, C 5.3, F 4.6, fibre 2.3; serving 1 scoop = 31 g. EU label: carbohydrate excludes fibre. US vanilla label (OFF 0748927052404): 31 g scoop = 110 kcal, 24 g protein, consistent.' },
   },
   {
     id: 'intl-oats-dry',
@@ -57,7 +57,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'gym'],
     slots: ['breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173905', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 12 − fibre 1.7 = 10.3 g available. Katori servings use 0.989 g/ml (USDA 173905: 1 cup = 234 g).' },
+    source: { citation: 'USDA FDC SR Legacy 173905', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 12 − fibre 1.7 = 10.3 g available. Katori servings use 0.989 g/ml (USDA 173905: 1 cup = 234 g).' },
   },
   {
     id: 'intl-greek-yogurt',
@@ -197,7 +197,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170185', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 28.28 − fibre 10.3 = 18 g available. Servings: USDA 1 kernel = 0.7 g; 1 oz (49 kernels) = 28.35 g.' },
+    source: { citation: 'USDA FDC SR Legacy 170185', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 28.28 − fibre 10.3 = 18 g available. Servings: USDA 1 kernel = 0.7 g; 1 oz (49 kernels) = 28.35 g.' },
   },
   {
     id: 'intl-peanuts',
@@ -269,7 +269,7 @@ export default [
     tags: ['international'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'Halal at Pakistani chains; in Spain most burger and pizza chains do not use halal meat. Ask.' },
-    source: { citation: 'USDA FDC SR Legacy 170694', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 29.57 − fibre 1.8 = 27.8 g available. Serving: USDA 1 sandwich = 97 g; Pakistani gourmet burgers are larger (log 2).' },
+    source: { citation: 'USDA FDC SR Legacy 170694', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 29.57 − fibre 1.8 = 27.8 g available. Serving: USDA 1 sandwich = 97 g; Pakistani gourmet burgers are larger (log 2).' },
   },
   {
     id: 'intl-burger-zinger',
@@ -287,7 +287,7 @@ export default [
     tags: ['international', 'fried'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'Halal at Pakistani chains; in Spain most burger and pizza chains do not use halal meat. Ask.' },
-    source: { citation: 'USDA FDC FNDDS 2707003', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 27.48 − fibre 1.7 = 25.8 g available. FNDDS "Chicken fillet sandwich, fried, from fast food" as the zinger analogue. Servings: FNDDS 1 regular sandwich = 140 g, 1 large = 280 g.' },
+    source: { citation: 'USDA FDC FNDDS 2707003', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 27.48 − fibre 1.7 = 25.8 g available. FNDDS "Chicken fillet sandwich, fried, from fast food" as the zinger analogue. Servings: FNDDS 1 regular sandwich = 140 g, 1 large = 280 g.' },
   },
   {
     id: 'intl-fries',
@@ -306,7 +306,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'fried'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170698', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 41.44 − fibre 3.8 = 37.6 g available. Servings: USDA small 71 g, medium 117 g, large 154 g.' },
+    source: { citation: 'USDA FDC SR Legacy 170698', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 41.44 − fibre 3.8 = 37.6 g available. Servings: USDA small 71 g, medium 117 g, large 154 g.' },
   },
   {
     id: 'intl-chicken-nuggets',
@@ -342,7 +342,7 @@ export default [
     tags: ['international'],
     slots: ['lunch', 'snacks'],
     halal: { status: 'check', reason: 'Halal when the chicken is halal (usual in Pakistan; ask in Spain).' },
-    source: { citation: 'USDA FDC FNDDS 2706990', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 18.32 − fibre 1 = 17.3 g available. FNDDS "Chicken salad sandwich on white" as the analogue for the bakery chicken-mayo sandwich. Servings: FNDDS 2706990 portions "1 regular" = 180 g, "1 large" = 270 g.' },
+    source: { citation: 'USDA FDC FNDDS 2706990', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 18.32 − fibre 1 = 17.3 g available. FNDDS "Chicken salad sandwich on white" as the analogue for the bakery chicken-mayo sandwich. Servings: FNDDS 2706990 portions "1 regular" = 180 g, "1 large" = 270 g.' },
   },
   {
     id: 'intl-cornflakes',
@@ -376,7 +376,7 @@ export default [
     tags: ['international', 'pakistani', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC Foundation 325871', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 49.2 − fibre 2.3 = 46.9 g available. Serving: USDA Foundation 325871 1 slice = 27.3 g.' },
+    source: { citation: 'USDA FDC Foundation 325871', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 49.2 − fibre 2.3 = 46.9 g available. Serving: USDA Foundation 325871 1 slice = 27.3 g.' },
   },
   {
     id: 'med-chicken-shawarma',
@@ -394,6 +394,6 @@ export default [
     tags: ['middle-eastern', 'pakistani'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'check', reason: 'Halal when the chicken is from a halal butcher (usual in Pakistan; ask at kebab shops in Spain).' },
-    source: { citation: 'Recipe R-med-chicken-shawarma (research/recipes/med-chicken-shawarma.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 2 references; cooked weight 1945 g for 10 rolls; street/restaurant item; sauce amount varies a lot between shops.' },
+    source: { citation: 'Recipe R-med-chicken-shawarma (research/recipes/med-chicken-shawarma.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 2 references; cooked weight 1945 g for 10 rolls; street/restaurant item; sauce amount varies a lot between shops.' },
   },
 ];

@@ -490,10 +490,10 @@ test('slotForTime: default preset windows, wrap and edges', () => {
   assert.equal(slotForTime(600, RULES), 'breakfast'); // preset defaults to 'default'
 });
 
-test('slotForTime: Spanish preset (meeting 002)', () => {
+test('slotForTime: Spanish preset (meeting 002, amended by meeting 003)', () => {
   const at = (h, m) => slotForTime(h * 60 + m, RULES, 'spain');
-  assert.equal(at(0, 30), 'dinner');
-  assert.equal(at(0, 59), 'dinner');
+  assert.equal(at(0, 30), 'snacks');
+  assert.equal(at(0, 59), 'snacks');
   assert.equal(at(1, 0), 'snacks');
   assert.equal(at(1, 30), 'snacks');
   assert.equal(at(4, 59), 'snacks');

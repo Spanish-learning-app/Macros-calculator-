@@ -20,7 +20,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'contains-egg', 'meal-prep', 'eat-cold'],
     slots: ['lunch', 'dinner', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-tortilla-de-patatas (research/recipes/es-tortilla-de-patatas.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 4 references; cooked weight 742.4 g for one 5-egg tortilla (4 raciones); oil is a published household measure, but the egg and onion yields are assumed and home tortillas vary a lot in oil. Whole tortilla = the full standard recipe (5 eggs, 500 g potatoes as bought ≈ 3 medium, 1 onion); log a share with ½ or ¼.' },
+    source: { citation: 'Recipe R-es-tortilla-de-patatas (research/recipes/es-tortilla-de-patatas.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 4 references; cooked weight 742.4 g for one 5-egg tortilla (4 raciones); oil is a published household measure, but the egg and onion yields are assumed and home tortillas vary a lot in oil. Whole tortilla = the full standard recipe (5 eggs, 500 g potatoes as bought ≈ 3 medium, 1 onion); log a share with ½ or ¼.' },
   },
   {
     id: 'es-lentejas',
@@ -39,7 +39,7 @@ export default [
     tags: ['spanish', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Our recipe uses halal beef sausage. Lentejas in Spanish bars and menús usually contain chorizo (pork).' },
-    source: { citation: 'Recipe R-es-lentejas (research/recipes/es-lentejas.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 1897.2 g for 4 servings; evaporation and broth share are assumed; the sausage is a named analogue.' },
+    source: { citation: 'Recipe R-es-lentejas (research/recipes/es-lentejas.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 1897.2 g for 4 servings; evaporation and broth share are assumed; the sausage is a named analogue.' },
   },
   {
     id: 'es-garbanzos-con-espinacas',
@@ -58,7 +58,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'contains-egg', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-garbanzos-con-espinacas (research/recipes/es-garbanzos-con-espinacas.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 1948.2 g for 4 servings; evaporation and broth share are assumed.' },
+    source: { citation: 'Recipe R-es-garbanzos-con-espinacas (research/recipes/es-garbanzos-con-espinacas.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 1948.2 g for 4 servings; evaporation and broth share are assumed.' },
   },
   {
     id: 'es-paella-de-pollo',
@@ -78,7 +78,7 @@ export default [
     tags: ['spanish'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'Halal when you cook it with halal chicken. Restaurant chicken in Spain is rarely halal.' },
-    source: { citation: 'Recipe R-es-paella-de-pollo (research/recipes/es-paella-de-pollo.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 2 references; cooked weight 1845.3 g for 4 servings; edible chicken weight and sofrito reduction are assumed. Ración = ¼ of a 400 g-rice paella (UCM: arroz 90–100 g raw per person).' },
+    source: { citation: 'Recipe R-es-paella-de-pollo (research/recipes/es-paella-de-pollo.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 2 references; cooked weight 1845.3 g for 4 servings; edible chicken weight and sofrito reduction are assumed. Ración = ¼ of a 400 g-rice paella (UCM: arroz 90–100 g raw per person).' },
   },
   {
     id: 'es-gazpacho',
@@ -98,7 +98,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-gazpacho (research/recipes/es-gazpacho.md)', method: 'recipe', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 1604.9 g for 4 servings; no cooking (yield 1.0), quantities straight from the references; oil varies between cooks.' },
+    source: { citation: 'Recipe R-es-gazpacho (research/recipes/es-gazpacho.md)', method: 'recipe', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 1604.9 g for 4 servings; no cooking (yield 1.0), quantities straight from the references; oil varies between cooks.' },
   },
   {
     id: 'es-pan-con-tomate',
@@ -115,7 +115,7 @@ export default [
     tags: ['catalan', 'spanish', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-pan-con-tomate (research/recipes/es-pan-con-tomate.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 396.2 g for 4 slices of pan de payés; the share of tomato that stays on the bread is assumed; oil varies a lot. Small slice = half the pan de payés slice (UCM: rebanada 30 g vs payés 60 g).' },
+    source: { citation: 'Recipe R-es-pan-con-tomate (research/recipes/es-pan-con-tomate.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 396.2 g for 4 slices of pan de payés; the share of tomato that stays on the bread is assumed; oil varies a lot. Small slice = half the pan de payés slice (UCM: rebanada 30 g vs payés 60 g).' },
   },
   {
     id: 'es-tostada-con-aceite',
@@ -132,7 +132,7 @@ export default [
     tags: ['spanish', 'catalan', 'vegetarian', 'vegan'],
     slots: ['breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-tostada-con-aceite (research/recipes/es-tostada-con-aceite.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 71.4 g for 1 tostada (2 slices of barra); oil per slice varies a lot.' },
+    source: { citation: 'Recipe R-es-tostada-con-aceite (research/recipes/es-tostada-con-aceite.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 71.4 g for 1 tostada (2 slices of barra); oil per slice varies a lot.' },
   },
   {
     id: 'es-pisto',
@@ -151,7 +151,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-pisto (research/recipes/es-pisto.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 1083.4 g for 4 servings; stewing yield assumed.' },
+    source: { citation: 'Recipe R-es-pisto (research/recipes/es-pisto.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 1083.4 g for 4 servings; stewing yield assumed.' },
   },
   {
     id: 'es-croquetas-de-pollo',
@@ -167,7 +167,7 @@ export default [
     tags: ['spanish', 'contains-egg', 'fried'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'check', reason: 'Bar and frozen croquetas in Spain may use non-halal chicken or ham stock; home-made with halal chicken is halal.' },
-    source: { citation: 'Recipe R-es-croquetas-de-pollo (research/recipes/es-croquetas-de-pollo.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 981 g for about 39 croquetas of 25 g; filling reduction, coating pick-up and frying oil are assumptions (UCM oil figure is a household estimate). Serving: UCM croqueta 20–30 g.' },
+    source: { citation: 'Recipe R-es-croquetas-de-pollo (research/recipes/es-croquetas-de-pollo.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 981 g for about 39 croquetas of 25 g; filling reduction, coating pick-up and frying oil are assumptions (UCM oil figure is a household estimate). Serving: UCM croqueta 20–30 g.' },
   },
   {
     id: 'es-ensalada-mixta',
@@ -186,7 +186,7 @@ export default [
     tags: ['spanish', 'contains-egg', 'seafood-fish', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-ensalada-mixta (research/recipes/es-ensalada-mixta.md)', method: 'recipe', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 3 references; cooked weight 618.5 g for 2 servings; no cooking; amounts from the references and UCM household measures.' },
+    source: { citation: 'Recipe R-es-ensalada-mixta (research/recipes/es-ensalada-mixta.md)', method: 'recipe', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 3 references; cooked weight 618.5 g for 2 servings; no cooking; amounts from the references and UCM household measures.' },
   },
   {
     id: 'med-olive-oil',
@@ -224,7 +224,7 @@ export default [
     tags: ['middle-eastern', 'mediterranean', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'CoFID 2021 13-556 Houmous', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'CoFID carbohydrate is available carbohydrate; fibre = AOAC fibre. Spanish supermarket labels agree (Carrefour Hummus clásico 294 kcal, YGriega 300 kcal per 100 g, OFF read 2026-10-13); USDA SR 174289 is leaner (237 kcal). Katori servings × 1.04 g/ml (USDA 174289: 1 cup = 246 g); tbsp 15 g (USDA).' },
+    source: { citation: 'CoFID 2021 13-556 Houmous', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'CoFID carbohydrate is available carbohydrate; fibre = AOAC fibre. Spanish supermarket labels agree (Carrefour Hummus clásico 294 kcal, YGriega 300 kcal per 100 g, OFF read 2026-10-13); USDA SR 174289 is leaner (237 kcal). Katori servings × 1.04 g/ml (USDA 174289: 1 cup = 246 g); tbsp 15 g (USDA).' },
   },
   {
     id: 'med-falafel',
@@ -255,7 +255,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'BEDCA 1065 Lenteja, seca, cruda', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 1292.3 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Serving: UCM legumbres 80–90 g raw per ración.' },
+    source: { citation: 'BEDCA 1065 Lenteja, seca, cruda', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'BEDCA energy 1292.3 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Serving: UCM legumbres 80–90 g raw per ración.' },
   },
   {
     id: 'es-pan-barra',
@@ -308,7 +308,7 @@ export default [
     tags: ['spanish', 'catalan', 'vegetarian', 'contains-egg'],
     slots: ['breakfast', 'evening'],
     halal: { status: 'check', reason: 'Bakery and packaged pastries may contain lard (manteca de cerdo) or E471 of animal origin; check the label or ask the bakery.' },
-    source: { citation: 'BEDCA 2669 Croissant', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 1698.9 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Servings: USDA SR 174987 croissant small 42 g, medium 57 g; UCM cruasán mini 20 g, grande 90 g.' },
+    source: { citation: 'BEDCA 2669 Croissant', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'BEDCA energy 1698.9 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Servings: USDA SR 174987 croissant small 42 g, medium 57 g; UCM cruasán mini 20 g, grande 90 g.' },
   },
   {
     id: 'es-napolitana-chocolate',
@@ -323,7 +323,7 @@ export default [
     tags: ['spanish', 'catalan', 'vegetarian'],
     slots: ['breakfast', 'evening'],
     halal: { status: 'check', reason: 'Bakery and packaged pastries may contain lard (manteca de cerdo) or E471 of animal origin; check the label or ask the bakery.' },
-    source: { citation: 'BEDCA 1062 Napolitana, rellena con crema de cacao', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 1951.0 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Serving: Carrefour Napolitanas con chocolate label, 1 piece = 82 g (OFF 3245414455917, read 2026-10-13: 434 kcal per 100 g); UCM bollería unidad mediana 80 g.' },
+    source: { citation: 'BEDCA 1062 Napolitana, rellena con crema de cacao', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'BEDCA energy 1951.0 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Serving: Carrefour Napolitanas con chocolate label, 1 piece = 82 g (OFF 3245414455917, read 2026-10-13: 434 kcal per 100 g); UCM bollería unidad mediana 80 g.' },
   },
   {
     id: 'es-magdalena',
@@ -354,7 +354,7 @@ export default [
     ],
     tags: ['spanish', 'catalan', 'vegetarian', 'contains-egg'],
     halal: { status: 'not-halal', reason: 'The standard recipe is made with pork lard (saïm).' },
-    source: { citation: 'BEDCA 2671 Ensaimada', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 1907.8 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Serving: UCM ensaimada unidad grande 90 g.' },
+    source: { citation: 'BEDCA 2671 Ensaimada', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'BEDCA energy 1907.8 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Serving: UCM ensaimada unidad grande 90 g.' },
   },
   {
     id: 'es-cafe-con-leche',
@@ -370,7 +370,7 @@ export default [
     tags: ['spanish', 'vegetarian'],
     slots: ['breakfast', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'BEDCA 681 Café, con leche', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 158.1 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. BEDCA composite (about half milk). Servings: UCM leche taza 250 g; RULES cup 200 ml × 1.03 g/ml = 206 g. Add sugar separately.' },
+    source: { citation: 'BEDCA 681 Café, con leche', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'BEDCA energy 158.1 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. BEDCA composite (about half milk). Servings: UCM leche taza 250 g; RULES cup 200 ml × 1.03 g/ml = 206 g. Add sugar separately.' },
   },
   {
     id: 'es-cortado',
@@ -386,7 +386,7 @@ export default [
     tags: ['spanish', 'catalan', 'vegetarian'],
     slots: ['breakfast', 'lunch', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-cortado (research/recipes/es-cortado.md)', method: 'recipe', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 2 references; cooked weight 71 g for 1 cup; two-ingredient drink; the milk share varies by café.' },
+    source: { citation: 'Recipe R-es-cortado (research/recipes/es-cortado.md)', method: 'recipe', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 2 references; cooked weight 71 g for 1 cup; two-ingredient drink; the milk share varies by café.' },
   },
   {
     id: 'es-cafe-solo',
@@ -417,7 +417,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'packaged'],
     slots: ['breakfast', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-cola-cao-con-leche (research/recipes/es-cola-cao-con-leche.md)', method: 'recipe', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 2 references; cooked weight 220 g for 1 glass; label powder plus BEDCA milk at the label ratio.' },
+    source: { citation: 'Recipe R-es-cola-cao-con-leche (research/recipes/es-cola-cao-con-leche.md)', method: 'recipe', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 2 references; cooked weight 220 g for 1 glass; label powder plus BEDCA milk at the label ratio.' },
   },
   {
     id: 'es-zumo-naranja-natural',
@@ -466,7 +466,7 @@ export default [
     tags: ['spanish', 'catalan', 'vegetarian', 'contains-egg', 'eat-cold'],
     slots: ['breakfast', 'lunch'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-bocadillo-de-tortilla (research/recipes/es-bocadillo-de-tortilla.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 2 references; cooked weight 172.8 g for 1 bocadillo; filling size varies between bars; the tortilla itself is an estimate.' },
+    source: { citation: 'Recipe R-es-bocadillo-de-tortilla (research/recipes/es-bocadillo-de-tortilla.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 2 references; cooked weight 172.8 g for 1 bocadillo; filling size varies between bars; the tortilla itself is an estimate.' },
   },
   {
     id: 'es-bocadillo-de-atun',
@@ -482,6 +482,6 @@ export default [
     tags: ['spanish', 'catalan', 'seafood-fish', 'eat-cold'],
     slots: ['breakfast', 'lunch'],
     halal: { status: 'halal' },
-    source: { citation: 'Recipe R-es-bocadillo-de-atun (research/recipes/es-bocadillo-de-atun.md)', method: 'recipe', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'Standard recipe from 2 references; cooked weight 190 g for 1 bocadillo; filling size varies between bars.' },
+    source: { citation: 'Recipe R-es-bocadillo-de-atun (research/recipes/es-bocadillo-de-atun.md)', method: 'recipe', confidence: 'C', reviewer: 'ayesha', date: '2026-10-14', notes: 'Standard recipe from 2 references; cooked weight 190 g for 1 bocadillo; filling size varies between bars.' },
   },
 ];

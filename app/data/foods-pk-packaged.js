@@ -19,7 +19,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'packaged'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Peek Freans Marie Biscuits (EBM Pakistan), read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8964002526710 (last modified 2026-04-30), per 100 g as printed; a second EBM Marie listing (8964002756094) has the same macros. Serving: USDA FNDDS 2707971 Marie biscuit, 1 cookie = 7 g (UCM galleta tipo María 6 g). Cross-check FNDDS 2707971: 406 kcal. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
+    source: { citation: 'Label: Peek Freans Marie Biscuits (EBM Pakistan), read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Open Food Facts 8964002526710 (last modified 2026-04-30), per 100 g as printed; a second EBM Marie listing (8964002756094) has the same macros. Serving: USDA FNDDS 2707971 Marie biscuit, 1 cookie = 7 g (UCM galleta tipo María 6 g). Cross-check FNDDS 2707971: 406 kcal. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
   },
   {
     id: 'pk-sooper-biscuit',
@@ -37,7 +37,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'contains-egg', 'packaged'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Peek Freans Sooper, 92 g pack (11 biscuits), read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8964002758999 (last modified 2025-06-06). 1 biscuit = 92 g ÷ 11 = 8.4 g. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
+    source: { citation: 'Label: Peek Freans Sooper, 92 g pack (11 biscuits), read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Open Food Facts 8964002758999 (last modified 2025-06-06). 1 biscuit = 92 g ÷ 11 = 8.4 g. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
   },
   {
     id: 'pk-gluco-biscuit',
@@ -54,7 +54,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'packaged'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Peek Freans Gluco, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8964002513482 (last modified 2024-07-24). Biscuit weight from the label serving in OFF 8964002755974: 2 biscuits = 72 kcal → 72 ÷ 488 × 100 = 14.75 g → 7.4 g each. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
+    source: { citation: 'Label: Peek Freans Gluco, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Open Food Facts 8964002513482 (last modified 2024-07-24). Biscuit weight from the label serving in OFF 8964002755974: 2 biscuits = 72 kcal → 72 ÷ 488 × 100 = 14.75 g → 7.4 g each. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
   },
   {
     id: 'pk-rio-biscuit',
@@ -71,7 +71,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'packaged'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Peek Freans Rio, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8964002526192 (last modified 2026-08-24): label serving 1 biscuit = 7 g. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
+    source: { citation: 'Label: Peek Freans Rio, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Open Food Facts 8964002526192 (last modified 2026-08-24): label serving 1 biscuit = 7 g. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
   },
   {
     id: 'pk-rusk',
@@ -88,7 +88,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'packaged'],
     slots: ['evening', 'snacks', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'Analogue of USDA FDC FNDDS 2707705 (Zwieback toast: the same twice-baked sweet bread as Pakistani tea rusk)', method: 'analogue', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 74.2 − fibre 2.5 = 71.7 g available. No Pakistani rusk label was found on Open Food Facts. Cross-check: Parle Rusk label (OFF 8901719101625, read 2026-10-13) 434 kcal, P 7.6, C 80.4, F 9.1 per 100 g. Serving: FNDDS 2707705 "1 rusk" = 10 g.' },
+    source: { citation: 'Analogue of USDA FDC FNDDS 2707705 (Zwieback toast: the same twice-baked sweet bread as Pakistani tea rusk)', method: 'analogue', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 74.2 − fibre 2.5 = 71.7 g available. No Pakistani rusk label was found on Open Food Facts. Cross-check: Parle Rusk label (OFF 8901719101625, read 2026-10-13) 434 kcal, P 7.6, C 80.4, F 9.1 per 100 g. Serving: FNDDS 2707705 "1 rusk" = 10 g.' },
   },
   {
     id: 'pk-nimko-mix',
@@ -124,7 +124,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'packaged'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Olper\'s Full Cream Milk (Engro Foods), 1.5 l, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8964000346549 / 8964000346334: per 100 ml 267 kJ (64 kcal), P 2.7, C 5.4, F 3.5, sat 2.3; converted to per 100 g with 1.03 g/ml (RULES water-like; label lists 100 ml = 103 g). Nestlé Milk Pak (OFF 8961008219561: 62.8 kcal, P 2.72, C 5.2, F 3.52 per 100 ml) and Nurpur (8961101373108) agree within 4 %.' },
+    source: { citation: 'Label: Olper\'s Full Cream Milk (Engro Foods), 1.5 l, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Open Food Facts 8964000346549 / 8964000346334: per 100 ml 267 kJ (64 kcal), P 2.7, C 5.4, F 3.5, sat 2.3; converted to per 100 g with 1.03 g/ml (RULES water-like; label lists 100 ml = 103 g). Nestlé Milk Pak (OFF 8961008219561: 62.8 kcal, P 2.72, C 5.2, F 3.52 per 100 ml) and Nurpur (8961101373108) agree within 4 %.' },
   },
   {
     id: 'pk-cola-regular',
@@ -179,7 +179,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'vegan', 'packaged'],
     slots: ['breakfast', 'snacks', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Frooto Apple Juice, 250 ml box, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8966000006621 (last modified 2024-04-17): per 100 ml 40 kcal, C 10, sugars 9, P 0.01, F 0; no fibre declared (0). Per 100 g with 1.03 g/ml (RULES water-like).' },
+    source: { citation: 'Label: Frooto Apple Juice, 250 ml box, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Open Food Facts 8966000006621 (last modified 2024-04-17): per 100 ml 40 kcal, C 10, sugars 9, P 0.01, F 0; no fibre declared (0). Per 100 g with 1.03 g/ml (RULES water-like).' },
   },
   {
     id: 'pk-rooh-afza-syrup',

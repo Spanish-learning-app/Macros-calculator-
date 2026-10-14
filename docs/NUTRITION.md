@@ -550,8 +550,8 @@ Spanish meal names (Urdu labels: ناشتہ / کافی, دوپہر کا کھان
 | `breakfast` | Breakfast / café | 20% | 05:00–12:30 (includes the mid-morning café) |
 | `lunch` | Lunch | 35% | 12:30–16:30 (lunch box) |
 | `evening` | Merienda | 10% | 16:30–20:00 |
-| `dinner` | Dinner | 30% | 20:00–01:00 |
-| `snacks` | Snacks | 5% | 01:00–05:00 |
+| `dinner` | Dinner | 30% | 20:00–24:00 |
+| `snacks` | Snacks | 5% | 00:00–05:00 (after midnight; Meeting 003) |
 
 **Which preset a new user gets** (`RULES.mealSlotPresetDefault`):
 - It is chosen by the device time zone (`Intl.DateTimeFormat().resolvedOptions().timeZone`).
@@ -776,10 +776,14 @@ composite has a recipe file `research/recipes/<record id>.md`, which is committe
    | Dish | Home | Restaurant, dhaba or street |
    |---|---|---|
    | Salan or karahi | 6–10% | 12–20% |
-   | Daal | ~3% | 6–8% |
+   | Daal | 4–8% (dry daal mash up to 8%) | 8–12% |
    | Biryani | 4–6% | 7–10% |
 
    State the value chosen and why. Assume all added fat is eaten unless a source says otherwise.
+   (Until the Sprint 1 review the daal row said ~3% / 6–8%. Every published Pakistani daal recipe
+   we read uses ¼–⅓ cup oil per cup of dry dal, and the UK Punjabi survey dals in CoFID carry
+   3.6–8.3 g fat per 100 g, so the old home figure was too low.)
+
 5. **Yield** (cooked weight ÷ raw weight). Use one of these, in order of preference:
    - a published yield for that dish or dish type (Bognár 2002, *Tables on weight yield of food and
      retention factors*; USDA Table of Cooking Yields for Meat and Poultry);

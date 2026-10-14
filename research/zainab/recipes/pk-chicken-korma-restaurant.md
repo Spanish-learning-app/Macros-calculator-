@@ -63,7 +63,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 234 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- CoFID 2021 19-322 "Curry, chicken, average, takeaway": 145 kcal, P 11.7, C 2.4, F 9.8, fibre 2.2 per 100 g → our value is +61% kcal. **Over 25%: see note.** UK takeaway chicken curries (10 of the 50 samples are korma). Why the gap: restaurant korma oil (added fat 15.3%, inside §6 12–20%) floats on top and is eaten with the gravy. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

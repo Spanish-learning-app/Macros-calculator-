@@ -92,3 +92,18 @@
   - §5.2 now says notified naan and roti weights are dough weights. §5.3 adds the dry-daal density 0.78. §4.5 has the Spain labels.
   - Kenji's tests/data/_gate.js does not know G23 yet (I don't edit tests). Flag it to Omar.
   - npm test: 410 tests, 0 failures in all three time zones. Gate: 184/184.
+- 2026-10-14 09:54 UTC — OMAR'S EXTRA REQUESTS (after Lena finished):
+  - pk-chai-dhaba-extra-sugar now has style 'dhaba', family 'chai' (in research/zainab/records/drinks-sweets.mjs, rebuilt).
+  - rules.js mealSlots.spain: dinner [1200, 1440] and snacks [0, 300], so 00:00–05:00 defaults to Snacks. NUTRITION.md §4.5 updated.
+  - warnings.deficit_capped reworded: "Your target keeps weight loss to a safe, steady pace that you can keep up."
+  - "as notified" labels: already gone. My naan and roti fix relabelled them "from a 120/100 g dough ball".
+  - tests/unit/dev/review1.test.js: both TODO branches removed (Omar allowed this file only); 13/13 pass.
+  - **Conflict:** two older tests still assert the Meeting 002 rule that Spanish dinner wraps to 01:00. They are tests/unit/dev/days.test.js:495-496 (at 00:30 and 00:59 → dinner) and tests/unit/qa/days.test.js:~692-694 ([0|30|59, 'dinner']). npm test now has 2 failures per time zone from them. I'm not allowed to edit them; Lena or Kenji must update them to Meeting 003.
+- 2026-10-14 09:58 UTC — ITEM 5 SPRINT 1 REVIEW DONE: research/review/sprint1.md.
+  - Reviewed 134 verdict rows (131 records): all 91 composites (Javier 17 carried from javier-sprint1, Zainab 62, Yusuf 12), Javier's 10 flagged, and a fresh seeded sample of 18 from the 90 non-recipe records (seed FNV-1a "katori-sprint1-review" = 24229694, mulberry32 Fisher–Yates; plus Javier's earlier 15).
+  - Result: **109 PASS, 19 FIXED, 6 FIX → Sprint 2, 0 REJECT.** All 18 sampled values match their sources exactly.
+  - Fixes beyond items 1–2: keema katori density 0.85 (FNDDS 2706396; 472 → 401 kcal); suji halwa default → small katori; first cross-checks on 7 records; "Why:" explanations for every >25% gap in 18 Zainab sheets; skyr-box alias.
+  - §6 home daal fat range is now 4–8% (was ~3%) and restaurant daal 8–12%.
+  - S2 FIX: med-falafel (OFF down), pk-bhindi-home (oil vs analysed CoFID, +93%), haleem ×2, kadhi pakora, ras malai (no cross-check).
+  - Ledger research/review/reviewed.mjs: 124 ids stamped 'ayesha' through all three builds. G19 now 57 (was 181).
+  - Final: gate 184/184. npm test has 2 failures, the old Meeting 002 Spanish-dinner tests (see the 09:54 entry), for Lena or Kenji. Prettier and eslint clean. Not committed.

@@ -58,7 +58,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 172 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- CoFID 2021 19-549 "Curry, beef, homemade": 209 kcal, P 17.7, C 0.8, F 15.4, fibre 0.1 per 100 g → our value is -18% kcal. Homemade beef curry, for scale (meat-dense, little gravy).
 
 ## Assumptions and confidence
 

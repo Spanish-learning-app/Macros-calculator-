@@ -9,7 +9,7 @@ export default {
     ca: 'Truita de patates proteica (amb clares) amb iogurt ric en proteïnes, plàtan i nous',
     roman: 'aloo anda tortilla',
   },
-  aliases: ['tortilla de patatas', 'tortilla espanola', 'tortilla española', 'spanish omelette', 'spanish tortilla', 'truita de patates', 'protein tortilla', 'tortilla con claras', 'skyr', 'aloo omelette', 'anday aloo omelette'],
+  aliases: ['tortilla de patatas', 'tortilla espanola', 'tortilla española', 'spanish omelette', 'spanish tortilla', 'truita de patates', 'protein tortilla', 'tortilla con claras', 'skyr box', 'tortilla skyr', 'aloo omelette', 'anday aloo omelette'],
   pitch: 'A thick wedge of light tortilla de patatas made with whole eggs and egg whites, a skyr-style protein yogurt with walnuts, and a banana.',
   eat: 'cold',
   tags: ['spanish', 'meal-prep', 'eat-cold', 'contains-egg', 'vegetarian'],

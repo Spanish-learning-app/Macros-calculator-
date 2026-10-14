@@ -157,15 +157,12 @@ test('real data: "chai" puts home doodh patti above dhaba chai in every slot', (
   }
 });
 
-test('real data: "chai" ranks a home doodh patti first in every slot', (t) => {
+test('real data: "chai" ranks a home doodh patti first in every slot', () => {
+  // Ranking reads `style`; a dhaba record without it would rank as everyday food.
   const unstyled = FOODS.filter((f) => /dhaba|restaurant/.test(f.id) && /^pk-chai/.test(f.id))
     .filter((f) => !f.style)
     .map((f) => f.id);
-  if (unstyled.length) {
-    // Ranking reads `style`; a dhaba record without it ranks as everyday food. Lab data fix.
-    t.todo(`waiting for style 'dhaba' on ${unstyled.join(', ')} (Ayesha)`);
-    return;
-  }
+  assert.deepEqual(unstyled, []);
   const store = realStore();
   for (const slot of SLOTS) {
     const first = store.search('chai', { slot }).hits[0].food;
@@ -233,7 +230,7 @@ test('the add sheet says which day the food counts for, also after midnight', ()
   assert.equal(countsForText('2026-10-20', noon), 'Counts for Tue 20 Oct');
 });
 
-test('Spanish preset: Madrid labels, and 00:00–05:00 defaults to Snacks', (t) => {
+test('Spanish preset: Madrid labels, and 00:00–05:00 defaults to Snacks', () => {
   const store = (h) =>
     createStore({
       persistence: null,
@@ -254,12 +251,6 @@ test('Spanish preset: Madrid labels, and 00:00–05:00 defaults to Snacks', (t) 
   assert.equal(store(1).defaultSlot(), 'snacks');
   assert.equal(store(4).defaultSlot(), 'snacks');
   assert.equal(store(5).defaultSlot(), 'breakfast');
-  if (store(0).defaultSlot() !== 'snacks') {
-    t.todo(
-      'waiting for rules.js mealSlots.spain: dinner hours [1200, 1440], snacks [0, 300] (Ayesha)',
-    );
-    return;
-  }
   assert.equal(store(0).defaultSlot(), 'snacks');
 });
 

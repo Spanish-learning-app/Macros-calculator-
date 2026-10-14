@@ -1,17 +1,17 @@
 {
   "project": "Daily meal & macro calculator",
   "status": "working",
-  "phase": "Review 1 · fix wave",
-  "sprint": 1,
+  "phase": "Sprint 2 · Recipes & meal prep",
+  "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T09:38:00Z",
+  "updatedAt": "2026-10-14T10:00:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
   "app": {
     "url": "https://claude.ai/artifact/GusJdyjFkPK4yftNRPzFrY",
-    "version": "Sprint 1 preview",
-    "publishedAt": "2026-10-14T09:16:00Z",
+    "version": "Sprint 1 final (v2)",
+    "publishedAt": "2026-10-14T09:58:00Z",
     "page": "tools/artifact-page.html",
     "files": "npm run publish:files"
   },
@@ -80,18 +80,7 @@
       "task": "Waiting for Review 1"
     }
   },
-  "inFlight": [
-    {
-      "member": "lena",
-      "task": "Review 1 engineering fixes (meeting 003 items 1-4,6-9,11)",
-      "output": "app/**, tests/**"
-    },
-    {
-      "member": "ayesha",
-      "task": "Review 1 data fixes + Sprint 1 review",
-      "output": "app/data/**, research/review/sprint1.md"
-    }
-  ],
+  "inFlight": [],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "9 * * * * (UTC, hourly)"

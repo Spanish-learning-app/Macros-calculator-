@@ -58,7 +58,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 129 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- CoFID 2021 19-549 "Curry, beef, homemade": 209 kcal, P 17.7, C 0.8, F 15.4, fibre 0.1 per 100 g → our value is -38% kcal. **Over 25%: see note.** Homemade beef curry, for scale. Why the gap: nihari is a gravy-heavy stew (about 1.2 kg water per kg beef), so it is wetter and lighter per 100 g. Explained (Ayesha, 2026-10-14).
 
 ## Assumptions and confidence
 

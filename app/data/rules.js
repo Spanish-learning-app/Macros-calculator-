@@ -248,7 +248,7 @@ export default {
   // Warning codes computeTargets may return (besides active flag ids), with the text to show.
   warnings: {
     estimate: 'This is an estimate (about ±10%). Change it if your weight trend says otherwise.',
-    deficit_capped: 'We slowed your weight-loss pace to a safer rate.',
+    deficit_capped: 'Your target keeps weight loss to a safe, steady pace that you can keep up.',
     surplus_capped: 'We slowed your weight-gain pace to a steadier rate.',
     kcal_floor: 'Your target is set to the lowest level we recommend without professional support.',
     goal_changed:
@@ -287,8 +287,8 @@ export default {
       { id: 'breakfast', label: 'Breakfast / café', labelUr: 'ناشتہ / کافی', sharePct: 20, hours: [300, 750] }, // 05:00-12:30 (incl. mid-morning café)
       { id: 'lunch', label: 'Lunch', labelUr: 'دوپہر کا کھانا', sharePct: 35, hours: [750, 990] }, // 12:30-16:30 (lunch box)
       { id: 'evening', label: 'Merienda', labelUr: 'میرینڈا (شام کا ناشتہ)', sharePct: 10, hours: [990, 1200] }, // 16:30-20:00 (merienda)
-      { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1200, 60] }, // 20:00-01:00
-      { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: [60, 300] }, // 01:00-05:00
+      { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1200, 1440] }, // 20:00-24:00
+      { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: [0, 300] }, // 00:00-05:00 (Meeting 003: after midnight defaults to Snacks)
     ],
     // Ramadan mode (Sprint 2). Hours are typical for Pakistan and shift with sunrise and sunset.
     ramadan: [
