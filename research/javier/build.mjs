@@ -1013,6 +1013,480 @@ const pk = [
   },
 ];
 
+// ================================================================= Sprint 2 add-on: market and ready-to-eat foods
+// Brief: team/briefs/s2-market-preps.md (less cooking: food bought in Barcelona and eaten as is or assembled in
+// ≤ 15 min), plus the market staples Yusuf's recipes named without a foodId. Mercadona products were read on
+// 2026-10-14 with research/javier/market.mjs: the online shop (warehouse bcn1) gives the EAN and ingredients
+// (halal check); per-100 g values come from the Open Food Facts entry for that EAN (typed from the printed label).
+const D2 = '2026-10-14';
+const src2 = (citation, method, confidence, notes) => ({ ...src(citation, method, confidence, notes), date: D2 });
+/** Mercadona label record source (B). */
+const merc = (product, id, ean, pack, notes) =>
+  src2(`Label: Mercadona ${product}, ${pack}, read ${D2}`, 'label', 'B', `Mercadona online shop product ${id} (tienda.mercadona.es/product/${id}, EAN ${ean}); per-100 g values from Open Food Facts ${ean}. ${notes}`);
+const u2 = (id, conf = 'A', notes = '', opts) => {
+  const x = fromUsda(id, conf, notes, opts);
+  return { per100g: x.per100g, source: { ...x.source, date: D2 } };
+};
+/** Same food, close analogue: USDA values, method 'analogue'. */
+const uAnalogue = (id, why, conf = 'B', notes = '') => {
+  const x = u2(id, conf, notes);
+  return { per100g: x.per100g, source: { ...x.source, citation: `Analogue of ${x.source.citation} (${why})`, method: 'analogue' } };
+};
+const IFCT = new Map(JSON.parse(fs.readFileSync(path.join(ROOT, 'research', 'zainab', 'ifct-table1.json'), 'utf8')).map((f) => [f.code, f]));
+function fromIfct(code, notes) {
+  const f = IFCT.get(code);
+  return {
+    per100g: toPer100g({ kcal: f.kcal, protein: f.protein, carbs: f.carbs, fat: f.fat, fiber: f.fiber, sugars: f.sugars }),
+    source: src2(`IFCT 2017 ${code}`, 'direct', 'A', `IFCT 2017 Table 1 "${f.name}" (via research/zainab/ifct-table1.json); IFCT carbohydrate is available carbohydrate. ${notes}`),
+  };
+}
+const salt2na = (salt) => Math.round(salt * 400);
+const VEG = ['international', 'vegetarian', 'vegan'];
+const CUAJO = check('Made with rennet (cuajo) of unstated origin; some people avoid animal rennet. Labels that say "cuajo microbiano" avoid the question.');
+const E471 = (what) => check(`${what} contains the emulsifier E-471 (mono- and diglycerides), which can be made from animal fat; the label does not say vegetable origin.`);
+
+const marketBasics = [
+  // ---------------------------------------------------------------- fruit (fruit shop, market, Mercadona)
+  {
+    id: 'intl-pear', name: 'Pear', nameUr: 'ناشپاتی', nameRoman: 'nashpati',
+    aliases: ['pear', 'pears', 'nashpati', 'nashpaati', 'naspati', 'pera', 'peras', 'pera conferencia', 'pera limonera', 'pera ercolina'],
+    group: 'fruit', state: 'raw, with skin, cored',
+    ...u2(169118, 'A', 'Servings: USDA SR 169118 portions.'),
+    servings: [sv('small', '1 small pear', 148), sv('medium', '1 medium pear', 178, true, '1 ناشپاتی'), sv('large', '1 large pear', 230)],
+    tags: [...VEG, 'eat-cold'], slots: ['evening', 'snacks', 'breakfast'], halal: HALAL,
+  },
+  {
+    id: 'intl-kiwi', name: 'Kiwi (green)', nameUr: 'کیوی', nameRoman: 'kiwi',
+    aliases: ['kiwi', 'kiwis', 'kiwifruit', 'kiwi verde', 'kivi', 'quivi'],
+    group: 'fruit', state: 'raw, peeled',
+    ...u2(168153, 'A', 'Serving: USDA SR 168153, 1 fruit (2 in dia) = 69 g edible.'),
+    servings: [sv('fruit', '1 kiwi', 69, true), sv('two', '2 kiwis', 138)],
+    tags: [...VEG, 'eat-cold'], slots: ['breakfast', 'evening', 'snacks'], halal: HALAL,
+  },
+  {
+    id: 'intl-persimmon', name: 'Persimmon (caqui)', nameUr: 'جاپانی پھل', nameRoman: 'japani phal',
+    aliases: ['persimmon', 'caqui', 'kaki', 'caquis', 'sharon fruit', 'persimon', 'japani phal', 'japani fruit', 'amlok'],
+    group: 'fruit', state: 'raw, edible part (Japanese / Rojo Brillante type, Valencia season Oct–Dec)',
+    ...u2(169941, 'A', 'Serving: USDA SR 169941, 1 fruit (2½ in dia) = 168 g.'),
+    servings: [sv('fruit', '1 caqui', 168, true, '1 جاپانی پھل')],
+    tags: [...VEG, 'eat-cold'], slots: ['evening', 'snacks', 'breakfast'], halal: HALAL,
+  },
+  {
+    id: 'intl-pomegranate', name: 'Pomegranate (arils)', nameUr: 'انار', nameRoman: 'anar',
+    aliases: ['pomegranate', 'anar', 'anaar', 'anar daane', 'granada', 'granadas', 'magrana', 'pomegranate seeds', 'granada desgranada'],
+    group: 'fruit', state: 'raw arils (seeds and juice sacs), edible part',
+    ...u2(169134, 'A', 'Servings: USDA SR 169134, ½ cup arils = 87 g; 1 pomegranate (4 in dia) = 282 g edible.'),
+    servings: [sv('half-cup', '½ cup of arils', 87, true), sv('fruit', '1 pomegranate (arils of)', 282, false, '1 انار')],
+    tags: [...VEG, 'eat-cold'], slots: ['breakfast', 'evening', 'snacks'], halal: HALAL,
+  },
+  {
+    id: 'intl-blueberries', name: 'Blueberries', nameRoman: 'blueberries',
+    aliases: ['blueberries', 'blueberry', 'arándanos', 'arandanos', 'nabius', 'berries'],
+    group: 'fruit', state: 'raw, as sold (punnet)',
+    ...u2(171711, 'A', 'Servings: USDA SR 171711, 50 berries = 68 g; Mercadona "Arándanos" vaso = 225 g (product 5501, read 2026-10-14).'),
+    servings: [sv('handful', '1 handful (50 berries)', 68, true), sv('tub', '1 tub (225 g)', 225)],
+    tags: [...VEG, 'eat-cold'], slots: ['breakfast', 'evening', 'snacks'], halal: HALAL,
+  },
+  {
+    id: 'intl-melon', name: 'Melon (piel de sapo / honeydew)',
+    aliases: ['melon', 'melón', 'melon piel de sapo', 'piel de sapo', 'meló', 'honeydew'],
+    group: 'fruit', state: 'raw, flesh only',
+    ...uAnalogue(169911, 'piel de sapo is a green-fleshed inodorus melon like honeydew', 'B', 'Servings: USDA SR 169911, 1 wedge (⅛ of a 6–7 in melon) = 160 g; 1 cup diced = 170 g.'),
+    servings: [sv('wedge', '1 wedge (⅛ melon)', 160, true), sv('diced', '1 cup diced', 170)],
+    tags: [...VEG, 'eat-cold'], slots: ['evening', 'snacks', 'lunch'], halal: HALAL,
+  },
+  {
+    id: 'intl-pineapple', name: 'Pineapple (fresh, also ready-cut tub)', nameRoman: 'ananas',
+    aliases: ['pineapple', 'piña', 'pina', 'pinya', 'ananas', 'ananás', 'piña natural', 'piña a rodajas', 'cut pineapple', 'fruit cup'],
+    group: 'fruit', state: 'raw, peeled and cored (fresh or Mercadona "Piña natural a rodajas", ingredient: piña)',
+    ...u2(169124, 'A', 'Servings: USDA SR 169124, 1 cup chunks = 165 g; 1 slice (3½ in dia × ¾ in) = 84 g. Mercadona ready-cut tub (product 3024, 600 g) lists pineapple only.'),
+    servings: [sv('chunks', '1 cup of chunks', 165, true), sv('slice', '1 slice', 84)],
+    tags: [...VEG, 'eat-cold'], slots: ['evening', 'snacks', 'breakfast'], halal: HALAL,
+  },
+  {
+    id: 'intl-figs', name: 'Figs (fresh)', nameUr: 'انجیر', nameRoman: 'anjeer',
+    aliases: ['figs', 'fig', 'anjeer', 'anjir', 'higos', 'higo', 'figues', 'figa'],
+    group: 'fruit', state: 'raw, whole (skin eaten)',
+    ...u2(173021, 'A', 'Servings: USDA SR 173021, 1 medium (2¼ in) = 50 g; 1 large = 64 g.'),
+    servings: [sv('medium', '1 fig (medium)', 50, true, '1 انجیر'), sv('large', '1 large fig', 64)],
+    tags: [...VEG, 'eat-cold'], slots: ['evening', 'snacks', 'breakfast'], halal: HALAL,
+  },
+  {
+    id: 'intl-avocado', name: 'Avocado', nameRoman: 'avocado',
+    aliases: ['avocado', 'aguacate', 'aguacates', 'alvocat', 'butter fruit', 'avo'],
+    group: 'fruit', state: 'raw, flesh only (no skin or stone)',
+    ...u2(171705, 'A', 'Servings: USDA SR 171705, 1 avocado (no skin or seed) = 201 g; half = 100.5 g.'),
+    servings: [sv('half', '½ avocado', 100.5, true), sv('avocado', '1 avocado', 201)],
+    tags: [...VEG, 'eat-cold'], slots: ['breakfast', 'lunch', 'dinner'], halal: HALAL,
+  },
+  // ---------------------------------------------------------------- bagged leaves and market vegetables
+  {
+    id: 'intl-spinach-raw', name: 'Spinach, raw (bagged baby spinach)', nameUr: 'پالک', nameRoman: 'palak',
+    aliases: ['spinach', 'baby spinach', 'palak', 'paalak', 'espinacas', 'espinacas baby', 'espinaca', 'espinacs', 'bagged spinach'],
+    group: 'vegetable', state: 'raw leaves, washed, as sold in the bag',
+    ...u2(168462, 'A', 'Servings: USDA SR 168462, 1 cup = 30 g; Mercadona "Espinacas baby lavadas" bag = 100 g (product 69984).'),
+    servings: [sv('handful', '1 cup (handful)', 30), sv('bowl', '1 salad bowl (2 cups)', 60, true), sv('bag', '1 bag (100 g)', 100)],
+    tags: [...VEG, 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-rocket', name: 'Rocket (rúcula), raw',
+    aliases: ['rocket', 'arugula', 'rúcula', 'rucula', 'ruca', 'oruga', 'rocket leaves'],
+    group: 'vegetable', state: 'raw leaves, washed, as sold in the bag',
+    ...u2(169387, 'A', 'Servings: USDA SR 169387, ½ cup = 10 g; Mercadona "Rúcula lavada" bag = 50 g (product 69753).'),
+    servings: [sv('handful', '1 handful (1 cup)', 20, true), sv('bag', '1 bag (50 g)', 50)],
+    tags: [...VEG, 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-salad-leaves-mixed', name: 'Salad leaves, mixed (bagged)',
+    aliases: ['mixed leaves', 'salad leaves', 'bagged salad', 'ensalada mezcla', 'mezcla de lechugas', 'brotes tiernos', 'canónigos', 'canonigos', 'ensalada 4 estaciones', 'mezclum', 'enciam', 'lechuga', 'salad'],
+    group: 'vegetable', state: 'raw mixed leaves (lettuces, lamb\'s lettuce, chard), washed, undressed',
+    ...uAnalogue(169249, 'bagged mixes are mostly leaf lettuces', 'B', 'Servings: USDA SR 169249, 1 cup shredded = 36 g; Mercadona "Ensalada mezcla 4 estaciones lavada" = 250 g bag (product 69706).'),
+    servings: [sv('bowl', '1 salad bowl (2 cups)', 72, true), sv('handful', '1 cup (handful)', 36), sv('bag', '1 bag (250 g)', 250)],
+    tags: [...VEG, 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-pepper-red', name: 'Red pepper (bell pepper), raw', nameUr: 'لال شملہ مرچ', nameRoman: 'lal shimla mirch',
+    aliases: ['red pepper', 'red bell pepper', 'red capsicum', 'pimiento rojo', 'pimiento', 'pebrot vermell', 'shimla mirch', 'lal shimla mirch', 'capsicum'],
+    group: 'vegetable', state: 'raw, seeds removed',
+    ...u2(170108, 'A', 'Servings: USDA SR 170108, 1 medium = 119 g; 1 cup chopped = 149 g; 10 strips ≈ 27 g (green pepper portions).'),
+    servings: [sv('medium', '1 pepper (medium)', 119, true), sv('half', '½ pepper', 59.5), sv('chopped', '1 cup chopped', 149)],
+    tags: [...VEG, 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-pepper-green', name: 'Green pepper (bell pepper), raw', nameUr: 'شملہ مرچ', nameRoman: 'shimla mirch',
+    aliases: ['green pepper', 'green bell pepper', 'capsicum', 'shimla mirch', 'simla mirch', 'pimiento verde', 'pimiento italiano', 'pebrot verd'],
+    group: 'vegetable', state: 'raw, seeds removed',
+    ...u2(170427, 'A', 'Servings: USDA SR 170427, 1 medium = 119 g; 1 cup chopped = 149 g.'),
+    servings: [sv('medium', '1 pepper (medium)', 119, true), sv('half', '½ pepper', 59.5), sv('chopped', '1 cup chopped', 149)],
+    tags: [...VEG, 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-courgette', name: 'Courgette (zucchini), raw',
+    aliases: ['courgette', 'zucchini', 'calabacín', 'calabacin', 'carbassó', 'carbasso', 'calabacín verde'],
+    group: 'vegetable', state: 'raw, with skin',
+    ...u2(169291, 'A', 'Servings: USDA SR 169291, 1 medium = 196 g; 1 cup chopped = 124 g.'),
+    servings: [sv('medium', '1 courgette (medium)', 196, true), sv('chopped', '1 cup chopped', 124)],
+    tags: [...VEG], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-peas-frozen', name: 'Peas, frozen (uncooked)', nameUr: 'مٹر', nameRoman: 'matar',
+    aliases: ['peas', 'green peas', 'frozen peas', 'matar', 'mattar', 'mutter', 'guisantes', 'guisante', 'pèsols', 'pesols'],
+    group: 'vegetable', state: 'frozen, as sold (weigh before cooking)',
+    ...u2(170016, 'A', 'Servings: USDA SR 170016, 1 cup = 134 g. Mercadona "Guisante fino ultracongelado" (product 61215).'),
+    servings: [sv('half-cup', '½ cup', 67, true), sv('portion', '1 cup', 134)],
+    tags: [...VEG], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-green-beans-frozen', name: 'Green beans, frozen (uncooked)', nameUr: 'پھلیاں', nameRoman: 'phaliyan',
+    aliases: ['green beans', 'frozen green beans', 'french beans', 'phali', 'phaliyan', 'judías verdes', 'judias verdes', 'judía verde', 'mongetes tendres', 'bajoques'],
+    group: 'vegetable', state: 'frozen, as sold (weigh before cooking)',
+    ...u2(169962, 'A', 'Servings: USDA SR 169962, 1 cup = 121 g. Mercadona "Judía verde redonda ultracongelada" (product 61282).'),
+    servings: [sv('portion', '1 cup', 121, true), sv('half-cup', '½ cup', 60.5)],
+    tags: [...VEG], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  // ---------------------------------------------------------------- dairy and eggs
+  {
+    id: 'intl-milk-semi-skimmed', name: 'Milk, semi-skimmed (UHT)', nameUr: 'دودھ', nameRoman: 'doodh (semi skimmed)',
+    aliases: ['semi skimmed milk', 'semi-skimmed milk', 'leche semidesnatada', 'semidesnatada', 'llet semidesnatada', 'low fat milk', 'doodh', 'milk'],
+    group: 'dairy', state: 'UHT semi-skimmed cow milk (1.6 % fat), as sold',
+    per100g: { ...perMlToPerG({ kcal: 49, protein: 3.2, carbs: 4.7, fat: 1.6, sugars: 4.7 }, 1.03), fiber: 0, sodium: 38 },
+    servings: [sv('glass', '1 glass (250 ml)', 257.5, true, '1 گلاس'), sv('cup', '1 cup (200 ml)', 206, false, '1 کپ')],
+    tags: ['international', 'spanish', 'vegetarian', 'packaged', 'gym'], slots: ['breakfast', 'evening'], halal: HALAL,
+    source: merc('Leche semidesnatada Hacendado', 10382, '8402001002106', '1 l brik', 'Label per 100 ml: 49 kcal, P 3.2, C 4.7 (sugars 4.7), F 1.6, salt 0.0975 g; ÷ 1.03 g/ml (RULES water-like) for per 100 g. Ingredient: semi-skimmed cow milk only.'),
+  },
+  {
+    id: 'intl-egg-whites-liquid', name: 'Egg whites, liquid pasteurised (carton)',
+    aliases: ['egg whites', 'liquid egg whites', 'claras de huevo', 'claras', 'claras líquidas', 'clares d\'ou', 'egg white carton', 'anday ki safedi', 'safedi'],
+    group: 'egg', state: 'pasteurised liquid egg white, as sold (cook before eating)',
+    per100g: { kcal: 42, protein: 11, carbs: 0.5, fat: 0.5, fiber: 0, sugars: 0.5, satFat: 0.1, sodium: salt2na(0.44) },
+    servings: [sv('portion', '100 ml (about 3 egg whites)', 103, true), sv('white', '1 egg white\'s worth (2 tbsp)', 33), sv('tbsp', '1 tablespoon', 15.5)],
+    tags: ['international', 'spanish', 'vegetarian', 'contains-egg', 'packaged', 'gym'], slots: ['breakfast', 'dinner'], halal: HALAL,
+    source: merc('Claras de huevo líquidas pasteurizadas (Huevos Güilén)', 31312, '8411384100941', '1 l bottle', 'Label per 100 g: 42 kcal, P 11, C 0.5, F 0.5, sat 0.1, salt 0.44 g. Ingredients: pasteurised hen egg white, E-202. Serving: USDA SR 172183, 1 large egg white = 33 g; 100 ml × 1.03 g/ml.'),
+  },
+  {
+    id: 'es-queso-fresco-batido', name: 'Queso fresco batido 0 % (whipped fresh cheese)',
+    aliases: ['queso fresco batido', 'queso batido', 'formatge fresc batut', 'quark', 'fresh cheese', 'high protein cheese', 'batido 0'],
+    group: 'dairy', state: 'skimmed whipped fresh cheese (0 % fat), as sold',
+    per100g: { kcal: 46, protein: 8, carbs: 3.5, fat: 0.5, fiber: 0, sugars: 3.5, satFat: 0.1, sodium: salt2na(0.1) },
+    servings: [sv('serving', '1 label serving (100 g)', 100, true), sv('large', '1 large bowl (200 g)', 200), sv('tbsp', '1 tablespoon', 15.5)],
+    tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'], slots: ['breakfast', 'evening', 'snacks'], halal: HALAL,
+    source: merc('Queso fresco batido desnatado 0% MG Hacendado', 51071, '8480000510716', '500 g tub', 'Label per 100 g: 46 kcal, P 8, C 3.5 (sugars 3.5), F 0.5, sat 0.1, salt 0.1 g. Ingredients: skimmed pasteurised cow milk, lactic cultures (no rennet, no gelatine). Label serving 100 g; tbsp at 1.03 g/ml.'),
+  },
+  {
+    id: 'es-queso-burgos-0', name: 'Queso fresco de Burgos 0 % (fresh cheese, single tub)',
+    aliases: ['queso de burgos', 'queso burgos', 'burgos 0', 'queso fresco', 'formatge de burgos', 'formatge fresc', 'fresh cheese', 'paneer style cheese'],
+    group: 'dairy', state: 'skimmed fresh cheese, drained, as sold',
+    per100g: { kcal: 67, protein: 12, carbs: 3.9, fat: 0.4, fiber: 0, sugars: 3.9, satFat: 0.1, sodium: salt2na(0.91) },
+    servings: [sv('tub', '1 single tub (62.5 g)', 62.5, true), sv('two-tubs', '2 single tubs', 125)],
+    tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'], slots: ['breakfast', 'evening', 'dinner'], halal: HALAL,
+    source: merc('Queso fresco Burgos desnatado 0% MG Hacendado', 52409, '8480000524096', '250 g (4 × 62.5 g)', 'Label per 100 g: 67 kcal, P 12, C 3.9 (sugars 3.9), F 0.4, sat 0.1, salt 0.91 g; fibre not declared (0). Ingredients: skimmed pasteurised milk, salt, flavouring, rennet (cuajo microbiano: not animal).'),
+  },
+  {
+    id: 'intl-feta', name: 'Feta cheese (sheep and goat, cubes)',
+    aliases: ['feta', 'feta cheese', 'queso feta', 'feta en dados', 'formatge feta'],
+    group: 'dairy', state: 'drained cubes in brine, as eaten',
+    per100g: { kcal: 274, protein: 16, carbs: 1, fat: 23.2, fiber: 0, sugars: 0, satFat: 16.4, sodium: salt2na(2.2) },
+    servings: [sv('portion', '1 label portion (30 g)', 30, true), sv('salad', '1 salad portion (50 g)', 50)],
+    tags: ['mediterranean', 'vegetarian', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner'], halal: CUAJO,
+    source: merc('Queso feta mezcla Hacendado en dados', 51197, '8480000511973', '370 g tub (150 g drained)', 'Label per 100 g: 1147 kJ (274 kcal; OFF shows 277), P 16, C 1, F 23.2, sat 16.4, salt 2.2 g. Ingredients: pasteurised sheep and goat milk, salt, lactic cultures, rennet (cuajo, origin not stated). Label portion 30 g; salad portion 50 g = one-third of the drained tub.'),
+  },
+  {
+    id: 'es-yogur-proteinas-natural', name: 'Protein yogurt, plain 0 % (Mercadona +Proteínas)',
+    aliases: ['protein yogurt', '+proteinas', 'mas proteinas', 'yogur proteinas', 'yogur +proteínas', 'postre lácteo proteínas', 'yogur proteico', 'iogurt proteïnes', 'protein dahi'],
+    group: 'dairy', state: 'skimmed fermented milk, plain, as sold',
+    per100g: { kcal: 52, protein: 10, carbs: 3.1, fat: 0.5, fiber: 0, sugars: 3.1, satFat: 0.1 },
+    servings: [sv('pot', '1 portion (120 g)', 120, true), sv('tbsp', '1 tablespoon', 15.5)],
+    tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'], slots: ['breakfast', 'evening', 'snacks'], halal: HALAL,
+    source: merc('Postre lácteo natural +Proteínas 10 g 0% MG', 21256, '8480000212566', '500 g tub', 'Label per 100 g: 52 kcal, P 10, C 3.1 (sugars 3.1), F 0.5, sat 0.1 g. Ingredients: skimmed pasteurised milk, lactic cultures (no gelatine). Label portion 120 g. Same product as Yusuf\'s ingredient "protein-yogurt".'),
+  },
+  // ---------------------------------------------------------------- canned fish
+  {
+    id: 'intl-salmon-canned', name: 'Salmon, canned (al natural)',
+    aliases: ['canned salmon', 'tinned salmon', 'salmon', 'salmón al natural', 'salmon en lata', 'salmó', 'salmon can'],
+    group: 'meat-fish', state: 'canned in its own juice, as sold (small can)',
+    per100g: { kcal: 143, protein: 17, carbs: 1.8, fat: 7.5, fiber: 0, sugars: 0.5, satFat: 1.4, sodium: salt2na(1.2) },
+    servings: [sv('can', '1 can (80 g)', 80, true)],
+    tags: ['international', 'packaged', 'gym', 'seafood-fish', 'eat-cold', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Salmón al natural Hacendado', 18817, '8480000188175', 'pack of 3 × 80 g', 'Label per 100 g: 597 kJ (143 kcal), P 17, C 1.8 (sugars 0.5), F 7.5, sat 1.4, salt 1.2 g. Can = 80 g (pack label 3 × 80 g).'),
+  },
+  {
+    id: 'intl-sardines-olive-oil', name: 'Sardines in olive oil, canned',
+    aliases: ['sardines', 'sardine', 'sardinas', 'sardinas en aceite', 'sardinillas', 'sardines en oli', 'canned sardines'],
+    group: 'meat-fish', state: 'canned in olive oil, drained, as eaten',
+    per100g: { kcal: 289, protein: 20, carbs: 0.7, fat: 23, fiber: 0, sugars: 0.5, satFat: 4.2, sodium: salt2na(0.78) },
+    servings: [sv('can', '1 can, drained (84 g)', 84, true)],
+    tags: ['spanish', 'packaged', 'gym', 'seafood-fish', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Sardinas en aceite de oliva Hacendado', 18225, '8480000182258', 'pack of 2 × 117 g (84 g drained)', 'Label per 100 g: 289 kcal, P 20, C 0.7 (sugars 0.5), F 23, sat 4.2, salt 0.78 g. Ingredients: sardine 72 %, olive oil 27 %, salt. Cross-check USDA SR 175139 (drained, with bone) 208 kcal, F 11.5: the label keeps more oil, so this record is on the high side if you drain well.'),
+  },
+  {
+    id: 'intl-mackerel-olive-oil', name: 'Mackerel fillets in olive oil, canned (caballa)',
+    aliases: ['mackerel', 'caballa', 'caballa en aceite', 'filetes de caballa', 'verat', 'canned mackerel', 'melva'],
+    group: 'meat-fish', state: 'canned in olive oil, drained, as eaten',
+    per100g: { kcal: 305, protein: 18, carbs: 0.6, fat: 26, fiber: 0, sugars: 0.5, satFat: 4.1, sodium: salt2na(0.89) },
+    servings: [sv('can', '1 can, drained (85 g)', 85, true)],
+    tags: ['spanish', 'packaged', 'gym', 'seafood-fish', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Filetes de caballa del sur en aceite de oliva Hacendado', 13628, '8402001031076', 'pack of 2 × 120 g', 'Label per 100 g: 1278 kJ (305 kcal; OFF\'s 202 kcal field is a typing error: 4×18 + 9×26 = 306), P 18, C 0.6, F 26, sat 4.1, salt 0.89 g. Ingredients: mackerel 71 %, olive oil 28 %, salt. Label portion 85 g.'),
+  },
+];
+// Mercadona boiled-egg pack, mandarins/clementines and skyr already have records: aliases only (no new ids).
+for (const [id, extra] of [
+  ['intl-egg-boiled', ['huevos cocidos', 'boiled egg pack', 'huevos cocidos pelados', 'ous durs']],
+  ['intl-kinnow', ['clementina', 'clementinas', 'clementine', 'mandarines', 'mandarinas']],
+]) {
+  const r = basics.find((x) => x.id === id);
+  r.aliases = [...new Set([...r.aliases, ...extra])];
+}
+basics.push(...marketBasics);
+
+const marketIntl = [
+  // ---------------------------------------------------------------- ready grains, bread and dry staples
+  {
+    id: 'intl-rice-cup-basmati', name: 'Basmati rice, microwave cup (ready cooked)', nameRoman: 'chawal cup',
+    aliases: ['rice cup', 'microwave rice', 'vasito de arroz', 'arroz cocido basmati', 'sabroz', 'arroz basmati cocido', 'chawal', 'ready rice'],
+    group: 'grain-cooked', state: 'cooked basmati with a little sunflower oil and salt, as sold (heat 40–60 s)',
+    per100g: { kcal: 164, protein: 3.9, carbs: 31, fat: 2.2, fiber: 1.6, sugars: 0, satFat: 0.3, sodium: salt2na(0.875) },
+    servings: [sv('pot', '1 cup (125 g)', 125, true), ...katori(0.67).map(({ default: _d, ...s }) => s)],
+    tags: ['international', 'vegetarian', 'vegan', 'packaged', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Arroz cocido basmati Sabroz', 22280, '8410184040730', '2 × 125 g cups', 'Label per 100 g: 164 kcal, P 3.9, C 31 (sugars 0), F 2.2, sat 0.3, fibre 1.6, salt 0.875 g. Ingredients: cooked basmati 98 %, sunflower oil, salt, sunflower lecithin. Katori servings × 0.67 g/ml (RULES plain cooked rice).'),
+  },
+  {
+    id: 'intl-rice-cup-brown', name: 'Brown rice, microwave cup (ready cooked)', nameRoman: 'brown chawal cup',
+    aliases: ['brown rice cup', 'microwave brown rice', 'arroz integral cocido', 'vasito arroz integral', 'sabroz integral', 'brown rice', 'ready rice'],
+    group: 'grain-cooked', state: 'cooked brown rice with a little sunflower oil and salt, as sold (heat 40–60 s)',
+    per100g: { kcal: 164, protein: 3.8, carbs: 31, fat: 2.2, fiber: 2.8, sugars: 0.5, satFat: 0.4, sodium: salt2na(0.295) },
+    servings: [sv('pot', '1 cup (125 g)', 125, true), ...katori(0.67).map(({ default: _d, ...s }) => s)],
+    tags: ['international', 'vegetarian', 'vegan', 'packaged', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Arroz cocido integral Sabroz', 22281, '8410184040747', '2 × 125 g cups', 'Label per 100 g: 164 kcal, P 3.8, C 31 (sugars 0.5), F 2.2, sat 0.4, fibre 2.8, salt 0.295 g. Ingredients: cooked brown rice 98 %, sunflower oil, salt, sunflower lecithin. Label portion 1 cup (125 g); katori × 0.67 g/ml.'),
+  },
+  {
+    id: 'intl-rice-basmati-dry', name: 'Basmati rice, dry', nameUr: 'باسمتی چاول', nameRoman: 'basmati chawal (kachay)',
+    aliases: ['basmati', 'basmati rice', 'dry rice', 'raw rice', 'chawal', 'chaawal', 'kachay chawal', 'arroz basmati', 'arròs basmati'],
+    group: 'dry-staple', state: 'dry, uncooked, as sold',
+    per100g: { kcal: 355, protein: 9, carbs: 78, fat: 0.6, fiber: 0, sugars: 0.5, satFat: 0.2, sodium: 0 },
+    servings: [sv('portion', '1 portion dry (70 g, label serving)', 70, true), sv('100g', '100 g dry', 100)],
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Arroz basmati aromático Hacendado', 5002, '8480000050021', '1 kg', 'Label per 100 g: 355 kcal, P 9, C 78 (sugars 0.5), F 0.6, sat 0.2, fibre 0 g as printed. Label serving 70 g dry. Ingredient: rice.'),
+  },
+  {
+    id: 'intl-rice-brown-dry', name: 'Brown rice, long grain, dry', nameRoman: 'brown chawal (kachay)',
+    aliases: ['brown rice', 'dry brown rice', 'arroz integral', 'arroz integral largo', 'arròs integral'],
+    group: 'dry-staple', state: 'dry, uncooked, as sold',
+    per100g: { kcal: 350, protein: 7.6, carbs: 72, fat: 2.8, fiber: 3.3, sugars: 0.5, satFat: 0.7, sodium: 4 },
+    servings: [sv('portion', '1 portion dry (70 g)', 70, true), sv('100g', '100 g dry', 100)],
+    tags: ['international', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Arroz integral largo Hacendado', 5184, '8480000051844', '1 kg', 'Label per 100 g: 350 kcal, P 7.6, C 72 (sugars 0.5), F 2.8, sat 0.7, fibre 3.3, salt 0.01 g. Portion 70 g dry as on the basmati label.'),
+  },
+  {
+    id: 'intl-pasta-wholewheat-dry', name: 'Wholewheat pasta, dry (penne)',
+    aliases: ['wholewheat pasta', 'whole wheat pasta', 'brown pasta', 'pasta integral', 'macarrones integrales', 'macarrón integral', 'espaguetis integrales', 'pasta integral seca'],
+    group: 'dry-staple', state: 'dry, uncooked, as sold',
+    per100g: { kcal: 345, protein: 13.5, carbs: 62, fat: 2.4, fiber: 10, sugars: 3.7, satFat: 0.5, sodium: 4 },
+    servings: [sv('portion', '1 portion dry (80 g)', 80, true), sv('100g', '100 g dry', 100)],
+    tags: ['international', 'vegetarian', 'vegan', 'packaged', 'gym'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Macarrón rayado integral Hacendado', 35777, '8402001010194', '500 g', 'Label per 100 g: 345 kcal, P 13.5, C 62 (sugars 3.7), F 2.4, sat 0.5, fibre 10, salt 0.01 g. Ingredient: wholewheat durum semolina. Gram servings.'),
+  },
+  {
+    id: 'intl-chia-seeds', name: 'Chia seeds',
+    aliases: ['chia', 'chia seeds', 'semillas de chía', 'semillas de chia', 'llavors de chía'],
+    group: 'nuts-seeds', state: 'dry seeds, as sold',
+    per100g: { kcal: 464, protein: 22, carbs: 2.6, fat: 34, fiber: 30, sugars: 0.4, satFat: 4, sodium: 4 },
+    servings: [sv('15g', '15 g', 15, true), sv('10g', '10 g', 10)],
+    tags: ['international', 'vegetarian', 'vegan', 'packaged', 'gym'], slots: ['breakfast', 'snacks'], halal: HALAL,
+    source: merc('Semillas de chía Hacendado', 5464, '8402001034695', '150 g', 'Label per 100 g: 464 kcal, P 22, C 2.6 (sugars 0.4), F 34, sat 4, fibre 30, salt 0.01 g. Gram servings (USDA SR 170554 gives only 1 oz = 28.35 g).'),
+  },
+  {
+    id: 'intl-bread-wholemeal-sliced', name: 'Wholemeal sliced bread (pan de molde 100 % integral)',
+    aliases: ['wholemeal bread', 'brown bread', 'whole wheat bread', 'pan de molde integral', 'pan integral de molde', 'pa de motlle integral', 'brown double roti', 'atta bread'],
+    group: 'bread', state: 'as sold (sliced loaf)',
+    per100g: { kcal: 248, protein: 8.6, carbs: 41.4, fat: 3.8, fiber: 7.6, sugars: 2.4, satFat: 0.7, sodium: salt2na(1.19) },
+    servings: [sv('slice', '1 slice', 29, true), sv('two-slices', '2 slices', 58)],
+    tags: ['international', 'spanish', 'vegetarian', 'packaged'], slots: ['breakfast', 'lunch'], halal: E471('The loaf'),
+    source: merc('Pan de molde 100% integral Hacendado', 82328, '8402001024184', '460 g', 'Label per 29 g slice converted to per 100 g by OFF: 248 kcal, P 8.6, C 41.4 (sugars 2.4), F 3.8, sat 0.7, fibre 7.6, salt 1.19 g. Ingredients include E-471 and wine vinegar (vinagre).'),
+  },
+  {
+    id: 'intl-tortilla-wrap-wholewheat', name: 'Wholewheat tortilla wrap',
+    aliases: ['wrap', 'wraps', 'tortilla wrap', 'wholewheat wrap', 'tortillas de trigo integrales', 'tortilla integral', 'fajita wrap', 'roti wrap'],
+    group: 'bread', state: 'as sold (heat 20 s in a pan or microwave)',
+    per100g: { kcal: 270, protein: 9.3, carbs: 41, fat: 5.8, fiber: 8.5, sugars: 2.1, satFat: 1.9, sodium: salt2na(1.5) },
+    servings: [sv('wrap', '1 wrap (36 g)', 36, true), sv('two-wraps', '2 wraps', 72)],
+    tags: ['international', 'vegetarian', 'packaged'], slots: ['lunch', 'dinner'], halal: E471('The wrap'),
+    source: merc('Tortillas de trigo integrales Hacendado', 80942, '8480000809421', '360 g (10 wraps)', 'Label per 100 g: 1132 kJ (270 kcal), P 9.3, C 41 (sugars 2.1), F 5.8, sat 1.9, fibre 8.5, salt 1.5 g. Label serving 1 wrap = 36 g. Ingredients include E-471.'),
+  },
+  {
+    id: 'intl-atta-wholemeal', name: 'Wholemeal flour (atta)', nameUr: 'آٹا', nameRoman: 'atta',
+    aliases: ['atta', 'aata', 'chakki atta', 'wholemeal flour', 'whole wheat flour', 'harina integral', 'harina integral de trigo', 'farina integral', 'gandum ka atta'],
+    group: 'dry-staple', state: 'dry flour, as sold',
+    ...fromIfct('A019', 'Mercadona "Harina integral de trigo Hacendado" (product 29134, EAN 8402001018176, OFF read 2026-10-14) agrees: 328 kcal, P 12, C 60, F 2, fibre 11 per 100 g.'),
+    servings: [sv('100g', '100 g', 100, true), sv('50g', '50 g', 50)],
+    tags: ['pakistani', 'international', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-chana-dal-dry', name: 'Chana dal, dry (split Bengal gram)', nameUr: 'چنے کی دال', nameRoman: 'chanay ki daal',
+    aliases: ['chana dal', 'chana daal', 'chanay ki daal', 'chane ki dal', 'split chickpeas', 'bengal gram dal', 'chana dal dry'],
+    group: 'dry-staple', state: 'dry, uncooked, as sold (desi shop)',
+    ...fromIfct('B001', 'Bought at the Pakistani or Indian shop (Raval); not stocked by Mercadona.'),
+    servings: [sv('portion', '1 portion dry (50 g)', 50, true), sv('100g', '100 g dry', 100)],
+    tags: ['pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-masoor-dal-dry', name: 'Masoor dal, dry (split red lentils)', nameUr: 'مسور کی دال', nameRoman: 'masoor ki daal',
+    aliases: ['masoor dal', 'masoor daal', 'masur dal', 'red lentils', 'split red lentils', 'lentejas rojas', 'lentejas peladas', 'masoor dry'],
+    group: 'dry-staple', state: 'dry, uncooked, as sold',
+    ...fromIfct('B013', 'IFCT "Lentil dal" is the split, husked lentil (masoor dal). Desi shop; some Lidl and Carrefour stores sell lentejas rojas.'),
+    servings: [sv('portion', '1 portion dry (50 g)', 50, true), sv('100g', '100 g dry', 100)],
+    tags: ['pakistani', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+];
+intl.push(...marketIntl);
+
+const marketEsMed = [
+  // ---------------------------------------------------------------- jarred legumes, chilled soups and dips
+  {
+    id: 'es-garbanzos-cocidos', name: 'Chickpeas, jarred (cooked), drained', nameUr: 'کابلی چنے', nameRoman: 'kabuli chanay',
+    aliases: ['chickpeas', 'jarred chickpeas', 'canned chickpeas', 'garbanzos cocidos', 'garbanzo cocido', 'garbanzos de bote', 'cigrons', 'cigrons cuits', 'chana', 'chanay', 'kabuli chana', 'safaid chanay'],
+    group: 'daal-legume', state: 'cooked, drained and rinsed (from a jar or can)',
+    ...u2(173801, 'A', 'Katori servings × 0.642 g/ml (USDA 173801: 1 cup drained = 152 g). Jar serving: Hacendado 570 g jar ≈ 400 g drained (Yusuf, research/yusuf/ingredients.mjs). Cross-check: the Hacendado label (OFF 8480000260291: 90 kcal, P 5.5, C 9.5, F 2.2, fibre 4.7 per 100 g) appears to be per net contents including the liquid, so drained USDA values are used. Ingredients: chickpeas, water, salt, E-223, E-385.'),
+    servings: [...katori(152 / 236.6), sv('half-jar', '½ jar, drained (200 g)', 200), sv('jar', '1 jar, drained (400 g)', 400)],
+    tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'eat-cold', 'meal-prep', 'gym'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'es-lentejas-cocidas', name: 'Lentils, jarred (cooked), drained',
+    aliases: ['jarred lentils', 'canned lentils', 'cooked lentils', 'lentejas cocidas', 'lenteja cocida', 'lentejas de bote', 'llenties cuites', 'lentils'],
+    group: 'daal-legume', state: 'cooked, drained (from a jar)',
+    per100g: { kcal: 89, protein: 8.2, carbs: 10.7, fat: 0.4, fiber: 4.9, sugars: 0.5, satFat: 0.1, sodium: salt2na(1) },
+    source: merc('Lenteja cocida Hacendado', 26030, '8480000260307', '570 g jar', 'Label per 100 g: 374 kJ (89 kcal), P 8.2, C 10.7 (sugars 0.5), F 0.4, sat 0.1, salt 1 g; fibre not on OFF: 4.9 g = label energy left after 4P + 4C + 9F, at 2 kcal/g (EU factor). Protein is 91 % of USDA boiled lentils (SR 172421: 116 kcal, P 9.0, fibre 7.9), so the label reads as drained lentils that hold more water. USDA 172421 itself fails our 4/4/9/2 energy gate (specific Atwater factors). Katori servings × 0.837 g/ml (USDA 172421: 1 cup = 198 g). Ingredients: lentils, water, salt, E-385, ascorbic acid.'),
+    servings: [...katori(198 / 236.6), sv('half-jar', '½ jar, drained (200 g)', 200)],
+    tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'eat-cold', 'meal-prep', 'gym'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'es-gazpacho-envasado', name: 'Gazpacho, supermarket carton (Hacendado tradicional)',
+    aliases: ['gazpacho hacendado', 'gazpacho de brick', 'gazpacho envasado', 'gazpacho mercadona', 'gaspatxo', 'gazpacho', 'cold tomato soup'],
+    group: 'soup', state: 'chilled, as sold',
+    per100g: { kcal: 40, protein: 0.9, carbs: 3.4, fat: 2.6, fiber: 1, sugars: 3.3, satFat: 0.4, sodium: salt2na(0.8) },
+    servings: [sv('brick', '1 small carton (330 ml)', 340, true), sv('glass', '1 glass (250 ml)', 257.5), ...katori(1.03).map(({ default: _d, ...s }) => s)],
+    tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner', 'evening'], halal: HALAL,
+    source: merc('Gazpacho tradicional Hacendado', 39934, '8402001019401', 'pack of 3 × 330 ml', 'Label per 100 g: 40 kcal, P 0.9, C 3.4 (sugars 3.3), F 2.6, sat 0.4, fibre 1, salt 0.8 g. Ingredients: fresh vegetables 92 % (tomato, pepper, cucumber), water, extra virgin olive oil 2.2 %, wine vinegar, salt, garlic (no bread). 1.03 g/ml (RULES water-like).'),
+  },
+  {
+    id: 'es-salmorejo-envasado', name: 'Salmorejo, supermarket carton (Hacendado)',
+    aliases: ['salmorejo', 'salmorejo hacendado', 'salmorejo cordobés', 'salmorejo de brick', 'cold tomato cream'],
+    group: 'soup', state: 'chilled, as sold, without toppings',
+    per100g: { kcal: 85, protein: 1.1, carbs: 5.1, fat: 6.4, fiber: 1.3, sugars: 2.7, satFat: 0.9 },
+    servings: [sv('glass', '1 glass (250 ml)', 257.5, true), ...katori(1.03).map(({ default: _d, ...s }) => s)],
+    tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Salmorejo al estilo cordobés Hacendado', 39902, '8480000399021', '1 l carton', 'Label per 100 g: 85 kcal, P 1.1, C 5.1 (sugars 2.7), F 6.4, sat 0.9, fibre 1.3 g (OFF salt value 0.002 g is implausible: sodium left out). Ingredients: tomato, water, extra virgin olive oil 6 %, breadcrumbs, pepper, salt, sherry vinegar, garlic. Topped with boiled egg it stays halal; bars often add jamón, which this record excludes. 1.03 g/ml (RULES water-like).'),
+  },
+  {
+    id: 'med-guacamole', name: 'Guacamole (supermarket tub)',
+    aliases: ['guacamole', 'guac', 'guacamole hacendado', 'avocado dip', 'aguacate dip'],
+    group: 'side-dip', state: 'chilled, as sold',
+    ...u2(2709307, 'B', 'FNDDS "Guacamole, NFS" used because the Hacendado (Montosa) label on OFF 8436008521063 does not add up (203 kcal vs 929 kJ, fibre 10.7 g for 95 % avocado); that label suggests about 205–220 kcal, so this record may read low. Servings: FNDDS 1 individual container = 70 g, 1 tbsp = 15 g (1.0 g/ml for katori). Ingredients (Mercadona 3852): avocado 95 %, dehydrated onion and garlic, salt, jalapeño, sugar, citric and ascorbic acid, E-301, E-331, E-202, coriander.'),
+    servings: [sv('pot', '1 snack pot (70 g)', 70, true), ...katori(1.0).map(({ default: _d, ...s }) => s)],
+    tags: ['mediterranean', 'international', 'vegetarian', 'vegan', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner', 'snacks'], halal: HALAL,
+  },
+  // ---------------------------------------------------------------- bread, picos, pitta
+  {
+    id: 'es-picos-integrales', name: 'Picos integrales (wholemeal breadsticks)',
+    aliases: ['picos', 'picos integrales', 'picos de pan', 'mini breadsticks', 'regañás', 'rosquilletas', 'breadsticks', 'picos 100% integral'],
+    group: 'bread', state: 'baked crunchy mini breadsticks, as sold',
+    per100g: { kcal: 379, protein: 14, carbs: 60.9, fat: 6.4, fiber: 11, sugars: 3.1, satFat: 0.8, sodium: salt2na(2.1) },
+    servings: [sv('30g', '30 g (a small handful)', 30, true), sv('15g', '15 g', 15)],
+    tags: ['spanish', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'evening', 'snacks'], halal: HALAL,
+    source: merc('Picos 100% integral de trigo Hacendado', 86215, '8480000862150', '250 g', 'Label per 100 g: 379 kcal, P 14, C 60.9 (sugars 3.1), F 6.4, sat 0.8, fibre 11, salt 2.1 g. Ingredients: wholemeal wheat flour 87 %, high-oleic sunflower oil, yeast, salt, ascorbic acid (no lard). Gram servings (no unit weight published).'),
+  },
+  {
+    id: 'med-pita-bread', name: 'Pitta bread (white)', nameRoman: 'pita',
+    aliases: ['pitta', 'pita', 'pita bread', 'pan de pita', 'pa de pita', 'khubz', 'arabic bread', 'mission pita'],
+    group: 'bread', state: 'as sold (toast or warm)',
+    per100g: { kcal: 254, protein: 9.3, carbs: 50.8, fat: 1, fiber: 2.6, sugars: 3.9, satFat: 0.2, sodium: salt2na(0.7) },
+    servings: [sv('pita', '1 pitta (60 g)', 60, true)],
+    tags: ['middle-eastern', 'mediterranean', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Pan de pita Mission', 14378, '5036034406834', '300 g (5 × 60 g)', 'Label per 100 g: 254 kcal, P 9.3, C 50.8 (sugars 3.9), F 1, sat 0.2, fibre 2.6, salt 0.7 g. Ingredients: fortified wheat flour, water, yeast, salt, gluten, rapeseed oil, calcium propionate (no E-471, no lard). 1 pitta = 60 g (label).'),
+  },
+  // ---------------------------------------------------------------- dry staples and cupboard
+  {
+    id: 'med-couscous-dry', name: 'Couscous, dry (medium)',
+    aliases: ['couscous', 'cous cous', 'cuscús', 'cuscus', 'kuskus', 'dry couscous'],
+    group: 'dry-staple', state: 'dry, as sold (pour over boiling water, 5 min)',
+    per100g: { kcal: 346, protein: 12, carbs: 69, fat: 1.6, fiber: 3.9, sugars: 2.5, satFat: 0.4 },
+    servings: [sv('portion', '1 portion dry (50 g, label serving)', 50, true), sv('75g', '75 g dry', 75)],
+    tags: ['mediterranean', 'middle-eastern', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Cous cous mediano Hacendado (Bia SpA)', 9395, '8011033012108', '1 kg box', 'Label per 100 g: 346 kcal, P 12, C 69 (sugars 2.5), F 1.6, sat 0.4, fibre 3.9 g. Ingredients: durum wheat semolina, water. Label serving 50 g dry.'),
+  },
+  {
+    id: 'med-bulgur-dry', name: 'Bulgur wheat, dry',
+    aliases: ['bulgur', 'bulghur', 'burghul', 'bulgur wheat', 'trigo bulgur', 'dalia', 'daliya'],
+    group: 'dry-staple', state: 'dry, as sold (Lidl, Turkish or desi shops; not stocked by Mercadona)',
+    ...u2(2710820, 'A', 'Gram servings.'),
+    servings: [sv('portion', '1 portion dry (50 g)', 50, true), sv('75g', '75 g dry', 75)],
+    tags: ['mediterranean', 'middle-eastern', 'vegetarian', 'vegan'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'es-tomate-triturado', name: 'Crushed tomato (tomate triturado, jar)',
+    aliases: ['crushed tomato', 'crushed tomatoes', 'tomate triturado', 'tomàquet triturat', 'passata', 'tinned tomatoes', 'tamatar puree'],
+    group: 'vegetable', state: 'canned/jarred crushed tomato, as sold',
+    per100g: { kcal: 21, protein: 1, carbs: 3.5, fat: 0.1, fiber: 1.9, sugars: 3.5, satFat: 0, sodium: salt2na(0.5) },
+    servings: [sv('100g', '100 g', 100, true), sv('jar-small', '1 small jar (400 g)', 400)],
+    tags: ['spanish', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Tomate triturado Hacendado', 16043, '8402001001543', '800 g jar', 'Label per 100 g: 21 kcal, P 1, C 3.5 (sugars 3.5), F 0.1, sat 0, salt 0.5 g; fibre not on the label: 1.9 g from USDA SR 170501 (crushed canned tomatoes). Ingredients: tomato, salt, sugar, citric acid. Small jar 400 g = Mercadona product 16044.'),
+  },
+  {
+    id: 'es-pan-rallado', name: 'Breadcrumbs (pan rallado)',
+    aliases: ['breadcrumbs', 'bread crumbs', 'pan rallado', 'pa ratllat', 'panko', 'crumbs'],
+    group: 'dry-staple', state: 'dry, as sold',
+    per100g: { kcal: 369, protein: 9.6, carbs: 78.1, fat: 1.3, fiber: 4.5, sugars: 3.4, satFat: 0.3, sodium: salt2na(1) },
+    servings: [sv('tbsp', '1 tablespoon', 6.8, true), sv('30g', '30 g', 30)],
+    tags: ['spanish', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc('Pan rallado Hacendado', 82219, '8480000822192', '750 g', 'Label per 100 g: 369 kcal, P 9.58, C 78.12 (sugars 3.4), F 1.26, sat 0.3, salt 1 g; fibre not on the label: 4.5 g from USDA SR 174928 (dry breadcrumbs). Ingredients: wheat flour, water, salt, yeast (no lard). tbsp = USDA 174928 1 cup 108 g ÷ 16.'),
+  },
+];
+esmed.push(...marketEsMed);
+// Existing med-hummus already matches Spanish supermarket tubs (CoFID 13-556): alias for the Hacendado tub.
+{
+  const h = esmed.find((x) => x.id === 'med-hummus');
+  h.aliases = [...new Set([...h.aliases, 'hummus hacendado', 'hummus mercadona', 'hummus tub'])];
+}
+
 // ---------------------------------------------------------------- write files
 const KEY_ORDER = ['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'tags', 'slots', 'halal', 'source'];
 const q = (s) => `'${String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;

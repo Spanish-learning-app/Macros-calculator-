@@ -1,6 +1,7 @@
 // Small shared pieces for recipes and meal prep (Sprint 2). Owner: Lena.
 import { h } from '../dom.js';
 import { fmtKcal, fmtGrams, fmtDateShort, relativeDay } from './format.js';
+import { halalChip } from './food-bits.js';
 
 /** "650 kcal · 49.6 g protein · 69 g carbs · 18 g fat · 8.4 g fibre" */
 export function macroLine(n, { hideKcal = false } = {}) {
@@ -29,21 +30,46 @@ export function plural(n, word) {
   return `${n} ${n === 1 ? word : pluralWord(word)}`;
 }
 
-/** "Mon 2 Nov" with "Today"/"Tomorrow" in front when it applies. */
+/** Day view style: "today", "tomorrow", "yesterday" (lowercase, they sit inside a sentence),
+ * else the short date "Wed, 4 Nov". Priya's design note 3. */
 export function dayText(iso, today) {
   const rel = relativeDay(iso, today);
-  return rel ? `${rel}, ${fmtDateShort(iso)}` : fmtDateShort(iso);
+  return rel ? rel.toLowerCase() : fmtDateShort(iso);
 }
 
 /**
- * Calm use-by wording (NUTRITION.md §5.4): never red, never a pop-up.
+ * Calm use-by wording (NUTRITION.md §5.4): never red, never a pop-up. Short, so a box row stays
+ * two lines (Priya's note 2).
  * @param {{ storage: string }} box @param {string|null} useBy @param {string|null} status
  */
 export function useByText(box, useBy, status, today) {
-  if (!useBy) return box.storage === 'freezer' ? 'Frozen: no use-by until you move it' : '';
+  if (!useBy) return box.storage === 'freezer' ? 'Frozen, no use-by yet' : '';
   if (status === 'past') return 'Past use-by, best not to eat';
-  if (status === 'last-day') return `Last day: ${dayText(useBy, today)}`;
+  if (status === 'last-day') return `Last day (${dayText(useBy, today)})`;
   return `Use by ${dayText(useBy, today)}`;
+}
+
+/**
+ * The halal status as a chip, always visible (A17; Priya's note 1): the shared tappable chip for
+ * `check` and `not-halal`, and a quiet static "Halal" chip otherwise (never green, never a tick).
+ * @returns {{ chip: HTMLElement, reason: HTMLElement|null }}
+ */
+export function halalBadge(food, rules) {
+  const shared = food ? halalChip(food, rules) : null;
+  if (shared) return shared;
+  const label = rules?.vocab?.halalStatuses?.find((s) => s.id === 'halal')?.label ?? 'Halal';
+  return {
+    chip: h(
+      'span',
+      {
+        class: 'chip-halal chip-halal--halal',
+        'data-testid': 'halal-chip',
+        'data-status': 'halal',
+      },
+      label,
+    ),
+    reason: null,
+  };
 }
 
 /** A small calm note line (kind: 'info' | 'last' | 'past'). */
@@ -69,4 +95,29 @@ export async function copyText(text, fallbackHost) {
     area.select();
   }
   return false;
+}
+
+/** Library effort tiers (§13.1, Boss's "less cooking" request): absent means 'cook'. */
+export const EFFORTS = Object.freeze(['cook', 'assemble', 'ready']);
+
+/** 'cook' | 'assemble' | 'ready' for a LibraryRecipe (or null). */
+export function effortOf(recipe) {
+  return EFFORTS.includes(recipe?.effort) ? recipe.effort : 'cook';
+}
+
+/** Prep library filter: 'all', 'cook' or 'no-cook' (assemble and ready, 15 minutes or less). */
+export function matchesEffort(recipe, filter) {
+  if (filter === 'cook') return effortOf(recipe) === 'cook';
+  if (filter === 'no-cook') return effortOf(recipe) !== 'cook';
+  return true;
+}
+
+/** "45 min", "10 min, no cooking", "No cooking", "Ready to eat", or null when unknown. */
+export function effortText(recipe) {
+  const effort = effortOf(recipe);
+  const m =
+    Number.isFinite(recipe?.minutes) && recipe.minutes > 0 ? Math.round(recipe.minutes) : null;
+  if (effort === 'ready') return 'Ready to eat';
+  if (effort === 'assemble') return m ? `${m} min, no cooking` : 'No cooking';
+  return m ? `${m} min` : null;
 }

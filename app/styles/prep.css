@@ -206,8 +206,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-2);
-  padding: var(--space-2) 0;
+  gap: var(--space-1) var(--space-2);
+  padding: var(--space-1) 0;
   border-top: 1px solid var(--border);
 }
 
@@ -219,7 +219,7 @@
   display: grid;
   gap: 2px;
   min-width: 0;
-  flex: 1 1 160px;
+  flex: 1 1 150px;
 }
 
 .box-name {
@@ -250,7 +250,7 @@
 .seg-btn {
   min-height: calc(var(--tap) - 6px);
   min-width: var(--tap);
-  padding: var(--space-1) var(--space-3);
+  padding: var(--space-1) var(--space-2);
   border: 0;
   border-radius: var(--radius-pill);
   background: transparent;
@@ -325,17 +325,46 @@
 }
 
 .place-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
+  display: grid;
+  gap: var(--space-1);
   margin-bottom: var(--space-2);
 }
 
-.place-head .select {
-  width: auto;
-  min-width: 150px;
+/* One-tap choice chips (meal, cooked day): aria-pressed buttons. */
+.chip-pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.pick-chip {
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.pick-chip:hover {
+  background: var(--surface-2);
+}
+
+.pick-chip.is-on {
+  border-color: var(--selected);
+  background: var(--selected);
+  color: var(--selected-text);
+}
+
+.box-line {
+  overflow-wrap: anywhere;
+}
+
+.box-line .box-what {
+  font-size: var(--text-sm);
 }
 
 .day-chips {
@@ -381,8 +410,8 @@
 
 .day-chip-mark {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  bottom: 3px;
+  right: 3px;
   display: grid;
   color: var(--selected);
 }
@@ -438,6 +467,7 @@
 
 .cook-halal {
   display: grid;
+  justify-items: start;
   gap: var(--space-1);
   margin: var(--space-2) 0;
 }
@@ -661,4 +691,40 @@
 .day-main {
   order: 2;
   min-width: 0;
+}
+
+/* A halal recipe or batch: a quiet static chip (never green, never a tick). */
+.chip-halal--halal {
+  background-color: var(--surface-2);
+  color: var(--text-muted);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+span.chip-halal {
+  min-width: 0;
+}
+
+.library-filter {
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.prep-time {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.cook-halal .halal-reason {
+  justify-self: stretch;
+}
+
+.prep-main--static:hover {
+  background: transparent;
+}
+
+/* Today's chip: same width as the others, marked by weight and an underline. */
+.day-chip.is-today .day-chip-dow {
+  color: var(--text);
+  font-weight: var(--weight-bold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }

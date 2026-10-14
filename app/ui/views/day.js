@@ -553,7 +553,7 @@ export function mount(container, ctx) {
                     'data-testid': 'move-to-fridge',
                     onclick: () => store.setBoxStorage(m.batchId, m.boxId, 'fridge'),
                   },
-                  'Moved to fridge',
+                  'Move to fridge',
                 ),
               ),
             ),

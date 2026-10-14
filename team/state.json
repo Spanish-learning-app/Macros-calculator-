@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-14T19:31:00Z",
+  "updatedAt": "2026-10-14T19:44:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -61,8 +61,8 @@
     },
     "javier": {
       "location": "office",
-      "status": "working",
-      "task": "Market and ready-to-eat foods"
+      "status": "idle",
+      "task": "Done: 48 market and ready-to-eat records"
     },
     "nasreen": {
       "location": "office",
@@ -71,8 +71,8 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: 13 breakfast/dinner preps, 25 recipes"
+      "status": "working",
+      "task": "No-cook preps + low-cook week"
     },
     "mariam": {
       "location": "office",
@@ -92,9 +92,9 @@
       "output": "tests/**"
     },
     {
-      "member": "javier",
-      "task": "Market/ready-to-eat food records + market staples for Yusuf (team/briefs/s2-market-preps.md)",
-      "output": "app/data/foods-es-med.js, foods-intl.js, foods-basics.js, research/javier/**"
+      "member": "yusuf",
+      "task": "Assemble preps (12-16), effort/minutes tags, swap name-only lines to Javier foodIds, ready picks, low-cook week (team/briefs/s2-market-preps.md)",
+      "output": "app/data/foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
     }
   ],
   "checkIn": {
@@ -160,11 +160,6 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
-    {
-      "member": "yusuf",
-      "task": "Assemble-tier preps (12-16), effort/minutes on all library recipes, ready-to-eat picks, low-cook week plan (team/briefs/s2-market-preps.md). Start after Javier lands.",
-      "output": "app/data/foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
-    },
     {
       "member": "ayesha",
       "task": "Raw meats Yusuf lists (chicken thigh, chicken mince, beef cubes) + review the new prep and market records",

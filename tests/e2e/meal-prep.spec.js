@@ -99,6 +99,14 @@ const libraryRow = (page, id) => page.locator(`[data-testid="library-row"][data-
 const batchCard = (page, nth = 0) => page.getByTestId('batch-card').nth(nth);
 const boxRow = (card, n) => card.locator(`[data-testid="box-row"][data-box="${n}"]`);
 
+/** The batch card's meal control (a drop-down or chips, whichever the UI has) is on `slotId`. */
+async function expectMealSelected(card, slotId) {
+  const control = card.getByTestId('place-slot');
+  if ((await control.evaluate((el) => el.tagName)) === 'SELECT')
+    await expect(control).toHaveValue(slotId);
+  else await expect(control.locator('[aria-pressed="true"]')).toHaveAttribute('data-slot', slotId);
+}
+
 /** Library "Cook" -> dialog -> "Cook N boxes". Returns the number of actions it took. */
 async function cookFromLibrary(page, a, id) {
   await a.tap(libraryRow(page, id).getByTestId('library-cook'), `Cook ${id}`);
@@ -411,7 +419,7 @@ test.describe('A17 boxes into Lunch', () => {
     await expect(card.getByText(/halal/i).first()).toBeVisible();
 
     // step 1: the meal selector is on Lunch for a lunch box, then one tap per day
-    await expect(card.getByTestId('place-slot')).toHaveValue('lunch');
+    await expectMealSelected(card, 'lunch');
     const a = actions(page);
     for (const d of ['mon', 'tue', 'wed', 'thu']) {
       await a.tap(card.locator(`[data-testid="place-day"][data-date="${DAYS[d]}"]`), `box on ${d}`);
@@ -566,7 +574,9 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     // (2) Sunday 21:00. Box 1 (fridge, rice keeps 1 day): use by Monday. Boxes 2-4: frozen, no use-by.
     await timeTravel(page, at(SUN, '21:00'));
     card = batchCard(page);
-    await expect(boxRow(card, 1).getByTestId('box-useby')).toContainText(/use by.*mon/i);
+    await expect(boxRow(card, 1).getByTestId('box-useby')).toContainText(
+      /use by (tomorrow|.*\bmon)/i,
+    );
     for (const n of [2, 3, 4]) {
       const note = boxRow(card, n).getByTestId('box-useby');
       await expect(note, `box ${n}`).toContainText(/frozen/i);
@@ -593,7 +603,7 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     card = batchCard(page);
     await seg(boxRow(card, 2), 'Fridge').click();
     await expect(boxRow(card, 2).getByTestId('box-useby')).toContainText(
-      /use by.*tue|last day.*tue/i,
+      /(use by|last day).*(tomorrow|\btue)/i,
     );
 
     // (5) Tuesday 09:00: box 1 is past its use-by, in calm words (no red, no pop-up); Tuesday's box says last day

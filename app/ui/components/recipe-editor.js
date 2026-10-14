@@ -133,7 +133,12 @@ export function openRecipeEditor({
                 rules,
                 date: today,
                 onPick: (ing) => {
-                  draft.ingredients.push(ing);
+                  // "+" twice on cucumber is 2 cucumbers on one line, not two lines.
+                  const same = draft.ingredients.find(
+                    (x) => x.foodId === ing.foodId && x.servingId === ing.servingId,
+                  );
+                  if (same) same.qty = Math.round((same.qty + ing.qty) * 1000) / 1000;
+                  else draft.ingredients.push(ing);
                   error.hidden = true;
                   renderList();
                   renderSummary();
@@ -233,7 +238,7 @@ export function openRecipeEditor({
               'span',
               { class: 'ing-line' },
               line
-                ? `${amount} · ${fmtGrams(line.grams)} g · ${fmtKcal(line.nutrients.kcal)} kcal`
+                ? `${ing.servingId === 'g' ? '' : `${amount} · `}${fmtGrams(line.grams)} g · ${fmtKcal(line.nutrients.kcal)} kcal`
                 : `${amount} · not in the food list any more`,
             ),
           ),

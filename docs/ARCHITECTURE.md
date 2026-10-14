@@ -681,8 +681,15 @@ LibraryRecipe = { foodId,                       // the Lab food (group lunchbox)
                   storage: (string | { id, pot?: true })[],  // RULES.mealPrep.storage id per component;
                                                 // pot: true = a side pot packed apart (raita), which
                                                 // counts for the fridge life but does not stop freezing
-                  ingredients: [{ foodId?, name?, grams, section?: 'butcher'|'supermarket', note? }] }
+                  ingredients: [{ foodId?, name?, grams, section?: 'butcher'|'supermarket', note? }],
+                  effort?: 'cook'|'assemble'|'ready', // absent = 'cook' (Boss's "less cooking", 14 Oct)
+                  minutes?: number }             // hands-on minutes; assemble ≤ 15
 ```
+
+The Prep library filters on `effort` ("All · Cook · No-cook (≤15 min)", no-cook = `assemble` or
+`ready`) and shows the time on each card ("45 min", "10 min, no cooking", "Ready to eat"); a
+no-cook prep says "Make" instead of "Cook". Helpers: `effortOf`, `matchesEffort`, `effortText` in
+`ui/components/prep-bits.js`. A "Ready to eat" picks row per slot is Sprint 3.
 
 An ingredient needs `grams` and a `foodId` or a `name` (the app shows `name`, else the food's name).
 `section` defaults to `butcher` for foods in groups `meat-fish`, `curry-meat`, `grill-kebab`, else

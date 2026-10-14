@@ -81,3 +81,25 @@
 - 2026-10-14 16:35 UTC: _gate.js: G23 (assumed plate, RULES-driven) + checkMealprepRecipes (M1-M5). New tests/data/{foods,gate,recipes-mealprep}.test.js: real data passes G1-G23 (184 records, 0 fail, 57 G19 warns = same as Ayesha's tool); 11 G23 + meal-prep gate self-tests; recipes file missing -> passes trivially with a diagnostic.
 - 2026-10-14 17:10 UTC: tests/unit/qa/mealprep.test.js: 39 tests (31 real once the module lands, 8 TODO spec gaps). foodFromRecipe 15 (per100g sum vs weighed pot 1300 g, per box = total/boxes at 4 and 5, A10 half and third, box entry in day totals, halal worst + order independence, confidence C, servings/density, validateFood, bad input, 200-recipe property), boxUseBy 10 (fridge lives, rice 1 day, shortest wins in all 6 orders, freezer null, moved +1, A18 batch of 4, 25 Oct DST + 29 Mar + 1 Nov, 730-date sweep vs UTC oracle, purity), boxesLeft 3, placeBox 3 (TODO: signature not in 13), shoppingList 4 + worstHalal 1 placeholders (TODO). Validated against my reference in scratchpad (31/31 in Madrid, Karachi, LA) and 10 mutants all killed. Without the module: 1 pass, 38 todo, 0 fail. Spec gaps: placeBox/shoppingList/worstHalal signatures; user recipes have no storage list.
 - 2026-10-14 ~17:50 UTC: Lena added app/core/mealprep.js and filled in §13.2 (binding signatures) while I worked. Rewrote the mealprep suite to the §13.2 contract: 61 tests, 61 pass against her code in Madrid, Karachi, LA (worstHalal, recipeTotals, foodFromRecipe incl. unrounded per100g/pot/tbsp/chai/RangeErrors, storageIds, storagePlan, boxUseBy, useByStatus, boxesLeft, placeBox, syncBatches, shoppingList incl. 4->8 doubling, butcher first, merge by food/name, section override). 11 mutants of her code (min->max, thaw days, available count, scaling, freezable, off-by-one, ...) all killed. One reading of §13: a thawed box is `storage:'fridge'` + `movedToFridgeOn` (tests use that). Doc changed twice under me (halal reason now the ingredient's own + `ingredient` name; tbsp back in servings; boxes whole >= 1): tests follow the doc as of 18:50 Madrid.
+- 2026-10-14 ~20:00 UTC (continuation after a second usage-limit pause; journal re-read, the mealprep unit suite not redone):
+  **Gate M2 fixed** (tests/data/_gate.js): per §13.1 an ingredient is `{ foodId?, name?, grams, section?, note? }`. M2 now accepts a
+  name-only line, still fails an unknown (or non-string) foodId even when a name is given, fails a line with neither foodId nor name,
+  and requires grams > 0 (so the old M5 "no amount" warning is gone; qty+servingId no longer stands in for grams). The gate returns
+  `stats { ingredients, nameOnly }`; tests/data/recipes-mealprep.test.js prints it as a diagnostic (25 recipes, 384 lines, 257 name-only).
+  4 new self-tests (name-only counted not failed; unknown foodId with a name; neither; grams 0/-5/NaN/Infinity/'30'/null for both kinds).
+  `npm test` was 1 fail (M2), now 0.
+- Taste chip e2e: 5 "no taste chip" cases failed in all 4 projects (20 reds): app/ui/components/portion-picker.js shows the chip on every
+  food and never reads RULES.portionChips.taste.hideWhen (groups fat-oil/sugar-sweetener/condiment, default tsp/tbsp, quarter < 5 g).
+  **BUG-TC1 (Lena)**. The spec now `test.fixme`s those 5 while the source has no `hideWhen`; it turns on by itself when she reads the rule.
+- New tests/e2e/meal-prep.spec.js (12 tests) from CUSTOMER A16-A18. Detection: `needsUi(...ids)` in _app.js (fixme while the UI source
+  lacks a data-testid the test drives). Reads only Lena's testids (listed at the top of the spec). Budget breaks end as a skipped
+  "KNOWN GAP (owner)" after the flow's results are checked.
+  A16: (1) library tikka macros = #49 within 2%, 4 boxes, 2 actions (<= 4); (3) ensaimada blocked with reason, nothing not-halal offered for pork/bacon/jamon/chorizo;
+  (2) "Tikka bowls" built from the customer's list: per box = total / boxes for kcal, P, C, F, fibre at 4 and at 5 boxes (1 tap), saved with 5 boxes;
+  halal worst-ingredient + reason test. The Lab still lacks raw boneless chicken thigh and dry basmati, so the spec serves two stand-in records (real ones win when added).
+  **Budget gap A16 (2): 30 actions vs 25** (5 per ingredient: search, open, "Grams", amount, add; plus New recipe, name, Add, Done, More boxes, Save): Priya/Lena. Skipped as KNOWN GAP.
+  A17: Mon-Thu in 4 taps (<= 6), entries lunch/box/qty 1/planned with boxRef, "0 of 4 left", Friday fifth shows inline "No boxes left" (no dialog), Undo removes it, "Fill Mon-Thu" one tap,
+  Monday 14:00 one tap ticks eaten. A18: proposed fridge/freezer split and changeable, use-by Mon / frozen / last day / Tue / past-use-by in neutral colour, tonight prompt,
+  chana chaat (freezer off, use-by Tue), shopping list (once each, doubles at 8, butcher vs supermarket, copy to clipboard as text).
+  Clock jumps use `page.clock.setSystemTime` + reload (the document persists), all on Sun 1 Nov 2026 (after the DST change, UTC+1).
+- The Thora-sa and Spanish-slot specs already existed from Review 1 (taste-chip.spec.js, spanish-slots.spec.js); kept, run green.

@@ -28,6 +28,10 @@ import {
   useByText,
   noteEl,
   copyText,
+  halalBadge,
+  effortOf,
+  effortText,
+  matchesEffort,
 } from '../components/prep-bits.js';
 
 const SLOT_ORDER = ['breakfast', 'lunch', 'dinner', 'snacks', 'evening'];
@@ -43,10 +47,13 @@ export function mount(container, ctx) {
   const batchesBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-batches' });
   const recipesBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-recipes' });
   const libraryBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-library' });
+  const mealsBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-meals' });
   /** Inline notes per batch (A17: "no boxes left" shows in place, not as a pop-up). */
   const batchNotes = new Map();
   /** The meal each batch card places into. */
   const batchSlot = new Map();
+  /** Library filter: 'all' | 'cook' | 'no-cook'. */
+  let libFilter = 'all';
 
   const root = h(
     'div',
@@ -60,6 +67,7 @@ export function mount(container, ctx) {
     notices,
     batchesBox,
     recipesBox,
+    mealsBox,
     libraryBox,
     toast.el,
   );
@@ -74,19 +82,42 @@ export function mount(container, ctx) {
     const userRecipe = store.recipe(recipeId);
     const lib = store.library().find((l) => l.food.id === recipeId);
     let boxes = userRecipe?.boxes ?? lib?.recipe?.boxes ?? 4;
+    const makeVerb = !userRecipe && effortOf(lib?.recipe) !== 'cook' ? 'Make' : 'Cook';
     let plan = store.planFor(recipeId, boxes);
     let storage = [...plan.storage];
     const per = portionNutrients(food, defaultServingOf(food).id, 1);
-    const halal = halalChip(food, rules);
+    const halal = halalBadge(food, rules);
     const countOut = h('output', { class: 'boxes-count', 'data-testid': 'cook-boxes' });
     const boxesList = h('ul', { class: 'cook-boxes', role: 'list' });
     const keepNote = h('p', { class: 'field-help' });
-    const dateIn = h('input', {
-      type: 'date',
-      class: 'input',
-      value: store.today(),
-      required: true,
-    });
+    // "Cooked on" as three chips in the app's own date words (Priya's note 5: the native date
+    // input showed US order). A batch is cooked yesterday, today or (planned) tomorrow.
+    let cookedOn = store.today();
+    const dateChips = h('div', { class: 'chip-pick', role: 'group', 'aria-label': 'Cooked on' });
+    function renderDates() {
+      const t = store.today();
+      mountChildren(
+        dateChips,
+        [-1, 0, 1].map((n) => {
+          const d = addDays(t, n);
+          return h(
+            'button',
+            {
+              type: 'button',
+              class: ['pick-chip', d === cookedOn ? 'is-on' : null],
+              'aria-pressed': String(d === cookedOn),
+              'data-testid': 'cook-date',
+              'data-date': d,
+              onclick: () => {
+                cookedOn = d;
+                renderDates();
+              },
+            },
+            capital(dayText(d, t)),
+          );
+        }),
+      );
+    }
     const cookBtn = h('button', {
       type: 'button',
       class: 'btn btn-primary',
@@ -95,7 +126,7 @@ export function mount(container, ctx) {
         const batchId = store.cookBatch({
           recipeId,
           boxes,
-          cookedOn: dateIn.value || store.today(),
+          cookedOn,
           storage,
         });
         handle.close('done');
@@ -112,7 +143,7 @@ export function mount(container, ctx) {
 
     function renderBoxes() {
       setText(countOut, String(boxes));
-      setText(cookBtn, `Cook ${plural(boxes, word)}`);
+      setText(cookBtn, `${makeVerb} ${plural(boxes, word)}`);
       const days = plan.fridgeDays;
       setText(
         keepNote,
@@ -154,7 +185,7 @@ export function mount(container, ctx) {
       );
 
     const handle = openDialog({
-      title: `Cook a batch: ${food.name}`,
+      title: `${makeVerb} a batch: ${food.name}`,
       testid: 'cook-dialog',
       content: [
         h(
@@ -164,9 +195,7 @@ export function mount(container, ctx) {
           macroLine(per),
         ),
         h('p', { class: 'muted' }, `${fmtGrams(per.grams)} g per ${word}`),
-        halal
-          ? h('div', { class: 'cook-halal' }, halal.chip, halal.reason)
-          : h('p', { class: 'muted' }, 'Halal'),
+        h('div', { class: 'cook-halal' }, halal.chip, halal.reason),
         h(
           'div',
           { class: 'recipe-row' },
@@ -176,14 +205,15 @@ export function mount(container, ctx) {
             h('span', { class: 'field-label' }, `How many ${pluralWord(word)}`),
             h('div', { class: 'stepper' }, step(-1), countOut, step(1)),
           ),
-          h('label', { class: 'field' }, h('span', { class: 'field-label' }, 'Cooked on'), dateIn),
         ),
+        h('div', { class: 'field' }, h('span', { class: 'field-label' }, 'Cooked'), dateChips),
         h('h3', { class: 'group-title' }, 'Fridge or freezer'),
         keepNote,
         boxesList,
       ],
       actions: cookBtn,
     });
+    renderDates();
     renderBoxes();
   }
 
@@ -240,21 +270,29 @@ export function mount(container, ctx) {
     const slot =
       batchSlot.get(batch.id) ?? food?.slots?.find((s) => SLOT_ORDER.includes(s)) ?? 'lunch';
     const per = food ? portionNutrients(food, defaultServingOf(food).id, 1) : null;
-    const halal = food ? halalChip(food, rules) : null;
+    const halal = halalBadge(food, rules);
     const note = batchNotes.get(batch.id);
 
-    const slotSelect = h(
-      'select',
-      {
-        class: 'select',
-        'aria-label': 'Meal',
-        'data-testid': 'place-slot',
-        onchange: () => {
-          batchSlot.set(batch.id, slotSelect.value);
-          render();
-        },
-      },
-      store.slots().map((s) => h('option', { value: s.id, selected: s.id === slot }, s.label)),
+    // Meal chips instead of a drop-down (Priya's note 6): every meal one tap away.
+    const slotChips = h(
+      'div',
+      { class: 'chip-pick', role: 'group', 'aria-label': 'Meal', 'data-testid': 'place-slot' },
+      store.slots().map((s) =>
+        h(
+          'button',
+          {
+            type: 'button',
+            class: ['pick-chip', s.id === slot ? 'is-on' : null],
+            'aria-pressed': String(s.id === slot),
+            'data-slot': s.id,
+            onclick: () => {
+              batchSlot.set(batch.id, s.id);
+              render();
+            },
+          },
+          s.label,
+        ),
+      ),
     );
 
     const days = Array.from({ length: 7 }, (_, i) => addDays(today, i));
@@ -307,9 +345,7 @@ export function mount(container, ctx) {
       h(
         'div',
         { class: 'batch-meta' },
-        halal
-          ? halal.chip
-          : h('span', { class: 'batch-halal muted', 'data-testid': 'batch-halal' }, 'Halal'),
+        halal.chip,
         per
           ? h(
               'span',
@@ -318,13 +354,13 @@ export function mount(container, ctx) {
             )
           : null,
       ),
-      halal ? halal.reason : null,
+      halal.reason,
       h(
         'ul',
         { class: 'box-list', role: 'list' },
         rows.map(({ box, number, useBy, today: status }) => {
           const placed = box.placed
-            ? `${store.slotLabel(store.day(box.placed.date).entries.find((e) => e.id === box.placed.entryId)?.slot ?? slot)}, ${dayText(box.placed.date, today)}`
+            ? `${store.slotLabel(store.day(box.placed.date).entries.find((e) => e.id === box.placed.entryId)?.slot ?? slot)}, ${boxDay(box.placed.date, today)}`
             : null;
           const what =
             box.status === 'eaten'
@@ -344,8 +380,12 @@ export function mount(container, ctx) {
             h(
               'div',
               { class: 'box-text' },
-              h('span', { class: 'box-name' }, `${capital(word)} ${number}`),
-              h('span', { class: 'box-what' }, what),
+              h(
+                'span',
+                { class: 'box-line' },
+                h('strong', { class: 'box-name' }, `${capital(word)} ${number}`),
+                h('span', { class: 'box-what' }, ` · ${what}`),
+              ),
               done ? null : noteEl(useByText(box, useBy, status, today), kind, 'box-useby'),
             ),
             done
@@ -381,7 +421,7 @@ export function mount(container, ctx) {
           'div',
           { class: 'place-head' },
           h('span', { class: 'field-label' }, `Put a ${word} in`),
-          slotSelect,
+          slotChips,
         ),
         h(
           'div',
@@ -392,15 +432,15 @@ export function mount(container, ctx) {
               'button',
               {
                 type: 'button',
-                class: ['day-chip', n ? 'is-on' : null],
+                class: ['day-chip', n ? 'is-on' : null, d === today ? 'is-today' : null],
                 'data-testid': 'place-day',
                 'data-date': d,
-                'aria-label': `Put a ${word} in ${store.slotLabel(slot)} on ${fmtDateShort(d)}${n ? `, ${n} there already` : ''}`,
+                'aria-label': `Put a ${word} in ${store.slotLabel(slot)} ${d === today ? 'today' : `on ${fmtDateShort(d)}`}${n ? `, ${n} there already` : ''}`,
                 onclick: () => place(d),
               },
-              h('span', { class: 'day-chip-dow' }, d === today ? 'Today' : fmtWeekday(d)),
+              h('span', { class: 'day-chip-dow' }, fmtWeekday(d)),
               h('span', { class: 'day-chip-num' }, String(Number(d.slice(8)))),
-              n ? h('span', { class: 'day-chip-mark' }, iconEl('check', 14)) : null,
+              n ? h('span', { class: 'day-chip-mark' }, iconEl('check', 12)) : null,
             );
           }),
         ),
@@ -415,17 +455,13 @@ export function mount(container, ctx) {
                   const n = store.fillDays({ batchId: batch.id, dates: fill, slot });
                   batchNotes.set(
                     batch.id,
-                    `Placed ${plural(n, word)} in ${store.slotLabel(slot)}, ${fmtDateShort(fill[0])} to ${fmtDateShort(fill[Math.min(n, fill.length) - 1])}.`,
+                    `Placed ${plural(n, word)} in ${store.slotLabel(slot)}, ${dateRange(fill[0], fill[Math.min(n, fill.length) - 1])}.`,
                   );
                   render();
                 },
               },
               iconEl('calendar', 18),
-              h(
-                'span',
-                null,
-                `Fill Mon–Thu (${fmtDateShort(fill[0])} – ${fmtDateShort(fill[fill.length - 1])})`,
-              ),
+              h('span', null, `Fill Mon–Thu · ${dateRange(fill[0], fill[fill.length - 1])}`),
             )
           : null,
         noteEl(note, 'info', 'batch-note'),
@@ -608,9 +644,11 @@ export function mount(container, ctx) {
     );
   }
 
-  function libraryRow({ food }) {
+  function libraryRow({ food, recipe }) {
     const per = portionNutrients(food, defaultServingOf(food).id, 1);
     const halal = halalChip(food, rules);
+    const time = effortText(recipe);
+    const verb = effortOf(recipe) === 'cook' ? 'Cook' : 'Make';
     return h(
       'li',
       { class: 'prep-row', 'data-testid': 'library-row', 'data-food-id': food.id },
@@ -632,6 +670,7 @@ export function mount(container, ctx) {
           { class: 'prep-line' },
           `1 ${boxWord(food, rules)}: ${macroLine(per).split(' · ').slice(0, 2).join(' · ')}`,
         ),
+        time ? h('span', { class: 'prep-time', 'data-testid': 'prep-time' }, time) : null,
       ),
       h(
         'button',
@@ -639,10 +678,10 @@ export function mount(container, ctx) {
           type: 'button',
           class: 'btn btn-secondary btn-small',
           'data-testid': 'library-cook',
-          'aria-label': `Cook ${food.name}`,
+          'aria-label': `${verb} ${food.name}`,
           onclick: () => openCook(food.id),
         },
-        'Cook',
+        verb,
       ),
       halal ? h('div', { class: 'entry-halal' }, halal.chip) : null,
       halal ? halal.reason : null,
@@ -676,7 +715,7 @@ export function mount(container, ctx) {
                     class: 'btn btn-secondary',
                     onclick: () => store.setBoxStorage(m.batchId, m.boxId, 'fridge'),
                   },
-                  'Moved to fridge',
+                  'Move to fridge',
                 ),
               ),
             ),
@@ -762,7 +801,59 @@ export function mount(container, ctx) {
       ),
     );
 
-    const library = store.library();
+    // Saved meals (A5 c): made from a meal's menu on the Day view; added back in one tap there or
+    // in the add sheet. Here they can be checked and deleted (with Undo).
+    const meals = store.savedMeals();
+    mountChildren(
+      mealsBox,
+      h('h3', { class: 'section-title', id: 'prep-meals' }, 'Saved meals'),
+      meals.length
+        ? h(
+            'ul',
+            { class: 'prep-list', role: 'list' },
+            meals.map((meal) =>
+              h(
+                'li',
+                { class: 'prep-row', 'data-testid': 'saved-meal' },
+                h(
+                  'div',
+                  { class: 'prep-main prep-main--static' },
+                  h('span', { class: 'prep-name' }, meal.name),
+                  h(
+                    'span',
+                    { class: 'prep-line' },
+                    meal.items
+                      .map((i) => store.food(i.foodId)?.name)
+                      .filter(Boolean)
+                      .join(' + '),
+                  ),
+                ),
+                h(
+                  'button',
+                  {
+                    type: 'button',
+                    class: 'btn btn-quiet btn-small',
+                    'aria-label': `Delete ${meal.name}`,
+                    onclick: () => store.deleteSavedMeal(meal.id),
+                  },
+                  'Delete',
+                ),
+              ),
+            ),
+          )
+        : h(
+            'p',
+            { class: 'empty-note' },
+            'On the Day view, open a meal’s ⋯ menu to save it as a meal. Then add it again in one tap.',
+          ),
+    );
+
+    const library = store.library().filter((l) => matchesEffort(l.recipe, libFilter));
+    const filters = [
+      ['all', 'All'],
+      ['cook', 'Cook'],
+      ['no-cook', 'No-cook (≤15 min)'],
+    ];
     const groups = SLOT_ORDER.map((slot) => ({
       slot,
       items: library.filter((l) => l.slot === slot),
@@ -773,8 +864,42 @@ export function mount(container, ctx) {
       h(
         'p',
         { class: 'muted' },
-        'Tested halal recipes from the Nutrition Lab. Tap one to cook a batch.',
+        'Tested halal recipes from the Nutrition Lab. Tap one to make a batch.',
       ),
+      h(
+        'div',
+        {
+          class: 'chip-pick library-filter',
+          role: 'group',
+          'aria-label': 'How much cooking',
+          'data-testid': 'library-filter',
+        },
+        filters.map(([id, label]) =>
+          h(
+            'button',
+            {
+              type: 'button',
+              class: ['pick-chip', libFilter === id ? 'is-on' : null],
+              'aria-pressed': String(libFilter === id),
+              'data-filter': id,
+              onclick: () => {
+                libFilter = id;
+                render();
+              },
+            },
+            label,
+          ),
+        ),
+      ),
+      groups.length
+        ? null
+        : h(
+            'p',
+            { class: 'empty-note', 'data-testid': 'library-empty' },
+            libFilter === 'no-cook'
+              ? 'No no-cook preps yet. The Nutrition Lab is adding salad boxes, bowls, parfaits and wraps.'
+              : 'Nothing here yet.',
+          ),
       groups.map((g) =>
         h(
           'details',
@@ -818,4 +943,18 @@ function itemText(item) {
     return `${item.name}: ${q} × ${item.count.label} (${grams})`;
   }
   return `${item.name}: ${grams}`;
+}
+
+/** "2–5 Nov", or "30 Nov – 3 Dec" across months (short, so the Fill label fits at 360 px). */
+function dateRange(from, to) {
+  const dm = (iso) => fmtDateShort(iso).replace(/^\D+,?\s*/, '');
+  const [a, b] = [dm(from), dm(to)];
+  if (from === to) return a;
+  return from.slice(0, 7) === to.slice(0, 7) ? `${a.split(' ')[0]}–${b}` : `${a} – ${b}`;
+}
+
+/** Box rows stay two lines at 360 px: "today", "tomorrow", else "Tue 3". */
+function boxDay(iso, today) {
+  const rel = dayText(iso, today);
+  return /^[a-z]/.test(rel) ? rel : `${fmtWeekday(iso)} ${Number(iso.slice(8))}`;
 }
