@@ -3,6 +3,7 @@
 // Owner: Yusuf Benali (Nutrition Lab).
 //
 //   node research/yusuf/mercadona.mjs fetch                 # cache every category we shop in (Barcelona warehouse)
+//   node research/yusuf/mercadona.mjs add <categoryId…>          # cache extra categories (own read date)
 //   node research/yusuf/mercadona.mjs find <words…>         # search the cached categories by name
 //   node research/yusuf/mercadona.mjs product <id…>         # full product page: price, ingredients, allergens
 //
@@ -27,6 +28,8 @@ const CATEGORIES = {
   142: 'Platos preparados fríos', 897: 'Listo para Comer', 145: 'Congelados fruta y verdura',
   129: 'Sopa y caldo', 133: 'Frutos secos', 53: 'Queso untable, fresco y especialidades',
   72: 'Leche y bebidas vegetales', 89: 'Azúcar y edulcorante', 38: 'Aves y pollo (non-halal; reference only)',
+  // Sprint 2 (breakfast and dinner preps), added with `add` so the Sprint 1 prices keep their date:
+  78: 'Cereales', 69: 'Harina y preparado repostería', 90: 'Mermelada y miel',
 };
 
 fs.mkdirSync(CACHE, { recursive: true });
@@ -71,6 +74,18 @@ if (cmd === 'fetch') {
     await sleep(400);
   }
   fs.writeFileSync(path.join(CACHE, 'fetched.json'), JSON.stringify({ date: stamp, warehouse: WH }));
+} else if (cmd === 'add') {
+  // Cache extra categories without re-reading the others; their read date goes to fetched.json → extra.
+  const stamp = new Date().toISOString().slice(0, 10);
+  const meta = JSON.parse(fs.readFileSync(path.join(CACHE, 'fetched.json'), 'utf8'));
+  meta.extra = meta.extra || {};
+  for (const id of args) {
+    await getJson(`${API}/categories/${id}/?lang=es&wh=${WH}`, path.join(CACHE, `cat_${id}.json`));
+    meta.extra[id] = stamp;
+    process.stdout.write(`cat ${id} ${CATEGORIES[id] ?? ''} ok (${stamp})\n`);
+    await sleep(400);
+  }
+  fs.writeFileSync(path.join(CACHE, 'fetched.json'), JSON.stringify(meta));
 } else if (cmd === 'find') {
   const terms = args.map((a) => a.toLowerCase());
   for (const f of fs.readdirSync(CACHE).filter((n) => n.startsWith('cat_'))) {
@@ -92,5 +107,5 @@ if (cmd === 'fetch') {
     await sleep(300);
   }
 } else {
-  console.log('Usage: node research/yusuf/mercadona.mjs fetch | find <words…> | product <id…>');
+  console.log('Usage: node research/yusuf/mercadona.mjs fetch | add <categoryId…> | find <words…> | product <id…>');
 }

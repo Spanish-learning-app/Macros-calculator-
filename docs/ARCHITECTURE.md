@@ -659,6 +659,57 @@ Batch = { id, recipeId,                       // a user recipe id or a library b
   to `eaten`; deleting the entry frees the box. Boxes left = boxes with `available`.
 - **Shopping list:** ingredients × batches, merged by food, as copyable text (no downloads in an
   Artifact).
-- **New core module** `app/core/mealprep.js` (Hamza): `foodFromRecipe`, `worstHalal`, `boxUseBy`,
-  `boxesLeft`, `placeBox`, `shoppingList`. Pure, contract-tested like §5.
+- **New core module** `app/core/mealprep.js` (Sprint 2: Lena). Pure, contract-tested like §5.
+  Signatures below are binding from 2026-10-14 18:40 Madrid (Lena filled in the five §13 left open).
 
+### 13.1 Shapes added in Sprint 2 (all additive and optional: no schema bump)
+
+```js
+Recipe   += { kind?: 'chai',                  // "Set my chai once": at most one; serving 'cup'
+              storage?: string[]|null,          // RULES.mealPrep.storage ids the user chose; null = inferred
+              updatedAt?: string }
+Batch    += { name?: string }                   // display name kept if the recipe is deleted
+UserData += { savedMeals?: [{ id, name, slot, createdAt, items: [{ foodId, servingId, qty }] }] }  // optional; absent = none
+settings.seafood                                // now asked (Profile and onboarding), default 'all'
+```
+
+**Library recipes** (`app/data/recipes-mealprep.js`, Nutrition Lab): `export default [LibraryRecipe]`.
+
+```js
+LibraryRecipe = { foodId,                       // the Lab food (group lunchbox) it describes
+                  boxes,                        // standard batch, whole number >= 1
+                  storage: (string | { id, pot?: true })[],  // RULES.mealPrep.storage id per component;
+                                                // pot: true = a side pot packed apart (raita), which
+                                                // counts for the fridge life but does not stop freezing
+                  ingredients: [{ foodId?, name?, grams, section?: 'butcher'|'supermarket', note? }] }
+```
+
+An ingredient needs `grams` and a `foodId` or a `name` (the app shows `name`, else the food's name).
+`section` defaults to `butcher` for foods in groups `meat-fish`, `curry-meat`, `grill-kebab`, else
+`supermarket`. Section labels come from `RULES.mealPrep.shopSections` (`[{ id, label }]`) when the
+Lab adds it, else "Halal butcher" and "Supermarket".
+
+### 13.2 `core/mealprep.js` contract
+
+| Export | Contract |
+|---|---|
+| `RECIPE_PREFIX = 'my-recipe-'`, `BOX_STORAGES = ['fridge','freezer']`, `BOX_STATUSES = ['available','placed','eaten','discarded']` | frozen |
+| `worstHalal(foods, rules = null)` | `{ status, reason, foodId }`: the worst `halal.status` among `foods` by `RULES.vocab.halalRules.worstFirst` (fallback `HALAL_STATUSES` reversed); `reason` is that food's reason (`null` for halal); `[]` gives `{ status: 'halal', reason: null, foodId: null }` |
+| `recipeTotals(recipe, foodIndex)` | `{ lines: [{ foodId, servingId, qty, grams, nutrients }], total, rawGrams, cookedGrams, missing: string[] }`; unknown foods are skipped and listed in `missing`; `cookedGrams = cookedWeightG ?? rawGrams`; unrounded |
+| `foodFromRecipe(recipe, foodIndex, rules)` | §13 above. `id = recipe.id`, `per100g = total / cookedGrams × 100` (five keys, unrounded), servings: `box` (default; "1 whole recipe" when `boxes` is 1), `pot` ("1 whole pot", only when `boxes > 1`), `katori-small`, `katori`, `katori-large`, `tbsp` (ml from `RULES.householdMeasures`, one density of 1 g per ml, labelled "about"); a `kind: 'chai'` recipe has the single serving `cup` instead. `halal` from `worstHalal`: `{ status, reason }` with the ingredient's own reason, plus `ingredient` (its name) for the UI; `group` `lunchbox` (chai: `drink-tea-coffee`); `tags` `['meal-prep']`; `source = { citation: 'Your recipe', method: 'recipe', confidence: 'C' }`. `RangeError` when `boxes` is not a whole number ≥ 1, no ingredient is known, or `cookedWeightG` is neither null nor > 0 |
+| `storageIds(recipe, foodIndex, rules)` | `recipe.storage` when it is a non-empty array; else inferred from the ingredients' groups (rice and pasta → `cooked-starch`, meat → `cooked-meat`, egg → `egg-dish`, legumes and vegetables → `cooked-curry`, breads → `cooked-flatbread`, dips → `cold-salad`); `['cooked-curry']` when nothing matches |
+| `storagePlan(recipe, boxes, foodIndex, rules)` | `{ fridgeDays, freezable, storage: ('fridge'\|'freezer')[] }`: the first `min(boxes, fridgeDays)` boxes in the fridge, the rest in the freezer; all fridge when a component that is not a side pot cannot be frozen (A18: rice → box 1 fridge, 2–4 freezer; chana chaat → all fridge) |
+| `boxUseBy(batch, box, recipe, foodIndex, rules)` | §13 above: `movedToFridgeOn + thawedFridgeDays` when the box was moved (whatever `storage` says), else fridge = `cookedOn + min fridgeDays`, freezer = `null`. The store sets `storage: 'fridge'` and `movedToFridgeOn` together |
+| `useByStatus(useBy, date)` | `null` (no use-by), `'ok'`, `'last-day'` (date = use-by) or `'past'` |
+| `boxesLeft(batch)` | count of `available` boxes |
+| `placeBox(batch, boxId, { date, entryId })` | new batch with that box `placed`; `RangeError` when the box is not `available` |
+| `syncBatches(batches, days)` | the store runs it after every change: a box whose entry (found by `boxRef`, any date) is `eaten` becomes `eaten`, `planned` becomes `placed` (with the entry's current date), and a placed or eaten box with no entry is `available` again. `discarded` stays. Returns the same array when nothing changed |
+| `shoppingList(plans, foodIndex, rules = null)` | `plans = [{ recipe, boxes }]` (user or library recipe); every ingredient scaled by `boxes / recipe.boxes`, merged by `foodId` (else by name); `{ sections: [{ id, label, items: [{ key, foodId, name, grams, count: { qty, label } \| null }] }] }` with empty sections left out, `butcher` first |
+
+The store (§7.3) adds: `recipes()`, `recipe(id)`, `recipeTotals(id)`, `saveRecipe(r)`, `deleteRecipe(id)`,
+`library()`, `batches()`, `cookBatch({ recipeId, boxes, cookedOn?, storage? })`, `setBoxStorage(batchId,
+boxId, storage)`, `discardBox`, `deleteBatch`, `placeBox({ batchId, date, slot })` (returns `{ entryId,
+boxId, noneLeft }`; with no box left it still adds a plain entry, A17), `fillDays`, `boxInfo(entry)`,
+`prepNotices(date)`, `shopping(batchId, boxes)`, `chai()`, `saveChai(opts)`, `savedMeals()`, `saveMeal`,
+`addSavedMeal`, `deleteSavedMeal`. The food index also applies `settings.seafood`: a food whose
+seafood tag is outside the choice shows `check` with `RULES.vocab.halalRules.seafoodNote`.

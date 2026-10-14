@@ -1,4 +1,4 @@
-// Kenji's data gate: docs/NUTRITION.md §3, §4 and §8 (G1–G22), implemented from the document and
+// Kenji's data gate: docs/NUTRITION.md §3, §4 and §8 (G1–G23), implemented from the document and
 // RULES, independently of core/foods.validateFood and of research/check-foods.mjs (Ayesha's tool;
 // where the two disagree, one of them has a bug). Owner: Kenji.
 //
@@ -404,6 +404,44 @@ export function checkRecord(food, rules) {
     }
   }
 
+  // G23 assumed plate (NUTRITION.md v1.6 §5.5): a `plate` or `half-plate` serving has no published
+  // weight, so its label says "assumed" and its grams are a multiple of ½ katori (±2%) when the
+  // food has a `katori` serving. Rule values come from RULES.vocab.servingRules.assumedPlate.
+  if (servings) {
+    const plate = SR.assumedPlate ?? {
+      ids: ['plate', 'half-plate'],
+      labelMustInclude: 'assumed',
+      katoriMultipleStep: 0.5,
+      tolerancePct: 2,
+    };
+    const katori = servings.find((s) => isObject(s) && s.id === 'katori');
+    for (const s of servings) {
+      if (!isObject(s) || !plate.ids.includes(s.id)) continue;
+      if (
+        typeof s.label !== 'string' ||
+        !s.label.toLowerCase().includes(plate.labelMustInclude.toLowerCase())
+      ) {
+        fail(
+          'G23',
+          `serving ${s.id}: the label must say "${plate.labelMustInclude}" (got ${JSON.stringify(s.label)})`,
+        );
+      }
+      if (katori && finite(katori.grams) && katori.grams > 0 && finite(s.grams)) {
+        const katoris = s.grams / katori.grams;
+        const nearest = Math.round(katoris / plate.katoriMultipleStep) * plate.katoriMultipleStep;
+        if (
+          nearest === 0 ||
+          Math.abs(katoris - nearest) / nearest > plate.tolerancePct / 100 + 1e-9
+        ) {
+          fail(
+            'G23',
+            `serving ${s.id}: ${s.grams} g is ${katoris.toFixed(2)} katori, not a multiple of ${plate.katoriMultipleStep} (±${plate.tolerancePct}%)`,
+          );
+        }
+      }
+    }
+  }
+
   return { fails, warns };
 }
 
@@ -427,4 +465,88 @@ export function checkFamilies(records) {
     }
   }
   return warns;
+}
+
+// ---------------------------------------------------------------------------------------------
+// Meal-prep recipe data gate (ARCHITECTURE §13): app/data/recipes-mealprep.js is an array of
+// { foodId, ingredients, boxes, storage } for the shopping list and the use-by. Gate M1–M5:
+//   M1 foodId is a known food (and unique, and a lunchbox food: warn when not)
+//   M2 ingredients is a non-empty array and every ingredient foodId is a known food
+//   M3 boxes is a whole number ≥ 1
+//   M4 storage is a non-empty list of ids from RULES.mealPrep.storage. The shape is not fixed by
+//      §13, so an array of ids, an array of { id } or an object keyed by id are all accepted.
+//   M5 (warn) an ingredient carries a positive amount (grams, or qty with a servingId)
+
+/** The storage ids named by a recipe's `storage`, or null when the shape is not recognised. */
+export function storageIdsOf(storage) {
+  if (Array.isArray(storage)) {
+    const ids = storage.map((s) => (typeof s === 'string' ? s : isObject(s) ? s.id : undefined));
+    return ids;
+  }
+  if (isObject(storage)) return Object.keys(storage);
+  return null;
+}
+
+/**
+ * @param {unknown} recipes the module's array
+ * @param {{ foodsById: Map<string, object>, rules: object }} ctx
+ * @returns {{ fails: Issue[], warns: Issue[] }} Issue = { gate, id, message }
+ */
+export function checkMealprepRecipes(recipes, { foodsById, rules }) {
+  const fails = [];
+  const warns = [];
+  const known = new Set((rules.mealPrep?.storage ?? []).map((s) => s.id));
+  const fail = (id, gate, message) => fails.push({ gate, id, message });
+  const warn = (id, gate, message) => warns.push({ gate, id, message });
+  if (!Array.isArray(recipes)) {
+    fail('(file)', 'M1', 'the module must export an array of recipes');
+    return { fails, warns };
+  }
+  const seen = new Set();
+  recipes.forEach((r, i) => {
+    const id = isObject(r) && typeof r.foodId === 'string' ? r.foodId : `#${i}`;
+    if (!isObject(r)) return fail(id, 'M1', 'recipe is not an object');
+    // M1
+    if (typeof r.foodId !== 'string' || !foodsById.has(r.foodId)) {
+      fail(id, 'M1', `foodId ${JSON.stringify(r.foodId)} is not a known food`);
+    } else {
+      if (seen.has(r.foodId)) fail(id, 'M1', 'duplicate foodId');
+      seen.add(r.foodId);
+      if (foodsById.get(r.foodId).group !== 'lunchbox')
+        warn(
+          id,
+          'M1',
+          `food ${r.foodId} is in group ${foodsById.get(r.foodId).group}, not lunchbox`,
+        );
+    }
+    // M2
+    if (!Array.isArray(r.ingredients) || r.ingredients.length === 0) {
+      fail(id, 'M2', 'ingredients must be a non-empty array');
+    } else {
+      r.ingredients.forEach((ing, j) => {
+        if (!isObject(ing)) return fail(id, 'M2', `ingredient ${j} is not an object`);
+        if (typeof ing.foodId !== 'string' || !foodsById.has(ing.foodId))
+          fail(
+            id,
+            'M2',
+            `ingredient ${j}: foodId ${JSON.stringify(ing.foodId)} is not a known food`,
+          );
+        const grams = finite(ing.grams) && ing.grams > 0;
+        const portion = finite(ing.qty) && ing.qty > 0 && typeof ing.servingId === 'string';
+        if (!grams && !portion)
+          warn(id, 'M5', `ingredient ${j} (${ing.foodId}) has no positive grams or qty`);
+      });
+    }
+    // M3
+    if (!Number.isInteger(r.boxes) || r.boxes < 1)
+      fail(id, 'M3', `boxes must be a whole number ≥ 1 (got ${JSON.stringify(r.boxes)})`);
+    // M4
+    const ids = storageIdsOf(r.storage);
+    if (!ids || ids.length === 0) fail(id, 'M4', 'storage must list at least one storage id');
+    else
+      for (const sid of ids)
+        if (!known.has(sid))
+          fail(id, 'M4', `storage ${JSON.stringify(sid)} is not in RULES.mealPrep.storage`);
+  });
+  return { fails, warns };
 }

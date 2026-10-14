@@ -1,0 +1,72 @@
+// R-MP-19 · Chicken karahi (boneless, lighter oil) with 2 wholemeal roti (freezer dinner portion).
+// Standard batch: 4 portions + 8 roti.
+import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+
+export default {
+  n: 19,
+  slot: 'dinner',
+  serving: 'portion',
+  boxes: 4,
+  id: 'pk-chicken-karahi-roti-portion',
+  name: 'Chicken karahi with 2 wholemeal roti (freezer dinner portion)',
+  names: {
+    en: 'Chicken karahi (boneless) with 2 wholemeal roti',
+    es: 'Karahi de pollo (sin hueso) con 2 rotis integrales',
+    ca: 'Karahi de pollastre (sense os) amb 2 rotis integrals',
+    ur: 'چکن کڑاہی اور دو روٹی',
+    roman: 'chicken karahi aur do roti',
+  },
+  aliases: ['chicken karahi', 'karahi chicken', 'kadai chicken', 'chicken karahi roti', 'boneless karahi', 'karahi de pollo', 'chicken karai'],
+  pitch: 'Tomato-ginger karahi from Zainab\'s base, boneless and lighter, frozen flat with its rotis.',
+  eat: 'hot',
+  tags: ['pakistani', 'meal-prep'],
+  references: [
+    { title: 'Tea for Turmeric, Chicken karahi', url: 'https://www.teaforturmeric.com/chicken-karahi/', used: '907 g chicken, 2 tbsp ghee + 2–3 tbsp oil, ~600 g tomatoes, 1 small onion, 8 garlic cloves, ginger, ¼ cup yogurt, coriander, cumin, chilli, black pepper, garam masala; no water', read: "via Zainab Rauf's sheet research/zainab/recipes/chicken-karahi.mjs" },
+    { title: 'SuperChef, Chicken karahi', url: 'https://superchef.pk/chicken-karahi-recipe-urdu', used: '500 g chicken, 4 tbsp oil, 250 g tomatoes, 1 tbsp garlic, 1 tbsp ginger, 4 green chillies, finished with yogurt', read: "via Zainab Rauf's sheet research/zainab/recipes/chicken-karahi.mjs" },
+    { title: 'SBS Food (Jillani), Chicken karahi', url: 'https://www.sbs.com.au/food/recipe/chicken-karahi/vndjbwzjv', used: '1 kg chicken, 6 Roma tomatoes, garlic and ginger paste, 1.5 tbsp yogurt, spices, 25–30 min', read: "via Zainab Rauf's sheet research/zainab/recipes/chicken-karahi.mjs" },
+    ...ROTI_REFS,
+  ],
+  components: [
+    {
+      id: 'karahi', label: 'Chicken karahi', storage: 'cooked-meat', yield: 'breastStewed', eat: 'hot',
+      lines: [
+        ['chicken-breast', 640, 'boneless, 4 cm pieces (160 g raw per portion)'],
+        ['tomato', 600, 'chopped (Zainab\'s base: 500 g per kg chicken; TfT 662)', 'vegStew'],
+        ['onion', 120, 'finely chopped', 'onionBrown'],
+        ['yogurt-whole', 120, 'whisked, added at the end'],
+        ['garlic', 20, 'grated'],
+        ['ginger', 20, 'half grated, half in thin strips to finish'],
+        ['green-chilli', 20, '4, slit'],
+        ['coriander', 8, 'chopped, to finish'],
+        ['chilli-powder', 5, ''],
+        ['coriander-seed', 4, 'ground'],
+        ['cumin', 2, 'ground'],
+        ['black-pepper', 2, 'crushed'],
+        ['garam-masala', 2, ''],
+        ['salt', 8, ''],
+        ['oil-sunflower', 40, '10 g per portion'],
+      ],
+    },
+    rotiComponent(8),
+  ],
+  method: [
+    'Heat the oil in a karahi or wide pan; cook the onion 6–8 min until golden. Add garlic and grated ginger for 1 min.',
+    'Add the chicken on high heat until it turns white (4–5 min). Add the tomatoes, salt and the ground spices; cover 10 min until the tomatoes collapse.',
+    'Uncover and cook on high, stirring, until the tomatoes are a thick masala and the oil shows at the edges (8–10 min; no water). Lower the heat, stir in the yogurt, green chillies and black pepper, 3 min more; finish with ginger strips, garam masala and coriander.',
+    ROTI_METHOD,
+    'Cool fast on a tray. Pack 4 portions of karahi in flat freezer bags or boxes; freeze 2 roti with each portion.',
+  ],
+  keeps: '3 days fridge; 2 months frozen (3 for the curry)',
+  storagePlan: 'Portion 1 in the fridge for the next day or two; portions 2–4 in the freezer, each with its 2 roti. Curry 3 days fridge / 3 months frozen; roti 2 days / 2 months, so a frozen portion is best within 2 months. Move to the fridge the night before.',
+  reheat: 'Curry: from the fridge, microwave 3 min covered, stirring halfway; from frozen, defrost on the microwave setting then 3–4 min, or warm in a pan with 2 tbsp water, until steaming (75 °C). Roti: 20–30 s a side on a hot tawa.',
+  crossCheck: null,
+  extraChecks: [{ zainab: 'chicken-karahi-home', comps: ['karahi'], note: "Zainab's home karahi uses bone-in pieces and 100 g fat per kg chicken; this one is boneless breast with 62 g oil per kg, so it should be leaner and higher in protein per 100 g." }],
+  changes: [
+    'Boneless breast instead of bone-in pieces (easy portions, no bones in the freezer bag); 160 g raw per portion keeps protein under 50 g with the roti.',
+    "Fat: 40 g oil for 640 g chicken (62 g per kg) instead of Zainab's home 100 g per kg; no ghee. Tomatoes at Zainab's median of the sources.",
+    'Two wholemeal roti per portion from the roti stock bring the fibre to the dinner target (the curry alone has about 3 g).',
+  ],
+  confidence: 'C',
+  confidenceWhy: 'Tomato and onion losses use Bognár stew factors; a karahi is reduced harder, so the real portion may weigh less (the nutrients per portion do not change).',
+  halal: { status: 'halal', reason: 'Chicken from a halal butcher; yogurt is milk and cultures only (label checked 2026-10-13). No wine or stock cubes.' },
+};

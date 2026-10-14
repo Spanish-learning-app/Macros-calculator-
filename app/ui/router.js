@@ -10,6 +10,7 @@ export const ROUTE_NAMES = Object.freeze([
   'day',
   'add',
   'week',
+  'prep',
   'profile',
   'data',
   'about',
@@ -18,7 +19,7 @@ export const ROUTE_NAMES = Object.freeze([
 
 /**
  * '#/', '' -> day (date null = today). '#/day/D', '#/day/D/add/SLOT', '#/week[/D]', '#/welcome',
- * '#/profile', '#/data', '#/about'. Anything else -> notfound.
+ * '#/prep', '#/profile', '#/data', '#/about'. Anything else -> notfound.
  * @param {string} hash @returns {Route}
  */
 export function parseRoute(hash) {
@@ -45,7 +46,7 @@ export function parseRoute(hash) {
   if (head === 'week' && parts.length <= 2 && okDate(date)) {
     return { name: 'week', params: { date: date ?? null } };
   }
-  if (parts.length === 1 && ['welcome', 'profile', 'data', 'about'].includes(head)) {
+  if (parts.length === 1 && ['welcome', 'prep', 'profile', 'data', 'about'].includes(head)) {
     return { name: head, params: {} };
   }
   return { name: 'notfound', params: {} };
@@ -62,6 +63,7 @@ export function formatRoute(route) {
     case 'week':
       return params.date ? `#/week/${params.date}` : '#/week';
     case 'welcome':
+    case 'prep':
     case 'profile':
     case 'data':
     case 'about':

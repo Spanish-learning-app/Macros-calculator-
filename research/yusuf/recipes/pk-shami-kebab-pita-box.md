@@ -12,6 +12,8 @@ Record `pk-shami-kebab-pita-box` in `app/data/foods-mealprep.js` · library page
 
 **Eat:** hot or cold. **Halal:** halal: Beef from a halal butcher; pita has no E471, yogurt is milk only (labels checked 2026-10-13). **Confidence:** C.
 
+**Meal:** lunch prep, logged as "1 box".
+
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
@@ -114,7 +116,7 @@ Overall yield 1.019 (cooked ÷ raw, absorbed water included). Yield factors used
 |---|---|---|---|---|---|---|---|---|
 | 132 | 9.2 g | 11.6 g | 4.9 g | 2.2 g | 2.2 g | 1.4 g | — | 1.1 g |
 
-Per 100 g = batch totals ÷ 2126 g × 100, with every pot of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 2126 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -193,7 +195,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Indicative cost per box: not available.** No current price was found for chana dal (150 g), coriander seed (6 g), green chilli, raw (10 g). The priced part comes to 3.14 € per box (12.56 € for the batch). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g.
 
-## Changes made to meet the box targets
+## Changes made to meet the lunch targets
 
 - Wholemeal wrap swapped for a Mission pita: every wheat wrap on sale at Mercadona Barcelona (Hacendado normal, wholemeal, maxi and mini; Delibreads) lists emulsifier E471 without saying whether it is plant or animal, which makes the box "check". The pita has no E471. If you prefer a wrap, choose one labelled "E471 de origen vegetal" or from a halal bakery.
 - Kebabs made bigger than Tea for Turmeric's (12 from 500 g mince instead of about 15) so 3 kebabs give about 34 g protein from the kebabs alone; Greek-style light yogurt in the pot (80 g) adds about 5 g.

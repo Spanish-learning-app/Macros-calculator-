@@ -11,6 +11,7 @@ import { openPortionPicker } from '../components/portion-picker.js';
 import { openDialog, openActionSheet } from '../components/dialog.js';
 import { createUndoToast } from '../components/toast.js';
 import { addDays, fmtDateShort, fmtDateLong, relativeDay } from '../components/format.js';
+import { useByText, boxWord } from '../components/prep-bits.js';
 
 /**
  * @param {HTMLElement} container
@@ -62,6 +63,7 @@ export function mount(container, ctx) {
   );
   const totals = createTotalsBar({ store, router, rules });
   const slotsBox = h('div', { class: 'slots' });
+  const prepBox = h('div', { class: 'day-prep' });
   const tools = h(
     'section',
     { class: 'day-tools', 'aria-label': 'Copy food into this day' },
@@ -119,7 +121,7 @@ export function mount(container, ctx) {
         tools,
         h('div', { class: 'fab-bar' }, fab),
       ),
-      slotsBox,
+      h('div', { class: 'day-main' }, prepBox, slotsBox),
     ),
     toast.el,
   );
@@ -240,6 +242,37 @@ export function mount(container, ctx) {
         onSelect: () => copySlotFrom(slot),
       },
     ];
+    // Sprint 2: prep boxes, saved meals (add back in one action), save this meal.
+    for (const batch of store.batches()) {
+      const left = store.boxesLeft(batch.id);
+      if (!left) continue;
+      const f = store.food(batch.recipeId);
+      actions.push({
+        label: `Add a ${boxWord(f, rules)}: ${store.batchName(batch)}`,
+        hint: `${left} left · meal prep`,
+        icon: 'plus',
+        testid: 'slot-add-box',
+        onSelect: () => store.placeBox({ batchId: batch.id, date, slot }),
+      });
+    }
+    for (const meal of store.savedMeals().slice(0, 6)) {
+      actions.push({
+        label: `Add ${meal.name}`,
+        hint: `Saved meal · ${meal.items.length} ${meal.items.length === 1 ? 'food' : 'foods'}`,
+        icon: 'plus',
+        testid: 'slot-add-meal',
+        onSelect: () => store.addSavedMeal({ mealId: meal.id, date, slot }),
+      });
+    }
+    if (entries.some((e) => e.foodId)) {
+      actions.push({
+        label: `Save ${label} as a meal…`,
+        hint: 'Add it again in one tap',
+        icon: 'copy',
+        testid: 'save-meal',
+        onSelect: () => saveMealDialog(slot),
+      });
+    }
     if (entries.some((e) => e.status === 'eaten')) {
       actions.push({
         label: 'Mark all as planned',
@@ -285,6 +318,70 @@ export function mount(container, ctx) {
     });
   }
 
+  function saveMealDialog(slot) {
+    const items = store.day(date).entries.filter((e) => e.slot === slot && e.foodId);
+    const suggested = items
+      .slice(0, 3)
+      .map((e) => store.food(e.foodId)?.name ?? e.snapshot?.name)
+      .filter(Boolean)
+      .join(' + ');
+    const input = h('input', {
+      class: 'input',
+      type: 'text',
+      value: suggested.length > 40 ? store.slotLabel(slot) : suggested,
+      'data-testid': 'meal-name',
+    });
+    const handle = openDialog({
+      title: `Save ${store.slotLabel(slot)} as a meal`,
+      testid: 'save-meal-dialog',
+      content: [
+        h('label', { class: 'field' }, h('span', { class: 'field-label' }, 'Name'), input),
+        h(
+          'p',
+          { class: 'muted' },
+          `${items.length} ${items.length === 1 ? 'food' : 'foods'}. Add it back from any meal’s menu or the add sheet.`,
+        ),
+      ],
+      actions: h(
+        'button',
+        {
+          type: 'button',
+          class: 'btn btn-primary',
+          'data-testid': 'meal-save',
+          onclick: () => {
+            const id = store.saveMeal({ date, slot, name: input.value });
+            handle.close('done');
+            if (id) toast.notify(`Saved “${input.value.trim() || store.slotLabel(slot)}”.`);
+          },
+        },
+        'Save meal',
+      ),
+    });
+  }
+
+  /** The calm note under a meal-prep box entry (A18). */
+  function boxNote(entry) {
+    const info = store.boxInfo(entry, date);
+    if (!info) return null;
+    const f = store.food(info.batch.recipeId);
+    const name = `${capitalize(boxWord(f, rules))} ${info.number}`;
+    if (entry.status === 'eaten') return { text: name, kind: 'info' };
+    if (info.box.storage === 'freezer' && !info.useBy) {
+      return {
+        text: `${name} · in the freezer: move it to the fridge the night before`,
+        kind: 'info',
+      };
+    }
+    const kind = info.status === 'past' ? 'past' : info.status === 'last-day' ? 'last' : 'info';
+    const text =
+      info.status === 'last-day'
+        ? 'last day'
+        : useByText(info.box, info.useBy, info.status, store.today())
+            .replace(/^U/, 'u')
+            .replace(/^P/, 'p');
+    return { text: `${name} · ${text}`, kind };
+  }
+
   function entryMenu(entry) {
     const food = entry.foodId ? store.food(entry.foodId) : undefined;
     const name = food?.name ?? entry.snapshot?.name ?? 'Food';
@@ -314,6 +411,18 @@ export function mount(container, ctx) {
           testid: 'move-other',
           onSelect: () => moveTo(entry, name),
         },
+        ...(store.boxInfo(entry, date)?.box.storage === 'freezer'
+          ? [
+              {
+                label: 'Move this box to the fridge',
+                hint: 'It keeps 1 day once thawing',
+                icon: 'back',
+                testid: 'box-to-fridge',
+                onSelect: () =>
+                  store.setBoxStorage(entry.boxRef.batchId, entry.boxRef.boxId, 'fridge'),
+              },
+            ]
+          : []),
         { label: 'Change portion', icon: 'more', onSelect: () => editEntry(entry) },
         {
           label: 'Delete',
@@ -381,6 +490,7 @@ export function mount(container, ctx) {
     todayBtn.hidden = date === today;
 
     totals.update(date);
+    renderPrep(today);
 
     const focusKey = document.activeElement?.dataset?.focusKey ?? null;
     const day = store.day(date);
@@ -404,12 +514,52 @@ export function mount(container, ctx) {
             store.setEntryStatus(date, entry.id, entry.status === 'eaten' ? 'planned' : 'eaten'),
           onEdit: (entry) => editEntry(entry),
           onEntryMenu: (entry) => entryMenu(entry),
+          noteFor: (entry) => (entry.boxRef ? boxNote(entry) : null),
         }),
       ),
     );
     if (focusKey && !document.querySelector('dialog[open]')) {
       container.querySelector(`[data-focus-key="${CSS.escape(focusKey)}"]`)?.focus();
     }
+  }
+
+  /** "Tonight": frozen boxes for tomorrow, one tap each (A18 step 4). Only on today's page. */
+  function renderPrep(today) {
+    const move = date === today ? store.prepNotices(today).moveTonight : [];
+    mountChildren(
+      prepBox,
+      move.length
+        ? h(
+            'section',
+            {
+              class: 'card prep-tonight',
+              'data-testid': 'move-tonight',
+              'aria-label': 'Meal prep tonight',
+            },
+            move.map((m) =>
+              h(
+                'div',
+                { class: 'tonight-row' },
+                h(
+                  'p',
+                  null,
+                  `Tonight: take box ${m.number} of ${m.name} out of the freezer for tomorrow${m.slot ? `’s ${store.slotLabel(m.slot).toLowerCase()}` : ''}.`,
+                ),
+                h(
+                  'button',
+                  {
+                    type: 'button',
+                    class: 'btn btn-secondary',
+                    'data-testid': 'move-to-fridge',
+                    onclick: () => store.setBoxStorage(m.batchId, m.boxId, 'fridge'),
+                  },
+                  'Moved to fridge',
+                ),
+              ),
+            ),
+          )
+        : null,
+    );
   }
 
   const unsubscribe = store.subscribe(() => render());
@@ -452,4 +602,8 @@ export function mount(container, ctx) {
       container.replaceChildren();
     },
   };
+}
+
+function capitalize(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
 }

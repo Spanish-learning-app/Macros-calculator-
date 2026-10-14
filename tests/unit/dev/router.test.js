@@ -17,7 +17,7 @@ test('parseRoute covers every route in ARCHITECTURE §7.2', () => {
     name: 'week',
     params: { date: '2026-10-19' },
   });
-  for (const name of ['welcome', 'profile', 'data', 'about']) {
+  for (const name of ['welcome', 'prep', 'profile', 'data', 'about']) {
     assert.deepEqual(parseRoute(`#/${name}`), { name, params: {} });
   }
 });

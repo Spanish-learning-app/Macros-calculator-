@@ -11,6 +11,8 @@ Record `es-garbanzos-atun-salad-box` in `app/data/foods-mealprep.js` · library 
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Fish and plant foods only; tuna label: tuna, water, salt (checked 2026-10-13). **Confidence:** B.
 
+**Meal:** lunch prep, logged as "1 box".
+
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
@@ -82,7 +84,7 @@ Overall yield 1 (cooked ÷ raw, absorbed water included). Yield factors used:
 |---|---|---|---|---|---|---|---|---|
 | 100 | 7.5 g | 6.3 g | 4.5 g | 2.3 g | 2.5 g | 0.8 g | 210 mg | 2.7 g |
 
-Per 100 g = batch totals ÷ 2241 g × 100, with every pot of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 2241 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -145,7 +147,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Indicative cost per box: 2.73 €** (10.92 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs.
 
-## Changes made to meet the box targets
+## Changes made to meet the lunch targets
 
 - Chickpeas raised from the table's 120 g to 150 g per box and one boiled egg added (Tienda.com version) to reach 550 kcal with 110 g tuna.
 - Lemon juice instead of wine vinegar, so the dressing has no wine product at all.

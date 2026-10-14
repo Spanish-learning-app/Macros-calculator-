@@ -22,12 +22,14 @@ export default {
   'chicken-thigh': { src: 'fdc', code: 173627, label: 'Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel)', buy: { shop: 'butcher', item: 'chicken-thigh-boneless' } },
   'chicken-breast': { src: 'fdc', code: 171077, label: 'Chicken breast, boneless, skinless, raw (pechuga)', buy: { shop: 'butcher', item: 'chicken-breast' } },
   'chicken-mince': { src: 'fdc', code: 171116, label: 'Chicken mince, raw (carne picada de pollo)', buy: { shop: 'butcher', item: 'chicken-mince' } },
+  'beef-cubes': { src: 'fdc', code: 171206, label: 'Beef, boneless stewing cubes (chuck for stew, lean and fat, raw; carne sin hueso de ternera a tacos)', buy: { shop: 'butcher', item: 'beef-boneless' } },
   'beef-mince': { src: 'fdc', code: 174030, label: 'Lean beef mince, 90% lean / 10% fat, raw (carne picada de ternera magra)', buy: { shop: 'butcher', item: 'beef-mince' } },
 
   // ---------------------------------------------------------------- dairy, eggs
   'yogurt-whole': { src: 'off', code: '8480000223135', zeroFiber: 'plain yogurt: milk and cultures only, no fibre-containing ingredient', label: 'Yogur natural Hacendado (whole milk)', buy: { shop: 'mercadona', id: 22313 }, labelCheck: 'Mercadona 22313, 2026-10-13: leche entera, leche desnatada en polvo, fermentos. No gelatina.' },
   'yogurt-greek-light': { src: 'off', code: '8480000213587', zeroFiber: 'yogurt: milk, milk powder, milk proteins and cultures only', label: 'Yogur griego natural ligero Hacendado 2% MG', buy: { shop: 'mercadona', id: 21358 }, labelCheck: 'Mercadona 21358, 2026-10-13: leche parcialmente desnatada, leche en polvo, proteínas de la leche, fermentos. No gelatina.' },
   'protein-yogurt': { src: 'off', code: '8480000212566', label: 'Postre lácteo natural +Proteínas 10 g 0% MG (Mercadona skyr-style high-protein pot)', buy: { shop: 'mercadona', id: 21256 }, labelCheck: 'Mercadona 21256, 2026-10-13: leche desnatada pasteurizada, fermentos lácticos. No gelatina, no E471.' },
+  'milk-semi': { src: 'off', code: '8402001002106', zeroFiber: 'milk: semi-skimmed cow milk only', label: 'Leche semidesnatada Hacendado (UHT, 1.55% fat)', buy: { shop: 'mercadona', id: 10382, densityGPerMl: 1.03 }, labelCheck: 'Mercadona 10382, 2026-10-14: leche semidesnatada de vaca (only ingredient).' },
   egg: { src: 'fdc', code: 171287, label: 'Egg, whole, raw (edible part; 1 egg = 50 g, USDA large)', buy: { shop: 'mercadona', id: 31504, perUnitG: 50, units: 12 } },
   'egg-white': { src: 'off', code: '8411384100941', label: 'Claras de huevo líquidas pasteurizadas (Mercadona, made by Huevos Güilén)', buy: { shop: 'mercadona', id: 31312, densityGPerMl: 1.03 }, labelCheck: 'Mercadona 31312, 2026-10-13: clara de huevo pasteurizada, conservante E202.' },
 
@@ -36,6 +38,8 @@ export default {
   'rice-brown': { src: 'fdc', code: 169703, label: 'Brown long-grain rice, raw (arroz integral largo)', buy: { shop: 'mercadona', id: 5184 } },
   couscous: { src: 'off', code: '8011033012108', label: 'Cous cous mediano Hacendado (made by Bia SpA), dry', buy: { shop: 'mercadona', id: 9395 }, labelCheck: 'Mercadona 9395, 2026-10-13: sémola de trigo duro, agua.' },
   bulgur: { src: 'fdc', code: 2710820, label: 'Bulgur, dry (USDA Foundation)', buy: { shop: 'desi', item: 'bulgur' } },
+  oats: { src: 'fdc', code: 173904, label: 'Rolled oats, dry (copos de avena)', buy: { shop: 'mercadona', id: 86341 }, labelCheck: 'Mercadona 86341 Copos de avena Brüggen, 2026-10-14: single-ingredient oat flakes.' },
+  atta: { src: 'ifct', code: 'A019', label: 'Wholemeal wheat flour, atta (harina integral de trigo; chakki atta from the desi shop works the same)', buy: { shop: 'mercadona', id: 29134 } },
   'pasta-wholewheat': { src: 'off', code: '8402001010194', label: 'Macarrón rayado integral Hacendado (wholewheat penne), dry', buy: { shop: 'mercadona', id: 35777 }, labelCheck: 'Mercadona 35777, 2026-10-13: sémola integral de trigo duro.' },
   pita: { src: 'off', code: '5036034406834', label: 'Pan de pita Mission (5 × 60 g)', buy: { shop: 'mercadona', id: 14378 }, labelCheck: 'Mercadona 14378, 2026-10-13: harina de trigo enriquecida, agua, levadura, sal, gluten, aceite de nabina, propionato cálcico. No E471, no manteca.' },
   breadcrumbs: { src: 'fdc', code: 174928, label: 'Breadcrumbs, dry, plain (USDA; Hacendado pan rallado label 369 kcal, P 9.6, C 78.1, F 1.3 per 100 g, no fibre declared)', buy: { shop: 'mercadona', id: 82219 }, labelCheck: 'Mercadona 82219, 2026-10-13: harina de trigo, agua, sal, levadura. No manteca.' },
@@ -43,6 +47,7 @@ export default {
   // ---------------------------------------------------------------- legumes
   'chickpeas-jar': { src: 'fdc', code: 173801, label: 'Chickpeas, canned/jarred, drained and rinsed (Hacendado garbanzo cocido, 570 g jar = 400 g drained)', buy: { shop: 'mercadona', id: 26029 }, labelCheck: 'Mercadona 26029, 2026-10-13: garbanzos, agua, sal, disulfito sódico (E223), E385.' },
   'chana-dal': { src: 'ifct', code: 'B001', label: 'Chana dal (Bengal gram dal), dry', buy: { shop: 'desi', item: 'chana-dal' } },
+  'lentils-red': { src: 'fdc', code: 174284, label: 'Red lentils (masoor dal), dry', buy: { shop: 'desi', item: 'masoor-dal' } },
   hummus: { src: 'off', code: '8432089108018', label: 'Hummus de garbanzos Hacendado receta clásica (made by Simply Greek)', buy: { shop: 'mercadona', id: 80858 }, labelCheck: 'Mercadona 80858, 2026-10-13: garbanzos, aceite de girasol, agua, pasta de sésamo, limón, aceite de oliva, ajo, sal, E330 y E270 "de origen vegetal", E202. No E471, no gelatina.' },
 
   // ---------------------------------------------------------------- fish
@@ -76,6 +81,8 @@ export default {
   lettuce: { src: 'fdc', code: 169247, label: 'Romaine lettuce, raw', buy: { shop: 'mercadona', id: 69435 } },
   potato: { src: 'fdc', code: 170028, label: 'Potato, raw (USDA white, flesh and skin; used peeled)', buy: { shop: 'mercadona', id: 69166 } },
   banana: { src: 'fdc', code: 173944, label: 'Banana, raw, peeled (Plátano de Canarias; 1 small = 101 g edible, USDA)', buy: { shop: 'mercadona', id: 3819, perUnitG: 101, units: 1 } },
+  'spinach-frozen': { src: 'fdc', code: 169287, label: 'Spinach, frozen, chopped (espinaca en porciones ultracongelada)', buy: { shop: 'mercadona', id: 61279 } },
+  chia: { src: 'fdc', code: 170554, label: 'Chia seeds, dry', buy: { shop: 'mercadona', id: 5464 } },
   walnuts: { src: 'fdc', code: 170187, label: 'Walnuts, shelled (USDA; the OFF entry for Hacendado nuez shows 21 g protein, which looks mistyped)', buy: { shop: 'mercadona', id: 34024 } },
 
   // ---------------------------------------------------------------- spices and seasonings

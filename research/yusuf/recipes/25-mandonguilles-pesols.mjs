@@ -1,0 +1,68 @@
+// R-MP-25 · Mandonguilles amb pèsols i patates (Catalan meatballs with peas and potatoes, all halal beef)
+// (freezer dinner portion). Standard batch: 4 portions.
+export default {
+  n: 25,
+  slot: 'dinner',
+  serving: 'portion',
+  boxes: 4,
+  id: 'es-mandonguilles-pesols-portion',
+  name: 'Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion)',
+  names: {
+    en: 'Catalan meatballs with peas and potatoes (mandonguilles amb pèsols), halal beef',
+    es: 'Albóndigas con guisantes y patatas a la catalana (ternera halal)',
+    ca: 'Mandonguilles amb pèsols i patates (vedella halal)',
+  },
+  aliases: ['mandonguilles', 'mandonguilles amb pesols', 'albondigas con guisantes', 'albóndigas a la catalana', 'catalan meatballs', 'meatballs with peas', 'albondigas halal'],
+  pitch: 'The Catalan grandmother\'s Sunday pot, made all-beef from the halal butcher.',
+  eat: 'hot',
+  tags: ['catalan', 'spanish', 'meal-prep', 'contains-egg'],
+  references: [
+    { title: 'Surt de Casa (Ebre), Mandonguilles amb salsa', url: 'https://surtdecasa.cat/ebre/blogs/el-rebost-de-bajoqueta-i-sa-mare/mandonguilles-amb-salsa', used: '½ kg minced meat (half pork, half veal: here all halal beef), garlic, parsley, bread, 2 eggs, breadcrumbs; slow onion and tomato sofregit; 100 g peas; water or stock; about 15 meatballs', read: 'search-engine page extract, 2026-10-14' },
+    { title: 'TV3 Cuines, Mandonguilles amb pèsols', url: 'https://www.3cat.cat/tv3/cuines/recepta/mandonguilles-amb-pesols/20695/', used: '400 g veal + 300 g pork mince (here all halal beef), 1 egg, 100 g bread; meatballs cooked in reduced broth; 350 g peas sautéed with olive oil', read: 'search-engine page extract, 2026-10-14' },
+  ],
+  components: [
+    {
+      id: 'meatballs', label: 'Beef meatballs (20)', storage: 'cooked-meat', yield: 'meatballBoiled', eat: 'hot',
+      lines: [
+        ['beef-mince', 560, 'lean (about 10% fat), 140 g raw per portion'],
+        ['breadcrumbs', 40, 'plain (no manteca on the label)'],
+        ['egg', 50, '1 large egg'],
+        ['garlic', 6, 'minced'],
+        ['parsley', 8, 'chopped'],
+        ['salt', 5, ''],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'sauce', label: 'Sofregit with peas and potatoes', storage: 'cooked-curry', yield: 'vegStew', eat: 'hot',
+      lines: [
+        ['oil-olive', 32, '8 g per portion'],
+        ['onion', 240, 'finely chopped, cooked slowly 20 min', 'onionBrown'],
+        ['tomato-crushed', 400, ''],
+        ['peas', 400, 'frozen (100 g per portion)', 'peasStewed'],
+        ['potato', 600, 'peeled, 3 cm chunks (150 g per portion)', 'potatoBoiled'],
+        ['water', 300, 'instead of stock (most stocks are chicken; supermarket stock is not halal)', 'waterSimmer40'],
+        ['paprika', 2, 'pimentón dulce'],
+        ['bay-leaf', 1, ''],
+        ['salt', 4, ''],
+      ],
+    },
+  ],
+  method: [
+    'Mix the mince, breadcrumbs, egg, garlic, parsley, salt and pepper; shape 20 meatballs (about 33 g).',
+    'Sofregit: cook the onion slowly in the olive oil 20 min until golden and soft; add the paprika, then the crushed tomato and bay leaf, and cook 10 min to a thick sauce.',
+    'Add the water, potatoes and the raw meatballs; cover and simmer 20 min. Add the peas and simmer 10 min more, lid ajar, until the potatoes are soft and the meatballs 75 °C inside.',
+    'Cool fast; pack 4 portions (5 meatballs, potatoes, peas and sauce); freeze.',
+  ],
+  keeps: '3 days fridge; 3 months frozen',
+  storagePlan: 'Portion 1 in the fridge; portions 2–4 in the freezer (cooked meat and cooked vegetables: 3 days in the fridge, 3 months frozen). Move one to the fridge the night before.',
+  reheat: 'Microwave covered 3–4 min (defrost first from frozen), stirring halfway, or warm gently in a pan, until steaming hot (75 °C). Pa amb tomàquet on the side if you like (log it separately).',
+  crossCheck: null,
+  changes: [
+    'All-beef halal mince instead of the traditional pork and veal mix; no stock (water) and no vi ranci or brandy.',
+    'Meatballs are simmered in the sauce instead of floured and fried, which keeps the oil at 8 g per portion; potatoes cooked in the same pot make it a whole dinner without bread.',
+  ],
+  confidence: 'C',
+  confidenceWhy: "Meatball yield from Bognár's small boiled meatball; vegetable losses from Bognár stew factors; evaporation of the added water is a Lab assumption.",
+  halal: { status: 'halal', reason: 'Beef from a halal butcher; breadcrumbs label checked (no manteca), 2026-10-13; no wine, brandy or stock.' },
+};

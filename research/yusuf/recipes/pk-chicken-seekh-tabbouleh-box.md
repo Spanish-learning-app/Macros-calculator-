@@ -12,6 +12,8 @@ Record `pk-chicken-seekh-tabbouleh-box` in `app/data/foods-mealprep.js` · libra
 
 **Eat:** hot or cold. **Halal:** halal: Chicken mince from a halal butcher; no animal-derived additives in the tabbouleh. **Confidence:** C.
 
+**Meal:** lunch prep, logged as "1 box".
+
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
@@ -104,7 +106,7 @@ Overall yield 0.926 (cooked ÷ raw, absorbed water included). Yield factors used
 |---|---|---|---|---|---|---|---|---|
 | 119 | 7.5 g | 8.7 g | 5.6 g | 2.1 g | — | 1.1 g | 220 mg | 2.5 g |
 
-Per 100 g = batch totals ÷ 1993 g × 100, with every pot of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 1993 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -176,7 +178,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Indicative cost per box: not available.** No current price was found for green chilli, raw (10 g), garam masala (4 g), chaat masala (2 g), bulgur, dry (200 g). The priced part comes to 3.26 € per box (13.04 € for the batch). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g.
 
-## Changes made to meet the box targets
+## Changes made to meet the lunch targets
 
 - Bulgur raised to 50 g per box (references use about 10–12 g per serving as a side): as a lunch base it brings carbohydrate and most of the fibre.
 

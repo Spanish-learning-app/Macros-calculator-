@@ -91,6 +91,7 @@ export function renderSlotSection(props) {
               food: entry.foodId ? store.food(entry.foodId) : undefined,
               rules,
               hideKcal,
+              note: props.noteFor?.(entry) ?? null,
               onToggle: () => props.onToggle(entry),
               onEdit: () => props.onEdit(entry),
               onMore: () => props.onEntryMenu(entry),

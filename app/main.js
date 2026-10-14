@@ -10,6 +10,7 @@ import { localDateTime } from './core/dates.js';
 const NAV = [
   { name: 'day', label: 'Day' },
   { name: 'week', label: 'Week' },
+  { name: 'prep', label: 'Prep' },
   { name: 'profile', label: 'Profile' },
   { name: 'data', label: 'Data' },
 ];
@@ -19,6 +20,7 @@ const VIEW_FOR_ROUTE = {
   day: 'day',
   add: 'day',
   week: 'week',
+  prep: 'prep',
   welcome: 'welcome',
   profile: 'profile',
   data: 'data',
@@ -26,7 +28,7 @@ const VIEW_FOR_ROUTE = {
 };
 
 /** Routes that need a finished (or skipped) onboarding. */
-const NEEDS_ONBOARDING = new Set(['day', 'add', 'week']);
+const NEEDS_ONBOARDING = new Set(['day', 'add', 'week', 'prep']);
 
 const BANNER_TEXT = {
   unavailable: 'Not saved on this device. Export your data from Data to keep it.',
@@ -46,10 +48,22 @@ async function loadFoodData() {
       status: 'ok',
       rules: mod.RULES ?? null,
       foods: Array.isArray(mod.FOODS) ? mod.FOODS : [],
+      library: await loadLibrary(),
     };
   } catch (error) {
     console.error('Katori: food data could not be loaded.', error);
     return { status: 'missing', rules: null, foods: [] };
+  }
+}
+
+/** Lab library recipes (ARCHITECTURE §13.1); optional, so a missing file is not an error. */
+async function loadLibrary() {
+  try {
+    const mod = await import('./data/recipes-mealprep.js');
+    const list = Array.isArray(mod.default) ? mod.default : Object.values(mod).find(Array.isArray);
+    return Array.isArray(list) ? list : [];
+  } catch {
+    return [];
   }
 }
 
@@ -209,6 +223,7 @@ async function boot() {
       persistence,
       rules: data.rules,
       foods: data.foods,
+      library: data.library ?? [],
       foodsStatus: data.status,
       makeId: idMaker(),
       timeZone: deviceTimeZone(),

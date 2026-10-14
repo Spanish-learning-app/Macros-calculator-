@@ -60,14 +60,19 @@ async function offLabel(e) {
   }
   for (const k of ['kcal', 'protein', 'carbs', 'fat']) if (p[k] == null) throw new Error(`OFF ${e.code} missing ${k}`);
   return {
-    citation: `Label: ${p.brand} ${p.name}, ${p.quantity}, read 2026-10-13 via Open Food Facts ${p.url} (OFF entry last edited ${p.lastModified})${fiberNote}`,
+    citation: `Label: ${p.brand} ${p.name}, ${p.quantity}, read ${new Date().toISOString().slice(0, 10)} via Open Food Facts ${p.url} (OFF entry last edited ${p.lastModified})${fiberNote}`,
     kcal: p.kcal, protein: p.protein, carbs: p.carbs, fat: p.fat, fiber,
     sugars: p.sugars, satFat: p.satFat, sodiumMg: p.sodiumMg,
   };
 }
 
-const out = {};
-const ids = Object.keys(REG).sort((a, b) => (REG[a].src === 'analogue') - (REG[b].src === 'analogue'));
+// Values already in ingredients.json are kept (they were read on their own date and the Sprint 1 records
+// depend on them); only new registry entries are looked up. `--all` re-reads everything.
+const OUT = path.join(here, 'ingredients.json');
+const ALL = process.argv.includes('--all');
+const out = !ALL && fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};
+for (const k of Object.keys(out)) if (!REG[k]) delete out[k];
+const ids = Object.keys(REG).filter((id) => !out[id]).sort((a, b) => (REG[a].src === 'analogue') - (REG[b].src === 'analogue'));
 for (const id of ids) {
   const e = REG[id];
   let v;
@@ -81,7 +86,7 @@ for (const id of ids) {
   } else throw new Error(`${id}: unknown src`);
   out[id] = { label: e.label, src: e.src, code: e.code ?? e.of, ...v };
 }
-fs.writeFileSync(path.join(here, 'ingredients.json'), JSON.stringify(out, null, 1) + '\n');
+fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n');
 const f = (x) => (x == null ? '–' : Math.round(x * 10) / 10);
 for (const [id, v] of Object.entries(out)) {
   console.log(`${id.padEnd(20)} ${String(f(v.kcal)).padStart(6)} kcal P${f(v.protein)} C${f(v.carbs)} F${f(v.fat)} Fib${f(v.fiber)} Sug${f(v.sugars)} Sat${f(v.satFat)} Na${f(v.sodiumMg)}  ${v.citation.slice(0, 90)}`);

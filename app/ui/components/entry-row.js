@@ -35,10 +35,20 @@ export function entryLine(entry, food, { hideKcal = false } = {}) {
 
 /**
  * @param {{ entry: object, food: object|undefined, rules: object, hideKcal?: boolean,
+ *   note?: { text: string, kind: 'info'|'last'|'past' }|null,
  *   onToggle: () => void, onEdit: () => void, onMore: () => void }} props
  * @returns {HTMLLIElement}
  */
-export function renderEntryRow({ entry, food, rules, hideKcal = false, onToggle, onEdit, onMore }) {
+export function renderEntryRow({
+  entry,
+  food,
+  rules,
+  hideKcal = false,
+  note = null,
+  onToggle,
+  onEdit,
+  onMore,
+}) {
   const name = entry.snapshot?.name ?? food?.name ?? 'Food';
   const displayName = food?.name ?? name;
   const eaten = entry.status === 'eaten';
@@ -84,6 +94,14 @@ export function renderEntryRow({ entry, food, rules, hideKcal = false, onToggle,
         badge,
       ),
       h('span', { class: 'entry-line' }, entryLine(entry, food, { hideKcal })),
+      // Meal-prep box: which box, fridge or freezer, use-by in calm words (Sprint 2, A18).
+      note
+        ? h(
+            'span',
+            { class: ['entry-note', `entry-note--${note.kind}`], 'data-testid': 'entry-note' },
+            note.text,
+          )
+        : null,
     ),
     h(
       'button',

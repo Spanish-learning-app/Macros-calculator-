@@ -12,6 +12,8 @@ Record `pk-keema-matar-rice-box` in `app/data/foods-mealprep.js` · library page
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; yogurt is milk and cultures only (label checked 2026-10-13). **Confidence:** C.
 
+**Meal:** lunch prep, logged as "1 box".
+
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
@@ -95,7 +97,7 @@ Overall yield 1.082 (cooked ÷ raw, absorbed water included). Yield factors used
 |---|---|---|---|---|---|---|---|---|
 | 133 | 8.5 g | 13.2 g | 4.8 g | 1.7 g | 1.9 g | 1.4 g | 242 mg | 1.4 g |
 
-Per 100 g = batch totals ÷ 1968 g × 100, with every pot of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 1968 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -164,7 +166,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Indicative cost per box: 2.66 €** (10.63 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g. Not included (no price found, small amounts): green chilli, raw (10 g), coriander seed (4 g), garam masala (2 g).
 
-## Changes made to meet the box targets
+## Changes made to meet the lunch targets
 
 - Peas raised to 100 g per box (Tea for Turmeric uses about 33 g per serving) and oil kept at 7 g per box (Tea for Turmeric about 10 g, Masala TV about 27 g): this keeps the box within 550–750 kcal with 150 g mince and gets fibre to about 8 g.
 

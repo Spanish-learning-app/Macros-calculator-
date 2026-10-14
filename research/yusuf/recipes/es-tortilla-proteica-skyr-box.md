@@ -11,6 +11,8 @@ Record `es-tortilla-proteica-skyr-box` in `app/data/foods-mealprep.js` · librar
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Eggs, dairy and plants only; egg-white and yogurt labels checked (no gelatine), 2026-10-13. **Confidence:** C.
 
+**Meal:** lunch prep, logged as "1 box".
+
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
@@ -87,7 +89,7 @@ Overall yield 0.905 (cooked ÷ raw, absorbed water included). Yield factors used
 |---|---|---|---|---|---|---|---|---|
 | 102 | 7.0 g | 8.9 g | 3.9 g | 1.4 g | 3.6 g | 0.7 g | 150 mg | 1.3 g |
 
-Per 100 g = batch totals ÷ 2381 g × 100, with every pot of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 2381 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -148,7 +150,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Indicative cost per box: 2.04 €** (8.15 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs.
 
-## Changes made to meet the box targets
+## Changes made to meet the lunch targets
 
 - Ayesha's table has ¼ tortilla + 150 g skyr; that alone came to about 440 kcal and 5 g fibre, so each box also gets a banana and 10 g walnuts.
 - Mercadona Barcelona lists no product called "skyr" today (2026-10-13). Its "+Proteínas natural" pots are the same idea (strained skimmed milk, 10 g protein per 100 g, no gelatine), so the recipe uses those; any plain skyr with a similar label works.

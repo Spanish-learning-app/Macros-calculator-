@@ -26,6 +26,8 @@ export function halalChip(food, rules) {
       hidden: true,
     },
     h('strong', null, `${label}: `),
+    // A recipe names the ingredient the reason is about (ARCHITECTURE §13.2).
+    food.halal.ingredient ? `${food.halal.ingredient}. ` : '',
     food.halal.reason ?? '',
   );
   const chip = h(

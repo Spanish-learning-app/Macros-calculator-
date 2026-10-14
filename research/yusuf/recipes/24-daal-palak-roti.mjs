@@ -1,0 +1,78 @@
+// R-MP-24 · Masoor daal palak (red lentils with spinach), protein raita and 2 wholemeal roti (dinner).
+import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+
+export default {
+  n: 24,
+  slot: 'dinner',
+  serving: 'portion',
+  boxes: 4,
+  id: 'pk-daal-palak-roti-portion',
+  name: 'Masoor daal palak with a Greek-yogurt raita and 2 wholemeal roti (freezer dinner portion)',
+  names: {
+    en: 'Masoor daal palak (red lentils and spinach) with raita and 2 wholemeal roti',
+    es: 'Daal de lentejas rojas con espinacas, raita y 2 rotis integrales',
+    ca: 'Daal de llenties vermelles amb espinacs, raita i 2 rotis integrals',
+    ur: 'دال پالک، رائتہ اور دو روٹی',
+    roman: 'daal palak raita aur do roti',
+  },
+  aliases: ['daal palak', 'dal palak', 'masoor daal', 'palak daal', 'lentil spinach curry', 'daal roti', 'lentejas rojas con espinacas'],
+  pitch: 'The cheapest dinner in the library and the highest in fibre; Greek-yogurt raita adds the protein.',
+  eat: 'hot',
+  tags: ['pakistani', 'meal-prep', 'vegetarian'],
+  references: [
+    { title: 'Tea for Turmeric, Masoor dal', url: 'https://www.teaforturmeric.com/masoor-dal/', used: '1 cup masoor, 3¼ cups water + 1 cup, ¼ cup oil, 1 onion, 4–5 garlic, ½" ginger, 2 small tomatoes, green chilli, cumin seeds, spices', read: "via Zainab Rauf's sheet research/zainab/recipes/pk-masoor-daal-home.md" },
+    { title: 'Flour & Spice, Masoor daal', url: 'https://www.flourandspiceblog.com/masoor-daal/', used: '1 cup masoor, 3–3.5 cups water, chilli, turmeric, garlic, ⅓ cup onion, 2 tomatoes, cilantro, green chillies, lemon; ¼ cup oil tarka', read: "via Zainab Rauf's sheet research/zainab/recipes/pk-masoor-daal-home.md" },
+    ...ROTI_REFS,
+  ],
+  components: [
+    {
+      id: 'daal', label: 'Masoor daal palak', storage: 'cooked-curry', yield: 'vegStew', eat: 'hot',
+      lines: [
+        ['lentils-red', 280, 'rinsed (70 g dry per portion; about 1⅓ cups)', 'lentilsDry'],
+        ['spinach-frozen', 400, 'frozen portions, added for the last 10 min', 'spinachStewed'],
+        ['onion', 160, 'sliced, for the tarka', 'onionBrown'],
+        ['tomato', 200, 'chopped'],
+        ['garlic', 15, 'sliced'],
+        ['ginger', 10, 'grated'],
+        ['green-chilli', 8, ''],
+        ['cumin', 4, 'seeds, in the tarka'],
+        ['turmeric', 2, ''],
+        ['chilli-powder', 3, ''],
+        ['coriander-seed', 4, 'ground'],
+        ['salt', 8, ''],
+        ['lemon-juice', 20, 'to finish'],
+        ['oil-sunflower', 32, '8 g per portion, all in the tarka'],
+      ],
+    },
+    {
+      id: 'raita', label: 'Greek-yogurt raita pot', pot: 'raita', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['yogurt-greek-light', 600, '150 g per pot'],
+        ['cucumber', 160, 'grated, squeezed'],
+        ['mint', 4, ''],
+        ['cumin', 1, ''],
+        ['salt', 2, ''],
+      ],
+    },
+    rotiComponent(8),
+  ],
+  method: [
+    'Simmer the lentils with turmeric, chilli, coriander, ginger, tomato and salt in about 1 litre of water, lid ajar, 25 min until soft and thick, stirring now and then (the lentil yield counts only the water the lentils hold, about 2.7 × their dry weight).',
+    'Stir in the frozen spinach and simmer 10 min more.',
+    'Tarka: fry the cumin seeds, onion, garlic and green chilli in the oil until golden; pour over the daal; finish with lemon.',
+    ROTI_METHOD,
+    'Cool fast, pack 4 portions with 2 roti each and freeze. Raita: make on the day or the night before.',
+  ],
+  keeps: '3 days fridge; 2 months frozen (raita 2 days)',
+  storagePlan: 'Daal 3 days in the fridge, 3 months frozen (cooked-curry); roti 2 months frozen. Raita does not freeze: mix 2 pots on Sunday and 2 later in the week.',
+  reheat: 'Daal thickens in the freezer: reheat in a pan or microwave (covered, 3 min, stirring) with 3–4 tbsp water until bubbling hot (75 °C). The added water is not counted. Roti on a hot tawa; raita cold.',
+  crossCheck: null,
+  extraChecks: [{ zainab: 'masoor-daal-home', comps: ['daal'], note: "Zainab's home masoor daal is thinner (more water) and has more oil per portion; ours is a thick freezer daal, so per 100 g it should be denser." }],
+  changes: [
+    'Spinach added (daal palak) and a 150 g Greek-yogurt raita per portion: daal and roti alone give about 28 g protein; the raita lifts it to the dinner target.',
+    'Tarka oil 8 g per portion instead of ¼ cup per cup of masoor (about 13 g per portion).',
+  ],
+  confidence: 'C',
+  confidenceWhy: "The lentil yield is Bognár's (dried lentils, stewed); how thick a cook keeps the daal varies, so the portion weight is an estimate (nutrients per portion are not affected).",
+  halal: { status: 'halal', reason: 'Lentils, vegetables, wholemeal flour and yogurt only; yogurt label checked (no gelatine), 2026-10-13.' },
+};

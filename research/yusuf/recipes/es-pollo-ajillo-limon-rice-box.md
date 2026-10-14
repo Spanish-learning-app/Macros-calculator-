@@ -11,6 +11,8 @@ Record `es-pollo-ajillo-limon-rice-box` in `app/data/foods-mealprep.js` · libra
 
 **Eat:** hot (microwave). **Halal:** halal: Chicken from a halal butcher; lemon instead of wine; no shop stock. **Confidence:** C.
 
+**Meal:** lunch prep, logged as "1 box".
+
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
@@ -94,7 +96,7 @@ Overall yield 1.092 (cooked ÷ raw, absorbed water included). Yield factors used
 |---|---|---|---|---|---|---|---|---|
 | 115 | 8.8 g | 11.5 g | 3.4 g | 1.7 g | 1.3 g | 0.7 g | 212 mg | 1.4 g |
 
-Per 100 g = batch totals ÷ 2093 g × 100, with every pot of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 2093 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -153,7 +155,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Indicative cost per box: not available.** No current price was found for chicken thigh, boneless, skinless, raw (720 g). The priced part comes to 0.66 € per box (2.65 € for the batch). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g.
 
-## Changes made to meet the box targets
+## Changes made to meet the lunch targets
 
 - No wine: the 100 ml amontillado (Diez Minutos) or white wine (¡Hola!) is replaced by lemon juice and water, as Diet Doctor's version already does; no shop stock (Mercadona's caldo de pollo is not from halal chicken).
 - Brown rice with 50 g peas per box and 150 g green beans per box: with white rice and 100 g beans the box gave about 4 g fibre.

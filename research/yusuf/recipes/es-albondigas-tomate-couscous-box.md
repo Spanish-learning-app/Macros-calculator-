@@ -11,6 +11,8 @@ Record `es-albondigas-tomate-couscous-box` in `app/data/foods-mealprep.js` · li
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; no wine; breadcrumbs and tomato labels checked (no manteca), 2026-10-13. **Confidence:** C.
 
+**Meal:** lunch prep, logged as "1 box".
+
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
@@ -97,7 +99,7 @@ Overall yield 0.839 (cooked ÷ raw, absorbed water included). Yield factors used
 |---|---|---|---|---|---|---|---|---|
 | 135 | 8.5 g | 11.9 g | 5.6 g | 1.7 g | 2.6 g | 1.6 g | — | 2.0 g |
 
-Per 100 g = batch totals ÷ 2160 g × 100, with every pot of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 2160 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -164,7 +166,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Indicative cost per box: 2.70 €** (10.80 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g.
 
-## Changes made to meet the box targets
+## Changes made to meet the lunch targets
 
 - Wine left out (MDZ uses white wine); the sauce gets its depth from pimentón and a longer simmer. Classic Spanish albóndigas often mix beef and pork: here they are 100% halal beef.
 - Added green pepper and carrot to the sauce (IslamWeb version) for fibre: the box reaches about 8 g with 60 g couscous.

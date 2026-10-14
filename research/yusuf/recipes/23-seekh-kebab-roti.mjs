@@ -1,0 +1,86 @@
+// R-MP-23 · Beef seekh kebabs (frozen cooked) with 2 wholemeal roti, kachumber and raita (dinner portion).
+import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+
+export default {
+  n: 23,
+  slot: 'dinner',
+  serving: 'portion',
+  boxes: 4,
+  id: 'pk-seekh-kebab-roti-portion',
+  name: 'Beef seekh kebabs with 2 wholemeal roti, kachumber and raita (freezer dinner portion)',
+  names: {
+    en: 'Beef seekh kebabs (4) with 2 wholemeal roti, kachumber and raita',
+    es: 'Seekh kebab de ternera (4) con 2 rotis integrales, ensalada kachumber y raita',
+    ca: 'Seekh kebab de vedella (4) amb 2 rotis integrals, amanida kachumber i raita',
+    ur: 'سیخ کباب، دو روٹی، کچومر اور رائتہ',
+    roman: 'seekh kabab do roti kachumber raita',
+  },
+  aliases: ['seekh kebab', 'seekh kabab', 'sheekh kebab', 'seekh kebab roti', 'kebab plate', 'beef seekh', 'kebab de ternera'],
+  pitch: 'Oven-baked seekh kebabs from the freezer, a hot roti, crunchy kachumber and cool raita.',
+  eat: 'hot',
+  tags: ['pakistani', 'meal-prep'],
+  references: [
+    { title: 'Tea for Turmeric, Baked Pakistani seekh kabob', url: 'https://www.teaforturmeric.com/baked-pakistani-seekh-kabob/', used: '1 lb ground beef (20% fat), ½ onion, 4 green chillies, ¼ cup cilantro, 2 tbsp mint, 1 tbsp garlic, ¾ tbsp ginger, spices, 1¼ tsp salt; 10 kababs; seared then baked', read: "via Zainab Rauf's sheet research/zainab/recipes/pk-seekh-kebab.md" },
+    { title: 'Shan Foods, Tikka seekh kabab mix (pack recipe)', url: 'https://www.shanfoods.com/product/recipe-mixes/bbq/tikka-seekh-kabab/', used: '1 kg mince, 2 tbsp garlic paste, 1 small onion (squeezed), green chillies, 1 egg white, 2–3 tbsp melted butter, grilled', read: "via Zainab Rauf's sheet research/zainab/recipes/pk-seekh-kebab.md" },
+    ...ROTI_REFS,
+  ],
+  components: [
+    {
+      id: 'kebab', label: 'Seekh kebabs (16)', storage: 'cooked-meat', yield: 'kebabPanFried', eat: 'hot',
+      lines: [
+        ['beef-mince', 640, 'lean (about 10% fat), 160 g raw per portion'],
+        ['onion', 80, 'grated and squeezed'],
+        ['green-chilli', 12, ''],
+        ['coriander', 12, ''],
+        ['mint', 6, ''],
+        ['garlic', 12, ''],
+        ['ginger', 10, ''],
+        ['cumin', 3, 'roasted, ground'],
+        ['coriander-seed', 4, 'crushed'],
+        ['chilli-powder', 3, ''],
+        ['garam-masala', 3, ''],
+        ['salt', 9, ''],
+        ['oil-sunflower', 16, 'to brush'],
+      ],
+    },
+    rotiComponent(8),
+    {
+      id: 'kachumber', label: 'Kachumber salad pot', pot: 'salad', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['tomato', 320, 'diced'],
+        ['cucumber', 320, 'diced'],
+        ['onion-red', 120, 'diced'],
+        ['lemon-juice', 30, ''],
+        ['cumin', 2, 'roasted'],
+        ['salt', 2, ''],
+      ],
+    },
+    {
+      id: 'raita', label: 'Mint raita pot', pot: 'raita', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['yogurt-whole', 240, '60 g per pot'],
+        ['mint', 4, ''],
+        ['cumin', 1, ''],
+        ['salt', 1, ''],
+      ],
+    },
+  ],
+  method: [
+    'Blitz the onion, chillies, herbs, garlic and ginger; squeeze out the onion juice. Mix with the mince, spices and salt and knead 3–4 min until sticky; chill 30 min.',
+    'Shape 16 kebabs (50 g each) around skewers or into long logs. Brush a lined tray with the oil, bake at 220 °C for 15–18 min, turning once, until browned and 75 °C inside (or sear in a pan and finish in the oven, as TfT does).',
+    ROTI_METHOD,
+    'Cool. Freeze 4 kebabs + 2 roti per bag. Kachumber and raita are made fresh: they keep 2 days and cannot be frozen.',
+  ],
+  keeps: 'Kebabs 3 months frozen; salad and raita 2 days',
+  storagePlan: 'Kebabs and roti in the freezer (kebabs 3 months, roti 2 months; fridge 3 and 2 days). Chop the kachumber and mix the raita on the day, or the night before (5 minutes).',
+  reheat: 'Kebabs from frozen: oven or air fryer at 200 °C for 10–12 min, or microwave 2 min then a hot pan for 2 min, until hot right through (75 °C). Roti on a hot tawa. Salad and raita cold.',
+  crossCheck: null,
+  extraChecks: [{ zainab: 'seekh-kebab', comps: ['kebab'], note: "Zainab's seekh kebab uses 20% fat mince grilled; ours is 10% fat mince baked." }],
+  changes: [
+    '10%-fat mince instead of 20% (TfT); no butter (Shan pack).',
+    'Each portion is a full plate: 4 kebabs (about 130 g cooked), 2 roti, a kachumber pot and a small raita.',
+  ],
+  confidence: 'C',
+  confidenceWhy: "Kebab yield from Bognár's pan-fried cevapcici (a minced-meat kebab), used for oven baking.",
+  halal: { status: 'halal', reason: 'Beef from a halal butcher; yogurt label checked (no gelatine), 2026-10-13.' },
+};

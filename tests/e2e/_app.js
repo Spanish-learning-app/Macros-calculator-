@@ -7,23 +7,47 @@
 //   `test.fixme`. Set KATORI_E2E_ALL=1 to run every spec anyway (to see how far the build is).
 // - Seeding: `seed(page, doc)` writes localStorage['mmc.v1'] once per tab (not on reload).
 // - Data: `useFixtureFoods(page)` serves tests/fixtures (RULES + 16 foods) as ./data/index.js.
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { test as base, expect } from 'playwright/test';
 import { RULES, FOODS } from '../fixtures/index.js';
 
 export { expect, RULES, FOODS };
 
-/** Features of the built app. Flip to true as they land (Priya's views, Lena's store). */
+/**
+ * Features of the built app. The Sprint 1 views landed (checked 2026-10-14: smoke, Day, add sheet
+ * and portion picker all run on the real data); `realFoods` stays off because the Lab's data still
+ * lacks some CUSTOMER §1 ingredients (see tests/data/recipe-ingredients.test.js).
+ * `mealPrep` is detected, not flipped by hand: it is on when app/core/mealprep.js exists and the UI
+ * carries the meal-prep test ids (`data-testid` "batch…", see tests/e2e/meal-prep.spec.js).
+ */
 export const FEATURES = {
-  store: false, // core/storage + core/days implemented, so the store starts (Lena, Hamza)
-  onboarding: false, // views/welcome.js (Priya)
-  day: false, // views/day.js: totals, slots, entries, day navigation (Priya)
-  addSheet: false, // add sheet: search, recents, "+", hidden note (Priya; core/search by Hamza)
-  portionPicker: false, // portion picker, variant switch, food details (Priya)
-  week: false, // views/week.js (Priya)
-  profile: false, // views/profile.js (Priya)
-  data: false, // views/data.js: export / import (Priya)
+  store: true, // core/storage + core/days implemented, so the store starts (Lena, Hamza)
+  onboarding: true, // views/welcome.js (Priya)
+  day: true, // views/day.js: totals, slots, entries, day navigation (Priya)
+  addSheet: true, // add sheet: search, recents, "+", hidden note (Priya; core/search by Hamza)
+  portionPicker: true, // portion picker, variant switch, food details (Priya)
+  week: true, // views/week.js (Priya)
+  profile: true, // views/profile.js (Priya)
+  data: true, // views/data.js: export / import (Priya)
   realFoods: false, // the Lab's FOODS cover CUSTOMER.md §1 (ids mapped in COVERAGE below)
+  mealPrep: detectMealPrepUi(), // Sprint 2: recipes, batches, boxes, shopping list (Lena, Priya)
 };
+
+/** True when the meal-prep core and UI exist (so the A16–A18 specs can run). */
+function detectMealPrepUi() {
+  try {
+    const app = new URL('../../app/', import.meta.url);
+    if (!existsSync(new URL('core/mealprep.js', app))) return false;
+    const walk = (dir) =>
+      readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+        e.isDirectory() ? walk(new URL(`${e.name}/`, dir)) : [new URL(e.name, dir)],
+      );
+    const ui = walk(new URL('ui/', app)).filter((f) => f.pathname.endsWith('.js'));
+    return ui.some((f) => /data-testid['"]?\s*[:=]\s*['"`]batch/.test(readFileSync(f, 'utf8')));
+  } catch {
+    return false;
+  }
+}
 
 const RUN_ALL = process.env.KATORI_E2E_ALL === '1';
 
@@ -38,6 +62,9 @@ export function needs(...names) {
 const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '[::1]']);
 /** Console errors that come from Step 0 stubs (Hamza's core still in progress) are tolerated. */
 const TOLERATED_CONSOLE = [/not implemented/i];
+const TOLERATED_404 = existsSync(new URL('../../app/data/recipes-mealprep.js', import.meta.url))
+  ? []
+  : ['/data/recipes-mealprep.js'];
 
 export const test = base.extend({
   guards: [
@@ -54,9 +81,11 @@ export const test = base.extend({
         }
       });
       page.on('console', (msg) => {
-        if (msg.type() === 'error' && !TOLERATED_CONSOLE.some((re) => re.test(msg.text()))) {
-          consoleErrors.push(msg.text());
-        }
+        if (msg.type() !== 'error' || TOLERATED_CONSOLE.some((re) => re.test(msg.text()))) return;
+        // Sprint 2: the store asks for the Lab's data/recipes-mealprep.js (Yusuf). Until that file is
+        // published its 404 is expected; it stops being tolerated by itself the day the file exists.
+        if (TOLERATED_404.some((name) => msg.location().url?.endsWith(name))) return;
+        consoleErrors.push(msg.text());
       });
       page.on('pageerror', (error) => {
         if (!TOLERATED_CONSOLE.some((re) => re.test(String(error))))

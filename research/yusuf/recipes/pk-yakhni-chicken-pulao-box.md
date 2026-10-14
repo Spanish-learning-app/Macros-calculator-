@@ -12,6 +12,8 @@ Record `pk-yakhni-chicken-pulao-box` in `app/data/foods-mealprep.js` · library 
 
 **Eat:** hot (microwave). **Halal:** halal: Chicken from a halal butcher; no stock cubes (the stock is made from the chicken). **Confidence:** C.
 
+**Meal:** lunch prep, logged as "1 box".
+
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
@@ -90,7 +92,7 @@ Overall yield 1.148 (cooked ÷ raw, absorbed water included). Yield factors used
 |---|---|---|---|---|---|---|---|---|
 | 134 | 9.9 g | 15.6 g | 3.1 g | 1.8 g | 1.4 g | 0.5 g | 249 mg | 1.5 g |
 
-Per 100 g = batch totals ÷ 1967 g × 100, with every pot of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 1967 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -162,7 +164,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Indicative cost per box: 1.99 €** (7.96 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g. Not included (no price found, small amounts): coriander seed (4 g), cardamom (1 g), green chilli, raw (10 g), garam masala (2 g).
 
-## Changes made to meet the box targets
+## Changes made to meet the lunch targets
 
 - Added 80 g chickpeas per box ("chana pulao", a common Karachi variant): plain chicken pulao gives about 3 g fibre per box.
 - Chicken 160 g per box instead of the table's 170 g: with 170 g plus the chickpeas the box went over 50 g protein (51.6 g in the first version, which also had peas). Peas removed, chickpeas raised from 60 to 80 g.

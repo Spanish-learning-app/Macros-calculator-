@@ -12,6 +12,7 @@ export const BUTCHER = {
     'chicken-breast': { eurPerKg: 7.49, name: 'Pechuga de pollo halal (fileteada)', url: 'https://carnehalalonline.com/pollo-halal/pechuga-de-pollo-halal/', note: 'sale price; regular 7.99 €/kg' },
     'chicken-mince': { eurPerKg: 9.9, name: 'Carne picada de pollo halal', url: 'https://carnehalalonline.com/pollo-halal/carne-picada-de-pollo-halal/' },
     'beef-mince': { eurPerKg: 11.99, name: 'Carne picada de ternera halal (ask for magra, about 10% fat)', url: 'https://carnehalalonline.com/ternera-halal/carne-picada-de-ternera-halal/' },
+    'beef-boneless': { eurPerKg: 15.95, name: 'Carne sin hueso de ternera halal, cortada a tacos (boneless beef, cubed)', url: 'https://carnehalalonline.com/ternera-halal/carne-sin-hueso-de-halal/', note: '1 kg option; 7.99 € per 0.5 kg', date: '2026-10-14' },
     'chicken-thigh-boneless': {
       eurPerKg: null,
       name: 'Contramuslo de pollo halal, deshuesado y sin piel',
@@ -25,6 +26,7 @@ export const DESI = {
   source: 'Pakistani or Moroccan grocery shelf at or next to the halal butcher (Raval, Sant Antoni). No online price list found on 2026-10-13.',
   items: {
     'chana-dal': { eurPerKg: null, name: 'Chana dal' },
+    'masoor-dal': { eurPerKg: null, name: 'Masoor dal (red lentils)', note: 'not sold by Mercadona Barcelona on 2026-10-14 (only lentil pasta and pardina lentils)' },
     bulgur: { eurPerKg: null, name: 'Bulgur (burghul), fine or medium', note: 'not sold by Mercadona Barcelona on 2026-10-13; no Spanish online price found' },
     'green-chilli': { eurPerKg: null, name: 'Green chillies (hari mirch)' },
     'coriander-seed': { eurPerKg: null, name: 'Coriander seeds or ground coriander (dhania)' },

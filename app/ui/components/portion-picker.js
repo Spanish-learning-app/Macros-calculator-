@@ -41,7 +41,8 @@ function qtyText(qty) {
  *   servingId?: string|null, qty?: number|null, slot: string, date: string,
  *   mode?: 'add'|'edit', onAdd?: (p: { foodId: string, servingId: string, qty: number }) => void,
  *   onSave?: (p: { foodId: string|null, servingId: string|null, qty: number, slot: string }) => void,
- *   onDelete?: () => void, onClose?: () => void }} props
+ *   onDelete?: () => void, onClose?: () => void, primaryLabel?: string, showSlot?: boolean }} props
+ *   primaryLabel and showSlot: the recipe builder reuses the picker ("Add to recipe", no meal).
  */
 export function openPortionPicker(props) {
   const { store, rules, mode = 'add', entry = null } = props;
@@ -96,7 +97,7 @@ export function openPortionPicker(props) {
   });
   const primary = h('button', { type: 'submit', class: 'btn btn-primary btn-block' });
   const slotSelect =
-    mode === 'edit'
+    (props.showSlot ?? mode === 'edit')
       ? h(
           'select',
           {
@@ -409,7 +410,10 @@ export function openPortionPicker(props) {
       );
     }
 
-    setText(primary, mode === 'edit' ? 'Save' : `Add to ${store.slotLabel(slot)}`);
+    setText(
+      primary,
+      props.primaryLabel ?? (mode === 'edit' ? 'Save' : `Add to ${store.slotLabel(slot)}`),
+    );
   }
 
   function tasteChip(parsed) {

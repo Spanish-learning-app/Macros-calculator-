@@ -1,0 +1,73 @@
+// R-MP-16 · Frozen wholemeal aloo paratha with a protein-yogurt raita (breakfast portion). Standard batch:
+// 4 parathas + 4 raita pots.
+export default {
+  n: 16,
+  slot: 'breakfast',
+  serving: 'portion',
+  boxes: 4,
+  id: 'pk-aloo-paratha-raita-portion',
+  name: 'Aloo paratha (wholemeal, light oil) with a protein raita (breakfast portion)',
+  names: {
+    en: 'Wholemeal aloo paratha with a protein-yogurt raita',
+    es: 'Aloo paratha integral con raita de yogur proteico',
+    ca: 'Aloo paratha integral amb raita de iogurt proteic',
+    ur: 'آلو پراٹھا اور رائتہ',
+    roman: 'aloo paratha aur raita',
+  },
+  aliases: ['aloo paratha', 'aloo ka paratha', 'alu paratha', 'potato paratha', 'paratha with raita', 'frozen aloo paratha', 'pan relleno de patata'],
+  pitch: 'The Sunday-morning paratha, made light and frozen; a thick mint raita brings the protein.',
+  eat: 'hot',
+  tags: ['pakistani', 'meal-prep', 'vegetarian'],
+  references: [
+    { title: 'Food Fusion, Sarson ka saag te aloo paratha', url: 'https://foodfusion.com/recipe/sarson-ka-saag-te-aloo-paratha/', used: '100 g dough ball per paratha; filling of 4–5 boiled potatoes, 2 tbsp oil, 1 small onion, spices, coriander; ghee 1 tbsp per paratha; 7–8 parathas', read: "via Zainab Rauf's sheet research/zainab/recipes/pk-aloo-paratha.md" },
+    { title: 'Tea for Turmeric, Roti / chapati (dough)', url: 'https://www.teaforturmeric.com/roti-chapati/', used: 'atta dough at about 1 g water per g atta', read: "via Zainab Rauf's sheet research/zainab/recipes/pk-aloo-paratha.md" },
+    { title: 'Cook With Manali, Cucumber raita', url: 'https://www.cookwithmanali.com/wprm_print/cucumber-raita', used: '360 g yogurt, 1 cucumber, cumin, mint', read: 'Sprint 1 lunch box R-MP-1, search-engine page extract' },
+  ],
+  components: [
+    {
+      id: 'paratha', label: 'Aloo parathas (4)', storage: 'cooked-flatbread', yield: 'alooParatha', yieldAll: true, eat: 'hot',
+      lines: [
+        ['atta', 200, '50 g per paratha (a 100 g dough ball)'],
+        ['water', 200, 'dough water'],
+        ['potato', 520, 'boiled in the skin, peeled and mashed (130 g raw per paratha)'],
+        ['onion-red', 40, 'very finely chopped'],
+        ['green-chilli', 8, 'finely chopped'],
+        ['coriander', 8, 'chopped'],
+        ['cumin', 2, 'roasted, crushed'],
+        ['chilli-powder', 2, ''],
+        ['salt', 6, 'filling and dough'],
+        ['oil-sunflower', 24, '6 g (1½ tsp) per paratha on the tawa'],
+      ],
+    },
+    {
+      id: 'raita', label: 'Protein raita pots (4)', pot: 'raita', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['protein-yogurt', 800, '200 g per pot'],
+        ['cucumber', 160, 'grated, squeezed'],
+        ['mint', 6, 'chopped'],
+        ['cumin', 2, 'roasted, ground'],
+        ['salt', 2, ''],
+      ],
+    },
+  ],
+  method: [
+    'Boil the potatoes in their skins until tender (20 min), peel, mash and cool. Mix in onion, chilli, coriander, cumin, chilli powder and half the salt.',
+    'Knead the atta, the rest of the salt and the water to a soft dough; rest 20 min; make 4 balls of 100 g.',
+    'Roll a ball to 10 cm, put a quarter of the filling in the middle, close it into a pouch, flatten and roll gently to 18–20 cm.',
+    'Cook on a hot tawa 1 min a side dry, then brush each side with 3 g oil (weighed: 6 g per paratha) and cook until golden spots form.',
+    'Cool on a rack, stack between sheets of baking paper and freeze. Raita: mix the yogurt, squeezed cucumber, mint, cumin and salt; keep in 4 small pots.',
+  ],
+  keeps: 'Parathas 2 months frozen; raita 2 days',
+  storagePlan: 'Parathas go in the freezer (2 months; 2 days in the fridge). The raita cannot be frozen and keeps 2 days: mix 2 pots on Sunday and 2 on Tuesday night, or mix one the night before (2 minutes).',
+  reheat: 'Paratha from frozen: straight on a medium-hot dry tawa or pan, 2–3 min a side, until hot and crisp; or microwave 1 min then 1 min on the pan. Raita cold, never microwaved.',
+  crossCheck: null,
+  extraChecks: [{ zainab: 'aloo-paratha-home', comps: ['paratha'], note: "Zainab's home aloo paratha uses 1 tbsp desi ghee per paratha; this one uses 6 g oil, so it should be lower in energy and fat." }],
+  changes: [
+    "Fat cut from Food Fusion's 1 tbsp ghee (12.8 g) + 3.6 g filling oil per paratha to 6 g oil on the tawa: the paratha alone drops from about 415 to about 330 kcal.",
+    'A paratha alone has about 8 g protein, so the portion comes with a 200 g protein-yogurt raita (20 g protein) to reach the 25 g breakfast target.',
+    "Yield: Zainab's measured-moisture yield (0.651) is applied to the whole raw paratha, oil included; with less fat than her version this slightly overstates the cooked weight (about 2%).",
+  ],
+  confidence: 'C',
+  confidenceWhy: "The paratha yield comes from another recipe's cooked moisture (CoFID stuffed paratha) applied to this one.",
+  halal: { status: 'halal', reason: 'Plants, wholemeal flour and yogurt only; yogurt label checked (no gelatine), 2026-10-13.' },
+};

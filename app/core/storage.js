@@ -230,6 +230,9 @@ export function validateUserData(data) {
     p.push(...recentsProblems(data.recents));
     if (!Array.isArray(data.recipes)) p.push('recipes must be an array');
     if (!Array.isArray(data.batches)) p.push('batches must be an array');
+    if (data.savedMeals !== undefined && !Array.isArray(data.savedMeals)) {
+      p.push('savedMeals must be an array');
+    }
     return p;
   } catch (error) {
     return [`the document could not be validated (${messageOf(error)})`];
@@ -514,5 +517,9 @@ export function mergeImport(current, incoming, mode) {
     recents,
     recipes: unionById(current.recipes, incoming.recipes),
     batches: unionById(current.batches, incoming.batches),
+    // Sprint 2 (§13.1): optional; absent means none.
+    ...(current.savedMeals || incoming.savedMeals
+      ? { savedMeals: unionById(current.savedMeals, incoming.savedMeals) }
+      : {}),
   };
 }

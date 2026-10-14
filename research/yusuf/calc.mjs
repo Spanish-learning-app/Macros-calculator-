@@ -69,6 +69,16 @@ export const YIELDS = {
   potatoPanFried: B(0.77, 'Table 21: Roasted (pan-fried) potatoes, fresh, e = 0.77 (n = 3)'),
   potatoBoiled: B(1.0, 'Table 21: Potato, without peel, boiled, e = 1.00 (n = 272)'),
   eggSet: B(0.91, 'Table 2: Scrambled eggs, e = 0.91 (n = 6); used for the tortilla egg mixture'),
+  // Sprint 2 (breakfast and dinner preps)
+  pancakeWholemeal: B(0.89, 'Table 2: Pancake with whole meal flour, e = 0.89 (n = 10); used for the oat-yogurt-egg batter'),
+  beefBraised: proteinRatio(171206, 171203),
+  meatballBoiled: B(0.87, 'Table 7: Small meat ball, boiled, e = 0.87 (n = 3); meatballs simmered in the sofregit'),
+  spinachStewed: B(0.84, 'Table 18: Spinach, stewed, e = 0.84 (n = 25)'),
+  lentilsDry: B(2.73, 'Table 20: Lentils (dried product), boiled/stewed, e = 2.73 (n = 6)'),
+  roti: { f: 0.799, src: "Zainab Rauf's roti sheet (research/zainab/recipes/pk-roti.md): dough of 100 g atta + 70 g water + 0.5 g salt cooked on the tawa to 34.4 g water per 100 g (Rasool et al. 2006, Pakistani chapattis 32.5–36.3%; FNDDS 2707713 roti 35.4%) weighs 136.3 g: yield 0.799 of the dough" },
+  parathaPlain: { f: 0.731, src: "Zainab Rauf's paratha sheet (research/zainab/recipes/pk-paratha-home.md): dough + fat cooked to 30.6 g water per 100 g (CoFID 2021 11-1104 homemade paratha) gives yield 0.731 of the raw total" },
+  alooParatha: { f: 0.651, src: "Zainab Rauf's aloo paratha sheet (research/zainab/recipes/pk-aloo-paratha.md): dough, potato filling and fat cooked to 46.7 g water per 100 g (CoFID 2021 11-912 stuffed paratha, analysed) gives yield 0.651 of the raw total" },
+  waterSimmer40: { f: 0.6, src: "Lab convention C.simmerAjar30 (research/zainab/conventions.mjs, assumption): 30% of the free water evaporates per 30 min with the lid ajar; 40 min → 40% gone, 60% kept" },
 };
 const KEEP = new Set(['oil-olive', 'oil-sunflower', 'salt', 'sugar']);
 const isKept = (id) => KEEP.has(id) || (REG[id] && /spice|masala|hanout|pepper, black|Cumin|Coriander seed|Paprika|Turmeric|chilli powder|Cinnamon|Cloves|Cardamom|Bay leaf|Oregano|Black pepper/i.test(REG[id].label));
@@ -81,11 +91,13 @@ export const PROPOSED_STORAGE = {
 };
 
 // ------------------------------------------------------------------ prices
+const MERC_META = JSON.parse(fs.readFileSync(path.join(MERC, 'fetched.json'), 'utf8'));
 function mercadonaIndex() {
   const idx = new Map();
   for (const f of fs.readdirSync(MERC).filter((n) => n.startsWith('cat_'))) {
+    const catDate = MERC_META.extra?.[f.slice(4, -5)] ?? MERC_META.date;
     const walk = (c) => {
-      for (const p of c.products || []) idx.set(p.id, p);
+      for (const p of c.products || []) if (!idx.has(p.id) || catDate === MERC_META.date) idx.set(p.id, { ...p, _date: catDate });
       for (const s of c.categories || []) walk(s);
     };
     walk(JSON.parse(fs.readFileSync(path.join(MERC, f), 'utf8')));
@@ -93,7 +105,7 @@ function mercadonaIndex() {
   return idx;
 }
 const MERC_IDX = mercadonaIndex();
-const MERC_DATE = JSON.parse(fs.readFileSync(path.join(MERC, 'fetched.json'), 'utf8')).date;
+const MERC_DATE = MERC_META.date;
 
 export function priceOf(ingId) {
   const buy = REG[ingId]?.buy;
@@ -116,11 +128,11 @@ export function priceOf(ingId) {
       grams = (pi.drained_weight || pi.unit_size) * 1000;
       pack = pi.drained_weight ? `${pi.unit_size * 1000} g (${pi.drained_weight * 1000} g drained)` : `${Math.round(pi.unit_size * 1000)} g`;
     }
-    return { shop: 'mercadona', id: p.id, name: p.display_name, packPrice: price, packG: grams, pack, eurPerG: price / grams, url: `https://tienda.mercadona.es/product/${p.id}/`, date: MERC_DATE };
+    return { shop: 'mercadona', id: p.id, name: p.display_name, packPrice: price, packG: grams, pack, eurPerG: price / grams, url: `https://tienda.mercadona.es/product/${p.id}/`, date: p._date };
   }
   if (buy.shop === 'butcher') {
     const it = BUTCHER.items[buy.item];
-    return { shop: 'butcher', name: it.name, eurPerG: it.eurPerKg == null ? null : it.eurPerKg / 1000, eurPerKg: it.eurPerKg, url: it.url, note: it.note, date: PRICE_DATE };
+    return { shop: 'butcher', name: it.name, eurPerG: it.eurPerKg == null ? null : it.eurPerKg / 1000, eurPerKg: it.eurPerKg, url: it.url, note: it.note, date: it.date ?? PRICE_DATE };
   }
   if (buy.shop === 'desi') {
     const it = DESI.items[buy.item];
@@ -147,14 +159,17 @@ export function compute(sheet) {
     const lines = [];
     for (const [ingId, grams, note = '', yKey] of c.lines) {
       if (ingId === 'water') {
+        const wk = yKey ?? (c.yieldAll ? c.yield : 'absorbed');
+        const wy = YIELDS[wk];
+        if (!wy) throw new Error(`${sheet.id}: unknown yield ${wk}`);
         craw += grams;
-        ccooked += grams;
-        lines.push({ ingId, grams, note, yieldKey: 'absorbed', yield: 1, cookedG: grams, n: null });
+        ccooked += grams * wy.f;
+        lines.push({ ingId, grams, note, yieldKey: wk, yield: wy.f, cookedG: grams * wy.f, n: null });
         continue;
       }
       const ing = ING[ingId];
       if (!ing) throw new Error(`${sheet.id}: unknown ingredient ${ingId}`);
-      const key = yKey ?? (isKept(ingId) ? 'none' : c.yield);
+      const key = yKey ?? (isKept(ingId) && !c.yieldAll ? 'none' : c.yield);
       const y = YIELDS[key];
       if (!y) throw new Error(`${sheet.id}: unknown yield ${key}`);
       const n = {};
@@ -203,7 +218,8 @@ export function compute(sheet) {
     fat: r1((p.fat * boxG) / 100),
     fiber: r1((p.fiber * boxG) / 100),
   };
-  const T = RULES.mealPrep.targetsBySlot?.lunch ?? RULES.mealPrep.boxTargets;
+  const slot = sheet.slot ?? 'lunch';
+  const T = RULES.mealPrep.targetsBySlot[slot];
   const targets = {
     kcal: box.kcal >= T.kcal.min && box.kcal <= T.kcal.max,
     protein: box.protein >= T.proteinG.min && box.protein <= T.proteinG.max,
@@ -234,6 +250,8 @@ export function compute(sheet) {
     id: sheet.id,
     n: sheet.n,
     file: sheet.file,
+    slot,
+    serving: sheet.serving ?? 'box',
     boxes,
     rawG: Math.round(raw),
     cookedG: Math.round(cooked),
@@ -281,7 +299,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     results[s.id] = r;
     const b = r.box;
     const ok = (t) => (t ? 'ok' : 'MISS');
-    console.log(`R-MP-${String(r.n).padEnd(2)} ${s.id.padEnd(38)} box ${String(b.grams).padStart(3)} g ${String(b.kcal).padStart(4)} kcal [${ok(r.targets.kcal)}] P${String(b.protein).padStart(5)} [${ok(r.targets.protein)}] C${b.carbs} F${b.fat} Fib${String(b.fiber).padStart(4)} [${ok(r.targets.fiber)}] | /100g ${r.per100g.kcal} kcal P${r.per100g.protein} C${r.per100g.carbs} F${r.per100g.fat} Fib${r.per100g.fiber} | tbl ${r.tableKcalPer100g} (${r.energyGapPct}%) | ${r.cost.perBox.toFixed(2)} €/box${r.cost.complete ? '' : r.cost.partialMajor ? ' PARTIAL' : ' (+minor unpriced)'} | fridge ${r.fridgeDays} d`);
+    console.log(`R-MP-${String(r.n).padEnd(2)} ${s.id.padEnd(38)} ${r.slot.slice(0, 5)} ${r.serving.padEnd(7)} ${String(b.grams).padStart(3)} g ${String(b.kcal).padStart(4)} kcal [${ok(r.targets.kcal)}] P${String(b.protein).padStart(5)} [${ok(r.targets.protein)}] C${b.carbs} F${b.fat} Fib${String(b.fiber).padStart(4)} [${ok(r.targets.fiber)}] | /100g ${r.per100g.kcal} kcal P${r.per100g.protein} C${r.per100g.carbs} F${r.per100g.fat} Fib${r.per100g.fiber} | tbl ${r.tableKcalPer100g} (${r.energyGapPct}%) | ${r.cost.perBox.toFixed(2)} €/box${r.cost.complete ? '' : r.cost.partialMajor ? ' PARTIAL' : ' (+minor unpriced)'} | fridge ${r.fridgeDays} d`);
     if (filter) {
       for (const c of r.components) {
         console.log(`   [${c.id}] raw ${c.rawG} g → ${c.cookedG} g (box ${c.boxG} g) storage ${c.storage}`);

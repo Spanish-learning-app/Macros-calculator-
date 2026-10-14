@@ -104,6 +104,23 @@ const CONTRACT = {
     },
     constants: ['STORAGE_KEY', 'SCHEMA_VERSION', 'EXPORT_KIND'],
   },
+  // Sprint 2, ARCHITECTURE §13.2.
+  mealprep: {
+    functions: {
+      worstHalal: 1,
+      recipeTotals: 2,
+      foodFromRecipe: 3,
+      storageIds: 3,
+      storagePlan: 4,
+      boxUseBy: 5,
+      useByStatus: 2,
+      boxesLeft: 1,
+      placeBox: 3,
+      syncBatches: 2,
+      shoppingList: 2,
+    },
+    constants: ['RECIPE_PREFIX', 'BOX_STORAGES', 'BOX_STATUSES'],
+  },
 };
 
 for (const [name, spec] of Object.entries(CONTRACT)) {
