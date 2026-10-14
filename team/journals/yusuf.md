@@ -41,3 +41,4 @@
   TODO: "Planned for Sprint 2" section in docs/MEALPREP.md (5–6 breakfast preps, 25–40 g protein,
   jars/portions; 6–8 freezer-friendly desi dinners with Zainab). Serving names follow the container
   ("1 box", "1 jar", "1 portion"); `lunchbox` group may be generalised by Ayesha.
+- 00:20 (14 Oct) Resumed after usage pause. rules.js 1.4.0: lunchbox = any-slot prep group (default box/jar/portion, energy band by slots[0]); new storage 'cooked-curry' → used for roast veg and green beans (boxes 5, 7). NUTRITION.md still shows old G22 text (box only, 90–260) → tell Ayesha.

@@ -76,7 +76,6 @@ const ADDED_FAT = new Set(['oil-olive', 'oil-sunflower']);
 // Components whose storage class is not (yet) in RULES.mealPrep.storage. They do not set the box use-by
 // here; the sheet says so, and the gap is reported to Ayesha.
 export const PROPOSED_STORAGE = {
-  'proposed:cooked-veg': { label: 'Cooked vegetables (roast veg, boiled green beans, boiled potato)', note: 'not in RULES.mealPrep.storage; USDA FSIS "Leftovers and Food Safety" gives 3-4 days for cooked leftovers. In these boxes they share a box with rice or couscous, which sets the use-by (1 day) anyway.' },
   'proposed:bread': { label: 'Bread (pita)', note: 'room temperature until the pack date; freeze if not used in 3 days (manufacturer storage text). Not a use-by item.' },
   'proposed:whole-fruit': { label: 'Whole fruit (banana) and nuts', note: 'room temperature; not a use-by item.' },
 };
@@ -204,7 +203,7 @@ export function compute(sheet) {
     fat: r1((p.fat * boxG) / 100),
     fiber: r1((p.fiber * boxG) / 100),
   };
-  const T = RULES.mealPrep.boxTargets;
+  const T = RULES.mealPrep.targetsBySlot?.lunch ?? RULES.mealPrep.boxTargets;
   const targets = {
     kcal: box.kcal >= T.kcal.min && box.kcal <= T.kcal.max,
     protein: box.protein >= T.proteinG.min && box.protein <= T.proteinG.max,

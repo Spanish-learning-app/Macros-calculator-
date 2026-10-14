@@ -141,11 +141,7 @@ export function mount(container, ctx) {
           ? h('span', { class: 'chip-kind', 'data-testid': 'target-kind' }, info.chip)
           : null,
         ' ',
-        h(
-          'span',
-          null,
-          info.kind === 'reference' ? info.label : 'An estimate, you can change it.',
-        ),
+        h('span', null, info.kind === 'reference' ? info.label : 'An estimate, you can change it.'),
       ),
       info.kind === 'none'
         ? h('p', { class: 'field-help' }, rules.warnings?.no_targets ?? '')
@@ -270,7 +266,11 @@ export function mount(container, ctx) {
         onchange: (e) => store.updateSettings({ dayStartMinutes: Number(e.target.value) }),
       },
       startOptions.map((m) =>
-        h('option', { value: String(m), selected: m === (s.dayStartMinutes ?? 240) }, fmtMinutes(m)),
+        h(
+          'option',
+          { value: String(m), selected: m === (s.dayStartMinutes ?? 240) },
+          fmtMinutes(m),
+        ),
       ),
     );
     return h(

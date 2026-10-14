@@ -3856,7 +3856,7 @@
    {
     "id": "beans",
     "label": "Green beans",
-    "storage": "proposed:cooked-veg",
+    "storage": "cooked-curry",
     "eat": "hot",
     "pot": null,
     "rawG": 600,
@@ -5097,7 +5097,7 @@
    {
     "id": "veg",
     "label": "Roast vegetables",
-    "storage": "proposed:cooked-veg",
+    "storage": "cooked-curry",
     "eat": "either",
     "pot": null,
     "rawG": 1238,

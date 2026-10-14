@@ -19,7 +19,7 @@ const usda = JSON.parse(fs.readFileSync(path.join(root, 'research', 'cache', 'us
 const cofid = JSON.parse(fs.readFileSync(path.join(root, 'research', 'cache', 'cofid', 'proximates.json'), 'utf8'));
 const DATE = '2026-10-13';
 const ST = new Map(RULES.mealPrep.storage.map((s) => [s.id, s]));
-const T = RULES.mealPrep.boxTargets;
+const T = RULES.mealPrep.targetsBySlot?.lunch ?? RULES.mealPrep.boxTargets;
 
 const r1 = (x) => (Math.round(x * 10) / 10).toFixed(1);
 const r0 = (x) => String(Math.round(x));
@@ -34,7 +34,7 @@ function storageRow(id) {
     return { cls: `\`${id}\``, fridge: `${s.fridgeDays} day${s.fridgeDays > 1 ? 's' : ''}`, freezer: s.freezable ? `${s.freezerMonths} month${s.freezerMonths > 1 ? 's' : ''}` : 'do not freeze' };
   }
   const p = PROPOSED_STORAGE[id];
-  return { cls: `\`${id}\` (not in RULES yet)`, fridge: p.note.includes('FSIS') ? '3 days (proposed)' : '—', freezer: id === 'proposed:bread' ? 'yes' : id === 'proposed:cooked-veg' ? 'with the box' : '—' };
+  return { cls: `\`${id}\` (not in RULES)`, fridge: '—', freezer: id === 'proposed:bread' ? 'yes (pack)' : '—' };
 }
 
 function refValues(chk) {
@@ -118,7 +118,7 @@ function sheetMd(s, r) {
   L.push('', `**Eat:** ${EAT[s.eat]}. **Halal:** ${s.halal.status}${s.halal.reason ? `: ${s.halal.reason}` : ''} **Confidence:** ${s.confidence}.`, '');
   L.push('## One box at a glance', '', '| Box weight | kcal | Protein | Carbs | Fat | Fibre |', '|---|---|---|---|---|---|');
   L.push(`| ${b.grams} g (½ box ${r.halfBoxG} g) | ${b.kcal} | ${r1(b.protein)} g | ${r1(b.carbs)} g | ${r1(b.fat)} g | ${r1(b.fiber)} g |`, '');
-  L.push(`Targets (\`RULES.mealPrep.boxTargets\`): ${T.kcal.min}–${T.kcal.max} kcal ${ok(r.targets.kcal)}; ${T.proteinG.min}–${T.proteinG.max} g protein ${ok(r.targets.protein)}; at least ${T.minFiberG} g fibre ${ok(r.targets.fiber)}.`, '');
+  L.push(`Targets (\`RULES.mealPrep.targetsBySlot.lunch\`): ${T.kcal.min}–${T.kcal.max} kcal ${ok(r.targets.kcal)}; ${T.proteinG.min}–${T.proteinG.max} g protein ${ok(r.targets.protein)}; at least ${T.minFiberG} g fibre ${ok(r.targets.fiber)}.`, '');
   L.push('## References (at least 2 published recipes)', '');
   for (const ref of s.references) L.push(`- [${ref.title}](${ref.url}): ${ref.used}. *Read: ${ref.read}.*`);
   L.push('', `The standard recipe below triangulates these and then adjusts to the box targets (see "Changes"). No wine anywhere: lemon or water replaces it.`, '');

@@ -44,7 +44,7 @@ kcal **456**, protein 7 g, available carbs 39.5 g, fat 29.3 g, fibre 2.9 g, satu
 
 Differences above 25 %: BEDCA 2165 Pan blanco, tostado (no oil). See notes below.
 
-NOT SHIPPED in Sprint 1: 456 kcal/100 g is above the `bread` (180–380) and `bread-fried` (260–450) ranges. Reported to Ayesha; users can log pan de barra plus olive oil meanwhile.
+Shipped in group `bread-fried` (260–480 kcal per 100 g, RULES v1.4.0): at 456 kcal it is above plain toast (BEDCA 2165) because of the oil.
 
 ## Assumptions and confidence
 

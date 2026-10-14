@@ -31,7 +31,7 @@ export default {
       ],
     },
     {
-      id: 'veg', label: 'Roast vegetables', storage: 'proposed:cooked-veg', yield: 'none', eat: 'either',
+      id: 'veg', label: 'Roast vegetables', storage: 'cooked-curry', yield: 'none', eat: 'either',
       lines: [
         ['courgette', 400, '2 cm chunks', 'zucchiniStew'],
         ['carrot', 300, 'thick slices', 'carrotStew'],

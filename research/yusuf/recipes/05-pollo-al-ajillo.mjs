@@ -42,7 +42,7 @@ export default {
       ],
     },
     {
-      id: 'beans', label: 'Green beans', storage: 'proposed:cooked-veg', yield: 'greenBeansBoiled', eat: 'hot',
+      id: 'beans', label: 'Green beans', storage: 'cooked-curry', yield: 'greenBeansBoiled', eat: 'hot',
       lines: [['green-beans', 600, 'frozen judía verde, boiled 8 min']],
     },
   ],

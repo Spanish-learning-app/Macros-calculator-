@@ -46,8 +46,6 @@ kcal **49**, protein 2.7 g, available carbs 4.2 g, fat 2.3 g, fibre 0.1 g, satur
 |---|---|---|
 | CoFID 2021 17-832 Raita, homemade | 57 | -14 % |
 
-HELD from the data file in Sprint 1: `side-dip` is katori-served (needs katori-large, 360 ml × 1.03 = 370.8 g) but its servingGrams max is 250 g. Reported to Ayesha.
-
 ## Assumptions and confidence
 
 Confidence **B**: no cooking; agrees with CoFID within 15 %.
