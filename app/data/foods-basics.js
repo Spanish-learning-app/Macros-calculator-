@@ -1413,6 +1413,22 @@ export default [
     source: { citation: 'Label: Mercadona Postre lácteo natural +Proteínas 10 g 0% MG, 500 g tub, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 21256 (tienda.mercadona.es/product/21256, EAN 8480000212566); per-100 g values from Open Food Facts 8480000212566. Label per 100 g: 52 kcal, P 10, C 3.1 (sugars 3.1), F 0.5, sat 0.1 g. Ingredients: skimmed pasteurised milk, lactic cultures (no gelatine). Label portion 120 g. Same product as Yusuf\'s ingredient "protein-yogurt".' },
   },
   {
+    id: 'es-yogur-griego-ligero',
+    name: 'Greek-style yogurt, light 2 % (Hacendado griego ligero)',
+    aliases: ['yogur griego ligero', 'griego ligero', 'yogur griego natural ligero', 'yogur griego hacendado', 'greek yogurt light', 'light greek yogurt', '2% greek yogurt', 'iogurt grec lleuger', 'yogur griego 2%'],
+    group: 'dairy',
+    state: 'partly skimmed, plain, as sold',
+    per100g: { kcal: 60, protein: 5.8, carbs: 4.7, fat: 2, fiber: 0, sugars: 4.7, satFat: 1.4, sodium: 64 },
+    servings: [
+      { id: 'pot', label: '1 pot (125 g)', grams: 125, default: true },
+      { id: 'tbsp', label: '1 tablespoon', grams: 15.5 },
+    ],
+    tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'],
+    slots: ['breakfast', 'evening', 'snacks'],
+    halal: { status: 'halal' },
+    source: { citation: 'Label: Mercadona Yogur griego natural ligero Hacendado 2% MG, 1 kg tub, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 21358 (tienda.mercadona.es/product/21358, EAN 8480000213587); per-100 g values from Open Food Facts 8480000213587. Label per 100 g: 254 kJ (60 kcal; 4P + 4C + 9F = 60), P 5.8, C 4.7 (sugars 4.7), F 2.0, sat 1.4, salt 0.16 g; fibre not declared (0). Ingredients: pasteurised partly skimmed milk (origin Spain), skimmed milk powder, milk proteins, lactic cultures: no gelatina, no rennet. Pot serving 125 g = the 125 g Hacendado griego ligero pot (Mercadona 52421, EAN 8402001012051, OFF serving 125 g; same values); tbsp at 1.03 g/ml. Same product as Yusuf\'s ingredient "yogurt-greek-light".' },
+  },
+  {
     id: 'intl-salmon-canned',
     name: 'Salmon, canned (al natural)',
     aliases: ['canned salmon', 'tinned salmon', 'salmon', 'salmón al natural', 'salmon en lata', 'salmó', 'salmon can'],

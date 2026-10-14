@@ -11,7 +11,7 @@ Record `med-chicken-hummus-pasta-salad-box` in `app/data/foods-mealprep.js` · l
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Chicken from a halal butcher; hummus label lists E270 "de origen vegetal" and no E471 (checked 2026-10-13). **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 30 min hands-on for the batch of 4.
 
 ## One box at a glance
 

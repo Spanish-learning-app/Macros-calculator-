@@ -12,7 +12,7 @@ Record `pk-aloo-gosht-roti-portion` in `app/data/foods-mealprep.js` · library p
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; yogurt label checked (no gelatine), 2026-10-13. **Confidence:** C.
 
-**Meal:** dinner prep, logged as "1 portion".
+**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 55 min hands-on for the batch of 4.
 
 ## One portion at a glance
 
@@ -161,7 +161,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 ## Cost per portion
 
-**Indicative cost per portion: 3.15 €** (12.61 € for 4 portions). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g. Not included (no price found, small amounts): coriander seed (4 g), garam masala (2 g).
+**Indicative cost per portion: 3.15 €** (12.61 € for 4 portions). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the portions, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g. Not included (no price found, small amounts): coriander seed (4 g), garam masala (2 g).
 
 ## Changes made to meet the dinner targets
 

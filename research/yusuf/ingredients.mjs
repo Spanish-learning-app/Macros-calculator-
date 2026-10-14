@@ -22,7 +22,7 @@
 
 export default {
   // ---------------------------------------------------------------- meat (halal butcher)
-  'chicken-thigh': { src: 'fdc', code: 173627, label: 'Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel)', buy: { shop: 'butcher', item: 'chicken-thigh-boneless' } },
+  'chicken-thigh': { src: 'fdc', code: 2646171, label: 'Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel; USDA Foundation 2646171, the same food as the Lab record intl-chicken-thigh-raw; was SR Legacy 173627 until 2026-10-14, Ayesha\'s review)', buy: { shop: 'butcher', item: 'chicken-thigh-boneless' } },
   'chicken-breast': { src: 'fdc', code: 171077, label: 'Chicken breast, boneless, skinless, raw (pechuga)', buy: { shop: 'butcher', item: 'chicken-breast' } },
   'chicken-mince': { src: 'fdc', code: 171116, label: 'Chicken mince, raw (carne picada de pollo)', buy: { shop: 'butcher', item: 'chicken-mince' } },
   'beef-cubes': { src: 'fdc', code: 171206, label: 'Beef, boneless stewing cubes (chuck for stew, lean and fat, raw; carne sin hueso de ternera a tacos)', buy: { shop: 'butcher', item: 'beef-boneless' } },

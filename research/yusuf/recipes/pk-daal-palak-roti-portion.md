@@ -12,7 +12,7 @@ Record `pk-daal-palak-roti-portion` in `app/data/foods-mealprep.js` · library p
 
 **Eat:** hot (microwave). **Halal:** halal: Lentils, vegetables, wholemeal flour and yogurt only; yogurt label checked (no gelatine), 2026-10-13. **Confidence:** C.
 
-**Meal:** dinner prep, logged as "1 portion".
+**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 45 min hands-on for the batch of 4.
 
 ## One portion at a glance
 
@@ -173,7 +173,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 ## Cost per portion
 
-**Indicative cost per portion: not available.** No current price was found for red lentils (280 g), green chilli, raw (8 g), coriander seed (4 g). The priced part comes to 0.98 € per portion (3.93 € for the batch). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs.
+**Indicative cost per portion: not available.** No current price was found for red lentils (280 g), green chilli, raw (8 g), coriander seed (4 g). The priced part comes to 0.98 € per portion (3.93 € for the batch). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14. Pro-rata: the cost of what goes in the portions, not of whole packs.
 
 ## Changes made to meet the dinner targets
 

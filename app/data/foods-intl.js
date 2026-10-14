@@ -375,8 +375,8 @@ export default [
     ],
     tags: ['international', 'pakistani', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'snacks'],
-    halal: { status: 'halal' },
-    source: { citation: 'USDA FDC Foundation 325871', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 49.2 − fibre 2.3 = 46.9 g available. Serving: USDA Foundation 325871 1 slice = 27.3 g.' },
+    halal: { status: 'check', reason: 'Spanish sliced white bread usually lists the emulsifiers E-471 and E-472e (mono- and diglycerides), which can be made from animal fat; the label does not say vegetable origin.' },
+    source: { citation: 'USDA FDC Foundation 325871', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 49.2 − fibre 2.3 = 46.9 g available. Serving: USDA Foundation 325871 1 slice = 27.3 g. Halal check (NUTRITION §4.6 label rule, 2026-10-14): Mercadona Pan de molde blanco Hacendado (product 13810, EAN 8402001000560, read 2026-10-14) lists emulsifiers E-471 and E-472e without saying their origin; typical Spanish sliced white bread does.' },
   },
   {
     id: 'med-chicken-shawarma',
@@ -516,8 +516,8 @@ export default [
     ],
     tags: ['international', 'spanish', 'vegetarian', 'packaged'],
     slots: ['breakfast', 'lunch'],
-    halal: { status: 'check', reason: 'The loaf contains the emulsifier E-471 (mono- and diglycerides), which can be made from animal fat; the label does not say vegetable origin.' },
-    source: { citation: 'Label: Mercadona Pan de molde 100% integral Hacendado, 460 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 82328 (tienda.mercadona.es/product/82328, EAN 8402001024184); per-100 g values from Open Food Facts 8402001024184. Label per 29 g slice converted to per 100 g by OFF: 248 kcal, P 8.6, C 41.4 (sugars 2.4), F 3.8, sat 0.7, fibre 7.6, salt 1.19 g. Ingredients include E-471 and wine vinegar (vinagre).' },
+    halal: { status: 'check', reason: 'The loaf lists the emulsifiers E-472e and E-471 (mono- and diglycerides), which can be made from animal fat; the label does not say vegetable origin.' },
+    source: { citation: 'Label: Mercadona Pan de molde 100% integral Hacendado, 460 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 82328 (tienda.mercadona.es/product/82328, EAN 8402001024184); per-100 g values from Open Food Facts 8402001024184. Label per 29 g slice converted to per 100 g by OFF: 248 kcal, P 8.6, C 41.4 (sugars 2.4), F 3.8, sat 0.7, fibre 7.6, salt 1.19 g. Ingredients (current Mercadona page): emulsifiers E-472e and E-471, wine vinegar (vinagre); the older OFF entry (57 % flour, E-481) is superseded.' },
   },
   {
     id: 'intl-tortilla-wrap-wholewheat',

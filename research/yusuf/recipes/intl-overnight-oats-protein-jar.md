@@ -10,7 +10,7 @@ Record `intl-overnight-oats-protein-jar` in `app/data/foods-mealprep.js` · libr
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Dairy, oats, seeds, nuts and fruit only; milk and yogurt labels checked (no gelatine), 2026-10-13/14. **Confidence:** B.
 
-**Meal:** breakfast prep, logged as "1 jar".
+**Meal:** breakfast prep, logged as "1 jar". **Effort:** no-cook assembly (`effort: 'assemble'`), 10 min, no cooking for the batch of 3.
 
 ## One jar at a glance
 
@@ -26,9 +26,9 @@ Targets (`RULES.mealPrep.targetsBySlot.breakfast`): 300–550 kcal met; 25–40 
 - [Joy to the Food, Amped-up protein overnight oats](https://joytothefood.com/amped-up-protein-overnight-oats/): ½ cup rolled oats, 1 tbsp chia, 1¼ tbsp hemp seeds, ⅓ cup Greek yogurt, 1 cup milk (⅔ cup for a thicker jar). *Read: search-engine page extract, 2026-10-14.*
 - [My Everyday Table, High-protein overnight oats](https://myeverydaytable.com/high-protein-overnight-oats/): ½ cup oats and 2 tbsp chia per serving with Greek yogurt or skyr. *Read: search-engine page extract, 2026-10-14.*
 
-The standard recipe below triangulates these and then adjusts to the box targets (see "Changes"). No wine anywhere: lemon or water replaces it.
+The assembly below starts from these and adjusts to the breakfast targets (see "Changes"). Shop-bought parts are named by product so the label can be checked.
 
-## Standard recipe: 3 jars, raw edible grams
+## Standard recipe: 3 jars, grams as bought and drained (edible part)
 
 ### Oats, protein yogurt, milk, chia and walnuts
 
@@ -97,7 +97,7 @@ All 3 jars go in the fridge on Sunday night for Monday, Tuesday and Wednesday (f
 
 - Whole fruit (banana) and nuts: room temperature; not a use-by item.
 
-Chill everything within 60 minutes of cooking (spread on a tray). Reheat once only, until steaming hot right through (75 °C).
+Assemble with cold ingredients straight from the fridge and put the boxes back in the fridge at once. Cold boxes travel in an insulated bag with an ice pack and are eaten within 2 hours of leaving the fridge (1 hour above 32 °C).
 
 ## Eating and reheating
 
@@ -130,7 +130,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 ## Cost per jar
 
-**Indicative cost per jar: 1.09 €** (3.28 € for 3 jars). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs.
+**Indicative cost per jar: 1.09 €** (3.28 € for 3 jars). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14. Pro-rata: the cost of what goes in the jars, not of whole packs.
 
 ## Changes made to meet the breakfast targets
 
@@ -151,4 +151,4 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 ## Assumptions and confidence
 
-Confidence **B**: Nothing is cooked: the jar is the sum of weighed ingredients from a dated label (milk, protein yogurt) and USDA SR Legacy values (oats, chia, walnuts, banana). No cooking yield is needed. Macronutrients are 100% retained (NUTRITION.md §6 step 6); all oil is eaten; water that boils off is not counted.
+Confidence **B**: Nothing is cooked: the jar is the sum of weighed ingredients from a dated label (milk, protein yogurt) and USDA SR Legacy values (oats, chia, walnuts, banana). No cooking yield is needed. Weights are as bought (drained for jars and cans, edible part for fruit); all oil is eaten. Values from Lab records are the records the app shows for those foods.

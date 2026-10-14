@@ -12,7 +12,7 @@ Record `pk-keema-matar-rice-box` in `app/data/foods-mealprep.js` · library page
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; yogurt is milk and cultures only (label checked 2026-10-13). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 45 min hands-on for the batch of 4.
 
 ## One box at a glance
 

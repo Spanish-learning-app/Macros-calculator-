@@ -11,7 +11,7 @@ Record `es-garbanzos-atun-salad-box` in `app/data/foods-mealprep.js` · library 
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Fish and plant foods only; tuna label: tuna, water, salt (checked 2026-10-13). **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 25 min hands-on for the batch of 4.
 
 ## One box at a glance
 
@@ -145,7 +145,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 ## Cost per box
 
-**Indicative cost per box: 2.73 €** (10.92 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs.
+**Indicative cost per box: 2.73 €** (10.92 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs.
 
 ## Changes made to meet the lunch targets
 

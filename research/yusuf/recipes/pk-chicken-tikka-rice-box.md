@@ -12,13 +12,13 @@ Record `pk-chicken-tikka-rice-box` in `app/data/foods-mealprep.js` · library pa
 
 **Eat:** hot (microwave). **Halal:** halal: Chicken from a halal butcher; yogurt is milk and cultures only (label checked 2026-10-13). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 40 min hands-on for the batch of 4.
 
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
 |---|---|---|---|---|---|
-| 644 g (½ box 322 g) | 650 | 49.6 g | 68.9 g | 18.0 g | 8.4 g |
+| 644 g (½ box 322 g) | 708 | 47.7 g | 68.9 g | 25.1 g | 8.4 g |
 
 Targets (`RULES.mealPrep.targetsBySlot.lunch`): 550–750 kcal met; 35–50 g protein met; at least 8 g fibre met.
 
@@ -38,7 +38,7 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 | Ingredient | Raw g (4 boxes) | Per box | Notes |
 |---|---|---|---|
-| Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel) | 720 | 180 | boneless, skinless, 4 cm pieces |
+| Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel; USDA Foundation 2646171, the same food as the Lab record intl-chicken-thigh-raw; was SR Legacy 173627 until 2026-10-14, Ayesha's review) | 720 | 180 | boneless, skinless, 4 cm pieces |
 | Yogur natural Hacendado (whole milk) | 150 | 38 | marinade |
 | Lemon juice (1 lemon yields 48 g, USDA) | 30 | 7.5 | marinade (about ⅔ lemon) |
 | Garlic, raw (1 clove = 3 g, USDA) | 15 | 3.8 | grated (5 cloves) |
@@ -106,17 +106,17 @@ Overall yield 1.066 (cooked ÷ raw, absorbed water included). Yield factors used
 
 | kcal | Protein | Carbs (available) | Fat | Fibre | Sugars | Sat fat | Sodium | Added fat |
 |---|---|---|---|---|---|---|---|---|
-| 101 | 7.7 g | 10.7 g | 2.8 g | 1.3 g | 2.3 g | 0.8 g | 241 mg | 0.8 g |
+| 110 | 7.4 g | 10.7 g | 3.9 g | 1.3 g | 2.3 g | 1.0 g | 232 mg | 0.8 g |
 
 Per 100 g = batch totals ÷ 2574 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
-kcal = round(4P + 4C + 9F + 2·fibre) = **101** per 100 g. The sum of the tables' own energy values is 105 kcal per 100 g (gap 3.6%), within the ±10% data gate.
+kcal = round(4P + 4C + 9F + 2·fibre) = **110** per 100 g. The sum of the tables' own energy values is 113 kcal per 100 g (gap 2.4%), within the ±10% data gate.
 
 ## Cross-check
 
-- USDA FDC FNDDS 2706438 "Chicken curry with rice": 116 kcal, P 5.0, C 14.1, F 4.0 per 100 g. Our whole box: 102 kcal, P 7.7, C 10.7, F 2.8. Difference -12.3% in energy. FNDDS "Chicken curry with rice" is a wet curry on more rice; the box should be denser in protein and similar in energy per 100 g.
+- USDA FDC FNDDS 2706438 "Chicken curry with rice": 116 kcal, P 5.0, C 14.1, F 4.0 per 100 g. Our whole box: 110 kcal, P 7.4, C 10.7, F 3.9. Difference -5.1% in energy. FNDDS "Chicken curry with rice" is a wet curry on more rice; the box should be denser in protein and similar in energy per 100 g.
 - CoFID 2021 17-832 "Raita, homemade": 57 kcal, P 4.4, C 5.8, F 2.4 per 100 g (CoFID carbohydrate is in monosaccharide equivalents). Our raita pot: 44 kcal, P 2.5, C 3.7, F 2.1. Difference -22.0% in energy. CoFID "Raita, homemade" for the raita pot.
 
 ## Storage (per component, `RULES.mealPrep.storage`)
@@ -187,7 +187,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 | Ingredient | Source | kcal | P | C | F | Fibre |
 |---|---|---|---|---|---|---|
-| chicken-thigh | USDA FDC SR Legacy 173627 (Chicken, broilers or fryers, dark meat, thigh, meat only, raw) | 121 | 19.7 | 0.0 | 4.1 | 0.0 |
+| chicken-thigh | USDA FDC Foundation 2646171 (Chicken, thigh, boneless, skinless, raw) | 149 | 18.6 | 0.0 | 7.9 | 0.0 |
 | yogurt-whole | Label: MERCADONA Yogur natural, 750 g (6 x 125 g), read 2026-10-13 via Open Food Facts https://world.openfoodfacts.org/product/8480000223135 (OFF entry last edited 2026-09-29); fibre not on the label, set to 0 (plain yogurt: milk and cultures only, no fibre-containing ingredient) | 62 | 3.7 | 4.1 | 3.4 | 0.0 |
 | lemon-juice | USDA FDC SR Legacy 167747 (Lemon juice, raw) | 22 | 0.4 | 6.6 | 0.2 | 0.3 |
 | garlic | USDA FDC SR Legacy 169230 (Garlic, raw) | 149 | 6.4 | 31.0 | 0.5 | 2.1 |

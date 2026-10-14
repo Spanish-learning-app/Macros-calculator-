@@ -1,18 +1,4 @@
 {
- "chicken-thigh": {
-  "label": "Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel)",
-  "src": "fdc",
-  "code": 173627,
-  "citation": "USDA FDC SR Legacy 173627 (Chicken, broilers or fryers, dark meat, thigh, meat only, raw)",
-  "kcal": 121,
-  "protein": 19.66,
-  "carbs": 0,
-  "fat": 4.12,
-  "fiber": 0,
-  "sugars": 0,
-  "satFat": 1.097,
-  "sodiumMg": 95
- },
  "chicken-breast": {
   "label": "Chicken breast, boneless, skinless, raw (pechuga)",
   "src": "fdc",
@@ -1370,5 +1356,19 @@
   "halal": {
    "status": "halal"
   }
+ },
+ "chicken-thigh": {
+  "label": "Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel; USDA Foundation 2646171, the same food as the Lab record intl-chicken-thigh-raw; was SR Legacy 173627 until 2026-10-14, Ayesha's review)",
+  "src": "fdc",
+  "code": 2646171,
+  "citation": "USDA FDC Foundation 2646171 (Chicken, thigh, boneless, skinless, raw)",
+  "kcal": 149.306475,
+  "protein": 18.6125,
+  "carbs": 0,
+  "fat": 7.916,
+  "fiber": 0,
+  "sugars": null,
+  "satFat": 1.658,
+  "sodiumMg": 62.33
  }
 }

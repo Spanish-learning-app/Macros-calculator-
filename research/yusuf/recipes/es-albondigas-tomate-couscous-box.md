@@ -11,7 +11,7 @@ Record `es-albondigas-tomate-couscous-box` in `app/data/foods-mealprep.js` · li
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; no wine; breadcrumbs and tomato labels checked (no manteca), 2026-10-13. **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 50 min hands-on for the batch of 4.
 
 ## One box at a glance
 

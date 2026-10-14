@@ -12,7 +12,7 @@ Record `pk-shami-kebab-pita-box` in `app/data/foods-mealprep.js` · library page
 
 **Eat:** hot or cold. **Halal:** halal: Beef from a halal butcher; pita has no E471, yogurt is milk only (labels checked 2026-10-13). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 60 min hands-on for the batch of 4.
 
 ## One box at a glance
 

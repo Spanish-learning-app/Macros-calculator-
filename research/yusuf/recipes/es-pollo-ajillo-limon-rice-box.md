@@ -11,13 +11,13 @@ Record `es-pollo-ajillo-limon-rice-box` in `app/data/foods-mealprep.js` · libra
 
 **Eat:** hot (microwave). **Halal:** halal: Chicken from a halal butcher; lemon instead of wine; no shop stock. **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 40 min hands-on for the batch of 4.
 
 ## One box at a glance
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
 |---|---|---|---|---|---|
-| 523 g (½ box 262 g) | 601 | 46.0 g | 60.1 g | 17.8 g | 8.9 g |
+| 523 g (½ box 262 g) | 654 | 43.9 g | 60.1 g | 24.6 g | 8.9 g |
 
 Targets (`RULES.mealPrep.targetsBySlot.lunch`): 550–750 kcal met; 35–50 g protein met; at least 8 g fibre met.
 
@@ -35,7 +35,7 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 | Ingredient | Raw g (4 boxes) | Per box | Notes |
 |---|---|---|---|
-| Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel) | 720 | 180 | boneless, skinless, in 4 cm pieces |
+| Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel; USDA Foundation 2646171, the same food as the Lab record intl-chicken-thigh-raw; was SR Legacy 173627 until 2026-10-14, Ayesha's review) | 720 | 180 | boneless, skinless, in 4 cm pieces |
 | Salt | 6 | 1.5 |  |
 | Black pepper | 2 | 0.5 |  |
 | Olive oil | 30 | 7.5 | extra virgin, about 2 tbsp |
@@ -94,17 +94,17 @@ Overall yield 1.092 (cooked ÷ raw, absorbed water included). Yield factors used
 
 | kcal | Protein | Carbs (available) | Fat | Fibre | Sugars | Sat fat | Sodium | Added fat |
 |---|---|---|---|---|---|---|---|---|
-| 115 | 8.8 g | 11.5 g | 3.4 g | 1.7 g | 1.3 g | 0.7 g | 212 mg | 1.4 g |
+| 125 | 8.4 g | 11.5 g | 4.7 g | 1.7 g | 1.3 g | 0.9 g | 201 mg | 1.4 g |
 
 Per 100 g = batch totals ÷ 2093 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
-kcal = round(4P + 4C + 9F + 2·fibre) = **115** per 100 g. The sum of the tables' own energy values is 117 kcal per 100 g (gap 2.1%), within the ±10% data gate.
+kcal = round(4P + 4C + 9F + 2·fibre) = **125** per 100 g. The sum of the tables' own energy values is 127 kcal per 100 g (gap 1.7%), within the ±10% data gate.
 
 ## Cross-check
 
-- USDA FDC FNDDS 2706438 "Chicken curry with rice": 116 kcal, P 5.0, C 14.1, F 4.0 per 100 g. Our whole box: 115 kcal, P 8.8, C 11.5, F 3.4. Difference -1.1% in energy. FNDDS "Chicken curry with rice" as the nearest chicken-and-rice plate in FNDDS (no pollo al ajillo entry).
+- USDA FDC FNDDS 2706438 "Chicken curry with rice": 116 kcal, P 5.0, C 14.1, F 4.0 per 100 g. Our whole box: 125 kcal, P 8.4, C 11.5, F 4.7. Difference +7.8% in energy. FNDDS "Chicken curry with rice" as the nearest chicken-and-rice plate in FNDDS (no pollo al ajillo entry).
 
 ## Storage (per component, `RULES.mealPrep.storage`)
 
@@ -164,7 +164,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 | Ingredient | Source | kcal | P | C | F | Fibre |
 |---|---|---|---|---|---|---|
-| chicken-thigh | USDA FDC SR Legacy 173627 (Chicken, broilers or fryers, dark meat, thigh, meat only, raw) | 121 | 19.7 | 0.0 | 4.1 | 0.0 |
+| chicken-thigh | USDA FDC Foundation 2646171 (Chicken, thigh, boneless, skinless, raw) | 149 | 18.6 | 0.0 | 7.9 | 0.0 |
 | salt | USDA FDC SR Legacy 173468 (Salt, table) | 0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | black-pepper | USDA FDC SR Legacy 170931 (Spices, pepper, black) | 251 | 10.4 | 38.7 | 3.3 | 25.3 |
 | oil-olive | USDA FDC SR Legacy 171413 (Oil, olive, salad or cooking) | 884 | 0.0 | 0.0 | 100.0 | 0.0 |

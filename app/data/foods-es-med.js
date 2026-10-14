@@ -581,7 +581,7 @@ export default [
     tags: ['mediterranean', 'international', 'vegetarian', 'vegan', 'packaged', 'eat-cold'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC FNDDS 2709307', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 8.45 − fibre 6.5 = 1.9 g available. FNDDS "Guacamole, NFS" used because the Hacendado (Montosa) label on OFF 8436008521063 does not add up (203 kcal vs 929 kJ, fibre 10.7 g for 95 % avocado); that label suggests about 205–220 kcal, so this record may read low. Servings: FNDDS 1 individual container = 70 g, 1 tbsp = 15 g (1.0 g/ml for katori). Ingredients (Mercadona 3852): avocado 95 %, dehydrated onion and garlic, salt, jalapeño, sugar, citric and ascorbic acid, E-301, E-331, E-202, coriander.' },
+    source: { citation: 'USDA FDC FNDDS 2709307', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 8.45 − fibre 6.5 = 1.9 g available. FNDDS "Guacamole, NFS" used because the Hacendado (Montosa) label on OFF 8436008521063 does not add up (203 kcal vs 929 kJ, fibre 10.7 g for 95 % avocado); Cross-check (Ayesha, 2026-10-14): CoFID 14-386 Hass avocado × 0.95 comes to about 162 kcal (fat 16.5 g) against our 155 (−4 %), so 155 kcal is right for 95 % avocado and the 203 kcal label does not add up. Servings: FNDDS 1 individual container = 70 g, 1 tbsp = 15 g (1.0 g/ml for katori). Ingredients (Mercadona 3852): avocado 95 %, dehydrated onion and garlic, salt, jalapeño, sugar, citric and ascorbic acid, E-301, E-331, E-202, coriander.' },
   },
   {
     id: 'es-picos-integrales',

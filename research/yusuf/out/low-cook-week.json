@@ -1,0 +1,37 @@
+{
+ "totals": [
+  {
+   "day": "Monday",
+   "kcal": 1984.1599999999999,
+   "protein": 135.802,
+   "fiber": 46.251999999999995
+  },
+  {
+   "day": "Tuesday",
+   "kcal": 2050.2365,
+   "protein": 131.3562,
+   "fiber": 49.51175
+  },
+  {
+   "day": "Wednesday",
+   "kcal": 1973.3,
+   "protein": 127.542,
+   "fiber": 34.768
+  },
+  {
+   "day": "Thursday",
+   "kcal": 1965.675,
+   "protein": 123.916,
+   "fiber": 41.802
+  },
+  {
+   "day": "Friday",
+   "kcal": 1957.97,
+   "protein": 119.70299999999999,
+   "fiber": 45.669999999999995
+  }
+ ],
+ "till": 89.4744,
+ "eaten": 43.9177137120792,
+ "unpriced": []
+}

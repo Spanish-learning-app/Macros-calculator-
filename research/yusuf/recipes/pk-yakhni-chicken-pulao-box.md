@@ -12,7 +12,7 @@ Record `pk-yakhni-chicken-pulao-box` in `app/data/foods-mealprep.js` · library 
 
 **Eat:** hot (microwave). **Halal:** halal: Chicken from a halal butcher; no stock cubes (the stock is made from the chicken). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 45 min hands-on for the batch of 4.
 
 ## One box at a glance
 

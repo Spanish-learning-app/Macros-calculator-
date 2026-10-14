@@ -12,7 +12,7 @@ Record `pk-anda-paratha-roll-portion` in `app/data/foods-mealprep.js` · library
 
 **Eat:** hot (microwave). **Halal:** halal: Eggs, wholemeal flour and vegetables only; egg-white label checked, 2026-10-13. **Confidence:** C.
 
-**Meal:** breakfast prep, logged as "1 portion".
+**Meal:** breakfast prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 45 min hands-on for the batch of 4.
 
 ## One portion at a glance
 
@@ -148,7 +148,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 ## Cost per portion
 
-**Indicative cost per portion: 1.02 €** (4.07 € for 4 portions). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Not included (no price found, small amounts): green chilli, raw (8 g).
+**Indicative cost per portion: 1.02 €** (4.07 € for 4 portions). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14. Pro-rata: the cost of what goes in the portions, not of whole packs. Not included (no price found, small amounts): green chilli, raw (8 g).
 
 ## Changes made to meet the breakfast targets
 

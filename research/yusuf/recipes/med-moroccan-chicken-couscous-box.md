@@ -11,7 +11,7 @@ Record `med-moroccan-chicken-couscous-box` in `app/data/foods-mealprep.js` · li
 
 **Eat:** hot or cold. **Halal:** halal: Chicken from a halal butcher; couscous label is durum wheat semolina and water (checked 2026-10-13). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box".
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 35 min hands-on for the batch of 4.
 
 ## One box at a glance
 

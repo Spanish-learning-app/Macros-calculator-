@@ -642,9 +642,10 @@ const intl = [
     id: 'intl-bread-white', name: 'White bread, sliced (double roti)', nameUr: 'ڈبل روٹی', nameRoman: 'double roti',
     aliases: ['double roti', 'dabal roti', 'bread', 'white bread', 'bread slice', 'toast', 'sliced bread', 'pan de molde', 'pa de motlle'],
     group: 'bread', state: 'commercial sliced white bread, untoasted',
-    ...fromUsda(325871, 'A', 'Serving: USDA Foundation 325871 1 slice = 27.3 g.'),
+    ...fromUsda(325871, 'A', 'Serving: USDA Foundation 325871 1 slice = 27.3 g. Halal check (NUTRITION §4.6 label rule, 2026-10-14): Mercadona Pan de molde blanco Hacendado (product 13810, EAN 8402001000560, read 2026-10-14) lists emulsifiers E-471 and E-472e without saying their origin; typical Spanish sliced white bread does.'),
     servings: [sv('slice', '1 slice', 27.3, true, '1 سلائس')],
-    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['breakfast', 'snacks'], halal: HALAL,
+    tags: ['international', 'pakistani', 'vegetarian', 'vegan'], slots: ['breakfast', 'snacks'],
+    halal: check('Spanish sliced white bread usually lists the emulsifiers E-471 and E-472e (mono- and diglycerides), which can be made from animal fat; the label does not say vegetable origin.'),
   },
   (() => {
     const r = fromRecipe('med-chicken-shawarma');
@@ -1239,6 +1240,15 @@ const marketBasics = [
     tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'], slots: ['breakfast', 'evening', 'snacks'], halal: HALAL,
     source: merc('Postre lácteo natural +Proteínas 10 g 0% MG', 21256, '8480000212566', '500 g tub', 'Label per 100 g: 52 kcal, P 10, C 3.1 (sugars 3.1), F 0.5, sat 0.1 g. Ingredients: skimmed pasteurised milk, lactic cultures (no gelatine). Label portion 120 g. Same product as Yusuf\'s ingredient "protein-yogurt".'),
   },
+  {
+    id: 'es-yogur-griego-ligero', name: 'Greek-style yogurt, light 2 % (Hacendado griego ligero)',
+    aliases: ['yogur griego ligero', 'griego ligero', 'yogur griego natural ligero', 'yogur griego hacendado', 'greek yogurt light', 'light greek yogurt', '2% greek yogurt', 'iogurt grec lleuger', 'yogur griego 2%'],
+    group: 'dairy', state: 'partly skimmed, plain, as sold',
+    per100g: { kcal: 60, protein: 5.8, carbs: 4.7, fat: 2, fiber: 0, sugars: 4.7, satFat: 1.4, sodium: salt2na(0.16) },
+    servings: [sv('pot', '1 pot (125 g)', 125, true), sv('tbsp', '1 tablespoon', 15.5)],
+    tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'], slots: ['breakfast', 'evening', 'snacks'], halal: HALAL,
+    source: merc('Yogur griego natural ligero Hacendado 2% MG', 21358, '8480000213587', '1 kg tub', 'Label per 100 g: 254 kJ (60 kcal; 4P + 4C + 9F = 60), P 5.8, C 4.7 (sugars 4.7), F 2.0, sat 1.4, salt 0.16 g; fibre not declared (0). Ingredients: pasteurised partly skimmed milk (origin Spain), skimmed milk powder, milk proteins, lactic cultures: no gelatina, no rennet. Pot serving 125 g = the 125 g Hacendado griego ligero pot (Mercadona 52421, EAN 8402001012051, OFF serving 125 g; same values); tbsp at 1.03 g/ml. Same product as Yusuf\'s ingredient "yogurt-greek-light".'),
+  },
   // ---------------------------------------------------------------- canned fish
   {
     id: 'intl-salmon-canned', name: 'Salmon, canned (al natural)',
@@ -1451,8 +1461,8 @@ const marketIntl = [
     group: 'bread', state: 'as sold (sliced loaf)',
     per100g: { kcal: 248, protein: 8.6, carbs: 41.4, fat: 3.8, fiber: 7.6, sugars: 2.4, satFat: 0.7, sodium: salt2na(1.19) },
     servings: [sv('slice', '1 slice', 29, true), sv('two-slices', '2 slices', 58)],
-    tags: ['international', 'spanish', 'vegetarian', 'packaged'], slots: ['breakfast', 'lunch'], halal: E471('The loaf'),
-    source: merc('Pan de molde 100% integral Hacendado', 82328, '8402001024184', '460 g', 'Label per 29 g slice converted to per 100 g by OFF: 248 kcal, P 8.6, C 41.4 (sugars 2.4), F 3.8, sat 0.7, fibre 7.6, salt 1.19 g. Ingredients include E-471 and wine vinegar (vinagre).'),
+    tags: ['international', 'spanish', 'vegetarian', 'packaged'], slots: ['breakfast', 'lunch'], halal: check('The loaf lists the emulsifiers E-472e and E-471 (mono- and diglycerides), which can be made from animal fat; the label does not say vegetable origin.'),
+    source: merc('Pan de molde 100% integral Hacendado', 82328, '8402001024184', '460 g', 'Label per 29 g slice converted to per 100 g by OFF: 248 kcal, P 8.6, C 41.4 (sugars 2.4), F 3.8, sat 0.7, fibre 7.6, salt 1.19 g. Ingredients (current Mercadona page): emulsifiers E-472e and E-471, wine vinegar (vinagre); the older OFF entry (57 % flour, E-481) is superseded.'),
   },
   {
     id: 'intl-tortilla-wrap-wholewheat', name: 'Wholewheat tortilla wrap',
@@ -1531,7 +1541,7 @@ const marketEsMed = [
     id: 'med-guacamole', name: 'Guacamole (supermarket tub)',
     aliases: ['guacamole', 'guac', 'guacamole hacendado', 'avocado dip', 'aguacate dip'],
     group: 'side-dip', state: 'chilled, as sold',
-    ...u2(2709307, 'B', 'FNDDS "Guacamole, NFS" used because the Hacendado (Montosa) label on OFF 8436008521063 does not add up (203 kcal vs 929 kJ, fibre 10.7 g for 95 % avocado); that label suggests about 205–220 kcal, so this record may read low. Servings: FNDDS 1 individual container = 70 g, 1 tbsp = 15 g (1.0 g/ml for katori). Ingredients (Mercadona 3852): avocado 95 %, dehydrated onion and garlic, salt, jalapeño, sugar, citric and ascorbic acid, E-301, E-331, E-202, coriander.'),
+    ...u2(2709307, 'B', 'FNDDS "Guacamole, NFS" used because the Hacendado (Montosa) label on OFF 8436008521063 does not add up (203 kcal vs 929 kJ, fibre 10.7 g for 95 % avocado); Cross-check (Ayesha, 2026-10-14): CoFID 14-386 Hass avocado × 0.95 comes to about 162 kcal (fat 16.5 g) against our 155 (−4 %), so 155 kcal is right for 95 % avocado and the 203 kcal label does not add up. Servings: FNDDS 1 individual container = 70 g, 1 tbsp = 15 g (1.0 g/ml for katori). Ingredients (Mercadona 3852): avocado 95 %, dehydrated onion and garlic, salt, jalapeño, sugar, citric and ascorbic acid, E-301, E-331, E-202, coriander.'),
     servings: [sv('pot', '1 snack pot (70 g)', 70, true), ...katori(1.0).map(({ default: _d, ...s }) => s)],
     tags: ['mediterranean', 'international', 'vegetarian', 'vegan', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner', 'snacks'], halal: HALAL,
   },
