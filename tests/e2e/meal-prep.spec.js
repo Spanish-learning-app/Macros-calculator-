@@ -70,6 +70,25 @@ async function openPrep(page, iso, doc = setUpDoc()) {
   if (!mounted) test.skip(true, 'the Prep view did not mount (route missing or not built yet)');
 }
 
+/** The saved document once `pred(doc)` holds (the app saves a moment after the tap). */
+async function savedWhere(page, pred, what = 'the saved document') {
+  let doc = null;
+  await expect
+    .poll(
+      async () => {
+        doc = await savedDoc(page);
+        try {
+          return Boolean(doc && pred(doc));
+        } catch {
+          return false;
+        }
+      },
+      { message: `${what} is saved` },
+    )
+    .toBe(true);
+  return doc;
+}
+
 /** Jumps the browser clock to another Madrid time and reloads (the document stays in storage). */
 async function timeTravel(page, iso) {
   await page.clock.setSystemTime(new Date(iso));
@@ -126,10 +145,7 @@ test.describe('A16 batch recipe into boxes', () => {
     await expect(card).toBeVisible();
     await expect(card.getByTestId('boxes-left')).toContainText('4 of 4 left');
     expect(a.count).toBeLessThanOrEqual(4);
-    const doc = await expect
-      .poll(async () => (await savedDoc(page))?.batches?.length)
-      .toBe(1)
-      .then(() => savedDoc(page));
+    const doc = await savedWhere(page, (d) => d.batches?.length === 1, 'the batch');
     expect(doc.batches[0].recipeId).toBe(TIKKA);
     expect(doc.batches[0].boxes).toHaveLength(4);
   });
@@ -150,7 +166,7 @@ test.describe('A16 batch recipe into boxes', () => {
     await expect(page.getByTestId('ingredient-sheet')).toBeVisible();
     await page.getByTestId('ingredient-search').fill('ensaimada');
     // said out loud, with the Lab's reason, instead of an empty list
-    await expect(page.getByTestId('ingredient-blocked')).toContainText(/ensa[ií]mada/i);
+    await expect(page.getByTestId('ingredient-blocked')).toContainText(/ensa[iíï]mada/i);
     await expect(page.getByTestId('ingredient-blocked')).toContainText(/not halal/i);
     const sheet = page.getByTestId('ingredient-sheet');
     await expect(
@@ -344,7 +360,7 @@ test.describe('A16 (2) my own recipe "Tikka bowls"', () => {
     const row = page.getByTestId('recipe-row').filter({ hasText: 'Tikka bowls' });
     await expect(row).toBeVisible();
     await expect(row).toContainText('1 of 5 boxes');
-    const doc = await savedDoc(page);
+    const doc = await savedWhere(page, (d) => d.recipes?.length === 1, 'the recipe');
     expect(doc.recipes).toHaveLength(1);
     expect(doc.recipes[0].boxes).toBe(5);
     expect(doc.recipes[0].ingredients).toHaveLength(5);
@@ -401,7 +417,11 @@ test.describe('A17 boxes into Lunch', () => {
       await a.tap(card.locator(`[data-testid="place-day"][data-date="${DAYS[d]}"]`), `box on ${d}`);
     }
     await expect(card.getByTestId('boxes-left')).toContainText('0 of 4 left');
-    const doc = await savedDoc(page);
+    const doc = await savedWhere(
+      page,
+      (d) => d.days?.[DAYS.thu]?.entries?.some((e) => e.foodId === TIKKA),
+      'Thursday\'s box',
+    );
     for (const d of ['mon', 'tue', 'wed', 'thu']) {
       const entries = (doc.days[DAYS[d]]?.entries ?? []).filter((e) => e.foodId === TIKKA);
       expect(entries, DAYS[d]).toHaveLength(1);
@@ -521,10 +541,7 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
       'true',
     );
     await page.getByTestId('cook-save').click();
-    const doc = await expect
-      .poll(async () => (await savedDoc(page))?.batches?.length)
-      .toBe(1)
-      .then(() => savedDoc(page));
+    const doc = await savedWhere(page, (d) => d.batches?.length === 1, 'the batch');
     expect(doc.batches[0].boxes.map((b) => b.storage)).toEqual([
       'freezer',
       'fridge',
