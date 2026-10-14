@@ -1,0 +1,11 @@
+import { open, shot, fullshot, txt } from './lib.mjs';
+const { browser, page } = await open();
+await page.getByRole('button',{name:'Start'}).click();
+await page.locator('input[value=female]').click();
+await page.locator('input[type=text]').nth(0).fill('42');
+await page.locator('input[type=radio]').nth(3).click();
+await page.waitForTimeout(300);
+await shot(page, '03-feet-inches');
+console.log(await txt(page));
+console.log(await page.evaluate(() => [...document.querySelectorAll('input[type=text],select')].map(e=>e.tagName+':'+e.name+':'+e.placeholder+':'+e.inputMode+':'+Math.round(e.getBoundingClientRect().width)+'x'+Math.round(e.getBoundingClientRect().height)).join('\n')));
+await browser.close();

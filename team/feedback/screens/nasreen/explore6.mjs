@@ -1,0 +1,12 @@
+import { open, shot, fullshot, txt, onboard } from './common.mjs';
+const { browser, page } = await open();
+await onboard(page);
+await page.locator('button:has-text("Add")').filter({hasText:/^\s*\+?\s*Add\s*$/}).first().click();
+await page.waitForTimeout(500);
+await shot(page, '07-add-sheet-open');
+console.log(await txt(page));
+await page.getByRole('searchbox').or(page.locator('input[type=search],input[type=text]')).first().fill('chai');
+await page.waitForTimeout(500);
+await shot(page, '08-search-chai');
+console.log('-----'); console.log(await txt(page));
+await browser.close();
