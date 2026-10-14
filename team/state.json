@@ -80,13 +80,29 @@
       "task": "Waiting for Review 1"
     }
   },
-  "inFlight": [],
+  "inFlight": [
+    {
+      "member": "lena",
+      "task": "Sprint 2 recipes + meal prep + my chai + saved meals + seafood setting",
+      "output": "app/** (not data), tests/unit/dev/**"
+    },
+    {
+      "member": "kenji",
+      "task": "Sprint 2 independent tests from ARCHITECTURE §13",
+      "output": "tests/unit/qa/**, tests/data/**, tests/e2e/**"
+    },
+    {
+      "member": "yusuf",
+      "task": "recipes-mealprep.js + breakfast/dinner preps + MEALPREP.md",
+      "output": "app/data/foods-mealprep.js, app/data/recipes-mealprep.js, docs/MEALPREP.md"
+    }
+  ],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "9 * * * * (UTC, hourly)"
   },
   "appName": "Katori",
-  "next": "Review 1: customer panel hands-on tests of the preview (Bilal, Nasreen, Mariam) -> meeting -> Sprint 1 fix wave (fresh agents, max 3 at a time).",
+  "next": "When Sprint 2 wave lands: add recipes-mealprep export to app/data/index.js if needed, integrate, Review 2 (customer panel), republish.",
   "meetingsHeld": [
     "001-kickoff",
     "002-boss-update",
