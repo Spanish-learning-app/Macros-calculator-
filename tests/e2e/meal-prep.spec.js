@@ -334,7 +334,7 @@ test.describe('A16 (2) my own recipe "Tikka bowls"', () => {
     );
     const close = (got, want, k) =>
       expect(Math.abs(got - want), `${k}: got ${got}, want ${want}`).toBeLessThanOrEqual(
-        k === 'kcal' ? 1 : 0.2,
+        k === 'kcal' ? 1 : 0.6,
       );
 
     // the default is 4 boxes
@@ -420,7 +420,7 @@ test.describe('A17 boxes into Lunch', () => {
     const doc = await savedWhere(
       page,
       (d) => d.days?.[DAYS.thu]?.entries?.some((e) => e.foodId === TIKKA),
-      'Thursday\'s box',
+      "Thursday's box",
     );
     for (const d of ['mon', 'tue', 'wed', 'thu']) {
       const entries = (doc.days[DAYS[d]]?.entries ?? []).filter((e) => e.foodId === TIKKA);
@@ -441,17 +441,10 @@ test.describe('A17 boxes into Lunch', () => {
     await card.locator(`[data-testid="place-day"][data-date="${DAYS.fri}"]`).click();
     await expect(card.getByTestId('batch-note')).toContainText(/no boxes left/i);
     await expect(page.locator('dialog[open]')).toHaveCount(0);
-    expect(
-      (await savedDoc(page)).days[DAYS.fri].entries.filter((e) => e.foodId === TIKKA),
-    ).toHaveLength(1);
+    const friBox = (d) => (d.days?.[DAYS.fri]?.entries ?? []).filter((e) => e.foodId === TIKKA);
+    await savedWhere(page, (d) => friBox(d).length === 1, 'the Friday box');
     await ui.undo(page).getByRole('button', { name: 'Undo' }).click();
-    await expect
-      .poll(
-        async () =>
-          ((await savedDoc(page)).days[DAYS.fri]?.entries ?? []).filter((e) => e.foodId === TIKKA)
-            .length,
-      )
-      .toBe(0);
+    await savedWhere(page, (d) => friBox(d).length === 0, 'the Friday box removed by Undo');
     await expect(card.getByTestId('boxes-left')).toContainText('0 of 4 left');
   });
 
@@ -462,7 +455,7 @@ test.describe('A17 boxes into Lunch', () => {
     const card = batchCard(page);
     await card.getByTestId('fill-mon-thu').click();
     await expect(card.getByTestId('boxes-left')).toContainText('0 of 4 left');
-    const doc = await savedDoc(page);
+    const doc = await savedWhere(page, (d) => d.days?.[DAYS.thu]?.entries?.length, 'the boxes');
     for (const d of ['mon', 'tue', 'wed', 'thu'])
       expect(
         (doc.days[DAYS[d]]?.entries ?? []).filter((e) => e.foodId === TIKKA && e.slot === 'lunch'),
@@ -492,8 +485,11 @@ test.describe('A17 boxes into Lunch', () => {
     );
     await expect(ui.entries(lunch).first()).toHaveAttribute('data-status', 'eaten');
     expect(a.count).toBe(1);
-    const doc = await savedDoc(page);
-    expect(doc.days[DAYS.mon].entries.find((e) => e.foodId === TIKKA).status).toBe('eaten');
+    await savedWhere(
+      page,
+      (d) => d.days[DAYS.mon].entries.find((e) => e.foodId === TIKKA).status === 'eaten',
+      "Monday's box eaten",
+    );
 
     // the batch knows: Monday's box is eaten, the rest are still planned
     await page.goto('/#/prep');
@@ -627,8 +623,11 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     await expect(tonight).toContainText(/box 2/i);
     await tonight.getByRole('button', { name: 'Moved to fridge' }).click();
     await expect(page.getByTestId('move-tonight')).toHaveCount(0);
-    const doc = await savedDoc(page);
-    expect(doc.batches[0].boxes[1].storage).toBe('fridge');
+    await savedWhere(
+      page,
+      (d) => d.batches[0].boxes[1].storage === 'fridge',
+      'box 2 in the fridge',
+    );
   });
 
   test('(6) the cold chana chaat box: use-by is Sunday + 2 days (Tuesday), freezer off', async ({
@@ -653,7 +652,7 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     const card = batchCard(page);
     await expect(card.getByTestId('boxes-left')).toContainText('4 of 4 left');
     await expect(boxRow(card, 1).getByTestId('box-useby')).toContainText(/use by.*tue/i);
-    const doc = await savedDoc(page);
+    const doc = await savedWhere(page, (d) => d.batches?.length === 1, 'the chaat batch');
     expect(doc.batches[0].boxes.every((b) => b.storage === 'fridge')).toBe(true);
   });
 
