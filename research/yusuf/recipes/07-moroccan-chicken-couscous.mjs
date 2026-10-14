@@ -1,6 +1,8 @@
 // R-MP-7 · Moroccan-spiced chicken, roast vegetables, couscous. Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 7,
+  effort: 'cook',
+  minutes: 35,
   id: 'med-moroccan-chicken-couscous-box',
   name: 'Moroccan chicken couscous with roast vegetables (lunch box)',
   names: {

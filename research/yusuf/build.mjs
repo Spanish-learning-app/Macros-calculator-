@@ -26,7 +26,9 @@ const ST = new Map(RULES.mealPrep.storage.map((s) => [s.id, s]));
 const TB = RULES.mealPrep.targetsBySlot;
 // Words per serving type: the container the prep goes in (RULES.mealPrep.prepServingIds).
 const UNIT = { box: { one: 'box', many: 'boxes' }, jar: { one: 'jar', many: 'jars' }, portion: { one: 'portion', many: 'portions' } };
-const SLOT_WORD = { breakfast: 'breakfast', lunch: 'lunch', dinner: 'dinner' };
+const SLOT_WORD = { breakfast: 'breakfast', lunch: 'lunch', dinner: 'dinner', snacks: 'snack' };
+const EFFORT_WORD = { cook: 'batch-cooked', assemble: 'no-cook assembly', ready: 'ready to eat' };
+const timeText = (r) => (r.effort === 'cook' ? `${r.minutes} min hands-on` : `${r.minutes} min, no cooking`);
 
 const r1 = (x) => (Math.round(x * 10) / 10).toFixed(1);
 const r0 = (x) => String(Math.round(x));
@@ -78,7 +80,7 @@ function ourValues(r, comps) {
 
 // ------------------------------------------------------------------ shopping and cost text
 function shopping(r) {
-  const by = { butcher: [], desi: [], mercadona: [] };
+  const by = { butcher: [], desi: [], mercadona: [], bakery: [] };
   for (const l of r.shopping) if (by[l.shop]) by[l.shop].push(l);
   const out = [];
   out.push('**Halal butcher (carnicería halal)**', '');
@@ -90,6 +92,10 @@ function shopping(r) {
   if (by.desi.length) {
     out.push('', '**Pakistani or Moroccan grocery shelf (usually at or next to the halal butcher)**', '');
     for (const l of by.desi) out.push(`- ${l.price.name}: ${fmtG(l.grams)} g${l.price.note ? ` (${l.price.note})` : ''}. Price: not available.`);
+  }
+  if (by.bakery.length) {
+    out.push('', '**Bakery (forn de pa)**', '');
+    for (const l of by.bakery) out.push(`- ${REG[l.ingId].label}: ${fmtG(l.grams)} g. Price: not looked up.`);
   }
   const mDates = [...new Set(by.mercadona.map((l) => l.price.date).filter(Boolean))].sort().join(' and ') || r.cost.mercadonaDate;
   out.push('', '**Mercadona** (online shop, Barcelona warehouse `bcn1`, prices read ' + mDates + ')', '', '| You need | Product | Pack | Buy | Pack price |', '|---|---|---|---|---|');
@@ -112,7 +118,8 @@ function costText(r) {
   const c = r.cost;
   const missing = c.unpriced.map((u) => `${REG[u.ingId].label.replace(/\s*\(.*$/, '').toLowerCase()} (${fmtG(u.grams)} g)`);
   const mDates = [...new Set(r.shopping.filter((l) => l.shop === 'mercadona' && l.price.date).map((l) => l.price.date))].sort().join(' and ') || c.mercadonaDate;
-  const src = `Mercadona Barcelona online prices (warehouse bcn1) read ${mDates}; halal-butcher prices from Carne Halal Online read ${c.otherDate}. Pro-rata: the cost of what goes in the boxes, not of whole packs.`;
+  const hasMeat0 = r.shopping.some((l) => l.shop === 'butcher');
+  const src = `Mercadona Barcelona online prices (warehouse bcn1) read ${mDates}${hasMeat0 ? `; halal-butcher prices from Carne Halal Online read ${c.otherDate}` : ''}. Pro-rata: the cost of what goes in the ${UNIT[r.serving].many}, not of whole packs.`;
   const hasMeat = r.shopping.some((l) => l.shop === 'butcher');
   const xc = hasMeat ? ` Halal-meat price cross-check: ${BUTCHER.crossCheck}.` : '';
   if (c.partialMajor) {
@@ -136,14 +143,14 @@ function sheetMd(s, r) {
   if (s.names.ur) L.push(`| اردو | ${s.names.ur} |`);
   if (s.names.roman) L.push(`| Roman Urdu | ${s.names.roman} |`);
   L.push('', `**Eat:** ${EAT[s.eat]}. **Halal:** ${s.halal.status}${s.halal.reason ? `: ${s.halal.reason}` : ''} **Confidence:** ${s.confidence}.`, '');
-  L.push(`**Meal:** ${SLOT_WORD[r.slot]} prep, logged as "1 ${u.one}".`, '');
+  L.push(`**Meal:** ${SLOT_WORD[r.slot]} prep, logged as "1 ${u.one}". **Effort:** ${EFFORT_WORD[r.effort]} (\`effort: '${r.effort}'\`), ${timeText(r)} for the batch of ${r.boxes}.`, '');
   L.push(`## One ${u.one} at a glance`, '', `| ${u.one[0].toUpperCase() + u.one.slice(1)} weight | kcal | Protein | Carbs | Fat | Fibre |`, '|---|---|---|---|---|---|');
   L.push(`| ${b.grams} g (½ ${u.one} ${r.halfBoxG} g) | ${b.kcal} | ${r1(b.protein)} g | ${r1(b.carbs)} g | ${r1(b.fat)} g | ${r1(b.fiber)} g |`, '');
   L.push(`Targets (\`RULES.mealPrep.targetsBySlot.${r.slot}\`): ${T.kcal.min}–${T.kcal.max} kcal ${ok(r.targets.kcal)}; ${T.proteinG.min}–${T.proteinG.max} g protein ${ok(r.targets.protein)}; at least ${T.minFiberG} g fibre ${ok(r.targets.fiber)}.`, '');
   L.push('## References (at least 2 published recipes)', '');
   for (const ref of s.references) L.push(`- [${ref.title}](${ref.url}): ${ref.used}. *Read: ${ref.read}.*`);
-  L.push('', `The standard recipe below triangulates these and then adjusts to the box targets (see "Changes"). No wine anywhere: lemon or water replaces it.`, '');
-  L.push(`## Standard recipe: ${r.boxes} ${u.many}, raw edible grams`, '');
+  L.push('', r.effort === 'cook' ? `The standard recipe below triangulates these and then adjusts to the box targets (see "Changes"). No wine anywhere: lemon or water replaces it.` : `The assembly below starts from these and adjusts to the ${SLOT_WORD[r.slot]} targets (see "Changes"). Shop-bought parts are named by product so the label can be checked.`, '');
+  L.push(`## Standard recipe: ${r.boxes} ${r.boxes === 1 ? u.one : u.many}, ${r.effort === 'cook' ? 'raw edible grams' : 'grams as bought and drained (edible part)'}`, '');
   for (const c of r.components) {
     L.push(`### ${c.label}`, '', `| Ingredient | Raw g (${r.boxes} ${u.many}) | Per ${u.one} | Notes |`, '|---|---|---|---|');
     for (const l of c.lines) {
@@ -190,9 +197,10 @@ function sheetMd(s, r) {
   L.push('', `Use-by of a packed ${u.one} = cooked date + the shortest fridge life in it = **${r.fridgeDays} day${r.fridgeDays > 1 ? 's' : ''}**. A frozen ${u.one} has no use-by until it is moved to the fridge (then 1 day).`, '');
   L.push(s.storagePlan, '');
   for (const c of r.components) if (PROPOSED_STORAGE[c.storage]) L.push(`- ${PROPOSED_STORAGE[c.storage].label}: ${PROPOSED_STORAGE[c.storage].note}`);
-  L.push('', r.slot === 'lunch' ? 'Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes travel in an insulated bag with an ice pack and are eaten within 2 hours of leaving the fridge (1 hour above 32 °C).' : 'Chill everything within 60 minutes of cooking (spread on a tray). Reheat once only, until steaming hot right through (75 °C).', '');
+  const chill = r.effort === 'cook' ? 'Chill everything within 60 minutes of cooking (spread on a tray).' : 'Assemble with cold ingredients straight from the fridge and put the boxes back in the fridge at once.';
+  L.push('', r.slot === 'lunch' || s.eat === 'cold' ? `${chill} Cold boxes travel in an insulated bag with an ice pack and are eaten within 2 hours of leaving the fridge (1 hour above 32 °C).` : `${chill} Reheat once only, until steaming hot right through (75 °C).`, '');
   L.push('## Eating and reheating', '', `**Eat ${EAT[s.eat]}.** ${s.reheat}`, '');
-  L.push(`## Shopping list for ${r.boxes} ${u.many}`, '', shopping(r), '');
+  L.push(`## Shopping list for ${r.boxes} ${r.boxes === 1 ? u.one : u.many}`, '', shopping(r), '');
   L.push(`## Cost per ${u.one}`, '', costText(r), '');
   L.push(`## Changes made to meet the ${SLOT_WORD[r.slot]} targets`, '');
   for (const ch of s.changes) L.push(`- ${ch}`);
@@ -205,17 +213,18 @@ function sheetMd(s, r) {
       const v = ING[l.ingId];
       L.push(`| ${l.ingId} | ${v.citation} | ${r0(v.kcal)} | ${r1(v.protein)} | ${r1(v.carbs)} | ${r1(v.fat)} | ${r1(v.fiber)} |`);
     }
-  L.push('', '## Assumptions and confidence', '', `Confidence **${s.confidence}**: ${s.confidenceWhy} Macronutrients are 100% retained (NUTRITION.md §6 step 6); all oil is eaten; water that boils off is not counted.`, '');
+  L.push('', '## Assumptions and confidence', '', `Confidence **${s.confidence}**: ${s.confidenceWhy} ${r.effort === 'cook' ? 'Macronutrients are 100% retained (NUTRITION.md §6 step 6); all oil is eaten; water that boils off is not counted.' : 'Weights are as bought (drained for jars and cans, edible part for fruit); all oil is eaten. Values from Lab records are the records the app shows for those foods.'}`, '');
   return L.join('\n');
 }
 
 // ------------------------------------------------------------------ records
 const STATE = {
-  lunch: (s, parts) => `cooked, one packed lunch box as eaten, all pots included (${parts})`,
-  breakfast: (s, parts) => `one prepared breakfast ${s.serving} as eaten (${parts})`,
-  dinner: (s, parts) => `cooked, one freezer dinner portion as eaten (${parts})`,
+  lunch: (s, parts) => `${s.effort === 'assemble' ? 'assembled (no cooking)' : 'cooked'}, one packed lunch box as eaten, all pots included (${parts})`,
+  breakfast: (s, parts) => `one prepared breakfast ${s.serving}${s.effort === 'assemble' ? ' (no cooking)' : ''} as eaten (${parts})`,
+  dinner: (s, parts) => (s.effort === 'assemble' ? `assembled with little or no cooking, one dinner portion as eaten (${parts})` : `cooked, one freezer dinner portion as eaten (${parts})`),
+  snacks: (s, parts) => `assembled (no cooking), one snack ${s.serving} as eaten (${parts})`,
 };
-const SLOTS = { lunch: ['lunch'], breakfast: ['breakfast'], dinner: ['dinner', 'lunch'] };
+const SLOTS = { lunch: ['lunch'], breakfast: ['breakfast'], dinner: ['dinner', 'lunch'], snacks: ['snacks', 'evening'] };
 function record(s, r) {
   const u = UNIT[r.serving];
   const p = r.per100g;
@@ -243,12 +252,15 @@ function record(s, r) {
     slots: SLOTS[r.slot],
     halal: s.halal.reason ? { status: s.halal.status, reason: s.halal.reason } : { status: s.halal.status },
     source: {
-      citation: `Recipe R-MP-${s.n}: ${s.names.en}, standard batch of ${r.boxes} ${u.many} (research/yusuf/recipes/${s.id}.md)`,
+      citation: `Recipe R-MP-${s.n}: ${s.names.en}, standard batch of ${r.boxes} ${r.boxes === 1 ? u.one : u.many} (research/yusuf/recipes/${s.id}.md)`,
       method: 'recipe',
       confidence: s.confidence,
       reviewer: 'yusuf',
       date: BUILT,
-      notes: `Labels, prices and table values read ${r.n > 12 ? '2026-10-13/14' : DATE}. 1 ${u.one} = ${r.box.grams} g = ${r.box.kcal} kcal, ${r1(r.box.protein)} g protein, ${r1(r.box.fiber)} g fibre. Eat ${EAT[s.eat]}; use-by ${r.fridgeDays} day${r.fridgeDays > 1 ? 's' : ''} in the fridge${r.fridgeDays === 1 ? ' (boxes 2–4 frozen)' : ''}. Ingredients: USDA FDC (SR Legacy/Foundation), dated labels (Open Food Facts, checked against tienda.mercadona.es), IFCT 2017; yields: Bognár 2002${r.n > 12 ? ", USDA water balances and Zainab Rauf's moisture-based roti and paratha yields" : ' and USDA water balances'}. USDA carbs by difference minus fibre. Computed by research/yusuf/calc.mjs.`,
+      notes:
+        r.n > 25
+          ? `No-cook prep (effort assemble, ${r.minutes} min for ${r.boxes}). Labels, prices and table values read 2026-10-14. 1 ${u.one} = ${r.box.grams} g = ${r.box.kcal} kcal, ${r1(r.box.protein)} g protein, ${r1(r.box.fiber)} g fibre. Eat ${EAT[s.eat]}; use-by ${r.fridgeDays} day${r.fridgeDays > 1 ? 's' : ''} in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.`
+          : `Labels, prices and table values read ${r.n > 12 ? '2026-10-13/14' : DATE}. 1 ${u.one} = ${r.box.grams} g = ${r.box.kcal} kcal, ${r1(r.box.protein)} g protein, ${r1(r.box.fiber)} g fibre. Eat ${EAT[s.eat]}; use-by ${r.fridgeDays} day${r.fridgeDays > 1 ? 's' : ''} in the fridge${r.fridgeDays === 1 ? ' (boxes 2–4 frozen)' : ''}. Ingredients: USDA FDC (SR Legacy/Foundation), dated labels (Open Food Facts, checked against tienda.mercadona.es), IFCT 2017; yields: Bognár 2002${r.n > 12 ? ", USDA water balances and Zainab Rauf's moisture-based roti and paratha yields" : ' and USDA water balances'}. USDA carbs by difference minus fibre. Computed by research/yusuf/calc.mjs.`,
     },
   };
   return stampReview(rec);
@@ -282,8 +294,30 @@ const DB = {
   'beef-mince': { foodId: 'intl-beef-mince-raw', name: 'Lean beef mince (about 10% fat), raw', close: 'database food is 85% lean' },
   'yogurt-whole': { foodId: 'intl-dahi', name: 'Plain whole-milk yogurt (yogur natural)' },
   'yogurt-greek-light': { foodId: 'intl-greek-yogurt', name: 'Greek yogurt, light 2% fat (yogur griego ligero)', close: 'database food is 0% fat' },
-  'protein-yogurt': { foodId: 'intl-skyr', name: 'High-protein yogurt or skyr, plain 0% (+Proteínas natural)', close: 'database food is skyr' },
-  'milk-semi': { foodId: 'intl-milk-whole', name: 'Semi-skimmed milk (leche semidesnatada)', close: 'database food is whole milk' },
+  // Sprint 2 add-on (14 Oct): Javier Morales's market records replace the name-only lines where the food is the
+  // same product in the same state. The record numbers do not change: calc.mjs keeps its own dated values.
+  'protein-yogurt': { foodId: 'es-yogur-proteinas-natural' },
+  'milk-semi': { foodId: 'intl-milk-semi-skimmed' },
+  'egg-white': { foodId: 'intl-egg-whites-liquid' },
+  'rice-basmati': { foodId: 'intl-rice-basmati-dry' },
+  'rice-brown': { foodId: 'intl-rice-brown-dry' },
+  couscous: { foodId: 'med-couscous-dry' },
+  bulgur: { foodId: 'med-bulgur-dry' },
+  atta: { foodId: 'intl-atta-wholemeal' },
+  'pasta-wholewheat': { foodId: 'intl-pasta-wholewheat-dry' },
+  pita: { foodId: 'med-pita-bread' },
+  breadcrumbs: { foodId: 'es-pan-rallado' },
+  'chickpeas-jar': { foodId: 'es-garbanzos-cocidos' },
+  'chana-dal': { foodId: 'intl-chana-dal-dry' },
+  'lentils-red': { foodId: 'intl-masoor-dal-dry' },
+  'tomato-crushed': { foodId: 'es-tomate-triturado' },
+  'green-beans': { foodId: 'intl-green-beans-frozen' },
+  peas: { foodId: 'intl-peas-frozen' },
+  courgette: { foodId: 'intl-courgette' },
+  'pepper-red': { foodId: 'intl-pepper-red' },
+  'pepper-green': { foodId: 'intl-pepper-green' },
+  spinach: { foodId: 'intl-spinach-raw' },
+  chia: { foodId: 'intl-chia-seeds' },
   egg: { foodId: 'intl-egg-raw' },
   oats: { foodId: 'intl-oats-dry' },
   walnuts: { foodId: 'intl-walnuts' },
@@ -302,29 +336,16 @@ const DB = {
   hummus: { foodId: 'med-hummus' },
   tuna: { foodId: 'intl-tuna-canned-water' },
 };
+// Registry entries read from a Lab record (src 'db') map to that record.
+for (const [k, e] of Object.entries(REG)) if (e.src === 'db' && !DB[k]) DB[k] = { foodId: e.foodId };
+const FOOD_IDS = new Set(FOODS.map((f) => f.id));
+for (const [k, m] of Object.entries(DB)) if (!FOOD_IDS.has(m.foodId)) throw new Error(`DB map ${k} → unknown food ${m.foodId}`);
 const shortLabel = (ingId) => REG[ingId].label.replace(/\s*\((?![^)]*\b(?:contramuslo|pechuga|harina|masoor|lenteja|copos|espinaca|judía|guisante|leche|cebolla|pimiento|claras)\b)[^)]*\)/g, '').trim();
 const NAME = {
-  'egg-white': 'Liquid egg whites (claras de huevo pasteurizadas)',
-  couscous: 'Couscous, dry (cuscús)',
-  'pasta-wholewheat': 'Wholewheat pasta, dry (macarrón integral)',
-  pita: 'Pita bread (Mission, no E471)',
-  'tomato-crushed': 'Crushed tomato (tomate triturado)',
-  'chickpeas-jar': 'Cooked chickpeas, jar, drained (garbanzo cocido)',
   'beef-cubes': 'Boneless beef, cubed (carne sin hueso, a tacos)',
   'chicken-thigh': 'Chicken thigh, boneless, skinless (contramuslo)',
   'chicken-mince': 'Chicken mince (carne picada de pollo)',
-  'rice-basmati': 'Basmati rice, dry',
-  'rice-brown': 'Brown long-grain rice, dry',
-  breadcrumbs: 'Breadcrumbs, plain (pan rallado)',
-  'red-lentils': 'Red lentils (masoor dal), dry',
-  atta: 'Wholemeal flour, atta (harina integral de trigo)',
-  spinach: 'Baby spinach',
   'spinach-frozen': 'Frozen chopped spinach (espinaca ultracongelada)',
-  'green-beans': 'Frozen green beans (judía verde)',
-  peas: 'Frozen peas (guisantes)',
-  courgette: 'Courgette (calabacín)',
-  'pepper-red': 'Red pepper (pimiento rojo)',
-  'pepper-green': 'Green pepper (pimiento verde)',
   garlic: 'Garlic',
   ginger: 'Fresh ginger',
   'green-chilli': 'Green chillies (hari mirch)',
@@ -357,7 +378,7 @@ function libraryRecipe(s, r) {
     const e = c.pot ? { id: c.storage, pot: true } : c.storage;
     if (!storage.some((x) => JSON.stringify(x) === JSON.stringify(e))) storage.push(e);
   }
-  return { foodId: s.id, boxes: r.boxes, storage, ingredients };
+  return { foodId: s.id, boxes: r.boxes, storage, ingredients, effort: r.effort, minutes: r.minutes };
 }
 function recipesFile(rows) {
   const recs = rows.map(({ s, r }) => libraryRecipe(s, r));
@@ -368,8 +389,10 @@ function recipesFile(rows) {
 // lines. Grams are raw edible weights for the whole batch (water not listed).
 // Ingredients with a foodId are foods in the database; a \`name\` next to a foodId is the exact product when
 // the database food is a close variant (fat level). Ingredients with a \`name\` only have no database food
-// yet (raw chicken thigh, dry rice, couscous, bulgur, spices…): the Lab will add them and switch them to
-// foodIds. storage: one RULES.mealPrep.storage id per component; { id, pot: true } = a side pot packed apart.
+// yet (raw chicken thigh, chicken mince, beef cubes, garlic, ginger, herbs, lemon, spices): Ayesha owns the raw
+// meats and spices. storage: one RULES.mealPrep.storage id per component; { id, pot: true } = a side pot packed
+// apart; sealed packs, bread and whole fruit are not use-by items and are left out. effort: 'cook' (batch-cooked)
+// or 'assemble' (15 min or less, little or no cooking); minutes = hands-on minutes for the batch (§13.1).
 
 export default [
 `;
@@ -379,17 +402,18 @@ export default [
 // ------------------------------------------------------------------ library page
 function libraryMd(rows) {
   const L = [];
-  const by = (slot) => rows.filter(({ r }) => r.slot === slot);
+  const by = (slot) => rows.filter(({ r }) => r.slot === slot && r.effort === 'cook');
+  const noCook = rows.filter(({ r }) => r.effort !== 'cook');
   const stor = (id) => {
     const x = ST.get(id);
     return `${x.fridgeDays} day${x.fridgeDays > 1 ? 's' : ''} in the fridge, ${x.freezable ? `${x.freezerMonths} month${x.freezerMonths > 1 ? 's' : ''} frozen` : 'do not freeze'}`;
   };
   const table = (list) => {
     const u = UNIT[list[0].r.serving] ?? UNIT.portion;
-    L.push(`| # | Prep | Why you will like it | kcal | Protein | Fibre | Eat | Keeps | Cost per ${list[0].r.slot === 'breakfast' ? 'jar or portion' : u.one} |`, '|---|---|---|---|---|---|---|---|---|');
+    L.push(`| # | Prep | Why you will like it | kcal | Protein | Fibre | Eat | Hands-on | Keeps | Cost per ${list[0].r.slot === 'breakfast' ? 'jar or portion' : u.one} |`, '|---|---|---|---|---|---|---|---|---|---|');
     for (const { s, r } of list) {
       const cost = r.cost.partialMajor ? 'not available' : `${r.cost.perBox.toFixed(2)} €`;
-      L.push(`| ${s.n} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md) (1 ${UNIT[r.serving].one}, ${r.box.grams} g) | ${s.pitch} | ${r.box.kcal} | ${r1(r.box.protein)} g | ${r1(r.box.fiber)} g | ${eatShort[s.eat]} | ${s.keeps} | ${cost} |`);
+      L.push(`| ${s.n} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md) (1 ${UNIT[r.serving].one}, ${r.box.grams} g) | ${s.pitch} | ${r.box.kcal} | ${r1(r.box.protein)} g | ${r1(r.box.fiber)} g | ${eatShort[s.eat]} | ${r.minutes} min for ${r.boxes} | ${s.keeps} | ${cost} |`);
     }
     L.push('');
   };
@@ -402,15 +426,16 @@ function libraryMd(rows) {
   const nD = by('dinner').length;
 
   L.push('# Halal meal-prep library: breakfast, lunch and dinner', '');
-  L.push(`**Owner:** Yusuf Benali (Nutrition Lab) · **Reviewed by:** Dr. Ayesha Siddiqui (lunch boxes reviewed in Sprint 1; breakfast and dinner preps pending) · **Prices and labels read:** ${DATE} (lunch) and 2026-10-14 (breakfast and dinner additions)`, '');
-  L.push(`${rows.length} halal preps you can batch-cook on Sunday: **${nB} breakfasts**, **${nL} lunch boxes** to carry to university and **${nD} freezer dinners** to eat at home. In the app, search for the prep and log **"1 jar"**, **"1 box"** or **"1 portion"** (or the ½ serving).`, '');
+  const nCook = rows.length - noCook.length;
+  L.push(`**Owner:** Yusuf Benali (Nutrition Lab) · **Reviewed by:** Dr. Ayesha Siddiqui (lunch boxes reviewed in Sprint 1; breakfast, dinner and no-cook preps pending) · **Prices and labels read:** ${DATE} (lunch), 2026-10-14 (breakfast and dinner additions, no-cook preps, ready picks and the low-cook week)`, '');
+  L.push(`${rows.length} halal preps in three tiers. **${nCook} to batch-cook** on Sunday: **${nB} breakfasts**, **${nL} lunch boxes** to carry to university and **${nD} freezer dinners** to eat at home. **${noCook.length} no-cook preps** you assemble in 15 minutes or less from market food. And a list of **ready-to-eat picks** that need nothing at all. In the app, search for the prep and log **"1 jar"**, **"1 box"** or **"1 portion"** (or the ½ serving). The Prep library filter *All · Cook · No-cook* uses the same tiers.`, '');
   L.push('Every number comes from a standard recipe calculation (NUTRITION.md §6). Each recipe sheet shows the ingredients in grams, the published recipes it starts from, the yields, storage per component, a shopping list and a dated cost.', '');
-  L.push('**Contents:** [Breakfast](#breakfast-preps) · [Lunch boxes](#lunch-boxes) · [Dinner](#freezer-dinners) · [Roti and paratha stock](#roti-and-paratha-stock) · [Storage](#storage-at-a-glance) · [A Sunday that works](#a-sunday-that-works) · [How to batch in the app](#how-to-batch-in-the-app) · [Halal shopping in Barcelona](#halal-shopping-in-barcelona) · [Where the numbers come from](#where-the-numbers-come-from)', '');
+  L.push('**Contents:** [Breakfast](#breakfast-preps) · [Lunch boxes](#lunch-boxes) · [Dinner](#freezer-dinners) · [No-cook preps](#no-cook-preps) · [Ready to eat](#ready-to-eat-picks) · [Low-cook week](#a-low-cook-week) · [Roti and paratha stock](#roti-and-paratha-stock) · [Storage](#storage-at-a-glance) · [A Sunday that works](#a-sunday-that-works) · [How to batch in the app](#how-to-batch-in-the-app) · [Halal shopping in Barcelona](#halal-shopping-in-barcelona) · [Where the numbers come from](#where-the-numbers-come-from)', '');
 
   L.push('## Breakfast preps', '');
   L.push(`Each one has ${TBk('breakfast')}, and takes 0–2 minutes in the morning. None uses protein powder: the protein comes from eggs, egg whites and a high-protein yogurt (milk and cultures only).`, '');
   table(by('breakfast'));
-  L.push(`Overnight oats do not freeze and keep 3 days, so make 3 jars on Sunday night and 2 more on Wednesday. Everything else freezes: egg muffins, pancakes and the egg rolls ${stor('egg-muffin')}; parathas and roti ${stor('cooked-flatbread')}.`, '');
+  L.push(`All of these freeze: egg muffins, pancakes and the egg rolls ${stor('egg-muffin')}; parathas and roti ${stor('cooked-flatbread')}. The overnight oats jar needs no cooking at all, so it is listed with the [no-cook preps](#no-cook-preps): it does not freeze and keeps 3 days, so make 3 jars on Sunday night and 2 more on Wednesday.`, '');
 
   L.push('## Lunch boxes', '');
   L.push(`Each one makes **4 boxes** with ${TBk('lunch')}. Five are hot boxes for the microwave, three work hot or cold, and four are cold-only for days when the microwave queue is long.`, '');
@@ -421,6 +446,7 @@ function libraryMd(rows) {
   L.push(`Eaten at home, so desi curries with roti are welcome. Each portion has ${TBk('dinner')}. The six desi dinners start from Zainab Rauf's home-style standard recipes (research/zainab/), made a little lighter in oil, and each portion includes **2 wholemeal roti** from the roti stock. The Catalan *mandonguilles* come with their own potatoes.`, '');
   table(by('dinner'));
   L.push(`Curries and kebabs keep ${stor('cooked-meat')}; daal ${stor('cooked-curry')}; roti ${stor('cooked-flatbread')}. A frozen portion with its roti is best within 2 months. Raita and kachumber are side pots made fresh (they keep 2 days and cannot be frozen).`, '');
+  L.push(...noCookMd(noCook), ...readyMd(), ...weekMd(rows));
 
   L.push('## Roti and paratha stock', '');
   L.push(`The dinners (and two breakfasts) use a **weekly roti stock** made in one go. Each medium roti is ${rotiServ.grams} g cooked, from about 29 g wholemeal atta and 21 g water, and is ${rotiKcal} kcal (Zainab's \`pk-roti\` record: ${roti.per100g.kcal} kcal, ${roti.per100g.protein} g protein and ${roti.per100g.fiber} g fibre per 100 g).`, '');

@@ -1,6 +1,8 @@
 // R-MP-17 · Anda-paratha roll to freeze (breakfast portion). Standard batch: 4 rolls.
 export default {
   n: 17,
+  effort: 'cook',
+  minutes: 45,
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,

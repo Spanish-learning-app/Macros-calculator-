@@ -3,6 +3,8 @@ import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
 
 export default {
   n: 24,
+  effort: 'cook',
+  minutes: 45,
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,

@@ -1,7 +1,8 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 1, version 1.6 (2026-10-14).
+**Status:** Sprint 2, version 1.6.1 (2026-10-14).
+- Version 1.6.1 (Sprint 2 market add-on): label rule for `check` (rennet and E-471/E-472 of unstated origin, §4.6).
 - Version 1.6 (Meeting 003 fix wave): the Spanish slot labels; the "thora sa" taste chip rule (§5.6); assumed plate servings and gate G23 (§5.5); notified naan and roti weights are dough weights (§5.2); dry daal density (§5.3).
 - Version 1.5: the carbs-below-zero ruling; `bread-fried` minimum lowered to 200; `drink-milk` minimum lowered to 25.
 - Version 1.4: meal prep for any meal (the `lunchbox` group, extra storage rows).
@@ -580,6 +581,7 @@ How the hours are stored and used:
 |---|---|---|
 | `halal` | Plant foods, dairy, eggs, fish. Meat **only** from a halal butcher or with halal certification. | (optional) |
 | `check` | Possible lard (pastries), gelatine, often cooked with wine, restaurant meat in Spain, imported product without a halal seal | "Cheap pastries may use lard (manteca). Ask the bakery." |
+| `check` (labels) | A packaged food whose label lists an ingredient that can be animal-derived and does not say its origin: rennet (*cuajo*) in cheese, emulsifiers E-471 / E-472 in bread and wraps, gelatine | "Made with rennet (cuajo) of unstated origin …" / "contains the emulsifier E-471 …". "Cuajo microbiano" or "E-471 de origen vegetal" on the label → `halal`. |
 | `not-halal` | **Only** non-meat foods whose standard recipe contains lard | "Traditionally made with pork lard (saïm)." |
 
 **Rules:**

@@ -1129,7 +1129,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169291', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 3.11 − fibre 1 = 2.1 g available. Servings: USDA SR 169291, 1 medium = 196 g; 1 cup chopped = 124 g.' },
+    source: { citation: 'USDA FDC SR Legacy 169291', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 3.11 − fibre 1 = 2.1 g available. Servings: USDA SR 169291, 1 medium = 196 g; 1 cup chopped = 124 g.' },
   },
   {
     id: 'intl-peas-frozen',
@@ -1147,7 +1147,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170016', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 13.62 − fibre 4.5 = 9.1 g available. Servings: USDA SR 170016, 1 cup = 134 g. Mercadona "Guisante fino ultracongelado" (product 61215).' },
+    source: { citation: 'USDA FDC SR Legacy 170016', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 13.62 − fibre 4.5 = 9.1 g available. Servings: USDA SR 170016, 1 cup = 134 g. Mercadona "Guisante fino ultracongelado" (product 61215).' },
   },
   {
     id: 'intl-green-beans-frozen',
@@ -1394,7 +1394,7 @@ export default [
     tags: ['mediterranean', 'vegetarian', 'packaged', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'Made with rennet (cuajo) of unstated origin; some people avoid animal rennet. Labels that say "cuajo microbiano" avoid the question.' },
-    source: { citation: 'Label: Mercadona Queso feta mezcla Hacendado en dados, 370 g tub (150 g drained), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 51197 (tienda.mercadona.es/product/51197, EAN 8480000511973); per-100 g values from Open Food Facts 8480000511973. Label per 100 g: 1147 kJ (274 kcal; OFF shows 277), P 16, C 1, F 23.2, sat 16.4, salt 2.2 g. Ingredients: pasteurised sheep and goat milk, salt, lactic cultures, rennet (cuajo, origin not stated). Label portion 30 g; salad portion 50 g = one-third of the drained tub.' },
+    source: { citation: 'Label: Mercadona Queso feta mezcla Hacendado en dados, 370 g tub (150 g drained), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 51197 (tienda.mercadona.es/product/51197, EAN 8480000511973); per-100 g values from Open Food Facts 8480000511973. Label per 100 g: 1147 kJ (274 kcal; OFF shows 277), P 16, C 1, F 23.2, sat 16.4, salt 2.2 g. Ingredients: pasteurised sheep and goat milk, salt, lactic cultures, rennet (cuajo, origin not stated). Label portion 30 g; salad portion 50 g = one-third of the drained tub.' },
   },
   {
     id: 'es-yogur-proteinas-natural',
@@ -1455,6 +1455,6 @@ export default [
     tags: ['spanish', 'packaged', 'gym', 'seafood-fish', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Filetes de caballa del sur en aceite de oliva Hacendado, pack of 2 × 120 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 13628 (tienda.mercadona.es/product/13628, EAN 8402001031076); per-100 g values from Open Food Facts 8402001031076. Label per 100 g: 1278 kJ (305 kcal; OFF\'s 202 kcal field is a typing error: 4×18 + 9×26 = 306), P 18, C 0.6, F 26, sat 4.1, salt 0.89 g. Ingredients: mackerel 71 %, olive oil 28 %, salt. Label portion 85 g.' },
+    source: { citation: 'Label: Mercadona Filetes de caballa del sur en aceite de oliva Hacendado, pack of 2 × 120 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 13628 (tienda.mercadona.es/product/13628, EAN 8402001031076); per-100 g values from Open Food Facts 8402001031076. Label per 100 g: 1278 kJ (305 kcal; OFF\'s 202 kcal field is a typing error: 4×18 + 9×26 = 306), P 18, C 0.6, F 26, sat 4.1, salt 0.89 g. Ingredients: mackerel 71 %, olive oil 28 %, salt. Label portion 85 g.' },
   },
 ];

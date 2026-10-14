@@ -1,6 +1,8 @@
 // R-MP-5 · Pollo al ajillo with lemon (no wine), brown rice with peas, green beans. 4 boxes. Raw edible grams.
 export default {
   n: 5,
+  effort: 'cook',
+  minutes: 40,
   id: 'es-pollo-ajillo-limon-rice-box',
   name: 'Pollo al ajillo with lemon, rice and green beans (lunch box)',
   names: {

@@ -1,6 +1,8 @@
 // R-MP-10 · Chickpea and tuna salad with egg (cold). Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 10,
+  effort: 'cook',
+  minutes: 25,
   id: 'es-garbanzos-atun-salad-box',
   name: 'Chickpea and tuna salad (cold lunch box)',
   names: {

@@ -6,7 +6,7 @@
 // keeps its researcher as reviewer (data gate G19 counts them). A record whose numbers change after
 // review must be taken out of this list until it is re-checked.
 //
-// The verdicts and reasons are in research/review/sprint1.md (and javier-sprint1.md).
+// The verdicts and reasons are in research/review/sprint1.md (and javier-sprint1.md, s2-market.md).
 
 export const REVIEWS = {
   // id: 'YYYY-MM-DD' (date of the pass). Sprint 1 review, 2026-10-14: PASS and FIXED verdicts only;
@@ -136,6 +136,34 @@ export const REVIEWS = {
   'pk-uht-milk-full-cream': '2026-10-14',
   'intl-whey-protein': '2026-10-14',
   'intl-burger-zinger': '2026-10-14',
+  // Sprint 2 market add-on review, 2026-10-14 evening (verdicts in research/review/s2-market.md).
+  // Javier: the six riskiest plus a seeded 6 of the other 42 (seed FNV-1a "katori-s2-market-review" = 438735539).
+  'es-garbanzos-cocidos': '2026-10-14',
+  'es-lentejas-cocidas': '2026-10-14',
+  'med-guacamole': '2026-10-14',
+  'intl-feta': '2026-10-14',
+  'intl-bread-wholemeal-sliced': '2026-10-14',
+  'intl-tortilla-wrap-wholewheat': '2026-10-14',
+  'intl-peas-frozen': '2026-10-14',
+  'es-gazpacho-envasado': '2026-10-14',
+  'intl-mackerel-olive-oil': '2026-10-14',
+  'intl-courgette': '2026-10-14',
+  'intl-pasta-wholewheat-dry': '2026-10-14',
+  'es-picos-integrales': '2026-10-14',
+  // Yusuf: all 13 breakfast and dinner preps (record values pass; recipe foodId fixes listed in s2-market.md).
+  'intl-overnight-oats-protein-jar': '2026-10-14',
+  'intl-egg-muffins-roti-portion': '2026-10-14',
+  'intl-protein-pancakes-portion': '2026-10-14',
+  'pk-aloo-paratha-raita-portion': '2026-10-14',
+  'pk-anda-paratha-roll-portion': '2026-10-14',
+  'pk-chicken-egg-roti-wrap-portion': '2026-10-14',
+  'pk-chicken-karahi-roti-portion': '2026-10-14',
+  'pk-keema-matar-roti-portion': '2026-10-14',
+  'pk-chicken-jalfrezi-roti-portion': '2026-10-14',
+  'pk-aloo-gosht-roti-portion': '2026-10-14',
+  'pk-seekh-kebab-roti-portion': '2026-10-14',
+  'pk-daal-palak-roti-portion': '2026-10-14',
+  'es-mandonguilles-pesols-portion': '2026-10-14',
 };
 
 export function stampReview(rec) {

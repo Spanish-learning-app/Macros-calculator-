@@ -2,6 +2,8 @@
 // (freezer dinner portion). Standard batch: 4 portions.
 export default {
   n: 25,
+  effort: 'cook',
+  minutes: 45,
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,

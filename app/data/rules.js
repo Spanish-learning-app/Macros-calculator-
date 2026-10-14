@@ -7,7 +7,7 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.6.0',
+  version: '1.6.1',
   updated: '2026-10-14',
 
   // ---------------------------------------------------------------- energy
@@ -696,7 +696,7 @@ export default {
     // A recipe or box takes the WORST status of its ingredients (order: not-halal > check > halal).
     halalStatuses: [
       { id: 'halal', label: 'Halal', reasonRequired: false, description: 'Plant foods, dairy, eggs, fish, and meat from a halal butcher or with halal certification.' },
-      { id: 'check', label: 'Check', reasonRequired: true, description: 'Possible lard (pastries), gelatine, often cooked with wine, restaurant meat in Spain, imported product without a halal seal.' },
+      { id: 'check', label: 'Check', reasonRequired: true, description: 'Possible lard (pastries), gelatine, often cooked with wine, restaurant meat in Spain, imported product without a halal seal, or a label with an animal-derivable ingredient of unstated origin (rennet/cuajo in cheese, emulsifiers E-471/E-472).' },
       { id: 'not-halal', label: 'Not halal', reasonRequired: true, description: 'Only non-meat foods whose standard recipe contains lard (e.g. ensaïmada). Never suggested; hidden by "Halal only".' },
     ],
     halalRules: {

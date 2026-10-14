@@ -1,6 +1,8 @@
 // R-MP-12 · Protein tortilla de patatas (eggs + egg whites) with a high-protein yogurt pot. 4 boxes. Raw edible grams.
 export default {
   n: 12,
+  effort: 'cook',
+  minutes: 40,
   id: 'es-tortilla-proteica-skyr-box',
   name: 'Protein tortilla wedge with skyr-style yogurt (cold lunch box)',
   names: {

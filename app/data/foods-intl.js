@@ -485,7 +485,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'gym'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Macarrón rayado integral Hacendado, 500 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 35777 (tienda.mercadona.es/product/35777, EAN 8402001010194); per-100 g values from Open Food Facts 8402001010194. Label per 100 g: 345 kcal, P 13.5, C 62 (sugars 3.7), F 2.4, sat 0.5, fibre 10, salt 0.01 g. Ingredient: wholewheat durum semolina. Gram servings.' },
+    source: { citation: 'Label: Mercadona Macarrón rayado integral Hacendado, 500 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 35777 (tienda.mercadona.es/product/35777, EAN 8402001010194); per-100 g values from Open Food Facts 8402001010194. Label per 100 g: 345 kcal, P 13.5, C 62 (sugars 3.7), F 2.4, sat 0.5, fibre 10, salt 0.01 g. Ingredient: wholewheat durum semolina. Gram servings.' },
   },
   {
     id: 'intl-chia-seeds',
@@ -517,7 +517,7 @@ export default [
     tags: ['international', 'spanish', 'vegetarian', 'packaged'],
     slots: ['breakfast', 'lunch'],
     halal: { status: 'check', reason: 'The loaf contains the emulsifier E-471 (mono- and diglycerides), which can be made from animal fat; the label does not say vegetable origin.' },
-    source: { citation: 'Label: Mercadona Pan de molde 100% integral Hacendado, 460 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 82328 (tienda.mercadona.es/product/82328, EAN 8402001024184); per-100 g values from Open Food Facts 8402001024184. Label per 29 g slice converted to per 100 g by OFF: 248 kcal, P 8.6, C 41.4 (sugars 2.4), F 3.8, sat 0.7, fibre 7.6, salt 1.19 g. Ingredients include E-471 and wine vinegar (vinagre).' },
+    source: { citation: 'Label: Mercadona Pan de molde 100% integral Hacendado, 460 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 82328 (tienda.mercadona.es/product/82328, EAN 8402001024184); per-100 g values from Open Food Facts 8402001024184. Label per 29 g slice converted to per 100 g by OFF: 248 kcal, P 8.6, C 41.4 (sugars 2.4), F 3.8, sat 0.7, fibre 7.6, salt 1.19 g. Ingredients include E-471 and wine vinegar (vinagre).' },
   },
   {
     id: 'intl-tortilla-wrap-wholewheat',
@@ -533,7 +533,7 @@ export default [
     tags: ['international', 'vegetarian', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'The wrap contains the emulsifier E-471 (mono- and diglycerides), which can be made from animal fat; the label does not say vegetable origin.' },
-    source: { citation: 'Label: Mercadona Tortillas de trigo integrales Hacendado, 360 g (10 wraps), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 80942 (tienda.mercadona.es/product/80942, EAN 8480000809421); per-100 g values from Open Food Facts 8480000809421. Label per 100 g: 1132 kJ (270 kcal), P 9.3, C 41 (sugars 2.1), F 5.8, sat 1.9, fibre 8.5, salt 1.5 g. Label serving 1 wrap = 36 g. Ingredients include E-471.' },
+    source: { citation: 'Label: Mercadona Tortillas de trigo integrales Hacendado, 360 g (10 wraps), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 80942 (tienda.mercadona.es/product/80942, EAN 8480000809421); per-100 g values from Open Food Facts 8480000809421. Label per 100 g: 1132 kJ (270 kcal), P 9.3, C 41 (sugars 2.1), F 5.8, sat 1.9, fibre 8.5, salt 1.5 g. Label serving 1 wrap = 36 g. Ingredients include E-471.' },
   },
   {
     id: 'intl-atta-wholemeal',

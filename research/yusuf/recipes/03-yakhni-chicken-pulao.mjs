@@ -1,6 +1,8 @@
 // R-MP-3 · Yakhni chicken pulao with chickpeas. Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 3,
+  effort: 'cook',
+  minutes: 45,
   id: 'pk-yakhni-chicken-pulao-box',
   name: 'Yakhni chicken pulao with chana (lunch box)',
   names: {

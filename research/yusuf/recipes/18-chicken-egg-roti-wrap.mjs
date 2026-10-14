@@ -4,6 +4,8 @@ import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
 
 export default {
   n: 18,
+  effort: 'cook',
+  minutes: 45,
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,

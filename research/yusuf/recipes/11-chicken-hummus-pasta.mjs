@@ -1,6 +1,8 @@
 // R-MP-11 · Chicken and hummus wholewheat pasta salad (cold). Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 11,
+  effort: 'cook',
+  minutes: 30,
   id: 'med-chicken-hummus-pasta-salad-box',
   name: 'Chicken and hummus pasta salad (cold lunch box)',
   names: {

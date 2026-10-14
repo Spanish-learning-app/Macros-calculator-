@@ -1,6 +1,8 @@
 // R-MP-1 · Chicken tikka rice bowl with a raita pot. Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 1,
+  effort: 'cook',
+  minutes: 40,
   id: 'pk-chicken-tikka-rice-box',
   name: 'Chicken tikka rice bowl with raita (lunch box)',
   names: {

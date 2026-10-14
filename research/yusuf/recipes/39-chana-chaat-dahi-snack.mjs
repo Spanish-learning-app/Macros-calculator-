@@ -1,0 +1,63 @@
+// R-MP-39 · Chana chaat with protein dahi (snack or merienda box). Batch: 2 boxes.
+export default {
+  n: 39,
+  slot: 'snacks',
+  serving: 'box',
+  boxes: 2,
+  effort: 'assemble',
+  minutes: 10,
+  id: 'pk-chana-chaat-dahi-snack-box',
+  name: 'Chana chaat with protein dahi (snack box)',
+  names: {
+    en: 'Chana chaat with protein dahi',
+    es: 'Chana chaat: garbanzos especiados con yogur proteico',
+    ca: 'Chana chaat: cigrons espaiats amb iogurt proteic',
+    ur: 'چنا چاٹ دہی کے ساتھ',
+    roman: 'chana chaat dahi',
+  },
+  aliases: ['chana chaat', 'chole chaat', 'chickpea chaat', 'dahi chana chaat', 'channa chaat', 'chanay ki chaat', 'merienda garbanzos'],
+  pitch: 'Street-food chaat from a jar of chickpeas: onion, tomato, cucumber, chaat masala and lemon, with a cool protein dahi on top.',
+  eat: 'cold',
+  tags: ['pakistani', 'meal-prep', 'eat-cold', 'vegetarian', 'iftar'],
+  references: [
+    { title: 'Spice Up The Curry, Chana chaat', url: 'https://www.spiceupthecurry.com/chana-chaat-recipe/', used: 'boiled or canned chickpeas, onion, tomato, green chilli, coriander, chaat masala, lemon; about 15 minutes', read: 'search-engine page extract, 2026-10-14' },
+    { title: 'Swasthi\'s Recipes (Indian Healthy Recipes), Chana chaat', url: 'https://www.indianhealthyrecipes.com/wprm_print/chana-chaat-recipe-chickpea-chaat', used: 'chickpeas tossed with onion, tomato, chilli, coriander, chaat masala and lemon; optional whisked thick curd', read: 'search-engine page extract, 2026-10-14' },
+  ],
+  components: [
+    {
+      id: 'chaat', label: 'Chana chaat', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['chickpeas-jar', 200, 'drained, rinsed (half a jar)'],
+        ['tomato', 80, 'diced'],
+        ['cucumber', 80, 'diced'],
+        ['onion-red', 30, 'finely chopped'],
+        ['coriander', 6, 'chopped'],
+        ['lemon-juice', 15, ''],
+        ['chaat-masala', 3, ''],
+        ['green-chilli', 3, 'optional'],
+      ],
+    },
+    {
+      id: 'dahi', label: 'Protein dahi pot', storage: 'cold-salad', pot: true, yield: 'none', eat: 'cold',
+      lines: [
+        ['protein-yogurt', 240, '120 g per box'],
+        ['cumin', 1, 'roasted, ground'],
+      ],
+    },
+  ],
+  method: [
+    'Drain and rinse the chickpeas; mix with tomato, cucumber, onion, coriander, chilli, lemon and chaat masala.',
+    'Split between 2 boxes. Spoon 120 g protein yogurt into a small pot each and dust with roasted cumin; pour it over just before eating.',
+  ],
+  keeps: '2 days in the fridge',
+  storagePlan: 'Make 2 boxes at a time; the other half of the chickpea jar goes into the next salad within 2 days.',
+  reheat: 'Not reheated.',
+  crossCheck: null,
+  changes: [
+    'A small snack portion (100 g chickpeas) with a protein-yogurt pot in place of sev, papdi or boondi (fried), so it reaches 15 g protein at about 220 kcal.',
+    'Yogurt kept in its own pot: watery vegetables make a stored chaat soggy (Spice Up The Curry).',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'No cooking: USDA SR Legacy chickpeas and vegetables, a dated label (protein yogurt); chaat masala counted as USDA curry powder.',
+  halal: { status: 'halal', reason: 'Chickpeas, vegetables, spices and a protein yogurt of milk and cultures only.' },
+};

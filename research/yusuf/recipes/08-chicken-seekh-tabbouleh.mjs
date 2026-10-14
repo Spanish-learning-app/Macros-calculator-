@@ -1,6 +1,8 @@
 // R-MP-8 · Chicken seekh kebabs with tabbouleh. Standard batch: 4 boxes (16 kebabs). Raw edible grams.
 export default {
   n: 8,
+  effort: 'cook',
+  minutes: 45,
   id: 'pk-chicken-seekh-tabbouleh-box',
   name: 'Chicken seekh kebabs with tabbouleh (lunch box)',
   names: {

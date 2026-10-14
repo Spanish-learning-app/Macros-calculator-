@@ -504,7 +504,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'eat-cold', 'meal-prep', 'gym'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173801', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 22.87 − fibre 6.3 = 16.6 g available. Katori servings × 0.642 g/ml (USDA 173801: 1 cup drained = 152 g). Jar serving: Hacendado 570 g jar ≈ 400 g drained (Yusuf, research/yusuf/ingredients.mjs). Cross-check: the Hacendado label (OFF 8480000260291: 90 kcal, P 5.5, C 9.5, F 2.2, fibre 4.7 per 100 g) appears to be per net contents including the liquid, so drained USDA values are used. Ingredients: chickpeas, water, salt, E-223, E-385.' },
+    source: { citation: 'USDA FDC SR Legacy 173801', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 22.87 − fibre 6.3 = 16.6 g available. Katori servings × 0.642 g/ml (USDA 173801: 1 cup drained = 152 g). Jar serving: Hacendado 570 g jar ≈ 400 g drained (Yusuf, research/yusuf/ingredients.mjs). Cross-check: the Hacendado label (OFF 8480000260291: 90 kcal, P 5.5, C 9.5, F 2.2, fibre 4.7 per 100 g) appears to be per net contents including the liquid, so drained USDA values are used. Ingredients: chickpeas, water, salt, E-223, E-385.' },
   },
   {
     id: 'es-lentejas-cocidas',
@@ -523,7 +523,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'eat-cold', 'meal-prep', 'gym'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Lenteja cocida Hacendado, 570 g jar, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 26030 (tienda.mercadona.es/product/26030, EAN 8480000260307); per-100 g values from Open Food Facts 8480000260307. Label per 100 g: 374 kJ (89 kcal), P 8.2, C 10.7 (sugars 0.5), F 0.4, sat 0.1, salt 1 g; fibre not on OFF: 4.9 g = label energy left after 4P + 4C + 9F, at 2 kcal/g (EU factor). Protein is 91 % of USDA boiled lentils (SR 172421: 116 kcal, P 9.0, fibre 7.9), so the label reads as drained lentils that hold more water. USDA 172421 itself fails our 4/4/9/2 energy gate (specific Atwater factors). Katori servings × 0.837 g/ml (USDA 172421: 1 cup = 198 g). Ingredients: lentils, water, salt, E-385, ascorbic acid.' },
+    source: { citation: 'Label: Mercadona Lenteja cocida Hacendado, 570 g jar, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 26030 (tienda.mercadona.es/product/26030, EAN 8480000260307); per-100 g values from Open Food Facts 8480000260307. Label per 100 g: 374 kJ (89 kcal), P 8.2, C 10.7 (sugars 0.5), F 0.4, sat 0.1, salt 1 g; fibre not on OFF: 4.9 g = label energy left after 4P + 4C + 9F, at 2 kcal/g (EU factor). Protein is 91 % of USDA boiled lentils (SR 172421: 116 kcal, P 9.0, fibre 7.9), so the label reads as drained lentils that hold more water. USDA 172421 itself fails our 4/4/9/2 energy gate (specific Atwater factors). Katori servings × 0.837 g/ml (USDA 172421: 1 cup = 198 g). Ingredients: lentils, water, salt, E-385, ascorbic acid.' },
   },
   {
     id: 'es-gazpacho-envasado',
@@ -543,7 +543,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'eat-cold'],
     slots: ['lunch', 'dinner', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Gazpacho tradicional Hacendado, pack of 3 × 330 ml, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 39934 (tienda.mercadona.es/product/39934, EAN 8402001019401); per-100 g values from Open Food Facts 8402001019401. Label per 100 g: 40 kcal, P 0.9, C 3.4 (sugars 3.3), F 2.6, sat 0.4, fibre 1, salt 0.8 g. Ingredients: fresh vegetables 92 % (tomato, pepper, cucumber), water, extra virgin olive oil 2.2 %, wine vinegar, salt, garlic (no bread). 1.03 g/ml (RULES water-like).' },
+    source: { citation: 'Label: Mercadona Gazpacho tradicional Hacendado, pack of 3 × 330 ml, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 39934 (tienda.mercadona.es/product/39934, EAN 8402001019401); per-100 g values from Open Food Facts 8402001019401. Label per 100 g: 40 kcal, P 0.9, C 3.4 (sugars 3.3), F 2.6, sat 0.4, fibre 1, salt 0.8 g. Ingredients: fresh vegetables 92 % (tomato, pepper, cucumber), water, extra virgin olive oil 2.2 %, wine vinegar, salt, garlic (no bread). 1.03 g/ml (RULES water-like).' },
   },
   {
     id: 'es-salmorejo-envasado',
@@ -581,7 +581,7 @@ export default [
     tags: ['mediterranean', 'international', 'vegetarian', 'vegan', 'packaged', 'eat-cold'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC FNDDS 2709307', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 8.45 − fibre 6.5 = 1.9 g available. FNDDS "Guacamole, NFS" used because the Hacendado (Montosa) label on OFF 8436008521063 does not add up (203 kcal vs 929 kJ, fibre 10.7 g for 95 % avocado); that label suggests about 205–220 kcal, so this record may read low. Servings: FNDDS 1 individual container = 70 g, 1 tbsp = 15 g (1.0 g/ml for katori). Ingredients (Mercadona 3852): avocado 95 %, dehydrated onion and garlic, salt, jalapeño, sugar, citric and ascorbic acid, E-301, E-331, E-202, coriander.' },
+    source: { citation: 'USDA FDC FNDDS 2709307', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'USDA carbs by difference 8.45 − fibre 6.5 = 1.9 g available. FNDDS "Guacamole, NFS" used because the Hacendado (Montosa) label on OFF 8436008521063 does not add up (203 kcal vs 929 kJ, fibre 10.7 g for 95 % avocado); that label suggests about 205–220 kcal, so this record may read low. Servings: FNDDS 1 individual container = 70 g, 1 tbsp = 15 g (1.0 g/ml for katori). Ingredients (Mercadona 3852): avocado 95 %, dehydrated onion and garlic, salt, jalapeño, sugar, citric and ascorbic acid, E-301, E-331, E-202, coriander.' },
   },
   {
     id: 'es-picos-integrales',
@@ -597,7 +597,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Picos 100% integral de trigo Hacendado, 250 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 86215 (tienda.mercadona.es/product/86215, EAN 8480000862150); per-100 g values from Open Food Facts 8480000862150. Label per 100 g: 379 kcal, P 14, C 60.9 (sugars 3.1), F 6.4, sat 0.8, fibre 11, salt 2.1 g. Ingredients: wholemeal wheat flour 87 %, high-oleic sunflower oil, yeast, salt, ascorbic acid (no lard). Gram servings (no unit weight published).' },
+    source: { citation: 'Label: Mercadona Picos 100% integral de trigo Hacendado, 250 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-14', notes: 'Mercadona online shop product 86215 (tienda.mercadona.es/product/86215, EAN 8480000862150); per-100 g values from Open Food Facts 8480000862150. Label per 100 g: 379 kcal, P 14, C 60.9 (sugars 3.1), F 6.4, sat 0.8, fibre 11, salt 2.1 g. Ingredients: wholemeal wheat flour 87 %, high-oleic sunflower oil, yeast, salt, ascorbic acid (no lard). Gram servings (no unit weight published).' },
   },
   {
     id: 'med-pita-bread',

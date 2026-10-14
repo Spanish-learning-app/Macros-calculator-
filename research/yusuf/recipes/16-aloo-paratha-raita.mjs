@@ -2,6 +2,8 @@
 // 4 parathas + 4 raita pots.
 export default {
   n: 16,
+  effort: 'cook',
+  minutes: 50,
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,

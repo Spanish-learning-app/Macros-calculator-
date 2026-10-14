@@ -1,6 +1,8 @@
 // R-MP-6 · Halal beef albóndigas in thick tomato sauce, couscous. Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 6,
+  effort: 'cook',
+  minutes: 50,
   id: 'es-albondigas-tomate-couscous-box',
   name: 'Beef albóndigas in tomato sauce with couscous (lunch box)',
   names: {

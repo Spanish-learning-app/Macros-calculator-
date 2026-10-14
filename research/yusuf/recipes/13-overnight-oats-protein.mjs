@@ -2,6 +2,8 @@
 // (overnight oats keep 3 days and do not freeze: make on Sunday night for Monday to Wednesday).
 export default {
   n: 13,
+  effort: 'assemble',
+  minutes: 10,
   slot: 'breakfast',
   serving: 'jar',
   boxes: 3,

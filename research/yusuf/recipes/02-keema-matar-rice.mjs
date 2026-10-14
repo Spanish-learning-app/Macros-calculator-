@@ -1,6 +1,8 @@
 // R-MP-2 · Keema matar with rice. Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 2,
+  effort: 'cook',
+  minutes: 45,
   id: 'pk-keema-matar-rice-box',
   name: 'Keema matar with rice (lunch box)',
   names: {

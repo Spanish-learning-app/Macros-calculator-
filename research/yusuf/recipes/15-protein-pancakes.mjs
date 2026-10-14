@@ -2,6 +2,8 @@
 // Standard batch: 16 pancakes = 4 portions.
 export default {
   n: 15,
+  effort: 'cook',
+  minutes: 35,
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,

@@ -42,11 +42,15 @@ export default {
         ['cumin', 0.5, 'ground'],
       ],
     },
+    {
+      id: 'cheese', label: 'Queso de Burgos 0% (1 tub, crumbled at lunch)', storage: 'proposed:sealed-pack', yield: 'none', eat: 'cold',
+      lines: [['burgos-0', 62.5, '1 single tub']],
+    },
   ],
   method: [
     'Pour 84 g (84 ml) boiling water over 60 g couscous with the salt; cover 5 min, fluff with a fork, add the lemon and let it cool.',
     'Meanwhile drain and rinse the chickpeas, dice the vegetables, and break the mackerel into flakes.',
-    'Mix everything in the box. Make it the night before and keep it in the fridge.',
+    'Mix everything in the box and add 1 sealed Burgos tub to crumble over at lunch. Make it the night before and keep it in the fridge.',
   ],
   keeps: '1 day in the fridge (soaked couscous)',
   storagePlan: 'Soaked couscous follows the cooked-starch rule (1 day in the fridge), so this box is made the night before, one at a time. Opened chickpeas keep 2 more days in a closed box for the next salad.',
@@ -54,9 +58,10 @@ export default {
   crossCheck: null,
   changes: [
     'Mackerel in olive oil replaces feta and the dressing oil of El Comidista\'s salad: it brings the protein and the fat in one can.',
+    'A tub of queso de Burgos 0% added to reach 35 g protein.',
     'One box at a time because soaked couscous keeps 1 day in the fridge (RULES.mealPrep.storage cooked-starch).',
   ],
   confidence: 'B',
   confidenceWhy: 'Only boiling water is used. Dated labels (couscous, mackerel), USDA SR Legacy chickpeas and vegetables; couscous water fully absorbed (stated water balance, as in Sprint 1).',
-  halal: { status: 'halal', reason: 'Fish (mackerel, olive oil, salt), couscous (durum wheat, water), chickpeas and vegetables.' },
+  halal: { status: 'halal', reason: 'Fish (mackerel, olive oil, salt), couscous (durum wheat, water), chickpeas, vegetables and Burgos with microbial rennet.' },
 };

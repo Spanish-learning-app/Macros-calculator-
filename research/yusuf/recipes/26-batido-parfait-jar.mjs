@@ -25,7 +25,7 @@ export default {
     {
       id: 'jar', label: 'Queso batido, oats, chia and walnuts', storage: 'overnight-oats', yield: 'none', eat: 'cold',
       lines: [
-        ['queso-batido', 600, '200 g per jar (most of a 500 g tub + a bit of a second)'],
+        ['queso-batido', 660, '220 g per jar (one 500 g tub and a third of a second)'],
         ['oats', 120, '40 g per jar'],
         ['chia', 30, '10 g (1 tbsp) per jar'],
         ['walnuts', 24, '8 g per jar, chopped'],
@@ -38,7 +38,7 @@ export default {
     },
   ],
   method: [
-    'In each of 3 jars put 40 g oats, 10 g chia and a pinch of cinnamon; spoon in 200 g queso fresco batido and stir well.',
+    'In each of 3 jars put 40 g oats, 10 g chia and a pinch of cinnamon; spoon in 220 g queso fresco batido and stir well.',
     'Top with the walnuts, close and refrigerate (at least 4 hours: the oats and chia soften in the cheese).',
     'In the morning peel and slice a kiwi on top. Eat cold.',
   ],
@@ -47,7 +47,7 @@ export default {
   reheat: 'No reheating: eat cold from the jar.',
   crossCheck: null,
   changes: [
-    'Queso fresco batido raised from the references\' 120 g to 200 g and the banana swapped for a kiwi, so one jar reaches 25 g protein with less sugar.',
+    'Queso fresco batido raised from the references\' 120 g to 220 g and the banana swapped for a kiwi, so one jar reaches 25 g protein with less sugar.',
     'No protein powder and no honey: the sweetness is the kiwi and cinnamon (add 1 tsp honey if you like; about 21 kcal, not counted).',
   ],
   confidence: 'B',

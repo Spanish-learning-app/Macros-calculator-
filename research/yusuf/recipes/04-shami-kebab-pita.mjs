@@ -1,6 +1,8 @@
 // R-MP-4 · Shami kebab pita box with mint-yogurt pot. Standard batch: 4 boxes (12 kebabs). Raw edible grams.
 export default {
   n: 4,
+  effort: 'cook',
+  minutes: 60,
   id: 'pk-shami-kebab-pita-box',
   name: 'Shami kebab pita box with mint yogurt (lunch box)',
   names: {

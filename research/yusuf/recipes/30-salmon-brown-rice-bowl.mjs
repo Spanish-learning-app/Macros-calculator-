@@ -35,8 +35,8 @@ export default {
       ],
     },
     {
-      id: 'egg', label: 'Hard-boiled egg (1 per box)', storage: 'egg-dish', yield: 'none', eat: 'cold',
-      lines: [['egg-boiled', 100, '2 eggs, boiled 10 min']],
+      id: 'egg', label: 'Hard-boiled eggs (2 per box)', storage: 'egg-dish', yield: 'none', eat: 'cold',
+      lines: [['egg-boiled', 200, '4 eggs, boiled 10 min (or from the Sunday batch)']],
     },
     {
       id: 'rice', label: 'Brown rice microwave cup (sealed)', storage: 'proposed:sealed-pack', yield: 'none', eat: 'hot',
@@ -44,9 +44,9 @@ export default {
     },
   ],
   method: [
-    'Boil 2 eggs 10 min, cool and peel (or use 2 from the Sunday batch).',
+    'Boil 4 eggs 10 min, cool and peel (or use 4 from the Sunday batch).',
     'Drain and flake the salmon; mix with cucumber, carrot, avocado, onion, coriander, lemon and pepper.',
-    'Each box: half the salmon salad, 1 halved egg, and 1 sealed rice cup on the side.',
+    'Each box: half the salmon salad, 2 halved eggs, and 1 sealed rice cup on the side.',
     'At lunch: microwave the rice cup 40 s (pierce the film), tip it into the box, mix. Or eat the rice cold.',
   ],
   keeps: '2 days in the fridge; do not freeze',
@@ -55,7 +55,7 @@ export default {
   crossCheck: null,
   changes: [
     'Mayonnaise and sriracha swapped for lemon and coriander (lighter, no label to check); soy sauce left out (brewed soy sauce can carry traces of alcohol).',
-    'A boiled egg added and the salmon set at 120 g per box to reach 35 g protein.',
+    'Two boiled eggs added and the salmon set at 120 g per box (one and a half cans) to reach 35 g protein.',
     'The rice is a sealed microwave cup kept apart, so the box can be made 2 days ahead.',
   ],
   confidence: 'B',

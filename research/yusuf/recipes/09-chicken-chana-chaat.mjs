@@ -1,6 +1,8 @@
 // R-MP-9 · Chicken chana chaat with a mint-yogurt pot (cold). Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 9,
+  effort: 'cook',
+  minutes: 35,
   id: 'pk-chicken-chana-chaat-box',
   name: 'Chicken chana chaat (cold lunch box)',
   names: {
