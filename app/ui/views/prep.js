@@ -34,6 +34,9 @@ import {
   effortOf,
   effortText,
   matchesEffort,
+  cuisineChips,
+  cuisineLabel,
+  matchesCuisine,
 } from '../components/prep-bits.js';
 
 const SLOT_ORDER = ['breakfast', 'lunch', 'dinner', 'snacks', 'evening'];
@@ -56,6 +59,8 @@ export function mount(container, ctx) {
   const batchSlot = new Map();
   /** Library filter: 'all' | 'cook' | 'no-cook'. */
   let libFilter = 'all';
+  /** Library cuisine: 'all' or a recipe `cuisine` id (Sprint 3 variety brief). */
+  let libCuisine = 'all';
 
   const root = h(
     'div',
@@ -927,7 +932,12 @@ export function mount(container, ctx) {
           ),
     );
 
-    const library = store.library().filter((l) => matchesEffort(l.recipe, libFilter));
+    const byEffort = store.library().filter((l) => matchesEffort(l.recipe, libFilter));
+    // Chips for the cuisines in the whole library, so a chip never vanishes when Cook/No-cook
+    // changes; a chosen cuisine that is no longer in the library falls back to All.
+    const cuisines = cuisineChips(store.library());
+    if (libCuisine !== 'all' && !cuisines.some((c) => c.id === libCuisine)) libCuisine = 'all';
+    const library = byEffort.filter((l) => matchesCuisine(l.recipe, libCuisine));
     const filters = [
       ['all', 'All'],
       ['cook', 'Cook'],
@@ -970,14 +980,43 @@ export function mount(container, ctx) {
           ),
         ),
       ),
+      cuisines.length > 1
+        ? h(
+            'div',
+            {
+              class: 'chip-pick library-cuisine',
+              role: 'group',
+              'aria-label': 'Cuisine',
+              'data-testid': 'library-cuisine',
+            },
+            [{ id: 'all', label: 'All cuisines' }, ...cuisines].map((c) =>
+              h(
+                'button',
+                {
+                  type: 'button',
+                  class: ['pick-chip', libCuisine === c.id ? 'is-on' : null],
+                  'aria-pressed': String(libCuisine === c.id),
+                  'data-cuisine': c.id,
+                  onclick: () => {
+                    libCuisine = c.id;
+                    render();
+                  },
+                },
+                c.label,
+              ),
+            ),
+          )
+        : null,
       groups.length
         ? null
         : h(
             'p',
             { class: 'empty-note', 'data-testid': 'library-empty' },
-            libFilter === 'no-cook'
-              ? 'No no-cook preps yet. The Nutrition Lab is adding salad boxes, bowls, parfaits and wraps.'
-              : 'Nothing here yet.',
+            libCuisine !== 'all'
+              ? `No ${libFilter === 'no-cook' ? 'no-cook ' : libFilter === 'cook' ? 'cooked ' : ''}${cuisineLabel(libCuisine)} preps yet. Try All.`
+              : libFilter === 'no-cook'
+                ? 'No no-cook preps yet. The Nutrition Lab is adding salad boxes, bowls, parfaits and wraps.'
+                : 'Nothing here yet.',
           ),
       groups.map((g) =>
         h(

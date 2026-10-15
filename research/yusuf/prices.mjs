@@ -34,5 +34,6 @@ export const DESI = {
     'garam-masala': { eurPerKg: null, name: 'Garam masala' },
     'chaat-masala': { eurPerKg: null, name: 'Chaat masala' },
     'ras-el-hanout': { eurPerKg: null, name: 'Ras el hanout', note: 'Halal Empordà lists it at 1.49 € without a pack size' },
+    'soy-sauce-halal': { eurPerKg: null, name: 'Soy sauce with a halal logo (Asian or desi shop)', note: 'not priced; Mercadona has no halal-certified soy sauce (2026-10-15)' },
   },
 };

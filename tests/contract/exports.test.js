@@ -138,6 +138,7 @@ const CONTRACT = {
       weightEntries: 1,
       mergeWeightLogs: 2,
       trendRule: 1,
+      suggestRails: 1,
       weightTrend: 2,
     },
     constants: [],

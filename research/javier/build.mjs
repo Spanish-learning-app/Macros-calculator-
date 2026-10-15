@@ -9,7 +9,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { usda, bedca, cofid, toPer100g, r1, ROOT } from './lib.mjs';
+import { usda, bedca, cofid, toPer100g, r1, ROOT, atwater } from './lib.mjs';
 import { computeAll } from './recipes.mjs';
 import { stampReview } from '../review/reviewed.mjs';
 
@@ -1701,6 +1701,304 @@ const seafoodEsMed = [
 ];
 for (const r of seafoodEsMed) if (r.id === 'es-gambas-al-ajillo') r.source = { ...r.source, date: D3 };
 esmed.push(...seafoodEsMed);
+
+// ================================================================= Sprint 3 (s3-variety): base foods for the international meal preps
+// Brief: team/briefs/s3-variety.md (sandwiches, pastas, wraps, bowls, stir-fries, soups, tray bakes; Yusuf's new preps). Mercadona
+// products read 2026-10-15 with research/javier/market.mjs (bcn1): ingredients for the halal check, per-100 g values from the
+// Open Food Facts entry for the same EAN. Everything else is USDA. Halal 'check' wherever the label lists rennet (cuajo) or an
+// emulsifier of unstated origin, or an alcohol-derived ingredient; each reason names a swap.
+const srcS3 = (citation, method, confidence, notes) => ({ ...src(citation, method, confidence, notes), date: D3 });
+const merc3 = (product, id, ean, pack, notes, conf = 'B') =>
+  srcS3(`Label: Mercadona ${product}, ${pack}, read ${D3}`, 'label', conf, `Mercadona online shop product ${id} (tienda.mercadona.es/product/${id}, EAN ${ean}); per-100 g values from Open Food Facts ${ean}. ${notes}`);
+const kat2 = (density, ...extra) => [...katori(density).map(({ default: _d, ...s }) => s), ...extra];
+const CUAJO3 = (what, swap) => check(`${what} Rennet (cuajo) of unstated origin; some people avoid animal rennet. Swap: ${swap}`);
+
+// ---------------------------------------------------------------- basics: vegetables, cheese
+const s3Basics = [
+  {
+    id: 'intl-broccoli', name: 'Broccoli, raw (florets)', shortName: 'Broccoli',
+    aliases: ['broccoli', 'brocoli', 'brócoli', 'bròquil', 'broccoli florets', 'brócoli fresco'],
+    group: 'vegetable', state: 'raw, florets and stalk (cooked weight is almost identical per 100 g)',
+    ...fromUsda3(170379, 'A', 'Serving weights: USDA SR 170379 portions (1 cup chopped = 91 g, 1 spear = 31 g, 1 NLEA serving = 148 g). Boiled broccoli (SR 169967) is 35 kcal per 100 g, so one record covers raw and cooked.'),
+    servings: [sv('cup', '1 cup chopped (91 g)', 91, true), sv('spear', '1 spear (31 g)', 31), sv('serving', '1 serving (148 g)', 148)],
+    tags: [...VEG, 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-mushrooms', name: 'Mushrooms, white (champiñones)', shortName: 'Mushrooms',
+    nameUr: 'کھمبی', nameRoman: 'khumbi',
+    aliases: ['mushroom', 'mushrooms', 'champiñón', 'champiñones', 'champinyons', 'champiñones blancos', 'khumbi', 'khumb', 'button mushrooms'],
+    group: 'vegetable', state: 'raw, whole or sliced',
+    ...fromUsda3(169251, 'A', 'Serving weights: USDA SR 169251 portions (1 cup pieces or slices = 70 g, 1 medium = 18 g, 1 large = 23 g).'),
+    servings: [sv('cup', '1 cup sliced (70 g)', 70, true), sv('medium', '1 medium mushroom (18 g)', 18), sv('large', '1 large mushroom (23 g)', 23)],
+    pack: { grams: 300, label: '300 g tray (Champiñones blancos)' },
+    tags: [...VEG, 'meal-prep'], slots: ['lunch', 'dinner', 'breakfast'], halal: HALAL,
+  },
+  {
+    id: 'intl-tomato-cherry', name: 'Cherry tomatoes (tomates cherry)', shortName: 'Cherry tomatoes',
+    aliases: ['cherry tomato', 'cherry tomatoes', 'tomates cherry', 'tomate cherry', 'tomàquets cherry', 'cherry', 'baby tomatoes'],
+    group: 'vegetable', state: 'raw, whole',
+    ...fromUsda3(170457, 'A', 'USDA does not list cherry tomatoes apart from "Tomatoes, red, ripe, raw"; per-100 g values are the same as intl-tomato. Servings: USDA SR 170457 portions (1 cherry = 17 g, 1 cup = 149 g).'),
+    servings: [sv('five', '5 cherry tomatoes (85 g)', 85, true), sv('cherry', '1 cherry tomato (17 g)', 17), sv('cup', '1 cup (149 g)', 149)],
+    pack: { grams: 500, label: '500 g tray (Tomates cherry)' },
+    tags: [...VEG, 'eat-cold'], slots: ['lunch', 'dinner', 'snacks'], halal: HALAL,
+  },
+  {
+    id: 'intl-sweetcorn-tinned', name: 'Sweetcorn, tinned (drained)', shortName: 'Sweetcorn, tinned',
+    nameUr: 'مکئی کے دانے', nameRoman: 'makai ke daane',
+    aliases: ['sweetcorn', 'sweet corn', 'tinned sweetcorn', 'canned corn', 'canned sweetcorn', 'maíz dulce', 'maiz dulce', 'panotxa', 'makai', 'corn kernels'],
+    group: 'vegetable', state: 'canned, whole kernel, drained',
+    ...fromUsda3(169214, 'A', 'Serving weights: USDA SR 169214 (1 cup drained = 164 g). Mercadona Maíz dulce Hacendado (product 16712, EAN 8480000167125) lists corn, water and salt; its OFF label reads 75 kcal, P 2.6, C 9.3, F 2.3 per 100 g, the same range. Tin: 150 g net, 140 g drained (3-pack drained weight 420 g).'),
+    servings: [sv('half-cup', '½ cup (82 g)', 82, true), sv('cup', '1 cup (164 g)', 164), sv('tin', '1 tin, drained (140 g)', 140)],
+    pack: { grams: 420, label: '3 × 150 g tins (420 g drained)' },
+    tags: [...VEG, 'packaged', 'meal-prep', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  // ---------------------------------------------------------------- cheese
+  {
+    id: 'intl-mozzarella-fresh', name: 'Mozzarella, fresh ball (whole milk)', shortName: 'Fresh mozzarella',
+    aliases: ['mozzarella', 'mozzarella fresca', 'fresh mozzarella', 'mozzarella ball', 'mozarella', 'mozzarella de vaca', 'bola de mozzarella'],
+    group: 'dairy', state: 'fresh, drained',
+    ...fromUsda3(170845, 'A', 'Servings: Mercadona Mozzarella fresca de vaca Hacendado (product 51050): 250 g pack, 125 g drained = 1 ball; USDA 1 oz = 28.35 g, 1 cup shredded = 112 g.', { zeroFiber: true }),
+    servings: [sv('half-ball', '½ ball (63 g)', 63, true), sv('ball', '1 ball, drained (125 g)', 125), sv('oz', '1 oz (28 g)', 28.35)],
+    pack: { grams: 125, label: '1 ball (125 g drained, 250 g with whey)' },
+    tags: ['international', 'vegetarian', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner'],
+    halal: { status: 'halal', reason: 'Mercadona fresh mozzarella (Hacendado) lists microbial coagulant (coagulante microbiano). Other brands may use animal rennet: read the label.' },
+  },
+  {
+    id: 'intl-mozzarella-grated', name: 'Mozzarella, grated (pizza-Roma, Hacendado)', shortName: 'Grated mozzarella',
+    aliases: ['grated mozzarella', 'shredded mozzarella', 'mozzarella rallada', 'queso rallado mozzarella', 'mozzarella pizza', 'pizza cheese', 'queso para pizza', 'queso rallat mozzarella'],
+    group: 'dairy', state: 'grated, as sold',
+    per100g: { kcal: 283, protein: 21, carbs: 2.5, fat: 21, fiber: 0, sugars: 0.8, satFat: 13, sodium: salt2na(1) },
+    source: merc3('Queso rallado mozzarella pizza-Roma de vaca Hacendado', 51110, '8480000511102', '200 g bag', 'Label per 100 g: 1176 kJ (283 kcal), P 21, C 2.5 (sugars 0.8), F 21, sat 13, salt 1 g. Ingredients: pasteurised cow milk, microbial coagulant, lactic ferments, salt, anti-caking starch. Servings: USDA SR 170846 style handful 1 oz = 28.35 g; 1 cup shredded = 112 g (USDA 170845).'),
+    servings: [sv('handful', '1 handful (30 g)', 30, true), sv('topping', 'pizza or bake topping (50 g)', 50), sv('cup', '1 cup (112 g)', 112)],
+    pack: { grams: 200, label: '200 g bag' },
+    tags: ['international', 'vegetarian', 'packaged'], slots: ['lunch', 'dinner'],
+    halal: { status: 'halal', reason: 'The Mercadona label lists microbial coagulant (coagulante microbiano), not animal rennet.' },
+  },
+  {
+    id: 'intl-cheese-grated-mix', name: 'Grated cheese, 4 cheeses (emmental, cheddar, gouda)', shortName: 'Grated cheese, mixed',
+    aliases: ['grated cheese', 'queso rallado', 'queso rallado 4 quesos', 'cheese topping', 'shredded cheese', 'queso rallat', 'cuatro quesos', 'melting cheese'],
+    group: 'dairy', state: 'grated, as sold',
+    per100g: { kcal: 351, protein: 23, carbs: 2.5, fat: 28, fiber: 0, sugars: 0, satFat: 19, sodium: salt2na(1.87) },
+    source: merc3('Queso rallado 4 quesos Hacendado', 21581, '8402001044434', '200 g bag', 'Label per 100 g: 1469.5 kJ (351 kcal; OFF also shows a mistyped 177 kcal), P 23, C 2.5, F 28, sat 19, salt 1.87 g. Ingredients: 45 % emmental, 30 % cheddar, 20 % gouda, 5 % aged cheese (cow, goat and sheep milk), all with microbial coagulant, anti-caking starch. Servings: USDA 1 oz = 28.35 g, 1 cup shredded cheddar 113 g.'),
+    servings: [sv('handful', '1 handful (30 g)', 30, true), sv('topping', 'bake topping (50 g)', 50), sv('cup', '1 cup (113 g)', 113)],
+    pack: { grams: 200, label: '200 g bag' },
+    tags: ['international', 'vegetarian', 'packaged'], slots: ['lunch', 'dinner', 'breakfast'],
+    halal: { status: 'halal', reason: 'Every cheese in the Mercadona mix lists microbial coagulant (coagulante microbiano).' },
+  },
+  {
+    id: 'intl-grana-padano-grated', name: 'Grana Padano, grated (powder, Hacendado)', shortName: 'Grana Padano, grated',
+    aliases: ['grana padano', 'parmesan', 'parmesano', 'grated parmesan', 'parmesano rallado', 'queso en polvo', 'queso rallado pasta', 'parmigiano', 'parmesà'],
+    group: 'dairy', state: 'grated powder, as sold',
+    per100g: { kcal: 398, protein: 33, carbs: 0, fat: 29, fiber: 0, sugars: 0, satFat: 18, sodium: salt2na(1.5) },
+    source: merc3('Queso en polvo grana padano Hacendado', 51146, '8002710411147', '100 g tub', 'Label per 100 g: 1654 kJ (398 kcal), P 33, C 0, F 29, sat 18, salt 1.5 g. Ingredients: milk, salt, rennet (cuajo), lysozyme from egg. Serving 10 g (label).'),
+    servings: [sv('serving', '1 serving (10 g, label)', 10, true), sv('three', '3 servings (30 g)', 30)],
+    pack: { grams: 100, label: '100 g tub' },
+    tags: ['international', 'packaged'], slots: ['lunch', 'dinner'],
+    halal: CUAJO3('Grana Padano is made with rennet and the label says only "cuajo".', 'cheese made with microbial coagulant, such as the grated cheese or mozzarella records here, or a hard cheese labelled "coagulante microbiano".'),
+  },
+];
+
+// ---------------------------------------------------------------- international: grains, noodles, wraps, beans, sauces
+const kidneyDensity = 180 / 236.6; // USDA FNDDS 2707363 black beans from canned, 1 cup = 180 g (same bean size class used for kidney beans)
+const blackBeans = fromUsda3(2707363, 'B', 'Servings × 0.761 g/ml (FNDDS 2707363: 1 cup = 180 g). USDA states 134 kcal with its specific Atwater factors, which fail our 4/4/9/2 energy gate by 15 %; the energy is restated with our factors (4P + 4C + 9F + 2 fibre = 117 kcal) and the macros are USDA\'s. Mercadona sells only dry black beans (Alubia negra Hacendado, product 67608); tinned black beans are brand-dependent.');
+blackBeans.per100g.kcal = Math.round(atwater(blackBeans.per100g));
+const s3Intl = [
+  {
+    id: 'intl-quinoa-dry', name: 'Quinoa, dry (uncooked)', shortName: 'Quinoa, dry',
+    aliases: ['quinoa', 'quinua', 'quinoa seca', 'dry quinoa', 'quinoa blanca', 'quinoa real'],
+    group: 'dry-staple', state: 'dry, uncooked (rinse, then simmer 12–15 min)',
+    ...fromUsda3(168874, 'A', 'Servings: USDA SR 168874, 1 cup dry = 170 g, so ⅓ cup = 57 g. Carbohydrate is by difference minus 7 g fibre.'),
+    servings: [sv('third-cup', '⅓ cup dry (57 g)', 57, true), sv('half-cup', '½ cup dry (85 g)', 85), sv('cup', '1 cup dry (170 g)', 170)],
+    tags: ['international', 'vegetarian', 'vegan', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-quinoa-cooked', name: 'Quinoa, cooked (boiled)', shortName: 'Quinoa, cooked',
+    aliases: ['cooked quinoa', 'quinoa cocida', 'boiled quinoa', 'quinoa pouch', 'quinoa vasito', 'sabroz quinoa'],
+    group: 'grain-cooked', state: 'cooked in water, no added fat',
+    ...fromUsda3(168917, 'A', 'Katori servings × 0.782 g/ml (USDA SR 168917: 1 cup = 185 g). Pouch: Mercadona Quinoa cocida blanca y roja Sabroz (product 22278, EAN 8410184040754), 2 × 125 g; its OFF label (147 kcal, P 5.9, C 30) does not add up (178 kcal by 4/4/9), so USDA values are used.'),
+    servings: [sv('pouch', '1 pouch (125 g)', 125, true), ...katori(185 / 236.6).map(({ default: _d, ...s }) => s)],
+    pack: { grams: 250, label: '2 × 125 g pouches (Sabroz)' },
+    tags: ['international', 'vegetarian', 'vegan', 'gym', 'meal-prep', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-noodles-egg-dry', name: 'Egg noodles (pasta al huevo), dry', shortName: 'Egg noodles, dry',
+    aliases: ['egg noodles', 'fideos al huevo', 'pasta al huevo', 'nidos al huevo', 'tallarines al huevo', 'egg pasta', 'tagliatelle nests', 'noodles al huevo'],
+    group: 'dry-staple', state: 'dry nests, as sold (boil 4–5 min)',
+    per100g: { kcal: 357, protein: 14, carbs: 67, fat: 2.7, fiber: 4.1, sugars: 3.5, satFat: 0.8, sodium: salt2na(0.05) },
+    source: merc3('Nidos al huevo Hacendado', 6321, '8480000063212', '500 g pack', 'Label per 100 g: 1509.7 kJ (357 kcal), P 14, C 67 (sugars 3.5), F 2.7, sat 0.8, fibre 4.1, salt 0.05 g (the spaghetti al huevo, product 6302, is identical). Ingredients: durum wheat semolina 87 %, egg 13 %. Serving: 80 g dry, the same dry-pasta portion as intl-pasta-wholewheat-dry.'),
+    servings: [sv('portion', '1 portion dry (80 g)', 80, true), sv('100g', '100 g dry', 100)],
+    pack: { grams: 500, label: '500 g pack' },
+    tags: ['international', 'vegetarian', 'contains-egg', 'packaged', 'gym', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-noodles-rice-dry', name: 'Rice noodles, dry (Hacendado)', shortName: 'Rice noodles, dry',
+    aliases: ['rice noodles', 'noodles de arroz', 'fideos de arroz', 'pad thai noodles', 'rice vermicelli', 'vermicelli de arroz', 'noodles', 'asian noodles'],
+    group: 'dry-staple', state: 'dry, as sold (soak in hot water 5–8 min)',
+    per100g: { kcal: 347, protein: 5.3, carbs: 79, fat: 0.7, fiber: 1.3, sugars: 1.1, satFat: 0.3, sodium: salt2na(0.57) },
+    source: merc3('Noodles de arroz Hacendado', 35981, '8402001011924', '200 g pack', 'Label per 100 g: 1469.4 kJ (347 kcal), P 5.3, C 79 (sugars 1.1), F 0.7, sat 0.3, fibre 1.3, salt 0.57 g. Ingredients: rice flour, tapioca starch, salt. Serving: 50 g (label portion). USDA SR 169742 rice noodles dry reads 364 kcal.'),
+    servings: [sv('portion', '1 portion dry (50 g, label)', 50, true), sv('75g', '75 g dry', 75), sv('100g', '100 g dry', 100)],
+    pack: { grams: 200, label: '200 g pack' },
+    tags: ['international', 'vegetarian', 'vegan', 'packaged', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-tortilla-corn', name: 'Corn tortilla (tortilla de maíz, taco size)', shortName: 'Corn tortilla',
+    aliases: ['corn tortilla', 'corn tortillas', 'tortilla de maíz', 'tortillas de maíz', 'tortilla de maiz', 'taco tortilla', 'corn wrap', 'tortilla mexicana', 'tortilla de blat de moro'],
+    group: 'bread', state: 'precooked, as sold (heat 20 s per side in a dry pan)',
+    ...fromUsda3(175036, 'B', 'Generic USDA corn tortilla (SR 175036, ready-to-bake). The Mercadona label (Tortillas de maíz Hacendado, product 86328, EAN 8402001019623: P 3.5, C 44, F 3.2, fibre 7.6) is internally inconsistent on OFF (204 kcal printed, 986.7 kJ = 236 kcal), so USDA values are used; both sit near 218. Serving: 26 g per tortilla (label; 8 per 208 g pack).'),
+    servings: [sv('tortilla', '1 tortilla (26 g)', 26, true), sv('two', '2 tortillas (52 g)', 52), sv('three', '3 tortillas (78 g)', 78)],
+    pack: { grams: 208, label: '8 tortillas (208 g)' },
+    tags: ['international', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'],
+    halal: { status: 'halal', reason: 'Corn flour, water, gums, salt, sunflower oil and preservatives on the Mercadona label: no emulsifier E-471 (unlike its wheat wraps).' },
+  },
+  {
+    id: 'intl-kidney-beans-tinned', name: 'Red kidney beans, tinned or jarred (drained)', shortName: 'Kidney beans, tinned',
+    nameUr: 'راجما', nameRoman: 'rajma',
+    aliases: ['kidney beans', 'red kidney beans', 'rajma', 'rajmah', 'rajma beans', 'alubias rojas', 'alubia roja', 'alubia cocida roja', 'tinned kidney beans', 'canned kidney beans', 'mongetes vermelles'],
+    group: 'daal-legume', state: 'cooked, drained solids (from a jar or tin)',
+    ...fromUsda3(174285, 'A', `Katori servings × ${r1(kidneyDensity * 1000) / 1000} g/ml (USDA FNDDS 2707363: 1 cup canned beans = 180 g; no cup weight is listed for kidney beans). Jar: Mercadona Alubia cocida roja Hacendado (product 26000, EAN 8429386916101): 570 g jar, 400 g drained; ingredients red beans, water, salt, E-385. The label is not on Open Food Facts.`),
+    servings: [...kat2(kidneyDensity), sv('half-jar', '½ jar, drained (200 g)', 200, true), sv('jar', '1 jar, drained (400 g)', 400)],
+    pack: { grams: 400, label: '570 g jar (400 g drained)' },
+    tags: ['pakistani', 'international', 'vegetarian', 'vegan', 'packaged', 'gym', 'meal-prep', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-black-beans-tinned', name: 'Black beans, tinned (drained)', shortName: 'Black beans, tinned',
+    aliases: ['black beans', 'tinned black beans', 'canned black beans', 'frijoles negros', 'alubias negras', 'alubia negra', 'mongetes negres', 'burrito beans'],
+    group: 'daal-legume', state: 'cooked, drained and rinsed (from a tin)',
+    per100g: blackBeans.per100g, source: blackBeans.source,
+    servings: [...kat2(kidneyDensity), sv('half-tin', '½ tin, drained (120 g)', 120, true), sv('tin', '1 tin, drained (240 g)', 240)],
+    tags: ['international', 'vegetarian', 'vegan', 'packaged', 'gym', 'meal-prep', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  // ---------------------------------------------------------------- sauces and dressings
+  {
+    id: 'intl-pesto-basil', name: 'Pesto sauce, basil and Grana Padano (Hacendado jar)', shortName: 'Pesto sauce',
+    aliases: ['pesto', 'basil pesto', 'pesto genovese', 'salsa pesto', 'pesto alla genovese', 'salsa pesto con albahaca', 'pesto verde'],
+    group: 'condiment', state: 'jar, as sold',
+    per100g: { kcal: 570, protein: 5.9, carbs: 7.7, fat: 57, fiber: 1.3, sugars: 1.4, satFat: 7.3, sodium: salt2na(3) },
+    source: merc3('Salsa Pesto con albahaca Hacendado', 35438, '8402001009051', '190 g jar', 'Label per 100 g: 2350 kJ (570 kcal), P 5.9, C 7.7 (sugars 1.4), F 57, sat 7.3, salt 3 g; fibre not on OFF: 1.3 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: sunflower oil, basil 21 %, cashews, Grana Padano PDO (milk, salt, rennet / cuajo, egg lysozyme), olive oil, pine nuts 0.5 %, garlic. Servings: USDA SR 171580 pesto, ¼ cup = 61 g, so 1 tbsp = 15 g.'),
+    servings: [sv('two-tbsp', '2 tablespoons (30 g)', 30, true), sv('tbsp', '1 tablespoon', 15, false, 'بڑا چمچ'), sv('quarter-jar', '¼ jar (48 g)', 48)],
+    pack: { grams: 190, label: '190 g jar' },
+    tags: ['international', 'packaged'], slots: ['lunch', 'dinner'],
+    halal: CUAJO3('The Mercadona pesto contains Grana Padano.', 'a pesto without cheese (pesto vegano or "sin queso"), a home pesto made with a microbial-coagulant cheese (see the grated cheese records), or stir the sauce through pasta with plain tomato sauce instead.'),
+  },
+  (() => {
+    const per = perMlToPerG({ kcal: 74, protein: 7.5, carbs: 8.3, fat: 0.1, fiber: 0, sugars: 4.3, satFat: 0.1 }, 1.08);
+    per.kcal = 60; // label 272.3 kJ = 65 kcal per 100 ml; 65 / 1.08 = 60 per 100 g (the 74 kcal typed on OFF disagrees with its own kJ)
+    return {
+      id: 'intl-soy-sauce', name: 'Soy sauce (salsa de soja, Hacendado)', shortName: 'Soy sauce',
+      aliases: ['soy sauce', 'soya sauce', 'salsa de soja', 'salsa de soia', 'soja', 'shoyu', 'light soy sauce', 'soy'],
+      group: 'condiment', state: 'bottle, as sold',
+      per100g: { ...per, sodium: Math.round(15.45 * 400 / 1.08) },
+      source: merc3('Salsa de Soja Hacendado', 17360, '4006824005715', '250 ml bottle', 'OFF 4006824005715 (Aiko, the supplier of the Hacendado bottle): 272.3 kJ = 65 kcal per 100 ml (OFF also shows 74 kcal, which contradicts its kJ), P 7.5, C 8.3 (sugars 4.3), F 0.1, salt 15.45 g, taken as per 100 ml because it is a liquid sold by volume, and divided by 1.08 g/ml (USDA SR 174277 shoyu: 1 tbsp = 16 g). Ingredients: water, salt, soybeans, wheat, sugar, lactic acid, guar gum. Fibre 0.'),
+      servings: [sv('tbsp', '1 tablespoon', 16, true, 'بڑا چمچ'), sv('two-tbsp', '2 tablespoons (32 g)', 32)],
+      pack: { grams: 270, label: '250 ml bottle' },
+      tags: ['international', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'],
+      halal: check('Brewed soy sauce can contain a trace of alcohol from fermentation, and the label does not say. Swap: a soy sauce with a halal certificate (check the seal), or coconut aminos.'),
+    };
+  })(),
+  (() => {
+    const per = perMlToPerG({ kcal: 188, protein: 4.5, carbs: 41.8, fat: 0.1, fiber: 0, sugars: 36.5, satFat: 0.1 }, 1.22);
+    return {
+      id: 'intl-teriyaki-sauce', name: 'Teriyaki sauce (Hacendado)', shortName: 'Teriyaki sauce',
+      aliases: ['teriyaki', 'teriyaki sauce', 'salsa teriyaki', 'salsa de teriyaki', 'teriyaki glaze'],
+      group: 'condiment', state: 'bottle, as sold',
+      per100g: { ...per, sodium: Math.round(7.4 * 400 / 1.22) },
+      source: merc3('Salsa Teriyaki Hacendado', 17362, '4006824999137', '250 ml bottle', 'OFF 4006824999137 (Aiko): 797 kJ (188 kcal), P 4.5, C 41.8 (sugars 36.5), F 0.1, salt 7.4 g, taken as per 100 ml (liquid sold by volume) and divided by 1.22 g/ml (USDA SR 171167 teriyaki sauce: 1 cup = 288 g). Ingredients: soy sauce (water, soybeans, wheat, salt), sugar, water, red wine (contains sulphites), alcohol vinegar, modified corn starch, cane sugar syrup, spices, yeast extract. Fibre 0. Servings: USDA SR 171167, 1 tbsp = 18 g.'),
+      servings: [sv('tbsp', '1 tablespoon', 18, true, 'بڑا چمچ'), sv('two-tbsp', '2 tablespoons (36 g)', 36)],
+      pack: { grams: 305, label: '250 ml bottle' },
+      tags: ['international', 'packaged'], slots: ['lunch', 'dinner'],
+      halal: check('The label lists red wine (vino tinto) and a soy sauce that may be brewed with alcohol. Many people will not use it. Swap: halal-certified soy sauce with honey or sugar, rice vinegar and grated ginger (no mirin, no wine).'),
+    };
+  })(),
+  {
+    id: 'intl-caesar-dressing', name: 'Caesar dressing (salsa César, Hacendado)', shortName: 'Caesar dressing',
+    aliases: ['caesar dressing', 'caesar sauce', 'salsa caesar', 'salsa césar', 'aliño césar', 'aliño caesar', 'cesar dressing', 'caesar salad dressing'],
+    group: 'condiment', state: 'bottle, as sold',
+    per100g: { kcal: 342, protein: 2.3, carbs: 13.5, fat: 31, fiber: 0, sugars: 7, satFat: 4.2 },
+    source: merc3('Salsa César Hacendado', 17366, '8402001024467', '310 ml bottle', 'Label per 100 g (OFF nutrition_data_per 100g, serving 100 g): 1415.6 kJ (342 kcal), P 2.3, C 13.5 (sugars 7), F 31, sat 4.2. The OFF salt value (0.01 g) is not credible for a dressing with cheese and anchovy powder, so sodium is left out; fibre 0. Ingredients: water, sunflower oil, sugar, cheese powder (milk), alcohol vinegar, starch, pasteurised egg yolk, mustard, milk powder, cream powder, pickled onion, salt, anchovy powder (fish), spices, lemon juice, garlic. Servings: USDA SR 169055 caesar dressing, 1 tbsp = 14.7 g, 2 tbsp = 30 g.'),
+    servings: [sv('two-tbsp', '2 tablespoons (30 g)', 30, true), sv('tbsp', '1 tablespoon (15 g)', 15, false, 'بڑا چمچ')],
+    pack: { grams: 310, label: '310 ml bottle' },
+    tags: ['international', 'contains-egg', 'packaged'], slots: ['lunch', 'dinner'],
+    halal: CUAJO3('The Mercadona dressing contains cheese powder.', 'a home dressing of Greek yogurt, lemon, garlic, mustard and a little olive oil, or a microbial-coagulant cheese. The label shows no wine or alcohol, only alcohol vinegar; other brands add Worcestershire sauce or wine, so read those.'),
+  },
+];
+
+// ---------------------------------------------------------------- Spanish and Mediterranean: bocadillo bread, tomato sauce, salsa, ready creams
+const s3Esmed = [
+  {
+    id: 'es-pan-bocadillo', name: 'Bocadillo bread roll (pan de bocadillo, bakery)', shortName: 'Bocadillo bread roll',
+    aliases: ['pan de bocadillo', 'bocadillo bread', 'bocadillo roll', 'barra de bocadillo', 'sandwich roll', 'bread roll', 'panecillo de bocadillo', 'pa de bocadillo', 'entrepà', 'bocata roll'],
+    group: 'bread', state: 'white bakery roll, as sold (split and fill)',
+    per100g: { kcal: 259, protein: 8.1, carbs: 52, fat: 1.1, fiber: 3.5, sugars: 2.8, satFat: 0.2, sodium: salt2na(1.18) },
+    source: merc3('3 Bocadillos Hacendado (pan de bocadillo)', 9664, '8480000096647', 'bag of 3 rolls, 390 g', 'Label per 100 g: 1090.4 kJ (259 kcal), P 8.1, C 52 (sugars 2.8), F 1.1, sat 0.2, fibre 3.5, salt 1.18 g. Ingredients: wheat flour, water, yeast, salt (no emulsifier). Serving: 130 g = 1 roll (label). The plain Mercadona "Barra de pan" (product 83202) lists emulsifier E-472e, so this roll is the bakery bocadillo bread to use.'),
+    servings: [sv('roll', '1 bocadillo roll (130 g)', 130, true), sv('half', '½ roll (65 g)', 65)],
+    pack: { grams: 390, label: 'bag of 3 rolls (390 g)' },
+    tags: ['spanish', 'catalan', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner', 'breakfast'],
+    halal: { status: 'halal', reason: 'Flour, water, yeast and salt only on the Mercadona label; no emulsifier. A plain barra (83202) lists E-472e, so choose this roll or ask your bakery.' },
+  },
+  {
+    id: 'es-tomate-frito', name: 'Tomate frito (fried tomato sauce, jar)', shortName: 'Tomate frito',
+    aliases: ['tomate frito', 'pasta sauce', 'tomato pasta sauce', 'salsa de tomate', 'salsa de tomàquet', 'tomàquet fregit', 'tomate frito hacendado', 'passata frita', 'marinara'],
+    group: 'side-dip', state: 'jar, as sold',
+    per100g: { kcal: 77, protein: 1.5, carbs: 9.5, fat: 3.5, fiber: 0.8, sugars: 6.9, satFat: 0.3, sodium: salt2na(1) },
+    source: merc3('Tomate frito Hacendado', 17108, '8480000171085', '560 g jar', 'Label per 100 g: 316.5 kJ (77 kcal), P 1.5, C 9.5 (sugars 6.9), F 3.5, sat 0.3, salt 1 g; fibre not on OFF: 0.8 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: tomato, sunflower oil, sugar, corn starch, salt, onion, garlic. Katori servings × 1.116 g/ml (USDA SR 171192 marinara sauce: ½ cup = 132 g).'),
+    servings: [...kat2(132 / 118.3), sv('portion', '1 pasta portion (100 g)', 100, true), sv('quarter-jar', '¼ jar (140 g)', 140)],
+    pack: { grams: 560, label: '560 g jar' },
+    tags: ['spanish', 'catalan', 'vegetarian', 'vegan', 'packaged', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'es-salsa-mexicana', name: 'Salsa mexicana (pico de gallo type, Hacendado)', shortName: 'Salsa mexicana',
+    aliases: ['salsa', 'pico de gallo', 'salsa mexicana', 'mexican salsa', 'tomato salsa', 'salsa fresca', 'salsa roja', 'salsa de tomate picante', 'pico'],
+    group: 'side-dip', state: 'jar, as sold (chunky tomato, onion and pepper)',
+    per100g: { kcal: 38, protein: 1.4, carbs: 6.8, fat: 0.1, fiber: 2.1, sugars: 4.1, satFat: 0, sodium: salt2na(0.9) },
+    source: merc3('Salsa Mexicana Hacendado', 16827, '8480000168276', '300 g jar', 'Label per 100 g: 162 kJ (38 kcal), P 1.4, C 6.8 (sugars 4.1), F 0.1, salt 0.9 g; fibre not on OFF: 2.1 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: tomato, onion, green pepper, wine vinegar, modified corn starch, sugar, lemon juice, garlic, salt, spices. Katori servings × 1.095 g/ml (USDA SR 174524 salsa: 1 cup = 259 g).'),
+    servings: [...kat2(259 / 236.6), sv('portion', '1 serving (60 g)', 60, true)],
+    pack: { grams: 300, label: '300 g jar' },
+    tags: ['international', 'vegetarian', 'vegan', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner', 'snacks'],
+    halal: { status: 'halal', reason: 'Wine vinegar only (vinegar, not wine); no alcohol or animal ingredients on the Mercadona label.' },
+  },
+  (() => {
+    const per = perMlToPerG({ kcal: 33, protein: 0.5, carbs: 4.9, fat: 1.3, fiber: 0.6, sugars: 1.1, satFat: 0.2 }, 1.03);
+    return {
+      id: 'es-crema-verduras-brik', name: 'Crema de verduras (vegetable soup, Hacendado brik)', shortName: 'Crema de verduras',
+      aliases: ['crema de verduras', 'vegetable soup', 'vegetable cream soup', 'crema de verdures', 'sopa de verduras', 'crema hacendado', 'vegetable crema'],
+      group: 'soup', state: 'carton, as sold (heat 3 min)',
+      per100g: { ...per, sodium: Math.round(0.65 * 400 / 1.03) },
+      source: merc3('Crema de verduras Hacendado', 60308, '8402001021039', '500 ml brik', 'OFF 8402001021039: 138 kJ (33 kcal), P 0.5, C 4.9 (sugars 1.1), F 1.3, sat 0.2, fibre 0.6, salt 0.65 g per 100 ml (serving 250 ml), divided by 1.03 g/ml (RULES water-like) for per 100 g. Ingredients: water, vegetables 43–45 % (carrot, potato, onion, courgette, spinach, pumpkin, green beans, leek), olive oil, starch, salt. Katori servings × 1.03.'),
+      servings: [sv('bowl', '1 bowl (250 ml)', 257.5, true), ...kat2(1.03)],
+      pack: { grams: 515, label: '500 ml brik' },
+      tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+    };
+  })(),
+  (() => {
+    const per = perMlToPerG({ kcal: 42, protein: 0.8, carbs: 6.1, fat: 1.4, fiber: 0.7, sugars: 1.6, satFat: 0.4 }, 1.03);
+    return {
+      id: 'es-crema-calabacin-brik', name: 'Crema de calabacín (courgette soup, Hacendado brik)', shortName: 'Crema de calabacín',
+      aliases: ['crema de calabacín', 'crema de calabacin', 'courgette soup', 'zucchini soup', 'crema de carbassó', 'sopa de calabacín'],
+      group: 'soup', state: 'carton, as sold (heat 3 min)',
+      per100g: { ...per, sodium: Math.round(0.61 * 400 / 1.03) },
+      source: merc3('Crema de calabacín Hacendado', 14930, '8402001040122', '500 ml brik', 'OFF 8402001040122: 175 kJ (42 kcal), P 0.8, C 6.1 (sugars 1.6), F 1.4, sat 0.4, fibre 0.7, salt 0.61 g per 100 ml (serving 250 ml), divided by 1.03 g/ml for per 100 g. Ingredients: water, vegetables 42 % (courgette 26.7 %, potato, onion), Greek-style yogurt 3.6 %, modified corn starch, caramel powder (sugar, sweet whey, skimmed milk, butter), olive oil, salt, garlic. Katori servings × 1.03.'),
+      servings: [sv('bowl', '1 bowl (250 ml)', 257.5, true), ...kat2(1.03)],
+      pack: { grams: 515, label: '500 ml brik' },
+      tags: ['spanish', 'vegetarian', 'packaged', 'meal-prep'], slots: ['lunch', 'dinner'],
+      halal: check('Contains sweet whey (suero de leche dulce) in the caramel powder, a cheese-making by-product, and the label does not say whether the rennet was animal. Swap: Crema de verduras Hacendado (no dairy).'),
+    };
+  })(),
+];
+basics.push(...s3Basics);
+intl.push(...s3Intl);
+esmed.push(...s3Esmed);
+
+// Existing records touched by this wave: aliases for grilled chicken, a swap note on the E-471 wrap, and a reason on falafel.
+{
+  const find = (id) => [...basics, ...intl, ...esmed].find((r) => r.id === id);
+  const chicken = find('intl-chicken-breast-roasted');
+  for (const a of ['pechuga a la plancha', 'pechuga de pollo a la plancha', 'pollo a la plancha', 'grilled chicken breast', 'cooked chicken breast', 'pechuga cocida'])
+    if (!chicken.aliases.includes(a)) chicken.aliases.push(a);
+  const wrap = find('intl-tortilla-wrap-wholewheat');
+  wrap.halal = check(`${wrap.halal.reason} Swap: Corn tortilla (intl-tortilla-corn, no emulsifier) or Pitta bread (no E-471), both halal on the Mercadona label.`);
+  const falafel = find('med-falafel');
+  falafel.halal = { status: 'halal', reason: 'Chickpeas, herbs and spices deep-fried in vegetable oil; no animal ingredient. If bought ready-made, ask whether the fryer is shared with meat.' };
+}
 
 // ================================================================= Meeting 004 decision A item 4: pack sizes
 // Optional `pack: { grams, label }` for the weekly shopping list (no nutrition effect; docs/NUTRITION.md field list).

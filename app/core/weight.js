@@ -97,26 +97,72 @@ function slopePerDay(points) {
 const roundTo = (value, step) => Math.round(value / step) * step;
 
 /**
- * Smoothed weight, weekly rate and (maybe) a suggested target change.
+ * Rails for a suggested target (NUTRITION.md §14.3.4, §2.2): the lowest and highest daily kcal a
+ * suggestion may land on. Lowest: TDEE minus the smallest deficit cap (25% of TDEE, 1,000 kcal, 1% of
+ * body weight a week), never under the floor for the sex unless TDEE itself is lower. Highest: TDEE
+ * plus the surplus cap (20%). Missing inputs give null (no rail on that side, the floor still holds).
+ * @param {object} rules RULES (reads rails, energy.kcalPerKgBodyWeight)
+ * @param {{ tdee?: number|null, sex?: string|null, bodyKg?: number|null }} who
+ * @returns {{ floorKcal: number|null, ceilingKcal: number|null }}
+ */
+export function suggestRails(rules, { tdee = null, sex = null, bodyKg = null } = {}) {
+  const r = rules?.rails ?? {};
+  const floor = isNumber(r.minKcalWhenLosing?.[sex]) ? r.minKcalWhenLosing[sex] : null;
+  if (!isNumber(tdee)) return { floorKcal: floor, ceilingKcal: null };
+  const perKg = rules?.energy?.kcalPerKgBodyWeight ?? 7700;
+  const caps = [
+    isNumber(r.maxDeficitPctOfTdee) ? (r.maxDeficitPctOfTdee / 100) * tdee : null,
+    isNumber(r.maxDeficitKcal) ? r.maxDeficitKcal : null,
+    isNumber(r.maxLossPctBodyWeightPerWeek) && isNumber(bodyKg)
+      ? ((r.maxLossPctBodyWeightPerWeek / 100) * bodyKg * perKg) / 7
+      : null,
+  ].filter(isNumber);
+  let lowest = caps.length ? tdee - Math.min(...caps) : null;
+  if (floor !== null) lowest = tdee < floor ? tdee : Math.max(lowest ?? floor, floor);
+  const ceiling = isNumber(r.maxSurplusPctOfTdee) ? tdee * (1 + r.maxSurplusPctOfTdee / 100) : null;
+  return {
+    floorKcal: lowest === null ? null : Math.ceil(lowest),
+    ceilingKcal: ceiling === null ? null : Math.floor(ceiling),
+  };
+}
+
+/** Why no suggestion is allowed (§14.4), or null. */
+function neverReason(s, context) {
+  if (context.allowSuggest === false) return 'not-allowed';
+  if (!isNumber(context.kcal)) return 'no-targets';
+  if (s.neverInRamadanMode !== false && context.ramadanMode) return 'ramadan';
+  const flags = new Set(context.flags ?? []);
+  if ((s.neverForFlags ?? []).some((f) => flags.has(f))) return 'flag';
+  return null;
+}
+
+/**
+ * Smoothed weight, weekly rate and (maybe) a suggested target change (NUTRITION.md §14).
  *
  * Smoothing: an exponential moving average over days, so a gap of d days weighs the new reading
- * by 1 − (1 − alphaPerDay)^d. Rate: the least-squares slope of the readings in the last
- * `rate.windowDays`, once there are `rate.minEntries` of them spanning `rate.minSpanDays`.
- * Suggestion (never applied): when the rate has differed from the goal's pace by more than
- * `suggest.toleranceKgPerWeek` over at least `suggest.minSpanDays`, a kcal-per-day change of
- * −difference × kcalPerKgBodyWeight / 7, rounded to `suggest.stepKcal`, at most
- * `suggest.maxChangeKcal`, never below `context.floorKcal`. Nothing is suggested when
- * `context.allowSuggest` is false (e.g. a health flag that turns off weight-loss goals).
+ * by 1 − (1 − alphaPerDay)^d, seeded with the first entry. `showTrend` once there are
+ * `display.minEntries` readings spanning `display.minSpanDays`. Rate: the least-squares slope of the
+ * readings in the last `rate.windowDays`, once there are `rate.minEntries` of them spanning
+ * `rate.minSpanDays`. Suggestion (never applied): the window holds `suggest.minEntries` readings over
+ * `suggest.minSpanDays`; the rate differs from the goal's pace by more than
+ * `suggest.toleranceKgPerWeek` (or loses faster than `fastLossPctBodyWeightPerWeek`% of the trend
+ * weight a week: then always "eat more"); no target change within `cooldownDaysAfterChange` and no
+ * dismissal within `snoozeDaysAfterDismiss`. Size −difference × kcalPerKgBodyWeight / 7, rounded to
+ * `stepKcal`, at most `maxChangeKcal`, kept inside [floorKcal, ceilingKcal] (see suggestRails); no
+ * room in that direction = no suggestion. Never in Ramadan mode, with `neverForFlags`, or without a
+ * personal kcal target.
  *
  * @param {{ date: string, kg: number }[]} entries any order
  * @param {object} rules RULES (reads weightTrend, energy.kcalPerKgBodyWeight)
  * @param {{ goal?: 'lose'|'maintain'|'gain', rateKgPerWeek?: number, kcal?: number|null,
- *   floorKcal?: number|null, allowSuggest?: boolean }} [context]
- * @returns {{ ready: boolean, points: { date: string, kg: number, trendKg: number|null }[],
+ *   floorKcal?: number|null, ceilingKcal?: number|null, allowSuggest?: boolean,
+ *   flags?: string[], ramadanMode?: boolean, today?: string,
+ *   changedOn?: string|null, dismissedOn?: string|null }} [context]
+ * @returns {{ ready: boolean, showTrend: boolean, points: { date: string, kg: number, trendKg: number|null }[],
  *   latest: { date: string, kg: number, trendKg: number|null }|null,
- *   weeklyRateKg: number|null, spanDays: number,
+ *   weeklyRateKg: number|null, rateWeeks: number, spanDays: number, needEntries: number,
  *   suggestion: { kcalPerDay: number, newKcal: number, expectedKgPerWeek: number,
- *     differenceKgPerWeek: number }|null }}
+ *     differenceKgPerWeek: number, fastLoss: boolean }|null }}
  *   ready = the Lab's rule is present (else trendKg and the rate are null).
  */
 export function weightTrend(entries, rules, context = {}) {
@@ -125,7 +171,17 @@ export function weightTrend(entries, rules, context = {}) {
     .sort((a, b) => a.date.localeCompare(b.date));
   const rule = trendRule(rules);
   const spanDays = sorted.length > 1 ? diffDays(sorted[0].date, sorted.at(-1).date) : 0;
-  const empty = { ready: Boolean(rule), weeklyRateKg: null, spanDays, suggestion: null };
+  const display = rule?.display ?? {};
+  const needEntries = display.minEntries ?? 5;
+  const empty = {
+    ready: Boolean(rule),
+    showTrend: false,
+    weeklyRateKg: null,
+    rateWeeks: 0,
+    spanDays,
+    needEntries,
+    suggestion: null,
+  };
   if (!rule) {
     const points = sorted.map((e) => ({ date: e.date, kg: e.kg, trendKg: null }));
     return { ...empty, points, latest: points.at(-1) ?? null };
@@ -142,6 +198,7 @@ export function weightTrend(entries, rules, context = {}) {
   });
   const latest = points.at(-1) ?? null;
   if (!latest) return { ...empty, points, latest };
+  const showTrend = sorted.length >= needEntries && spanDays >= (display.minSpanDays ?? 7);
 
   const rate = rule.rate ?? {};
   const windowDays = isNumber(rate.windowDays) ? rate.windowDays : 28;
@@ -153,39 +210,56 @@ export function weightTrend(entries, rules, context = {}) {
     weeklyRateKg = Number((slopePerDay(pts) * 7).toFixed(2));
   }
 
+  const window = { count: inWindow.length, span: windowSpan, today: context.today ?? latest.date };
   return {
-    ready: true,
+    ...empty,
+    showTrend,
     points,
     latest,
     weeklyRateKg,
-    spanDays,
-    suggestion: suggest(weeklyRateKg, windowSpan, rule.suggest, rules, context),
+    rateWeeks: weeklyRateKg === null ? 0 : Math.max(1, Math.round(windowSpan / 7)),
+    suggestion: suggest(weeklyRateKg, window, latest.trendKg, rule.suggest, rules, context),
   };
 }
 
-function suggest(weeklyRateKg, windowSpan, s, rules, context) {
-  const { goal = 'maintain', rateKgPerWeek = 0, kcal = null, floorKcal = null } = context;
-  if (context.allowSuggest === false || weeklyRateKg === null || !isNumber(kcal)) return null;
-  if (!isObject(s) || windowSpan < (s.minSpanDays ?? 21)) return null;
+function suggest(weeklyRateKg, window, bodyKg, s, rules, context) {
+  if (weeklyRateKg === null || !isObject(s) || neverReason(s, context)) return null;
+  if (window.span < (s.minSpanDays ?? 21) || window.count < (s.minEntries ?? 0)) return null;
+  const since = (date) => (isISODate(date) ? diffDays(date, window.today) : Infinity);
+  if (since(context.changedOn) < (s.cooldownDaysAfterChange ?? 0)) return null;
+  if (since(context.dismissedOn) < (s.snoozeDaysAfterDismiss ?? 0)) return null;
+
+  const { goal = 'maintain', rateKgPerWeek = 0, kcal } = context;
   const pace = Math.abs(isNumber(rateKgPerWeek) ? rateKgPerWeek : 0);
-  const expected = goal === 'lose' ? -pace : goal === 'gain' ? pace : 0;
+  let expected = goal === 'lose' ? -pace : goal === 'gain' ? pace : 0;
+  const fastPct = s.fastLossPctBodyWeightPerWeek;
+  const fastKg = isNumber(fastPct) && isNumber(bodyKg) ? (fastPct / 100) * bodyKg : null;
+  const fastLoss = fastKg !== null && weeklyRateKg < -fastKg;
+  if (fastLoss) expected = Math.max(expected, -fastKg);
   const difference = weeklyRateKg - expected;
-  if (Math.abs(difference) <= (s.toleranceKgPerWeek ?? 0.25)) return null;
+  if (!fastLoss && Math.abs(difference) <= (s.toleranceKgPerWeek ?? 0.25)) return null;
+
   const perKg = rules?.energy?.kcalPerKgBodyWeight ?? 7700;
   const step = s.stepKcal ?? 50;
   const cap = s.maxChangeKcal ?? 200;
   let change = roundTo((-difference * perKg) / 7, step);
+  if (fastLoss) change = Math.max(step, change);
   change = Math.max(-cap, Math.min(cap, change));
+  const { floorKcal = null, ceilingKcal = null } = context;
   if (change < 0 && isNumber(floorKcal) && kcal + change < floorKcal) {
-    change = roundTo(floorKcal - kcal, step);
-    if (kcal + change < floorKcal) change += step;
+    change = Math.ceil((floorKcal - kcal) / step) * step;
     if (change >= 0) return null; // already at the floor: the rails leave no room
+  }
+  if (change > 0 && isNumber(ceilingKcal) && kcal + change > ceilingKcal) {
+    change = Math.floor((ceilingKcal - kcal) / step) * step;
+    if (change <= 0) return null; // already at the surplus cap
   }
   if (change === 0) return null;
   return {
     kcalPerDay: change,
     newKcal: kcal + change,
-    expectedKgPerWeek: expected,
+    expectedKgPerWeek: Number(expected.toFixed(2)),
     differenceKgPerWeek: Number(difference.toFixed(2)),
+    fastLoss,
   };
 }

@@ -24,7 +24,7 @@ const pct = (v, t) => (t ? `${Math.max(0, Math.min(100, (v / t) * 100)).toFixed(
  * @param {HTMLElement} container @param {{ store: object, router: object, rules: object }} ctx
  */
 export function mount(container, ctx) {
-  const { store, router } = ctx;
+  const { store, router, rules } = ctx;
   const root = h('div', { class: 'view view-week' });
   mountChildren(container, root);
   let date = store.today();
@@ -282,13 +282,13 @@ export function mount(container, ctx) {
       h('h3', { class: 'card-title', id: 'weight-title' }, 'Weight'),
       points.length
         ? [
-            renderWeightChart({ points, unit }),
-            // The rate and any suggestion are about now: shown on the current week only.
+            renderWeightChart({ points, unit, showTrend: trend.showTrend }),
+            // The rate is about now: shown on the current week only. A suggestion (with its
+            // "Use … kcal" button) lives in Profile, next to the targets.
             renderTrendLines(
-              current
-                ? trend
-                : { ...trend, latest: points.at(-1), weeklyRateKg: null, suggestion: null },
+              current ? trend : { ...trend, latest: points.at(-1), weeklyRateKg: null },
               unit,
+              rules,
             ),
             thisWeek.length
               ? h(

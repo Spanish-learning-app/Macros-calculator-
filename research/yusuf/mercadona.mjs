@@ -36,6 +36,9 @@ const CATEGORIES = {
 const SNAP_EXTRA = {
   59: 'Pan de horno', 64: 'Picos, rosquilletas y picatostes', 79: 'Tortitas', 130: 'Gazpacho y cremas',
   135: 'Aceitunas y encurtidos', 147: 'Congelados arroz y pasta', 54: 'Queso curado, semicurado y tierno',
+  // Sprint 3 variety preps (2026-10-15): sandwiches, pastas, bowls, tray bakes, fish.
+  56: 'Queso lonchas, rallado y en porciones', 116: 'Mayonesa, ketchup y mostaza', 140: 'Platos preparados calientes',
+  31: 'Pescado fresco', 149: 'Congelados pescado', 48: 'Aves y jamón cocido (non-halal; reference only)',
 };
 const SNAP_ROOT = path.join(CACHE, '..', 'mercadona-snap');
 

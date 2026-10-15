@@ -150,3 +150,13 @@
 - Pack labels: week lists and sheets use Javier's `pack` label when his record is the same pack we price.
 - Checks: check-foods 282/282 pass, 0 warnings. npm test: Madrid 558/558; Karachi and Los Angeles fail only the search
   performance test (16 ms per query) plus an untracked tests/unit/dev/zz-perf-tmp.test.js (Lena's area, not touched).
+
+## 2026-10-15 — Sprint 3 add-on: real variety (brief s3-variety.md, the Boss's note)
+
+- Start. Read the brief, §13.1, RULES.mealPrep.targetsBySlot and fieldRules.shortName (G24: ≤ 22 chars, no
+  brackets, shorter than name). Library today: 40 preps; lunches 6/18 desi, dinners 7/10 desi. Plan: 20–25 new
+  sheets R-MP-41… (sandwiches, wraps, pastas, bowls, stir-fry, tray bakes, soups, breakfasts), `cuisine` and
+  `shortName` on every sheet (build.mjs carries them to records and library recipes), then redo the two weeks.
+- New Mercadona snapshot 2026-10-15 (all categories of the 10-14 snap + 56 queso rallado/lonchas, 116 mayonesa,
+  140 platos calientes, 31 pescado fresco, 149 pescado congelado, 48 aves cocidas for reference). The new preps
+  and both weeks are priced on 2026-10-15; the Sprint 1/2 sheets keep their own dates.

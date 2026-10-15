@@ -720,3 +720,21 @@ boxId, noneLeft }`; with no box left it still adds a plain entry, A17), `fillDay
 `prepNotices(date)`, `shopping(batchId, boxes)`, `chai()`, `saveChai(opts)`, `savedMeals()`, `saveMeal`,
 `addSavedMeal`, `deleteSavedMeal`. The food index also applies `settings.seafood`: a food whose
 seafood tag is outside the choice shows `check` with `RULES.vocab.halalRules.seafoodNote`.
+
+## 14. Sprint 3: weight log and trend (owner: Lena)
+
+- **Data:** optional `UserData.weightLog = { [YYYY-MM-DD]: { kg } }` (absent = none; no schema bump).
+  One entry per day by construction. `migrate` drops bad entries and never marks the document corrupt.
+  Import merge is a union by date (incoming wins); replace takes the incoming log.
+- **Settings it adds (optional):** `targetsChangedOn` (stamped by `setProfile`, `setTargetPrefs` and
+  `setTargetOverride` when the goal, pace or kcal target changes; not by onboarding) and
+  `weightSuggestDismissedOn` ("Not now").
+- **Core `app/core/weight.js`:** `weightLimits`, `weightLogProblems`, `setWeight`, `removeWeight`,
+  `weightEntries`, `mergeWeightLogs`, `trendRule`, `suggestRails(rules, { tdee, sex, bodyKg })`,
+  `weightTrend(entries, rules, context)`. All numbers come from `RULES.weightTrend` (NUTRITION.md §14);
+  without it there is a log and no trend.
+- **Store:** `weights()`, `weightOn(date)`, `weightTrend()`, `setWeight(date, kg)`, `removeWeight(date)`
+  (Undo), `acceptWeightSuggestion()` (the person's tap only: kcal and carbs overrides; protein and fat
+  stay; Undo) and `dismissWeightSuggestion()`.
+- **UI:** Profile's weight card (entry, list, chart, trend, rate, suggestion with "Use N kcal" / "Not
+  now"); Week's weight section (chart, trend, rate; no suggestion).

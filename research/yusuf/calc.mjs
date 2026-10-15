@@ -78,6 +78,10 @@ export const YIELDS = {
   roti: { f: 0.799, src: "Zainab Rauf's roti sheet (research/zainab/recipes/pk-roti.md): dough of 100 g atta + 70 g water + 0.5 g salt cooked on the tawa to 34.4 g water per 100 g (Rasool et al. 2006, Pakistani chapattis 32.5–36.3%; FNDDS 2707713 roti 35.4%) weighs 136.3 g: yield 0.799 of the dough" },
   parathaPlain: { f: 0.731, src: "Zainab Rauf's paratha sheet (research/zainab/recipes/pk-paratha-home.md): dough + fat cooked to 30.6 g water per 100 g (CoFID 2021 11-1104 homemade paratha) gives yield 0.731 of the raw total" },
   alooParatha: { f: 0.651, src: "Zainab Rauf's aloo paratha sheet (research/zainab/recipes/pk-aloo-paratha.md): dough, potato filling and fat cooked to 46.7 g water per 100 g (CoFID 2021 11-912 stuffed paratha, analysed) gives yield 0.651 of the raw total" },
+  // Sprint 3 variety preps (2026-10-15)
+  salmonBaked: proteinRatio(175167, 175168),
+  pastaWhite: proteinRatio(169736, 169737),
+  mushroomSaute: B(0.7, 'Table 17: Mushrooms, stew, e = 0.70 (n = 3); used for pan-frying'),
   waterSimmer40: { f: 0.6, src: "Lab convention C.simmerAjar30 (research/zainab/conventions.mjs, assumption): 30% of the free water evaporates per 30 min with the lid ajar; 40 min → 40% gone, 60% kept" },
 };
 const KEEP = new Set(['oil-olive', 'oil-sunflower', 'salt', 'sugar']);

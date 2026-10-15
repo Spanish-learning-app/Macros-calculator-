@@ -53,7 +53,7 @@ export function createWeightCard({ store, rules }) {
     h(
       'p',
       { class: 'field-help' },
-      'One weight a day, best at the same time. Your targets only change when you change them.',
+      `${rules?.weightTrend?.text?.tip ?? 'Weigh at the same time each day.'} Your targets only change when you change them.`,
     ),
     dayChips,
     h(
@@ -223,8 +223,15 @@ export function createWeightCard({ store, rules }) {
     const trend = store.weightTrend();
     mountChildren(
       trendBox,
-      renderWeightChart({ points: trend.points.slice(-56), unit: unit() }),
-      renderTrendLines(trend, unit()),
+      renderWeightChart({
+        points: trend.points.slice(-56),
+        unit: unit(),
+        showTrend: trend.showTrend,
+      }),
+      renderTrendLines(trend, unit(), rules, {
+        onAccept: () => store.acceptWeightSuggestion(),
+        onDismiss: () => store.dismissWeightSuggestion(),
+      }),
     );
   }
 

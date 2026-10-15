@@ -20,7 +20,13 @@ import {
   shoppingForShop,
   spareBoxes,
 } from '../core/mealprep.js';
-import { setWeight, removeWeight, weightEntries, weightTrend } from '../core/weight.js';
+import {
+  setWeight,
+  removeWeight,
+  weightEntries,
+  weightTrend,
+  suggestRails,
+} from '../core/weight.js';
 import {
   SLOT_IDS,
   DEFAULT_SLOT_LABELS,
@@ -128,6 +134,24 @@ export function createStore({
     undoSnapshot = undoLabel ? state.data : null;
     setState({ data: nextData, undo: undoLabel ? { label: undoLabel } : null });
     scheduleSave();
+  }
+
+  /** Goal, pace and kcal target of a document: what a target change means (§14.3 cooldown). */
+  function targetKey(d) {
+    const result = targetResultOf(d.profile, d.targetPrefs);
+    const kcal = targetsOf(result, d.profile, d.targetOverrides)?.kcal ?? null;
+    return [d.profile?.goal, d.profile?.rateKgPerWeek, kcal].join('|');
+  }
+
+  /** commit() that stamps settings.targetsChangedOn when the goal or the kcal target changed. */
+  function commitTargets(nextData, undoLabel = null) {
+    if (targetKey(nextData) !== targetKey(state.data)) {
+      nextData = {
+        ...nextData,
+        settings: { ...(nextData.settings ?? {}), targetsChangedOn: today() },
+      };
+    }
+    commit(nextData, undoLabel);
   }
 
   // ------------------------------------------------------------------ persistence
@@ -649,17 +673,29 @@ export function createStore({
     // weight log (Sprint 3, §14): { date, kg }[] oldest first; the trend reads RULES.weightTrend
     weights: () => weightEntries(data().weightLog),
     weightOn: (date) => data().weightLog?.[date]?.kg ?? null,
-    /** core weightTrend with the person's goal and target; a suggestion is never applied. */
+    /**
+     * core weightTrend with the person's goal, target and rails (NUTRITION.md §14). A suggestion
+     * is never applied: only acceptWeightSuggestion (the person's tap) changes the target.
+     */
     weightTrend() {
       const result = targetResult();
-      const kcal = targetKind() === 'personal' ? (targets()?.kcal ?? null) : null;
-      const sex = data().profile?.sex;
-      return weightTrend(weightEntries(data().weightLog), rules, {
+      const personal = targetKind() === 'personal';
+      const kcal = personal ? (targets()?.kcal ?? null) : null;
+      const profile = data().profile ?? {};
+      const entries = weightEntries(data().weightLog);
+      const bodyKg = entries.at(-1)?.kg ?? profile.weightKg ?? null;
+      const s = settings();
+      return weightTrend(entries, rules, {
         goal: result?.effectiveGoal ?? 'maintain',
         rateKgPerWeek: Math.abs(result?.effectiveRateKgPerWeek ?? 0),
         kcal,
-        floorKcal: rules?.rails?.minKcalWhenLosing?.[sex] ?? null,
-        allowSuggest: Boolean(result?.ok) && !hideCaloriesOffered(),
+        ...suggestRails(rules, { tdee: result?.tdee ?? null, sex: profile.sex, bodyKg }),
+        allowSuggest: personal && Boolean(result?.ok) && !hideCaloriesOffered(),
+        flags: [...(profile.healthFlags ?? []), ...(result?.warnings ?? [])],
+        ramadanMode: s.slotPreset === 'ramadan' || s.ramadanMode === true,
+        today: today(),
+        changedOn: s.targetsChangedOn ?? null,
+        dismissedOn: s.weightSuggestDismissedOn ?? null,
       });
     },
 
@@ -684,6 +720,7 @@ export function createStore({
 
     // actions: profile, targets, settings
     completeOnboarding(profile, prefs = null) {
+      // Not a target change for the cooldown: the trend needs 3 weeks of weigh-ins anyway.
       commit({
         ...data(),
         profile,
@@ -700,20 +737,20 @@ export function createStore({
       });
     },
     setProfile(profile) {
-      commit({
+      commitTargets({
         ...data(),
         profile,
         settings: { ...(data().settings ?? {}), onboarding: 'done' },
       });
     },
     setTargetPrefs(prefs) {
-      commit({ ...data(), targetPrefs: { ...(data().targetPrefs ?? {}), ...prefs } });
+      commitTargets({ ...data(), targetPrefs: { ...(data().targetPrefs ?? {}), ...prefs } });
     },
     setTargetOverride(key, value) {
       const overrides = { ...(data().targetOverrides ?? {}) };
       if (value === null || value === undefined) delete overrides[key];
       else overrides[key] = value;
-      commit({ ...data(), targetOverrides: overrides });
+      commitTargets({ ...data(), targetOverrides: overrides });
     },
     updateSettings(patch) {
       commit({ ...data(), settings: { ...(data().settings ?? {}), ...patch } });
@@ -1044,6 +1081,36 @@ export function createStore({
         { ...data(), weightLog: removeWeight(data().weightLog, date) },
         `Deleted the weight for ${fmtDateShort(date)}`,
       );
+    },
+
+    /**
+     * The person tapped "Use {newKcal} kcal" (§14.3.6): a kcal override. Protein and fat stay as
+     * they are; carbs take the difference (4 kcal a gram), so the macros still add up. Undo-able.
+     * @returns {boolean} false when there is no suggestion
+     */
+    acceptWeightSuggestion() {
+      const suggestion = api.weightTrend().suggestion;
+      const current = targets();
+      if (!suggestion || !current) return false;
+      const carbFactor = rules?.energy?.factors?.carbs ?? 4;
+      const carbs = Math.max(0, Math.round(current.carbs + suggestion.kcalPerDay / carbFactor));
+      const overrides = { ...(data().targetOverrides ?? {}), kcal: suggestion.newKcal, carbs };
+      commit(
+        {
+          ...data(),
+          targetOverrides: overrides,
+          settings: { ...(data().settings ?? {}), targetsChangedOn: today() },
+        },
+        `Daily target set to ${suggestion.newKcal} kcal`,
+      );
+      return true;
+    },
+    /** "Not now": no suggestion for RULES.weightTrend.suggest.snoozeDaysAfterDismiss days. */
+    dismissWeightSuggestion() {
+      commit({
+        ...data(),
+        settings: { ...(data().settings ?? {}), weightSuggestDismissedOn: today() },
+      });
     },
 
     // actions: undo, import, reset

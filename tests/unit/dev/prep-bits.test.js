@@ -6,6 +6,10 @@ import {
   effortOf,
   effortText,
   matchesEffort,
+  cuisineChips,
+  cuisineLabel,
+  cuisinesOf,
+  matchesCuisine,
   dayText,
   useByText,
   plural,
@@ -81,4 +85,39 @@ test('plural and boxWord: box, jar or portion from the default serving', () => {
   const jar = { servings: [{ id: 'jar', default: true }] };
   assert.equal(boxWord(jar, null), 'jar');
   assert.equal(boxWord({ servings: [{ id: 'g', default: true }] }, null), 'box');
+});
+
+// Sprint 3 variety brief ("Lena: UI hook"): the optional `cuisine` on library recipes. Fixture until
+// Yusuf's tags land in recipes-mealprep.js.
+const CUISINE_FIXTURE = Object.freeze([
+  { recipe: { foodId: 'a', cuisine: 'spanish' } },
+  { recipe: { foodId: 'b', cuisine: 'desi' } },
+  { recipe: { foodId: 'c', cuisine: ['italian', 'mediterranean'] } },
+  { recipe: { foodId: 'd', cuisine: 'spanish' } },
+  { recipe: { foodId: 'e', cuisine: 'korean' } },
+  { recipe: { foodId: 'f' } },
+  { recipe: null },
+]);
+
+test('cuisine chips: tagged cuisines only, brief order first, counts; untagged under All', () => {
+  assert.deepEqual(cuisineChips(CUISINE_FIXTURE), [
+    { id: 'desi', label: 'Desi', count: 1 },
+    { id: 'spanish', label: 'Spanish', count: 2 },
+    { id: 'mediterranean', label: 'Mediterranean', count: 1 },
+    { id: 'italian', label: 'Italian', count: 1 },
+    { id: 'korean', label: 'Korean', count: 1 },
+  ]);
+  assert.deepEqual(cuisineChips([{ recipe: null }, { recipe: { foodId: 'x' } }]), []);
+  assert.equal(cuisineLabel('middle-eastern'), 'Middle Eastern');
+  assert.deepEqual(cuisinesOf({ cuisine: ' asian ' }), ['asian']);
+  assert.deepEqual(cuisinesOf({ cuisine: 7 }), []);
+});
+
+test('cuisine filter: All keeps everything; a cuisine keeps its tagged recipes, lists included', () => {
+  const ids = (f) =>
+    CUISINE_FIXTURE.filter((l) => matchesCuisine(l.recipe, f)).map((l) => l.recipe?.foodId ?? '-');
+  assert.deepEqual(ids('all'), ['a', 'b', 'c', 'd', 'e', 'f', '-']);
+  assert.deepEqual(ids('spanish'), ['a', 'd']);
+  assert.deepEqual(ids('mediterranean'), ['c']);
+  assert.deepEqual(ids('mexican'), []);
 });

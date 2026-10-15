@@ -134,6 +134,58 @@ export function matchesEffort(recipe, filter) {
   return true;
 }
 
+/**
+ * Library cuisines (Sprint 3 variety brief, "Lena: UI hook"): the optional `cuisine` on a
+ * LibraryRecipe, in chip order. An id outside this list still works and shows after these.
+ */
+export const CUISINES = Object.freeze([
+  ['desi', 'Desi'],
+  ['spanish', 'Spanish'],
+  ['mediterranean', 'Mediterranean'],
+  ['italian', 'Italian'],
+  ['mexican', 'Mexican'],
+  ['asian', 'Asian'],
+  ['middle-eastern', 'Middle Eastern'],
+  ['international', 'International'],
+]);
+
+/** The recipe's cuisine ids: `cuisine` as a string or a list; [] when untagged. */
+export function cuisinesOf(recipe) {
+  const c = recipe?.cuisine;
+  const list = Array.isArray(c) ? c : [c];
+  return list.filter((x) => typeof x === 'string' && x.trim()).map((x) => x.trim());
+}
+
+/** "Middle Eastern" for 'middle-eastern'; an unknown id reads as its words. */
+export function cuisineLabel(id) {
+  const known = CUISINES.find(([k]) => k === id);
+  if (known) return known[1];
+  const words = String(id).replace(/-/g, ' ');
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
+/**
+ * The cuisine chips for a library list: [{ id, label, count }] for every cuisine with at least one
+ * recipe, known ones first in CUISINES order. Untagged recipes count only under "All".
+ * @param {{ recipe: object|null }[]} items
+ */
+export function cuisineChips(items) {
+  const counts = new Map();
+  for (const { recipe } of items) {
+    for (const id of new Set(cuisinesOf(recipe))) counts.set(id, (counts.get(id) ?? 0) + 1);
+  }
+  const order = CUISINES.map(([id]) => id);
+  const rank = (id) => (order.includes(id) ? order.indexOf(id) : order.length);
+  return [...counts.keys()]
+    .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b))
+    .map((id) => ({ id, label: cuisineLabel(id), count: counts.get(id) }));
+}
+
+/** Prep library cuisine filter: 'all' or a cuisine id. */
+export function matchesCuisine(recipe, filter) {
+  return filter === 'all' || cuisinesOf(recipe).includes(filter);
+}
+
 /** "45 min", "10 min, no cooking", "No cooking", "Ready to eat", or null when unknown. */
 export function effortText(recipe) {
   const effort = effortOf(recipe);

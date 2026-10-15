@@ -1,7 +1,6 @@
 // Author's tests for Sprint 3 wave 1 (Meeting 005): weight log and trend, spare/old boxes, meal
 // names, kam-tel style rank, short names in search. Owner: Lena. Contract: ARCHITECTURE.md §14.
-// The trend is tested against TREND_FIXTURE until RULES.weightTrend lands (rules 1.7.0); the
-// "real RULES" test then checks that the app's rules are read the same way.
+// The trend reads the real RULES.weightTrend (rules 1.7.0, NUTRITION.md §14).
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { RULES, FOODS } from '../../fixtures/index.js';
@@ -14,6 +13,7 @@ import {
   weightLogProblems,
   weightTrend,
   trendRule,
+  suggestRails,
 } from '../../../app/core/weight.js';
 import { spareBoxes } from '../../../app/core/mealprep.js';
 import {
@@ -28,14 +28,7 @@ import { buildSearchIndex, searchFoods } from '../../../app/core/search.js';
 import { variantsOf, buildFoodIndex } from '../../../app/core/foods.js';
 import { addDays } from '../../../app/core/dates.js';
 
-const TREND_FIXTURE = {
-  ...RULES,
-  weightTrend: {
-    smoothing: { method: 'ema', alphaPerDay: 0.1 },
-    rate: { windowDays: 28, minEntries: 4, minSpanDays: 14 },
-    suggest: { minSpanDays: 21, toleranceKgPerWeek: 0.2, stepKcal: 50, maxChangeKcal: 200 },
-  },
-};
+const TREND_FIXTURE = RULES; // the Lab's rule landed in 1.7.0
 
 /** One reading every `every` days from `start`, changing by `perWeek` kg a week. */
 function series(start, days, kg0, perWeek, every = 1) {
@@ -139,6 +132,7 @@ test('suggestion: only off-pace for 3+ weeks, rounded, capped, inside the floor;
     newKcal: 1700,
     expectedKgPerWeek: -0.5,
     differenceKgPerWeek: 0.5,
+    fastLoss: false,
   });
   // The floor wins: 1600 − 200 would cross 1500.
   const near = weightTrend(series('2026-09-01', 28, 85, 0), TREND_FIXTURE, { ...ctx, kcal: 1600 });
@@ -169,9 +163,85 @@ test('suggestion: only off-pace for 3+ weeks, rounded, capped, inside the floor;
   );
 });
 
+test('real RULES.weightTrend: trend shows from 5 weigh-ins over 7 days; rate from 6 over 14', () => {
+  assert.ok(trendRule(RULES), 'rules 1.7.0 carries weightTrend');
+  const four = weightTrend(series('2026-09-01', 9, 80, 0, 3), RULES); // 4 readings, 9 days
+  assert.equal(four.showTrend, false);
+  assert.equal(four.needEntries, 5);
+  const five = weightTrend(series('2026-09-01', 8, 80, 0, 2), RULES); // 5 readings, 8 days
+  assert.equal(five.showTrend, true);
+  assert.equal(five.weeklyRateKg, null, 'no rate under 6 readings / 14 days');
+  const six = weightTrend(series('2026-09-01', 15, 80, -0.5, 3), RULES); // 6 readings, 15 days
+  assert.ok(Math.abs(six.weeklyRateKg - -0.5) <= 0.02);
+  assert.equal(six.rateWeeks, 2);
+});
+
+test('suggestion needs 10 readings in the window, a 28-day cooldown and a 14-day snooze', () => {
+  const ctx = { goal: 'lose', rateKgPerWeek: 0.5, kcal: 1900, floorKcal: 1500 };
+  const every4 = series('2026-09-01', 28, 85, 0, 4); // 8 readings: a rate, no suggestion
+  assert.notEqual(weightTrend(every4, RULES, ctx).weeklyRateKg, null);
+  assert.equal(weightTrend(every4, RULES, ctx).suggestion, null);
+  const every3 = series('2026-09-02', 27, 85, 0, 3); // 10 readings over 27 days
+  assert.equal(weightTrend(every3, RULES, ctx).suggestion.kcalPerDay, -200);
+  const flat = series('2026-09-01', 28, 85, 0);
+  const at = (extra) => weightTrend(flat, RULES, { ...ctx, today: '2026-09-29', ...extra });
+  assert.equal(at({ changedOn: '2026-09-10' }).suggestion, null, '19 days since a change');
+  assert.ok(at({ changedOn: '2026-09-01' }).suggestion, '28 days since a change');
+  assert.equal(at({ dismissedOn: '2026-09-20' }).suggestion, null, 'Not now, 9 days ago');
+  assert.ok(at({ dismissedOn: '2026-09-15' }).suggestion, 'Not now, 14 days ago');
+});
+
+test('never: Ramadan mode, pregnant/breastfeeding/eating_disorder, no target (§14.4)', () => {
+  const flat = series('2026-09-01', 28, 85, 0);
+  const ctx = { goal: 'lose', rateKgPerWeek: 0.5, kcal: 1900, floorKcal: 1500 };
+  assert.ok(weightTrend(flat, RULES, ctx).suggestion);
+  assert.equal(weightTrend(flat, RULES, { ...ctx, ramadanMode: true }).suggestion, null);
+  for (const flag of ['pregnant', 'breastfeeding', 'eating_disorder']) {
+    assert.equal(weightTrend(flat, RULES, { ...ctx, flags: [flag] }).suggestion, null, flag);
+  }
+  assert.ok(weightTrend(flat, RULES, { ...ctx, flags: ['diabetes_hypo_risk'] }).suggestion);
+  assert.equal(weightTrend(flat, RULES, { ...ctx, kcal: null }).suggestion, null);
+});
+
+test('fast loss (> 1% of body weight a week) always suggests eating more', () => {
+  // 70 kg losing 1 kg a week = 1.4% a week, on a 1 kg/week goal: within tolerance, still "eat more".
+  const fast = series('2026-09-01', 28, 70, -1);
+  const ctx = { goal: 'lose', rateKgPerWeek: 1, kcal: 1600, floorKcal: 1200 };
+  const s = weightTrend(fast, RULES, ctx).suggestion;
+  assert.ok(s.fastLoss);
+  assert.ok(s.kcalPerDay > 0 && s.kcalPerDay <= 200 && s.kcalPerDay % 50 === 0, `${s.kcalPerDay}`);
+  // 90 kg losing 0.5 a week (0.56%) on a 0.5 goal: on pace, nothing.
+  const fine = weightTrend(series('2026-09-01', 28, 90, -0.5), RULES, {
+    ...ctx,
+    rateKgPerWeek: 0.5,
+  });
+  assert.equal(fine.suggestion, null);
+});
+
+test('rails: deficit caps and floor below, the 20% surplus cap above; no room = nothing', () => {
+  // TDEE 2400, 80 kg: caps 600 (25%), 1000, 1100 (1% bw) → lowest 1800; ceiling 2880.
+  assert.deepEqual(suggestRails(RULES, { tdee: 2400, sex: 'male', bodyKg: 80 }), {
+    floorKcal: 1800,
+    ceilingKcal: 2880,
+  });
+  // TDEE under the floor: the lowest is TDEE (no deficit).
+  assert.equal(suggestRails(RULES, { tdee: 1150, sex: 'female', bodyKg: 50 }).floorKcal, 1150);
+  assert.deepEqual(suggestRails(RULES, { sex: 'female' }), { floorKcal: 1200, ceilingKcal: null });
+  const flat = series('2026-09-01', 28, 80, 0);
+  const lose = { goal: 'lose', rateKgPerWeek: 0.5, floorKcal: 1800, ceilingKcal: 2880 };
+  assert.equal(weightTrend(flat, RULES, { ...lose, kcal: 1900 }).suggestion.newKcal, 1800);
+  assert.equal(weightTrend(flat, RULES, { ...lose, kcal: 1800 }).suggestion, null);
+  const gain = { goal: 'gain', rateKgPerWeek: 0.5, floorKcal: 1800, ceilingKcal: 2880 };
+  assert.equal(weightTrend(flat, RULES, { ...gain, kcal: 2800 }).suggestion.newKcal, 2850);
+  assert.equal(weightTrend(flat, RULES, { ...gain, kcal: 2880 }).suggestion, null);
+});
+
 // ------------------------------------------------------------------ store
 
-function makeStore(now = '2026-10-15T09:00:00+02:00', timeZone = 'Europe/Madrid') {
+// The store reads the device clock, so "09:00" is built in the test's own time zone (TZ=...).
+const NINE_LOCAL = new Date(2026, 9, 15, 9, 0);
+
+function makeStore(now = NINE_LOCAL, timeZone = 'Europe/Madrid') {
   let n = 0;
   return createStore({
     persistence: null,
@@ -216,6 +286,45 @@ test('store: weight add, edit (same day), delete with Undo; nothing changes the 
   assert.ok(store.exportText().includes('"weightLog"'));
 });
 
+test('store: "Use N kcal" sets the target on a tap (protein and fat stay), Not now snoozes', () => {
+  const store = makeStore();
+  store.completeOnboarding({
+    sex: 'male',
+    ageYears: 35,
+    heightCm: 175,
+    weightKg: 85,
+    activity: 'light',
+    goal: 'lose',
+    rateKgPerWeek: 0.5,
+    lifts: false,
+    healthFlags: [],
+  });
+  for (const e of series('2026-09-15', 30, 85, 0)) store.setWeight(e.date, e.kg);
+  const before = store.targets();
+  const s = store.weightTrend().suggestion;
+  assert.ok(s && s.kcalPerDay < 0);
+  assert.equal(store.acceptWeightSuggestion(), true);
+  const after = store.targets();
+  assert.equal(after.kcal, s.newKcal);
+  assert.equal(after.protein, before.protein);
+  assert.equal(after.fat, before.fat);
+  assert.equal(after.carbs, Math.round(before.carbs + s.kcalPerDay / 4));
+  assert.equal(store.weightTrend().suggestion, null, 'cooldown after a change');
+  assert.match(store.getState().undo.label, /Daily target set to/);
+  store.undo();
+  assert.deepEqual(store.targets(), before);
+  store.dismissWeightSuggestion();
+  assert.equal(store.weightTrend().suggestion, null, 'Not now: snoozed');
+  assert.deepEqual(store.targets(), before);
+  // A goal change in Profile starts the cooldown too.
+  const other = makeStore();
+  other.completeOnboarding({ ...store.getState().data.profile });
+  for (const e of series('2026-09-15', 30, 85, 0)) other.setWeight(e.date, e.kg);
+  other.setProfile({ ...other.getState().data.profile, rateKgPerWeek: 0.25 });
+  assert.equal(other.settings().targetsChangedOn, '2026-10-15');
+  assert.equal(other.weightTrend().suggestion, null);
+});
+
 test('store: no suggestion when a health flag turns weight-loss goals off', () => {
   const store = makeStore();
   store.completeOnboarding({
@@ -255,7 +364,7 @@ test('store: meal names are chosen apart from meal times, and survive a times ch
   store.updateSettings({ slotLabels: { ...store.settings().slotLabels, lunch: 'Office box' } });
   assert.equal(store.mealNameSet(), null, 'a rename = neither set');
   assert.throws(() => store.setMealNames('ramadan'), RangeError);
-  const karachi = makeStore('2026-10-15T09:00:00+05:00', 'Asia/Karachi');
+  const karachi = makeStore(NINE_LOCAL, 'Asia/Karachi');
   assert.equal(karachi.mealNameSet(), 'default');
 });
 

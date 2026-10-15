@@ -1936,6 +1936,13 @@
   font-variant-numeric: tabular-nums;
 }
 
+.weight-rate {
+  margin: var(--space-1) 0 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
 .weight-suggestion {
   margin: var(--space-2) 0 0;
   padding: var(--space-2) var(--space-3);
@@ -1943,6 +1950,17 @@
   background: var(--accent-soft);
   color: var(--accent-soft-text);
   font-size: var(--text-sm);
+}
+
+.weight-suggestion p {
+  margin: 0;
+}
+
+.weight-suggestion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
 }
 
 /* ------------------------------------------------------------------ Sprint 3: spare box line */
