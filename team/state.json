@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-15T20:44:00Z",
+  "updatedAt": "2026-10-15T20:56:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -27,12 +27,12 @@
     "lena": {
       "location": "office",
       "status": "working",
-      "task": "Weight log, spare-box warning, meal-name choice"
+      "task": "Protein nudges + Ramadan mode"
     },
     "ayesha": {
       "location": "office",
-      "status": "idle",
-      "task": "Rules 1.7.0 done; review backlog next"
+      "status": "working",
+      "task": "Alcohol rule + reviews"
     },
     "bilal": {
       "location": "office",
@@ -61,8 +61,8 @@
     },
     "javier": {
       "location": "office",
-      "status": "working",
-      "task": "Base foods for variety"
+      "status": "idle",
+      "task": "Done: 24 base foods for variety"
     },
     "nasreen": {
       "location": "office",
@@ -82,19 +82,19 @@
   },
   "inFlight": [
     {
-      "member": "lena",
-      "task": "Finish Sprint 3 wave 1 (weight log/trend, spare-box warning, meal-name choice, short names); then cuisine chips",
-      "output": "app/** (not data), tests/unit/dev/**"
-    },
-    {
-      "member": "javier",
-      "task": "Base foods for meal-prep variety (team/briefs/s3-variety.md)",
-      "output": "research/javier/**, his app/data files"
-    },
-    {
       "member": "yusuf",
       "task": "20-25 international easy preps, cuisine tags, redo weekly plans, shortName (team/briefs/s3-variety.md)",
       "output": "foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
+    },
+    {
+      "member": "lena",
+      "task": "Wave 2: protein nudges + Ramadan mode (DECISIONS 2026-10-15 Ramadan storage)",
+      "output": "app/** (not data), tests/unit/dev/**"
+    },
+    {
+      "member": "ayesha",
+      "task": "Alcohol rule (teriyaki), review backlog incl. kam-tel, Javier base foods, seafood, Yusuf preps",
+      "output": "rules.js, NUTRITION.md, check-foods.mjs, research/review/**"
     }
   ],
   "checkIn": {
@@ -185,10 +185,6 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
-    {
-      "member": "ayesha",
-      "task": "Review backlog (rules 1.7.0 done) incl. Zainab kam-tel and the new variety preps"
-    },
     {
       "member": "lena",
       "task": "Wave 2: protein nudges + Ramadan mode UI (after Ayesha rules)"

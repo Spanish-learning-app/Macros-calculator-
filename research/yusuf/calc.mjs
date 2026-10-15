@@ -80,8 +80,9 @@ export const YIELDS = {
   alooParatha: { f: 0.651, src: "Zainab Rauf's aloo paratha sheet (research/zainab/recipes/pk-aloo-paratha.md): dough, potato filling and fat cooked to 46.7 g water per 100 g (CoFID 2021 11-912 stuffed paratha, analysed) gives yield 0.651 of the raw total" },
   // Sprint 3 variety preps (2026-10-15)
   salmonBaked: proteinRatio(175167, 175168),
-  pastaWhite: proteinRatio(169736, 169737),
-  mushroomSaute: B(0.7, 'Table 17: Mushrooms, stew, e = 0.70 (n = 3); used for pan-frying'),
+  riceNoodles: proteinRatio(169742, 168914),
+  mushroomStirFry: proteinRatio(169251, 169253),
+  broccoliBoiled: proteinRatio(169968, 169969),
   waterSimmer40: { f: 0.6, src: "Lab convention C.simmerAjar30 (research/zainab/conventions.mjs, assumption): 30% of the free water evaporates per 30 min with the lid ajar; 40 min → 40% gone, 60% kept" },
 };
 const KEEP = new Set(['oil-olive', 'oil-sunflower', 'salt', 'sugar']);

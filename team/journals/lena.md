@@ -161,3 +161,4 @@
   - Contract: suggestRails added to tests/contract/exports.test.js; ARCHITECTURE.md §14 written (it was referenced but missing).
   - npm run check green: 619 tests in Madrid, 618 + 1 skipped in Karachi and Los Angeles, lint and format clean. E2E not run this session.
   - New testids for Kenji: weight-rate, weight-too-few, weight-suggestion-accept, weight-suggestion-dismiss (weight-suggestion is now a group with the two buttons, Profile only); library-cuisine (buttons carry data-cuisine, "all" first).
+- 2026-10-15 20:56 UTC: SPRINT 3 WAVE 2 started (protein tips, Ramadan mode). Read §12, §13, DECISIONS Ramadan storage row. Note: §13.4 names settings proteinTips/proteinTipHiddenOn, DECISIONS says settings.nudges = { off, notTodayDate }; DECISIONS wins.
