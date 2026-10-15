@@ -134,8 +134,9 @@ export function priceOf(ingId, opts = {}) {
   if (buy.shop === 'bakery') return { shop: 'bakery', name: REG[ingId].label, eurPerG: null, note: 'bakery (forn) price not looked up' };
   if (buy.shop === 'mercadona') {
     const snap = opts.snap ?? buy.snap;
-    const p = (snap ? snapIndex(snap).get(String(buy.id)) : null) ?? MERC_IDX.get(String(buy.id));
-    if (!p) return { shop: 'mercadona', eurPerG: null, why: `Mercadona product ${buy.id} not in the cache` };
+    const pid = String(opts.id ?? buy.id); // opts.id: a smaller pack of the same food (the week list)
+    const p = (snap ? snapIndex(snap).get(pid) : null) ?? MERC_IDX.get(pid);
+    if (!p) return { shop: 'mercadona', eurPerG: null, why: `Mercadona product ${pid} not in the cache` };
     const pi = p.price_instructions;
     const price = Number(pi.unit_price);
     let grams;

@@ -305,7 +305,7 @@ const DB = {
   parsley: { foodId: 'intl-parsley-fresh' },
   'spinach-frozen': { foodId: 'intl-spinach-frozen' },
   'yogurt-whole': { foodId: 'intl-dahi', name: 'Plain whole-milk yogurt (yogur natural)' },
-  // yogurt-greek-light stays name-only until Javier's lean Greek yogurt record exists (Ayesha, 14 Oct).
+  'yogurt-greek-light': { foodId: 'es-yogur-griego-ligero' }, // Javier's record, same Hacendado 2 % product
   // Sprint 2 add-on (14 Oct): Javier Morales's market records replace the name-only lines where the food is the
   // same product in the same state. The record numbers do not change: calc.mjs keeps its own dated values.
   'protein-yogurt': { foodId: 'es-yogur-proteinas-natural' },
@@ -353,9 +353,7 @@ for (const [k, e] of Object.entries(REG)) if (e.src === 'db' && !DB[k]) DB[k] = 
 const FOOD_IDS = new Set(FOODS.map((f) => f.id));
 for (const [k, m] of Object.entries(DB)) if (!FOOD_IDS.has(m.foodId)) throw new Error(`DB map ${k} → unknown food ${m.foodId}`);
 const shortLabel = (ingId) => REG[ingId].label.replace(/\s*\((?![^)]*\b(?:contramuslo|pechuga|harina|masoor|lenteja|copos|espinaca|judía|guisante|leche|cebolla|pimiento|claras)\b)[^)]*\)/g, '').trim();
-const NAME = {
-  'yogurt-greek-light': 'Greek yogurt, light 2% fat (yogur griego ligero)',
-};
+const NAME = {};
 const MISSING = new Map(); // ingId → { label, recipes: Set }
 function libraryRecipe(s, r) {
   const items = new Map();
@@ -502,7 +500,7 @@ const WEEK = {
     { id: 'med-lentil-rice-burgos-bowl-box', when: 'Sunday', make: 2, note: 'Mon, Tue lunches' },
     { id: 'intl-salmon-brown-rice-bowl-box', when: 'Tuesday night', make: 2, note: "Wed, Thu lunches; boil 2 more eggs for Wednesday's salmorejo at the same time" },
     { id: 'pk-fruit-chaat-protein-dahi-portion', when: 'Wednesday night', make: 2, note: 'Thu, Fri breakfasts' },
-    { id: 'es-salmorejo-huevo-atun-portion', when: 'Wednesday', make: 1, note: 'dinner, 8 min' },
+    { id: 'es-salmorejo-huevo-atun-portion', when: 'Wednesday', make: 1, note: 'dinner (the opened brik keeps 2 days: the rest is a lunch starter on Thursday or goes in a glass)' },
     { id: 'med-cuscus-caballa-garbanzos-box', when: 'Thursday night', make: 1, note: 'Friday lunch' },
     { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 2, note: 'dinner; the second portion goes in the freezer' },
   ],
@@ -534,8 +532,9 @@ function weekMd(rows) {
   for (const b of WEEK.batches) {
     const { s, r } = prep(b.id);
     const u = UNIT[r.serving];
-    L.push(`| ${b.when} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md): ${b.make} ${b.make === 1 ? u.one : u.many} | ${Math.round((r.minutes * (r.effort === 'cook' ? 1 : b.make / r.boxes)) || r.minutes)} min${r.effort === 'cook' ? ' (cook)' : ''} | ${b.note} |`);
-    const m = r.effort === 'cook' ? r.minutes : Math.round(r.minutes * (b.make / r.boxes)) || r.minutes;
+    // Hands-on time is not scaled down for a half batch: opening, chopping and washing up take about as long.
+    const m = r.minutes;
+    L.push(`| ${b.when} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md): ${b.make} ${b.make === 1 ? u.one : u.many} | ${m} min${r.effort === 'cook' ? ' (cook)' : ''} | ${b.note} |`);
     if (b.when === 'Sunday') mins.Sunday += m;
     else mins.other += m;
   }
@@ -550,7 +549,7 @@ function weekMd(rows) {
     const fiber = meals.reduce((a, m) => a + m.r.box.fiber, 0) + ready.reduce((a, l) => a + l.fiber, 0);
     totals.push({ day: d.day, kcal, protein, fiber });
     const cell = ({ s, r }) => `${s.names.en} (${r.box.kcal} / ${r0(r.box.protein)} g)`;
-    L.push(`| ${d.day} | ${cell(meals[0])} | ${cell(meals[1])} | ${cell(meals[2])} | ${ready.map((l) => `${l.name.replace(/\\s*\\(.*\\)$/, '')} ${l.label}`).join('; ')} (${r0(ready.reduce((a, l) => a + l.kcal, 0))} / ${r0(ready.reduce((a, l) => a + l.protein, 0))} g) | **${r0(kcal)} kcal, ${r0(protein)} g protein**, ${r0(fiber)} g fibre |`);
+    L.push(`| ${d.day} | ${cell(meals[0])} | ${cell(meals[1])} | ${cell(meals[2])} | ${ready.map((l) => `${l.name.replace(/\s*\(.*\)$/, '').replace(/,.*$/, '')} ${l.label.replace(/\s*\(.*\)$/, '')}`).join('; ')} (${r0(ready.reduce((a, l) => a + l.kcal, 0))} / ${r0(ready.reduce((a, l) => a + l.protein, 0))} g) | **${r0(kcal)} kcal, ${r0(protein)} g protein**, ${r0(fiber)} g fibre |`);
   }
   const avg = (k) => totals.reduce((a, t) => a + t[k], 0) / totals.length;
   const rng = (k) => `${r0(Math.min(...totals.map((t) => t[k])))}–${r0(Math.max(...totals.map((t) => t[k])))}`;
@@ -566,12 +565,25 @@ function weekMd(rows) {
     for (const c of r.components) for (const l of c.lines) if (l.ingId !== 'water') add(l.ingId, l.grams * f);
   }
   for (const d of WEEK.days) for (const x of d.ready) add(x.buy, readyLine(x.r).grams);
+  // Loose produce: price the week from single pieces, not the 2–3 kg bags the sheets use.
+  const WEEK_BUY = { tomato: 69912, potato: 69066 };
+  const merged = new Map(); // Mercadona product → one line (raw and boiled eggs are the same box of eggs)
+  for (const [ingId, g] of need) {
+    const b = REG[ingId].buy;
+    if (b?.shop !== 'mercadona' || PANTRY.has(ingId)) continue;
+    const key = String(WEEK_BUY[ingId] ?? b.id);
+    const m = merged.get(key);
+    if (m) {
+      need.set(m, need.get(m) + g);
+      need.delete(ingId);
+    } else merged.set(key, ingId);
+  }
   const groups = { butcher: [], mercadona: [], pantry: [], other: [] };
   let till = 0;
   let eaten = 0;
   const unpriced = [];
   for (const [ingId, g] of [...need].sort((a, b) => REG[a[0]].label.localeCompare(REG[b[0]].label))) {
-    const pr = priceOf(ingId, { snap: SNAP });
+    const pr = priceOf(ingId, { snap: SNAP, id: WEEK_BUY[ingId] });
     const buy = REG[ingId].buy ?? {};
     const pro = pr.eurPerG != null ? g * pr.eurPerG : null;
     if (pro != null) eaten += pro;
@@ -600,7 +612,14 @@ function weekMd(rows) {
   WEEK_RESULT.unpriced = unpriced;
   L.push(`**Mercadona shopping list** (Barcelona online shop, warehouse bcn1, prices read ${SNAP}; you buy whole packs)`, '', '| You need | Product | Buy | Price |', '|---|---|---|---|');
   for (const x of groups.mercadona) {
-    const buyText = x.unit ? `${Math.ceil(x.g / (REG[x.ingId].buy.perUnitG))} ${x.unit}${x.packs * (REG[x.ingId].buy.units ?? 1) > Math.ceil(x.g / REG[x.ingId].buy.perUnitG) ? ` (pack of ${REG[x.ingId].buy.units})` : ''}` : `${x.packs} × ${x.pr.pack}`;
+    const bu = REG[x.ingId].buy;
+    const n = x.unit ? Math.ceil(x.g / bu.perUnitG) : x.packs;
+    const word = (k, one, many) => `${k} ${k === 1 ? one : many}`;
+    const buyText = x.unit
+      ? (bu.units ?? 1) > 1
+        ? `${word(x.packs, 'pack', 'packs')} of ${bu.units} (uses ${word(n, x.unit === 'eggs' ? 'egg' : 'piece', x.unit)})`
+        : word(n, 'piece', 'pieces')
+      : `${x.packs} × ${x.pr.pack}`;
     L.push(`| ${shortLabel(x.ingId)}: ${fmtG(Math.round(x.g))} g | [${x.pr.name}](${x.pr.url}) | ${buyText} | ${eur(x.cost)} |`);
   }
   L.push('');
@@ -610,7 +629,7 @@ function weekMd(rows) {
     L.push('');
   }
   L.push(`**Cupboard** (most kitchens have these; counted only for what the week uses): ${groups.pantry.map((x) => `${shortLabel(x.ingId).toLowerCase()} ${fmtG(Math.round(x.g))} g`).join(', ')}.${groups.other.length ? ` Not priced (desi shelf or bakery): ${groups.other.map((x) => shortLabel(x.ingId).toLowerCase()).join(', ')}.` : ''}`, '');
-  L.push(`**Approximate cost:** about **${eur(till)}** at the till for the week (whole packs at Mercadona on ${SNAP}, halal beef mince at Carne Halal Online read ${BUTCHER.items['beef-mince'] ? '2026-10-13' : ''}), of which about **${eur(eaten)}** is food eaten this week (pro-rata, cupboard included); the rest stays in the cupboard or freezer: oats, chia, olive oil, a meatball portion and a chana masala portion for next week. That is about **${eur(eaten / 5)} a day** for three meals and the merienda. Prices change: the date is part of the number.`, '');
+  L.push(`**Approximate cost:** about **${eur(till)}** at the till for the week (whole packs at Mercadona on ${SNAP}, halal beef mince at Carne Halal Online read ${BUTCHER.items['beef-mince'] ? '2026-10-13' : ''}), of which about **${eur(eaten)}** is the food that goes into this week's batches and ready items (pro-rata, cupboard included, and including the meatball and chana masala portions left in the freezer for next week). That is under **${eur(eaten / 5)} a day** for three meals and the merienda; the rest of the till money stays in the cupboard (oats, chia, couscous, breadcrumbs, spices, most of the eggs and onions). Prices change: the date is part of the number.`, '');
   return L;
 }
 const WEEK_RESULT = {};
@@ -697,7 +716,7 @@ function libraryMd(rows) {
   L.push('1. **Cook a batch.** Under *Library*, tap a prep (grouped by breakfast, lunch and dinner), set the day you cooked it and how many jars, boxes or portions it made (standard: 3 or 4). The app puts the first ones in the fridge, as many as the fridge life allows, and the rest in the freezer; change any of them.');
   L.push('2. **Your boxes.** The batch card lists each box with its use-by: "last day" on the day, "past use-by, best not to eat" after it. Moving a frozen box to the fridge starts its 1-day clock.');
   L.push('3. **Place into a slot.** Pick the meal (Breakfast, Lunch, Dinner…) and tap the days you will eat it, one tap per day. The day\'s totals count it at once; ticking it eaten uses the box, deleting the entry frees it.');
-  L.push('4. **Shopping list.** On the batch card, *Shopping list* → *Copy list*: halal butcher first, then the supermarket. Ingredients the food database does not hold yet (dry rice, raw chicken thigh, spices…) appear by name.', '');
+  L.push('4. **Shopping list.** On the batch card, *Shopping list* → *Copy list*: halal butcher first, then the supermarket. Every ingredient is a food in the database except the ground spices and salt, which appear by name.', '');
   L.push('Your own pots work the same way: *New recipe* in the Prep tab, then cook a batch of it.', '');
   L.push('The nutrition of a library prep always comes from its Lab record (this page), never from adding up the shopping list.', '');
 
