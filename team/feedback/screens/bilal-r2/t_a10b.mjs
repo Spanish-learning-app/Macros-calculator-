@@ -26,7 +26,7 @@ await L.tap(run, p.getByRole('link',{name:'Day'})); await p.waitForSelector('[da
 L.start(run);
 await L.openSlot(run,'Dinner'); await L.search(run,'lentejas');
 console.log(await L.rowTexts(run,4));
-await L.tap(run, L.rows(run).filter({hasText:/^Lentejas \|? ?(estimate)?/}).filter({hasText:/recipe|box|portion/}).first().locator('.food-main').or(L.rows(run).first().locator('.food-main')).first());
+await L.tap(run, L.rows(run).filter({hasText:/1 box/}).first().locator('.food-main'));
 const pk = p.locator('[data-testid=portion-picker]'); await pk.waitFor(); await p.waitForTimeout(300);
 console.log('picker:', (await pk.innerText()).replace(/\n+/g,' | '));
 await L.shot(run,'a10-lentejas-picker');

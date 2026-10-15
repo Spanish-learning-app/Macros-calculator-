@@ -13,7 +13,6 @@ console.log('inputs',await ins.count());
 await ins.nth(1).fill('5'); await ins.nth(2).fill('3'); await ins.nth(3).fill('70');
 await fullshot(page,'05-onboarding-before-activity');
 console.log('goal checked:', await page.evaluate(()=>[...document.querySelectorAll('input[type=radio]')].filter(r=>r.checked).map(r=>r.value)));
-await page.getByText('Housework or walking every day').click();
 await page.locator('input[value=lose]').click();
 await fullshot(page,'06-onboarding-filled');
 await page.getByRole('button',{name:'See my targets'}).click(); await page.waitForTimeout(400);
