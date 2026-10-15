@@ -7,8 +7,8 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.6.1',
-  updated: '2026-10-14',
+  version: '1.7.0',
+  updated: '2026-10-15',
 
   // ---------------------------------------------------------------- energy
   energy: {
