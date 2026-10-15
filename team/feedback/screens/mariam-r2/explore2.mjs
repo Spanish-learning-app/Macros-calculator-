@@ -1,0 +1,10 @@
+import { start } from './lib.mjs';
+const S = await start({ stateFrom: 's0' });
+const { page } = S;
+await S.open('2026-10-18T17:30:00+02:00');
+await page.getByRole('link', { name: 'Prep' }).click().catch(async()=>{ await page.getByText('Prep', {exact:true}).click(); });
+await page.waitForTimeout(500);
+await S.shot('x1-prep-top');
+await S.shot('x1-prep-full', { fullPage: true });
+console.log(await page.evaluate(() => document.querySelector('[data-testid=prep-view]').innerText.slice(0, 3500)));
+await S.finish('explore2');

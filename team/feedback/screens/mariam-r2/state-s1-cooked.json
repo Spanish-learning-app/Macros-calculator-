@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:8774",
+      "localStorage": [
+        {
+          "name": "mmc.v1",
+          "value": "{\"schemaVersion\":1,\"profile\":{\"sex\":\"female\",\"ageYears\":29,\"heightCm\":165,\"weightKg\":60,\"activity\":\"moderate\",\"goal\":\"maintain\",\"rateKgPerWeek\":0,\"lifts\":true,\"healthFlags\":[]},\"targetPrefs\":{\"proteinGPerKg\":null,\"fatPct\":null},\"targetOverrides\":{},\"settings\":{\"slotPreset\":\"spain\",\"slotLabels\":{},\"halalOnly\":true,\"seafood\":\"fish-only\",\"dayStartMinutes\":240,\"onboarding\":\"done\",\"units\":{\"weight\":\"kg\",\"height\":\"cm\"},\"weekStartsOn\":1,\"theme\":\"system\",\"hideCalories\":false},\"days\":{},\"customFoods\":[],\"recents\":{},\"recipes\":[],\"batches\":[{\"id\":\"70d803a6-c54d-40ea-a563-a7684b7f58b8\",\"recipeId\":\"es-mandonguilles-pesols-portion\",\"name\":\"Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion)\",\"cookedOn\":\"2026-10-18\",\"boxes\":[{\"id\":\"70d803a6-c54d-40ea-a563-a7684b7f58b8-1\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"70d803a6-c54d-40ea-a563-a7684b7f58b8-2\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"70d803a6-c54d-40ea-a563-a7684b7f58b8-3\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"70d803a6-c54d-40ea-a563-a7684b7f58b8-4\",\"storage\":\"freezer\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"}]},{\"id\":\"8957022c-48d1-4974-893b-2e811a024082\",\"recipeId\":\"es-queso-batido-parfait-jar\",\"name\":\"Queso fresco batido parfait with oats, chia, kiwi and walnuts (breakfast jar)\",\"cookedOn\":\"2026-10-18\",\"boxes\":[{\"id\":\"8957022c-48d1-4974-893b-2e811a024082-1\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"8957022c-48d1-4974-893b-2e811a024082-2\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"8957022c-48d1-4974-893b-2e811a024082-3\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"}]},{\"id\":\"9eb59b03-a55d-4c12-bc2c-ce9b55d325a5\",\"recipeId\":\"med-lentil-rice-burgos-bowl-box\",\"name\":\"Lentil and brown-rice bowl with queso de Burgos and tomato salad (lunch box)\",\"cookedOn\":\"2026-10-18\",\"boxes\":[{\"id\":\"9eb59b03-a55d-4c12-bc2c-ce9b55d325a5-1\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"9eb59b03-a55d-4c12-bc2c-ce9b55d325a5-2\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"}]}]}"
+        }
+      ]
+    }
+  ]
+}

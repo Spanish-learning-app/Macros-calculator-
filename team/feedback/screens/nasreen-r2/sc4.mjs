@@ -1,0 +1,13 @@
+import { open, shot, txt, onboard, tab, pakistaniTimes, dlg } from './lib3.mjs';
+import { makeSalan } from './sc1b.mjs';
+const S = await open('2026-10-15T13:30:00+02:00'); const {page}=S;
+await onboard(page); await pakistaniTimes(page); await makeSalan(page);
+await page.locator('[data-testid=recipe-cook]').click(); await page.waitForTimeout(500);
+await page.locator('[data-testid=cook-save]').click(); await page.waitForTimeout(700);
+await shot(page,'60-batch-created');
+console.log(await txt(page).then(t=>t.split('Your recipes')[0]));
+await page.evaluate(()=>window.scrollTo(0,0));
+console.log(await page.locator('[data-testid=batch-card]').innerText());
+await page.locator('[data-testid=batch-card]').scrollIntoViewIfNeeded();
+await shot(page,'61-batch-card');
+await S.browser.close();

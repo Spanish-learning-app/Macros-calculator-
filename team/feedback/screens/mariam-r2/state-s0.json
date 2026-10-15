@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:8774",
+      "localStorage": [
+        {
+          "name": "mmc.v1",
+          "value": "{\"schemaVersion\":1,\"profile\":{\"sex\":\"female\",\"ageYears\":29,\"heightCm\":165,\"weightKg\":60,\"activity\":\"moderate\",\"goal\":\"maintain\",\"rateKgPerWeek\":0,\"lifts\":true,\"healthFlags\":[]},\"targetPrefs\":{\"proteinGPerKg\":null,\"fatPct\":null},\"targetOverrides\":{},\"settings\":{\"slotPreset\":\"spain\",\"slotLabels\":{},\"halalOnly\":true,\"seafood\":\"fish-only\",\"dayStartMinutes\":240,\"onboarding\":\"done\",\"units\":{\"weight\":\"kg\",\"height\":\"cm\"},\"weekStartsOn\":1,\"theme\":\"system\",\"hideCalories\":false},\"days\":{},\"customFoods\":[],\"recents\":{},\"recipes\":[],\"batches\":[]}"
+        }
+      ]
+    }
+  ]
+}

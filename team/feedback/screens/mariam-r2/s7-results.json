@@ -1,0 +1,136 @@
+{
+ "actions": {
+  "M1-cafe-croissant": {
+   "name": "M1-cafe-croissant",
+   "taps": 4,
+   "types": 2,
+   "chars": 20,
+   "ms": 2240
+  },
+  "M5-skyr-merienda": {
+   "name": "M5-skyr-merienda",
+   "taps": 3,
+   "types": 1,
+   "chars": 4,
+   "ms": 1169
+  }
+ },
+ "notes": {
+  "M1-cafe-rank1": "Café con leche (coffee with milk) [1 cup (taza, 250 ml) · 95 kcal]",
+  "M1-croissant-rank1": "Croissant (butter) [1 croissant (medium) · 231 kcal]",
+  "M1-croissant-row": "Croissant (butter)\n1 croissant (medium) · 231 kcal\nCheck",
+  "M1-cafe-croissant": {
+   "name": "M1-cafe-croissant",
+   "taps": 4,
+   "types": 2,
+   "chars": 20,
+   "ms": 2240
+  },
+  "M5-skyr-results": [
+   "Skyr, plain (0% fat) [1 pot (150 g) · 95 kcal]",
+   "Protein tortilla wedge with skyr-style yogurt (cold lunch box) [1 box · 607 kcal]",
+   "Overnight oats with protein yogurt, chia and walnuts (breakfast jar) [1 jar · 479 kcal]"
+  ],
+  "M5-skyr-merienda": {
+   "name": "M5-skyr-merienda",
+   "taps": 3,
+   "types": 1,
+   "chars": 4,
+   "ms": 1169
+  },
+  "M5-top": "Katori / Today / Fri, 23 Oct /  / 1629 / kcal left /  / 72 g / protein left /  / Planned, not eaten yet: 451 kcal · 31 g protein /  / Eaten so far: 421 of 2050 kcal · 24 of 96 g protein / ",
+  "M5-slots": [
+   {
+    "slot": "Breakfast / café",
+    "sub": "777 kcal · 39 g protein"
+   },
+   {
+    "slot": "Lunch",
+    "sub": "Nothing yet"
+   },
+   {
+    "slot": "Merienda",
+    "sub": "95 kcal · 16 g protein"
+   },
+   {
+    "slot": "Dinner",
+    "sub": "Nothing yet"
+   },
+   {
+    "slot": "Snacks",
+    "sub": "Nothing yet"
+   }
+  ],
+  "chai-results": [
+   "Chai, doodh patti (home), 1 tsp sugar [1 cup (200 ml) · 111 kcal]",
+   "Chai, doodh patti (home), 2 tsp sugar [1 cup (200 ml) · 130 kcal]",
+   "Chai, doodh patti (home), no sugar [1 cup (200 ml) · 96 kcal]",
+   "Chai, dhaba (karak, 3 tsp sugar) [1 cup (200 ml) · 239 kcal]"
+  ],
+  "recents-merienda-sheet": [
+   "Protein yogurt, plain 0 % (Mercadona +Proteínas) [1 portion (120 g) · 62 kcal]",
+   "Skyr, plain (0% fat) [1 pot (150 g) · 95 kcal]",
+   "Banana [1 medium banana · 105 kcal]",
+   "Kinnow (mandarin) [1 medium kinnow · 47 kcal]",
+   "Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion) [1 portion · 588 kcal]",
+   "Queso fresco batido parfait with oats, chia, kiwi and walnuts (breakfast jar) [1 jar · 400 kcal]",
+   "Café con leche (coffee with milk) [1 cup (taza, 250 ml) · 95 kcal]",
+   "Fruit chaat with protein yogurt and almonds (breakfast portion) [1 portion · 451 kcal]",
+   "Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box) [1 box · 654 kcal]",
+   "Lentil and brown-rice bowl with queso de Burgos and tomato salad (lunch box) [1 box · 606 kcal]",
+   "Croissant (butter) [1 croissant (medium) · 231 kcal]",
+   "Salmorejo with boiled eggs and tuna, picos and an orange (dinner portion) [1 portion · 620 kcal]"
+  ],
+  "M3-0030-top": "Katori / Today / Fri, 23 Oct /  / 1629 / kcal left /  / 72 g / protein left /  / Planned, not eaten yet: 451 kcal · 31 g protein /  / Eaten so far: 421 of 2050 kcal · 24 of 96 g protein / ",
+  "M3-0030-sheet-title": "Add to Snacks",
+  "M3-0030-sheet-sub": "Add to Snacks /  / Counts for Fri, 23 Oct: your day runs until 04:00",
+  "M4-ensaimada": {
+   "chips": [],
+   "hidden": "1 hidden: not halal\n\nEnsaïmada (Mallorcan pastry): The standard recipe is made with pork lard (saïm).\nShow hidden"
+  },
+  "M4-napolitana": {
+   "chips": [
+    "Napolitana de chocolate (chocolate croissant) <Check>"
+   ],
+   "hidden": null
+  },
+  "M4-jamon serrano": {
+   "chips": [],
+   "hidden": null
+  },
+  "M4-chorizo": {
+   "chips": [],
+   "hidden": null
+  },
+  "M4-calamares": {
+   "chips": [],
+   "hidden": null
+  },
+  "M4-gambas": {
+   "chips": [],
+   "hidden": null
+  },
+  "M4-bocadillo": {
+   "chips": [
+    "Bocadillo de atún (tuna sandwich) <no chip>",
+    "Bocadillo de tortilla (tortilla sandwich) <no chip>"
+   ],
+   "hidden": null
+  },
+  "M4-galletas maria": {
+   "chips": [
+    "Marie biscuit (tea biscuit) <no chip>"
+   ],
+   "hidden": null
+  },
+  "M4-lentejas": {
+   "chips": [
+    "Lentejas (Spanish lentil stew, halal) <no chip>",
+    "Lentil and brown-rice bowl with queso de Burgos and tomato salad (lunch box) <no chip>",
+    "Lentils, brown (lenteja pardina), dry <no chip>"
+   ],
+   "hidden": null
+  }
+ },
+ "errors": []
+}

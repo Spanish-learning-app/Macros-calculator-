@@ -1,0 +1,26 @@
+{
+ "actions": {
+  "NC-feta-reason-in-list": {
+   "name": "NC-feta-reason-in-list",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 165
+  }
+ },
+ "notes": {
+  "chip-tag": "BUTTON.chip-halal chip-halal--check",
+  "NC-feta-reason-in-list": {
+   "name": "NC-feta-reason-in-list",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 165
+  },
+  "row-after-chip-tap": "Lentil salad with tuna, feta and peppers (cold lunch box) | 1 box: 590 kcal · 46 g protein | 12 min, no cooking | Make | Check | Check: Feta made with rennet (cuajo) of unstated origin. Swap: queso de Burgos 0% (cuajo microbiano) makes it halal.",
+  "dialog-after-chip-tap": "Check\n\nCheck: Feta made with rennet (cuajo) of unstated origin. Swap: queso de Burgos 0% (cuajo microbiano) makes it halal.",
+  "feta-card": "Lentil salad with tuna, feta and peppers (cold lunch box) | Cooked today · 2 boxes | 2 | of 2 left | Check | 1 box: 590 kcal · 46 g protein | Box 1 · Not placed yet | Use by Sat, 24 Oct | Fridge | No freezer | Box 2 · Not placed yet | Use by Sat, 24 Oct | Fridge | No freezer | Put a box in | Breakfa",
+  "feta-entry": "Lentil salad with tuna, feta and peppers (cold lunch box) | Planned | 1 box · 671 g · 590 kcal | Box 1 · use by Sat, 24 Oct | Check"
+ },
+ "errors": []
+}

@@ -1,0 +1,33 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-19T13:00:00+02:00'}); const p = run.page;
+await L.onboardP1(run);
+await L.openSlot(run,'Lunch');
+await L.logFood(run,'daal chawal',/Daal chawal/);
+await L.logFood(run,'kachumber',/kachumber/i);
+await L.logFood(run,'dahi',/^Dahi/);
+await L.done(run);
+console.log('lunch:', await L.entries(run));
+const slot = p.getByTestId('slot-lunch');
+console.log('slot menu button:', await slot.evaluate(s=>[...s.querySelectorAll('button')].map(b=>b.getAttribute('aria-label')||b.innerText).slice(0,6)));
+L.start(run);
+await L.tap(run, slot.getByRole('button',{name:/More|options|⋯|menu/i}).first()); await p.waitForTimeout(300);
+await L.shot(run,'saved-01-slot-menu');
+console.log('menu:', (await p.locator('[role=menu], .menu, dialog[open]').first().innerText().catch(()=>'')).replace(/\n+/g,' | '));
+const sv = p.getByRole('menuitem',{name:/Save/i}).or(p.getByRole('button',{name:/Save as/i})).first();
+await L.tap(run, sv); await p.waitForTimeout(300);
+await L.shot(run,'saved-02-name-dialog');
+console.log('dialog:', (await p.locator('dialog[open]').innerText().catch(()=>'')).replace(/\n+/g,' | '));
+const inp = p.locator('dialog[open] input[type=text], dialog[open] input:not([type])').first();
+if (await inp.count()) { await L.type(run, inp, 'Ghar ka lunch'); }
+await L.tap(run, p.locator('dialog[open]').getByRole('button',{name:/Save/}).last()); await p.waitForTimeout(400);
+console.log('save flow actions', run.actions, L.elapsed(run));
+// use it on dinner
+await p.goto(L.URL+'#/prep'); await p.waitForTimeout(400);
+console.log('saved meals section:', (await p.getByTestId('saved-meal').first().innerText().catch(()=>'(none)')).replace(/\n+/g,' | '));
+await L.shot(run,'saved-03-prep');
+await p.goto(L.URL+'#/day'); await p.waitForSelector('[data-testid=kcal-left]');
+L.start(run);
+await L.openSlot(run,'Dinner'); await p.waitForTimeout(300);
+await L.shot(run,'saved-04-dinner-sheet');
+console.log('dinner sheet top:', (await L.sheet(run).innerText()).replace(/\n+/g,' | ').slice(0,600));
+await run.browser.close();

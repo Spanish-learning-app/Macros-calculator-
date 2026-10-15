@@ -1,0 +1,13 @@
+import { open, shot, fullshot, txt, onboard, tab } from './lib2.mjs';
+const S = await open('2026-10-15T08:30:00+02:00'); const {page}=S;
+await onboard(page); await tab(page,'Prep');
+await page.getByRole('button',{name:/New recipe/}).click(); await page.waitForTimeout(500);
+await page.locator('dialog input').first().fill('Chicken salan pot');
+await page.getByRole('button',{name:/Add ingredients/}).click(); await page.waitForTimeout(500);
+await page.keyboard.type('1 kg chicken'); await page.waitForTimeout(500);
+await page.locator('dialog[open]').last().locator('li, [class*=row]').filter({hasText:'Chicken thigh, raw'}).first().getByRole('button').first().click(); await page.waitForTimeout(400);
+await page.getByRole('button',{name:'Add to recipe'}).click(); await page.waitForTimeout(500);
+await shot(page,'14-after-add-to-recipe');
+console.log(await page.locator('dialog[open]').last().innerText().then(t=>t.slice(0,400)));
+console.log('dialogs open', await page.locator('dialog[open]').count());
+await S.browser.close();

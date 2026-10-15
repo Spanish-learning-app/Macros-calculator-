@@ -1,0 +1,12 @@
+import { start } from './lib.mjs';
+const S = await start({ stateFrom: 's5-thu-morning' });
+const { page, tap, type, shot, log } = S;
+const sheet = page.locator('[data-testid=add-sheet]');
+await S.open('2026-10-22T17:30:00+02:00');
+await tap(page.getByTestId('add-food'));
+await type(sheet.locator('.search-input'), 'lentejas');
+await tap(sheet.locator('[data-testid=food-row] .food-main').first());
+await page.waitForTimeout(300);
+await shot('s11-1-lentejas-portion-picker');
+log('picker-text', (await page.evaluate(() => [...document.querySelectorAll('dialog[open]')].pop().innerText)).replace(/\n+/g, ' | ').slice(0, 1200));
+await S.finish('s11');

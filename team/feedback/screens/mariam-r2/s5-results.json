@@ -1,0 +1,59 @@
+{
+ "actions": {
+  "Wed-2030-salmorejo-make-and-place": {
+   "name": "Wed-2030-salmorejo-make-and-place",
+   "taps": 3,
+   "types": 0,
+   "chars": 0,
+   "ms": 1181
+  },
+  "Wed-2115-fruit-chaat-x2-place-Thu-Fri": {
+   "name": "Wed-2115-fruit-chaat-x2-place-Thu-Fri",
+   "taps": 4,
+   "types": 0,
+   "chars": 0,
+   "ms": 1318
+  },
+  "Thu-0800-chaat-tick": {
+   "name": "Thu-0800-chaat-tick",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 204
+  }
+ },
+ "notes": {
+  "salmorejo-count": "2",
+  "salmorejo-dialog": "Make a batch: Salmorejo with boiled eggs and tuna, picos and an orange (dinner portion) | 1 portion: 620 kcal · 33 g protein · 45 g carbs · 32 g fat · 9.8 g fibre | 574 g per portion | Halal | How many portions | 2 | Cooked | Yesterday | Today | Tomorrow | FRIDGE OR FREEZER | Doesn’t freeze well: keep every portion in the fridge and eat within 2 days. | Portion 1 | Fridge | No freezer | Portion 2 | Fridge | No freezer | Make 2 portions",
+  "salmorejo-note": "Added a portion to Dinner, today.",
+  "Wed-2030-salmorejo-make-and-place": {
+   "name": "Wed-2030-salmorejo-make-and-place",
+   "taps": 3,
+   "types": 0,
+   "chars": 0,
+   "ms": 1181
+  },
+  "salmorejo-slot-default": "Dinner",
+  "chaat-count": "2",
+  "chaat-dialog": "Make a batch: Fruit chaat with protein yogurt and almonds (breakfast portion) | 1 portion: 451 kcal · 31 g protein · 48 g carbs · 13 g fat · 11 g fibre | 550 g per portion | Halal | How many portions | 2 | Cooked | Yesterday | Today | Tomorrow | FRIDGE OR FREEZER | Doesn’t freeze well: keep every portion in the fridge and eat within 2 days. | Portion 1 | Fridge | No freezer | Portion 2 | Fridge | No freezer | Make 2 portions",
+  "chaat-slot-default": "Breakfast / café",
+  "chaat-fill-label": "Fill Mon–Thu · 22–28 Oct",
+  "Wed-2115-fruit-chaat-x2-place-Thu-Fri": {
+   "name": "Wed-2115-fruit-chaat-x2-place-Thu-Fri",
+   "taps": 4,
+   "types": 0,
+   "chars": 0,
+   "ms": 1318
+  },
+  "chaat-card": "Fruit chaat with protein yogurt and almonds (breakfast portion)\n\nCooked today · 2 portions\n\n0\nof 2 left\n\nHalal\n1 portion: 451 kcal · 31 g protein\nPortion 1 · Breakfast / café, tomorrow\n\nUse by Fri, 23 Oct\n\nFridge\nNo freezer\nPortion 2 · Breakfast / café, Fri 23\n\nUse by Fri, 23 Oct\n\nFridge\nNo freezer\nPut a portion in\nBreakfast / café\nLunch\nMerienda\nDinner\nSnacks\nWed\n21\nThu\n22\nFri\n23\nSat\n24\nSun\n25\nMon\n26\nTue\n27\n\nAdded a portion to Breakfast / café, Fri, 23 Oct.\n\nShopping list\nRemove batch",
+  "Thu-0800-chaat-tick": {
+   "name": "Thu-0800-chaat-tick",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 204
+  },
+  "thu-top": "Katori / Today / Thu, 22 Oct /  / 1599 / kcal left /  / 65 g / protein left /  / Planned, not eaten yet: 1242 kcal · 81 g protein /  / Eaten so far: 451 of 2050 kcal · 31 of 96 g protein /  / CARBS / 48 / 264 g / FAT / 13 / 68 g / FIBRE / 10 / 29 g /  / Estimate / Estimate means a good guess from your answers. You can change it. / Change /  / Copy yesterday / Copy a day… / Add food / Breakfast / café /  / 451 kcal · 31 g protein /  / Add / Fruit chaat with protein yogurt and almonds (breakfast portion) / 1 portion · 550 g · 451 kcal / Portion 1 / Lunch /  / 654 kcal · 40 g protein / "
+ },
+ "errors": []
+}

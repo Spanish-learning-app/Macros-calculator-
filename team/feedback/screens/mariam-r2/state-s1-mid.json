@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:8774",
+      "localStorage": [
+        {
+          "name": "mmc.v1",
+          "value": "{\"schemaVersion\":1,\"profile\":{\"sex\":\"female\",\"ageYears\":29,\"heightCm\":165,\"weightKg\":60,\"activity\":\"moderate\",\"goal\":\"maintain\",\"rateKgPerWeek\":0,\"lifts\":true,\"healthFlags\":[]},\"targetPrefs\":{\"proteinGPerKg\":null,\"fatPct\":null},\"targetOverrides\":{},\"settings\":{\"slotPreset\":\"spain\",\"slotLabels\":{},\"halalOnly\":true,\"seafood\":\"fish-only\",\"dayStartMinutes\":240,\"onboarding\":\"done\",\"units\":{\"weight\":\"kg\",\"height\":\"cm\"},\"weekStartsOn\":1,\"theme\":\"system\",\"hideCalories\":false},\"days\":{},\"customFoods\":[],\"recents\":{},\"recipes\":[],\"batches\":[{\"id\":\"7257872c-5d8d-405e-befb-f4a9dfde5819\",\"recipeId\":\"es-mandonguilles-pesols-portion\",\"name\":\"Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion)\",\"cookedOn\":\"2026-10-18\",\"boxes\":[{\"id\":\"7257872c-5d8d-405e-befb-f4a9dfde5819-1\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"7257872c-5d8d-405e-befb-f4a9dfde5819-2\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"7257872c-5d8d-405e-befb-f4a9dfde5819-3\",\"storage\":\"fridge\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"},{\"id\":\"7257872c-5d8d-405e-befb-f4a9dfde5819-4\",\"storage\":\"freezer\",\"movedToFridgeOn\":null,\"placed\":null,\"status\":\"available\"}]}]}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+ "actions": {
+  "S1-1-mandonguilles": {
+   "name": "S1-1-mandonguilles",
+   "taps": 2,
+   "types": 0,
+   "chars": 0,
+   "ms": 1081
+  },
+  "S1-2-parfait": {
+   "name": "S1-2-parfait",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 0
+  }
+ },
+ "notes": {
+  "meatballs-dialog": "Cook a batch: Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion)\n\n1 portion: 588 kcal · 41 g protein · 45 g carbs · 25 g fat · 12 g fibre\n\n544 g per portion\n\nHalal\nHow many portions\n4\nCooked\nYesterday\nToday\nTomorrow\nFRIDGE OR FREEZER\n\nKeeps 3 days in the fridge, so the first 3 go in the fridge and the rest in the freezer. Change any portion.\n\nPortion 1\nFridge\nFreezer\nPortion 2\nFridge\nFreezer\nPortion 3\nFridge\nFreezer\nPortion 4\nFridge\nFreezer\nCook 4 portions",
+  "S1-1-actions": {
+   "name": "S1-1-mandonguilles",
+   "taps": 2,
+   "types": 0,
+   "chars": 0,
+   "ms": 1081
+  },
+  "batch-card-meatballs": "Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion)\n\nCooked today · 4 portions\n\n4\nof 4 left\n\nHalal\n1 portion: 588 kcal · 41 g protein\nPortion 1 · Not placed yet\n\nUse by Wed, 21 Oct\n\nFridge\nFreezer\nPortion 2 · Not placed yet\n\nUse by Wed, 21 Oct\n\nFridge\nFreezer\nPortion 3 · Not placed yet\n\nUse by Wed, 21 Oct\n\nFridge\nFreezer\nPortion 4 · Not placed yet\n\nFrozen, no use-by yet\n\nFridge\nFreezer\nPut a portion in\nBreakfast / café\nLunch\nMerienda\nDinner\nSnacks\nSun\n18\nMon\n19\nTue\n20\nWed\n21\nThu\n22\nFri\n23\nSat\n24\nFill Mon–Thu · 19–22 Oct\n\nCooked 4 portions. Now place them on the days you’ll eat them.\n\nShopping list\nRemove batch",
+  "parfait-dialog-default-count": "3",
+  "parfait-dialog": "Make a batch: Queso fresco batido parfait with oats, chia, kiwi and walnuts (breakfast jar)\n\n1 jar: 400 kcal · 26 g protein · 40 g carbs · 13 g fat · 11 g fibre\n\n348 g per jar\n\nHalal\nHow many jars\n3\nCooked\nYesterday\nToday\nTomorrow\nFRIDGE OR FREEZER\n\nDoesn’t freeze well: keep every jar in the fridge and eat within 3 days.\n\nJar 1\nFridge\nNo freezer\nJar 2\nFridge\nNo freezer\nJar 3\nFridge\nNo freezer\nMake 3 jars"
+ },
+ "errors": []
+}

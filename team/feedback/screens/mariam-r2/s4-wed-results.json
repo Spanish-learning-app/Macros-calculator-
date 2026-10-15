@@ -1,0 +1,56 @@
+{
+ "actions": {
+  "Wed-1930-move-to-fridge": {
+   "name": "Wed-1930-move-to-fridge",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 162
+  }
+ },
+ "notes": {
+  "wed-0805-entries": [
+   "Queso fresco batido parfait with oats, chia, kiwi and walnuts (breakfast jar) | Planned | 1 jar · 348 g · 400 kcal | Jar 3 · last day",
+   "Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box) | Planned | 1 box · 564 g · 654 kcal | Box 1 · use by tomorrow"
+  ],
+  "wed-1325-entries": [
+   "Queso fresco batido parfait with oats, chia, kiwi and walnuts (breakfast jar) | 1 jar · 348 g · 400 kcal | Jar 3",
+   "Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box) | Planned | 1 box · 564 g · 654 kcal | Box 1 · use by tomorrow"
+  ],
+  "wed-1930-top": "Katori / Today / Wed, 21 Oct /  / 996 / kcal left /  / 30 g / protein left /  / Eaten so far: 1054 of 2050 kcal · 66 of 96 g protein /  / CARBS / 92 / 264 g / FAT / 42 / 68 g / FIBRE / 20 / 29 g /  / Estimate / Estimate means a good guess from your answers. You can change it. / Change /  / Copy yesterday / Copy a day… / Add food",
+  "tonight-card": "Tonight: take box 4 of Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion) out of the freezer for tomorrow’s dinner.\n\nMove to fridge",
+  "tonight-visible-count": 1,
+  "move-btn-box": {
+   "x": 33,
+   "y": 567.28125,
+   "width": 145.4375,
+   "height": 44
+  },
+  "wed-1930-entries": [
+   "Queso fresco batido parfait with oats, chia, kiwi and walnuts (breakfast jar) | 1 jar · 348 g · 400 kcal | Jar 3",
+   "Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box) | 1 box · 564 g · 654 kcal | Box 1"
+  ],
+  "prep-tonight-card": "Tonight\n\nTake box 4 of Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion) out of the freezer for tomorrow’s dinner.\n\nMove to fridge",
+  "prep-cards-before": [
+   "Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box) | Cooked yesterday · 2 boxes | 0 | of 2 left | Halal | 1 box: 654 kcal · 40 g protein | Box 1 · Eaten | Box 2 · Lunch, tomorrow | Use by tomorrow | Fridge | No freezer | Put a box in | Breakfast / café | Lunch | Merienda | Dinner | Snacks | Wed | 21 | Thu | 22 | Fri | 23 | Sat | 24 | Sun | 25 | Mon | 26 | Tue | 27 | Shopping list | Remove batch",
+   "Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion) | Cooked Sun, 18 Oct · 4 portions | 1 | of 4 left | Halal | 1 portion: 588 kcal · 41 g protein | Portion 1 · Eaten | Portion 2 · Eaten | Portion 3 · Not placed yet | Last day (today) | Fridge | Freezer | Portion 4 · Dinner, tomorrow | Frozen, no use-by yet | Fridge | Freezer | Put a portion in | Breakfast / café | Lunch | Merienda | Dinner | Snacks | Wed | 21 | Thu | 22 | Fri | 23 | Sat | 24 | Sun | 25 | Mon | 26 | Tue | 27 | Fill Mon–Thu · 26–28 Oct | Shopping list | Remove batch"
+  ],
+  "Wed-1930-move-to-fridge": {
+   "name": "Wed-1930-move-to-fridge",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 162
+  },
+  "tonight-card-after": null,
+  "thu-0805-entries": [
+   "Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box) | Planned | 1 box · 564 g · 654 kcal | Box 2 · last day",
+   "Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion) | Planned | estimate | 1 portion · 544 g · 588 kcal | Portion 4 · last day"
+  ],
+  "thu-prep-cards": [
+   "Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box) | Cooked Tue, 20 Oct · 2 boxes | 0 | of 2 left | Halal | 1 box: 654 kcal · 40 g protein | Box 1 · Eaten | Box 2 · Lunch, today | Last day (today) | Fridge | No freezer | Put a box in | Breakfast / café | Lunch | Merienda | Dinner | Snacks | Thu | 22 | Fri | 23 | Sat | 24 | Sun | 25 | Mon | 26 | Tue | 27 | Wed | 28 | Shopping list | Remove batch",
+   "Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion) | Cooked Sun, 18 Oct · 4 portions | 1 | of 4 left | Halal | 1 portion: 588 kcal · 41 g protein | Portion 1 · Eaten | Portion 2 · Eaten | Portion 3 · Not placed yet | Past use-by, best not to eat | Fridge | Freezer | Throw away | Portion 4 · Dinner, today | Last day (today) | Fridge | Freezer | Put a portion in | Breakfast / café | Lunch | Merienda | Dinner | Snacks | Thu | 22 | Fri | 23 | Sat | 24 | Sun | 25 | Mon | 26 | Tue | 27 | Wed | 28 | Fill Mon–Thu · 26–29 Oct | Shopping list | Remove batch"
+  ]
+ },
+ "errors": []
+}

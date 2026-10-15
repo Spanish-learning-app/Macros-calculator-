@@ -1,0 +1,15 @@
+{
+ "actions": {
+  "chai-set-once": {
+   "name": "chai-set-once",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 0
+  }
+ },
+ "notes": {
+  "chai-dialog": "Set my chai once | Milk | A little milk | ¼ of the cup | Half milk | ½ of the cup | Mostly milk | ¾, doodh patti style | All milk | no water | Which milk | Cow, whole | Buffalo | Sugar (teaspoons) | None | ½ | 1 | 1½ | 2 | 3 | Cup | Small cup | 150 ml | Cup | 200 ml | Mug | 250 ml | One cup: 87 kcal, 3.7 g protein (116 g milk + 1 tsp sugar). | Save my chai"
+ },
+ "errors": []
+}

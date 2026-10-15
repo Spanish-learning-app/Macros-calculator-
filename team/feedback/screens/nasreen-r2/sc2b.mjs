@@ -1,0 +1,12 @@
+import { open, shot, fullshot, txt, onboard, tab } from './lib2.mjs';
+const S = await open('2026-10-15T17:00:00+02:00'); const {page}=S;
+await onboard(page); await tab(page,'Profile');
+console.log(await page.evaluate(()=>[...document.querySelectorAll('input:checked')].map(i=>i.name+'='+i.value).join(', ')));
+await page.getByText('Meal times',{exact:true}).scrollIntoViewIfNeeded(); await page.waitForTimeout(300);
+await shot(page,'36-profile-meal-times');
+await page.locator('input[name^=preset][value=pakistan]').first().click().catch(async e=>{console.log('fallback'); await page.locator('label:has-text("Pakistani meal times")').click();});
+await page.waitForTimeout(300);
+await shot(page,'37-profile-pakistani-times');
+await tab(page,'Day'); await shot(page,'38-day-pakistani-slots');
+console.log((await txt(page)).slice(0,700));
+await S.browser.close();

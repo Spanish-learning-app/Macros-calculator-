@@ -1,0 +1,14 @@
+import { open, shot, txt, onboard, tab, pakistaniTimes, setChai, dlg } from './lib3.mjs';
+const S = await open('2026-10-15T17:00:00+02:00'); const {page}=S;
+let n=0; const A=(m)=>{n++; console.log('action',n,m)};
+await onboard(page); await pakistaniTimes(page);
+await setChai(page,A);
+await tab(page,'Day'); A('Day tab');
+await page.locator('[data-testid=slot-evening] .btn-add').click(); A('Add on Shaam ki chai'); await page.waitForTimeout(500);
+await dlg(page).locator('.btn-add, button[aria-label^=Add]').first().click(); A('tap + on My chai'); await page.waitForTimeout(500);
+await shot(page,'41-after-plus-my-chai');
+console.log('=====\n'+(await dlg(page).innerText()).slice(0,600));
+await dlg(page).getByRole('button',{name:'Done'}).click(); A('Done'); await page.waitForTimeout(500);
+await shot(page,'43-day-with-chai');
+console.log((await txt(page)).slice(0,900));
+await S.browser.close();

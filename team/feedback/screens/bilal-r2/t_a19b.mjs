@@ -1,0 +1,45 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-14T09:00:00+02:00'}); const p = run.page;
+await L.skipOnboarding(run);
+await L.tap(run, p.locator('[data-testid=add-food]'));
+await L.sheet(run).waitFor();
+await L.search(run,'croissant');
+const row = L.rows(run).first();
+const chip = row.locator('[data-testid=halal-chip]');
+console.log('chip tag', await chip.evaluate(e=>e.tagName+' '+e.className+' '+e.getAttribute('role')));
+const a=run.actions;
+await L.tap(run, chip);
+await p.waitForTimeout(300);
+await L.shot(run,'a19r2-03-croissant-reason');
+console.log('reason actions', run.actions-a, '| reason text:', (await L.sheet(run).locator('[data-testid=halal-reason]').innerText().catch(()=>'(none inline)')));
+console.log('visible dialogs', await p.locator('dialog[open]').count());
+// does a halal food show a chip?
+await L.search(run,'roti');
+console.log('chip on roti?', await L.rows(run).first().locator('[data-testid=halal-chip]').count());
+// step 5
+await L.search(run,'ensaïmada');
+await L.shot(run,'a19r2-04-ensaimada-hidden');
+const hn = L.sheet(run).locator('[data-testid=hidden-note]');
+console.log('hidden note:', (await hn.innerText()).replace(/\n+/g,' | '));
+await L.search(run,'ensaimada');
+console.log('no-accent note:', (await hn.innerText()).replace(/\n+/g,' | '));
+const b=run.actions;
+await L.tap(run, hn.getByRole('button',{name:/Show/}));
+await p.waitForTimeout(300);
+await L.shot(run,'a19r2-05-ensaimada-shown');
+console.log('show actions', run.actions-b);
+console.log('rows now:', (await L.rowTexts(run,3)).join(' // '));
+console.log('halal toggle still on?', await L.sheet(run).locator('input.switch-input').isChecked());
+await L.search(run,'roti');
+console.log('toggle after other search', await L.sheet(run).locator('input.switch-input').isChecked(), 'hidden-note on roti:', await hn.count());
+await L.search(run,'ensaimada');
+console.log('back to ensaimada:', (await L.rowTexts(run,2)).join(' // '), '| note count', await hn.count(), (await hn.innerText().catch(()=>'')).replace(/\n+/g,' | '));
+// halal-only toggle off in Profile? check sheet toggle off then on
+await L.sheet(run).locator('label.switch, .switch').first().click();
+await p.waitForTimeout(300);
+await L.search(run,'napolitana');
+console.log('napolitana (toggle off):', (await L.rowTexts(run,2)).join(' // '));
+await L.search(run,'pan');
+await p.waitForTimeout(200);
+console.log('pork?', (await L.rowTexts(run,10)).map(s=>s.split(' | ')[0]).join(', '));
+await run.browser.close();

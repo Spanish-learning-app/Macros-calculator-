@@ -1,0 +1,77 @@
+{
+ "actions": {
+  "chai-set-once": {
+   "name": "chai-set-once",
+   "taps": 4,
+   "types": 0,
+   "chars": 0,
+   "ms": 1083
+  },
+  "chai-log-after-set": {
+   "name": "chai-log-after-set",
+   "taps": 3,
+   "types": 1,
+   "chars": 4,
+   "ms": 1404
+  },
+  "add-yogurt-kinnow": {
+   "name": "add-yogurt-kinnow",
+   "taps": 3,
+   "types": 2,
+   "chars": 24,
+   "ms": 1896
+  },
+  "save-meal": {
+   "name": "save-meal",
+   "taps": 3,
+   "types": 1,
+   "chars": 12,
+   "ms": 1640
+  },
+  "add-saved-meal-next-day": {
+   "name": "add-saved-meal-next-day",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 0
+  }
+ },
+ "notes": {
+  "chai-set-once": {
+   "name": "chai-set-once",
+   "taps": 4,
+   "types": 0,
+   "chars": 0,
+   "ms": 1083
+  },
+  "chai-card": "My chai (1 tsp sugar)\n79 kcal · 3.3 g protein a cup. First in your chai searches.\nChange",
+  "chai-results-after-set": [
+   "My chai (1 tsp sugar) [1 cup (207 ml) · 79 kcal]",
+   "Chai, doodh patti (home), 1 tsp sugar [1 cup (200 ml) · 111 kcal]",
+   "Chai, doodh patti (home), 2 tsp sugar [1 cup (200 ml) · 130 kcal]"
+  ],
+  "chai-log-after-set": {
+   "name": "chai-log-after-set",
+   "taps": 3,
+   "types": 1,
+   "chars": 4,
+   "ms": 1404
+  },
+  "merienda-recents-empty-search": [
+   "My chai (1 tsp sugar) [1 cup (207 ml) · 79 kcal]",
+   "Protein yogurt, plain 0 % (Mercadona +Proteínas) [1 portion (120 g) · 62 kcal]",
+   "Banana [1 medium banana · 105 kcal]",
+   "Kinnow (mandarin) [1 medium kinnow · 47 kcal]"
+  ],
+  "slot-menu": "Merienda\nCopy Merienda from yesterday\nWed, 21 Oct\nCopy Merienda from another day…\nAdd a portion: Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion)\n1 left · meal prep\nAdd a portion: Salmorejo with boiled eggs and tuna, picos and an orange (dinner portion)\n1 left · meal prep\nSave Merienda as a meal…\nAdd it again in one tap\nMark all as planned",
+  "save-meal": {
+   "name": "save-meal",
+   "taps": 3,
+   "types": 1,
+   "chars": 12,
+   "ms": 1640
+  },
+  "sheet-top-rows": "Add to Merienda /  / Counts for Tomorrow, Fri, 23 Oct /  / Done / Search foods / Meal / Breakfast / café / Lunch / Merienda / Dinner / Snacks / Halal only / READY TO ADD / Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion) / 1 portion · 1 left · meal prep / Salmorejo with boiled eggs and tuna, picos and an orange (dinner portion) / 1 portion · 1 left · meal prep / Gym merienda / Saved meal · 3 foods / RECENT / My chai (1 tsp sugar) / estimate / 1 cup (207 ml) · 79 kcal"
+ },
+ "errors": []
+}

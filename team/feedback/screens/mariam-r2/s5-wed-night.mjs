@@ -1,0 +1,53 @@
+// Wednesday night 21:15: salmorejo dinner (no-cook), fruit chaat x2 for Thu/Fri breakfast, and Thursday's no-cook breakfast.
+import { start } from './lib.mjs';
+const S = await start({ stateFrom: 's4-wed-after-move' });
+const { page, tap, type, shot, log } = S;
+const row = (id) => page.locator(`[data-testid=library-row][data-food-id="${id}"]`);
+const cards = () => page.evaluate(() => [...document.querySelectorAll('[data-testid=batch-card]')].map(c => c.innerText.replace(/\n+/g, ' | ').slice(0, 260)));
+await S.open('2026-10-21T20:30:00+02:00');
+await tap(page.getByText('Prep', { exact: true }));
+// 1. salmorejo: Make 1 portion, place in Dinner today
+const sal = page.locator('[data-testid=library-row]', { hasText: 'Salmorejo' });
+S.startCount('Wed-2030-salmorejo-make-and-place');
+await sal.scrollIntoViewIfNeeded();
+await tap(sal.getByTestId('library-cook'));
+log('salmorejo-count', await S.text('[data-testid=cook-boxes]'));
+log('salmorejo-dialog', (await S.text('[data-testid=cook-dialog]')).replace(/\n+/g, ' | '));
+await shot('s5-1-salmorejo-dialog');
+await tap(page.getByTestId('cook-save'));
+await page.waitForTimeout(300);
+const sc = page.locator('[data-testid=batch-card]').filter({ hasText: 'Salmorejo' });
+await sc.scrollIntoViewIfNeeded();
+await tap(sc.locator('[data-testid=place-day][data-date="2026-10-21"]'));
+log('salmorejo-note', await sc.getByTestId('batch-note').innerText());
+log('Wed-2030-salmorejo-make-and-place', { ...S.stopCount() });
+log('salmorejo-slot-default', await sc.locator('[data-testid=place-slot] .is-on').innerText());
+// 2. fruit chaat x2 -> Thu, Fri Breakfast via day chips
+const fc = page.locator('[data-testid=library-row]', { hasText: 'Fruit chaat' });
+S.startCount('Wed-2115-fruit-chaat-x2-place-Thu-Fri');
+await fc.scrollIntoViewIfNeeded();
+await tap(fc.getByTestId('library-cook'));
+log('chaat-count', await S.text('[data-testid=cook-boxes]'));
+await shot('s5-2-chaat-dialog');
+log('chaat-dialog', (await S.text('[data-testid=cook-dialog]')).replace(/\n+/g, ' | '));
+await tap(page.getByTestId('cook-save'));
+await page.waitForTimeout(300);
+const cc = page.locator('[data-testid=batch-card]').filter({ hasText: 'Fruit chaat' });
+await cc.scrollIntoViewIfNeeded();
+log('chaat-slot-default', await cc.locator('[data-testid=place-slot] .is-on').innerText());
+log('chaat-fill-label', await cc.getByTestId('fill-mon-thu').innerText());
+await tap(cc.locator('[data-testid=place-day][data-date="2026-10-22"]'));
+await tap(cc.locator('[data-testid=place-day][data-date="2026-10-23"]'));
+log('Wed-2115-fruit-chaat-x2-place-Thu-Fri', { ...S.stopCount() });
+await shot('s5-3-chaat-card');
+log('chaat-card', await cc.innerText());
+await S.save('s5-wed-night');
+// Thursday morning: tick the no-cook breakfast, standing in kitchen at 08:00
+await S.open('2026-10-22T08:00:00+02:00');
+S.startCount('Thu-0800-chaat-tick');
+await tap(page.locator('[data-testid=entry]', { hasText: 'Fruit chaat' }).locator('.entry-status'));
+log('Thu-0800-chaat-tick', { ...S.stopCount() });
+await shot('s5-4-thu-breakfast');
+log('thu-top', (await page.evaluate(() => document.querySelector('#app').innerText)).split('\n').slice(0, 40).join(' / '));
+await S.save('s5-thu-morning');
+await S.finish('s5');

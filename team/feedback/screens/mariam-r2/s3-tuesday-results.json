@@ -1,0 +1,31 @@
+{
+ "actions": {
+  "Tue-2130-cook-salmon-x2-fill": {
+   "name": "Tue-2130-cook-salmon-x2-fill",
+   "taps": 4,
+   "types": 0,
+   "chars": 0,
+   "ms": 1425
+  }
+ },
+ "notes": {
+  "tue-0805-entries": [
+   "Queso fresco batido parfait with oats, chia, kiwi and walnuts (breakfast jar) | 1 jar · 348 g · 400 kcal | Jar 2",
+   "Lentil and brown-rice bowl with queso de Burgos and tomato salad (lunch box) | Planned | 1 box · 673 g · 606 kcal | Box 2 · last day",
+   "Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion) | Planned | estimate | 1 portion · 544 g · 588 kcal | Portion 2 · use by tomorrow"
+  ],
+  "tue-lunch-text": "Lentil and brown-rice bowl with queso de Burgos and tomato salad (lunch box)\nPlanned\n1 box · 673 g · 606 kcal\nBox 2 · last day",
+  "salmon-default-count": "2",
+  "salmon-dialog": "Make a batch: Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box)\n\n1 box: 654 kcal · 40 g protein · 51 g carbs · 30 g fat · 9.6 g fibre\n\n564 g per box\n\nHalal\nHow many boxes\n2\nCooked\nYesterday\nToday\nTomorrow\nFRIDGE OR FREEZER\n\nDoesn’t freeze well: keep every box in the fridge and eat within 2 days.\n\nBox 1\nFridge\nNo freezer\nBox 2\nFridge\nNo freezer\nMake 2 boxes",
+  "salmon-fill-note": "Placed 2 boxes in Lunch, 21–22 Oct.",
+  "Tue-2130-cook-salmon-x2-fill": {
+   "name": "Tue-2130-cook-salmon-x2-fill",
+   "taps": 4,
+   "types": 0,
+   "chars": 0,
+   "ms": 1425
+  },
+  "salmon-card": "Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box)\n\nCooked today · 2 boxes\n\n0\nof 2 left\n\nHalal\n1 box: 654 kcal · 40 g protein\nBox 1 · Lunch, tomorrow\n\nUse by Thu, 22 Oct\n\nFridge\nNo freezer\nBox 2 · Lunch, Thu 22\n\nUse by Thu, 22 Oct\n\nFridge\nNo freezer\nPut a box in\nBreakfast / café\nLunch\nMerienda\nDinner\nSnacks\nTue\n20\nWed\n21\nThu\n22\nFri\n23\nSat\n24\nSun\n25\nMon\n26\n\nPlaced 2 boxes in Lunch, 21–22 Oct.\n\nShopping list\nRemove batch"
+ },
+ "errors": []
+}

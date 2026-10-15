@@ -1,0 +1,48 @@
+{
+ "actions": {
+  "NC-filter-to-lunch-list": {
+   "name": "NC-filter-to-lunch-list",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 212
+  }
+ },
+ "notes": {
+  "filter-buttons": "All\nCook\nNo-cook (≤15 min)",
+  "NC-filter-to-lunch-list": {
+   "name": "NC-filter-to-lunch-list",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 212
+  },
+  "nocook-row-count": 15,
+  "nocook-rows": [
+   "Overnight oats with protein yogurt, chia and walnuts | 1 jar: 479 kcal · 29 g protein | 10 min, no cooking | Make",
+   "Queso fresco batido parfait with oats, chia, kiwi and walnuts | 1 jar: 400 kcal · 26 g protein | 10 min, no cooking | Make",
+   "Pa amb tomàquet with queso de Burgos, boiled eggs and an orange | 1 portion: 505 kcal · 29 g protein | 12 min, no cooking | Make",
+   "Fruit chaat with protein yogurt and almonds | 1 portion: 451 kcal · 31 g protein | 12 min, no cooking | Make",
+   "Lentil salad with tuna, feta and peppers (cold lunch box) | 1 box: 590 kcal · 46 g protein | 12 min, no cooking | Make | Check",
+   "Salmon and brown-rice bowl with avocado, cucumber and egg | 1 box: 654 kcal · 40 g protein | 12 min, no cooking | Make",
+   "Tuna and egg pita pockets with hummus and salad | 1 box: 734 kcal · 47 g protein | 12 min, no cooking | Make",
+   "Couscous with mackerel, chickpeas and peppers | 1 box: 723 kcal · 41 g protein | 10 min, no cooking | Make",
+   "Lentil and brown-rice bowl with queso de Burgos and tomato salad | 1 box: 606 kcal · 38 g protein | 10 min, no cooking | Make",
+   "Salmorejo with boiled eggs and tuna, picos and an orange | 1 portion: 620 kcal · 33 g protein | 8 min, no cooking | Make",
+   "Microwave chana masala with a basmati cup and raita | 1 portion: 641 kcal · 33 g protein | 15 min, no cooking | Make",
+   "Picoteo plate: hummus, queso de Burgos, boiled eggs, crudités and picos | 1 portion: 669 kcal · 39 g protein | 10 min, no cooking | Make",
+   "Protein hummus with veg sticks and picos (snack box) | 1 box: 274 kcal · 16 g protein | 8 min, no cooking | Make",
+   "Protein chia pudding with pomegranate (snack jar) | 1 jar: 223 kcal · 20 g protein | 8 min, no cooking | Make",
+   "Chana chaat with protein dahi (snack box) | 1 box: 258 kcal · 22 g protein | 10 min, no cooking | Make"
+  ],
+  "group-titles": [
+   "BREAKFAST / CAFÉ (4)",
+   "LUNCH (5)",
+   "DINNER (3)",
+   "SNACKS (3)"
+  ],
+  "pita-dialog": "Make a batch: Tuna and egg pita pockets with hummus and salad (lunch box) | 1 box: 734 kcal · 47 g protein · 72 g carbs · 26 g fat · 9.4 g fibre | 496 g per box | Halal | How many boxes | 2 | Cooked | Yesterday | Today | Tomorrow | FRIDGE OR FREEZER | Doesn’t freeze well: keep every box in the fridge and eat within 2 days. | Box 1 | Fridge | No freezer | Box 2 | Fridge | No freezer | Make 2 boxes",
+  "feta-dialog": "Make a batch: Lentil salad with tuna, feta and peppers (cold lunch box) | 1 box: 590 kcal · 46 g protein · 43 g carbs · 22 g fat · 18 g fibre | 671 g per box | Check | How many boxes | 2 | Cooked | Yesterday | Today | Tomorrow | FRIDGE OR FREEZER | Doesn’t freeze well: keep every box in the fridge and eat within 2 days. | Box 1 | Fridge | No freezer | Box 2 | Fridge | No freezer | Make 2 boxes"
+ },
+ "errors": []
+}

@@ -1,0 +1,41 @@
+// Tuesday 20 Oct: last-day note on the lunch box, then Tuesday night cook of the salmon bowls.
+import { start } from './lib.mjs';
+const S = await start({ stateFrom: 's2-mon-done' });
+const { page, tap, type, shot, log } = S;
+const tickEntry = async (frag) => { const l = page.locator('[data-testid=entry]', { hasText: frag }).locator('.entry-status'); await l.scrollIntoViewIfNeeded(); await tap(l); };
+const entryTexts = () => page.evaluate(() => [...document.querySelectorAll('[data-testid=entry]')].map(e => e.innerText.replace(/\n+/g, ' | ')));
+const row = (id) => page.locator(`[data-testid=library-row][data-food-id="${id}"]`);
+
+await S.open('2026-10-20T08:05:00+02:00');
+await tickEntry('parfait');
+log('tue-0805-entries', await entryTexts());
+await S.open('2026-10-20T13:25:00+02:00');
+const lunch = page.locator('[data-testid=entry]', { hasText: 'Lentil' });
+await lunch.scrollIntoViewIfNeeded();
+await shot('s3-tue-1-lunch-last-day');
+log('tue-lunch-text', await lunch.innerText());
+await tap(lunch.locator('.entry-status'));
+await S.open('2026-10-20T20:55:00+02:00');
+await tickEntry('Mandonguilles');
+// Tuesday night 21:30: cook the salmon bowls
+await S.open('2026-10-20T21:30:00+02:00');
+await tap(page.getByText('Prep', { exact: true }));
+S.startCount('Tue-2130-cook-salmon-x2-fill');
+await row('intl-salmon-brown-rice-bowl-box').scrollIntoViewIfNeeded();
+await shot('s3-tue-2-library-salmon');
+await tap(row('intl-salmon-brown-rice-bowl-box').getByTestId('library-cook'));
+log('salmon-default-count', await S.text('[data-testid=cook-boxes]'));
+log('salmon-dialog', await S.text('[data-testid=cook-dialog]'));
+await shot('s3-tue-3-cook-salmon');
+await tap(page.getByTestId('cook-save'));
+await page.waitForTimeout(300);
+const card = page.locator('[data-testid=batch-card]').filter({ hasText: 'Salmon' });
+await card.scrollIntoViewIfNeeded();
+await tap(card.getByTestId('place-slot').getByRole('button', { name: 'Lunch', exact: true }));
+await tap(card.getByTestId('fill-mon-thu'));
+log('salmon-fill-note', await card.getByTestId('batch-note').innerText());
+log('Tue-2130-cook-salmon-x2-fill', { ...S.stopCount() });
+await shot('s3-tue-4-salmon-card');
+log('salmon-card', await card.innerText());
+await S.save('s3-tue-done');
+await S.finish('s3-tuesday');

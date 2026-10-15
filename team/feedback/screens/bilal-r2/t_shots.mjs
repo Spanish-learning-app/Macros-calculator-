@@ -1,0 +1,17 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-11-01T18:00:00+01:00'}); const p = run.page;
+await L.onboardP1(run);
+await p.goto(L.URL+'#/prep'); await p.waitForSelector('[data-testid=prep-view]');
+await p.locator('[data-testid=library-row]').filter({hasText:/Chicken tikka rice bowl/}).getByTestId('library-cook').click();
+await p.waitForSelector('[data-testid=cook-dialog]'); await p.getByTestId('cook-save').click(); await p.waitForTimeout(500);
+const card = p.getByTestId('batch-card').first();
+await card.getByTestId('fill-mon-thu').click(); await p.waitForTimeout(300);
+await card.scrollIntoViewIfNeeded();
+await card.screenshot({path:L.OUT+'a17-card-filled.png'});
+const go = async (iso, route) => { await L.setTime(run, iso); await p.goto(L.URL+'#/'+route); await p.reload(); await p.waitForTimeout(500); };
+await go('2026-11-03T09:00:00+01:00','prep');
+await p.evaluate(()=>window.scrollTo(0,0)); await L.shot(run,'a18-tue-0900-prep-top');
+await p.getByTestId('batch-card').first().screenshot({path:L.OUT+'a18-tue-0900-card.png'});
+await go('2026-11-03T09:00:00+01:00','day'); await L.shot(run,'a18-tue-0900-day');
+await go('2026-11-02T12:00:00+01:00','day'); await L.shot(run,'a18-mon-1200-day');
+await run.browser.close();

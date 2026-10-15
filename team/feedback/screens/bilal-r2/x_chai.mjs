@@ -1,0 +1,11 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-18T13:00:00+02:00'}); const p = run.page;
+await L.onboardP1(run);
+await p.goto(L.URL+'#/prep'); await p.waitForSelector('[data-testid=prep-view]');
+L.start(run);
+await L.tap(run, p.getByTestId('chai-open')); await p.waitForSelector('[data-testid=chai-dialog]'); await p.waitForTimeout(400);
+await L.shot(run,'chai-01-dialog');
+console.log((await p.getByTestId('chai-dialog').innerText()));
+console.log('preview', await p.getByTestId('chai-preview').innerText());
+console.log(await p.getByTestId('chai-dialog').evaluate(d=>[...d.querySelectorAll('button,input,select')].map(b=>(b.getAttribute('aria-label')||b.innerText||b.type||'').slice(0,30)+(b.tagName==='INPUT'?':'+b.value:''))));
+await run.browser.close();

@@ -1,0 +1,46 @@
+{
+ "actions": {
+  "onboarding": {
+   "name": "onboarding",
+   "taps": 8,
+   "types": 3,
+   "chars": 7,
+   "ms": 3561
+  }
+ },
+ "notes": {
+  "targets": "Your daily targets\n\nEstimate\nEstimate means a good guess from your answers. You can change it.\n\nEnergy\n2050 kcal\nProtein\n96 g\nCarbs\n264 g\nFat\n68 g\nFibre\n29 g\n\nkcal means calories: the energy in food. Protein helps build and keep muscle.\n\nWhich seafood do you eat?\nAll seafood\nFish and prawns\nFish only\n\nAnything else is marked “check”. Depends on your school of thought. You can change this in Profile.\n\nStart logging\nChange my answers",
+  "onboarding-actions": {
+   "name": "onboarding",
+   "taps": 8,
+   "types": 3,
+   "chars": 7,
+   "ms": 3561
+  },
+  "settings": {
+   "slotPreset": "spain",
+   "slotLabels": {},
+   "halalOnly": true,
+   "seafood": "fish-only",
+   "dayStartMinutes": 240,
+   "onboarding": "done",
+   "units": {
+    "weight": "kg",
+    "height": "cm"
+   },
+   "weekStartsOn": 1,
+   "theme": "system",
+   "hideCalories": false
+  },
+  "slots": [
+   "Breakfast / café / Nothing yet",
+   "Lunch / Nothing yet",
+   "Merienda / Nothing yet",
+   "Dinner / Nothing yet",
+   "Snacks / Nothing yet"
+  ],
+  "day-title": "Today\nSun, 18 Oct",
+  "totals": "2050\nkcal left\n\n96 g\nprotein left"
+ },
+ "errors": []
+}

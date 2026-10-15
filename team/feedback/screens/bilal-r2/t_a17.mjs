@@ -1,0 +1,49 @@
+import * as L from './lib.mjs';
+const SUN='2026-11-01T20:00:00+01:00';
+const run = await L.launch({time:SUN}); const p = run.page;
+await L.onboardP1(run);
+await L.tap(run, p.getByRole('link',{name:'Prep'}));
+await p.waitForSelector('[data-testid=prep-view]');
+const row = p.locator('[data-testid=library-row]').filter({hasText:/Chicken tikka rice bowl/});
+await row.getByTestId('library-cook').click(); await p.waitForSelector('[data-testid=cook-dialog]');
+await p.getByTestId('cook-save').click(); await p.waitForTimeout(500);
+const card = p.getByTestId('batch-card').first();
+const days = card.getByTestId('place-day');
+console.log('day chips:', await days.evaluateAll(e=>e.map(x=>x.dataset.date+':'+x.innerText.replace(/\n/g,' '))));
+console.log('slot chips pressed:', await card.getByTestId('place-slot').locator('[aria-pressed=true]').innerText());
+// A17 step 1 by hand: 4 taps
+L.start(run);
+for (const d of ['2026-11-02','2026-11-03','2026-11-04','2026-11-05']) { await L.tap(run, card.locator(`[data-testid=place-day][data-date="${d}"]`)); await p.waitForTimeout(150); }
+console.log('A17 step 1 (4 day taps): actions', run.actions, 'secs', L.elapsed(run));
+console.log('boxes-left:', (await card.getByTestId('boxes-left').innerText()).replace(/\n/g,' '));
+await L.shot(run,'a17-01-placed-4',{fullPage:true});
+console.log((await card.innerText()).replace(/\n+/g,' | '));
+// step 2 fifth on Friday + undo
+L.start(run);
+await L.tap(run, card.locator('[data-testid=place-day][data-date="2026-11-06"]')); await p.waitForTimeout(300);
+console.log('friday: boxes-left', (await card.getByTestId('boxes-left').innerText()).replace(/\n/g,' '));
+console.log('batch note:', await card.getByTestId('batch-note').innerText({timeout:500}).catch(()=>'(none)'));
+await L.shot(run,'a17-02-fifth-friday');
+console.log('undo visible:', await p.getByTestId('undo').isVisible().catch(()=>false), '| toast:', (await p.locator('[role=status], .toast').allInnerTexts()).join(' / '));
+console.log('dialogs', run.dialogs);
+await L.tap(run, p.getByTestId('undo')); await p.waitForTimeout(300);
+console.log('A17 step 2 (friday + undo): actions', run.actions);
+console.log('after undo: boxes-left', (await card.getByTestId('boxes-left').innerText()).replace(/\n/g,' '));
+console.log('batch note after undo:', await card.getByTestId('batch-note').innerText({timeout:500}).catch(()=>'(none)'));
+// step 3: Monday 14:00 tick
+await L.setTime(run,'2026-11-02T14:00:00+01:00'); await p.goto(L.URL+'#/day'); await p.reload(); await p.waitForSelector('[data-testid=kcal-left]');
+await L.shot(run,'a17-03-monday-1400',{fullPage:true});
+console.log('MON entries:', await L.entries(run));
+console.log('Mon totals:', (await L.totals(run)).all);
+const e = p.locator('[data-testid=entry]').first();
+console.log('entry html controls:', await e.evaluate(x=>[...x.querySelectorAll('button,input')].map(b=>(b.getAttribute('aria-label')||b.innerText||b.type))));
+L.start(run);
+const tick = e.getByRole('checkbox').or(e.getByRole('button',{name:/eaten|tick|done/i})).first();
+await L.tap(run, tick); await p.waitForTimeout(300);
+console.log('A17 step 3 tick: actions', run.actions);
+console.log('after tick:', await L.entries(run), (await L.totals(run)).all);
+await L.shot(run,'a17-04-ticked');
+await L.tap(run, p.getByRole('link',{name:'Prep'})); await p.waitForTimeout(400);
+console.log('batch after tick:', (await p.getByTestId('batch-card').first().innerText()).replace(/\n+/g,' | ').slice(0,500));
+console.log('errors',run.errors,run.foreign);
+await run.browser.close();

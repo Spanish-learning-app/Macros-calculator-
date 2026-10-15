@@ -1,0 +1,156 @@
+{
+ "actions": {
+  "Mon-0810-parfait-tick": {
+   "name": "Mon-0810-parfait-tick",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 217
+  },
+  "Mon-0815-cafe-con-leche": {
+   "name": "Mon-0815-cafe-con-leche",
+   "taps": 3,
+   "types": 1,
+   "chars": 13,
+   "ms": 1446
+  },
+  "Mon-1330-lunch-tick": {
+   "name": "Mon-1330-lunch-tick",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 206
+  },
+  "Mon-1730-merienda-ready": {
+   "name": "Mon-1730-merienda-ready",
+   "taps": 6,
+   "types": 3,
+   "chars": 31,
+   "ms": 3000
+  },
+  "Mon-2100-dinner-tick": {
+   "name": "Mon-2100-dinner-tick",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 241
+  },
+  "Mon-2230-snack-picos-pear": {
+   "name": "Mon-2230-snack-picos-pear",
+   "taps": 4,
+   "types": 2,
+   "chars": 9,
+   "ms": 1765
+  }
+ },
+ "notes": {
+  "Mon-0810-parfait-tick": {
+   "name": "Mon-0810-parfait-tick",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 217
+  },
+  "sheet-title-0815": "Add to Breakfast / café",
+  "cafe-rank": 1,
+  "Mon-0815-cafe-con-leche": {
+   "name": "Mon-0815-cafe-con-leche",
+   "taps": 3,
+   "types": 1,
+   "chars": 13,
+   "ms": 1446
+  },
+  "lunch-tick-position-on-open-1330": {
+   "y": 863,
+   "h": 44,
+   "inViewport": false
+  },
+  "Mon-1330-lunch-tick": {
+   "name": "Mon-1330-lunch-tick",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 206
+  },
+  "lunch-use-note": "Lentil and brown-rice bowl with queso de Burgos and tomato salad (lunch box)\n1 box · 673 g · 606 kcal\nBox 1",
+  "sheet-title-1730": "Add to Merienda",
+  "Mon-1730-merienda-ready": {
+   "name": "Mon-1730-merienda-ready",
+   "taps": 6,
+   "types": 3,
+   "chars": 31,
+   "ms": 3000
+  },
+  "merienda-entries": [
+   {
+    "slot": "Merienda",
+    "sub": "276 kcal · 26 g protein",
+    "items": [
+     "Protein yogurt, plain 0 % (Mercadona +Pr | 1 portion · 120 g · 62 kcal | eaten",
+     "Protein yogurt, plain 0 % (Mercadona +Pr | 1 portion · 120 g · 62 kcal | eaten",
+     "Kinnow (mandarin) | 1 medium kinnow · 88 g · 47 kcal | eaten",
+     "Banana | 1 medium banana · 118 g · 105 kcal | eaten"
+    ]
+   }
+  ],
+  "Mon-2100-dinner-tick": {
+   "name": "Mon-2100-dinner-tick",
+   "taps": 1,
+   "types": 0,
+   "chars": 0,
+   "ms": 241
+  },
+  "sheet-title-2230": "Add to Dinner",
+  "Mon-2230-snack-picos-pear": {
+   "name": "Mon-2230-snack-picos-pear",
+   "taps": 4,
+   "types": 2,
+   "chars": 9,
+   "ms": 1765
+  },
+  "end-of-day-totals": "130 / kcal over / +45 g / above target ✓",
+  "end-of-day-entries": [
+   {
+    "slot": "Breakfast / café",
+    "sub": "495 kcal · 31 g protein",
+    "items": [
+     "Queso fresco batido parfait with oats, c | 1 jar · 348 g · 400 kcal | eaten",
+     "Café con leche (coffee with milk) | 1 cup · 250 g · 95 kcal | eaten"
+    ]
+   },
+   {
+    "slot": "Lunch",
+    "sub": "606 kcal · 38 g protein",
+    "items": [
+     "Lentil and brown-rice bowl with queso de | 1 box · 673 g · 606 kcal | eaten"
+    ]
+   },
+   {
+    "slot": "Merienda",
+    "sub": "276 kcal · 26 g protein",
+    "items": [
+     "Protein yogurt, plain 0 % (Mercadona +Pr | 1 portion · 120 g · 62 kcal | eaten",
+     "Protein yogurt, plain 0 % (Mercadona +Pr | 1 portion · 120 g · 62 kcal | eaten",
+     "Kinnow (mandarin) | 1 medium kinnow · 88 g · 47 kcal | eaten",
+     "Banana | 1 medium banana · 118 g · 105 kcal | eaten"
+    ]
+   },
+   {
+    "slot": "Dinner",
+    "sub": "803 kcal · 46 g protein",
+    "items": [
+     "Mandonguilles amb pèsols: halal beef mea | 1 portion · 544 g · 588 kcal | eaten",
+     "Picos integrales (wholemeal breadsticks) | 30 g · 30 g · 114 kcal | eaten",
+     "Pear | 1 medium pear · 178 g · 101 kcal | eaten"
+    ]
+   },
+   {
+    "slot": "Snacks",
+    "sub": "Nothing yet",
+    "items": []
+   }
+  ],
+  "top-text": "Katori / Today / Mon, 19 Oct /  / 130 / kcal over /  / +45 g / above target ✓ /  / Eaten so far: 2180 of 2050 kcal · 141 of 96 g protein /  / CARBS / 245 / 264 g / FAT / 62 / 68 g / FIBRE / 52 / 29 g /  / Estimate / Estimate means a good guess from your answers. You can change it. / Change"
+ },
+ "errors": []
+}

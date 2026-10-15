@@ -1,0 +1,56 @@
+{
+ "actions": {
+  "S2-fill-lunch-2boxes": {
+   "name": "S2-fill-lunch-2boxes",
+   "taps": 2,
+   "types": 0,
+   "chars": 0,
+   "ms": 705
+  },
+  "S2-fill-breakfast-3jars": {
+   "name": "S2-fill-breakfast-3jars",
+   "taps": 2,
+   "types": 0,
+   "chars": 0,
+   "ms": 375
+  },
+  "S2-meatballs-Mon-Tue-Thu": {
+   "name": "S2-meatballs-Mon-Tue-Thu",
+   "taps": 3,
+   "types": 0,
+   "chars": 0,
+   "ms": 625
+  }
+ },
+ "notes": {
+  "lentil-fill-note": "Placed 2 boxes in Lunch, 19–20 Oct.",
+  "S2-fill-lunch-2boxes": {
+   "name": "S2-fill-lunch-2boxes",
+   "taps": 2,
+   "types": 0,
+   "chars": 0,
+   "ms": 705
+  },
+  "lentil-card": "Lentil and brown-rice bowl with queso de Burgos and tomato salad (lunch box)\n\nCooked today · 2 boxes\n\n0\nof 2 left\n\nHalal\n1 box: 606 kcal · 38 g protein\nBox 1 · Lunch, tomorrow\n\nUse by Tue, 20 Oct\n\nFridge\nNo freezer\nBox 2 · Lunch, Tue 20\n\nUse by Tue, 20 Oct\n\nFridge\nNo freezer\nPut a box in\nBreakfast / café\nLunch\nMerienda\nDinner\nSnacks\nSun\n18\nMon\n19\nTue\n20\nWed\n21\nThu\n22\nFri\n23\nSat\n24\n\nPlaced 2 boxes in Lunch, 19–20 Oct.\n\nShopping list\nRemove batch",
+  "parfait-fill-note": "Placed 3 jars in Breakfast / café, 19–21 Oct.",
+  "S2-fill-breakfast-3jars": {
+   "name": "S2-fill-breakfast-3jars",
+   "taps": 2,
+   "types": 0,
+   "chars": 0,
+   "ms": 375
+  },
+  "meatballs-note-2026-10-19": "Added a portion to Dinner, tomorrow.",
+  "meatballs-note-2026-10-20": "Added a portion to Dinner, Tue, 20 Oct.",
+  "meatballs-note-2026-10-22": "Added a portion to Dinner, Thu, 22 Oct.",
+  "S2-meatballs": {
+   "name": "S2-meatballs-Mon-Tue-Thu",
+   "taps": 3,
+   "types": 0,
+   "chars": 0,
+   "ms": 625
+  },
+  "meatballs-card": "Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion)\n\nCooked today · 4 portions\n\n1\nof 4 left\n\nHalal\n1 portion: 588 kcal · 41 g protein\nPortion 1 · Dinner, tomorrow\n\nUse by Wed, 21 Oct\n\nFridge\nFreezer\nPortion 2 · Dinner, Tue 20\n\nUse by Wed, 21 Oct\n\nFridge\nFreezer\nPortion 3 · Not placed yet\n\nUse by Wed, 21 Oct\n\nFridge\nFreezer\nPortion 4 · Dinner, Thu 22\n\nFrozen, no use-by yet\n\nFridge\nFreezer\nPut a portion in\nBreakfast / café\nLunch\nMerienda\nDinner\nSnacks\nSun\n18\nMon\n19\nTue\n20\nWed\n21\nThu\n22\nFri\n23\nSat\n24\nFill Mon–Thu · 21 Oct\n\nAdded a portion to Dinner, Thu, 22 Oct.\n\nShopping list\nRemove batch"
+ },
+ "errors": []
+}

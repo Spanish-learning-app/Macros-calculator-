@@ -1,0 +1,23 @@
+import { open, shot, fullshot, txt, onboard, tab } from './lib2.mjs';
+const S = await open('2026-10-15T17:00:00+02:00'); const {page}=S;
+let n=0; const A=(m)=>{n++; console.log('action',n,m)};
+await onboard(page);
+// first try: where do I find chai? go to Day, look at slot names
+await shot(page,'30-day-5pm');
+await tab(page,'Prep'); A('Prep tab');
+await page.getByRole('button',{name:'Set my chai'}).click(); A('Set my chai'); await page.waitForTimeout(500);
+await shot(page,'31-chai-dialog');
+console.log(await page.locator('dialog[open]').last().innerText());
+const d=page.locator('dialog[open]').last();
+const pick=async(t)=>{ await d.locator('label,button').filter({hasText:t}).first().click(); A('tap '+t); await page.waitForTimeout(150); };
+await pick('Buffalo'); await d.locator('label').filter({hasText:/^2$/}).first().click(); A('tap 2 tsp'); await d.locator('label').filter({hasText:/^Cup\s*200/}).first().click(); A('tap Cup 200ml');
+await shot(page,'32-chai-dialog-filled');
+console.log((await d.innerText()).split('Cup').pop());
+await d.getByRole('button',{name:'Save my chai'}).click(); A('Save my chai'); await page.waitForTimeout(600);
+await shot(page,'33-after-save-chai');
+console.log((await txt(page)).split('Saved meals')[0].slice(0,900));
+await tab(page,'Day'); A('Day tab'); await shot(page,'34-day-after-chai');
+await page.locator('[data-testid=slot-merienda] .btn-add').click(); A('Add on Merienda'); await page.waitForTimeout(500);
+await shot(page,'35-add-sheet-merienda');
+console.log('=====ADD SHEET\n'+(await page.locator('dialog[open]').last().innerText()).slice(0,1200));
+await S.browser.close();
