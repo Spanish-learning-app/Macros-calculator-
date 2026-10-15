@@ -177,7 +177,8 @@ function tierOf(name, q, qWords) {
 function singularTierOf(name, alt) {
   if (!alt) return null;
   if (name.norm === alt.q) return 'exact';
-  if (`${name.norm} `.startsWith(`${alt.q} `)) return 'prefix';
+  const n = name.norm;
+  if (n.startsWith(alt.q) && n.charCodeAt(alt.q.length) === 32) return 'prefix'; // no allocation
   const ok = alt.words.every((w, i) =>
     w === alt.from[i] ? name.words.some((n) => n.startsWith(w)) : name.words.includes(w),
   );
@@ -189,7 +190,7 @@ function bestMatch(entry, q, qWords, allowFuzzy, alt = null) {
   let best = null;
   for (const name of entry.names) {
     let tier = tierOf(name, q, qWords);
-    const plural = singularTierOf(name, alt);
+    const plural = tier === 'exact' ? null : singularTierOf(name, alt);
     if (plural && (!tier || TIERS[plural] > TIERS[tier])) tier = plural;
     if (tier === 'fuzzy' && !allowFuzzy) continue;
     if (!tier) continue;
