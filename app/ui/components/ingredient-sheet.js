@@ -285,9 +285,7 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
     }
     const found = store.search(q, { limit: 30 });
     const all = [...found.hits.map((x) => x.food), ...found.hidden.map((x) => x.food)];
-    const ok = rankIngredients(
-      all.filter((f) => !f.userRecipe && f.halal?.status !== 'not-halal'),
-    );
+    const ok = rankIngredients(all.filter((f) => !f.userRecipe && f.halal?.status !== 'not-halal'));
     const blocked = all.filter((f) => f.halal?.status === 'not-halal');
     const note = searchNoteText(q, {
       hits: ok.length,

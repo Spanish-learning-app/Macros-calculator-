@@ -21,7 +21,7 @@ for (const scheme of ['light', 'dark']) {
   p.on('pageerror', (e) => errs.push(String(e)));
   p.on('console', (m) => m.type() === 'error' && errs.push('console: ' + m.text()));
   const s = (n, o = {}) => p.screenshot({ path: `${OUT}${TAG}-${scheme}-${n}.png`, ...o });
-  const step = async (label, fn) => { try { await fn(); } catch (e) { errs.push(`${label}: ${e.message.split('\n')[0]}`); } };
+  const step = async (label, fn) => { try { await fn(); } catch (e) { await p.screenshot({ path: `${OUT}fail-${TAG}-${scheme}-${label}.png` }).catch(() => {}); errs.push(`${label}: ${e.message.split('\n').slice(0,12).join(' / ')}`); } };
 
   // Welcome (fresh)
   await p.clock.install({ time: at('2026-11-01', '19:00') });

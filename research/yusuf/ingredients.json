@@ -1370,5 +1370,22 @@
   "sugars": null,
   "satFat": 1.658,
   "sodiumMg": 62.33
+ },
+ "sardines": {
+  "label": "Sardinas en aceite de oliva Hacendado (2 × 84 g drained)",
+  "src": "db",
+  "code": "intl-sardines-olive-oil",
+  "citation": "Lab record intl-sardines-olive-oil (Label: Mercadona Sardinas en aceite de oliva Hacendado, pack of 2 × 117 g (84 g drained), read 2026-10-14; label, confidence B, javier 2026-10-14)",
+  "kcal": 289,
+  "protein": 20,
+  "carbs": 0.7,
+  "fat": 23,
+  "fiber": 0,
+  "sugars": 0.5,
+  "satFat": 4.2,
+  "sodiumMg": 312,
+  "halal": {
+   "status": "halal"
+  }
  }
 }

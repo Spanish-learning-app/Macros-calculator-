@@ -165,18 +165,25 @@ export function foodFromRecipe(recipe, foodIndex, rules) {
       { id: 'cup', label: `1 cup (${Math.round(boxGrams)} ml)`, grams: boxGrams, default: true },
     ];
   } else {
+    // A family pot counted in katori (Review 2): logging opens on a katori, not the whole pot.
+    const pot = Number.isFinite(recipe.potKatori) && recipe.potKatori > 0;
     servings = [
       {
         id: 'box',
-        label: boxes === 1 ? '1 whole recipe' : '1 box',
+        label: boxes > 1 ? '1 box' : pot ? '1 whole pot' : '1 whole recipe',
         grams: boxGrams,
-        default: true,
+        ...(pot ? {} : { default: true }),
       },
     ];
     if (boxes > 1) servings.push({ id: 'pot', label: '1 whole pot', grams: totals.cookedGrams });
     for (const k of KATORIS) {
       const ml = rules?.householdMeasures?.find((m) => m.id === k.id)?.ml ?? k.ml;
-      servings.push({ id: k.id, label: `1 ${k.label} (about ${ml} g)`, grams: ml });
+      servings.push({
+        id: k.id,
+        label: `1 ${k.label} (about ${ml} g)`,
+        grams: ml,
+        ...(pot && k.id === 'katori' ? { default: true } : {}),
+      });
     }
   }
 
@@ -487,4 +494,134 @@ export function shoppingList(plans, foodIndex, rules = null) {
 /** "1 medium potato" → "medium potato"; "1 teaspoon" → "teaspoon". */
 function countLabel(serving) {
   return String(serving.label).replace(/^1\s+/, '');
+}
+
+// ------------------------------------------------------------------ shopping as you buy (Review 2)
+
+export const CUPBOARD_SECTION = Object.freeze({ id: 'cupboard', label: 'Check you have' });
+/** Servings that are things you count at the shop ("10 large eggs", "3 medium potatoes"). */
+const COUNT_SERVINGS = new Set([
+  'large',
+  'medium',
+  'small',
+  'egg',
+  'fruit',
+  'piece',
+  'clove',
+  'lemon',
+  'avocado',
+  'bunch',
+  'whole',
+]);
+const COUNT_BY_ID = new Set(['lemon', 'avocado', 'egg', 'clove']); // label is "Juice of 1 lemon"
+const COUNT_GROUPS = new Set(['egg', 'fruit', 'vegetable', 'condiment']);
+const STAPLE_GROUPS = new Set(['condiment', 'fat-oil', 'dry-staple', 'sugar-sweetener']);
+const STAPLE_WORDS =
+  /\b(salt|namak|black pepper|paprika|pimenton|cumin|zeera|jeera|turmeric|haldi|masala|cinnamon|cardamom|cloves|bay lea(f|ves)|oregano|thyme|rosemary|ras el hanout|chill?i powder|coriander seeds?|spices?|saffron|nutmeg|mustard seeds?|fennel seeds?|ajwain|kalonji|stock cube)\b/i;
+
+/** Spices, salt, oil and ghee: what most kitchens have (not butter, which is bought fresh). */
+function isStaple(name, food) {
+  if (food?.group === 'fat-oil') return !/butter|mantequilla/i.test(food.name ?? '');
+  if (food && !STAPLE_GROUPS.has(food.group)) return false;
+  return STAPLE_WORDS.test(name);
+}
+
+/** "medium potato" → "medium potatoes"; "clove of garlic" → "cloves of garlic". */
+export function pluralLabel(label) {
+  const head = String(label).split(' (')[0].trim();
+  const words = head.split(' ');
+  let i = words.indexOf('of') > 0 ? words.indexOf('of') - 1 : words.length - 1;
+  if (i < 0) i = 0;
+  const w = words[i];
+  if (/(s|x|ch|sh)$/i.test(w)) words[i] = `${w}es`;
+  else if (/[^aeiou]y$/i.test(w)) words[i] = `${w.slice(0, -1)}ies`;
+  else if (/[^aeiou]o$/i.test(w)) words[i] = `${w}es`;
+  else words[i] = `${w}s`;
+  return words.join(' ');
+}
+
+function countServingOf(food) {
+  if (!food || !COUNT_GROUPS.has(food.group)) return null;
+  const servings = (food.servings ?? []).filter((s) => COUNT_SERVINGS.has(s.id) && s.grams > 0);
+  return servings.find((s) => s.default) ?? servings.find((s) => s.id === 'medium') ?? servings[0];
+}
+
+/**
+ * How to buy `grams` of a food (Review 2, Mariam #1): whole packs when the food has
+ * `pack: { grams, label }` ("2 × 400 g jar"; with `uses`, the count it uses when the food is
+ * countable: "1 × 12 eggs, uses 7 large eggs"), else a whole count of a countable serving
+ * ("10 large eggs"), else grams.
+ * @param {object|undefined} food @param {number} grams
+ * @returns {{ kind: 'pack', packs: number, label: string, grams: number,
+ *     uses: { qty: number, label: string }|null }
+ *   | { kind: 'count', qty: number, label: string, grams: number }
+ *   | { kind: 'grams', grams: number }}
+ */
+export function buyAmount(food, grams) {
+  const serving = countServingOf(food);
+  let count = null;
+  const label = String(serving?.label ?? '');
+  // "1 medium onion" → "medium onion"; "Juice of 1 lemon" (id 'lemon') → "lemon"; else no count.
+  const one = /^1\s/.test(label)
+    ? label.replace(/^1\s+/, '')
+    : COUNT_BY_ID.has(serving?.id)
+      ? serving.id
+      : null;
+  if (serving && one) {
+    const n = Math.max(1, Math.ceil(grams / serving.grams - 0.05)); // 3.02 potatoes is 3, 3.4 is 4
+    count = { qty: n, label: n === 1 ? one : pluralLabel(one) };
+  }
+  const pack = food?.pack;
+  if (pack && Number.isFinite(pack.grams) && pack.grams > 0 && typeof pack.label === 'string') {
+    return {
+      kind: 'pack',
+      packs: Math.max(1, Math.ceil(grams / pack.grams - 1e-9)),
+      label: pack.label,
+      grams,
+      uses: count,
+    };
+  }
+  return count ? { kind: 'count', ...count, grams } : { kind: 'grams', grams };
+}
+
+/**
+ * A shopping list (from `shoppingList`) as you buy it: spices, salt, oil and ghee move to a last
+ * "Check you have" section (`cupboard`), and each item gets `buy` (see buyAmount). Items keep
+ * key, foodId, name, grams and count. Empty sections are left out.
+ * @param {{ sections: object[] }} list @param {Map<string, object>} foodIndex
+ * @param {object|null} [rules]
+ * @returns {{ sections: { id: string, label: string, items: object[] }[] }}
+ */
+export function shoppingForShop(list, foodIndex, rules = null) {
+  if (!isObject(list) || !Array.isArray(list.sections)) {
+    throw new TypeError('list must come from shoppingList');
+  }
+  checkIndex(foodIndex);
+  const order = [...sectionLabels(rules), CUPBOARD_SECTION];
+  const items = [];
+  for (const section of list.sections) {
+    for (const item of section.items ?? []) {
+      const food = item.foodId ? foodIndex.get(item.foodId) : undefined;
+      const staple = section.id !== 'butcher' && isStaple(item.name, food);
+      items.push({ ...item, section: staple ? CUPBOARD_SECTION.id : section.id });
+    }
+  }
+  const ids = [...new Set([...order.map((s) => s.id), ...items.map((i) => i.section)])];
+  const sections = [];
+  for (const id of ids) {
+    const inSection = items.filter((i) => i.section === id);
+    if (!inSection.length) continue;
+    sections.push({
+      id,
+      label:
+        order.find((s) => s.id === id)?.label ??
+        list.sections.find((s) => s.id === id)?.label ??
+        id,
+      items: inSection.map(({ section: _section, ...rest }) => ({
+        ...rest,
+        buy: buyAmount(rest.foodId ? foodIndex.get(rest.foodId) : undefined, rest.grams),
+      })),
+    });
+  }
+  return { sections };
 }

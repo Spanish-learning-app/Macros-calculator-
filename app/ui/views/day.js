@@ -3,7 +3,7 @@
 // rows (toggle, edit, move to another day, delete with Undo), day navigation, copy yesterday /
 // another day (A5 b) and copy a slot (A12). The add sheet opens on the `add` route.
 import { h, mountChildren, setText } from '../dom.js';
-import { iconEl } from '../components/icons.js';
+import { iconEl, katoriMark } from '../components/icons.js';
 import { createTotalsBar } from '../components/totals-bar.js';
 import { renderSlotSection } from '../components/slot-section.js';
 import { createAddSheet } from '../components/add-sheet.js';
@@ -64,31 +64,59 @@ export function mount(container, ctx) {
   const totals = createTotalsBar({ store, router, rules });
   const slotsBox = h('div', { class: 'slots' });
   const prepBox = h('div', { class: 'day-prep' });
+  const copyYesterdayBtn = h(
+    'button',
+    {
+      type: 'button',
+      class: 'btn btn-secondary',
+      'data-testid': 'copy-yesterday',
+      onclick: copyYesterday,
+    },
+    iconEl('copy', 18),
+    h('span', null, 'Copy yesterday'),
+  );
+  const copyDayBtn = h(
+    'button',
+    {
+      type: 'button',
+      class: 'btn btn-secondary',
+      'data-testid': 'copy-day',
+      'aria-haspopup': 'dialog',
+      onclick: copyAnotherDay,
+    },
+    iconEl('calendar', 18),
+    h('span', null, 'Copy a day…'),
+  );
   const tools = h(
     'section',
     { class: 'day-tools', 'aria-label': 'Copy food into this day' },
+    copyYesterdayBtn,
+    copyDayBtn,
+  );
+  // One friendly card on an empty day (Meeting 004 B8). The copy buttons move into it, so each
+  // test id exists once; the five slots go compact under it.
+  const emptyTools = h('div', { class: 'empty-day-tools' });
+  const emptyCard = h(
+    'section',
+    { class: 'card empty-day', 'data-testid': 'empty-day', 'aria-labelledby': 'empty-day-title' },
+    katoriMark(48),
     h(
-      'button',
-      {
-        type: 'button',
-        class: 'btn btn-secondary',
-        'data-testid': 'copy-yesterday',
-        onclick: copyYesterday,
-      },
-      iconEl('copy', 18),
-      h('span', null, 'Copy yesterday'),
+      'div',
+      { class: 'empty-day-text' },
+      h('h3', { class: 'empty-day-title', id: 'empty-day-title' }, 'Nothing logged yet'),
+      h('p', { class: 'muted' }, 'Copy a day you ate the same, or search for a food.'),
     ),
+    emptyTools,
     h(
       'button',
       {
         type: 'button',
-        class: 'btn btn-secondary',
-        'data-testid': 'copy-day',
-        'aria-haspopup': 'dialog',
-        onclick: copyAnotherDay,
+        class: 'btn btn-quiet empty-day-search',
+        'data-testid': 'empty-search',
+        onclick: () => openAdd(store.defaultSlot()),
       },
-      iconEl('calendar', 18),
-      h('span', null, 'Copy a day…'),
+      iconEl('search', 18),
+      h('span', null, 'Search foods'),
     ),
   );
   const fab = h(
@@ -121,7 +149,7 @@ export function mount(container, ctx) {
         tools,
         h('div', { class: 'fab-bar' }, fab),
       ),
-      h('div', { class: 'day-main' }, prepBox, slotsBox),
+      h('div', { class: 'day-main' }, prepBox, emptyCard, slotsBox),
     ),
     toast.el,
   );
@@ -494,6 +522,15 @@ export function mount(container, ctx) {
 
     const focusKey = document.activeElement?.dataset?.focusKey ?? null;
     const day = store.day(date);
+    const empty = day.entries.length === 0;
+    emptyCard.hidden = !empty;
+    tools.hidden = empty;
+    if (empty && copyYesterdayBtn.parentNode !== emptyTools) {
+      emptyTools.append(copyYesterdayBtn, copyDayBtn);
+    } else if (!empty && copyYesterdayBtn.parentNode !== tools) {
+      tools.append(copyYesterdayBtn, copyDayBtn);
+    }
+    slotsBox.classList.toggle('slots--compact', empty);
     const bySlot = store.totals(date).all.bySlot;
     const hideKcal = Boolean(store.settings().hideCalories);
     mountChildren(
@@ -536,14 +573,24 @@ export function mount(container, ctx) {
               'data-testid': 'move-tonight',
               'aria-label': 'Meal prep tonight',
             },
-            move.map((m) =>
-              h(
+            // One line (Meeting 004 B2): the short sentence shows; the dish name is read out and
+            // shown on hover, as the full sentence.
+            move.map((m) => {
+              const meal = m.slot ? `’s ${store.slotLabel(m.slot).toLowerCase()}` : '';
+              const full = `Tonight: take box ${m.number} of ${m.name} out of the freezer for tomorrow${meal}.`;
+              return h(
                 'div',
                 { class: 'tonight-row' },
                 h(
                   'p',
-                  null,
-                  `Tonight: take box ${m.number} of ${m.name} out of the freezer for tomorrow${m.slot ? `’s ${store.slotLabel(m.slot).toLowerCase()}` : ''}.`,
+                  { class: 'tonight-text', title: full },
+                  h(
+                    'span',
+                    { 'aria-hidden': 'true' },
+                    h('strong', null, 'Tonight:'),
+                    ` box ${m.number} out of the freezer, for tomorrow${meal}`,
+                  ),
+                  h('span', { class: 'sr-only' }, full),
                 ),
                 h(
                   'button',
@@ -555,19 +602,118 @@ export function mount(container, ctx) {
                   },
                   'Move to fridge',
                 ),
-              ),
-            ),
+              );
+            }),
           )
         : null,
     );
   }
 
-  const unsubscribe = store.subscribe(() => render());
+  // ------------------------------------------------------------------ open at the current meal
+
+  // Mariam #2 (Meeting 004): today's page opens with the meal you are in on screen, unless you
+  // have scrolled since it opened. Nothing moves when that meal is already in view.
+  let scrollPending = true;
+  let userScrolled = false;
+  const SCROLL_KEYS = new Set(['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ']);
+  const onWheel = () => {
+    userScrolled = true;
+  };
+  const onKey = (event) => {
+    if (SCROLL_KEYS.has(event.key)) userScrolled = true;
+  };
+  window.addEventListener('wheel', onWheel, { passive: true });
+  window.addEventListener('touchmove', onWheel, { passive: true });
+  window.addEventListener('keydown', onKey);
+
+  function scrollToCurrentMeal() {
+    if (!scrollPending) return;
+    scrollPending = false;
+    if (date !== store.today()) return;
+    requestAnimationFrame(() => {
+      if (userScrolled || !root.isConnected || sheet) return;
+      const section = slotsBox.querySelector(`[data-testid="slot-${store.defaultSlot()}"]`);
+      if (!section) return;
+      // What covers the page: the sticky totals (phones) or the sticky tab bar (wide), and the
+      // docked add bar plus the tab bar at the bottom (phones).
+      const phone = getComputedStyle(totals.el).position === 'sticky';
+      const top = phone
+        ? totals.el.getBoundingClientRect().height
+        : (document.querySelector('.shell-nav')?.getBoundingClientRect().height ?? 0);
+      const fabBar = root.querySelector('.fab-bar');
+      const bottom =
+        fabBar && getComputedStyle(fabBar).position === 'fixed'
+          ? fabBar.getBoundingClientRect().top
+          : window.innerHeight;
+      const r = section.getBoundingClientRect();
+      const need = Math.min(r.bottom, r.top + 150); // the heading and the first food
+      if (r.top >= top && need <= bottom) return;
+      window.scrollTo({ top: Math.max(0, window.scrollY + r.top - top - 8), behavior: 'instant' });
+    });
+  }
+
+  // ------------------------------------------------------------------ "Added" in the add sheet
+
+  // Meeting 004 B6 and Nasreen #4: every add from the sheet ticks its row and says "Added", and the
+  // sheet's status line lights up (it already names the food for screen readers). The marks are
+  // aria-hidden and timed; under prefers-reduced-motion they appear without animation.
+  let known = { date: null, ids: new Set() };
+  function noticeAdds() {
+    const ids = new Set(store.day(date).entries.map((e) => e.id));
+    const fresh =
+      known.date === date ? store.day(date).entries.filter((e) => !known.ids.has(e.id)) : [];
+    known = { date, ids };
+    if (!sheet || !fresh.length) return;
+    // After the sheet's own re-render of its rows (the prep rows redraw on add).
+    setTimeout(() => markAdded(fresh), 0);
+  }
+
+  function flash(node, cls, ms) {
+    node.classList.remove(cls);
+    void node.offsetWidth; // restart the animation on a second add
+    node.classList.add(cls);
+    const token = String(Date.now() + Math.random());
+    node.dataset.flash = token;
+    setTimeout(() => {
+      if (node.dataset.flash === token) node.classList.remove(cls);
+    }, ms);
+  }
+
+  function markAdded(entries) {
+    const sheetEl = document.querySelector('[data-testid="add-sheet"]');
+    if (!sheetEl) return;
+    for (const entry of entries) {
+      const selector = entry.boxRef?.batchId
+        ? `.food-row[data-id="${CSS.escape(entry.boxRef.batchId)}"]`
+        : entry.foodId
+          ? `[data-testid="food-row"][data-food-id="${CSS.escape(entry.foodId)}"]`
+          : null;
+      if (!selector) continue;
+      for (const row of sheetEl.querySelectorAll(selector)) {
+        const main = row.querySelector('.food-main');
+        if (main && !main.querySelector('.added-flag')) {
+          main.append(
+            h('span', { class: 'added-flag', 'aria-hidden': 'true' }, iconEl('check', 16), 'Added'),
+          );
+        }
+        flash(row, 'is-just-added', 1800);
+      }
+    }
+    const status = sheetEl.querySelector('.sheet-status');
+    if (status) flash(status, 'is-fresh', 1800);
+  }
+
+  const unsubscribe = store.subscribe(() => {
+    render();
+    noticeAdds();
+  });
 
   return {
     update(route) {
       date = route.params?.date ?? store.today();
       render();
+      noticeAdds();
+      if (route.name === 'day') scrollToCurrentMeal();
       if (route.name === 'add') {
         const slot = route.params.slot;
         if (sheet) {
@@ -592,6 +738,9 @@ export function mount(container, ctx) {
     },
     unmount() {
       unsubscribe();
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchmove', onWheel);
+      window.removeEventListener('keydown', onKey);
       sheet?.destroy();
       sheet = null;
       toast.destroy();

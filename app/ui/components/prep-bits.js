@@ -13,6 +13,14 @@ export function macroLine(n, { hideKcal = false } = {}) {
   return parts.join(' · ');
 }
 
+/** A prep's name without its trailing "(lunch box)", "(breakfast jar)" or "(freezer dinner portion)". */
+export function shortPrepName(name) {
+  return String(name ?? '').replace(
+    /\s*\([^()]*\b(box|jar|portion|breakfast|dinner)\b[^()]*\)\s*$/i,
+    '',
+  );
+}
+
 /** The container word of a prepared food: "box", "jar" or "portion" (RULES.mealPrep.prepServingIds). */
 export function boxWord(food, rules) {
   const ids = rules?.mealPrep?.prepServingIds ?? ['box', 'jar', 'portion'];
@@ -47,6 +55,20 @@ export function useByText(box, useBy, status, today) {
   if (status === 'past') return 'Past use-by, best not to eat';
   if (status === 'last-day') return `Last day (${dayText(useBy, today)})`;
   return `Use by ${dayText(useBy, today)}`;
+}
+
+/**
+ * A box still in the freezer on (or after) the day it is planned for (Review 2, Bilal #4): said
+ * calmly, with what to do. null when the box is not frozen or its day is still ahead.
+ * @param {{ storage: string, movedToFridgeOn?: string|null }} box @param {string} date planned day
+ * @param {string} today
+ */
+export function frozenDueText(box, date, today) {
+  if (box?.storage !== 'freezer' || box.movedToFridgeOn || !date || date > today) return null;
+  if (date === today) {
+    return 'Still frozen, and it’s for today: defrost it in the microwave, then heat it right through.';
+  }
+  return `Still frozen. It was planned for ${dayText(date, today)}.`;
 }
 
 /**

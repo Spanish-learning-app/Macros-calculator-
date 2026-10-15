@@ -1,6 +1,7 @@
 // Whole-pot recipe builder (Sprint 2: A10, A16). Owner: Lena. ARCHITECTURE §13.
-// Name, ingredients (same search and portion picker as the add sheet), boxes and an optional
-// cooked-pot weight. Totals and per-box numbers update live; the halal status is the worst among
+// Name, ingredients (same search and portion picker as the add sheet), and what it makes: boxes
+// (with an optional cooked-pot weight), one dish, or a family pot counted in katori (Review 2,
+// Nasreen: "How many katori does your pot make?", no scale needed). Totals and per-box numbers update live; the halal status is the worst among
 // the ingredients, with that ingredient's reason. Edit and delete in the same sheet.
 import { h, uid, setText, mountChildren } from '../dom.js';
 import { iconEl } from './icons.js';
@@ -20,6 +21,8 @@ export function openRecipeEditor({
   onSaved = null,
   onDeleted = null,
 }) {
+  const katoriG = rules?.householdMeasures?.find((m) => m.id === 'katori')?.ml ?? 200;
+  const pot = Number.isFinite(recipe?.potKatori) && recipe.potKatori > 0;
   const draft = {
     id: recipe?.id,
     createdAt: recipe?.createdAt,
@@ -27,8 +30,13 @@ export function openRecipeEditor({
     ingredients: (recipe?.ingredients ?? []).map((i) => ({ ...i })),
     boxes: recipe?.boxes ?? 4,
     cookedWeightG: recipe?.cookedWeightG ?? null,
+    potKatori: pot ? recipe.potKatori : null,
     storage: recipe?.storage ?? null,
   };
+  /** 'boxes' | 'one' (a single dish, "1 whole recipe") | 'katori' (a family pot). */
+  let makes = pot ? 'katori' : recipe?.boxes === 1 ? 'one' : 'boxes';
+  let boxesChoice = draft.boxes > 1 ? draft.boxes : 4;
+  let weighedG = pot ? null : draft.cookedWeightG;
   const titleId = uid('recipe');
   const nameId = uid('recipe-name');
   const weightId = uid('recipe-weight');
@@ -56,20 +64,71 @@ export function openRecipeEditor({
     inputmode: 'decimal',
     autocomplete: 'off',
     placeholder: 'optional',
-    value: draft.cookedWeightG ? String(draft.cookedWeightG) : '',
+    value: weighedG ? String(weighedG) : '',
     'data-testid': 'recipe-weight',
     oninput: () => {
       const text = weightIn.value.trim();
       const parsed = parseQty(text);
-      draft.cookedWeightG = text && parsed.ok && parsed.value > 0 ? parsed.value : null;
-      renderSummary();
+      weighedG = text && parsed.ok && parsed.value > 0 ? parsed.value : null;
+      applyMakes();
     },
   });
+  const katoriId = uid('recipe-katori');
+  const katoriIn = h('input', {
+    id: katoriId,
+    class: 'input input--num',
+    type: 'text',
+    inputmode: 'decimal',
+    autocomplete: 'off',
+    placeholder: 'e.g. 8',
+    value: draft.potKatori ? String(draft.potKatori) : '',
+    'data-testid': 'recipe-katori',
+    oninput: () => {
+      const text = katoriIn.value.trim();
+      const parsed = parseQty(text);
+      draft.potKatori = text && parsed.ok && parsed.value > 0 ? parsed.value : null;
+      applyMakes();
+    },
+  });
+  const makesChips = h('div', {
+    class: 'chip-pick',
+    role: 'group',
+    'aria-label': 'It makes',
+    'data-testid': 'recipe-makes',
+  });
+  const boxesField = h(
+    'div',
+    { class: 'field' },
+    h('span', { class: 'field-label' }, 'Boxes or portions it makes'),
+    h('div', { class: 'stepper' }, stepBtn(-1, 'Fewer boxes'), boxesOut, stepBtn(1, 'More boxes')),
+  );
+  const weightField = h(
+    'div',
+    { class: 'field' },
+    h('label', { class: 'field-label', for: weightId }, 'Cooked pot (g)'),
+    weightIn,
+  );
+  const weightHelp = h(
+    'p',
+    { class: 'field-help' },
+    'If you have a scale, weigh the food after cooking (not the pan) for the best numbers. Empty means the ingredients’ weight.',
+  );
+  const katoriField = h(
+    'div',
+    { class: 'field' },
+    h('label', { class: 'field-label', for: katoriId }, 'How many katori does your pot make?'),
+    katoriIn,
+    h(
+      'p',
+      { class: 'field-help' },
+      `Count the katori (${katoriG} ml bowls) the pot fills, with its water and gravy. No scale needed.`,
+    ),
+  );
   const summary = h('div', { class: 'recipe-summary', 'aria-live': 'polite' });
   const error = h('p', { class: 'field-error', hidden: true, role: 'alert' });
 
-  const stepBtn = (dir, label) =>
-    h(
+  function stepBtn(dir, label) {
+    return h(
       'button',
       {
         type: 'button',
@@ -77,12 +136,55 @@ export function openRecipeEditor({
         'aria-label': label,
         'data-testid': dir > 0 ? 'boxes-more' : 'boxes-less',
         onclick: () => {
-          draft.boxes = Math.min(30, Math.max(1, draft.boxes + dir));
-          renderSummary();
+          boxesChoice = Math.min(30, Math.max(1, boxesChoice + dir));
+          applyMakes();
         },
       },
       iconEl(dir > 0 ? 'plus' : 'minus'),
     );
+  }
+
+  /** Sets boxes, cooked weight and potKatori from the "It makes" choice, then redraws. */
+  function applyMakes() {
+    if (makes === 'katori') {
+      draft.boxes = 1;
+      draft.cookedWeightG = draft.potKatori ? draft.potKatori * katoriG : null;
+    } else {
+      draft.boxes = makes === 'one' ? 1 : boxesChoice;
+      draft.cookedWeightG = weighedG;
+    }
+    boxesField.hidden = makes !== 'boxes';
+    weightField.hidden = makes === 'katori';
+    weightHelp.hidden = makes === 'katori';
+    katoriField.hidden = makes !== 'katori';
+    const choices = [
+      ['boxes', 'Boxes'],
+      ['one', '1 dish'],
+      ['katori', 'Family pot'],
+    ];
+    mountChildren(
+      makesChips,
+      choices.map(([id, label]) =>
+        h(
+          'button',
+          {
+            type: 'button',
+            class: ['pick-chip', makes === id ? 'is-on' : null],
+            'aria-pressed': String(makes === id),
+            'data-makes': id,
+            onclick: () => {
+              if (makes === id) return;
+              makes = id;
+              applyMakes();
+              if (id === 'katori' && !draft.potKatori) katoriIn.focus();
+            },
+          },
+          label,
+        ),
+      ),
+    );
+    renderSummary();
+  }
 
   const dialog = h(
     'dialog',
@@ -148,33 +250,9 @@ export function openRecipeEditor({
           iconEl('plus', 18),
           h('span', null, 'Add ingredients'),
         ),
-        h(
-          'div',
-          { class: 'recipe-row' },
-          h(
-            'div',
-            { class: 'field' },
-            h('span', { class: 'field-label' }, 'Boxes or portions it makes'),
-            h(
-              'div',
-              { class: 'stepper' },
-              stepBtn(-1, 'Fewer boxes'),
-              boxesOut,
-              stepBtn(1, 'More boxes'),
-            ),
-          ),
-          h(
-            'div',
-            { class: 'field' },
-            h('label', { class: 'field-label', for: weightId }, 'Cooked pot (g)'),
-            weightIn,
-          ),
-        ),
-        h(
-          'p',
-          { class: 'field-help' },
-          'Weigh the whole pot after cooking (without the pot) for the best numbers. Empty means the ingredients’ weight.',
-        ),
+        h('div', { class: 'field' }, h('span', { class: 'field-label' }, 'It makes'), makesChips),
+        h('div', { class: 'recipe-row' }, boxesField, weightField, katoriField),
+        weightHelp,
         summary,
         error,
       ),
@@ -292,8 +370,10 @@ export function openRecipeEditor({
       return;
     }
     const total = preview.totals.total;
-    const per = Object.fromEntries(Object.entries(total).map(([k, v]) => [k, v / draft.boxes]));
-    const boxGrams = preview.totals.cookedGrams / draft.boxes;
+    const katori = makes === 'katori' && draft.potKatori;
+    const share = katori ? draft.potKatori : draft.boxes;
+    const per = Object.fromEntries(Object.entries(total).map(([k, v]) => [k, v / share]));
+    const boxGrams = preview.totals.cookedGrams / share;
     const halal = preview.halal;
     const culprit = halal.foodId ? store.food(halal.foodId) : null;
     mountChildren(
@@ -307,17 +387,23 @@ export function openRecipeEditor({
           h(
             'strong',
             null,
-            draft.boxes === 1
-              ? 'Whole recipe'
-              : `Per box (1 of ${draft.boxes}, ${fmtGrams(boxGrams)} g)`,
+            katori
+              ? `1 katori (1 of ${fmtGrams(draft.potKatori)}, about ${fmtGrams(katoriG)} g)`
+              : makes === 'katori'
+                ? 'Whole pot (type how many katori it makes)'
+                : draft.boxes === 1
+                  ? 'Whole recipe'
+                  : `Per box (1 of ${draft.boxes}, ${fmtGrams(boxGrams)} g)`,
           ),
         ),
         h('p', { class: 'recipe-macros', 'data-testid': 'per-box' }, macroLine(per)),
-        draft.boxes > 1
+        draft.boxes > 1 || katori
           ? h(
               'p',
               { class: 'recipe-total muted', 'data-testid': 'recipe-total' },
-              `Whole pot (${fmtGrams(preview.totals.cookedGrams)} g): ${macroLine(total)}`,
+              katori
+                ? `Whole pot (${fmtGrams(draft.potKatori)} katori): ${macroLine(total)}`
+                : `Whole pot (${fmtGrams(preview.totals.cookedGrams)} g): ${macroLine(total)}`,
             )
           : null,
         h(
@@ -351,7 +437,16 @@ export function openRecipeEditor({
       setText(error, 'Add at least one ingredient.');
       return;
     }
-    const id = store.saveRecipe(draft);
+    if (makes === 'katori' && !draft.potKatori) {
+      error.hidden = false;
+      setText(error, 'Type how many katori the pot makes, for example 8.');
+      katoriIn.focus();
+      return;
+    }
+    const id = store.saveRecipe({
+      ...draft,
+      potKatori: makes === 'katori' ? draft.potKatori : null,
+    });
     close();
     onSaved?.(id);
   }
@@ -366,7 +461,7 @@ export function openRecipeEditor({
   dialog.addEventListener('close', () => close());
 
   renderList();
-  renderSummary();
+  applyMakes();
   document.body.append(dialog);
   dialog.showModal();
   if (!recipe) nameIn.focus();

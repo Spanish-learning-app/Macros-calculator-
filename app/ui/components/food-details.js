@@ -12,6 +12,10 @@ const INTERNAL_SENTENCE =
   /\.md\b|§|research\/|\bR-[A-Za-z0-9-]+|\b(?:pk|es|med|intl|my)-[a-z0-9]+-[a-z0-9-]+|\balways [ABC]\b|cooked yield|added fat [\d.]+ ?g\/100 ?g|cross-check/i;
 const RECIPE_CITATION = /^Recipe R-[A-Za-z0-9-]+(?::\s*(.+))?$/;
 
+/** Why a home pot differs from the library dish (Review 2, Nasreen #1). */
+export const OWN_RECIPE_NOTE =
+  'This is your own pot: it uses your amounts of oil, meat and water, so a katori of it can have more or fewer kcal than the library dish with the same name.';
+
 /**
  * The human citation for the Source panel: no file paths, doc sections or recipe ids.
  * "Recipe R-pk-roti (research/…/pk-roti.md)" → "Standard recipe, calculated from food tables";
@@ -89,6 +93,9 @@ export function openFoodDetails({ food, rules, onClose = null }) {
         )
       : null,
     style ? h('p', { class: 'details-state' }, h('strong', null, 'Style: '), style.label) : null,
+    food.userRecipe && food.group === 'lunchbox'
+      ? h('p', { class: 'details-state', 'data-testid': 'own-recipe-note' }, OWN_RECIPE_NOTE)
+      : null,
 
     h('h3', { class: 'details-h' }, 'Source'),
     h(

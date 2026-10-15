@@ -112,6 +112,8 @@ export default {
   rocket: { src: 'db', foodId: 'intl-rocket', label: 'Rúcula lavada (50 g bag)', buy: { shop: 'mercadona', id: 69753, snap: '2026-10-14' } },
   'leaves-mixed': { src: 'db', foodId: 'intl-salad-leaves-mixed', label: 'Ensalada mezcla brotes tiernos (100 g bag)', buy: { shop: 'mercadona', id: 69757, snap: '2026-10-14' } },
   avocado: { src: 'db', foodId: 'intl-avocado', label: 'Aguacate, flesh (½ avocado = 100 g)', buy: { shop: 'mercadona', id: 3830, snap: '2026-10-14', perUnitG: 201, units: 1 } },
+  // Low-cook week v2 and the budget week (2026-10-15): canned sardines, a cheap protein (Javier's record, pack 2 × 84 g drained).
+  sardines: { src: 'db', foodId: 'intl-sardines-olive-oil', label: 'Sardinas en aceite de oliva Hacendado (2 × 84 g drained)', buy: { shop: 'mercadona', id: 18225, snap: '2026-10-14', perUnitG: 84, units: 2 }, labelCheck: 'Mercadona 18225 (Javier, 2026-10-14): sardina 72 %, aceite de oliva 27 %, sal.' },
   almonds: { src: 'db', foodId: 'intl-almonds', label: 'Almendra natural Hacendado (200 g)', buy: { shop: 'mercadona', id: 34865, snap: '2026-10-14' } },
 
   // ---------------------------------------------------------------- spices and seasonings

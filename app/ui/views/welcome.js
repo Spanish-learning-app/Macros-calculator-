@@ -6,6 +6,7 @@
 import { h, mountChildren } from '../dom.js';
 import { fmtKcal, fmtGrams, paceNote, ESTIMATE_LINE } from '../components/format.js';
 import { createProfileForm } from '../components/profile-form.js';
+import { katoriMark } from '../components/icons.js';
 
 /**
  * Texts for the warning codes and flag ids of a TargetResult (RULES.warnings and flag notes).
@@ -52,6 +53,7 @@ export function mount(container, ctx) {
       h(
         'div',
         { class: 'welcome-hero' },
+        katoriMark(64),
         h(
           'h2',
           { class: 'welcome-title', tabindex: '-1' },

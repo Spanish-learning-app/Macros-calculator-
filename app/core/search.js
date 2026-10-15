@@ -22,7 +22,12 @@ export const BOOST_WEIGHT = 19;
 const FUZZY_MIN_LENGTH = 4; // a query word needs 4+ letters to match fuzzily, and a query 4+ for substring
 const FUZZY_PREFIX_MIN_LENGTH = 5; // a typo inside a longer word's prefix needs 5+ letters ("kela" ≠ kebab)
 const FUZZY_FILL_BELOW = 3; // fuzzy matches only fill in when the other tiers find fewer foods (Review 1)
-const PREP_PENALTY = TIERS.exact - TIERS.prefix; // a Lab prep ranks one tier lower (Review 2, item 1)
+const TIER_BELOW = {
+  exact: 'prefix',
+  prefix: 'wordPrefix',
+  wordPrefix: 'substring',
+  substring: 'fuzzy',
+};
 const KIND_RANK = { own: 0, single: 1, prep: 2 };
 const RECENCY_DAYS = 30;
 const COUNT_FOR_FULL_BOOST = 10;
@@ -211,10 +216,11 @@ function bestMatch(entry, q, qWords, allowFuzzy, alt = null) {
  *              Fuzzy only fills in: it is used only when the other tiers match fewer than 3 foods
  *              (Review 1: "kela" no longer brings kebab and corn flakes).
  * A plural query also matches the singular (singularWord: "potatoes" finds "potato", as a whole word).
- * score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1). Sort (Review 2): the person's
- * own recipes first (foodKind 'own', any tier but fuzzy); then rank desc, where rank = score, less
- * one tier (20) for a Lab prep (foodKind 'prep'), so "roti" lists rotis before roti boxes; then
- * single foods before preps; then shorter `matched`, then style (everyday or home first, then restaurant, dhaba, street: Review 1, home
+ * A Lab prep (foodKind 'prep') matches one tier lower (exact counts as prefix, and so on), so
+ * "roti" lists rotis before roti boxes (Review 2).
+ * score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1). Sort: the person's own
+ * recipes first (foodKind 'own', any tier but fuzzy: the only case where a lower score comes
+ * first); then score desc, then single foods before preps, then shorter `matched`, then style (everyday or home first, then restaurant, dhaba, street: Review 1, home
  * chai before dhaba chai), then foods whose id is in `hints` (the slot's meal hints) first, then
  * name (en). Blank query -> no hits. `matched` = the original (unnormalized) string.
  * Halal filter (meeting 002): with halalOnly (default true), foods whose halal.status is
@@ -249,13 +255,14 @@ export function searchFoods(
     for (const entry of index.entries) {
       const best = bestMatch(entry, q, qWords, allowFuzzy, alt);
       if (!best) continue;
-      const boost = clamp01(boosts?.[entry.food.id] ?? 0);
-      const score = TIERS[best.tier] + BOOST_WEIGHT * boost;
       const kind = foodKind(entry.food);
+      const own = kind === 'own' && best.tier !== 'fuzzy' ? 0 : 1;
+      // A Lab prep's match counts one tier lower ("roti" lists rotis before roti boxes).
+      if (kind === 'prep') best.tier = TIER_BELOW[best.tier] ?? best.tier;
+      const boost = clamp01(boosts?.[entry.food.id] ?? 0);
       out.push({
-        hit: { food: entry.food, score, ...best },
-        own: kind === 'own' && best.tier !== 'fuzzy' ? 0 : 1,
-        rank: score - (kind === 'prep' ? PREP_PENALTY : 0),
+        hit: { food: entry.food, score: TIERS[best.tier] + BOOST_WEIGHT * boost, ...best },
+        own,
         kind: KIND_RANK[kind],
         sortName: entry.sortName,
         style: styleRank(entry.food),
@@ -269,7 +276,7 @@ export function searchFoods(
   matches.sort(
     (a, b) =>
       a.own - b.own ||
-      b.rank - a.rank ||
+      b.hit.score - a.hit.score ||
       a.kind - b.kind ||
       a.hit.matched.length - b.hit.matched.length ||
       a.style - b.style ||

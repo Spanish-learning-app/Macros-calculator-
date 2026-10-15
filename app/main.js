@@ -6,6 +6,7 @@ import { createRouter } from './ui/router.js';
 import { createStore } from './ui/store.js';
 import { createPersistence } from './core/storage.js';
 import { localDateTime } from './core/dates.js';
+import { tabIcon, katoriMark } from './ui/components/icons.js';
 
 const NAV = [
   { name: 'day', label: 'Day' },
@@ -108,11 +109,13 @@ function renderShell(root, router) {
   const nav = el(
     'nav',
     { class: 'shell-nav', 'aria-label': 'Main' },
+    // Icon plus label (Meeting 004 B3, Priya): the icon fills and sits in a pill when active.
     ...NAV.map((item) =>
       el(
         'a',
         { href: router.href({ name: item.name, params: {} }), 'data-route': item.name },
-        item.label,
+        el('span', { class: 'tab-pill' }, tabIcon(item.name)),
+        el('span', { class: 'tab-label' }, item.label),
       ),
     ),
   );
@@ -120,7 +123,7 @@ function renderShell(root, router) {
     el(
       'header',
       { class: 'shell-header' },
-      el('h1', { class: 'shell-brand' }, 'Katori'),
+      el('h1', { class: 'shell-brand' }, katoriMark(26), 'Katori'),
       el('p', { class: 'shell-tagline' }, 'Your daily meal & macro planner that knows desi food.'),
     ),
     banner,

@@ -68,6 +68,128 @@ export function iconEl(name, size = 20) {
   return icon(size, ...(PATHS[name] ?? []).map((d) => svg('path', { ...STROKE, d })));
 }
 
+// ------------------------------------------------------------------ tab icons (Meeting 004 B3)
+
+/**
+ * Tab-bar icons in our own style: 1.8 px round strokes on a 24 grid. Each has a body (filled when
+ * the tab is active, base.css), outside lines that never fill, and inner details that turn the
+ * colour of the indicator pill when the body is filled, so the drawing still reads.
+ */
+const TAB = {
+  // A katori with two curls of steam.
+  day: {
+    body: ['M3.5 10.5h17a8.5 8 0 0 1-17 0z'],
+    line: ['M9 20.5h6', 'M10 3.2c-1 1.2 1 2.3 0 3.6', 'M14 3.2c-1 1.2 1 2.3 0 3.6'],
+    detail: [],
+  },
+  week: {
+    body: ['M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z'],
+    line: ['M8 3v4', 'M16 3v4'],
+    detail: [
+      'M4 10h16',
+      'M8.5 14h.01',
+      'M12 14h.01',
+      'M15.5 14h.01',
+      'M8.5 17.2h.01',
+      'M12 17.2h.01',
+    ],
+  },
+  // A lunch box (tiffin) with its lid and handle.
+  prep: {
+    body: [
+      'M4.5 10.5h15v7.5a2.5 2.5 0 0 1-2.5 2.5H7a2.5 2.5 0 0 1-2.5-2.5z',
+      'M3 8a1.5 1.5 0 0 1 1.5-1.5h15A1.5 1.5 0 0 1 21 8v2.5H3z',
+    ],
+    line: ['M9.5 6.5V4.5h5v2'],
+    detail: ['M10 14.5h4'],
+  },
+  profile: {
+    body: ['M12 4.2a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6z', 'M4.5 20.5a7.5 7 0 0 1 15 0z'],
+    line: [],
+    detail: [],
+  },
+  data: {
+    body: ['M3 7a2 2 0 0 1 2-2h4.2l2 2.2H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'],
+    line: [],
+    detail: ['M3 10.5h18'],
+  },
+};
+
+/** @param {keyof typeof TAB} name @returns {SVGElement} */
+export function tabIcon(name) {
+  const def = TAB[name] ?? { body: [], line: [], detail: [] };
+  const part = (cls, d) => svg('path', { ...STROKE, 'stroke-width': 1.8, class: cls, d });
+  return svg(
+    'svg',
+    {
+      class: 'icon tab-icon',
+      width: 24,
+      height: 24,
+      viewBox: '0 0 24 24',
+      'aria-hidden': 'true',
+      focusable: 'false',
+    },
+    def.body.map((d) => part('ti-body', d)),
+    def.line.map((d) => part('ti-line', d)),
+    def.detail.map((d) => part('ti-detail', d)),
+  );
+}
+
+// ------------------------------------------------------------------ the katori mark (B9)
+
+/**
+ * Katori's mark: an original drawing of a katori with steam, in clay. Shown beside the wordmark,
+ * once on the welcome screen and once on an empty day. Decorative: the text next to it names it.
+ * @param {number} [size] @returns {SVGElement}
+ */
+export function katoriMark(size = 28) {
+  return svg(
+    'svg',
+    {
+      class: 'katori-mark',
+      width: size,
+      height: size,
+      viewBox: '0 0 32 32',
+      'aria-hidden': 'true',
+      focusable: 'false',
+    },
+    svg('path', {
+      d: 'M12.6 2.8c-1.7 1.7 1.7 3.4 0 5.2M19.4 2.8c-1.7 1.7 1.7 3.4 0 5.2',
+      fill: 'none',
+      stroke: 'var(--mark-steam)',
+      'stroke-width': 2,
+      'stroke-linecap': 'round',
+    }),
+    svg('path', {
+      d: 'M2.5 13.5h27c0 7.4-6 12.6-13.5 12.6S2.5 20.9 2.5 13.5z',
+      fill: 'var(--accent)',
+    }),
+    svg('path', {
+      d: 'M6.5 19.2c2.8 1.5 6 2.2 9.5 2.2s6.7-.7 9.5-2.2',
+      fill: 'none',
+      stroke: 'var(--measure-fill)',
+      'stroke-width': 1.4,
+      'stroke-linecap': 'round',
+      opacity: 0.7,
+    }),
+    svg('ellipse', {
+      cx: 16,
+      cy: 13.5,
+      rx: 13.5,
+      ry: 3.2,
+      fill: 'var(--measure-fill)',
+      stroke: 'var(--accent)',
+      'stroke-width': 1.8,
+    }),
+    svg('path', {
+      d: 'M11.5 28.8h9',
+      stroke: 'var(--accent)',
+      'stroke-width': 2.4,
+      'stroke-linecap': 'round',
+    }),
+  );
+}
+
 // ------------------------------------------------------------------ household-measure drawings
 
 function drawing(w, h, title, ...children) {

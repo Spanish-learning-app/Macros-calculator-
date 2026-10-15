@@ -370,7 +370,9 @@ export function openPortionPicker(props) {
     fractionBox.hidden = !food && grams;
     if (food || !grams) {
       fractionBox.replaceChildren(
-        food && props.showSlot !== false && !tasteChipHidden(food, rules) ? tasteChip(parsed) : null,
+        food && props.showSlot !== false && !tasteChipHidden(food, rules)
+          ? tasteChip(parsed)
+          : null,
         ...(grams ? [] : FRACTIONS).map((f) =>
           h(
             'button',

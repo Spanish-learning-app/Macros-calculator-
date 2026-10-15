@@ -728,3 +728,14 @@ span.chip-halal {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* Review 2: "My recipe" tag on the person's own recipes in search ("Prep" uses the plain tag). */
+.tag-own {
+  background: var(--accent-soft);
+  color: var(--accent-soft-text);
+}
+
+/* Review 2: the weekly list's "Check you have" staples read quieter than what to buy. */
+.shop-section[data-section='cupboard'] .shop-items {
+  color: var(--text-muted);
+}

@@ -26,8 +26,10 @@ import {
   pluralWord,
   dayText,
   useByText,
+  frozenDueText,
   noteEl,
   copyText,
+  shortPrepName,
   halalBadge,
   effortOf,
   effortText,
@@ -62,7 +64,7 @@ export function mount(container, ctx) {
     h(
       'p',
       { class: 'muted prep-lead' },
-      'Cook once, eat all week: boxes, jars or portions for breakfast, lunch or dinner.',
+      'A batch is food you cook once and split into boxes (or jars): each box is one meal, for any day. “Cook” needs the hob or oven; “Make” needs no cooking.',
     ),
     notices,
     batchesBox,
@@ -264,6 +266,7 @@ export function mount(container, ctx) {
     const name = store.batchName(batch);
     const word = boxWord(food, rules);
     const left = store.boxesLeft(batch.id);
+    const counts = store.boxCounts(batch.id);
     const total = batch.boxes.filter((b) => b.status !== 'discarded').length;
     const rows = store.boxRows(batch.id);
     const plan = store.planFor(batch.recipeId, Math.max(1, batch.boxes.length));
@@ -335,11 +338,19 @@ export function mount(container, ctx) {
             `Cooked ${dayText(batch.cookedOn, today)} · ${plural(total, word)}`,
           ),
         ),
+        // "3 to eat · 1 eaten" (Review 2): placed boxes are still to eat, not gone.
         h(
           'p',
-          { class: 'batch-left', 'data-testid': 'boxes-left' },
-          h('strong', null, String(left)),
-          ` of ${total} left`,
+          {
+            class: 'batch-left',
+            'data-testid': 'boxes-left',
+            'data-to-eat': String(counts.toEat),
+            'data-eaten': String(counts.eaten),
+            'data-unplaced': String(counts.available),
+          },
+          h('strong', null, String(counts.toEat)),
+          ' to eat',
+          counts.eaten ? ` · ${counts.eaten} eaten` : null,
         ),
       ),
       h(
@@ -368,7 +379,10 @@ export function mount(container, ctx) {
               : box.status === 'discarded'
                 ? 'Thrown away'
                 : (placed ?? 'Not placed yet');
-          const kind = status === 'past' ? 'past' : status === 'last-day' ? 'last' : 'info';
+          const frozenDue =
+            box.status === 'placed' ? frozenDueText(box, box.placed.date, today) : null;
+          const kind =
+            status === 'past' ? 'past' : status === 'last-day' || frozenDue ? 'last' : 'info';
           const done = box.status === 'eaten' || box.status === 'discarded';
           return h(
             'li',
@@ -386,7 +400,9 @@ export function mount(container, ctx) {
                 h('strong', { class: 'box-name' }, `${capital(word)} ${number}`),
                 h('span', { class: 'box-what' }, ` · ${what}`),
               ),
-              done ? null : noteEl(useByText(box, useBy, status, today), kind, 'box-useby'),
+              done
+                ? null
+                : noteEl(frozenDue ?? useByText(box, useBy, status, today), kind, 'box-useby'),
             ),
             done
               ? null
@@ -504,13 +520,7 @@ export function mount(container, ctx) {
 
     const text = () => {
       const list = store.shopping(recipeId, boxes);
-      if (!list) return null;
-      const lines = [`${name}: shopping for ${plural(boxes, word)}`];
-      for (const s of list.sections) {
-        lines.push('', s.label);
-        for (const item of s.items) lines.push(`- ${itemText(item)}`);
-      }
-      return lines.join('\n');
+      return list ? listText(`${name}: shopping for ${plural(boxes, word)}`, list) : null;
     };
 
     function renderList() {
@@ -527,21 +537,7 @@ export function mount(container, ctx) {
         );
         return;
       }
-      mountChildren(
-        body,
-        list.sections.map((s) =>
-          h(
-            'section',
-            { class: 'shop-section', 'data-section': s.id },
-            h('h3', { class: 'group-title' }, s.label),
-            h(
-              'ul',
-              { class: 'shop-items', role: 'list' },
-              s.items.map((i) => h('li', null, itemText(i))),
-            ),
-          ),
-        ),
-      );
+      mountChildren(body, shopSections(list));
     }
 
     const step = (dir) =>
@@ -601,11 +597,76 @@ export function mount(container, ctx) {
     renderList();
   }
 
+  /** One list for this week's batches, merged by food (Review 2, Mariam #1, Bilal #4). */
+  function openWeekShopping() {
+    const { batches, list } = store.weekShopping();
+    const status = h('div', { class: 'shop-status', 'aria-live': 'polite' });
+    const listed = batches.filter((b) => b.listed);
+    const missing = batches.filter((b) => !b.listed);
+    const what = (b) =>
+      `${shortPrepName(b.name)} (${plural(b.boxes, boxWord(store.food(batchRecipe(b.id)), rules))})`;
+    const title = `Shopping for this week: ${plural(listed.length, 'batch')}`;
+    openDialog({
+      title: 'Shopping for the week',
+      testid: 'week-shopping-dialog',
+      content: [
+        h(
+          'p',
+          { class: 'muted' },
+          listed.length
+            ? `For ${listed.map(what).join(', ')}. Each food once, in packs where we know the pack size.`
+            : 'None of this week’s batches has an ingredient list yet.',
+        ),
+        missing.length
+          ? h(
+              'p',
+              { class: 'muted' },
+              `No ingredient list yet for ${missing.map((b) => shortPrepName(b.name)).join(', ')}.`,
+            )
+          : null,
+        h(
+          'div',
+          { class: 'shop-body', 'data-testid': 'week-shopping-list' },
+          list ? shopSections(list) : null,
+        ),
+        status,
+      ],
+      actions: list
+        ? h(
+            'button',
+            {
+              type: 'button',
+              class: 'btn btn-primary',
+              'data-testid': 'week-shopping-copy',
+              onclick: async () => {
+                const ok = await copyText(listText(title, list), status);
+                if (ok)
+                  status.replaceChildren(
+                    h(
+                      'p',
+                      { class: 'prep-note prep-note--info' },
+                      'Copied. Paste it into your notes or a chat.',
+                    ),
+                  );
+              },
+            },
+            iconEl('copy', 18),
+            h('span', null, 'Copy list'),
+          )
+        : null,
+    });
+  }
+
+  function batchRecipe(batchId) {
+    return store.batch(batchId)?.recipeId;
+  }
+
   // ------------------------------------------------------------------ render
 
   function recipeRow(recipe) {
     const food = store.food(recipe.id);
-    const per = food ? portionNutrients(food, 'box', 1) : null;
+    const pot = Number.isFinite(recipe.potKatori) && recipe.potKatori > 0;
+    const per = food ? portionNutrients(food, pot ? 'katori' : 'box', 1) : null;
     const halal = food ? halalChip(food, rules) : null;
     return h(
       'li',
@@ -623,7 +684,7 @@ export function mount(container, ctx) {
           'span',
           { class: 'prep-line' },
           per
-            ? `${recipe.boxes === 1 ? 'Whole recipe' : `1 of ${recipe.boxes} boxes`}: ${macroLine(per).split(' · ').slice(0, 2).join(' · ')}`
+            ? `${pot ? `1 katori (pot of ${recipe.potKatori})` : recipe.boxes === 1 ? 'Whole recipe' : `1 of ${recipe.boxes} boxes`}: ${macroLine(per).split(' · ').slice(0, 2).join(' · ')}`
             : 'No usable ingredients',
         ),
       ),
@@ -728,9 +789,27 @@ export function mount(container, ctx) {
       .filter((b) => b.boxes.some((x) => x.status === 'available' || x.status === 'placed'))
       .sort((a, b) => b.cookedOn.localeCompare(a.cookedOn));
     const done = store.batches().length - active.length;
+    const week = store.weekShopping();
     mountChildren(
       batchesBox,
-      h('h3', { class: 'section-title', id: 'prep-batches' }, 'Your batches'),
+      h(
+        'div',
+        { class: 'section-head' },
+        h('h3', { class: 'section-title', id: 'prep-batches' }, 'Your batches'),
+        week.batches.length
+          ? h(
+              'button',
+              {
+                type: 'button',
+                class: 'btn btn-secondary',
+                'data-testid': 'week-shopping-open',
+                onclick: () => openWeekShopping(),
+              },
+              iconEl('copy', 18),
+              h('span', null, 'Week’s shopping'),
+            )
+          : null,
+      ),
       active.length
         ? active.map(batchCard)
         : h(
@@ -933,16 +1012,53 @@ function capital(word) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-function itemText(item) {
-  const grams =
-    item.grams >= 1000
-      ? `${Math.round(item.grams / 10) / 100} kg`
-      : `${fmtGrams(Math.round(item.grams))} g`;
-  if (item.count) {
-    const q = Math.round(item.count.qty * 100) / 100;
-    return `${item.name}: ${q} × ${item.count.label} (${grams})`;
+function gramsText(g) {
+  return g >= 1000 ? `${Math.round(g / 10) / 100} kg` : `${fmtGrams(Math.round(g))} g`;
+}
+
+/**
+ * One shopping line (Review 2): packs ("Eggs: 1 × 12 eggs (uses 7 large eggs, 350 g)"), else a
+ * count ("Onion: 3 medium onions (330 g)"), else grams. The grams always come last.
+ */
+export function itemText(item) {
+  const g = gramsText(item.grams);
+  const buy = item.buy;
+  if (buy?.kind === 'pack') {
+    const uses = buy.uses ? `${buy.uses.qty} ${buy.uses.label}, ` : '';
+    // "12 eggs" and "6 × 125 g pots" read as packs; "400 g jar" reads as itself.
+    const packs =
+      /^\d/.test(buy.label) && !/^[\d.,]+\s*(g|kg|ml|l)\b/.test(buy.label)
+        ? `${buy.packs} ${buy.packs === 1 ? 'pack' : 'packs'} of ${buy.label}`
+        : `${buy.packs} × ${buy.label}`;
+    return `${item.name}: ${packs} (uses ${uses}${g})`;
   }
-  return `${item.name}: ${grams}`;
+  if (buy?.kind === 'count') return `${item.name}: ${buy.qty} ${buy.label} (${g})`;
+  return `${item.name}: ${g}`;
+}
+
+/** The list as plain text for notes or a chat: a title, then each section and its lines. */
+export function listText(title, list) {
+  const lines = [title];
+  for (const s of list.sections) {
+    lines.push('', s.label);
+    for (const item of s.items) lines.push(`- ${itemText(item)}`);
+  }
+  return lines.join('\n');
+}
+
+function shopSections(list) {
+  return list.sections.map((s) =>
+    h(
+      'section',
+      { class: 'shop-section', 'data-section': s.id },
+      h('h3', { class: 'group-title' }, s.label),
+      h(
+        'ul',
+        { class: 'shop-items', role: 'list' },
+        s.items.map((i) => h('li', null, itemText(i))),
+      ),
+    ),
+  );
 }
 
 /** "2–5 Nov", or "30 Nov – 3 Dec" across months (short, so the Fill label fits at 360 px). */

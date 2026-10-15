@@ -77,7 +77,7 @@
 .day-side > .totals {
   order: 0;
 }
-.day-side > .macro-panel {
+.day-side > .day-macros {
   order: 1;
 }
 .slots {
@@ -115,7 +115,7 @@
   top: 0;
   z-index: 10;
   margin: 0 calc(-1 * var(--gutter));
-  padding: var(--space-2) var(--gutter) var(--space-3);
+  padding: var(--space-1) var(--gutter) var(--space-1);
   background: var(--bg);
   box-shadow: 0 6px 10px -10px rgb(0 0 0 / 0.35);
 }
@@ -185,9 +185,10 @@
   overflow: hidden;
 }
 
-.totals .meter {
-  height: 10px;
-  margin-top: var(--space-2);
+.totals .meter--kcal,
+.totals .meter--protein {
+  height: 8px;
+  margin-top: 6px;
 }
 
 .meter-fill {
@@ -223,7 +224,84 @@
 .totals-planned {
   margin-top: var(--space-1);
   font-size: var(--text-sm);
+  line-height: 1.35;
   color: var(--text-muted);
+}
+
+/* Macro strip (Meeting 004 B2): three thin bars with "g left" in the sticky bar; tap for the
+   full panel. One 44 px+ button, so the whole strip is the target. */
+.macro-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 20px;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--tap);
+  margin-top: 6px;
+  padding: 6px 0 4px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+}
+
+.macro-strip:hover .strip-chevron {
+  color: var(--text);
+}
+
+.strip-cell {
+  display: grid;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.strip-name {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.strip-value {
+  overflow: hidden;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.strip-cell .meter {
+  height: 4px;
+  margin-top: 3px;
+}
+
+.strip-chevron {
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  transition: transform var(--dur) var(--ease);
+}
+
+.macro-strip.is-open .strip-chevron {
+  transform: rotate(180deg);
+}
+
+/* The full panel and, after Skip, the reference line that stays in view. */
+.day-macros {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.day-macros:has(> .targets-ref[hidden]):has(> .macro-panel[hidden]) {
+  display: none;
+}
+
+.targets-ref .targets-line {
+  margin-top: 0;
+}
+
+.macro-panel {
+  scroll-margin-top: 190px;
 }
 
 /* Macro panel */
@@ -279,7 +357,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0 var(--space-2);
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
   font-size: var(--text-xs);
   color: var(--text-muted);
 }
@@ -1157,6 +1235,11 @@
   padding: var(--space-6) 0 var(--space-2);
 }
 
+.welcome-hero .katori-mark {
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
 .welcome-title {
   font-size: 1.75rem;
   font-weight: var(--weight-bold);
@@ -1571,4 +1654,178 @@
   flex-wrap: wrap;
   gap: var(--space-2);
   align-items: center;
+}
+
+/* ------------------------------------------------------------------ Meeting 004 B: Day refinements */
+
+.day-main {
+  order: 2;
+  min-width: 0;
+}
+
+/* "Tonight" in one line (B2): the short sentence, then the button; the dish name is in the
+   accessible text and the tooltip. */
+.day-prep .prep-tonight {
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3);
+}
+
+.day-prep .tonight-row {
+  flex-wrap: nowrap;
+}
+
+.day-prep .tonight-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.day-prep .tonight-row .btn {
+  flex: none;
+  padding-inline: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+/* One friendly empty day (B8) */
+.empty-day {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-3);
+  padding: var(--space-3) var(--space-4) var(--space-2);
+}
+
+.empty-day .katori-mark {
+  grid-row: 1;
+}
+
+.empty-day-title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: 1.25;
+}
+
+.empty-day-text .muted {
+  font-size: var(--text-sm);
+}
+
+.empty-day-tools {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.empty-day-tools .btn {
+  flex: 1 1 140px;
+}
+
+.empty-day-search {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+/* On an empty day the five slots go compact under the card. */
+.slots--compact {
+  gap: var(--space-2);
+}
+
+.slots--compact .slot {
+  padding-block: 2px;
+}
+
+.slots--compact .slot-sub {
+  display: none;
+}
+
+.slots--compact .slot-title {
+  font-size: var(--text-md);
+}
+
+/* ------------------------------------------------------------------ Meeting 004 B6: "Added" */
+
+/* The sheet's status line reads as a confirmation, not a grey caption. */
+.sheet-status:not(:empty) {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-soft-text);
+  font-weight: var(--weight-medium);
+  line-height: 1.35;
+}
+
+.sheet-status:not(:empty)::before {
+  content: '✓' / '';
+  flex: none;
+  font-weight: var(--weight-bold);
+}
+
+/* The row that was just added: a tick in place of the portion line, on a soft clay wash. */
+.added-flag {
+  display: none;
+  align-items: center;
+  gap: var(--space-1);
+  justify-self: start;
+  padding: 1px var(--space-2) 1px var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+}
+
+.food-row.is-just-added .added-flag {
+  display: inline-flex;
+}
+
+.food-row.is-just-added .food-portion {
+  display: none;
+}
+
+.food-row.is-just-added {
+  background: var(--accent-soft);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .food-row.is-just-added {
+    animation: added-wash 1.8s var(--ease) forwards;
+  }
+
+  .food-row.is-just-added .added-flag,
+  .btn-plus.is-added .icon {
+    animation: added-pop 320ms var(--ease);
+  }
+
+  .sheet-status.is-fresh {
+    animation: added-pop 320ms var(--ease);
+  }
+}
+
+@keyframes added-wash {
+  0%,
+  60% {
+    background: var(--accent-soft);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+@keyframes added-pop {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

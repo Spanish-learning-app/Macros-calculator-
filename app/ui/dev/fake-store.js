@@ -399,6 +399,8 @@ export function createFakeStore({
     library: () => [],
     batches: () => [],
     boxesLeft: () => 0,
+    boxCounts: () => ({ available: 0, placed: 0, toEat: 0, eaten: 0, discarded: 0 }),
+    weekShopping: () => ({ batches: [], list: null }),
     boxInfo: () => null,
     prepNotices: () => ({ moveTonight: [] }),
     chai: () => null,

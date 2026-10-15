@@ -16,6 +16,7 @@ import {
   placeBox,
   syncBatches,
   shoppingList,
+  shoppingForShop,
 } from '../core/mealprep.js';
 import {
   SLOT_IDS,
@@ -570,11 +571,56 @@ export function createStore({
       }
       return { moveTonight };
     },
-    /** Shopping list for `boxes` of a batch's (or recipe's) recipe; null without ingredients. */
+    /**
+     * Shopping list for `boxes` of a batch's (or recipe's) recipe, as you buy it (shoppingForShop:
+     * packs or counts, a "Check you have" section); null without ingredients.
+     */
     shopping(recipeId, boxes) {
       const recipe = recipeFor(recipeId);
       if (!recipe.ingredients?.length) return null;
-      return shoppingList([{ recipe, boxes }], index(), rules);
+      return shoppingForShop(shoppingList([{ recipe, boxes }], index(), rules), index(), rules);
+    },
+    /**
+     * One list for this week's batches (Review 2): every batch cooked in the last 7 days or
+     * planned later, with all its boxes, merged by food. `batches` names what is in it; `list` is
+     * null when none of them has ingredients.
+     * @returns {{ batches: { id, name, boxes, listed: boolean }[], list: object|null }}
+     */
+    weekShopping() {
+      const from = addDays(today(), -6);
+      const batches = batchesList()
+        .filter((b) => b.cookedOn >= from)
+        .sort((a, b) => a.cookedOn.localeCompare(b.cookedOn));
+      const plans = [];
+      const named = batches.map((b) => {
+        const recipe = recipeFor(b.recipeId);
+        const listed = Boolean(recipe.ingredients?.length) && b.boxes.length > 0;
+        if (listed) plans.push({ recipe, boxes: b.boxes.length });
+        return {
+          id: b.id,
+          name: food(b.recipeId)?.name ?? b.name ?? 'Batch',
+          boxes: b.boxes.length,
+          listed,
+        };
+      });
+      const list = plans.length
+        ? shoppingForShop(shoppingList(plans, index(), rules), index(), rules)
+        : null;
+      return { batches: named, list };
+    },
+    /** Boxes of a batch by state (Review 2: "3 to eat · 1 eaten"). */
+    boxCounts(batchId) {
+      const batch = requireBatch(batchId);
+      const n = (s) => batch.boxes.filter((b) => b.status === s).length;
+      const available = n('available');
+      const placed = n('placed');
+      return {
+        available,
+        placed,
+        toEat: available + placed,
+        eaten: n('eaten'),
+        discarded: n('discarded'),
+      };
     },
     chai: () => recipesList().find((r) => r.kind === 'chai') ?? null,
     savedMeals: () => data().savedMeals ?? [],
@@ -723,6 +769,10 @@ export function createStore({
             ? recipe.cookedWeightG
             : null,
         boxes: Math.max(1, Math.round(recipe.boxes ?? 1)),
+        // A family pot measured in katori (Review 2, Nasreen): boxes 1, cookedWeightG = katori × ml.
+        ...(Number.isFinite(recipe.potKatori) && recipe.potKatori > 0
+          ? { potKatori: recipe.potKatori }
+          : {}),
         ...(recipe.kind ? { kind: recipe.kind } : {}),
         ...(recipe.chai ? { chai: { ...recipe.chai } } : {}),
         ...(Array.isArray(recipe.storage) && recipe.storage.length

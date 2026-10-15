@@ -1,0 +1,66 @@
+// R-MP-40 · Lentil salad with tuna, queso de Burgos 0% and peppers (cold lunch box). Batch: 2 boxes.
+// The halal variant of R-MP-29 (Meeting 004, decision C; Mariam Review 2 #7): the feta swap as its own record,
+// so the swap is one tap in the app. R-MP-29 (feta, "check") stays as it is.
+export default {
+  n: 40,
+  serving: 'box',
+  boxes: 2,
+  effort: 'assemble',
+  minutes: 12,
+  id: 'es-lentejas-atun-burgos-salad-box',
+  name: 'Lentil salad with tuna, queso de Burgos and peppers (cold lunch box)',
+  names: {
+    en: 'Lentil salad with tuna, queso de Burgos and peppers',
+    es: 'Ensalada de lentejas con atún, queso de Burgos y pimiento',
+    ca: 'Amanida de llenties amb tonyina, formatge de Burgos i pebrot',
+    roman: 'daal salad tuna burgos',
+  },
+  aliases: ['lentil salad with burgos', 'lentil tuna salad halal', 'ensalada de lentejas con queso de burgos', 'lentil salad without feta', 'amanida de llenties amb formatge fresc', 'lentejas con atun y burgos'],
+  pitch: 'The lentil and tuna salad made with queso de Burgos 0% instead of feta: same 12 minutes, halal, a little lighter.',
+  eat: 'cold',
+  tags: ['spanish', 'mediterranean', 'meal-prep', 'eat-cold', 'seafood-fish'],
+  references: [
+    { title: 'Universidad Pablo de Olavide, Recetas para una cuarentena: Ensalada de lentejas', url: 'https://www.upo.es/recetasparaunacuarentena/?p=10347', used: '1 cup cooked lentils, a handful of lamb\'s lettuce, 1 small tomato, 75 g feta, 2 tbsp olive oil, lemon or vinegar; 10 minutes', read: 'search-engine page extract, 2026-10-14' },
+    { title: 'Directo al Paladar, Ensalada de lentejas: la receta más fácil', url: 'https://www.directoalpaladar.com/recetas-de-legumbres-y-verduras/ensalada-de-lentejas-receta', used: 'jarred lentils (rinsed well), carrot, tomato, red onion, lime, 40 g feta, olive oil; tuna or boiled egg as add-ins', read: 'search-engine page extract, 2026-10-14' },
+  ],
+  components: [
+    {
+      id: 'salad', label: 'Lentils, tuna and vegetables', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['lentils-jar', 600, '1½ jars, drained and rinsed (300 g per box)'],
+        ['tuna', 120, '2 cans atún claro al natural, drained (60 g per box)'],
+        ['pepper-red', 120, 'diced'],
+        ['cucumber', 100, 'diced'],
+        ['tomato-cherry', 160, 'halved'],
+        ['onion-red', 40, 'finely chopped'],
+        ['parsley', 10, 'chopped'],
+        ['oil-olive', 34, 'extra virgin, 17 g per box (the Burgos brings almost no fat)'],
+        ['lemon-juice', 30, ''],
+        ['cumin', 1, 'ground'],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'cheese', label: 'Queso de Burgos 0% (1 tub per box)', storage: 'proposed:sealed-pack', yield: 'none', eat: 'cold',
+      lines: [['burgos-0', 125, '2 tubs of 62.5 g (1 per box), crumbled over at lunch']],
+    },
+  ],
+  method: [
+    'Drain the lentils into a sieve and rinse them well under cold water (the jar liquid is salty); drain the tuna.',
+    'Dice the pepper and cucumber, halve the tomatoes, chop the onion and parsley.',
+    'Mix everything with the olive oil, lemon, cumin and pepper. A pinch of salt only if you like: the Burgos is milder than feta.',
+    'Divide between 2 boxes and put 1 sealed Burgos tub in each. At lunch, crumble the Burgos over and mix. Keep cold (insulated bag and ice pack).',
+  ],
+  keeps: '2 days in the fridge; do not freeze',
+  storagePlan: 'Dressed salad keeps 2 days: make it on Sunday night for Monday and Tuesday (or Tuesday night for Wednesday and Thursday). The Burgos tub stays sealed to its pack date; jars and cans wait in the cupboard.',
+  reheat: 'Not reheated (fish and fresh cheese): eat cold within 2 h of leaving the fridge (1 h above 32 °C).',
+  crossCheck: null,
+  changes: [
+    'Halal variant of R-MP-29: 40 g feta per box (rennet of unstated origin, "check") replaced by 1 sealed tub of queso de Burgos 0% (62.5 g, cuajo microbiano).',
+    'Burgos 0% has almost no fat, so the box would drop under the lunch energy target: olive oil 10 → 17 g per box and cucumber 80 → 50 g per box keep it at a full lunch.',
+    'The Burgos travels sealed and is crumbled at lunch, so it stays fresh and does not water down the salad.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'No cooking: dated labels (lentils, tuna, Burgos) and USDA SR Legacy vegetables, weighed raw. The jarred lentil label is low in protein for lentils (Javier\'s note: it reads as drained lentils holding more water).',
+  halal: { status: 'halal', reason: 'Lentils, tuna, vegetables and queso de Burgos 0% with microbial rennet (cuajo microbiano, label read 2026-10-14). The halal variant of the feta salad (R-MP-29).' },
+};

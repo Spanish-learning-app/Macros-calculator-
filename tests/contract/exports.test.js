@@ -89,6 +89,8 @@ const CONTRACT = {
       recordUse: 2,
       recencyBoosts: 2,
       recentForSlot: 2,
+      foodKind: 1, // Review 2 (meeting 004 A1): own / single / prep ranking
+      singularWord: 1, // Review 2 (A2): plural queries
     },
     constants: ['TIERS', 'BOOST_WEIGHT'],
   },
@@ -118,8 +120,12 @@ const CONTRACT = {
       placeBox: 3,
       syncBatches: 2,
       shoppingList: 2,
+      // Review 2 (meeting 004 A4): the list as you buy it
+      shoppingForShop: 2,
+      buyAmount: 2,
+      pluralLabel: 1,
     },
-    constants: ['RECIPE_PREFIX', 'BOX_STORAGES', 'BOX_STATUSES'],
+    constants: ['RECIPE_PREFIX', 'BOX_STORAGES', 'BOX_STATUSES', 'CUPBOARD_SECTION'],
   },
 };
 

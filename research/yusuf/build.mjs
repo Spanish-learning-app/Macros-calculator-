@@ -250,6 +250,8 @@ function record(s, r) {
     ],
     tags: s.tags,
     slots: SLOTS[r.slot],
+    // serve (Meeting 004, Mariam Review 2 #7): how a no-cook prep is eaten, shown on its row and Day entry.
+    ...(s.effort === 'assemble' ? { serve: s.eat } : {}),
     halal: s.halal.reason ? { status: s.halal.status, reason: s.halal.reason } : { status: s.halal.status },
     source: {
       citation: `Recipe R-MP-${s.n}: ${s.names.en}, standard batch of ${r.boxes} ${r.boxes === 1 ? u.one : u.many} (research/yusuf/recipes/${s.id}.md)`,
@@ -381,7 +383,7 @@ function libraryRecipe(s, r) {
     const e = c.pot ? { id: c.storage, pot: true } : c.storage;
     if (!storage.some((x) => JSON.stringify(x) === JSON.stringify(e))) storage.push(e);
   }
-  return { foodId: s.id, boxes: r.boxes, storage, ingredients, effort: r.effort, minutes: r.minutes };
+  return { foodId: s.id, boxes: r.boxes, storage, ingredients, effort: r.effort, minutes: r.minutes, ...(r.effort === 'assemble' ? { serve: s.eat } : {}) };
 }
 function recipesFile(rows) {
   const recs = rows.map(({ s, r }) => libraryRecipe(s, r));
@@ -396,6 +398,7 @@ function recipesFile(rows) {
 // meats and spices. storage: one RULES.mealPrep.storage id per component; { id, pot: true } = a side pot packed
 // apart; sealed packs, bread and whole fruit are not use-by items and are left out. effort: 'cook' (batch-cooked)
 // or 'assemble' (15 min or less, little or no cooking); minutes = hands-on minutes for the batch (§13.1).
+// serve (assemble preps only, Meeting 004): 'cold' | 'hot' | 'either', how the prep is eaten (hot = microwave).
 
 export default [
 `;
