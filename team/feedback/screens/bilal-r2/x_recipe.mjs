@@ -1,0 +1,15 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-18T18:00:00+02:00'}); const p = run.page;
+await L.skipOnboarding(run);
+await p.goto(L.URL+'#/prep'); await p.waitForTimeout(400);
+await p.getByTestId('new-recipe').click(); await p.waitForTimeout(400);
+await L.shot(run,'x-recipe-empty',{fullPage:true});
+console.log((await p.innerText('body')).slice(0,1500));
+await p.getByTestId('add-ingredient').click(); await p.waitForTimeout(400);
+await L.shot(run,'x-ing-sheet');
+console.log((await p.locator('[data-testid=ingredient-sheet]').innerText()).slice(0,1500));
+await p.getByTestId('ingredient-search').fill('egg'); await p.waitForTimeout(300);
+console.log((await p.locator('[data-testid=ingredient-sheet]').innerText()).slice(0,1500));
+console.log(await p.locator('[data-testid=ingredient-sheet]').innerHTML().then(h=>h.slice(0,3000)));
+await L.shot(run,'x-ing-egg');
+await run.browser.close();

@@ -16,7 +16,7 @@ export default {
     roman: 'chana chaat dahi',
   },
   aliases: ['chana chaat', 'chole chaat', 'chickpea chaat', 'dahi chana chaat', 'channa chaat', 'chanay ki chaat', 'merienda garbanzos'],
-  pitch: 'Street-food chaat from a jar of chickpeas: onion, tomato, cucumber, chaat masala and lemon, with a cool protein dahi on top.',
+  pitch: 'Street-food chaat from a jar of chickpeas: onion, tomato, coriander, chaat masala and lemon, with a cool protein dahi on top.',
   eat: 'cold',
   tags: ['pakistani', 'meal-prep', 'eat-cold', 'vegetarian', 'iftar'],
   references: [
@@ -27,9 +27,8 @@ export default {
     {
       id: 'chaat', label: 'Chana chaat', storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
-        ['chickpeas-jar', 200, 'drained, rinsed (half a jar)'],
+        ['chickpeas-jar', 260, 'drained, rinsed (about two-thirds of the jar)'],
         ['tomato', 80, 'diced'],
-        ['cucumber', 80, 'diced'],
         ['onion-red', 30, 'finely chopped'],
         ['coriander', 6, 'chopped'],
         ['lemon-juice', 15, ''],
@@ -46,15 +45,16 @@ export default {
     },
   ],
   method: [
-    'Drain and rinse the chickpeas; mix with tomato, cucumber, onion, coriander, chilli, lemon and chaat masala.',
+    'Drain and rinse the chickpeas; mix with tomato, onion, coriander, chilli, lemon and chaat masala.',
     'Split between 2 boxes. Spoon 120 g protein yogurt into a small pot each and dust with roasted cumin; pour it over just before eating.',
   ],
   keeps: '2 days in the fridge',
-  storagePlan: 'Make 2 boxes at a time; the other half of the chickpea jar goes into the next salad within 2 days.',
+  storagePlan: 'Make 2 boxes at a time; the last third of the chickpea jar goes into the next salad within 2 days.',
   reheat: 'Not reheated.',
   crossCheck: null,
   changes: [
-    'A small snack portion (100 g chickpeas) with a protein-yogurt pot in place of sev, papdi or boondi (fried), so it reaches 15 g protein at about 220 kcal.',
+    'A snack portion (130 g chickpeas) with a protein-yogurt pot in place of sev, papdi or boondi (fried), so it reaches 22 g protein at about 260 kcal.',
+    'No cucumber and 100 → 130 g chickpeas a box (15 Oct): the first version came to 69 kcal per 100 g, under the Lab floor of 80 for a prep record (check G9). Now 81 kcal per 100 g; the chaat is also less watery in the box.',
     'Yogurt kept in its own pot: watery vegetables make a stored chaat soggy (Spice Up The Curry).',
   ],
   confidence: 'B',

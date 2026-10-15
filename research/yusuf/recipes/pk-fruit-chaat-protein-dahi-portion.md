@@ -18,7 +18,7 @@ Record `pk-fruit-chaat-protein-dahi-portion` in `app/data/foods-mealprep.js` · 
 
 | Portion weight | kcal | Protein | Carbs | Fat | Fibre |
 |---|---|---|---|---|---|
-| 545 g (½ portion 273 g) | 420 | 30.0 g | 47.4 g | 10.4 g | 9.8 g |
+| 550 g (½ portion 275 g) | 451 | 30.8 g | 47.9 g | 12.7 g | 10.5 g |
 
 Targets (`RULES.mealPrep.targetsBySlot.breakfast`): 300–550 kcal met; 25–40 g protein met; at least 5 g fibre met.
 
@@ -46,7 +46,7 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 | Ingredient | Raw g (2 portions) | Per portion | Notes |
 |---|---|---|---|
 | Postre lácteo natural +Proteínas 10 g 0% MG (Mercadona skyr-style high-protein pot) | 480 | 240 | 240 g per portion (two 120 g servings from the 500 g tub) |
-| Almendra natural Hacendado (200 g) | 30 | 15 | 15 g per portion, chopped, added in the morning |
+| Almendra natural Hacendado (200 g) | 40 | 20 | 20 g per portion (about 16 almonds), chopped, added in the morning |
 
 ### Banana, sliced in the morning
 
@@ -69,9 +69,9 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 | Component | Raw g | Cooked g | Per portion g | Storage |
 |---|---|---|---|---|
 | Fruit chaat with chaat masala and lemon | 479 | 479 | **240** | `cold-salad` |
-| Protein yogurt and almonds | 510 | 510 | **255** | `cold-salad` |
+| Protein yogurt and almonds | 520 | 520 | **260** | `cold-salad` |
 | Banana, sliced in the morning | 101 | 101 | **51** | `proposed:whole-fruit` (not in RULES) |
-| **Batch** | 1090 | 1090 | **545** (½ portion 273) | |
+| **Batch** | 1100 | 1100 | **550** (½ portion 275) | |
 
 Overall yield 1 (cooked ÷ raw, absorbed water included). Yield factors used:
 
@@ -81,13 +81,13 @@ Overall yield 1 (cooked ÷ raw, absorbed water included). Yield factors used:
 
 | kcal | Protein | Carbs (available) | Fat | Fibre | Sugars | Sat fat | Sodium | Added fat |
 |---|---|---|---|---|---|---|---|---|
-| 77 | 5.5 g | 8.7 g | 1.9 g | 1.8 g | 7.4 g | 0.2 g | 1 mg | 0.0 g |
+| 82 | 5.6 g | 8.7 g | 2.3 g | 1.9 g | 7.3 g | 0.2 g | 1 mg | 0.0 g |
 
-Per 100 g = batch totals ÷ 1090 g × 100, with every part of the portion included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 1100 g × 100, with every part of the portion included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
-kcal = round(4P + 4C + 9F + 2·fibre) = **77** per 100 g. The sum of the tables' own energy values is 73 kcal per 100 g (gap -5%), within the ±10% data gate.
+kcal = round(4P + 4C + 9F + 2·fibre) = **82** per 100 g. The sum of the tables' own energy values is 78 kcal per 100 g (gap -5.2%), within the ±10% data gate.
 
 ## Cross-check
 
@@ -97,7 +97,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = **77** per 100 g. The sum of the tables'
 | Component | Per portion | Class | Fridge (≤ 5 °C) | Freezer |
 |---|---|---|---|---|
 | Fruit chaat with chaat masala and lemon | 240 g | `cold-salad` | 2 days | do not freeze |
-| Protein yogurt and almonds | 255 g | `cold-salad` | 2 days | do not freeze |
+| Protein yogurt and almonds | 260 g | `cold-salad` | 2 days | do not freeze |
 | Banana, sliced in the morning | 51 g | `proposed:whole-fruit` (not in RULES) | — | — |
 
 Use-by of a packed portion = cooked date + the shortest fridge life in it = **2 days**. A frozen portion has no use-by until it is moved to the fridge (then 1 day).
@@ -131,7 +131,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Granada, arils: 100 g | [Granada](https://tienda.mercadona.es/product/3915/) | 1 × 282 g edible | 1 pieces | 1.56 € |
 | Lemon juice: 20 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Postre lácteo natural +Proteínas 10 g 0% MG: 480 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g | 1 × pack | 1.40 € |
-| Almendra natural Hacendado: 30 g | [Almendra natural Hacendado](https://tienda.mercadona.es/product/34865/) | 200 g | 1 × pack | 2.30 € |
+| Almendra natural Hacendado: 40 g | [Almendra natural Hacendado](https://tienda.mercadona.es/product/34865/) | 200 g | 1 × pack | 2.30 € |
 | Banana, raw, peeled: 101 g | [Plátano de Canarias IGP](https://tienda.mercadona.es/product/3819/) | 1 × 101 g edible | 1 pieces | 0.48 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
@@ -141,13 +141,14 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 ## Cost per portion
 
-**Indicative cost per portion: 1.82 €** (3.63 € for 2 portions). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14. Pro-rata: the cost of what goes in the portions, not of whole packs. Not included (no price found, small amounts): chaat masala (3 g).
+**Indicative cost per portion: 1.87 €** (3.75 € for 2 portions). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14. Pro-rata: the cost of what goes in the portions, not of whole packs. Not included (no price found, small amounts): chaat masala (3 g).
 
 ## Changes made to meet the breakfast targets
 
 - No sugar and no orange juice: the fruit is sweet enough with chaat masala and lemon.
 - Served on 240 g of a high-protein yogurt (milk and cultures only) and with almonds, so a fruit salad becomes a breakfast with 25 g protein.
 - Banana added in the morning (it browns and softens in a stored chaat, as the references warn).
+- Almonds 15 → 20 g a portion (15 Oct): the first version came to 77 kcal per 100 g, under the Lab floor of 80 for a prep record (check G9). The extra nuts bring it to 82 kcal per 100 g (451 kcal, 30.8 g protein a portion).
 
 ## Ingredient values (per 100 g, carbs = available carbohydrate)
 

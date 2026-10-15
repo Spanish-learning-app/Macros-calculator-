@@ -38,7 +38,7 @@ export default {
       id: 'yogurt', label: 'Protein yogurt and almonds', storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['protein-yogurt', 480, '240 g per portion (two 120 g servings from the 500 g tub)'],
-        ['almonds', 30, '15 g per portion, chopped, added in the morning'],
+        ['almonds', 40, '20 g per portion (about 16 almonds), chopped, added in the morning'],
       ],
     },
     {
@@ -59,6 +59,7 @@ export default {
     'No sugar and no orange juice: the fruit is sweet enough with chaat masala and lemon.',
     'Served on 240 g of a high-protein yogurt (milk and cultures only) and with almonds, so a fruit salad becomes a breakfast with 25 g protein.',
     'Banana added in the morning (it browns and softens in a stored chaat, as the references warn).',
+    'Almonds 15 → 20 g a portion (15 Oct): the first version came to 77 kcal per 100 g, under the Lab floor of 80 for a prep record (check G9). The extra nuts bring it to 82 kcal per 100 g (451 kcal, 30.8 g protein a portion).',
   ],
   confidence: 'B',
   confidenceWhy: 'No cooking: weighed USDA SR Legacy fruit and almonds and a dated label (protein yogurt). Chaat masala is counted as USDA curry powder (3 g for the batch).',

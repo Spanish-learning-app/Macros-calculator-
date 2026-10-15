@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-15T00:11:00Z",
+  "updatedAt": "2026-10-15T00:15:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -71,21 +71,16 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "working",
-      "task": "No-cook preps + low-cook week"
+      "status": "idle",
+      "task": "Done: 14 no-cook preps, low-cook week (2,099 kcal/134 g avg, 80.88 €)"
     },
     "mariam": {
       "location": "office",
-      "status": "idle",
-      "task": "Waiting for Review 1"
+      "status": "working",
+      "task": "Review 2"
     }
   },
   "inFlight": [
-    {
-      "member": "yusuf",
-      "task": "Finish no-cook preps, foodId remap (Ayesha fixes), effort tags, low-cook week (team/briefs/s2-market-preps.md)",
-      "output": "app/data/foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
-    },
     {
       "member": "bilal",
       "task": "Review 2 hands-on + design study opinion",
@@ -95,6 +90,11 @@
       "member": "nasreen",
       "task": "Review 2 hands-on + design refinements reaction",
       "output": "team/feedback/nasreen-review2.md"
+    },
+    {
+      "member": "mariam",
+      "task": "Review 2: PhD week incl. low-cook week, no-cook filter, design refinements",
+      "output": "team/feedback/mariam-review2.md"
     }
   ],
   "checkIn": {
@@ -171,9 +171,9 @@
   },
   "queued": [
     {
-      "member": "mariam",
-      "task": "Review 2: PhD week incl. low-cook week (after Yusuf lands)",
-      "output": "team/feedback/mariam-review2.md"
+      "member": "javier",
+      "task": "Mercadona barra records E-472e → check (Yusuf finding); small",
+      "output": "research/javier/**"
     },
     {
       "member": "omar",

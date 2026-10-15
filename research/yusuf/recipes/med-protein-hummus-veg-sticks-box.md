@@ -16,7 +16,7 @@ Record `med-protein-hummus-veg-sticks-box` in `app/data/foods-mealprep.js` · li
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
 |---|---|---|---|---|---|
-| 346 g (½ box 173 g) | 270 | 15.2 g | 22.1 g | 11.8 g | 7.6 g |
+| 326 g (½ box 163 g) | 274 | 15.6 g | 21.5 g | 12.1 g | 7.5 g |
 
 Targets (`RULES.mealPrep.targetsBySlot.snacks`): 150–300 kcal met; 15–30 g protein met; at least 3 g fibre met.
 
@@ -34,7 +34,7 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 | Ingredient | Raw g (2 boxes) | Per box | Notes |
 |---|---|---|---|
 | Hummus de garbanzos Hacendado receta clásica (made by Simply Greek) | 80 | 40 | 40 g per box |
-| Queso fresco batido desnatado 0% Hacendado (whipped fresh cheese) | 240 | 120 | 120 g per box |
+| Queso fresco batido desnatado 0% Hacendado (whipped fresh cheese) | 260 | 130 | 130 g per box |
 | Lemon juice (1 lemon yields 48 g, USDA) | 10 | 5 |  |
 | Paprika (pimentón dulce) | 1 | 0.5 | on top |
 
@@ -43,7 +43,7 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 | Ingredient | Raw g (2 boxes) | Per box | Notes |
 |---|---|---|---|
 | Carrot, raw | 120 | 60 | sticks |
-| Cucumber, with peel, raw | 120 | 60 | sticks |
+| Cucumber, with peel, raw | 60 | 30 | sticks (half a cucumber) |
 | Red bell pepper, raw | 100 | 50 | strips |
 
 ### Wholemeal picos
@@ -65,10 +65,10 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 | Component | Raw g | Cooked g | Per box g | Storage |
 |---|---|---|---|---|
-| Hummus whipped with queso fresco batido | 331 | 331 | **166** | `cold-salad` |
-| Veg sticks | 340 | 340 | **170** | `cold-salad` |
+| Hummus whipped with queso fresco batido | 351 | 351 | **176** | `cold-salad` |
+| Veg sticks | 280 | 280 | **140** | `cold-salad` |
 | Wholemeal picos | 20 | 20 | **10** | `proposed:bread` (not in RULES) |
-| **Batch** | 691 | 691 | **346** (½ box 173) | |
+| **Batch** | 651 | 651 | **326** (½ box 163) | |
 
 Overall yield 1 (cooked ÷ raw, absorbed water included). Yield factors used:
 
@@ -78,13 +78,13 @@ Overall yield 1 (cooked ÷ raw, absorbed water included). Yield factors used:
 
 | kcal | Protein | Carbs (available) | Fat | Fibre | Sugars | Sat fat | Sodium | Added fat |
 |---|---|---|---|---|---|---|---|---|
-| 78 | 4.4 g | 6.4 g | 3.4 g | 2.2 g | 3.1 g | 0.5 g | 98 mg | 0.0 g |
+| 84 | 4.8 g | 6.6 g | 3.7 g | 2.3 g | 3.2 g | 0.6 g | 105 mg | 0.0 g |
 
-Per 100 g = batch totals ÷ 691 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 651 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
-kcal = round(4P + 4C + 9F + 2·fibre) = **78** per 100 g. The sum of the tables' own energy values is 77 kcal per 100 g (gap -1.8%), within the ±10% data gate.
+kcal = round(4P + 4C + 9F + 2·fibre) = **84** per 100 g. The sum of the tables' own energy values is 81 kcal per 100 g (gap -3.2%), within the ±10% data gate.
 
 ## Cross-check
 
@@ -93,8 +93,8 @@ kcal = round(4P + 4C + 9F + 2·fibre) = **78** per 100 g. The sum of the tables'
 
 | Component | Per box | Class | Fridge (≤ 5 °C) | Freezer |
 |---|---|---|---|---|
-| Hummus whipped with queso fresco batido | 166 g | `cold-salad` | 2 days | do not freeze |
-| Veg sticks | 170 g | `cold-salad` | 2 days | do not freeze |
+| Hummus whipped with queso fresco batido | 176 g | `cold-salad` | 2 days | do not freeze |
+| Veg sticks | 140 g | `cold-salad` | 2 days | do not freeze |
 | Wholemeal picos | 10 g | `proposed:bread` (not in RULES) | — | yes (pack) |
 
 Use-by of a packed box = cooked date + the shortest fridge life in it = **2 days**. A frozen box has no use-by until it is moved to the fridge (then 1 day).
@@ -120,11 +120,11 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
 | Hummus de garbanzos Hacendado receta clásica: 80 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g | 1 × pack | 1.05 € |
-| Queso fresco batido desnatado 0% Hacendado: 240 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 500 g | 1 × pack | 1.10 € |
+| Queso fresco batido desnatado 0% Hacendado: 260 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 500 g | 1 × pack | 1.10 € |
 | Lemon juice: 10 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Paprika: 1 g | [Pimentón dulce Hacendado](https://tienda.mercadona.es/product/60573/) | 75 g | 1 × pack | 1.30 € |
 | Carrot, raw: 120 g | [Zanahorias](https://tienda.mercadona.es/product/69586/) | 1000 g | 1 × pack | 1.00 € |
-| Cucumber, with peel, raw: 120 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
+| Cucumber, with peel, raw: 60 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Red bell pepper, raw: 100 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Picos 100% integral Hacendado: 20 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 250 g | 1 × pack | 0.80 € |
 
@@ -137,11 +137,12 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 ## Cost per box
 
-**Indicative cost per box: 0.81 €** (1.62 € for 2 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14. Pro-rata: the cost of what goes in the boxes, not of whole packs.
+**Indicative cost per box: 0.78 €** (1.57 € for 2 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14. Pro-rata: the cost of what goes in the boxes, not of whole packs.
 
 ## Changes made to meet the snack targets
 
 - Mercadona queso fresco batido 0% (no rennet) in place of cottage cheese, stirred into ready hummus instead of blending chickpeas: no food processor.
+- Cucumber 60 → 30 g a box and queso batido 120 → 130 g (15 Oct): the first version came to 78 kcal per 100 g, under the Lab floor of 80 for a prep record (check G9). Now 84 kcal per 100 g, 274 kcal and 15.6 g protein a box.
 
 ## Ingredient values (per 100 g, carbs = available carbohydrate)
 

@@ -18,7 +18,7 @@ Record `pk-chana-chaat-dahi-snack-box` in `app/data/foods-mealprep.js` · librar
 
 | Box weight | kcal | Protein | Carbs | Fat | Fibre |
 |---|---|---|---|---|---|
-| 329 g (½ box 165 g) | 227 | 20.1 g | 24.7 g | 3.6 g | 8.2 g |
+| 319 g (½ box 160 g) | 258 | 22.0 g | 28.4 g | 4.1 g | 9.9 g |
 
 Targets (`RULES.mealPrep.targetsBySlot.snacks`): 150–300 kcal met; 15–30 g protein met; at least 3 g fibre met.
 
@@ -35,9 +35,8 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 | Ingredient | Raw g (2 boxes) | Per box | Notes |
 |---|---|---|---|
-| Chickpeas, canned/jarred, drained and rinsed (Hacendado garbanzo cocido, 570 g jar = 400 g drained) | 200 | 100 | drained, rinsed (half a jar) |
+| Chickpeas, canned/jarred, drained and rinsed (Hacendado garbanzo cocido, 570 g jar = 400 g drained) | 260 | 130 | drained, rinsed (about two-thirds of the jar) |
 | Tomato, raw | 80 | 40 | diced |
-| Cucumber, with peel, raw | 80 | 40 | diced |
 | Red onion, raw (cebolla morada) | 30 | 15 | finely chopped |
 | Fresh coriander (cilantro) leaves | 6 | 3 | chopped |
 | Lemon juice (1 lemon yields 48 g, USDA) | 15 | 7.5 |  |
@@ -53,7 +52,7 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 ## Method
 
-1. Drain and rinse the chickpeas; mix with tomato, cucumber, onion, coriander, chilli, lemon and chaat masala.
+1. Drain and rinse the chickpeas; mix with tomato, onion, coriander, chilli, lemon and chaat masala.
 2. Split between 2 boxes. Spoon 120 g protein yogurt into a small pot each and dust with roasted cumin; pour it over just before eating.
 
 ## Added fat
@@ -64,9 +63,9 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 | Component | Raw g | Cooked g | Per box g | Storage |
 |---|---|---|---|---|
-| Chana chaat | 417 | 417 | **209** | `cold-salad` |
+| Chana chaat | 397 | 397 | **199** | `cold-salad` |
 | Protein dahi pot | 241 | 241 | **121** | `cold-salad` |
-| **Batch** | 658 | 658 | **329** (½ box 165) | |
+| **Batch** | 638 | 638 | **319** (½ box 160) | |
 
 Overall yield 1 (cooked ÷ raw, absorbed water included). Yield factors used:
 
@@ -76,13 +75,13 @@ Overall yield 1 (cooked ÷ raw, absorbed water included). Yield factors used:
 
 | kcal | Protein | Carbs (available) | Fat | Fibre | Sugars | Sat fat | Sodium | Added fat |
 |---|---|---|---|---|---|---|---|---|
-| 69 | 6.1 g | 7.5 g | 1.1 g | 2.5 g | 3.2 g | 0.1 g | 66 mg | 0.0 g |
+| 81 | 6.9 g | 8.9 g | 1.3 g | 3.1 g | 3.5 g | 0.1 g | 88 mg | 0.0 g |
 
-Per 100 g = batch totals ÷ 658 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 638 g × 100, with every part of the box included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
-kcal = round(4P + 4C + 9F + 2·fibre) = **69** per 100 g. The sum of the tables' own energy values is 70 kcal per 100 g (gap 1.3%), within the ±10% data gate.
+kcal = round(4P + 4C + 9F + 2·fibre) = **81** per 100 g. The sum of the tables' own energy values is 83 kcal per 100 g (gap 2.7%), within the ±10% data gate.
 
 ## Cross-check
 
@@ -91,12 +90,12 @@ kcal = round(4P + 4C + 9F + 2·fibre) = **69** per 100 g. The sum of the tables'
 
 | Component | Per box | Class | Fridge (≤ 5 °C) | Freezer |
 |---|---|---|---|---|
-| Chana chaat | 209 g | `cold-salad` | 2 days | do not freeze |
+| Chana chaat | 199 g | `cold-salad` | 2 days | do not freeze |
 | Protein dahi pot | 121 g | `cold-salad` | 2 days | do not freeze |
 
 Use-by of a packed box = cooked date + the shortest fridge life in it = **2 days**. A frozen box has no use-by until it is moved to the fridge (then 1 day).
 
-Make 2 boxes at a time; the other half of the chickpea jar goes into the next salad within 2 days.
+Make 2 boxes at a time; the last third of the chickpea jar goes into the next salad within 2 days.
 
 
 Assemble with cold ingredients straight from the fridge and put the boxes back in the fridge at once. Cold boxes travel in an insulated bag with an ice pack and are eaten within 2 hours of leaving the fridge (1 hour above 32 °C).
@@ -120,9 +119,8 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Chickpeas, canned/jarred, drained and rinsed: 200 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g (400 g drained) | 1 × pack | 0.80 € |
+| Chickpeas, canned/jarred, drained and rinsed: 260 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g (400 g drained) | 1 × pack | 0.80 € |
 | Tomato, raw: 80 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
-| Cucumber, with peel, raw: 80 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Red onion, raw: 30 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
 | Fresh coriander: 6 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
 | Lemon juice: 15 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
@@ -137,11 +135,12 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 ## Cost per box
 
-**Indicative cost per box: 0.95 €** (1.90 € for 2 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Not included (no price found, small amounts): chaat masala (3 g), green chilli, raw (3 g).
+**Indicative cost per box: 0.94 €** (1.89 € for 2 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Not included (no price found, small amounts): chaat masala (3 g), green chilli, raw (3 g).
 
 ## Changes made to meet the snack targets
 
-- A small snack portion (100 g chickpeas) with a protein-yogurt pot in place of sev, papdi or boondi (fried), so it reaches 15 g protein at about 220 kcal.
+- A snack portion (130 g chickpeas) with a protein-yogurt pot in place of sev, papdi or boondi (fried), so it reaches 22 g protein at about 260 kcal.
+- No cucumber and 100 → 130 g chickpeas a box (15 Oct): the first version came to 69 kcal per 100 g, under the Lab floor of 80 for a prep record (check G9). Now 81 kcal per 100 g; the chaat is also less watery in the box.
 - Yogurt kept in its own pot: watery vegetables make a stored chaat soggy (Spice Up The Curry).
 
 ## Ingredient values (per 100 g, carbs = available carbohydrate)
@@ -150,7 +149,6 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 |---|---|---|---|---|---|---|
 | chickpeas-jar | USDA FDC SR Legacy 173801 (Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, drained, rinsed in tap water) | 138 | 7.0 | 16.6 | 2.5 | 6.3 |
 | tomato | USDA FDC SR Legacy 170457 (Tomatoes, red, ripe, raw, year round average) | 18 | 0.9 | 2.7 | 0.2 | 1.2 |
-| cucumber | USDA FDC SR Legacy 168409 (Cucumber, with peel, raw) | 15 | 0.7 | 3.1 | 0.1 | 0.5 |
 | onion-red | USDA FDC Foundation 790577 (Onions, red, raw) | 44 | 0.9 | 7.7 | 0.1 | 2.2 |
 | coriander | USDA FDC SR Legacy 169997 (Coriander (cilantro) leaves, raw) | 23 | 2.1 | 0.9 | 0.5 | 2.8 |
 | lemon-juice | USDA FDC SR Legacy 167747 (Lemon juice, raw) | 22 | 0.4 | 6.6 | 0.2 | 0.3 |

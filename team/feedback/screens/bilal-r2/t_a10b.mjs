@@ -1,0 +1,37 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-18T19:30:00+02:00'}); const p = run.page;
+await L.onboardP1(run);
+await L.tap(run, p.getByRole('link',{name:'Prep'}));
+await p.waitForSelector('[data-testid=prep-view]');
+const sh=p.locator('[data-testid=ingredient-sheet]');
+L.start(run);
+await L.tap(run, p.getByTestId('new-recipe'));
+await p.waitForSelector('[data-testid=recipe-editor]'); await p.waitForTimeout(300);
+await L.type(run, p.getByTestId('recipe-name'), 'Lentejas');
+await L.tap(run, p.getByTestId('add-ingredient')); await sh.waitFor(); await p.waitForTimeout(300);
+for (const [q,re] of [['250 g dry brown lentils',/dry/],['1 carrot',/^Carrot/],['1 potato',/Potato, raw/],['1 onion',/^Onion/],['2 tbsp olive oil',/^Olive oil/],['150 g beef sausage',/sausage/i]]) {
+  await L.type(run, p.getByTestId('ingredient-search'), q); await p.waitForTimeout(250);
+  const row = sh.locator('[data-testid=ingredient-row]').filter({hasText:re}).first();
+  console.log('  ',q,'->',(await row.innerText()).replace(/\n+/g,' | '));
+  await L.tap(run, row.locator('.btn-plus')); await p.waitForTimeout(200);
+}
+await L.tap(run, sh.getByRole('button',{name:'Done'})); await p.waitForTimeout(400);
+await L.tap(run, p.getByTestId('boxes-less'));
+console.log('boxes', await p.getByTestId('recipe-boxes').innerText());
+console.log('per-box:', await p.getByTestId('per-box').innerText(), '| total:', await p.getByTestId('recipe-total').innerText());
+await L.shot(run,'a10-lentejas-editor',{fullPage:true});
+await L.tap(run, p.getByTestId('recipe-save')); await p.waitForTimeout(400);
+console.log('lentejas recipe actions', run.actions, L.elapsed(run));
+await L.tap(run, p.getByRole('link',{name:'Day'})); await p.waitForSelector('[data-testid=kcal-left]');
+L.start(run);
+await L.openSlot(run,'Dinner'); await L.search(run,'lentejas');
+console.log(await L.rowTexts(run,4));
+await L.tap(run, L.rows(run).filter({hasText:/^Lentejas \|? ?(estimate)?/}).filter({hasText:/recipe|box|portion/}).first().locator('.food-main').or(L.rows(run).first().locator('.food-main')).first());
+const pk = p.locator('[data-testid=portion-picker]'); await pk.waitFor(); await p.waitForTimeout(300);
+console.log('picker:', (await pk.innerText()).replace(/\n+/g,' | '));
+await L.shot(run,'a10-lentejas-picker');
+console.log('preview:', (await p.locator('[data-testid=portion-preview]').innerText()).replace(/\n+/g,' | '));
+await L.tap(run, pk.getByRole('button',{name:/^Add to/})); await p.waitForTimeout(300);
+await L.done(run);
+console.log('entries', await L.entries(run), 'actions', run.actions, L.elapsed(run));
+await run.browser.close();

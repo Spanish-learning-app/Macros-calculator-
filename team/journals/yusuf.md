@@ -105,3 +105,29 @@
 - FINDING: Mercadona fresh barras (83202.1 Barra de pan, 17912.1 Barra pan integral 100%) list emulgente E-472e
   with no origin (product pages read 2026-10-14). Javier's es-pan-barra (BEDCA generic) is `halal`; a Mercadona
   barra would be `check`. Tell Javier. My pa amb tomàquet prep says: bakery barra of flour, water, salt, yeast.
+- 2026-10-15, resumed after the usage-limit pause. On disk from the checkpoints (8e1ba62, a1e7d69, and the part of
+  c0fe72f that carried my files): the foodId remap with Ayesha's fixes (beef-mince → intl-beef-mince-lean-raw,
+  milk-semi → intl-milk-semi-skimmed, protein-yogurt → es-yogur-proteinas-natural, chicken-thigh →
+  intl-chicken-thigh-raw with registry code 173627 → FDC Foundation 2646171, chicken mince, beef cubes, the eight
+  aromatics/herbs/frozen spinach, lean Greek yogurt → es-yogur-griego-ligero); 14 assemble preps R-MP-26…39;
+  effort/minutes on all 39 (24 cook; overnight oats is honestly `assemble`, 10 min); MEALPREP no-cook section,
+  ready-to-eat picks by slot and the low-cook week. A rebuild changed nothing but the build date: the work was done.
+- Remap kcal (only records whose numbers move; before = b5b2387, after = now): R-MP-1 chicken tikka rice box
+  650 → 708 kcal (protein 49.6 → 47.7 g), R-MP-5 pollo al ajillo box 601 → 654 kcal (protein 46.0 → 43.9 g), both
+  from the thigh code (Foundation 2646171 has more fat than SR Legacy 173627). Within Ayesha's pre-approved 60 kcal.
+  The cook-yield ratio thighRoast/thighBraised stays on the SR Legacy raw/cooked pair (173627 → 172388/172853):
+  it is a water balance between two records of the same series, not the raw value.
+- check-foods FAILED 3 of my new records on G9 (kcal per 100 g under the 80 floor of group `lunchbox`): fruit chaat
+  77, protein hummus 78, chana chaat 69 (fruit, vegetables and yogurt are watery). The group must stay `lunchbox`
+  (§13.1, store.js), so I reformulated: fruit chaat almonds 30 → 40 g a batch (451 kcal / 30.8 g P a portion,
+  82/100 g); protein hummus cucumber 120 → 60 g and queso batido 240 → 260 g (274 kcal / 15.6 g P, 84/100 g);
+  chana chaat no cucumber, chickpeas 200 → 260 g (258 kcal / 22.0 g P, 81/100 g). All within the slot targets.
+  The low-cook week moves on Thu/Fri (fruit chaat breakfasts): 2050–2145 kcal a day (avg 2099), 131–139 g protein
+  (avg 134); till 80.88 €, food used 45.67 € (Mercadona 2026-10-14 snap, butcher 2026-10-13).
+- Name-only lines left in recipes-mealprep.js: ground spices and salt only (red chilli powder, paprika, garam
+  masala, cumin, turmeric, salt, coriander seed, black pepper, cinnamon, cloves, cardamom, bay leaf, oregano,
+  ras el hanout, chaat masala). No research ingredient other than these lacks a foodId.
+- For Javier (via report): Mercadona fresh barras 83202.1 and 17912.1 list E-472e with no origin (pages read
+  2026-10-14); es-pan-barra (BEDCA generic) is fine as `halal`, but a Mercadona barra record would be `check`.
+- Checks: `node research/check-foods.mjs` 272/272 pass; `npm test` 537 tests × 3 time zones, 0 fail (1 TZ-only
+  skip in Karachi and Los Angeles, by design). Not committed (Omar commits).

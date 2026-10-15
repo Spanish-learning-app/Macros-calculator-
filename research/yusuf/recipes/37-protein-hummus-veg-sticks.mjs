@@ -26,7 +26,7 @@ export default {
       id: 'dip', label: 'Hummus whipped with queso fresco batido', storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['hummus', 80, '40 g per box'],
-        ['queso-batido', 240, '120 g per box'],
+        ['queso-batido', 260, '130 g per box'],
         ['lemon-juice', 10, ''],
         ['paprika', 1, 'on top'],
       ],
@@ -35,7 +35,7 @@ export default {
       id: 'veg', label: 'Veg sticks', storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['carrot', 120, 'sticks'],
-        ['cucumber', 120, 'sticks'],
+        ['cucumber', 60, 'sticks (half a cucumber)'],
         ['pepper-red', 100, 'strips'],
       ],
     },
@@ -54,6 +54,7 @@ export default {
   crossCheck: null,
   changes: [
     'Mercadona queso fresco batido 0% (no rennet) in place of cottage cheese, stirred into ready hummus instead of blending chickpeas: no food processor.',
+    'Cucumber 60 → 30 g a box and queso batido 120 → 130 g (15 Oct): the first version came to 78 kcal per 100 g, under the Lab floor of 80 for a prep record (check G9). Now 84 kcal per 100 g, 274 kcal and 15.6 g protein a box.',
   ],
   confidence: 'B',
   confidenceWhy: 'No cooking: dated labels (hummus, queso batido, picos) and USDA SR Legacy vegetables.',

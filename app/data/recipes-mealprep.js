@@ -988,7 +988,7 @@ export default [
         note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
       { foodId: 'es-yogur-proteinas-natural', grams: 480, section: 'supermarket' },
-      { foodId: 'intl-almonds', grams: 30, section: 'supermarket' },
+      { foodId: 'intl-almonds', grams: 40, section: 'supermarket' },
       { foodId: 'intl-banana', grams: 101, section: 'supermarket' },
     ],
     effort: 'assemble',
@@ -1198,11 +1198,11 @@ export default [
     storage: ['cold-salad'],
     ingredients: [
       { foodId: 'med-hummus', grams: 80, section: 'supermarket' },
-      { foodId: 'es-queso-fresco-batido', grams: 240, section: 'supermarket' },
+      { foodId: 'es-queso-fresco-batido', grams: 260, section: 'supermarket' },
       { foodId: 'intl-lemon-juice', grams: 10, section: 'supermarket' },
       { name: 'Paprika', grams: 1, section: 'supermarket' },
       { foodId: 'intl-carrot', grams: 120, section: 'supermarket' },
-      { foodId: 'intl-cucumber', grams: 120, section: 'supermarket' },
+      { foodId: 'intl-cucumber', grams: 60, section: 'supermarket' },
       { foodId: 'intl-pepper-red', grams: 100, section: 'supermarket' },
       { foodId: 'es-picos-integrales', grams: 20, section: 'supermarket' },
     ],
@@ -1231,9 +1231,8 @@ export default [
       { id: 'cold-salad', pot: true },
     ],
     ingredients: [
-      { foodId: 'es-garbanzos-cocidos', grams: 200, section: 'supermarket' },
+      { foodId: 'es-garbanzos-cocidos', grams: 260, section: 'supermarket' },
       { foodId: 'intl-tomato', grams: 80, section: 'supermarket' },
-      { foodId: 'intl-cucumber', grams: 80, section: 'supermarket' },
       {
         foodId: 'intl-onion',
         name: 'Red onion (cebolla morada)',
