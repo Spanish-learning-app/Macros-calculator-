@@ -1,17 +1,17 @@
 {
   "project": "Daily meal & macro calculator",
   "status": "working",
-  "phase": "Sprint 2 · Recipes & meal prep",
-  "sprint": 2,
+  "phase": "Sprint 3 · Nudges, Ramadan, polish",
+  "sprint": 3,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-15T16:17:00Z",
+  "updatedAt": "2026-10-15T16:20:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
   "app": {
     "url": "https://claude.ai/artifact/GusJdyjFkPK4yftNRPzFrY",
-    "version": "Sprint 1 final (v2)",
-    "publishedAt": "2026-10-14T09:58:00Z",
+    "version": "Sprint 2 (v3)",
+    "publishedAt": "2026-10-15T16:17:00Z",
     "page": "tools/artifact-page.html",
     "files": "npm run publish:files"
   },
@@ -87,7 +87,7 @@
     "enabled": true
   },
   "appName": "Katori",
-  "next": "Fix wave + design refinements land -> Kenji tests -> republish preview v3 -> Report #2 -> Sprint 3 (Meeting 004 D).",
+  "next": "Sprint 3 kickoff (Meeting 004 D list): protein nudges, Ramadan mode, weight trend, kam-tel variants, low-cook week as saved meals, spare-box warning, short names, Pakistani names first-run choice, a11y/perf/final data audit (Ayesha: 118 records awaiting review). Then Review 3 and delivery report.",
   "meetingsHeld": [
     "001-kickoff",
     "002-boss-update",
@@ -161,11 +161,9 @@
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
     "note": "Boss can prompt the session during the day to work anyway"
   },
-  "queued": [
-    {
-      "member": "omar",
-      "task": "Republish app (preview v3) after fix wave; Report #2 to the Boss",
-      "output": "team/reports/002-sprint-2.md"
-    }
+  "queued": [],
+  "reports": [
+    "001-sprint-1",
+    "002-sprint-2"
   ]
 }
