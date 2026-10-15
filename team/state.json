@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-15T15:51:00Z",
+  "updatedAt": "2026-10-15T16:17:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -51,8 +51,8 @@
     },
     "kenji": {
       "location": "office",
-      "status": "working",
-      "task": "Tests for fix wave 2"
+      "status": "idle",
+      "task": "Review 2 QA done: 597 unit, 228 e2e green"
     },
     "zainab": {
       "location": "office",
@@ -80,13 +80,7 @@
       "task": "Review 2 done: 8/10"
     }
   },
-  "inFlight": [
-    {
-      "member": "kenji",
-      "task": "Update meal-prep e2e for new wording; independent tests for search ranking, quantities, weekly shopping list, search note, family pot; perf test verdict",
-      "output": "tests/**"
-    }
-  ],
+  "inFlight": [],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",

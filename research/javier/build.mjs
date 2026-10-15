@@ -1709,7 +1709,7 @@ esmed.push(...seafoodEsMed);
 // listings read with research/javier/market.mjs (bcn1, 2026-10-14/15), or from the label cited on the record.
 const PACKS = {
   // eggs and dairy
-  'intl-egg-raw': [720, '12 eggs'],
+  'intl-egg-raw': [600, '12 eggs'], // 12 large × 50 g edible (BUG-SH1)
   'intl-egg-boiled': [300, '6 boiled eggs'],
   'intl-egg-whites-liquid': [1030, '1 l bottle'],
   'intl-milk-whole': [1030, '1 l brik'],

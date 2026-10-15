@@ -115,6 +115,17 @@ async function cookFromLibrary(page, a, id) {
   await expect(page.getByTestId('cook-dialog')).toBeHidden();
 }
 
+/**
+ * The batch counters (decision A3 of Meeting 004): "4 to eat", "3 to eat · 1 eaten". The data
+ * attributes are the contract; placed boxes are still to eat, `unplaced` is what has no day yet.
+ */
+async function expectBoxCounts(card, { toEat, eaten = 0, unplaced }) {
+  const left = card.getByTestId('boxes-left');
+  await expect(left).toHaveAttribute('data-to-eat', String(toEat));
+  await expect(left).toHaveAttribute('data-eaten', String(eaten));
+  await expect(left).toHaveAttribute('data-unplaced', String(unplaced));
+}
+
 const NEED_COOK = ['library-cook', 'cook-save', 'batch-card', 'boxes-left', 'box-row'];
 const NEED_PLACE = [...NEED_COOK, 'place-day'];
 
@@ -151,7 +162,7 @@ test.describe('A16 batch recipe into boxes', () => {
 
     const card = batchCard(page);
     await expect(card).toBeVisible();
-    await expect(card.getByTestId('boxes-left')).toContainText('4 of 4 left');
+    await expectBoxCounts(card, { toEat: 4, unplaced: 4 });
     expect(a.count).toBeLessThanOrEqual(4);
     const doc = await savedWhere(page, (d) => d.batches?.length === 1, 'the batch');
     expect(doc.batches[0].recipeId).toBe(TIKKA);
@@ -284,7 +295,20 @@ test.describe('A16 (2) my own recipe "Tikka bowls"', () => {
     );
   }
 
-  /** One ingredient: search, open the picker, choose the portion, type the amount, add. */
+  /**
+   * One ingredient the quick way (Review 2): type the amount first ("800 g chicken thigh",
+   * "2 tbsp oil", "2 cucumbers"), then tap that food's "+". Two actions.
+   */
+  async function addQuick(page, a, f, { unit, amount }) {
+    const name = f.name.split(',')[0].split('(')[0].trim();
+    const text = `${amount}${unit ? ` ${unit}` : ''} ${name}`;
+    await a.fill(page.getByTestId('ingredient-search'), text, `quick "${text}"`);
+    const row = page.locator(`[data-testid="ingredient-row"][data-food-id="${f.id}"]`);
+    await expect(row, `${f.id} is found by "${text}"`).toBeVisible();
+    await a.tap(row.getByRole('button', { name: /^Add .* to the recipe$/ }), `+ ${f.id}`);
+  }
+
+  /** One ingredient the long way: search, open the picker, choose the portion, type the amount, add. */
   async function addIngredient(page, a, f, { unit, amount }) {
     const search = page.getByTestId('ingredient-search');
     await a.fill(search, f.name.split(',')[0].split('(')[0].trim(), `search ${f.name}`);
@@ -319,11 +343,11 @@ test.describe('A16 (2) my own recipe "Tikka bowls"', () => {
     await a.tap(page.getByTestId('add-ingredient'), 'Add ingredients');
     await expect(page.getByTestId('ingredient-sheet')).toBeVisible();
 
-    await addIngredient(page, a, THIGH, { unit: /grams/i, amount: 800 });
-    await addIngredient(page, a, DAHI, { unit: /grams/i, amount: 200 });
-    await addIngredient(page, a, OIL, { unit: /tbsp|tablespoon/i, amount: 2 });
-    await addIngredient(page, a, RICE, { unit: /grams/i, amount: 320 });
-    await addIngredient(page, a, CUCUMBER, { unit: null, amount: 2 });
+    await addQuick(page, a, THIGH, { unit: 'g', amount: 800 });
+    await addIngredient(page, a, DAHI, { unit: /grams/i, amount: 200 }); // the long way still works
+    await addQuick(page, a, OIL, { unit: 'tbsp', amount: 2 });
+    await addQuick(page, a, RICE, { unit: 'g', amount: 320 });
+    await addQuick(page, a, CUCUMBER, { unit: null, amount: 2 });
     await a.tap(page.getByTestId('ingredient-sheet').getByRole('button', { name: 'Done' }), 'Done');
     await expect(page.getByTestId('ingredient-sheet')).toBeHidden();
 
@@ -413,7 +437,7 @@ test.describe('A17 boxes into Lunch', () => {
     const setup = actions(page);
     await cookFromLibrary(page, setup, TIKKA);
     const card = batchCard(page);
-    await expect(card.getByTestId('boxes-left')).toContainText('4 of 4 left');
+    await expectBoxCounts(card, { toEat: 4, unplaced: 4 });
     // boxes left and halal status are visible without opening anything
     await expect(card.getByTestId('boxes-left')).toBeVisible();
     await expect(card.getByText(/halal/i).first()).toBeVisible();
@@ -424,7 +448,7 @@ test.describe('A17 boxes into Lunch', () => {
     for (const d of ['mon', 'tue', 'wed', 'thu']) {
       await a.tap(card.locator(`[data-testid="place-day"][data-date="${DAYS[d]}"]`), `box on ${d}`);
     }
-    await expect(card.getByTestId('boxes-left')).toContainText('0 of 4 left');
+    await expectBoxCounts(card, { toEat: 4, unplaced: 0 });
     const doc = await savedWhere(
       page,
       (d) => d.days?.[DAYS.thu]?.entries?.some((e) => e.foodId === TIKKA),
@@ -453,7 +477,7 @@ test.describe('A17 boxes into Lunch', () => {
     await savedWhere(page, (d) => friBox(d).length === 1, 'the Friday box');
     await ui.undo(page).getByRole('button', { name: 'Undo' }).click();
     await savedWhere(page, (d) => friBox(d).length === 0, 'the Friday box removed by Undo');
-    await expect(card.getByTestId('boxes-left')).toContainText('0 of 4 left');
+    await expectBoxCounts(card, { toEat: 4, unplaced: 0 });
   });
 
   test('"Fill Mon–Thu" places the four boxes in one tap', async ({ page }) => {
@@ -462,7 +486,7 @@ test.describe('A17 boxes into Lunch', () => {
     await cookFromLibrary(page, actions(page), TIKKA);
     const card = batchCard(page);
     await card.getByTestId('fill-mon-thu').click();
-    await expect(card.getByTestId('boxes-left')).toContainText('0 of 4 left');
+    await expectBoxCounts(card, { toEat: 4, unplaced: 0 });
     const doc = await savedWhere(page, (d) => d.days?.[DAYS.thu]?.entries?.length, 'the boxes');
     for (const d of ['mon', 'tue', 'wed', 'thu'])
       expect(
@@ -503,7 +527,8 @@ test.describe('A17 boxes into Lunch', () => {
     await page.goto('/#/prep');
     const card = batchCard(page);
     await expect(boxRow(card, 1)).toContainText(/eaten/i);
-    await expect(card.getByTestId('boxes-left')).toContainText(/of 4 left/);
+    await expectBoxCounts(card, { toEat: 3, eaten: 1, unplaced: 0 });
+    await expect(card.getByTestId('boxes-left')).toContainText('3 to eat · 1 eaten');
   });
 });
 
@@ -561,7 +586,7 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     const card = batchCard(page);
     for (const d of ['mon', 'tue', 'wed', 'thu'])
       await card.locator(`[data-testid="place-day"][data-date="${DAYS[d]}"]`).click();
-    await expect(card.getByTestId('boxes-left')).toContainText('0 of 4 left');
+    await expectBoxCounts(card, { toEat: 4, unplaced: 0 });
     return card;
   }
 
@@ -660,7 +685,7 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     }
     await page.getByTestId('cook-save').click();
     const card = batchCard(page);
-    await expect(card.getByTestId('boxes-left')).toContainText('4 of 4 left');
+    await expectBoxCounts(card, { toEat: 4, unplaced: 4 });
     await expect(boxRow(card, 1).getByTestId('box-useby')).toContainText(/use by.*tue/i);
     const doc = await savedWhere(page, (d) => d.batches?.length === 1, 'the chaat batch');
     expect(doc.batches[0].boxes.every((b) => b.storage === 'fridge')).toBe(true);

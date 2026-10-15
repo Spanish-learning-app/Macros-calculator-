@@ -427,18 +427,35 @@ test('performance: under 16 ms per query on 2,000 foods', () => {
     'birya',
     'k',
   ];
-  for (const q of queries) searchFoods(index, q); // warm up
+  // Measured in process CPU time (user + system), not wall-clock time, so a busy machine
+  // (other test runs, browsers) cannot fail it: Kenji's Review 2 finding, decided by Omar.
+  // Median of 7 trials after 3 warm-up passes; the 16 ms budget is unchanged.
+  const cpuMs = (fn) => {
+    const start = process.cpuUsage();
+    fn();
+    const used = process.cpuUsage(start);
+    return (used.user + used.system) / 1000;
+  };
+  for (let w = 0; w < 3; w += 1) for (const q of queries) searchFoods(index, q);
   const rounds = 5;
-  let worst = 0;
-  const started = performance.now();
-  for (let r = 0; r < rounds; r += 1) {
-    for (const q of queries) {
-      const t = performance.now();
-      searchFoods(index, q, { boosts: { 'intl-syn-7': 1 } });
-      worst = Math.max(worst, performance.now() - t);
+  const means = [];
+  const worsts = [];
+  for (let trial = 0; trial < 7; trial += 1) {
+    let total = 0;
+    let worst = 0;
+    for (let r = 0; r < rounds; r += 1) {
+      for (const q of queries) {
+        const ms = cpuMs(() => searchFoods(index, q, { boosts: { 'intl-syn-7': 1 } }));
+        total += ms;
+        worst = Math.max(worst, ms);
+      }
     }
+    means.push(total / (rounds * queries.length));
+    worsts.push(worst);
   }
-  const mean = (performance.now() - started) / (rounds * queries.length);
-  assert.ok(mean < 16, `mean ${mean.toFixed(2)} ms per query`);
-  assert.ok(worst < 16 * 3, `worst ${worst.toFixed(2)} ms`);
+  const median = (xs) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
+  const mean = median(means);
+  const worst = median(worsts);
+  assert.ok(mean < 16, `median CPU ${mean.toFixed(2)} ms per query`);
+  assert.ok(worst < 16 * 3, `median slowest query ${worst.toFixed(2)} ms CPU`);
 });

@@ -107,7 +107,7 @@ export function singularWord(word) {
   if (typeof word !== 'string' || word.length < 4 || !/^[a-z]+$/.test(word)) return word;
   if (word.length >= 5 && word.endsWith('ies')) return `${word.slice(0, -3)}y`;
   if (/(oes|ches|shes|xes|sses)$/.test(word)) return word.slice(0, -2);
-  if (/(ss|us|is)$/.test(word)) return word;
+  if (/(ss|us)$/.test(word)) return word; // "rotis" -> "roti", "kiwis" -> "kiwi" (BUG-S1)
   return word.endsWith('s') ? word.slice(0, -1) : word;
 }
 

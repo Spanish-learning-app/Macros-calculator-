@@ -107,3 +107,38 @@
   534 tests per zone, 532/531/531 pass, 0 fail, 2 todo (A16 raw thigh and dry basmati missing in FOODS: Ayesha/Yusuf), 1 skip in Karachi and LA (a Madrid-only DST case).
   `npm run test:e2e`: 144 passed, 28 skipped (per project: 5 taste-chip BUG-TC1 fixme, 1 A16(2) budget KNOWN GAP, 1 smoke wait-for-store), 0 failed.
   Lena's wording moved under me twice (place-slot select -> chips, "Use by Tomorrow, Mon 2 Nov" -> "Use by tomorrow", "Moved to fridge" label); the specs now accept both.
+- 2026-10-15 ~16:10 UTC: REVIEW 2 QA (Meeting 004 A1-A5, A7), after Lena's fix wave 2. Priya still on B (shell, totals bar, day.js).
+  - **Meal-prep e2e**: the 7 tests (8 asserts) that expected "N of 4 left" now read the data attributes through one helper,
+    `expectBoxCounts(card, { toEat, eaten, unplaced })` (data-to-eat / data-eaten / data-unplaced); one wording check kept
+    ("3 to eat · 1 eaten"). The A16(2) "Tikka bowls" flow used the 5-action picker route (30 actions, skipped as a KNOWN GAP);
+    the Lab now has raw thigh and dry basmati and Lena added quick amounts ("800 g chicken thigh" then "+"), so the spec uses them
+    for four ingredients and keeps the picker route for the dahi: 19 actions, the test runs instead of skipping.
+  - **New tests/unit/qa/review2.test.js** (39 tests, hand-worked values, real Lab data plus small synthetic kitchens):
+    A1 ranking (single rotis before preps, same-name single first in any input order, own first, foodKind), A2 (3 medium potatoes ->
+    intl-potato-raw medium x3 = 639 g; 5 eggs -> intl-egg-raw x5; 250 g lentils -> dry lentils before the stew and the jar; parse and
+    size fallbacks), A4 (shoppingList merge with a x2 batch: chicken 1800 g, onion 440 g = 4 medium, tomato 1200 g, egg 700 g = 14;
+    shoppingForShop order butcher, supermarket, "Check you have"; buyAmount: 3 x 400 g tin, 2 packs of 12 eggs using 14, 4 medium onions,
+    453 g = 3 potatoes, 510 g = 4; listText copy; real library batches merged against an independent sum), A5 (calm line for 17 pork and
+    alcohol words, none for ordinary words using real hit counts, lard wording with Halal only off, partial words, gambas/calamares/pulpo/
+    mejillones find seafood records), A7 (foodFromRecipe with potKatori 8: katori default 200 g, box = 1 whole pot 1600 g, 1 katori =
+    total / 8; 6.5 katori; box and no-pot recipes unchanged; own recipe ranks first).
+  - **New tests/e2e/review2.spec.js** (15 tests x 4 projects): add sheet at Lunch (roti order, Prep tags, own recipe first with "My recipe"),
+    the recipe picker with the three quantities (checks the saved ingredients), pork/alcohol note x5 words and no stale note, gambas and
+    shellfish, the family pot end to end (Family pot chip, katori field, saved potKatori 8 / 1600 g, first for "salan", logs 1 katori =
+    200 g, details say "your own pot ... your amounts of oil"), and the weekly shopping list from two library batches (tikka + keema).
+  - **Bugs found**
+    BUG-S1 (Lena): `singularWord` keeps "-is" words, so "rotis" never folds to "roti": the search returns only the six Spanish "2 rotis
+    integrales" preps and no Roti / chapati (fuzzy only fills in under 3 hits). "2 rotis" is how people type it. Same for any desi -i
+    food plural. Kept as TODO test (`knownBug`).
+    BUG-SH1 (Javier; Lena could also guard in buyAmount): intl-egg-raw has `pack.grams` 720 for "12 eggs" but a large egg is 50 g
+    (12 x 50 = 600). 14 large eggs (700 g) shows "1 pack of 12 eggs (uses 14 large eggs)": two eggs short. Fix: pack.grams 600 for
+    the edible weight, or buyAmount takes the pack count from the label when it has `uses`. Two TODO tests (hand-worked case and a
+    sweep of every real pack with a count in its label).
+  - **Search speed test** (tests/unit/dev/search.test.js, Hamza's): see the report. Real regression: no. Alone: mean 4.5-10 ms in 12
+    runs (worst single query 15-24 ms of the 48 allowed); the pre-wave search.js (commit 0c18f18) measures 4.7-10.4 ms on the same
+    data, interleaved, so the wave added nothing. With 8 busy loops on 4 cores the mean is 10-19 ms (fails ~half the time) and with
+    16 loops 31-48 ms; process CPU time per query stays 5-9 ms in every case.
+- 2026-10-15 ~16:20 UTC: FINAL RUN (app code unchanged by Priya at this point, so selectors held). `npm run check` exit 0 in Europe/Madrid and
+  Asia/Karachi (lint, prettier, unit in Madrid, Karachi, LA): 597 tests per zone, 594/593/593 pass, 0 fail, 3 todo (BUG-S1, BUG-SH1 x2), 1 skip
+  outside Madrid (DST case). `npm run test:e2e`: 228 passed, 4 skipped (one tsp-default taste-chip case per project: no such food), 0 failed.
+  The speed test passed in all six unit runs (machine quiet).

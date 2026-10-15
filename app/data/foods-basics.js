@@ -386,7 +386,7 @@ export default [
       { id: 'large', label: '1 large egg', labelUr: '1 انڈا', grams: 50, default: true },
       { id: 'medium', label: '1 medium egg', grams: 44 },
     ],
-    pack: { grams: 720, label: '12 eggs' },
+    pack: { grams: 600, label: '12 eggs' },
     tags: ['international', 'vegetarian', 'contains-egg'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal' },
