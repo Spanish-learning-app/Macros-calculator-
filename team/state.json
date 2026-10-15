@@ -1,10 +1,10 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "working",
+  "status": "paused",
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-15T00:46:00Z",
+  "updatedAt": "2026-10-15T15:35:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -21,12 +21,12 @@
   "members": {
     "omar": {
       "location": "office",
-      "status": "working",
+      "status": "off",
       "task": "Night shift: coordinating Sprint 2"
     },
     "lena": {
       "location": "office",
-      "status": "idle",
+      "status": "off",
       "task": "Sprint 2 done incl. BUG-TC1 and quick-amount ingredient entry"
     },
     "ayesha": {
@@ -46,7 +46,7 @@
     },
     "priya": {
       "location": "office",
-      "status": "idle",
+      "status": "off",
       "task": "Design study done: recommends refine (Option B)"
     },
     "kenji": {
@@ -71,7 +71,7 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "working",
+      "status": "off",
       "task": "Low-cook week v2 + budget week"
     },
     "mariam": {
@@ -83,23 +83,25 @@
   "inFlight": [
     {
       "member": "lena",
-      "task": "Sprint 2 fix wave (Meeting 004 A1-A5, A7, A8)",
+      "task": "Sprint 2 fix wave (Meeting 004 A1-A5, A7, A8): partial work committed in ebda7b2",
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
       "member": "priya",
-      "task": "Design refinements (Meeting 004 B)",
+      "task": "Design refinements (Meeting 004 B): partial work committed in ebda7b2",
       "output": "totals-bar.js, icons.js, tokens.css, base.css, views.css, main.js shell, welcome.js, day.js"
     },
     {
       "member": "yusuf",
-      "task": "Low-cook week v2 + budget week <=60 EUR, serve tags, feta-swap record",
+      "task": "Low-cook week v2 + budget week <=60 EUR, serve tags, feta-swap record: partial work committed",
       "output": "research/yusuf/**, foods-mealprep.js, recipes-mealprep.js, docs/MEALPREP.md"
     }
   ],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
-    "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *"
+    "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
+    "resumeWakeup": "trig_01WDWgsZ9ekPqCLj21nLA2PJ (2026-10-18T16:09Z)",
+    "enabled": false
   },
   "appName": "Katori",
   "next": "Fix wave + design refinements land -> Kenji tests -> republish preview v3 -> Report #2 -> Sprint 3 (Meeting 004 D).",
@@ -161,6 +163,11 @@
       "to": "2026-10-15T00:10:00Z",
       "reason": "Usage limit (reset 00:10 UTC)",
       "resumedBy": "check-in 00:10"
+    },
+    {
+      "from": "2026-10-15T00:55:00Z",
+      "to": "2026-10-18T16:09:00Z",
+      "reason": "Claude WEEKLY usage limit (resets 2026-10-18 15:00 UTC). Check-in routine disabled; one-shot wake-up trig_01WDWgsZ9ekPqCLj21nLA2PJ at 18:09 Madrid re-enables it."
     }
   ],
   "workingHours": {
