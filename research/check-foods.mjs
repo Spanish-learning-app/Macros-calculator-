@@ -40,7 +40,7 @@ const ID_PREFIXES = ['pk-', 'es-', 'med-', 'intl-'];
 const RESTAURANT_STYLES = new Set(['restaurant', 'dhaba', 'street']);
 
 const KEYS = {
-  record: new Set(['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'tags', 'slots', 'halal', 'source']),
+  record: new Set(['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'tags', 'slots', 'halal', 'source']),
   per100g: new Set(['kcal', 'protein', 'carbs', 'fat', 'fiber', 'sugars', 'satFat', 'sodium']),
   serving: new Set(['id', 'label', 'labelUr', 'grams', 'default']),
   source: new Set(['citation', 'method', 'confidence', 'reviewer', 'date', 'notes']),
@@ -317,6 +317,16 @@ function checkRecord(f, ctx) {
   if (isStr(f.family)) {
     const groups = ctx.familyGroups.get(f.family);
     if (groups && groups.size > 1) W('G18', `family "${f.family}" spans groups: ${[...groups].join(', ')}`);
+  }
+
+  // pack (Meeting 004): optional shopping-list pack size, no nutrition effect
+  if (f.pack !== undefined) {
+    if (!f.pack || typeof f.pack !== 'object' || Array.isArray(f.pack)) F('G10', 'pack must be { grams, label }');
+    else {
+      if (!isNum(f.pack.grams) || f.pack.grams <= 0) F('G10', 'pack.grams must be a number > 0');
+      if (!isStr(f.pack.label)) F('G10', 'pack.label must be a non-empty string');
+      for (const k of Object.keys(f.pack)) if (k !== 'grams' && k !== 'label') W('G20', `unknown pack key "${k}"`);
+    }
   }
 
   // G20 unknown top-level keys

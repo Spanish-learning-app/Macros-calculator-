@@ -102,3 +102,14 @@ Timestamps are UTC.
 - 2026-10-14 Writing docs/DESIGN-STUDY.md. Pick: Option 2 (refine), ~3–4 days for me + prep finish for Lena.
 - 2026-10-14 docs/DESIGN-STUDY.md written (25 sources, 9 ranked refinements, 8 prep fixes for Lena). Pick: Option B refine; ~3–4 days for me, prep markup/CSS for Lena. Not committed (Omar commits). Server on :8790 used for shots.
 - 2026-10-14 Lena's prep.css landed mid-study; re-shot Prep (09, 11–14) and rewrote DESIGN-STUDY §5 to list only what is still open (halal chip, box rows, date words, Fill wrap, Cooked-on field, meal select).
+
+## Design refinements B (Meeting 004, decision B), night of 2026-10-15
+
+- 00:40 UTC Read journal tail, meeting 004 (B: items 2, 3, 6, 7, 8, 9 + scroll-to-meal + "Added";
+  panel: keep the floating Add food, keep the cook-date buttons, strip shows "g left"), DESIGN-STUDY §4.
+  Baseline: `npm run check` green; e2e 164 pass / 8 skipped. No day.spec.js exists, so I run the full e2e.
+- 00:55 Before shots (400×860, light/dark, Madrid): `team/feedback/design-study/after/shoot-b.mjs before`
+  (welcome; Mon 2 Nov 13:30 prep day with tikka boxes Mon–Thu and breakfast logged; add sheet after
+  "+"; empty day; week). At 13:30 Lunch is fully under the fold: the macro panel (~230 px) and the
+  3-line Tonight card push Breakfast to y≈640. Plan: strip in sticky bar, panel collapsed behind it,
+  Tonight in one line, empty card, tab icons, tick/"Added" via CSS + day.js (no add-sheet.js edit).

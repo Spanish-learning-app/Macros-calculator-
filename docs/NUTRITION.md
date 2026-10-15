@@ -347,6 +347,7 @@ Every file `app/data/foods-*.js` (nine files, including `foods-mealprep.js`) is 
 | `per100g` | HARD | `{ kcal, protein, carbs, fat, fiber }`, all numbers ≥ 0, plus optional `sugars`, `satFat` (g) and `sodium` (mg). Values are per 100 g **as eaten** (cooked, oil included, edible part only). kcal is a whole number; the others have at most 1 decimal. |
 | `addedFatPer100g` | Lab-required when `source.method` is `recipe` | Grams of cooking oil or ghee in 100 g as served. Must be ≤ `per100g.fat`. |
 | `servings` | HARD | At least one serving. Each is `{ id, label, labelUr?, grams, default? }`. Rules: `id` is kebab-case and unique within the food, and never `g` (reserved for raw grams); `label` names **one** unit, e.g. "1 roti (medium)" or "1 katori (medium)"; `grams` is the edible weight of one unit; **exactly one** serving has `default: true`. |
+| `pack` | SOFT (optional) | `{ grams, label }`: one shop pack of this food, for the weekly shopping list only (Meeting 004, decision A item 4). `grams` > 0 on the same basis as `per100g` (drained weight for tinned fish and jarred pulses, edible weight for eggs); `label` is a non-empty string the list can show, e.g. `'400 g jar'` or `'12 eggs'`. It has no effect on nutrition. Gate G10 checks `grams` and `label`. |
 | `tags` | HARD | Ids from `RULES.vocab.tags`. At least one cuisine tag; `vegan` requires `vegetarian`; at most one seafood tag. Halal is **not** a tag any more. |
 | `halal` | HARD | `{ status, reason? }`. `status` is `'halal'`, `'check'` or `'not-halal'`. `reason` is one plain, factual line, **required unless status is `halal`**. See §4.6. |
 | `slots` | SOFT | Meal-slot hints: ids from `RULES.mealSlots.default` (or `.ramadan`), e.g. `['breakfast']` for paratha. Used to rank search results. |
@@ -898,7 +899,7 @@ Show this text as written:
 | G7 | **Mass:** P + C + F + fibre ≤ 100.5 g; sugars ≤ carbs + 0.5; satFat ≤ fat | fail |
 | G8 | **Fibre zero:** groups with `fiberZero` have fibre exactly 0 | fail |
 | G9 | **Range:** kcal is within the group's `kcalPer100g` | fail |
-| G10 | **Servings:** non-empty; ids kebab-case, unique and not `g`; labels non-empty; grams > 0 and within the group's `servingGrams` (household measures are exempt; whole-dish servings are exempt from the max, capped at 3,000 g and 4,000 kcal, and never default); exactly one default; kcal per serving ≤ 1,500 | fail |
+| G10 | **Servings:** non-empty; ids kebab-case, unique and not `g`; labels non-empty; grams > 0 and within the group's `servingGrams` (household measures are exempt; whole-dish servings are exempt from the max, capped at 3,000 g and 4,000 kcal, and never default); exactly one default; kcal per serving ≤ 1,500; optional `pack` is `{ grams > 0, label }` | fail |
 | G11 | **Household ids:** a serving using a `RULES.householdMeasures` id has grams/ml between 0.3 and 1.5 | fail |
 | G12 | **Katori groups:** `katori-small`, `katori`, `katori-large` and `tbsp` are present, with one consistent density (±3%) | fail |
 | G13 | **Tags:** all in the vocabulary; ≥ 1 cuisine; at most one seafood tag; no old `halal` / `halal-check` tags; vegan → vegetarian | fail |

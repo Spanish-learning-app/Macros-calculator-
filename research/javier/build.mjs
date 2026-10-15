@@ -1608,8 +1608,171 @@ esmed.push(...marketEsMed);
   h.aliases = [...new Set([...h.aliases, 'hummus hacendado', 'hummus mercadona', 'hummus tub'])];
 }
 
+// ================================================================= Meeting 004 decision A item 6: seafood records
+// So the seafood setting does something (docs/NUTRITION.md §4.2/§4.6): prawns -> seafood-prawn; squid, octopus, mussels,
+// clams -> seafood-other. Halal status stays 'halal' like the fish records (the app shows 'check' with
+// "Depends on your school of thought." when the tag is outside the user's seafood choice). Added 2026-10-15.
+const D3 = '2026-10-15';
+const src3 = (citation, method, confidence, notes) => ({ ...src(citation, method, confidence, notes), date: D3 });
+const fromBedca3 = (id, conf, notes) => { const x = fromBedca(id, conf, notes); return { per100g: x.per100g, source: { ...x.source, date: D3 } }; };
+const fromUsda3 = (id, conf, notes, opts) => { const x = fromUsda(id, conf, notes, opts); return { per100g: x.per100g, source: { ...x.source, date: D3 } }; };
+const SEAFOOD_NOTE = 'Seafood: halal status is kept as halal; the app shows "check" (depends on your school of thought) when the seafood setting excludes this tag.';
+
+const seafoodBasics = [
+  {
+    id: 'intl-prawns-raw', name: 'Prawns or shrimp, raw, peeled (gambas, jhinga)', nameUr: 'جھینگا', nameRoman: 'jhinga',
+    aliases: ['jhinga', 'jheenga', 'jhingay', 'jhingey', 'jhinge', 'prawn', 'prawns', 'shrimp', 'shrimps', 'raw prawns', 'raw shrimp', 'gamba', 'gambas', 'gambas crudas', 'langostino', 'langostinos', 'gamba cruda', 'gambes', 'gambeta', 'llagostins', 'جھینگے'],
+    group: 'meat-fish', state: 'raw, peeled, edible part only (shell and head removed)',
+    ...fromUsda3(175179, 'A', `Servings: USDA 3 oz = 85 g. Cross-checks: BEDCA 817 gamba roja cruda 89 kcal; CoFID 16-387 king prawns raw 77 kcal; Mercadona frozen peeled prawns label 72 kcal (7 % added water). ${SEAFOOD_NOTE}`, { zeroFiber: true }),
+    servings: [sv('portion', '1 portion (3 oz, 85 g)', 85, true), sv('100g', '100 g', 100), sv('half', 'half portion (40 g)', 40)],
+    tags: ['international', 'spanish', 'gym', 'seafood-prawn'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-prawns-cooked', name: 'Prawns or shrimp, cooked and peeled (gambas cocidas peladas)', nameUr: 'ابلے ہوئے جھینگے', nameRoman: 'jhinga (boiled)',
+    aliases: ['jhinga', 'jheenga', 'jhingay', 'boiled prawns', 'cooked prawns', 'cooked shrimp', 'peeled prawns', 'prawns', 'shrimp', 'gambas cocidas', 'gambas cocidas peladas', 'gamba cocida', 'gambas', 'langostinos cocidos', 'langostino cocido', 'gambes cuites', 'llagostins cuits'],
+    group: 'meat-fish', state: 'boiled in salted water, peeled, edible part only (as sold cooked in Spain)',
+    ...fromBedca3(2337, 'A', `Servings: USDA SR 175180 3 oz = 85 g. Cross-check USDA SR 175180 shrimp cooked 99 kcal; CoFID 16-389 king prawns purchased cooked 68 kcal (more water); Mercadona cooked prawns (product 87278, 24477) list only prawn, salt and antioxidants/acidity regulators (E450, E331, E330, E270, sulphites). ${SEAFOOD_NOTE}`),
+    servings: [sv('portion', '1 portion (100 g)', 100, true), sv('half', 'half portion (50 g)', 50), sv('usda-3oz', '3 oz (85 g)', 85)],
+    tags: ['international', 'spanish', 'gym', 'seafood-prawn', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-squid-raw', name: 'Squid, raw, cleaned (calamar, calamares)',
+    aliases: ['squid', 'calamari', 'calamar', 'calamares', 'calamar crudo', 'chipirón', 'chipirones', 'chipiron', 'potón', 'pota', 'calamars', 'xipirons', 'raw squid'],
+    group: 'meat-fish', state: 'raw, cleaned (tube, tentacles), edible part',
+    ...fromBedca3(807, 'A', `Servings: USDA SR 174223 3 oz = 85 g. Cross-check USDA SR 174223 92 kcal. ${SEAFOOD_NOTE}`),
+    servings: [sv('portion', '1 portion (150 g, cleaned)', 150, true), sv('100g', '100 g', 100), sv('usda-3oz', '3 oz (85 g)', 85)],
+    tags: ['international', 'spanish', 'catalan', 'gym', 'seafood-other'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-mussels-cooked', name: 'Mussels, cooked, meat only (mejillones cocidos)',
+    aliases: ['mussels', 'mussel', 'steamed mussels', 'boiled mussels', 'mejillones', 'mejillón', 'mejillon', 'mejillones cocidos', 'mejillones al vapor', 'musclos', 'musclos al vapor', 'cooked mussels'],
+    group: 'meat-fish', state: 'boiled or steamed, shucked meat only (no shell, no sauce)',
+    ...fromBedca3(824, 'A', `Servings: USDA SR 174217 3 oz = 85 g. Cross-check USDA SR 174217 (moist heat) 172 kcal; CoFID 16-390 mussels purchased cooked 104 kcal. ${SEAFOOD_NOTE}`),
+    servings: [sv('portion', '1 portion (100 g meat)', 100, true), sv('usda-3oz', '3 oz (85 g)', 85), sv('half', 'half portion (50 g)', 50)],
+    tags: ['international', 'spanish', 'catalan', 'gym', 'seafood-other'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-clams-cooked', name: 'Clams, cooked, meat only (almejas)',
+    aliases: ['clams', 'clam', 'steamed clams', 'cooked clams', 'almejas', 'almeja', 'almejas cocidas', 'chirlas', 'cloïsses', 'cloisses', 'cloïssa', 'vongole'],
+    group: 'meat-fish', state: 'steamed or boiled, shucked meat only (no shell, no sauce)',
+    ...fromUsda3(171975, 'A', `Servings: USDA SR 171975 3 oz = 85 g, 20 small clams = 190 g. Cross-check BEDCA 2640 almeja raw 48 kcal per edible 56 % (high water); USDA FNDDS 2706342 steamed or boiled 109 kcal. Sodium 1202 mg is the USDA figure (cooked in salted water). ${SEAFOOD_NOTE}`, { zeroFiber: true }),
+    servings: [sv('portion', '1 portion (3 oz, 85 g meat)', 85, true), sv('small-20', '20 small clams (meat)', 190), sv('100g', '100 g', 100)],
+    tags: ['international', 'spanish', 'catalan', 'gym', 'seafood-other'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+];
+basics.push(...seafoodBasics);
+
+const seafoodEsMed = [
+  recipeRecord('es-gambas-al-ajillo', {
+    name: 'Gambas al ajillo (prawns in garlic and olive oil)',
+    aliases: ['gambas al ajillo', 'gambas ajillo', 'garlic prawns', 'garlic shrimp', 'prawns in garlic', 'prawns in garlic oil', 'gambes a l\'all', 'gambes a lall', 'gambes a l all', 'jhinga lehsan', 'jhinga garlic', 'gambas'],
+    nameUr: 'لہسن والے جھینگے', nameRoman: 'jhinga lehsan',
+    group: 'snack-fried', state: 'cooked in olive oil with garlic and chilli, oil included, prawn meat only (no shells), no wine or brandy',
+    servings: (res) => [sv('cazuelita', '1 cazuelita (⅓ of the dish)', r1(res.cookedG / 3), true), sv('tapa', '1 tapa (⅙ of the dish)', r1(res.cookedG / 6))],
+    tags: ['spanish', 'gym', 'fried', 'seafood-prawn'], slots: ['lunch', 'dinner'],
+    sourceNotes: `Standard recipe has no wine, brandy or sherry (some cooks add a splash; ask in a restaurant). Cazuelita = ⅓ of the recipe. ${SEAFOOD_NOTE}`,
+  }),
+  {
+    id: 'es-pulpo-cocido', name: 'Octopus, cooked (pulpo cocido, as sold)',
+    aliases: ['pulpo', 'pulpo cocido', 'pulpo gallego', 'pulpo a feira', 'patas de pulpo', 'pota de pop', 'pop', 'pop bullit', 'octopus', 'cooked octopus', 'boiled octopus'],
+    group: 'meat-fish', state: 'boiled, as sold in vacuum trays in Spain (plain, with salt; no oil, no paprika)',
+    per100g: { kcal: 100, protein: 22.7, carbs: 0.6, fat: 0.8, fiber: 0 },
+    servings: [sv('portion', '1 ración (150 g)', 150, true), sv('tapa', '1 tapa (80 g)', 80), sv('100g', '100 g', 100)],
+    tags: ['spanish', 'catalan', 'gym', 'seafood-other', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: src3('Label: Alimar Pulpo gallego, 250 g, read 2026-10-15', 'label', 'B', `Open Food Facts 8437018560639 (contributor-typed label, per 100 g: 100 kcal, P 22.7, C 0.61, F 0.8; the salt field, 22.3 g, is a typing error and is not used; 4P + 4C + 9F = 100.4 kcal). Single label, B. Cross-checks: USDA SR 174249 octopus cooked moist heat 164 kcal (P 29.8, more concentrated); BEDCA 2374 pulpo hervido 69 kcal (P 13.4, very watery); BEDCA 2471 pulpo crudo 91 kcal. Mercadona sells the same kind of product (Pulpo cocido, 300 g tray, product 82850; ingredients: octopus and salt; Patas de pulpo cocido 250 g, product 87775). ${SEAFOOD_NOTE}`),
+  },
+  {
+    id: 'es-calamar-plancha', name: 'Squid, griddled (calamar a la plancha)',
+    aliases: ['calamar a la plancha', 'calamares a la plancha', 'calamar plancha', 'grilled squid', 'griddled squid', 'chipirones a la plancha', 'chipirones plancha', 'calamars a la planxa', 'xipirons a la planxa', 'squid a la plancha', 'calamari grilled'],
+    group: 'meat-fish', state: 'cooked on a hot griddle (dry heat), cleaned, edible part; oil for the griddle not included',
+    ...fromBedca3(2320, 'B', `BEDCA 2320 calamar asado (roasted, dry heat) is the closest cooked-squid entry; a plancha usually has a drizzle of olive oil (1 tsp = 4.5 g adds about 40 kcal): log olive oil separately. Cross-check USDA SR 171982 cooked fried 175 kcal (battered, not comparable). ${SEAFOOD_NOTE}`),
+    servings: [sv('portion', '1 ración (150 g)', 150, true), sv('tapa', '1 tapa (80 g)', 80), sv('100g', '100 g', 100)],
+    tags: ['spanish', 'catalan', 'gym', 'seafood-other'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'es-mejillones-escabeche', name: 'Mussels in escabeche (tin, mejillones en escabeche)',
+    aliases: ['mejillones en escabeche', 'mejillones escabeche', 'mejillones lata', 'mejillones en conserva', 'lata de mejillones', 'mussels in escabeche', 'tinned mussels', 'canned mussels', 'pickled mussels', 'musclos en escabetx', 'musclos en conserva', 'mejillones'],
+    group: 'meat-fish', state: 'canned in olive oil and vinegar sauce (escabeche), drained mussels, as sold',
+    per100g: { kcal: 196, protein: 14, carbs: 4.2, fat: 14, fiber: 0, satFat: 2.2 },
+    servings: [sv('tin', '1 tin, drained (69 g)', 69, true), sv('two-tins', '2 tins, drained', 138), sv('100g', '100 g', 100)],
+    tags: ['spanish', 'catalan', 'packaged', 'gym', 'seafood-other', 'eat-cold'], slots: ['lunch', 'dinner', 'snacks'], halal: HALAL,
+    source: src3('Label: Mercadona Mejillones en escabeche Hacendado medianos, 111 g tin, read 2026-10-15', 'label', 'B', `Mercadona online shop product 18602 (EAN 8480000186027); per-100 g values from Open Food Facts 8480000186027 (serving 1 tin = 69 g drained): 196 kcal, P 14, C 4.2, F 14, sat 2.2 (4P + 4C + 9F = 198.8 kcal); the OFF salt value 0.003 g is implausible and is not used. Ingredients: mussels (Mytilus galloprovincialis), olive oil, wine vinegar (vinagre de vino), water, salt, natural aroma: wine vinegar, not wine, and no alcohol or gelatine listed; the rules treat vinegar as allowed, so halal. Cross-check BEDCA 2346 mejillón en escabeche 167 kcal (P 10.7, F 14). The sunflower-oil tin (product 18619) reads 158 kcal. ${SEAFOOD_NOTE}`),
+  },
+];
+for (const r of seafoodEsMed) if (r.id === 'es-gambas-al-ajillo') r.source = { ...r.source, date: D3 };
+esmed.push(...seafoodEsMed);
+
+// ================================================================= Meeting 004 decision A item 4: pack sizes
+// Optional `pack: { grams, label }` for the weekly shopping list (no nutrition effect; docs/NUTRITION.md field list).
+// grams = one shop pack on the same basis as per100g (drained weight for tinned fish and jarred pulses, edible weight for
+// eggs); liquids at the record's own density (1.03 g/ml). Sizes are from the Mercadona product pages and category
+// listings read with research/javier/market.mjs (bcn1, 2026-10-14/15), or from the label cited on the record.
+const PACKS = {
+  // eggs and dairy
+  'intl-egg-raw': [720, '12 eggs'],
+  'intl-egg-boiled': [300, '6 boiled eggs'],
+  'intl-egg-whites-liquid': [1030, '1 l bottle'],
+  'intl-milk-whole': [1030, '1 l brik'],
+  'intl-milk-semi-skimmed': [1030, '1 l brik'],
+  'intl-dahi': [750, '6 × 125 g pots'],
+  'intl-greek-yogurt-whole': [750, '6 × 125 g pots'],
+  'es-yogur-griego': [750, '6 × 125 g pots'],
+  'es-yogur-griego-ligero': [750, '6 × 125 g pots'],
+  'es-yogur-proteinas-natural': [500, '500 g tub'],
+  'es-queso-fresco-batido': [500, '500 g tub'],
+  'es-queso-burgos-0': [250, '250 g (4 tubs)'],
+  'intl-feta': [370, '370 g tub'],
+  // tinned fish and seafood
+  'intl-salmon-canned': [240, '3 × 80 g cans'],
+  'intl-sardines-olive-oil': [168, '2 × 117 g tins (84 g drained each)'],
+  'intl-mackerel-olive-oil': [240, '2 × 120 g tins'],
+  'es-mejillones-escabeche': [69, '111 g tin (69 g drained)'],
+  'es-pulpo-cocido': [300, '300 g tray'],
+  'intl-squid-raw': [300, '300 g tray, cleaned'],
+  // frozen and fresh veg, fruit
+  'intl-peas-frozen': [1000, '1 kg bag'],
+  'intl-green-beans-frozen': [1000, '1 kg bag'],
+  'intl-spinach-frozen': [500, '500 g bag'],
+  'intl-blueberries': [225, '225 g punnet'],
+  // jars, cartons, ready foods
+  'es-garbanzos-cocidos': [400, '570 g jar (400 g drained)'],
+  'es-lentejas-cocidas': [400, '570 g jar (400 g drained)'],
+  'es-tomate-triturado': [800, '800 g jar'],
+  'med-hummus': [240, '240 g tub'],
+  'med-guacamole': [200, '200 g tub'],
+  'es-gazpacho-envasado': [1020, '3 × 330 ml bricks'],
+  'es-salmorejo-envasado': [1030, '1 l carton'],
+  'pk-achaar-mixed': [400, '400 g jar'],
+  // rice, pasta, grains, pulses, flour
+  'intl-rice-cup-basmati': [250, '2 × 125 g cups'],
+  'intl-rice-cup-brown': [250, '2 × 125 g cups'],
+  'intl-rice-basmati-dry': [1000, '1 kg bag'],
+  'intl-rice-brown-dry': [1000, '1 kg bag'],
+  'intl-pasta-wholewheat-dry': [500, '500 g pack'],
+  'med-couscous-dry': [1000, '1 kg box'],
+  'es-lentejas-pardinas-secas': [1000, '1 kg bag'],
+  'intl-atta-wholemeal': [1000, '1 kg bag'],
+  'intl-chia-seeds': [150, '150 g bag'],
+  'es-pan-rallado': [750, '750 g bag'],
+  // bread and bakery
+  'intl-bread-white': [460, '460 g loaf (16 slices)'],
+  'intl-bread-wholemeal-sliced': [460, '460 g loaf (16 slices)'],
+  'intl-tortilla-wrap-wholewheat': [360, '10 wraps (360 g)'],
+  'med-pita-bread': [300, '5 pittas (300 g)'],
+  'es-picos-integrales': [250, '250 g bag'],
+};
+{
+  const all = [...basics, ...intl, ...esmed, ...pk];
+  for (const [id, [grams, label]] of Object.entries(PACKS)) {
+    const r = all.find((x) => x.id === id);
+    if (!r) throw new Error(`PACKS: unknown record ${id}`);
+    r.pack = { grams, label };
+  }
+  console.log(`pack sizes: ${Object.keys(PACKS).length}`);
+}
+
 // ---------------------------------------------------------------- write files
-const KEY_ORDER = ['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'tags', 'slots', 'halal', 'source'];
+const KEY_ORDER = ['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'tags', 'slots', 'halal', 'source'];
 const q = (s) => `'${String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
 function lit(v) {
   if (Array.isArray(v)) return `[${v.map(lit).join(', ')}]`;

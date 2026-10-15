@@ -25,6 +25,7 @@ export const FACTORS = {
   chickenThighRoasted: { f: ratio(173627, 172388), note: 'USDA SR 173627 thigh meat raw (P 19.66) → 172388 roasted (P 24.76)' },
   spinach: { f: ratio(168462, 168463), note: 'USDA SR 168462 spinach raw (P 2.86) → 168463 boiled (P 2.97)' },
   greenBeans: { f: ratio(169961, 169141), note: 'USDA SR 169961 snap beans raw (P 1.83) → 169141 boiled (P 1.89)' },
+  prawns: { f: ratio(175179, 175180), note: 'USDA SR 175179 shrimp raw (P 20.1) → 175180 shrimp cooked (P 23.98)' },
   limaBeans: { f: ratio(169955, 169318), note: 'USDA SR 169955 baby lima beans frozen (P 7.59) → 169318 boiled (P 6.65)' },
 };
 // Pan-fried potato: FNDDS 2709474 "Potato, home fries, from fresh" has 17.16 g available carbs and 11.52 g fat per
@@ -459,6 +460,29 @@ export const RECIPES = [
     crossChecks: [['BEDCA 2476 Bocadillo (generic)', 224]],
     confidence: 'C',
     confidenceWhy: 'filling size varies between bars.',
+  },
+  {
+    id: 'es-gambas-al-ajillo',
+    title: 'Gambas al ajillo (prawns in olive oil and garlic, no wine or brandy)',
+    makes: '6 tapas (one cazuela of 800 g prawns as bought)',
+    references: [
+      ['eldiario.es Consumo Claro, "Ni el ajo ni la guindilla: el método para que las gambas al ajillo mantengan todo su sabor": 6 personas, 800 g gambas, 6 dientes de ajo, 100 ml AOVE, 2 guindillas, perejil y sal; no wine, brandy or sherry', 'https://www.eldiario.es/consumoclaro/ajo-guindilla-metodo-gambas-ajillo-mantengan-sabor_1_13426771.html'],
+      ['Que.es, "Gambas al ajillo: la receta que solo necesita 4 ingredientes" (2021-02-12): Daniel García 300 g gambas, 4 dientes de ajo, 1 guindilla, aceite, perejil; Arguiñano 600 g gambas, 4 ajos, ½ guindilla. (The main recipe there adds an optional splash of white wine: omitted here.)', 'https://www.que.es/2021/02/12/gambas-ajillo-4-ingredientes/'],
+      ['Carbajal Azcona Á., UCM "Pesos de medidas caseras y raciones habituales" (2015): diente de ajo 5 g', 'https://www.ucm.es/data/cont/docs/458-2015-10-22-pesos-medidas-caseras-raciones-2015.pdf'],
+    ],
+    ingredients: [
+      { name: 'Prawns (gambas), raw, shell-on as bought', src: () => usda(175179), g: 800 * bedca(817).edible, how: '800 g as bought × BEDCA 817 gamba roja edible portion 0.47 (= peeled meat)', cooked: FACTORS.prawns.f, cookedNote: FACTORS.prawns.note },
+      { name: 'Garlic, raw', src: () => usda(169230), g: 30, how: '6 cloves × 5 g (UCM)' },
+      { name: 'Olive oil (whole cazuela, oil included)', src: () => bedca(2543), g: 100 * 0.91, how: '100 ml × 0.91 g/ml (RULES oil density); all of it counted as eaten (the oil is served and mopped up with bread)', addedFat: true },
+    ],
+    yieldNote: 'Prawn cooking factor 0.838 from the USDA raw→cooked protein ratio (protein retained). Garlic weight taken as unchanged; guindilla, parsley and salt are negligible and ignored. No wine, brandy or sherry (some recipes add a splash; this standard recipe omits it).',
+    density: { gPerMl: 0.95, note: 'assumed for prawns in oil in a cazuela (not used: servings are by piece/portion)' },
+    crossChecks: [
+      ['USDA FDC FNDDS 2706465 Shrimp in garlic sauce, Puerto Rican style', 281],
+      ['USDA FDC FNDDS 2706458 Shrimp scampi', 192],
+    ],
+    confidence: 'C',
+    confidenceWhy: 'amount of oil eaten varies between cazuelas; no published yield; three recipe sources disagree on quantities.',
   },
 ];
 

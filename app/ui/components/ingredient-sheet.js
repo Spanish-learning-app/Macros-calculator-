@@ -15,31 +15,62 @@ const UNITS = {
   gram: 'g',
   grams: 'g',
   kg: 'kg',
+  pao: 'pao',
   tbsp: 'tbsp',
   tablespoon: 'tbsp',
   tablespoons: 'tbsp',
   tsp: 'tsp',
   teaspoon: 'tsp',
   teaspoons: 'tsp',
+  cup: 'cup',
+  cups: 'cup',
+  katori: 'katori',
+  katoris: 'katori',
 };
+/** Size words before the food ("3 medium potatoes"); "big" means large. */
+const SIZES = { small: 'small', medium: 'medium', large: 'large', big: 'large' };
+const FRACTIONS = { '½': 0.5, '¼': 0.25, '¾': 0.75 };
+const AMOUNT_RE = new RegExp(
+  '^\\s*(\\d+(?:[.,]\\d+)?|\\d*\\s*[½¼¾])?\\s*' +
+    `(${Object.keys(UNITS)
+      .sort((a, b) => b.length - a.length)
+      .join('|')})?\\.?\\s*` +
+    `(?:\\b(${Object.keys(SIZES).join('|')})\\b)?\\s+(.+)$`,
+  'i',
+);
+
+function numberOf(text) {
+  const t = text.replace(/\s+/g, '');
+  const frac = FRACTIONS[t.slice(-1)];
+  if (frac !== undefined) return (t.length > 1 ? Number(t.slice(0, -1)) : 0) + frac;
+  return Number(t.replace(',', '.'));
+}
 
 /**
- * Quick amounts in the ingredient search (A16 budget): "800 g chicken thigh", "2 tbsp oil",
- * "2 cucumbers", "1.5 kg rice". Returns { amount: { unit: 'g'|'tbsp'|'tsp'|null, qty }, query }
- * or { amount: null, query } when the text does not start with a number.
+ * Quick amounts in the ingredient search (A16 budget, Review 2): "800 g chicken thigh",
+ * "2 tbsp oil", "2 cucumbers", "1.5 kg rice", "3 medium potatoes", "1 pao chicken", "1 cup dahi".
+ * Returns { amount: { unit: 'g'|'tbsp'|'tsp'|'cup'|'katori'|null, qty, size? }, query } or
+ * { amount: null, query } when the text does not start with a number or a size word. `size` is
+ * 'small', 'medium' or 'large' when a size word comes first or follows the number.
  * @param {string} text
  */
 export function parseQuickAmount(text) {
-  const m = String(text ?? '').match(
-    /^\s*(\d+(?:[.,]\d+)?)\s*(kg|grams?|gram|gm|gr|g|tablespoons?|tbsp|teaspoons?|tsp)?\.?\s+(.+)$/i,
-  );
-  if (!m) return { amount: null, query: String(text ?? '').trim() };
-  const value = Number(m[1].replace(',', '.'));
-  if (!(value > 0)) return { amount: null, query: String(text ?? '').trim() };
-  const unit = m[2] ? UNITS[m[2].toLowerCase()] : null;
-  return unit === 'kg'
-    ? { amount: { unit: 'g', qty: value * 1000 }, query: m[3].trim() }
-    : { amount: { unit, qty: value }, query: m[3].trim() };
+  const plain = { amount: null, query: String(text ?? '').trim() };
+  const m = String(text ?? '').match(AMOUNT_RE);
+  // A number, or a size word alone ("medium onion" is one medium onion); a unit needs a number.
+  if (!m || (!m[1] && (!m[3] || m[2]))) return plain;
+  const value = m[1] ? numberOf(m[1]) : 1;
+  if (!(value > 0)) return plain;
+  let unit = m[2] ? UNITS[m[2].toLowerCase()] : null;
+  let qty = value;
+  if (unit === 'kg' || unit === 'pao') {
+    qty = value * (unit === 'kg' ? 1000 : 250); // a pao is a quarter kilo
+    unit = 'g';
+  }
+  const size = m[3] ? SIZES[m[3].toLowerCase()] : null;
+  const query = m[4].trim();
+  if (!query) return plain;
+  return { amount: { unit, qty, ...(size ? { size } : {}) }, query };
 }
 
 /** The serving and qty a quick amount means for `food` (a unit the food lacks → its default). */
@@ -50,7 +81,54 @@ export function quickPortion(food, amount) {
   if (amount.unit && food.servings.some((s) => s.id === amount.unit)) {
     return { servingId: amount.unit, qty: amount.qty };
   }
+  if (!amount.unit && amount.size) {
+    const word = new RegExp(`\\b${amount.size}\\b`, 'i');
+    const sized =
+      food.servings.find((s) => s.id === amount.size) ??
+      food.servings.find((s) => word.test(s.label ?? ''));
+    if (sized) return { servingId: sized.id, qty: amount.qty };
+  }
   return { servingId: base.id, qty: amount.unit ? 1 : amount.qty };
+}
+
+const RAW_STATE = /\b(raw|dry|dried|uncooked|from scratch|weigh before cooking)\b/i;
+const COOKED_STATE =
+  /\b(cooked|as served|fried|roasted|boiled|grilled|baked|scrambled|stew|prepared|assembled|as eaten)\b/i;
+const SALAD_STATE = /\b(dressed|blended|chopped|with lemon|with olive oil)\b/i; // raw, but a dish
+const DISH_GROUPS = new Set([
+  'lunchbox',
+  'curry-meat',
+  'curry-veg',
+  'rice-dish',
+  'grill-kebab',
+  'snack-fried',
+  'fastfood',
+  'soup',
+  'chaat',
+  'sweet-dessert',
+  'bread-fried',
+  'pasta-dish',
+]);
+
+/**
+ * How an ingredient ranks in the recipe picker (Review 2): 0 raw or dry (what goes in the pot),
+ * 1 plain foods (dahi, oil, fruit, bread), 2 cooked dishes ("250 g lentils" is dry lentils before
+ * the lentejas stew; "5 eggs" is the raw egg before the boiled one).
+ * @param {object} food @returns {0|1|2}
+ */
+export function ingredientRank(food) {
+  const state = String(food?.state ?? '');
+  if (DISH_GROUPS.has(food?.group) || COOKED_STATE.test(state)) return 2;
+  if (RAW_STATE.test(state) && !SALAD_STATE.test(state)) return 0;
+  return 1;
+}
+
+/** Foods in picker order: by ingredientRank, the search order within a rank (stable). */
+export function rankIngredients(foods) {
+  return foods
+    .map((food, i) => ({ food, i, r: ingredientRank(food) }))
+    .sort((a, b) => a.r - b.r || a.i - b.i)
+    .map((x) => x.food);
 }
 
 /**
@@ -199,14 +277,16 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
         h(
           'p',
           { class: 'sheet-hint' },
-          'Type an ingredient, or the amount first: “800 g chicken thigh”, “2 tbsp oil”, “2 cucumbers”. Use raw amounts (dry rice, raw chicken) and, if you can, weigh the cooked pot at the end.',
+          'Type an ingredient, or the amount first: “800 g chicken thigh”, “2 tbsp oil”, “3 medium potatoes”. Use raw amounts (dry rice, raw chicken) and, if you can, weigh the cooked pot at the end.',
         ),
       );
       return;
     }
     const found = store.search(q, { limit: 30 });
     const all = [...found.hits.map((x) => x.food), ...found.hidden.map((x) => x.food)];
-    const ok = all.filter((f) => !f.userRecipe && f.halal?.status !== 'not-halal');
+    const ok = rankIngredients(
+      all.filter((f) => !f.userRecipe && f.halal?.status !== 'not-halal'),
+    );
     const blocked = all.filter((f) => f.halal?.status === 'not-halal');
     mountChildren(
       results,

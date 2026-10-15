@@ -22,6 +22,8 @@ export const BOOST_WEIGHT = 19;
 const FUZZY_MIN_LENGTH = 4; // a query word needs 4+ letters to match fuzzily, and a query 4+ for substring
 const FUZZY_PREFIX_MIN_LENGTH = 5; // a typo inside a longer word's prefix needs 5+ letters ("kela" ≠ kebab)
 const FUZZY_FILL_BELOW = 3; // fuzzy matches only fill in when the other tiers find fewer foods (Review 1)
+const PREP_PENALTY = TIERS.exact - TIERS.prefix; // a Lab prep ranks one tier lower (Review 2, item 1)
+const KIND_RANK = { own: 0, single: 1, prep: 2 };
 const RECENCY_DAYS = 30;
 const COUNT_FOR_FULL_BOOST = 10;
 const DEFAULT_RECENT_LIMIT = 12;
@@ -79,6 +81,29 @@ export function buildSearchIndex(foods) {
     entries.push({ food, names, sortName: String(food.name ?? '') });
   }
   return { entries };
+}
+
+/**
+ * What a food is, for ranking (Review 2): 'own' (the person's recipe or chai, `userRecipe`),
+ * 'prep' (a Lab meal-prep box, jar or portion: group `lunchbox`) or 'single' (everything else).
+ * @param {Food} food @returns {'own'|'single'|'prep'}
+ */
+export function foodKind(food) {
+  if (food?.userRecipe === true) return 'own';
+  return food?.group === 'lunchbox' ? 'prep' : 'single';
+}
+
+/**
+ * English and Spanish plurals to the singular, one normalized word at a time (Review 2: "potatoes",
+ * "onions", "eggs", "patatas"). Words under 4 letters and -ss/-us/-is words stay as they are.
+ * @param {string} word normalized @returns {string}
+ */
+export function singularWord(word) {
+  if (typeof word !== 'string' || word.length < 4 || !/^[a-z]+$/.test(word)) return word;
+  if (word.length >= 5 && word.endsWith('ies')) return `${word.slice(0, -3)}y`;
+  if (/(oes|ches|shes|xes|sses)$/.test(word)) return word.slice(0, -2);
+  if (/(ss|us|is)$/.test(word)) return word;
+  return word.endsWith('s') ? word.slice(0, -1) : word;
 }
 
 /** Everyday foods (no style) and home style rank 0, then restaurant, dhaba, street (STYLES order). */
@@ -140,11 +165,27 @@ function tierOf(name, q, qWords) {
   return null;
 }
 
+/**
+ * The tier of a name for the singular form of a plural query ("potatoes" -> "potato"). A changed
+ * word must equal a whole word of the name ("peas" -> "pea" is not "peanut"); other words prefix.
+ */
+function singularTierOf(name, alt) {
+  if (!alt) return null;
+  if (name.norm === alt.q) return 'exact';
+  if (`${name.norm} `.startsWith(`${alt.q} `)) return 'prefix';
+  const ok = alt.words.every((w, i) =>
+    w === alt.from[i] ? name.words.some((n) => n.startsWith(w)) : name.words.includes(w),
+  );
+  return ok ? 'wordPrefix' : null;
+}
+
 /** Best match of one food: highest tier, then the shortest original name. */
-function bestMatch(entry, q, qWords, allowFuzzy) {
+function bestMatch(entry, q, qWords, allowFuzzy, alt = null) {
   let best = null;
   for (const name of entry.names) {
-    const tier = tierOf(name, q, qWords);
+    let tier = tierOf(name, q, qWords);
+    const plural = singularTierOf(name, alt);
+    if (plural && (!tier || TIERS[plural] > TIERS[tier])) tier = plural;
     if (tier === 'fuzzy' && !allowFuzzy) continue;
     if (!tier) continue;
     const better =
@@ -169,8 +210,11 @@ function bestMatch(entry, q, qWords, allowFuzzy) {
  *              (karhai -> karahi, dhal -> dal, anday -> anda, samosay -> samosa).
  *              Fuzzy only fills in: it is used only when the other tiers match fewer than 3 foods
  *              (Review 1: "kela" no longer brings kebab and corn flakes).
- * score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1). Sort: score desc, then shorter
- * `matched`, then style (everyday or home first, then restaurant, dhaba, street: Review 1, home
+ * A plural query also matches the singular (singularWord: "potatoes" finds "potato", as a whole word).
+ * score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1). Sort (Review 2): the person's
+ * own recipes first (foodKind 'own', any tier but fuzzy); then rank desc, where rank = score, less
+ * one tier (20) for a Lab prep (foodKind 'prep'), so "roti" lists rotis before roti boxes; then
+ * single foods before preps; then shorter `matched`, then style (everyday or home first, then restaurant, dhaba, street: Review 1, home
  * chai before dhaba chai), then foods whose id is in `hints` (the slot's meal hints) first, then
  * name (en). Blank query -> no hits. `matched` = the original (unnormalized) string.
  * Halal filter (meeting 002): with halalOnly (default true), foods whose halal.status is
@@ -194,16 +238,25 @@ export function searchFoods(
   const q = normalize(query ?? '');
   if (q === '') return { hits: [], hidden: [] };
   const qWords = q.split(' ');
+  const altWords = qWords.map(singularWord);
+  const alt = altWords.some((w, i) => w !== qWords[i])
+    ? { q: altWords.join(' '), words: altWords, from: qWords }
+    : null;
 
   const hinted = new Set(hints ?? []);
   const collect = (allowFuzzy) => {
     const out = [];
     for (const entry of index.entries) {
-      const best = bestMatch(entry, q, qWords, allowFuzzy);
+      const best = bestMatch(entry, q, qWords, allowFuzzy, alt);
       if (!best) continue;
       const boost = clamp01(boosts?.[entry.food.id] ?? 0);
+      const score = TIERS[best.tier] + BOOST_WEIGHT * boost;
+      const kind = foodKind(entry.food);
       out.push({
-        hit: { food: entry.food, score: TIERS[best.tier] + BOOST_WEIGHT * boost, ...best },
+        hit: { food: entry.food, score, ...best },
+        own: kind === 'own' && best.tier !== 'fuzzy' ? 0 : 1,
+        rank: score - (kind === 'prep' ? PREP_PENALTY : 0),
+        kind: KIND_RANK[kind],
         sortName: entry.sortName,
         style: styleRank(entry.food),
         hint: hinted.has(entry.food.id) ? 0 : 1,
@@ -215,7 +268,9 @@ export function searchFoods(
   if (matches.length < FUZZY_FILL_BELOW) matches = collect(true);
   matches.sort(
     (a, b) =>
-      b.hit.score - a.hit.score ||
+      a.own - b.own ||
+      b.rank - a.rank ||
+      a.kind - b.kind ||
       a.hit.matched.length - b.hit.matched.length ||
       a.style - b.style ||
       a.hint - b.hint ||
