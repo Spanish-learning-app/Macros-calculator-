@@ -123,7 +123,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Salmón al natural Hacendado: 240 g | [Salmón al natural Hacendado](https://tienda.mercadona.es/product/18817/) | 3 × 80 g edible | 3 pieces | 3.55 € |
+| Salmón al natural Hacendado: 240 g | [Salmón al natural Hacendado](https://tienda.mercadona.es/product/18817/) | 3 × 80 g cans | 3 pieces | 3.55 € |
 | Cucumber, with peel, raw: 160 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Carrot, raw: 120 g | [Zanahorias](https://tienda.mercadona.es/product/69586/) | 1000 g | 1 × pack | 1.00 € |
 | Aguacate, flesh: 100 g | [Aguacate](https://tienda.mercadona.es/product/3830/) | 1 × 201 g edible | 1 pieces | 1.65 € |
@@ -132,7 +132,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Fresh coriander: 6 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
 | Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 pieces | 3.05 € |
-| Arroz cocido integral Sabroz: 250 g | [Arroz cocido integral Sabroz](https://tienda.mercadona.es/product/22281/) | 250 g | 1 × pack | 1.05 € |
+| Arroz cocido integral Sabroz: 250 g | [Arroz cocido integral Sabroz](https://tienda.mercadona.es/product/22281/) | 2 × 125 g cups | 1 × pack | 1.05 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

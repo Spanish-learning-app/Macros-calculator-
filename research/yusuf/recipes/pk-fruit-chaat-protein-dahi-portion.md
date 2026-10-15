@@ -130,7 +130,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Mandarina / clementina: 176 g | [Mandarina](https://tienda.mercadona.es/product/3238/) | 120 g | 2 × pack | 0.31 € |
 | Granada, arils: 100 g | [Granada](https://tienda.mercadona.es/product/3915/) | 1 × 282 g edible | 1 pieces | 1.56 € |
 | Lemon juice: 20 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
-| Postre lácteo natural +Proteínas 10 g 0% MG: 480 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g | 1 × pack | 1.40 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 480 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g tub | 1 × pack | 1.40 € |
 | Almendra natural Hacendado: 40 g | [Almendra natural Hacendado](https://tienda.mercadona.es/product/34865/) | 200 g | 1 × pack | 2.30 € |
 | Banana, raw, peeled: 101 g | [Plátano de Canarias IGP](https://tienda.mercadona.es/product/3819/) | 1 × 101 g edible | 1 pieces | 0.48 € |
 

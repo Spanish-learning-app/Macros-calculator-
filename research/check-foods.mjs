@@ -40,7 +40,7 @@ const ID_PREFIXES = ['pk-', 'es-', 'med-', 'intl-'];
 const RESTAURANT_STYLES = new Set(['restaurant', 'dhaba', 'street']);
 
 const KEYS = {
-  record: new Set(['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'tags', 'slots', 'halal', 'source']),
+  record: new Set(['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'serve', 'tags', 'slots', 'halal', 'source']),
   per100g: new Set(['kcal', 'protein', 'carbs', 'fat', 'fiber', 'sugars', 'satFat', 'sodium']),
   serving: new Set(['id', 'label', 'labelUr', 'grams', 'default']),
   source: new Set(['citation', 'method', 'confidence', 'reviewer', 'date', 'notes']),
@@ -327,6 +327,12 @@ function checkRecord(f, ctx) {
       if (!isStr(f.pack.label)) F('G10', 'pack.label must be a non-empty string');
       for (const k of Object.keys(f.pack)) if (k !== 'grams' && k !== 'label') W('G20', `unknown pack key "${k}"`);
     }
+  }
+
+  // serve (Meeting 004): optional, how a no-cook (assemble) prep is eaten; meal-prep records only
+  if (f.serve !== undefined) {
+    if (!['cold', 'hot', 'either'].includes(f.serve)) F('G10', `serve must be 'cold', 'hot' or 'either'`);
+    if (f.group !== 'lunchbox') W('G20', 'serve is for meal-prep records (group lunchbox)');
   }
 
   // G20 unknown top-level keys

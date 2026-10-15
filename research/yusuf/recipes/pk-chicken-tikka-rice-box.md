@@ -152,7 +152,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Yogur natural Hacendado: 450 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 750 g | 1 × pack | 1.00 € |
+| Yogur natural Hacendado: 450 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 6 × 125 g pots | 1 × pack | 1.00 € |
 | Lemon juice: 30 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Garlic, raw: 15 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 250 g | 1 × pack | 1.85 € |
 | Ginger root, raw: 15 g | [Jengibre](https://tienda.mercadona.es/product/69289/) | 200 g | 1 × pack | 1.65 € |
@@ -164,8 +164,8 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Sunflower oil: 20 g | [Aceite de girasol refinado 0,2º Hacendado](https://tienda.mercadona.es/product/4040/) | 1 l | 1 × pack | 1.85 € |
 | Red bell pepper, raw: 240 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 2 × pack | 0.64 € |
 | Red onion, raw: 200 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
-| White long-grain rice, raw: 240 g | [Arroz basmati aromático Hacendado](https://tienda.mercadona.es/product/5002/) | 1000 g | 1 × pack | 2.10 € |
-| Green peas, frozen, raw: 240 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1000 g | 1 × pack | 1.50 € |
+| White long-grain rice, raw: 240 g | [Arroz basmati aromático Hacendado](https://tienda.mercadona.es/product/5002/) | 1 kg bag | 1 × pack | 2.10 € |
+| Green peas, frozen, raw: 240 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1 kg bag | 1 × pack | 1.50 € |
 | Cucumber, with peel, raw: 200 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Fresh mint: 8 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 40 g | 1 × pack | 1.35 € |
 

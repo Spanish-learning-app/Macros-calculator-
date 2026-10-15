@@ -110,9 +110,9 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Chia seeds, dry: 45 g | [Semillas de chía Hacendado](https://tienda.mercadona.es/product/5464/) | 150 g | 1 × pack | 1.45 € |
-| Postre lácteo natural +Proteínas 10 g 0% MG: 450 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g | 1 × pack | 1.40 € |
-| Leche semidesnatada Hacendado: 180 g | [Leche semidesnatada Hacendado](https://tienda.mercadona.es/product/10382/) | 1 l | 1 × pack | 0.83 € |
+| Chia seeds, dry: 45 g | [Semillas de chía Hacendado](https://tienda.mercadona.es/product/5464/) | 150 g bag | 1 × pack | 1.45 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 450 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g tub | 1 × pack | 1.40 € |
+| Leche semidesnatada Hacendado: 180 g | [Leche semidesnatada Hacendado](https://tienda.mercadona.es/product/10382/) | 1 l brik | 1 × pack | 0.83 € |
 | Cinnamon: 1 g | [Canela molida Hacendado](https://tienda.mercadona.es/product/34177/) | 52 g | 1 × pack | 1.00 € |
 | Granada, arils: 150 g | [Granada](https://tienda.mercadona.es/product/3915/) | 1 × 282 g edible | 1 pieces | 1.56 € |
 

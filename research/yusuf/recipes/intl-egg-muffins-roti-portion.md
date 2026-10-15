@@ -132,11 +132,11 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Egg, whole, raw: 400 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 8 eggs | 3.05 € |
-| Claras de huevo líquidas pasteurizadas: 400 g | [Claras de huevo líquidas pasteurizadas](https://tienda.mercadona.es/product/31312/) | 1 l | 1 × pack | 2.85 € |
+| Egg, whole, raw: 400 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 8 eggs | 3.05 € |
+| Claras de huevo líquidas pasteurizadas: 400 g | [Claras de huevo líquidas pasteurizadas](https://tienda.mercadona.es/product/31312/) | 1 l bottle | 1 × pack | 2.85 € |
 | Baby spinach, raw: 120 g | [Espinacas baby lavadas](https://tienda.mercadona.es/product/69984/) | 100 g | 2 × pack | 1.15 € |
 | Red bell pepper, raw: 160 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
-| Green peas, frozen, raw: 120 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1000 g | 1 × pack | 1.50 € |
+| Green peas, frozen, raw: 120 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1 kg bag | 1 × pack | 1.50 € |
 | Red onion, raw: 80 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
 | Fresh coriander: 8 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
 | Cumin: 2 g | [Comino molido Hacendado](https://tienda.mercadona.es/product/34120/) | 58 g | 1 × pack | 1.15 € |
@@ -145,7 +145,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
 | Salt: 4.6 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Sunflower oil: 8 g | [Aceite de girasol refinado 0,2º Hacendado](https://tienda.mercadona.es/product/4040/) | 1 l | 1 × pack | 1.85 € |
-| Wholemeal wheat flour, atta: 117 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1000 g | 1 × pack | 0.90 € |
+| Wholemeal wheat flour, atta: 117 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1 kg bag | 1 × pack | 0.90 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

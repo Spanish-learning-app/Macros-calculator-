@@ -137,7 +137,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Wholemeal wheat flour, atta: 176 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1000 g | 1 × pack | 0.90 € |
+| Wholemeal wheat flour, atta: 176 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1 kg bag | 1 × pack | 0.90 € |
 | Salt: 4.9 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Red bell pepper, raw: 120 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Red onion, raw: 80 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
@@ -148,8 +148,8 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 | Red chilli powder: 2 g | [Cayena molida Hacendado](https://tienda.mercadona.es/product/37417/) | 55 g | 1 × pack | 1.65 € |
 | Lemon juice: 10 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Sunflower oil: 12 g | [Aceite de girasol refinado 0,2º Hacendado](https://tienda.mercadona.es/product/4040/) | 1 l | 1 × pack | 1.85 € |
-| Egg, whole, raw: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 eggs | 3.05 € |
-| Claras de huevo líquidas pasteurizadas: 120 g | [Claras de huevo líquidas pasteurizadas](https://tienda.mercadona.es/product/31312/) | 1 l | 1 × pack | 2.85 € |
+| Egg, whole, raw: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 4 eggs | 3.05 € |
+| Claras de huevo líquidas pasteurizadas: 120 g | [Claras de huevo líquidas pasteurizadas](https://tienda.mercadona.es/product/31312/) | 1 l bottle | 1 × pack | 2.85 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

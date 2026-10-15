@@ -1666,6 +1666,7 @@
 /* "Tonight" in one line (B2): the short sentence, then the button; the dish name is in the
    accessible text and the tooltip. */
 .day-prep .prep-tonight {
+  grid-template-columns: minmax(0, 1fr); /* lets the sentence shrink to its ellipsis */
   gap: var(--space-1);
   padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3);
 }
@@ -1721,7 +1722,9 @@
 }
 
 .empty-day-tools .btn {
-  flex: 1 1 140px;
+  flex: 1 1 auto; /* side by side when they fit, else one per line, never a broken label */
+  padding-inline: var(--space-3);
+  white-space: nowrap;
 }
 
 .empty-day-search {

@@ -6,8 +6,8 @@
 import { h, uid, setText, mountChildren } from '../dom.js';
 import { iconEl } from './icons.js';
 import { openPortionPicker } from './portion-picker.js';
-import { openIngredientSheet } from './ingredient-sheet.js';
-import { fmtKcal, fmtGrams, portionText, servingOf, parseQty } from './format.js';
+import { openIngredientSheet, amountText } from './ingredient-sheet.js';
+import { fmtKcal, fmtGrams, servingOf, parseQty } from './format.js';
 import { macroLine } from './prep-bits.js';
 
 /**
@@ -299,7 +299,7 @@ export function openRecipeEditor({
           (l) => l.foodId === ing.foodId && l.servingId === ing.servingId && l.qty === ing.qty,
         );
         const serving = food ? servingOf(food, ing.servingId) : null;
-        const amount = serving ? portionText(serving, ing.qty) : `${ing.qty}`;
+        const amount = serving ? amountText(serving, ing.qty) : `${ing.qty}`;
         return h(
           'li',
           { class: 'ing-row', 'data-testid': 'ingredient' },

@@ -22,6 +22,7 @@ import {
   quickPortion,
   ingredientRank,
   rankIngredients,
+  amountText,
 } from '../../../app/ui/components/ingredient-sheet.js';
 import { excludedTopic, searchNoteText } from '../../../app/ui/components/search-notes.js';
 import { frozenDueText, shortPrepName } from '../../../app/ui/components/prep-bits.js';
@@ -182,6 +183,16 @@ test('quickPortion: a size word picks that serving, else the default', () => {
   });
 });
 
+test('amountText: whole counts read in the plural; units and fractions do not', () => {
+  const medium = { id: 'medium', label: '1 medium potato', grams: 213 };
+  const egg = { id: 'large', label: '1 large egg', grams: 50 };
+  assert.equal(amountText(medium, 3), '3 medium potatoes');
+  assert.equal(amountText(egg, 5), '5 large eggs');
+  assert.equal(amountText(egg, 1), '1 large egg');
+  assert.equal(amountText({ id: 'g', label: 'g', grams: 1 }, 250), '250 g');
+  assert.doesNotMatch(amountText({ id: 'tbsp', label: '1 tbsp', grams: 13.5 }, 2), /tbsps/);
+});
+
 test('ingredientRank: raw and dry first, plain foods next, cooked dishes last', () => {
   assert.equal(ingredientRank({ group: 'dry-staple', state: 'dry, uncooked, as sold' }), 0);
   assert.equal(ingredientRank({ group: 'egg', state: 'raw, shell removed' }), 0);
@@ -338,6 +349,12 @@ test('pluralLabel and buyAmount: packs (with the count they use), counts, else g
   assert.equal(buyAmount(SHOP_INDEX.get('onion'), 360).qty, 4);
   assert.equal(buyAmount(SHOP_INDEX.get('onion'), 20).qty, 1);
   assert.deepEqual(buyAmount(SHOP_INDEX.get('chicken'), 720), { kind: 'grams', grams: 720 });
+  const bunch = food('dhania', 'Coriander', {
+    group: 'vegetable',
+    servings: [{ id: 'small', label: '1 small bunch (9 sprigs)', grams: 20, default: true }],
+  });
+  assert.equal(buyAmount(bunch, 6).label, 'small bunch', 'no "(9 sprigs) (6 g)" in the text');
+  assert.equal(buyAmount(bunch, 50).label, 'small bunches');
   assert.deepEqual(buyAmount(undefined, 5), { kind: 'grams', grams: 5 });
 });
 

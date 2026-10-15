@@ -142,7 +142,7 @@ export function priceOf(ingId, opts = {}) {
     let grams;
     let pack;
     if (buy.perUnitG) {
-      const units = buy.units ?? pi.total_units ?? 1;
+      const units = opts.units ?? buy.units ?? pi.total_units ?? 1; // opts.units: a smaller box of the same food (the week list)
       grams = units * buy.perUnitG;
       pack = `${units} × ${buy.perUnitG} g edible`;
     } else if (pi.size_format === 'l') {

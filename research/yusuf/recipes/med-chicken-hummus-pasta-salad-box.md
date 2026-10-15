@@ -145,8 +145,8 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Garlic, raw: 6 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 250 g | 1 × pack | 1.85 € |
 | Salt: 3 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
-| Macarrón rayado integral Hacendado: 300 g | [Macarrón rayado integral Hacendado](https://tienda.mercadona.es/product/35777/) | 500 g | 1 × pack | 1.15 € |
-| Hummus de garbanzos Hacendado receta clásica: 160 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g | 1 × pack | 1.05 € |
+| Macarrón rayado integral Hacendado: 300 g | [Macarrón rayado integral Hacendado](https://tienda.mercadona.es/product/35777/) | 500 g pack | 1 × pack | 1.15 € |
+| Hummus de garbanzos Hacendado receta clásica: 160 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g tub | 1 × pack | 1.05 € |
 | Lemon juice: 30 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Baby spinach, raw: 100 g | [Espinacas baby lavadas](https://tienda.mercadona.es/product/69984/) | 100 g | 1 × pack | 1.15 € |
 | Cherry tomatoes, raw: 320 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g | 1 × pack | 2.20 € |

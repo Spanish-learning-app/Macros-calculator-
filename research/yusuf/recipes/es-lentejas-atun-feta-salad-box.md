@@ -111,7 +111,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Lenteja cocida Hacendado: 600 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 570 g (400 g drained) | 2 × pack | 0.90 € |
+| Lenteja cocida Hacendado: 600 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 570 g jar (400 g drained) | 2 × pack | 0.90 € |
 | Atún claro al natural Hacendado, drained: 120 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 480 g (360 g drained) | 1 × pack | 4.20 € |
 | Queso feta Hacendado en dados: 80 g | [Queso feta mezcla Hacendado en dados](https://tienda.mercadona.es/product/51197/) | 370 g (150 g drained) | 1 × pack | 2.40 € |
 | Red bell pepper, raw: 120 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |

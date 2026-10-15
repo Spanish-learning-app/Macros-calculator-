@@ -147,15 +147,15 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Garlic, raw: 15 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 250 g | 1 × pack | 1.85 € |
 | Ginger root, raw: 15 g | [Jengibre](https://tienda.mercadona.es/product/69289/) | 200 g | 1 × pack | 1.65 € |
 | Tomato, raw: 250 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
-| Yogur natural Hacendado: 15 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 750 g | 1 × pack | 1.00 € |
+| Yogur natural Hacendado: 15 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 6 × 125 g pots | 1 × pack | 1.00 € |
 | Red chilli powder: 3 g | [Cayena molida Hacendado](https://tienda.mercadona.es/product/37417/) | 55 g | 1 × pack | 1.65 € |
 | Turmeric, ground: 2 g | [Cúrcuma molida Hacendado](https://tienda.mercadona.es/product/34163/) | 60 g | 1 × pack | 1.30 € |
 | Salt: 10 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
-| Green peas, frozen, raw: 400 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1000 g | 1 × pack | 1.50 € |
+| Green peas, frozen, raw: 400 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1 kg bag | 1 × pack | 1.50 € |
 | Black pepper: 2 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
 | Fresh coriander: 15 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
 | Lemon juice: 5 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
-| White long-grain rice, raw: 240 g | [Arroz basmati aromático Hacendado](https://tienda.mercadona.es/product/5002/) | 1000 g | 1 × pack | 2.10 € |
+| White long-grain rice, raw: 240 g | [Arroz basmati aromático Hacendado](https://tienda.mercadona.es/product/5002/) | 1 kg bag | 1 × pack | 2.10 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

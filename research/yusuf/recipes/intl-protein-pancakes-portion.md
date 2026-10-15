@@ -107,8 +107,8 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
 | Rolled oats, dry: 200 g | [Copos de avena Brüggen](https://tienda.mercadona.es/product/86341/) | 800 g | 1 × pack | 1.30 € |
-| Postre lácteo natural +Proteínas 10 g 0% MG: 400 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g | 1 × pack | 1.40 € |
-| Egg, whole, raw: 400 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 8 eggs | 3.05 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 400 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g tub | 1 × pack | 1.40 € |
+| Egg, whole, raw: 400 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 8 eggs | 3.05 € |
 | Banana, raw, peeled: 200 g | [Plátano de Canarias IGP](https://tienda.mercadona.es/product/3819/) | 1 × 101 g edible | 2 pieces | 0.48 € |
 | Cinnamon: 4 g | [Canela molida Hacendado](https://tienda.mercadona.es/product/34177/) | 52 g | 1 × pack | 1.00 € |
 | Salt: 1 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |

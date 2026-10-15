@@ -176,9 +176,9 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Red onion, raw: 100 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
 | Fresh coriander: 15 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
 | Fresh mint: 16 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 40 g | 1 × pack | 1.35 € |
-| Egg, whole, raw: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 2 eggs | 3.05 € |
+| Egg, whole, raw: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 2 eggs | 3.05 € |
 | Sunflower oil: 24 g | [Aceite de girasol refinado 0,2º Hacendado](https://tienda.mercadona.es/product/4040/) | 1 l | 1 × pack | 1.85 € |
-| Pan de pita Mission: 240 g | [Pan de pita Mission](https://tienda.mercadona.es/product/14378/) | 300 g | 1 × pack | 2.00 € |
+| Pan de pita Mission: 240 g | [Pan de pita Mission](https://tienda.mercadona.es/product/14378/) | 5 pittas (300 g) | 1 × pack | 2.00 € |
 | Romaine lettuce, raw: 120 g | [Lechuga romana cortada y lavada](https://tienda.mercadona.es/product/69435/) | 200 g | 1 × pack | 1.15 € |
 | Tomato, raw: 200 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
 | Lemon juice: 20 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |

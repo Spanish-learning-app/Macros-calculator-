@@ -190,6 +190,8 @@ function createViewHost(shell, ctx) {
     if (mine !== token) return; // a newer route won the race
     current.handle?.unmount();
     current = { name, handle: null };
+    // A new tab opens at its top (the Day view may have scrolled itself to the current meal).
+    window.scrollTo({ top: 0, behavior: 'instant' });
     try {
       current.handle = mod?.mount
         ? mod.mount(shell.view, ctx)

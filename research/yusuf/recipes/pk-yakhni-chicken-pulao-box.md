@@ -148,9 +148,9 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Garlic, raw: 15 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 250 g | 1 × pack | 1.85 € |
 | Ginger root, raw: 10 g | [Jengibre](https://tienda.mercadona.es/product/69289/) | 200 g | 1 × pack | 1.65 € |
 | Tomato, raw: 100 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
-| Yogur natural Hacendado: 30 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 750 g | 1 × pack | 1.00 € |
-| White long-grain rice, raw: 280 g | [Arroz basmati aromático Hacendado](https://tienda.mercadona.es/product/5002/) | 1000 g | 1 × pack | 2.10 € |
-| Chickpeas, canned/jarred, drained and rinsed: 320 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g (400 g drained) | 1 × pack | 0.80 € |
+| Yogur natural Hacendado: 30 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 6 × 125 g pots | 1 × pack | 1.00 € |
+| White long-grain rice, raw: 280 g | [Arroz basmati aromático Hacendado](https://tienda.mercadona.es/product/5002/) | 1 kg bag | 1 × pack | 2.10 € |
+| Chickpeas, canned/jarred, drained and rinsed: 320 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g jar (400 g drained) | 1 × pack | 0.80 € |
 | Fresh coriander: 10 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
 | Fresh mint: 6 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 40 g | 1 × pack | 1.35 € |
 

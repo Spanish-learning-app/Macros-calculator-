@@ -119,14 +119,14 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Hummus de garbanzos Hacendado receta clásica: 80 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g | 1 × pack | 1.05 € |
-| Queso fresco batido desnatado 0% Hacendado: 260 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 500 g | 1 × pack | 1.10 € |
+| Hummus de garbanzos Hacendado receta clásica: 80 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g tub | 1 × pack | 1.05 € |
+| Queso fresco batido desnatado 0% Hacendado: 260 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 500 g tub | 1 × pack | 1.10 € |
 | Lemon juice: 10 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Paprika: 1 g | [Pimentón dulce Hacendado](https://tienda.mercadona.es/product/60573/) | 75 g | 1 × pack | 1.30 € |
 | Carrot, raw: 120 g | [Zanahorias](https://tienda.mercadona.es/product/69586/) | 1000 g | 1 × pack | 1.00 € |
 | Cucumber, with peel, raw: 60 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Red bell pepper, raw: 100 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
-| Picos 100% integral Hacendado: 20 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 250 g | 1 × pack | 0.80 € |
+| Picos 100% integral Hacendado: 20 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 250 g bag | 1 × pack | 0.80 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

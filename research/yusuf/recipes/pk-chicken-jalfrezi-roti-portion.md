@@ -152,7 +152,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 | Salt: 8.2 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Lemon juice: 10 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Sunflower oil: 40 g | [Aceite de girasol refinado 0,2º Hacendado](https://tienda.mercadona.es/product/4040/) | 1 l | 1 × pack | 1.85 € |
-| Wholemeal wheat flour, atta: 235 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1000 g | 1 × pack | 0.90 € |
+| Wholemeal wheat flour, atta: 235 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1 kg bag | 1 × pack | 0.90 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

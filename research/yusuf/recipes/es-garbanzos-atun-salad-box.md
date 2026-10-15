@@ -122,7 +122,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Chickpeas, canned/jarred, drained and rinsed: 600 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g (400 g drained) | 2 × pack | 0.80 € |
+| Chickpeas, canned/jarred, drained and rinsed: 600 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g jar (400 g drained) | 2 × pack | 0.80 € |
 | Atún claro al natural Hacendado, drained: 440 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 480 g (360 g drained) | 2 × pack | 4.20 € |
 | Red bell pepper, raw: 200 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Green bell pepper, raw: 100 g | [Pimiento verde freír](https://tienda.mercadona.es/product/69320/) | 90 g | 2 × pack | 0.23 € |
@@ -135,7 +135,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Cumin: 2 g | [Comino molido Hacendado](https://tienda.mercadona.es/product/34120/) | 58 g | 1 × pack | 1.15 € |
 | Salt: 3 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
-| Egg, whole, raw: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 eggs | 3.05 € |
+| Egg, whole, raw: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 4 eggs | 3.05 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

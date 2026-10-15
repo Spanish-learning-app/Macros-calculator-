@@ -11,7 +11,7 @@ import { openPortionPicker } from '../components/portion-picker.js';
 import { openDialog, openActionSheet } from '../components/dialog.js';
 import { createUndoToast } from '../components/toast.js';
 import { addDays, fmtDateShort, fmtDateLong, relativeDay } from '../components/format.js';
-import { useByText, boxWord } from '../components/prep-bits.js';
+import { useByText, boxWord, frozenDueText } from '../components/prep-bits.js';
 
 /**
  * @param {HTMLElement} container
@@ -394,6 +394,9 @@ export function mount(container, ctx) {
     const f = store.food(info.batch.recipeId);
     const name = `${capitalize(boxWord(f, rules))} ${info.number}`;
     if (entry.status === 'eaten') return { text: name, kind: 'info' };
+    // Still frozen on (or after) its day says so (Review 2, A3); before then, the night-before hint.
+    const frozenDue = frozenDueText(info.box, date, store.today());
+    if (frozenDue) return { text: `${name} · ${frozenDue}`, kind: 'last' };
     if (info.box.storage === 'freezer' && !info.useBy) {
       return {
         text: `${name} · in the freezer: move it to the fridge the night before`,

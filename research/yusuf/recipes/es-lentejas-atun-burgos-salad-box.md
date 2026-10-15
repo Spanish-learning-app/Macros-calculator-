@@ -119,7 +119,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Lenteja cocida Hacendado: 600 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 570 g (400 g drained) | 2 × pack | 0.90 € |
+| Lenteja cocida Hacendado: 600 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 570 g jar (400 g drained) | 2 × pack | 0.90 € |
 | Atún claro al natural Hacendado, drained: 120 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 480 g (360 g drained) | 1 × pack | 4.20 € |
 | Red bell pepper, raw: 120 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Cucumber, with peel, raw: 100 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
@@ -130,7 +130,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Lemon juice: 30 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Cumin: 1 g | [Comino molido Hacendado](https://tienda.mercadona.es/product/34120/) | 58 g | 1 × pack | 1.15 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
-| Queso fresco de Burgos desnatado 0% Hacendado: 125 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g | 1 × pack | 1.15 € |
+| Queso fresco de Burgos desnatado 0% Hacendado: 125 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g (4 tubs) | 1 × pack | 1.15 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

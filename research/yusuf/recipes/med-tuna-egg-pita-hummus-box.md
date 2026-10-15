@@ -141,8 +141,8 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Lemon juice: 20 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
 | Egg, hard-boiled: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 2 pieces | 3.05 € |
-| Hummus de garbanzos Hacendado receta clásica: 100 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g | 1 × pack | 1.05 € |
-| Pan de pita Mission: 240 g | [Pan de pita Mission](https://tienda.mercadona.es/product/14378/) | 300 g | 1 × pack | 2.00 € |
+| Hummus de garbanzos Hacendado receta clásica: 100 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g tub | 1 × pack | 1.05 € |
+| Pan de pita Mission: 240 g | [Pan de pita Mission](https://tienda.mercadona.es/product/14378/) | 5 pittas (300 g) | 1 × pack | 2.00 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

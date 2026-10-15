@@ -111,9 +111,9 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Queso fresco batido desnatado 0% Hacendado: 660 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 500 g | 2 × pack | 1.10 € |
+| Queso fresco batido desnatado 0% Hacendado: 660 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 500 g tub | 2 × pack | 1.10 € |
 | Rolled oats, dry: 120 g | [Copos de avena Brüggen](https://tienda.mercadona.es/product/86341/) | 800 g | 1 × pack | 1.30 € |
-| Chia seeds, dry: 30 g | [Semillas de chía Hacendado](https://tienda.mercadona.es/product/5464/) | 150 g | 1 × pack | 1.45 € |
+| Chia seeds, dry: 30 g | [Semillas de chía Hacendado](https://tienda.mercadona.es/product/5464/) | 150 g bag | 1 × pack | 1.45 € |
 | Walnuts, shelled: 24 g | [Nuez natural Hacendado pelada](https://tienda.mercadona.es/product/34024/) | 200 g | 1 × pack | 2.40 € |
 | Cinnamon: 3 g | [Canela molida Hacendado](https://tienda.mercadona.es/product/34177/) | 52 g | 1 × pack | 1.00 € |
 | Kiwi verde: 207 g | [Kiwi verde](https://tienda.mercadona.es/product/3820/) | 110 g | 2 × pack | 0.51 € |

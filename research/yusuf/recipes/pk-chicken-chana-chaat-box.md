@@ -158,13 +158,13 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Red chilli powder: 1 g | [Cayena molida Hacendado](https://tienda.mercadona.es/product/37417/) | 55 g | 1 × pack | 1.65 € |
 | Salt: 7 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Lemon juice: 55 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
-| Chickpeas, canned/jarred, drained and rinsed: 440 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g (400 g drained) | 2 × pack | 0.80 € |
+| Chickpeas, canned/jarred, drained and rinsed: 440 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g jar (400 g drained) | 2 × pack | 0.80 € |
 | Potato, raw: 600 g | [Patatas](https://tienda.mercadona.es/product/69166/) | 3000 g | 1 × pack | 4.65 € |
 | Red onion, raw: 120 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
 | Tomato, raw: 200 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
 | Cucumber, with peel, raw: 120 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Fresh coriander: 20 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
-| Yogur natural Hacendado: 320 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 750 g | 1 × pack | 1.00 € |
+| Yogur natural Hacendado: 320 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 6 × 125 g pots | 1 × pack | 1.00 € |
 | Fresh mint: 10 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 40 g | 1 × pack | 1.35 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)

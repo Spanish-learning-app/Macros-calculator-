@@ -130,7 +130,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Wholemeal wheat flour, atta: 200 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1000 g | 1 × pack | 0.90 € |
+| Wholemeal wheat flour, atta: 200 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1 kg bag | 1 × pack | 0.90 € |
 | Potato, raw: 520 g | [Patatas](https://tienda.mercadona.es/product/69166/) | 3000 g | 1 × pack | 4.65 € |
 | Red onion, raw: 40 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
 | Fresh coriander: 8 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
@@ -138,7 +138,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 | Red chilli powder: 2 g | [Cayena molida Hacendado](https://tienda.mercadona.es/product/37417/) | 55 g | 1 × pack | 1.65 € |
 | Salt: 8 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Sunflower oil: 24 g | [Aceite de girasol refinado 0,2º Hacendado](https://tienda.mercadona.es/product/4040/) | 1 l | 1 × pack | 1.85 € |
-| Postre lácteo natural +Proteínas 10 g 0% MG: 800 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g | 2 × pack | 1.40 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 800 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g tub | 2 × pack | 1.40 € |
 | Cucumber, with peel, raw: 160 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Fresh mint: 6 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 40 g | 1 × pack | 1.35 € |
 

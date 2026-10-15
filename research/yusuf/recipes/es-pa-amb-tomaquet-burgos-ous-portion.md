@@ -134,7 +134,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
 | Egg, hard-boiled: 300 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 6 pieces | 3.05 € |
-| Queso fresco de Burgos desnatado 0% Hacendado: 188 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g | 1 × pack | 1.15 € |
+| Queso fresco de Burgos desnatado 0% Hacendado: 188 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g (4 tubs) | 1 × pack | 1.15 € |
 | Tomato, raw: 180 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
 | Olive oil: 15 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Salt: 1 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |

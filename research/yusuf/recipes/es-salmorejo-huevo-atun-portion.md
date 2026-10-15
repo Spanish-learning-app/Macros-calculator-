@@ -126,11 +126,11 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Salmorejo al estilo cordobés Hacendado: 500 g | [Salmorejo al estilo cordobés Hacendado](https://tienda.mercadona.es/product/39902/) | 1 l | 1 × pack | 2.20 € |
+| Salmorejo al estilo cordobés Hacendado: 500 g | [Salmorejo al estilo cordobés Hacendado](https://tienda.mercadona.es/product/39902/) | 1 l carton | 1 × pack | 2.20 € |
 | Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 pieces | 3.05 € |
 | Atún claro al natural Hacendado, drained: 120 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 480 g (360 g drained) | 1 × pack | 4.20 € |
 | Olive oil: 6 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
-| Picos 100% integral Hacendado: 60 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 250 g | 1 × pack | 0.80 € |
+| Picos 100% integral Hacendado: 60 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 250 g bag | 1 × pack | 0.80 € |
 | Naranja de mesa: 262 g | [Naranja de mesa](https://tienda.mercadona.es/product/3235/) | 270 g | 1 × pack | 0.68 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)

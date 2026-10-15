@@ -74,6 +74,7 @@ for (const scheme of ['light', 'dark']) {
     if (await strip.count()) { await strip.click(); await p.waitForTimeout(300); await s('04-day-panel-open'); }
   });
   await p.goto(URL + '#/day/2026-11-12');
+  await p.reload();
   await p.waitForTimeout(600);
   await s('06-day-empty');
   await p.goto(URL + '#/week');

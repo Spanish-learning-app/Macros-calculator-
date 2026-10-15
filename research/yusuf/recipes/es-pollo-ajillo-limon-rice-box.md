@@ -143,9 +143,9 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Bay leaf: 0.5 g | [Hoja de laurel Hacendado](https://tienda.mercadona.es/product/47994/) | 12 g | 1 × pack | 0.85 € |
 | Lemon juice: 60 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Fresh parsley: 15 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 40 g | 1 × pack | 0.95 € |
-| Brown long-grain rice, raw: 240 g | [Arroz integral largo Hacendado](https://tienda.mercadona.es/product/5184/) | 1000 g | 1 × pack | 1.65 € |
-| Green peas, frozen, raw: 200 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1000 g | 1 × pack | 1.50 € |
-| Green beans, frozen, raw: 600 g | [Judía verde redonda Hacendado ultracongelada](https://tienda.mercadona.es/product/61282/) | 1000 g | 1 × pack | 1.30 € |
+| Brown long-grain rice, raw: 240 g | [Arroz integral largo Hacendado](https://tienda.mercadona.es/product/5184/) | 1 kg bag | 1 × pack | 1.65 € |
+| Green peas, frozen, raw: 200 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1 kg bag | 1 × pack | 1.50 € |
+| Green beans, frozen, raw: 600 g | [Judía verde redonda Hacendado ultracongelada](https://tienda.mercadona.es/product/61282/) | 1 kg bag | 1 × pack | 1.30 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

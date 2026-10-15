@@ -104,7 +104,7 @@ function shopping(r) {
     const buy = REG[l.ingId].buy;
     const packs = buy.perUnitG ? Math.ceil(l.grams / buy.perUnitG) : Math.ceil(l.grams / p.packG - 1e-9);
     const unitWord = buy.perUnitG ? (l.ingId === 'egg' ? `${packs} eggs` : `${packs} pieces`) : `${packs} × pack`;
-    out.push(`| ${REG[l.ingId].label.replace(/\s*\(.*$/, '')}: ${fmtG(l.grams)} g | [${p.name}](${p.url}) | ${p.pack} | ${unitWord} | ${eur(p.packPrice)} |`);
+    out.push(`| ${REG[l.ingId].label.replace(/\s*\(.*$/, '')}: ${fmtG(l.grams)} g | [${p.name}](${p.url}) | ${packLabel(l.ingId, p)} | ${unitWord} | ${eur(p.packPrice)} |`);
   }
   const checks = r.shopping.filter((l) => REG[l.ingId].labelCheck);
   out.push('', '**Label checks** (what to read on the pack; what we found on ' + DATE + ')', '');
@@ -436,7 +436,7 @@ function noCookMd(list) {
   L.push('- **The lunch-box test.** Every lunch here travels: a closed box, nothing that leaks, good cold or with one item (a sealed rice cup or the box itself) in the microwave. Fish and eggs are never microwaved; sauces and dips go in a small pot; pitas are filled at lunch so they stay dry.');
   L.push('- **Sealed packs.** Microwave rice cups, cans and single Burgos tubs travel sealed inside the box. They keep to the date on the pack, so a box can be packed 2 days ahead without breaking the 1-day rule for cooked rice. Soaked couscous is cooked starch: that box is made the night before.');
   L.push('- **Eggs.** Boil 6–10 on Sunday or Tuesday night (10 minutes) and keep them in their shells: 3 days in the fridge. Most of these preps use them.');
-  L.push('- **Feta is "check".** The feta at Mercadona lists *cuajo* (rennet) without saying its origin. The lentil salad shows the swap: queso de Burgos 0% (*cuajo microbiano*) makes it halal.');
+  L.push('- **Feta is "check".** The feta at Mercadona lists *cuajo* (rennet) without saying its origin. The lentil salad has a halal twin: #40 is the same salad with a sealed tub of queso de Burgos 0% (*cuajo microbiano*) instead of feta, as its own record, so in the app you pick the Burgos one and it is halal. #29 (feta) stays for people who accept it.');
   L.push(`- **Bread.** Mercadona's own barras list E-472e with no origin (product pages read ${SNAP}). For pa amb tomàquet buy a barra at a *forn* made with flour, water, salt and yeast, or ask. The Mission pita (no E471) and Hacendado picos integrales (no lard) are fine.`, '');
   return L;
 }
@@ -492,89 +492,116 @@ function readyMd() {
   return L;
 }
 
-// ------------------------------------------------------------------ the low-cook week
+// ------------------------------------------------------------------ the low-cook weeks
 // One Sunday cook + assemblies + ready items, Monday to Friday. A prep entry = [foodId] (1 serving); a ready
 // entry = { r: [foodId, serving, qty], buy: research ingredient id for the shopping list }.
+// Batch fields: make = jars, boxes or portions made; scale = a 'cook' prep whose only cooking is boiling eggs,
+// mixed for the boxes needed (bought pro-rata like an assembly); minutes = hands-on override for that smaller
+// batch; from 'freezer' = a portion cooked on an earlier Sunday (not bought this week, costed pro-rata).
 const R = (foodId, serving, qty = 1, buy) => ({ r: [foodId, serving, qty], buy });
-const WEEK = {
-  batches: [
-    { id: 'es-mandonguilles-pesols-portion', when: 'Sunday', make: 4, note: '2 in the fridge (Mon, Tue), 2 in the freezer (Thu; 1 left for next week)' },
-    { id: 'es-queso-batido-parfait-jar', when: 'Sunday', make: 3, note: 'Mon–Wed breakfasts' },
-    { id: 'med-lentil-rice-burgos-bowl-box', when: 'Sunday', make: 2, note: 'Mon, Tue lunches' },
-    { id: 'intl-salmon-brown-rice-bowl-box', when: 'Tuesday night', make: 2, note: "Wed, Thu lunches; boil 2 more eggs for Wednesday's salmorejo at the same time" },
-    { id: 'pk-fruit-chaat-protein-dahi-portion', when: 'Wednesday night', make: 2, note: 'Thu, Fri breakfasts' },
-    { id: 'es-salmorejo-huevo-atun-portion', when: 'Wednesday', make: 1, note: 'dinner (the opened brik keeps 2 days: the rest is a lunch starter on Thursday or goes in a glass)' },
-    { id: 'med-cuscus-caballa-garbanzos-box', when: 'Thursday night', make: 1, note: 'Friday lunch' },
-    { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 2, note: 'dinner; the second portion goes in the freezer' },
-  ],
-  days: [
-    { day: 'Monday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'med-lentil-rice-burgos-bowl-box', dinner: 'es-mandonguilles-pesols-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 2, 'protein-yogurt'), R('intl-banana', 'medium', 1, 'banana'), R('es-picos-integrales', '30g', 1, 'picos'), R('intl-kinnow', 'medium', 1, 'mandarin'), R('intl-pear', 'medium', 1, 'pear')] },
-    { day: 'Tuesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'med-lentil-rice-burgos-bowl-box', dinner: 'es-mandonguilles-pesols-portion', ready: [R('es-queso-burgos-0', 'two-tubs', 1, 'burgos-0'), R('intl-apple', 'medium', 1, 'apple'), R('intl-almonds', 'handful', 1, 'almonds'), R('es-picos-integrales', '30g', 1, 'picos')] },
-    { day: 'Wednesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-salmon-brown-rice-bowl-box', dinner: 'es-salmorejo-huevo-atun-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 2, 'protein-yogurt'), R('intl-banana', 'medium', 1, 'banana'), R('intl-almonds', 'ten', 1, 'almonds'), R('es-picos-integrales', '30g', 1, 'picos')] },
-    { day: 'Thursday', breakfast: 'pk-fruit-chaat-protein-dahi-portion', lunch: 'intl-salmon-brown-rice-bowl-box', dinner: 'es-mandonguilles-pesols-portion', ready: [R('es-queso-burgos-0', 'tub', 1, 'burgos-0'), R('intl-pear', 'medium', 1, 'pear'), R('es-picos-integrales', '30g', 1, 'picos'), R('intl-kinnow', 'medium', 1, 'mandarin'), R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-almonds', 'ten', 1, 'almonds')] },
-    { day: 'Friday', breakfast: 'pk-fruit-chaat-protein-dahi-portion', lunch: 'med-cuscus-caballa-garbanzos-box', dinner: 'pk-microwave-chana-masala-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-kiwi', 'fruit', 1, 'kiwi'), R('intl-almonds', 'ten', 1, 'almonds'), R('es-queso-burgos-0', 'tub', 1, 'burgos-0'), R('es-picos-integrales', '30g', 1, 'picos')] },
-  ],
+const WEEKS = {
+  // v2 (Meeting 004, decision C; Mariam Review 2): Friday's mackerel couscous → the cold chickpea salad; the
+  // salmon bowls move to Mon–Tue and the lentil bowls to Wed–Thu so no three fish lunches run in a row (the
+  // chickpea salad has tuna); the third meatball dinner → a chicken karahi portion from the freezer (desi).
+  v2: {
+    batches: [
+      { id: 'es-mandonguilles-pesols-portion', when: 'Sunday', make: 4, note: '2 in the fridge (Mon, Tue), 2 in the freezer for next week' },
+      { id: 'es-queso-batido-parfait-jar', when: 'Sunday', make: 3, note: 'Mon–Wed breakfasts' },
+      { id: 'intl-salmon-brown-rice-bowl-box', when: 'Sunday', make: 2, note: "Mon, Tue lunches; boil 2 more eggs for Wednesday's salmorejo at the same time (boiled eggs keep 3 days)" },
+      { id: 'med-lentil-rice-burgos-bowl-box', when: 'Tuesday night', make: 2, note: 'Wed, Thu lunches (no fish: Mariam\'s pick for the shared fridge)' },
+      { id: 'pk-fruit-chaat-protein-dahi-portion', when: 'Wednesday night', make: 2, note: 'Thu, Fri breakfasts' },
+      { id: 'es-salmorejo-huevo-atun-portion', when: 'Wednesday', make: 1, note: 'dinner (the opened brik keeps 2 days: the rest goes in a glass on Thursday)' },
+      { id: 'pk-chicken-karahi-roti-portion', when: 'Thursday morning', make: 1, from: 'freezer', note: 'move 1 portion (with its 2 roti) from the freezer to the fridge for Thursday dinner; cooked on an earlier Sunday' },
+      { id: 'es-garbanzos-atun-salad-box', when: 'Thursday night', make: 1, scale: true, minutes: 12, note: 'Friday lunch: ¼ of the 4-box recipe, with 1 egg boiled while you chop; the rest of the chickpea jar goes into Friday\'s chana masala' },
+      { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 2, note: 'dinner; the second portion goes in the freezer' },
+    ],
+    days: [
+      { day: 'Monday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-salmon-brown-rice-bowl-box', dinner: 'es-mandonguilles-pesols-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 2, 'protein-yogurt'), R('intl-banana', 'medium', 1, 'banana'), R('es-picos-integrales', '30g', 1, 'picos'), R('intl-kinnow', 'medium', 1, 'mandarin'), R('intl-pear', 'medium', 1, 'pear')] },
+      { day: 'Tuesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-salmon-brown-rice-bowl-box', dinner: 'es-mandonguilles-pesols-portion', ready: [R('es-queso-burgos-0', 'two-tubs', 1, 'burgos-0'), R('intl-apple', 'medium', 1, 'apple'), R('intl-almonds', 'handful', 1, 'almonds'), R('es-picos-integrales', '30g', 1, 'picos')] },
+      { day: 'Wednesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'med-lentil-rice-burgos-bowl-box', dinner: 'es-salmorejo-huevo-atun-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 2, 'protein-yogurt'), R('intl-banana', 'medium', 1, 'banana'), R('intl-almonds', 'ten', 1, 'almonds'), R('es-picos-integrales', '30g', 1, 'picos')] },
+      { day: 'Thursday', breakfast: 'pk-fruit-chaat-protein-dahi-portion', lunch: 'med-lentil-rice-burgos-bowl-box', dinner: 'pk-chicken-karahi-roti-portion', ready: [R('intl-pear', 'medium', 1, 'pear'), R('es-picos-integrales', '30g', 1, 'picos'), R('intl-kinnow', 'medium', 1, 'mandarin'), R('intl-banana', 'medium', 1, 'banana'), R('intl-almonds', 'ten', 1, 'almonds')] },
+      { day: 'Friday', breakfast: 'pk-fruit-chaat-protein-dahi-portion', lunch: 'es-garbanzos-atun-salad-box', dinner: 'pk-microwave-chana-masala-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-kiwi', 'fruit', 1, 'kiwi'), R('intl-banana', 'medium', 1, 'banana'), R('intl-almonds', 'ten', 1, 'almonds'), R('es-queso-burgos-0', 'tub', 1, 'burgos-0'), R('es-picos-integrales', '30g', 1, 'picos')] },
+    ],
+  },
+  // Budget (Meeting 004, decision C): 60 € or less at the till, about 110–130 g protein, all halal. Fewer
+  // products bought more often: oats, protein yogurt, jarred pulses, tuna, eggs, bananas.
+  budget: {
+    buy: { egg: { id: 31540, units: 6 } }, // the box of 6 large eggs (1.80 €), not 12
+    batches: [
+      { id: 'pk-chicken-karahi-roti-portion', when: 'Sunday', make: 4, note: '3 in the fridge (Mon–Wed dinners; cooked meat keeps 3 days), 1 in the freezer for Friday dinner (move it to the fridge on Thursday night)' },
+      { id: 'intl-overnight-oats-protein-jar', when: 'Sunday', make: 3, note: 'Mon–Wed breakfasts' },
+      { id: 'es-garbanzos-atun-salad-box', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'Mon, Tue lunches: half the 4-box recipe, with 2 eggs boiled while you chop' },
+      { id: 'es-lentejas-atun-burgos-salad-box', when: 'Tuesday night', make: 2, note: 'Wed, Thu lunches (the Burgos version of the lentil salad: halal)' },
+      { id: 'intl-overnight-oats-protein-jar', when: 'Wednesday night', make: 2, note: 'Thu, Fri breakfasts' },
+      { id: 'pk-microwave-chana-masala-portion', when: 'Thursday', make: 2, note: 'Thu dinner and Fri lunch (it travels: the rice cup stays sealed, the raita goes in a small pot)' },
+    ],
+    days: [
+      { day: 'Monday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'es-garbanzos-atun-salad-box', dinner: 'pk-chicken-karahi-roti-portion', ready: [R('intl-banana', 'medium', 2, 'banana'), R('es-picos-integrales', '30g', 1, 'picos'), R('intl-apple', 'medium', 1, 'apple')] },
+      { day: 'Tuesday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'es-garbanzos-atun-salad-box', dinner: 'pk-chicken-karahi-roti-portion', ready: [R('intl-banana', 'medium', 2, 'banana'), R('es-picos-integrales', '30g', 1, 'picos'), R('intl-apple', 'medium', 1, 'apple')] },
+      { day: 'Wednesday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'es-lentejas-atun-burgos-salad-box', dinner: 'pk-chicken-karahi-roti-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('es-picos-integrales', '30g', 1, 'picos'), R('intl-apple', 'medium', 1, 'apple'), R('intl-kinnow', 'medium', 1, 'mandarin')] },
+      { day: 'Thursday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'es-lentejas-atun-burgos-salad-box', dinner: 'pk-microwave-chana-masala-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('es-picos-integrales', '30g', 1, 'picos'), R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt')] },
+      { day: 'Friday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'pk-microwave-chana-masala-portion', dinner: 'pk-chicken-karahi-roti-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('es-picos-integrales', '30g', 1, 'picos'), R('intl-apple', 'medium', 1, 'apple')] },
+    ],
+  },
 };
 const PANTRY = new Set(['salt', 'black-pepper', 'cumin', 'paprika', 'turmeric', 'chilli-powder', 'cinnamon', 'oregano', 'bay-leaf', 'garam-masala', 'chaat-masala', 'coriander-seed', 'oil-olive', 'oil-sunflower', 'sugar']);
+// Javier's pack label (Meeting 004 `pack`) for a Mercadona line, when his record is the same pack we price.
+function packLabel(ingId, pr, units = REG[ingId].buy?.units) {
+  const m = DB[ingId];
+  const f = m && FOOD.get(m.foodId);
+  if (!f?.pack || !pr.packG) return pr.pack;
+  if (units) return f.pack.label.startsWith(`${units} `) ? f.pack.label : pr.pack;
+  if (Math.abs(f.pack.grams - pr.packG) / pr.packG < 0.05) return f.pack.label;
+  return pr.pack;
+}
 
-function weekMd(rows) {
+// Totals, shopping and money for one week; md = the page text.
+function planWeek(rows, W) {
   const byId = new Map(rows.map((x) => [x.s.id, x]));
   const prep = (id) => {
     const x = byId.get(id);
     if (!x) throw new Error(`week: unknown prep ${id}`);
     return x;
   };
-  const L = [];
-  L.push('## A low-cook week', '');
-  L.push(`One Sunday cook of about ${(() => {
-    const sun = WEEK.batches.filter((b) => b.when === 'Sunday');
-    return sun.reduce((a, b) => a + prep(b.id).r.minutes, 0);
-  })()} minutes, a few 8–15-minute assemblies on weekday evenings, and ready food for the merienda. Monday to Friday, breakfast, lunch and dinner. All halal. Targets for the day: 2,000–2,400 kcal and 120–150 g protein (a PhD student who walks and trains a little; set your own in the app).`, '');
-  L.push('**When to make what**', '', '| When | Make | Hands-on | Gives you |', '|---|---|---|---|');
-  let mins = { Sunday: 0, other: 0 };
-  for (const b of WEEK.batches) {
+  const res = { batches: [], totals: [], mins: { Sunday: 0, other: 0 } };
+  for (const b of W.batches) {
     const { s, r } = prep(b.id);
-    const u = UNIT[r.serving];
-    // Hands-on time is not scaled down for a half batch: opening, chopping and washing up take about as long.
-    const m = r.minutes;
-    L.push(`| ${b.when} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md): ${b.make} ${b.make === 1 ? u.one : u.many} | ${m} min${r.effort === 'cook' ? ' (cook)' : ''} | ${b.note} |`);
-    if (b.when === 'Sunday') mins.Sunday += m;
-    else mins.other += m;
+    const m = b.from ? 0 : (b.minutes ?? r.minutes);
+    res.batches.push({ b, s, r, m });
+    if (b.when === 'Sunday') res.mins.Sunday += m;
+    else res.mins.other += m;
   }
-  L.push('', `Sunday: **${mins.Sunday} minutes** hands-on (the meatballs simmer while you assemble the jars and boxes). The rest of the week: **${mins.other} minutes** in all, spread over four evenings.`, '');
-  L.push('**The days** (kcal / protein for each meal; ready items are bought and eaten as they are)', '', '| Day | Breakfast | Lunch | Dinner | Ready (merienda, snacks, with dinner) | Day total |', '|---|---|---|---|---|---|');
-  const totals = [];
-  for (const d of WEEK.days) {
+  for (const d of W.days) {
     const meals = ['breakfast', 'lunch', 'dinner'].map((k) => prep(d[k]));
     const ready = d.ready.map((x) => readyLine(x.r));
-    const kcal = meals.reduce((a, m) => a + m.r.box.kcal, 0) + ready.reduce((a, l) => a + l.kcal, 0);
-    const protein = meals.reduce((a, m) => a + m.r.box.protein, 0) + ready.reduce((a, l) => a + l.protein, 0);
-    const fiber = meals.reduce((a, m) => a + m.r.box.fiber, 0) + ready.reduce((a, l) => a + l.fiber, 0);
-    totals.push({ day: d.day, kcal, protein, fiber });
-    const cell = ({ s, r }) => `${s.names.en} (${r.box.kcal} / ${r0(r.box.protein)} g)`;
-    L.push(`| ${d.day} | ${cell(meals[0])} | ${cell(meals[1])} | ${cell(meals[2])} | ${ready.map((l) => `${l.name.replace(/\s*\(.*\)$/, '').replace(/,.*$/, '')} ${l.label.replace(/\s*\(.*\)$/, '')}`).join('; ')} (${r0(ready.reduce((a, l) => a + l.kcal, 0))} / ${r0(ready.reduce((a, l) => a + l.protein, 0))} g) | **${r0(kcal)} kcal, ${r0(protein)} g protein**, ${r0(fiber)} g fibre |`);
+    for (const l of ready) if (l.halal !== 'halal') throw new Error(`week: ready item ${l.foodId} is ${l.halal}`);
+    for (const { s } of meals) if (s.halal.status !== 'halal') throw new Error(`week: prep ${s.id} is ${s.halal.status}`);
+    const sum = (k) => meals.reduce((a, m) => a + m.r.box[k], 0) + ready.reduce((a, l) => a + l[k], 0);
+    res.totals.push({ day: d.day, kcal: sum('kcal'), protein: sum('protein'), fiber: sum('fiber'), mealProtein: meals.reduce((a, m) => a + m.r.box.protein, 0), readyProtein: ready.reduce((a, l) => a + l.protein, 0), readyKcal: ready.reduce((a, l) => a + l.kcal, 0), meals, ready });
   }
-  const avg = (k) => totals.reduce((a, t) => a + t[k], 0) / totals.length;
-  const rng = (k) => `${r0(Math.min(...totals.map((t) => t[k])))}–${r0(Math.max(...totals.map((t) => t[k])))}`;
-  L.push('', `**Week:** ${rng('kcal')} kcal a day (average ${r0(avg('kcal'))}), ${rng('protein')} g protein (average ${r0(avg('protein'))}), ${rng('fiber')} g fibre. Meals are the Lab records (1 jar, box or portion); ready items are the records for the serving named. Coffee, tea and extra fruit are on top: log them as you go.`, '');
-  WEEK_RESULT.totals = totals;
-
-  // ---- shopping list: whole batches of the preps + the ready items, priced on one date
+  // ---- shopping list: the batches + the ready items, priced on one date
   const need = new Map(); // ingId → grams
   const add = (ingId, g) => need.set(ingId, (need.get(ingId) ?? 0) + g);
-  for (const b of WEEK.batches) {
-    const { r } = prep(b.id);
-    const f = r.effort === 'cook' ? 1 : b.make / r.boxes;
-    for (const c of r.components) for (const l of c.lines) if (l.ingId !== 'water') add(l.ingId, l.grams * f);
+  let freezer = 0;
+  for (const { b, r } of res.batches) {
+    const f = r.effort === 'cook' && !b.scale && !b.from ? 1 : b.make / r.boxes;
+    for (const c of r.components)
+      for (const l of c.lines) {
+        if (l.ingId === 'water') continue;
+        if (b.from) {
+          const pr = priceOf(l.ingId, { snap: SNAP });
+          if (pr.eurPerG != null) freezer += l.grams * f * pr.eurPerG;
+        } else add(l.ingId, l.grams * f);
+      }
   }
-  for (const d of WEEK.days) for (const x of d.ready) add(x.buy, readyLine(x.r).grams);
+  for (const d of W.days) for (const x of d.ready) add(x.buy, readyLine(x.r).grams);
   // Loose produce: price the week from single pieces, not the 2–3 kg bags the sheets use.
-  const WEEK_BUY = { tomato: 69912, potato: 69066 };
+  const WEEK_BUY = { tomato: { id: 69912 }, potato: { id: 69066 }, ...W.buy };
   const merged = new Map(); // Mercadona product → one line (raw and boiled eggs are the same box of eggs)
   for (const [ingId, g] of need) {
-    const b = REG[ingId].buy;
-    if (b?.shop !== 'mercadona' || PANTRY.has(ingId)) continue;
-    const key = String(WEEK_BUY[ingId] ?? b.id);
+    const bu = REG[ingId].buy;
+    if (bu?.shop !== 'mercadona' || PANTRY.has(ingId)) continue;
+    const key = String(WEEK_BUY[ingId]?.id ?? bu.id);
     const m = merged.get(key);
     if (m) {
       need.set(m, need.get(m) + g);
@@ -586,7 +613,7 @@ function weekMd(rows) {
   let eaten = 0;
   const unpriced = [];
   for (const [ingId, g] of [...need].sort((a, b) => REG[a[0]].label.localeCompare(REG[b[0]].label))) {
-    const pr = priceOf(ingId, { snap: SNAP, id: WEEK_BUY[ingId] });
+    const pr = priceOf(ingId, { snap: SNAP, id: WEEK_BUY[ingId]?.id, units: WEEK_BUY[ingId]?.units });
     const buy = REG[ingId].buy ?? {};
     const pro = pr.eurPerG != null ? g * pr.eurPerG : null;
     if (pro != null) eaten += pro;
@@ -604,35 +631,84 @@ function weekMd(rows) {
       unpriced.push(ingId);
       continue;
     }
-    const packG = pr.packG;
-    const packs = Math.max(1, Math.ceil(g / packG - 1e-9));
+    const packs = Math.max(1, Math.ceil(g / pr.packG - 1e-9));
     const cost = packs * pr.packPrice;
     till += cost;
-    groups.mercadona.push({ ingId, g, packs, cost, pr, unit: buy.perUnitG ? (ingId.startsWith('egg') ? 'eggs' : 'pieces') : null });
+    groups.mercadona.push({ ingId, g, packs, cost, pr, units: WEEK_BUY[ingId]?.units ?? buy.units, unit: buy.perUnitG ? (ingId.startsWith('egg') ? 'eggs' : 'pieces') : null });
   }
-  WEEK_RESULT.till = till;
-  WEEK_RESULT.eaten = eaten;
-  WEEK_RESULT.unpriced = unpriced;
+  const pantry = groups.pantry.reduce((a, x) => a + (x.pro ?? 0), 0);
+  Object.assign(res, { groups, till, eaten: eaten + freezer, freezer, pantry, unpriced });
+  return res;
+}
+
+function weekDaysMd(L, P) {
+  L.push('**When to make what**', '', '| When | Make | Hands-on | Gives you |', '|---|---|---|---|');
+  for (const { b, s, r, m } of P.batches) {
+    const u = UNIT[r.serving];
+    L.push(`| ${b.when} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md): ${b.make} ${b.make === 1 ? u.one : u.many}${b.from ? ' from the freezer' : ''} | ${b.from ? '—' : `${m} min${r.effort === 'cook' && !b.scale ? ' (cook)' : ''}`} | ${b.note} |`);
+  }
+  L.push('', `Sunday: **${P.mins.Sunday} minutes** hands-on. The rest of the week: **${P.mins.other} minutes** in all, spread over the weekday evenings.`, '');
+  L.push('**The days** (kcal / protein for each meal; ready items are bought and eaten as they are)', '', '| Day | Breakfast | Lunch | Dinner | Ready (merienda, snacks, with dinner) | Day total |', '|---|---|---|---|---|---|');
+  for (const t of P.totals) {
+    const cell = ({ s, r }) => `${s.names.en} (${r.box.kcal} / ${r0(r.box.protein)} g)`;
+    L.push(`| ${t.day} | ${cell(t.meals[0])} | ${cell(t.meals[1])} | ${cell(t.meals[2])} | ${t.ready.map((l) => `${l.name.replace(/\s*\(.*\)$/, '').replace(/,.*$/, '')} ${l.label.replace(/\s*\(.*\)$/, '')}`).join('; ')} (${r0(t.readyKcal)} / ${r0(t.readyProtein)} g) | **${r0(t.kcal)} kcal, ${r0(t.protein)} g protein**, ${r0(t.fiber)} g fibre |`);
+  }
+  const avg = (k) => P.totals.reduce((a, t) => a + t[k], 0) / P.totals.length;
+  const rng = (k) => `${r0(Math.min(...P.totals.map((t) => t[k])))}–${r0(Math.max(...P.totals.map((t) => t[k])))}`;
+  L.push('', `**Week:** ${rng('kcal')} kcal a day (average ${r0(avg('kcal'))}), ${rng('protein')} g protein (average ${r0(avg('protein'))}), ${rng('fiber')} g fibre. Meals are the Lab records (1 jar, box or portion); ready items are the records for the serving named. Coffee, tea and extra fruit are on top: log them as you go.`, '');
+  return { avg, rng };
+}
+
+function weekShopMd(L, P) {
   L.push(`**Mercadona shopping list** (Barcelona online shop, warehouse bcn1, prices read ${SNAP}; you buy whole packs)`, '', '| You need | Product | Buy | Price |', '|---|---|---|---|');
-  for (const x of groups.mercadona) {
+  for (const x of P.groups.mercadona) {
     const bu = REG[x.ingId].buy;
     const n = x.unit ? Math.ceil(x.g / bu.perUnitG) : x.packs;
     const word = (k, one, many) => `${k} ${k === 1 ? one : many}`;
+    const pl = packLabel(x.ingId, x.pr, x.units);
+    // Javier's labels that count items ("12 eggs", "2 × 125 g cups") read as "1 pack of …".
+    const packText = /^\d+ (×|(?!(?:g|kg|ml|l)\b)[a-z])/.test(pl) ? `${word(x.packs, 'pack', 'packs')} of ${pl}` : `${x.packs} × ${pl}`;
     const buyText = x.unit
-      ? (bu.units ?? 1) > 1
-        ? `${word(x.packs, 'pack', 'packs')} of ${bu.units} (uses ${word(n, x.unit === 'eggs' ? 'egg' : 'piece', x.unit)})`
+      ? (x.units ?? 1) > 1
+        ? `${pl === x.pr.pack ? `${word(x.packs, 'pack', 'packs')} of ${x.units}${x.unit === 'eggs' ? ' eggs' : ''}` : packText} (uses ${word(n, x.unit === 'eggs' ? 'egg' : 'piece', x.unit)})`
         : word(n, 'piece', 'pieces')
-      : `${x.packs} × ${x.pr.pack}`;
+      : packText;
     L.push(`| ${shortLabel(x.ingId)}: ${fmtG(Math.round(x.g))} g | [${x.pr.name}](${x.pr.url}) | ${buyText} | ${eur(x.cost)} |`);
   }
   L.push('');
-  if (groups.butcher.length) {
+  if (P.groups.butcher.length) {
     L.push('**Halal butcher**', '');
-    for (const x of groups.butcher) L.push(`- ${x.pr.name}: ${fmtG(Math.round(x.g))} g, ${x.pr.eurPerKg.toFixed(2)} €/kg at [Carne Halal Online](${x.pr.url}) (read ${x.pr.date}) = ${eur(x.pro)}.`);
+    for (const x of P.groups.butcher) L.push(`- ${x.pr.name}: ${fmtG(Math.round(x.g))} g, ${x.pr.eurPerKg.toFixed(2)} €/kg at [Carne Halal Online](${x.pr.url}) (read ${x.pr.date}) = ${eur(x.pro)}.`);
     L.push('');
   }
-  L.push(`**Cupboard** (most kitchens have these; counted only for what the week uses): ${groups.pantry.map((x) => `${shortLabel(x.ingId).toLowerCase()} ${fmtG(Math.round(x.g))} g`).join(', ')}.${groups.other.length ? ` Not priced (desi shelf or bakery): ${groups.other.map((x) => shortLabel(x.ingId).toLowerCase()).join(', ')}.` : ''}`, '');
-  L.push(`**Approximate cost:** about **${eur(till)}** at the till for the week (whole packs at Mercadona on ${SNAP}, halal beef mince at Carne Halal Online read ${BUTCHER.items['beef-mince'] ? '2026-10-13' : ''}), of which about **${eur(eaten)}** is the food that goes into this week's batches and ready items (pro-rata, cupboard included, and including the meatball and chana masala portions left in the freezer for next week). That is under **${eur(eaten / 5)} a day** for three meals and the merienda; the rest of the till money stays in the cupboard (oats, chia, couscous, breadcrumbs, spices, most of the eggs and onions). Prices change: the date is part of the number.`, '');
+  L.push(`**Cupboard** (most kitchens have these; counted only for what the week uses): ${P.groups.pantry.map((x) => `${shortLabel(x.ingId).toLowerCase()} ${fmtG(Math.round(x.g))} g`).join(', ')}.${P.groups.other.length ? ` Not priced (desi shelf or bakery): ${P.groups.other.map((x) => shortLabel(x.ingId).toLowerCase()).join(', ')}.` : ''}`, '');
+}
+
+function weekMd(rows) {
+  const P = planWeek(rows, WEEKS.v2);
+  const L = [];
+  L.push('## A low-cook week', '');
+  L.push(`One Sunday cook of about ${P.mins.Sunday} minutes, a few 8–15-minute assemblies on weekday evenings, and ready food for the merienda. Monday to Friday, breakfast, lunch and dinner. All halal. Targets for the day: 2,000–2,200 kcal and 120–140 g protein (a PhD student who walks and trains a little; set your own in the app).`, '');
+  L.push('**Version 2** (Meeting 004, after Mariam\'s Review 2): Friday\'s mackerel couscous is now the cold chickpea salad; because that salad has tuna, the salmon bowls move to Monday and Tuesday and the lentil bowls to Wednesday and Thursday, so there are never three fish lunches in a row. The third meatball dinner is now a chicken karahi with roti from the freezer, so the week has two desi dinners.', '');
+  const { avg } = weekDaysMd(L, P);
+  const meal = P.totals.map((t) => t.mealProtein);
+  const readyP = avg('readyProtein');
+  L.push(`**A lower protein target.** This week is planned for 120–140 g protein. If your target is lower, like Mariam's 96 g (1.6 g per kg at 60 kg), eat smaller portions or fewer add-ons, not different meals: the three preps alone give ${r0(Math.min(...meal))}–${r0(Math.max(...meal))} g a day, and the ready items add about ${r0(readyP)} g. Leave out the protein add-ons (the protein yogurt pots and Burgos tubs) and keep the fruit, picos and almonds, or take the ½ box or ½ portion serving of one meal and fill up with fruit or bread. Set your own target in the app and the day bar shows where you are.`, '');
+  weekShopMd(L, P);
+  L.push(`**Approximate cost:** about **${eur(P.till)}** at the till for the week (whole packs at Mercadona on ${SNAP}, halal beef mince at Carne Halal Online read 2026-10-13), of which about **${eur(P.eaten - P.freezer)}** is the food that goes into this week's batches and ready items (pro-rata, cupboard included, and including the meatball and chana masala portions left in the freezer for next week). The karahi portion from the freezer was bought on an earlier week: about **${eur(P.freezer)}** of food (pro-rata, same price dates). With it, the week eats about **${eur(P.eaten)}**, **${eur(P.eaten / 5)} a day** for three meals and the merienda; the rest of the till money stays in the cupboard (oats, chia, picos, spices, most of the eggs and onions). Prices change: the date is part of the number.`, '');
+  WEEK_RESULT.v2 = { totals: P.totals.map(({ day, kcal, protein, fiber }) => ({ day, kcal, protein, fiber })), till: P.till, eaten: P.eaten, freezer: P.freezer, unpriced: P.unpriced };
+  return L;
+}
+
+function budgetWeekMd(rows) {
+  const P = planWeek(rows, WEEKS.budget);
+  const L = [];
+  L.push('## A budget low-cook week', '');
+  L.push(`The same idea for **60 € or less at the till**: one Sunday cook, short assemblies, and fewer different products bought in bigger packs (oats, protein yogurt, jarred chickpeas and lentils, tuna, eggs, bananas). Monday to Friday, breakfast, lunch and dinner, about 110–130 g protein a day. All halal: chicken from the halal butcher, no cheese with unstated rennet.`, '');
+  weekDaysMd(L, P);
+  weekShopMd(L, P);
+  L.push(`**Cost:** **${eur(P.till)} at the till** (${eur(P.till / 5)} a day), whole packs at Mercadona on ${SNAP} and halal chicken at Carne Halal Online read 2026-10-13. The food eaten this week is about **${eur(P.eaten)}** (${eur(P.eaten / 5)} a day, pro-rata, cupboard included, with the karahi portion left in the freezer). The till total leaves out the cupboard (oil, salt and spices: about ${eur(P.pantry)} of them go into the week)${P.unpriced.length ? ` and ${P.unpriced.map((i) => shortLabel(i).toLowerCase().replace(/, raw$/, '')).join(', ')} from the desi shop (a few grams, not priced)` : ''}. What is left over stays in the cupboard and fridge for next week (oats, chia, picos, eggs, most of the spices). Prices change: the date is part of the number.`, '');
+  WEEK_RESULT.budget = { totals: P.totals.map(({ day, kcal, protein, fiber }) => ({ day, kcal, protein, fiber })), till: P.till, eaten: P.eaten, tillPerDay: P.till / 5, eatenPerDay: P.eaten / 5, unpriced: P.unpriced };
   return L;
 }
 const WEEK_RESULT = {};
@@ -668,7 +744,7 @@ function libraryMd(rows) {
   L.push(`**Owner:** Yusuf Benali (Nutrition Lab) · **Reviewed by:** Dr. Ayesha Siddiqui (lunch boxes reviewed in Sprint 1; breakfast, dinner and no-cook preps pending) · **Prices and labels read:** ${DATE} (lunch), 2026-10-14 (breakfast and dinner additions, no-cook preps, ready picks and the low-cook week)`, '');
   L.push(`${rows.length} halal preps in three tiers. **${nCook} to batch-cook** on Sunday: **${nB} breakfasts**, **${nL} lunch boxes** to carry to university and **${nD} freezer dinners** to eat at home. **${noCook.length} no-cook preps** you assemble in 15 minutes or less from market food. And a list of **ready-to-eat picks** that need nothing at all. In the app, search for the prep and log **"1 jar"**, **"1 box"** or **"1 portion"** (or the ½ serving). The Prep library filter *All · Cook · No-cook* uses the same tiers.`, '');
   L.push('Every number comes from a standard recipe calculation (NUTRITION.md §6). Each recipe sheet shows the ingredients in grams, the published recipes it starts from, the yields, storage per component, a shopping list and a dated cost.', '');
-  L.push('**Contents:** [Breakfast](#breakfast-preps) · [Lunch boxes](#lunch-boxes) · [Dinner](#freezer-dinners) · [No-cook preps](#no-cook-preps) · [Ready to eat](#ready-to-eat-picks) · [Low-cook week](#a-low-cook-week) · [Roti and paratha stock](#roti-and-paratha-stock) · [Storage](#storage-at-a-glance) · [A Sunday that works](#a-sunday-that-works) · [How to batch in the app](#how-to-batch-in-the-app) · [Halal shopping in Barcelona](#halal-shopping-in-barcelona) · [Where the numbers come from](#where-the-numbers-come-from)', '');
+  L.push('**Contents:** [Breakfast](#breakfast-preps) · [Lunch boxes](#lunch-boxes) · [Dinner](#freezer-dinners) · [No-cook preps](#no-cook-preps) · [Ready to eat](#ready-to-eat-picks) · [Low-cook week](#a-low-cook-week) · [Budget week](#a-budget-low-cook-week) · [Roti and paratha stock](#roti-and-paratha-stock) · [Storage](#storage-at-a-glance) · [A Sunday that works](#a-sunday-that-works) · [How to batch in the app](#how-to-batch-in-the-app) · [Halal shopping in Barcelona](#halal-shopping-in-barcelona) · [Where the numbers come from](#where-the-numbers-come-from)', '');
 
   L.push('## Breakfast preps', '');
   L.push(`Each one has ${TBk('breakfast')}, and takes 0–2 minutes in the morning. None uses protein powder: the protein comes from eggs, egg whites and a high-protein yogurt (milk and cultures only).`, '');
@@ -684,7 +760,7 @@ function libraryMd(rows) {
   L.push(`Eaten at home, so desi curries with roti are welcome. Each portion has ${TBk('dinner')}. The six desi dinners start from Zainab Rauf's home-style standard recipes (research/zainab/), made a little lighter in oil, and each portion includes **2 wholemeal roti** from the roti stock. The Catalan *mandonguilles* come with their own potatoes.`, '');
   table(by('dinner'));
   L.push(`Curries and kebabs keep ${stor('cooked-meat')}; daal ${stor('cooked-curry')}; roti ${stor('cooked-flatbread')}. A frozen portion with its roti is best within 2 months. Raita and kachumber are side pots made fresh (they keep 2 days and cannot be frozen).`, '');
-  L.push(...noCookMd(noCook), ...readyMd(), ...weekMd(rows));
+  L.push(...noCookMd(noCook), ...readyMd(), ...weekMd(rows), ...budgetWeekMd(rows));
 
   L.push('## Roti and paratha stock', '');
   L.push(`The dinners (and two breakfasts) use a **weekly roti stock** made in one go. Each medium roti is ${rotiServ.grams} g cooked, from about 29 g wholemeal atta and 21 g water, and is ${rotiKcal} kcal (Zainab's \`pk-roti\` record: ${roti.per100g.kcal} kcal, ${roti.per100g.protein} g protein and ${roti.per100g.fiber} g fibre per 100 g).`, '');
@@ -732,7 +808,7 @@ function libraryMd(rows) {
   L.push('- *Sebo* is tallow. *Jamón, chorizo, fuet, sobrasada, panceta, butifarra* are pork. *Sin cerdo* ("no pork") is not the same as halal.');
   L.push('- Wine hides in sauces, stocks and stews (*al vino*, *con vino blanco*, *jerez*, *coñac*, *vi ranci*). These recipes use lemon or water instead.');
   L.push('- Protein powder: whey comes from cheese-making, and not every brand is halal-certified. None of these preps needs it.');
-  L.push('- Cheese: some people avoid cheese made with animal rennet (*cuajo animal*). Labels that say *cuajo microbiano* or *coagulante vegetal* avoid the question. None of these preps uses cheese.', '');
+  L.push('- Cheese: some people avoid cheese made with animal rennet (*cuajo animal*). Labels that say *cuajo microbiano* or *coagulante vegetal* avoid the question. Mercadona\'s queso de Burgos 0% says *cuajo microbiano* and its queso fresco batido has no rennet at all (both halal); its feta does not say (check), so #29 is marked check and #40 is its Burgos twin.', '');
   L.push('**Bakeries and cafés:** a croissant *de mantequilla* is made with butter. Cheap pastries and some *bollería* are made with lard, and an *ensaïmada* is made with pork lard (*saïm*) by definition. When in doubt, ask "¿lleva manteca de cerdo?" (Catalan: "porta saïm?"). *Pa amb tomàquet* and *café con leche* are fine; most bocadillos are pork, so pick *tortilla* or *atún*.', '');
   L.push('**Desi grocery:** masoor and chana dal, bulgur, green chillies, whole spices, garam and chaat masala are on the Pakistani or Moroccan shelf at or next to the halal butcher (Raval). Mercadona Barcelona sold none of masoor dal, chana dal or bulgur on the dates checked.', '');
   L.push('**Cross-contact is not tracked.** Katori marks each food halal, check or not halal from its ingredients. It does not track shared slicers, grills, fryers or bread boards in cafés, bakeries and butchers. If that matters to you, ask.', '');
@@ -764,8 +840,10 @@ fs.writeFileSync(path.join(root, 'app', 'data', 'recipes-mealprep.js'), recipesF
 fs.writeFileSync(path.join(root, 'docs', 'MEALPREP.md'), libraryMd(rows));
 fs.writeFileSync(path.join(here, 'out', 'missing-foods.json'), JSON.stringify(Object.fromEntries([...MISSING].map(([k, v]) => [k, { label: v.label, recipes: [...v.recipes].sort((a, b) => a - b) }])), null, 1) + '\n');
 for (const { s, r } of rows) console.log(`R-MP-${s.n} ${s.id}: ${r.effort} ${r.minutes} min, ${r.box.grams} g, ${r.box.kcal} kcal, ${r1(r.box.protein)} g P, ${r1(r.box.fiber)} g fibre, ${r.cost.partialMajor ? 'cost n/a' : `${r.cost.perBox.toFixed(2)} €`}`);
-for (const t of WEEK_RESULT.totals) console.log(`week ${t.day}: ${Math.round(t.kcal)} kcal, ${r1(t.protein)} g P, ${r1(t.fiber)} g fibre`);
-console.log(`week cost: till ${WEEK_RESULT.till.toFixed(2)} €, eaten ${WEEK_RESULT.eaten.toFixed(2)} €, unpriced ${WEEK_RESULT.unpriced.join(', ') || 'none'}`);
+for (const [k, w] of Object.entries(WEEK_RESULT)) {
+  for (const t of w.totals) console.log(`${k} ${t.day}: ${Math.round(t.kcal)} kcal, ${r1(t.protein)} g P, ${r1(t.fiber)} g fibre`);
+  console.log(`${k} cost: till ${w.till.toFixed(2)} €, eaten ${w.eaten.toFixed(2)} € (${(w.eaten / 5).toFixed(2)} €/day)${w.freezer ? `, freezer ${w.freezer.toFixed(2)} €` : ''}, unpriced ${w.unpriced.join(', ') || 'none'}`);
+}
 fs.writeFileSync(path.join(here, 'out', 'low-cook-week.json'), JSON.stringify(WEEK_RESULT, null, 1) + '\n');
 console.log(`\n${rows.length} sheets, app/data/foods-mealprep.js and docs/MEALPREP.md written.`);
 void priceOf;

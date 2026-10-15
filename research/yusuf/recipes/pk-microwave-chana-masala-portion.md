@@ -139,8 +139,8 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Chickpeas, canned/jarred, drained and rinsed: 400 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g (400 g drained) | 1 × pack | 0.80 € |
-| Tomate triturado Hacendado: 200 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 800 g | 1 × pack | 1.00 € |
+| Chickpeas, canned/jarred, drained and rinsed: 400 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g jar (400 g drained) | 1 × pack | 0.80 € |
+| Tomate triturado Hacendado: 200 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 800 g jar | 1 × pack | 1.00 € |
 | Onion, raw: 80 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1000 g | 1 × pack | 1.50 € |
 | Olive oil: 10 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Garlic, raw: 6 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 250 g | 1 × pack | 1.85 € |
@@ -151,10 +151,10 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Salt: 2 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Lemon juice: 10 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Fresh coriander: 6 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
-| Postre lácteo natural +Proteínas 10 g 0% MG: 240 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g | 1 × pack | 1.40 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 240 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g tub | 1 × pack | 1.40 € |
 | Cucumber, with peel, raw: 60 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Fresh mint: 2 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 40 g | 1 × pack | 1.35 € |
-| Arroz cocido basmati Sabroz: 250 g | [Arroz cocido basmati Sabroz](https://tienda.mercadona.es/product/22280/) | 250 g | 1 × pack | 1.10 € |
+| Arroz cocido basmati Sabroz: 250 g | [Arroz cocido basmati Sabroz](https://tienda.mercadona.es/product/22280/) | 2 × 125 g cups | 1 × pack | 1.10 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

@@ -6,7 +6,7 @@
 
 Every number comes from a standard recipe calculation (NUTRITION.md §6). Each recipe sheet shows the ingredients in grams, the published recipes it starts from, the yields, storage per component, a shopping list and a dated cost.
 
-**Contents:** [Breakfast](#breakfast-preps) · [Lunch boxes](#lunch-boxes) · [Dinner](#freezer-dinners) · [No-cook preps](#no-cook-preps) · [Ready to eat](#ready-to-eat-picks) · [Low-cook week](#a-low-cook-week) · [Roti and paratha stock](#roti-and-paratha-stock) · [Storage](#storage-at-a-glance) · [A Sunday that works](#a-sunday-that-works) · [How to batch in the app](#how-to-batch-in-the-app) · [Halal shopping in Barcelona](#halal-shopping-in-barcelona) · [Where the numbers come from](#where-the-numbers-come-from)
+**Contents:** [Breakfast](#breakfast-preps) · [Lunch boxes](#lunch-boxes) · [Dinner](#freezer-dinners) · [No-cook preps](#no-cook-preps) · [Ready to eat](#ready-to-eat-picks) · [Low-cook week](#a-low-cook-week) · [Budget week](#a-budget-low-cook-week) · [Roti and paratha stock](#roti-and-paratha-stock) · [Storage](#storage-at-a-glance) · [A Sunday that works](#a-sunday-that-works) · [How to batch in the app](#how-to-batch-in-the-app) · [Halal shopping in Barcelona](#halal-shopping-in-barcelona) · [Where the numbers come from](#where-the-numbers-come-from)
 
 ## Breakfast preps
 
@@ -85,7 +85,7 @@ Fifteen minutes or less, little or no cooking: open, chop, mix, pack. Boiling eg
 - **The lunch-box test.** Every lunch here travels: a closed box, nothing that leaks, good cold or with one item (a sealed rice cup or the box itself) in the microwave. Fish and eggs are never microwaved; sauces and dips go in a small pot; pitas are filled at lunch so they stay dry.
 - **Sealed packs.** Microwave rice cups, cans and single Burgos tubs travel sealed inside the box. They keep to the date on the pack, so a box can be packed 2 days ahead without breaking the 1-day rule for cooked rice. Soaked couscous is cooked starch: that box is made the night before.
 - **Eggs.** Boil 6–10 on Sunday or Tuesday night (10 minutes) and keep them in their shells: 3 days in the fridge. Most of these preps use them.
-- **Feta is "check".** The feta at Mercadona lists *cuajo* (rennet) without saying its origin. The lentil salad shows the swap: queso de Burgos 0% (*cuajo microbiano*) makes it halal.
+- **Feta is "check".** The feta at Mercadona lists *cuajo* (rennet) without saying its origin. The lentil salad has a halal twin: #40 is the same salad with a sealed tub of queso de Burgos 0% (*cuajo microbiano*) instead of feta, as its own record, so in the app you pick the Burgos one and it is halal. #29 (feta) stays for people who accept it.
 - **Bread.** Mercadona's own barras list E-472e with no origin (product pages read 2026-10-14). For pa amb tomàquet buy a barra at a *forn* made with flour, water, salt and yeast, or ask. The Mission pita (no E471) and Hacendado picos integrales (no lard) are fine.
 
 ## Ready-to-eat picks
@@ -131,34 +131,39 @@ Buy and eat, no prep. Every item is a normal food in the app (search it and tap 
 
 ## A low-cook week
 
-One Sunday cook of about 65 minutes, a few 8–15-minute assemblies on weekday evenings, and ready food for the merienda. Monday to Friday, breakfast, lunch and dinner. All halal. Targets for the day: 2,000–2,400 kcal and 120–150 g protein (a PhD student who walks and trains a little; set your own in the app).
+One Sunday cook of about 67 minutes, a few 8–15-minute assemblies on weekday evenings, and ready food for the merienda. Monday to Friday, breakfast, lunch and dinner. All halal. Targets for the day: 2,000–2,200 kcal and 120–140 g protein (a PhD student who walks and trains a little; set your own in the app).
+
+**Version 2** (Meeting 004, after Mariam's Review 2): Friday's mackerel couscous is now the cold chickpea salad; because that salad has tuna, the salmon bowls move to Monday and Tuesday and the lentil bowls to Wednesday and Thursday, so there are never three fish lunches in a row. The third meatball dinner is now a chicken karahi with roti from the freezer, so the week has two desi dinners.
 
 **When to make what**
 
 | When | Make | Hands-on | Gives you |
 |---|---|---|---|
-| Sunday | [Catalan meatballs with peas and potatoes (mandonguilles amb pèsols), halal beef](../research/yusuf/recipes/es-mandonguilles-pesols-portion.md): 4 portions | 45 min (cook) | 2 in the fridge (Mon, Tue), 2 in the freezer (Thu; 1 left for next week) |
+| Sunday | [Catalan meatballs with peas and potatoes (mandonguilles amb pèsols), halal beef](../research/yusuf/recipes/es-mandonguilles-pesols-portion.md): 4 portions | 45 min (cook) | 2 in the fridge (Mon, Tue), 2 in the freezer for next week |
 | Sunday | [Queso fresco batido parfait with oats, chia, kiwi and walnuts](../research/yusuf/recipes/es-queso-batido-parfait-jar.md): 3 jars | 10 min | Mon–Wed breakfasts |
-| Sunday | [Lentil and brown-rice bowl with queso de Burgos and tomato salad](../research/yusuf/recipes/med-lentil-rice-burgos-bowl-box.md): 2 boxes | 10 min | Mon, Tue lunches |
-| Tuesday night | [Salmon and brown-rice bowl with avocado, cucumber and egg](../research/yusuf/recipes/intl-salmon-brown-rice-bowl-box.md): 2 boxes | 12 min | Wed, Thu lunches; boil 2 more eggs for Wednesday's salmorejo at the same time |
+| Sunday | [Salmon and brown-rice bowl with avocado, cucumber and egg](../research/yusuf/recipes/intl-salmon-brown-rice-bowl-box.md): 2 boxes | 12 min | Mon, Tue lunches; boil 2 more eggs for Wednesday's salmorejo at the same time (boiled eggs keep 3 days) |
+| Tuesday night | [Lentil and brown-rice bowl with queso de Burgos and tomato salad](../research/yusuf/recipes/med-lentil-rice-burgos-bowl-box.md): 2 boxes | 10 min | Wed, Thu lunches (no fish: Mariam's pick for the shared fridge) |
 | Wednesday night | [Fruit chaat with protein yogurt and almonds](../research/yusuf/recipes/pk-fruit-chaat-protein-dahi-portion.md): 2 portions | 12 min | Thu, Fri breakfasts |
-| Wednesday | [Salmorejo with boiled eggs and tuna, picos and an orange](../research/yusuf/recipes/es-salmorejo-huevo-atun-portion.md): 1 portion | 8 min | dinner (the opened brik keeps 2 days: the rest is a lunch starter on Thursday or goes in a glass) |
-| Thursday night | [Couscous with mackerel, chickpeas and peppers](../research/yusuf/recipes/med-cuscus-caballa-garbanzos-box.md): 1 box | 10 min | Friday lunch |
+| Wednesday | [Salmorejo with boiled eggs and tuna, picos and an orange](../research/yusuf/recipes/es-salmorejo-huevo-atun-portion.md): 1 portion | 8 min | dinner (the opened brik keeps 2 days: the rest goes in a glass on Thursday) |
+| Thursday morning | [Chicken karahi (boneless) with 2 wholemeal roti](../research/yusuf/recipes/pk-chicken-karahi-roti-portion.md): 1 portion from the freezer | — | move 1 portion (with its 2 roti) from the freezer to the fridge for Thursday dinner; cooked on an earlier Sunday |
+| Thursday night | [Chickpea and tuna salad with egg](../research/yusuf/recipes/es-garbanzos-atun-salad-box.md): 1 box | 12 min | Friday lunch: ¼ of the 4-box recipe, with 1 egg boiled while you chop; the rest of the chickpea jar goes into Friday's chana masala |
 | Friday | [Microwave chana masala with a basmati cup and raita](../research/yusuf/recipes/pk-microwave-chana-masala-portion.md): 2 portions | 15 min | dinner; the second portion goes in the freezer |
 
-Sunday: **65 minutes** hands-on (the meatballs simmer while you assemble the jars and boxes). The rest of the week: **57 minutes** in all, spread over four evenings.
+Sunday: **67 minutes** hands-on. The rest of the week: **57 minutes** in all, spread over the weekday evenings.
 
 **The days** (kcal / protein for each meal; ready items are bought and eaten as they are)
 
 | Day | Breakfast | Lunch | Dinner | Ready (merienda, snacks, with dinner) | Day total |
 |---|---|---|---|---|---|
-| Monday | Queso fresco batido parfait with oats, chia, kiwi and walnuts (400 / 26 g) | Lentil and brown-rice bowl with queso de Burgos and tomato salad (606 / 38 g) | Catalan meatballs with peas and potatoes (mandonguilles amb pèsols), halal beef (588 / 41 g) | Protein yogurt 2 × 1 portion; Banana 1 medium banana; Picos integrales 30 g; Kinnow 1 medium kinnow; Pear 1 medium pear (492 / 31 g) | **2086 kcal, 137 g protein**, 52 g fibre |
-| Tuesday | Queso fresco batido parfait with oats, chia, kiwi and walnuts (400 / 26 g) | Lentil and brown-rice bowl with queso de Burgos and tomato salad (606 / 38 g) | Catalan meatballs with peas and potatoes (mandonguilles amb pèsols), halal beef (588 / 41 g) | Queso fresco de Burgos 0 % 2 single tubs; Apple 1 medium apple; Almonds 1 handful; Picos integrales 30 g (456 / 26 g) | **2050 kcal, 131 g protein**, 50 g fibre |
-| Wednesday | Queso fresco batido parfait with oats, chia, kiwi and walnuts (400 / 26 g) | Salmon and brown-rice bowl with avocado, cucumber and egg (654 / 40 g) | Salmorejo with boiled eggs and tuna, picos and an orange (620 / 33 g) | Protein yogurt 2 × 1 portion; Banana 1 medium banana; Almonds 10 almonds; Picos integrales 30 g (413 / 32 g) | **2087 kcal, 132 g protein**, 38 g fibre |
-| Thursday | Fruit chaat with protein yogurt and almonds (451 / 31 g) | Salmon and brown-rice bowl with avocado, cucumber and egg (654 / 40 g) | Catalan meatballs with peas and potatoes (mandonguilles amb pèsols), halal beef (588 / 41 g) | Queso fresco de Burgos 0 % 1 single tub; Pear 1 medium pear; Picos integrales 30 g; Kinnow 1 medium kinnow; Protein yogurt 1 portion; Almonds 10 almonds (436 / 28 g) | **2129 kcal, 139 g protein**, 44 g fibre |
-| Friday | Fruit chaat with protein yogurt and almonds (451 / 31 g) | Couscous with mackerel, chickpeas and peppers (723 / 41 g) | Microwave chana masala with a basmati cup and raita (641 / 33 g) | Protein yogurt 1 portion; Kiwi 1 kiwi; Almonds 10 almonds; Queso fresco de Burgos 0 % 1 single tub; Picos integrales 30 g (330 / 27 g) | **2145 kcal, 132 g protein**, 50 g fibre |
+| Monday | Queso fresco batido parfait with oats, chia, kiwi and walnuts (400 / 26 g) | Salmon and brown-rice bowl with avocado, cucumber and egg (654 / 40 g) | Catalan meatballs with peas and potatoes (mandonguilles amb pèsols), halal beef (588 / 41 g) | Protein yogurt 2 × 1 portion; Banana 1 medium banana; Picos integrales 30 g; Kinnow 1 medium kinnow; Pear 1 medium pear (492 / 31 g) | **2134 kcal, 138 g protein**, 46 g fibre |
+| Tuesday | Queso fresco batido parfait with oats, chia, kiwi and walnuts (400 / 26 g) | Salmon and brown-rice bowl with avocado, cucumber and egg (654 / 40 g) | Catalan meatballs with peas and potatoes (mandonguilles amb pèsols), halal beef (588 / 41 g) | Queso fresco de Burgos 0 % 2 single tubs; Apple 1 medium apple; Almonds 1 handful; Picos integrales 30 g (456 / 26 g) | **2098 kcal, 133 g protein**, 44 g fibre |
+| Wednesday | Queso fresco batido parfait with oats, chia, kiwi and walnuts (400 / 26 g) | Lentil and brown-rice bowl with queso de Burgos and tomato salad (606 / 38 g) | Salmorejo with boiled eggs and tuna, picos and an orange (620 / 33 g) | Protein yogurt 2 × 1 portion; Banana 1 medium banana; Almonds 10 almonds; Picos integrales 30 g (413 / 32 g) | **2039 kcal, 130 g protein**, 44 g fibre |
+| Thursday | Fruit chaat with protein yogurt and almonds (451 / 31 g) | Lentil and brown-rice bowl with queso de Burgos and tomato salad (606 / 38 g) | Chicken karahi (boneless) with 2 wholemeal roti (555 / 46 g) | Pear 1 medium pear; Picos integrales 30 g; Kinnow 1 medium kinnow; Banana 1 medium banana; Almonds 10 almonds (436 / 9 g) | **2048 kcal, 125 g protein**, 51 g fibre |
+| Friday | Fruit chaat with protein yogurt and almonds (451 / 31 g) | Chickpea and tuna salad with egg (560 / 42 g) | Microwave chana masala with a basmati cup and raita (641 / 33 g) | Protein yogurt 1 portion; Kiwi 1 kiwi; Banana 1 medium banana; Almonds 10 almonds; Queso fresco de Burgos 0 % 1 single tub; Picos integrales 30 g (435 / 28 g) | **2087 kcal, 134 g protein**, 53 g fibre |
 
-**Week:** 2050–2145 kcal a day (average 2099), 131–139 g protein (average 134), 38–52 g fibre. Meals are the Lab records (1 jar, box or portion); ready items are the records for the serving named. Coffee, tea and extra fruit are on top: log them as you go.
+**Week:** 2039–2134 kcal a day (average 2081), 125–138 g protein (average 132), 44–53 g fibre. Meals are the Lab records (1 jar, box or portion); ready items are the records for the serving named. Coffee, tea and extra fruit are on top: log them as you go.
+
+**A lower protein target.** This week is planned for 120–140 g protein. If your target is lower, like Mariam's 96 g (1.6 g per kg at 60 kg), eat smaller portions or fewer add-ons, not different meals: the three preps alone give 98–115 g a day, and the ready items add about 25 g. Leave out the protein add-ons (the protein yogurt pots and Burgos tubs) and keep the fruit, picos and almonds, or take the ½ box or ½ portion serving of one meal and fill up with fruit or bread. Set your own target in the app and the day bar shows where you are.
 
 **Mercadona shopping list** (Barcelona online shop, warehouse bcn1, prices read 2026-10-14; you buy whole packs)
 
@@ -167,45 +172,44 @@ Sunday: **65 minutes** hands-on (the meatballs simmer while you assemble the jar
 | Aguacate, flesh: 100 g | [Aguacate](https://tienda.mercadona.es/product/3830/) | 1 piece | 1.65 € |
 | Almendra natural Hacendado: 104 g | [Almendra natural Hacendado](https://tienda.mercadona.es/product/34865/) | 1 × 200 g | 2.30 € |
 | Apple, with skin: 362 g | [Manzana Golden](https://tienda.mercadona.es/product/3028/) | 2 × 200 g | 0.80 € |
-| Arroz cocido basmati Sabroz: 250 g | [Arroz cocido basmati Sabroz](https://tienda.mercadona.es/product/22280/) | 1 × 250 g | 1.10 € |
-| Arroz cocido integral Sabroz: 500 g | [Arroz cocido integral Sabroz](https://tienda.mercadona.es/product/22281/) | 2 × 250 g | 2.10 € |
-| Atún claro al natural Hacendado, drained: 60 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 1 × 480 g (360 g drained) | 4.20 € |
-| Banana, raw, peeled: 337 g | [Plátano de Canarias IGP](https://tienda.mercadona.es/product/3819/) | 4 pieces | 1.80 € |
-| Breadcrumbs, dry, plain: 40 g | [Pan rallado Hacendado](https://tienda.mercadona.es/product/82219/) | 1 × 750 g | 0.85 € |
+| Arroz cocido basmati Sabroz: 250 g | [Arroz cocido basmati Sabroz](https://tienda.mercadona.es/product/22280/) | 1 pack of 2 × 125 g cups | 1.10 € |
+| Arroz cocido integral Sabroz: 500 g | [Arroz cocido integral Sabroz](https://tienda.mercadona.es/product/22281/) | 2 packs of 2 × 125 g cups | 2.10 € |
+| Atún claro al natural Hacendado, drained: 170 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 1 × 480 g (360 g drained) | 4.20 € |
+| Banana, raw, peeled: 573 g | [Plátano de Canarias IGP](https://tienda.mercadona.es/product/3819/) | 6 pieces | 2.70 € |
+| Breadcrumbs, dry, plain: 40 g | [Pan rallado Hacendado](https://tienda.mercadona.es/product/82219/) | 1 × 750 g bag | 0.85 € |
 | Carrot, raw: 120 g | [Zanahorias](https://tienda.mercadona.es/product/69586/) | 1 × 1000 g | 1.00 € |
-| Cherry tomatoes, raw: 60 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 1 × 500 g | 2.20 € |
-| Chia seeds, dry: 30 g | [Semillas de chía Hacendado](https://tienda.mercadona.es/product/5464/) | 1 × 150 g | 1.45 € |
-| Chickpeas, canned/jarred, drained and rinsed: 530 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 2 × 570 g (400 g drained) | 1.60 € |
-| Cous cous mediano Hacendado, dry: 60 g | [Cous cous mediano Hacendado](https://tienda.mercadona.es/product/9395/) | 1 × 1000 g | 1.95 € |
-| Cucumber, with peel, raw: 400 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 2 × 210 g | 0.72 € |
-| Egg, whole, raw: 350 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 1 pack of 12 (uses 7 eggs) | 3.05 € |
-| Filetes de caballa en aceite de oliva Hacendado: 85 g | [Filetes de caballa del sur en aceite de oliva Hacendado](https://tienda.mercadona.es/product/13628/) | 1 pack of 2 (uses 1 piece) | 2.95 € |
+| Cherry tomatoes, raw: 80 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 1 × 500 g | 2.20 € |
+| Chia seeds, dry: 30 g | [Semillas de chía Hacendado](https://tienda.mercadona.es/product/5464/) | 1 × 150 g bag | 1.45 € |
+| Chickpeas, canned/jarred, drained and rinsed: 550 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 2 × 570 g jar (400 g drained) | 1.60 € |
+| Cucumber, with peel, raw: 380 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 2 × 210 g | 0.72 € |
+| Egg, whole, raw: 400 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 1 pack of 12 eggs (uses 8 eggs) | 3.05 € |
 | Fresh coriander leaves: 12 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 1 × 20 g | 1.25 € |
 | Fresh mint: 6 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 1 × 40 g | 1.35 € |
-| Fresh parsley: 13 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 1 × 40 g | 0.95 € |
+| Fresh parsley: 12 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 1 × 40 g | 0.95 € |
 | Garlic, raw: 12 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 1 × 250 g | 1.85 € |
 | Ginger root, raw: 6 g | [Jengibre](https://tienda.mercadona.es/product/69289/) | 1 × 200 g | 1.65 € |
 | Granada, arils: 100 g | [Granada](https://tienda.mercadona.es/product/3915/) | 1 piece | 1.56 € |
-| Green peas, frozen, raw (guisante ultracongelado): 400 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1 × 1000 g | 1.50 € |
+| Green bell pepper, raw (pimiento verde): 25 g | [Pimiento verde freír](https://tienda.mercadona.es/product/69320/) | 1 × 90 g | 0.23 € |
+| Green peas, frozen, raw (guisante ultracongelado): 400 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1 × 1 kg bag | 1.50 € |
 | Kiwi verde: 276 g | [Kiwi verde](https://tienda.mercadona.es/product/3820/) | 3 × 110 g | 1.53 € |
-| Lemon juice: 105 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 1 × 0.28 l | 1.40 € |
-| Lenteja cocida Hacendado, drained and rinsed: 400 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 1 × 570 g (400 g drained) | 0.90 € |
+| Lemon juice: 100 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 1 × 0.28 l | 1.40 € |
+| Lenteja cocida Hacendado, drained and rinsed: 400 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 1 × 570 g jar (400 g drained) | 0.90 € |
 | Mandarina / clementina: 352 g | [Mandarina](https://tienda.mercadona.es/product/3238/) | 3 × 120 g | 0.93 € |
 | Naranja de mesa: 131 g | [Naranja de mesa](https://tienda.mercadona.es/product/3235/) | 1 × 270 g | 0.68 € |
 | Onion, raw: 320 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1 × 1000 g | 1.50 € |
 | Pera Conferencia: 356 g | [Pera Conferencia](https://tienda.mercadona.es/product/3119/) | 2 × 190 g | 0.96 € |
-| Picos 100% integral Hacendado: 180 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 1 × 250 g | 0.80 € |
-| Postre lácteo natural +Proteínas 10 g 0% MG: 1440 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 3 × 500 g | 4.20 € |
+| Picos 100% integral Hacendado: 180 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 1 × 250 g bag | 0.80 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 1320 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 3 × 500 g tub | 4.20 € |
 | Potato, raw: 600 g | [Patata](https://tienda.mercadona.es/product/69066/) | 3 × 210 g | 1.20 € |
-| Queso fresco batido desnatado 0% Hacendado: 660 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 2 × 500 g | 2.20 € |
-| Queso fresco de Burgos desnatado 0% Hacendado: 563 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 3 × 250 g | 3.45 € |
-| Red bell pepper, raw: 60 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 1 × 280 g | 0.81 € |
-| Red onion, raw (cebolla morada): 50 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1 × 1000 g | 2.00 € |
+| Queso fresco batido desnatado 0% Hacendado: 660 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 2 × 500 g tub | 2.20 € |
+| Queso fresco de Burgos desnatado 0% Hacendado: 438 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 2 × 250 g (4 tubs) | 2.30 € |
+| Red bell pepper, raw: 50 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 1 × 280 g | 0.81 € |
+| Red onion, raw (cebolla morada): 75 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1 × 1000 g | 2.00 € |
 | Rolled oats, dry (copos de avena): 120 g | [Copos de avena Brüggen](https://tienda.mercadona.es/product/86341/) | 1 × 800 g | 1.30 € |
 | Rúcula lavada: 40 g | [Rúcula lavada](https://tienda.mercadona.es/product/69753/) | 1 × 50 g | 0.85 € |
-| Salmón al natural Hacendado: 240 g | [Salmón al natural Hacendado](https://tienda.mercadona.es/product/18817/) | 1 pack of 3 (uses 3 pieces) | 3.55 € |
-| Salmorejo al estilo cordobés Hacendado: 250 g | [Salmorejo al estilo cordobés Hacendado](https://tienda.mercadona.es/product/39902/) | 1 × 1 l | 2.20 € |
-| Tomate triturado Hacendado: 600 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 1 × 800 g | 1.00 € |
+| Salmón al natural Hacendado: 240 g | [Salmón al natural Hacendado](https://tienda.mercadona.es/product/18817/) | 1 pack of 3 × 80 g cans (uses 3 pieces) | 3.55 € |
+| Salmorejo al estilo cordobés Hacendado: 250 g | [Salmorejo al estilo cordobés Hacendado](https://tienda.mercadona.es/product/39902/) | 1 × 1 l carton | 2.20 € |
+| Tomate triturado Hacendado: 600 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 1 × 800 g jar | 1.00 € |
 | Tomato, raw: 200 g | [Tomate pera](https://tienda.mercadona.es/product/69912/) | 2 × 110 g | 0.48 € |
 | Walnuts, shelled: 24 g | [Nuez natural Hacendado pelada](https://tienda.mercadona.es/product/34024/) | 1 × 200 g | 2.40 € |
 
@@ -213,9 +217,82 @@ Sunday: **65 minutes** hands-on (the meatballs simmer while you assemble the jar
 
 - Carne picada de ternera halal (ask for magra, about 10% fat): 560 g, 11.99 €/kg at [Carne Halal Online](https://carnehalalonline.com/ternera-halal/carne-picada-de-ternera-halal/) (read 2026-10-13) = 6.71 €.
 
-**Cupboard** (most kitchens have these; counted only for what the week uses): bay leaf 1 g, black pepper 2 g, chaat masala 3 g, cinnamon 3 g, coriander seed 2 g, cumin 5 g, garam masala 3 g, olive oil 65 g, paprika 2 g, red chilli powder 1 g, salt 12 g, turmeric, ground 1 g.
+**Cupboard** (most kitchens have these; counted only for what the week uses): bay leaf 1 g, black pepper 2 g, chaat masala 3 g, cinnamon 3 g, coriander seed 2 g, cumin 5 g, garam masala 3 g, olive oil 80 g, paprika 2 g, red chilli powder 1 g, salt 12 g, turmeric, ground 1 g.
 
-**Approximate cost:** about **80.88 €** at the till for the week (whole packs at Mercadona on 2026-10-14, halal beef mince at Carne Halal Online read 2026-10-13), of which about **45.67 €** is the food that goes into this week's batches and ready items (pro-rata, cupboard included, and including the meatball and chana masala portions left in the freezer for next week). That is under **9.13 € a day** for three meals and the merienda; the rest of the till money stays in the cupboard (oats, chia, couscous, breadcrumbs, spices, most of the eggs and onions). Prices change: the date is part of the number.
+**Approximate cost:** about **75.96 €** at the till for the week (whole packs at Mercadona on 2026-10-14, halal beef mince at Carne Halal Online read 2026-10-13), of which about **45.94 €** is the food that goes into this week's batches and ready items (pro-rata, cupboard included, and including the meatball and chana masala portions left in the freezer for next week). The karahi portion from the freezer was bought on an earlier week: about **1.93 €** of food (pro-rata, same price dates). With it, the week eats about **47.87 €**, **9.57 € a day** for three meals and the merienda; the rest of the till money stays in the cupboard (oats, chia, picos, spices, most of the eggs and onions). Prices change: the date is part of the number.
+
+## A budget low-cook week
+
+The same idea for **60 € or less at the till**: one Sunday cook, short assemblies, and fewer different products bought in bigger packs (oats, protein yogurt, jarred chickpeas and lentils, tuna, eggs, bananas). Monday to Friday, breakfast, lunch and dinner, about 110–130 g protein a day. All halal: chicken from the halal butcher, no cheese with unstated rennet.
+
+**When to make what**
+
+| When | Make | Hands-on | Gives you |
+|---|---|---|---|
+| Sunday | [Chicken karahi (boneless) with 2 wholemeal roti](../research/yusuf/recipes/pk-chicken-karahi-roti-portion.md): 4 portions | 60 min (cook) | 3 in the fridge (Mon–Wed dinners; cooked meat keeps 3 days), 1 in the freezer for Friday dinner (move it to the fridge on Thursday night) |
+| Sunday | [Overnight oats with protein yogurt, chia and walnuts](../research/yusuf/recipes/intl-overnight-oats-protein-jar.md): 3 jars | 10 min | Mon–Wed breakfasts |
+| Sunday | [Chickpea and tuna salad with egg](../research/yusuf/recipes/es-garbanzos-atun-salad-box.md): 2 boxes | 15 min | Mon, Tue lunches: half the 4-box recipe, with 2 eggs boiled while you chop |
+| Tuesday night | [Lentil salad with tuna, queso de Burgos and peppers](../research/yusuf/recipes/es-lentejas-atun-burgos-salad-box.md): 2 boxes | 12 min | Wed, Thu lunches (the Burgos version of the lentil salad: halal) |
+| Wednesday night | [Overnight oats with protein yogurt, chia and walnuts](../research/yusuf/recipes/intl-overnight-oats-protein-jar.md): 2 jars | 10 min | Thu, Fri breakfasts |
+| Thursday | [Microwave chana masala with a basmati cup and raita](../research/yusuf/recipes/pk-microwave-chana-masala-portion.md): 2 portions | 15 min | Thu dinner and Fri lunch (it travels: the rice cup stays sealed, the raita goes in a small pot) |
+
+Sunday: **85 minutes** hands-on. The rest of the week: **37 minutes** in all, spread over the weekday evenings.
+
+**The days** (kcal / protein for each meal; ready items are bought and eaten as they are)
+
+| Day | Breakfast | Lunch | Dinner | Ready (merienda, snacks, with dinner) | Day total |
+|---|---|---|---|---|---|
+| Monday | Overnight oats with protein yogurt, chia and walnuts (479 / 29 g) | Chickpea and tuna salad with egg (560 / 42 g) | Chicken karahi (boneless) with 2 wholemeal roti (555 / 46 g) | Banana 2 × 1 medium banana; Picos integrales 30 g; Apple 1 medium apple (418 / 7 g) | **2012 kcal, 124 g protein**, 48 g fibre |
+| Tuesday | Overnight oats with protein yogurt, chia and walnuts (479 / 29 g) | Chickpea and tuna salad with egg (560 / 42 g) | Chicken karahi (boneless) with 2 wholemeal roti (555 / 46 g) | Banana 2 × 1 medium banana; Picos integrales 30 g; Apple 1 medium apple (418 / 7 g) | **2012 kcal, 124 g protein**, 48 g fibre |
+| Wednesday | Overnight oats with protein yogurt, chia and walnuts (479 / 29 g) | Lentil salad with tuna, queso de Burgos and peppers (584 / 47 g) | Chicken karahi (boneless) with 2 wholemeal roti (555 / 46 g) | Banana 1 medium banana; Picos integrales 30 g; Apple 1 medium apple; Kinnow 1 medium kinnow (360 / 7 g) | **1978 kcal, 129 g protein**, 52 g fibre |
+| Thursday | Overnight oats with protein yogurt, chia and walnuts (479 / 29 g) | Lentil salad with tuna, queso de Burgos and peppers (584 / 47 g) | Microwave chana masala with a basmati cup and raita (641 / 33 g) | Banana 1 medium banana; Picos integrales 30 g; Protein yogurt 1 portion (281 / 17 g) | **1985 kcal, 127 g protein**, 55 g fibre |
+| Friday | Overnight oats with protein yogurt, chia and walnuts (479 / 29 g) | Microwave chana masala with a basmati cup and raita (641 / 33 g) | Chicken karahi (boneless) with 2 wholemeal roti (555 / 46 g) | Banana 1 medium banana; Picos integrales 30 g; Apple 1 medium apple (313 / 6 g) | **1988 kcal, 114 g protein**, 51 g fibre |
+
+**Week:** 1978–2012 kcal a day (average 1995), 114–129 g protein (average 124), 48–55 g fibre. Meals are the Lab records (1 jar, box or portion); ready items are the records for the serving named. Coffee, tea and extra fruit are on top: log them as you go.
+
+**Mercadona shopping list** (Barcelona online shop, warehouse bcn1, prices read 2026-10-14; you buy whole packs)
+
+| You need | Product | Buy | Price |
+|---|---|---|---|
+| Apple, with skin: 728 g | [Manzana Golden](https://tienda.mercadona.es/product/3028/) | 4 × 200 g | 1.60 € |
+| Arroz cocido basmati Sabroz: 250 g | [Arroz cocido basmati Sabroz](https://tienda.mercadona.es/product/22280/) | 1 pack of 2 × 125 g cups | 1.10 € |
+| Atún claro al natural Hacendado, drained: 340 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 1 × 480 g (360 g drained) | 4.20 € |
+| Banana, raw, peeled: 1126 g | [Plátano de Canarias IGP](https://tienda.mercadona.es/product/3819/) | 12 pieces | 5.40 € |
+| Cherry tomatoes, raw: 320 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 1 × 500 g | 2.20 € |
+| Chia seeds, dry: 50 g | [Semillas de chía Hacendado](https://tienda.mercadona.es/product/5464/) | 1 × 150 g bag | 1.45 € |
+| Chickpeas, canned/jarred, drained and rinsed: 700 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 2 × 570 g jar (400 g drained) | 1.60 € |
+| Cucumber, with peel, raw: 240 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 2 × 210 g | 0.72 € |
+| Egg, whole, raw: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31540/) | 1 pack of 6 eggs (uses 2 eggs) | 1.80 € |
+| Fresh coriander leaves: 14 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 1 × 20 g | 1.25 € |
+| Fresh mint: 2 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 1 × 40 g | 1.35 € |
+| Fresh parsley: 18 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 1 × 40 g | 0.95 € |
+| Garlic, raw: 26 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 1 × 250 g | 1.85 € |
+| Ginger root, raw: 26 g | [Jengibre](https://tienda.mercadona.es/product/69289/) | 1 × 200 g | 1.65 € |
+| Green bell pepper, raw (pimiento verde): 50 g | [Pimiento verde freír](https://tienda.mercadona.es/product/69320/) | 1 × 90 g | 0.23 € |
+| Leche semidesnatada Hacendado: 600 g | [Leche semidesnatada Hacendado](https://tienda.mercadona.es/product/10382/) | 1 × 1 l brik | 0.83 € |
+| Lemon juice: 60 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 1 × 0.28 l | 1.40 € |
+| Lenteja cocida Hacendado, drained and rinsed: 600 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 2 × 570 g jar (400 g drained) | 1.80 € |
+| Mandarina / clementina: 88 g | [Mandarina](https://tienda.mercadona.es/product/3238/) | 1 × 120 g | 0.31 € |
+| Onion, raw: 200 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1 × 1000 g | 1.50 € |
+| Picos 100% integral Hacendado: 150 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 1 × 250 g bag | 0.80 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 1110 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 3 × 500 g tub | 4.20 € |
+| Queso fresco de Burgos desnatado 0% Hacendado: 125 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 1 × 250 g (4 tubs) | 1.15 € |
+| Red bell pepper, raw: 220 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 1 × 280 g | 0.81 € |
+| Red onion, raw (cebolla morada): 90 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1 × 1000 g | 2.00 € |
+| Rolled oats, dry (copos de avena): 250 g | [Copos de avena Brüggen](https://tienda.mercadona.es/product/86341/) | 1 × 800 g | 1.30 € |
+| Tomate triturado Hacendado: 200 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 1 × 800 g jar | 1.00 € |
+| Tomato, raw: 600 g | [Tomate pera](https://tienda.mercadona.es/product/69912/) | 6 × 110 g | 1.44 € |
+| Walnuts, shelled: 40 g | [Nuez natural Hacendado pelada](https://tienda.mercadona.es/product/34024/) | 1 × 200 g | 2.40 € |
+| Wholemeal wheat flour, atta (harina integral de trigo; chakki atta from the desi shop works the same): 235 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1 × 1 kg bag | 0.90 € |
+| Yogur natural Hacendado: 120 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 1 pack of 6 × 125 g pots | 1.00 € |
+
+**Halal butcher**
+
+- Pechuga de pollo halal (fileteada): 640 g, 7.49 €/kg at [Carne Halal Online](https://carnehalalonline.com/pollo-halal/pechuga-de-pollo-halal/) (read 2026-10-13) = 4.79 €.
+
+**Cupboard** (most kitchens have these; counted only for what the week uses): black pepper 4 g, cinnamon 5 g, coriander seed 6 g, cumin 6 g, garam masala 5 g, olive oil 74 g, red chilli powder 6 g, salt 13 g, sunflower oil 40 g, turmeric, ground 1 g. Not priced (desi shelf or bakery): green chilli, raw.
+
+**Cost:** **54.98 € at the till** (11.00 € a day), whole packs at Mercadona on 2026-10-14 and halal chicken at Carne Halal Online read 2026-10-13. The food eaten this week is about **33.85 €** (6.77 € a day, pro-rata, cupboard included, with the karahi portion left in the freezer). The till total leaves out the cupboard (oil, salt and spices: about 0.87 € of them go into the week) and green chilli from the desi shop (a few grams, not priced). What is left over stays in the cupboard and fridge for next week (oats, chia, picos, eggs, most of the spices). Prices change: the date is part of the number.
 
 ## Roti and paratha stock
 
@@ -284,7 +361,7 @@ The nutrition of a library prep always comes from its Lab record (this page), ne
 - *Sebo* is tallow. *Jamón, chorizo, fuet, sobrasada, panceta, butifarra* are pork. *Sin cerdo* ("no pork") is not the same as halal.
 - Wine hides in sauces, stocks and stews (*al vino*, *con vino blanco*, *jerez*, *coñac*, *vi ranci*). These recipes use lemon or water instead.
 - Protein powder: whey comes from cheese-making, and not every brand is halal-certified. None of these preps needs it.
-- Cheese: some people avoid cheese made with animal rennet (*cuajo animal*). Labels that say *cuajo microbiano* or *coagulante vegetal* avoid the question. None of these preps uses cheese.
+- Cheese: some people avoid cheese made with animal rennet (*cuajo animal*). Labels that say *cuajo microbiano* or *coagulante vegetal* avoid the question. Mercadona's queso de Burgos 0% says *cuajo microbiano* and its queso fresco batido has no rennet at all (both halal); its feta does not say (check), so #29 is marked check and #40 is its Burgos twin.
 
 **Bakeries and cafés:** a croissant *de mantequilla* is made with butter. Cheap pastries and some *bollería* are made with lard, and an *ensaïmada* is made with pork lard (*saïm*) by definition. When in doubt, ask "¿lleva manteca de cerdo?" (Catalan: "porta saïm?"). *Pa amb tomàquet* and *café con leche* are fine; most bocadillos are pork, so pick *tortilla* or *atún*.
 

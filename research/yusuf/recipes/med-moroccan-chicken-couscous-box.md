@@ -153,7 +153,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Red bell pepper, raw: 300 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 2 × pack | 0.64 € |
 | Red onion, raw: 200 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
 | Cumin: 3 g | [Comino molido Hacendado](https://tienda.mercadona.es/product/34120/) | 58 g | 1 × pack | 1.15 € |
-| Cous cous mediano Hacendado: 240 g | [Cous cous mediano Hacendado](https://tienda.mercadona.es/product/9395/) | 1000 g | 1 × pack | 1.95 € |
+| Cous cous mediano Hacendado: 240 g | [Cous cous mediano Hacendado](https://tienda.mercadona.es/product/9395/) | 1 kg box | 1 × pack | 1.95 € |
 | Fresh parsley: 15 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 40 g | 1 × pack | 0.95 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)

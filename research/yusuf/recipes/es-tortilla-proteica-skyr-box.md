@@ -134,9 +134,9 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Onion, raw: 150 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1000 g | 1 × pack | 1.50 € |
 | Olive oil: 30 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Salt: 6 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
-| Egg, whole, raw: 300 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 6 eggs | 3.05 € |
-| Claras de huevo líquidas pasteurizadas: 400 g | [Claras de huevo líquidas pasteurizadas](https://tienda.mercadona.es/product/31312/) | 1 l | 1 × pack | 2.85 € |
-| Postre lácteo natural +Proteínas 10 g 0% MG: 600 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g | 2 × pack | 1.40 € |
+| Egg, whole, raw: 300 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 6 eggs | 3.05 € |
+| Claras de huevo líquidas pasteurizadas: 400 g | [Claras de huevo líquidas pasteurizadas](https://tienda.mercadona.es/product/31312/) | 1 l bottle | 1 × pack | 2.85 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 600 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 500 g tub | 2 × pack | 1.40 € |
 | Walnuts, shelled: 40 g | [Nuez natural Hacendado pelada](https://tienda.mercadona.es/product/34024/) | 200 g | 1 × pack | 2.40 € |
 | Banana, raw, peeled: 404 g | [Plátano de Canarias IGP](https://tienda.mercadona.es/product/3819/) | 1 × 101 g edible | 4 pieces | 0.48 € |
 

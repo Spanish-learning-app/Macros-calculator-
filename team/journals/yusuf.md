@@ -131,3 +131,22 @@
   2026-10-14); es-pan-barra (BEDCA generic) is fine as `halal`, but a Mercadona barra record would be `check`.
 - Checks: `node research/check-foods.mjs` 272/272 pass; `npm test` 537 tests × 3 time zones, 0 fail (1 TZ-only
   skip in Karachi and Los Angeles, by design). Not committed (Omar commits).
+
+## 2026-10-15 — Meeting 004 decision C: low-cook week v2, budget week, serve, feta swap
+
+- Resumed after the usage-limit pause. Already on disk (ebda7b2): R-MP-40 sheet, `serve` in build.mjs, sardines in the
+  registry (not used in the end). Done now, all through build.mjs, prices from the 2026-10-14 snap:
+- **v2 week:** Friday lunch = the cold chickpea salad (R-MP-10, ¼ batch). It has tuna, so the salmon bowls moved to
+  Mon–Tue and the lentil bowls to Wed–Thu: never three fish lunches in a row. Thursday dinner = chicken karahi with roti
+  from the freezer (costed pro-rata, 1.93 €, not in the till). Days 2039–2134 kcal (avg 2081), 125–138 g protein
+  (avg 132). Till 75.96 € (was 80.88), food eaten 47.87 € with the karahi (9.57 €/day). Lower-protein note (96 g) added.
+- **Budget week** (new MEALPREP section): karahi ×4 Sunday, overnight oats, chickpea-tuna salad, the Burgos lentil salad,
+  chana masala. 1978–2012 kcal (avg 1995), 114–129 g protein (avg 124), all halal (build throws on a non-halal item).
+  Till 54.98 € (11.00 €/day), eaten 33.85 € (6.77 €/day); box of 6 eggs (31540) instead of 12. Green chilli unpriced (desi).
+- **serve:** 16 assemble preps carry `serve` on the record and the library recipe. check-foods now knows the field
+  (G10 value check, G20 if not lunchbox); one line in NUTRITION.md §3 citing Meeting 004. 0 warnings.
+- **Feta swap:** R-MP-40 `es-lentejas-atun-burgos-salad-box` (584 kcal, 47.0 g P, halal, serve cold) with its own library
+  recipe; #29 unchanged. MEALPREP feta and cheese notes point to it.
+- Pack labels: week lists and sheets use Javier's `pack` label when his record is the same pack we price.
+- Checks: check-foods 282/282 pass, 0 warnings. npm test: Madrid 558/558; Karachi and Los Angeles fail only the search
+  performance test (16 ms per query) plus an untracked tests/unit/dev/zz-perf-tmp.test.js (Lena's area, not touched).

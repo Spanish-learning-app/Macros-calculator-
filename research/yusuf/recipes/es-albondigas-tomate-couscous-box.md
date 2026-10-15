@@ -138,8 +138,8 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Breadcrumbs, dry, plain: 45 g | [Pan rallado Hacendado](https://tienda.mercadona.es/product/82219/) | 750 g | 1 × pack | 0.85 € |
-| Egg, whole, raw: 55 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 2 eggs | 3.05 € |
+| Breadcrumbs, dry, plain: 45 g | [Pan rallado Hacendado](https://tienda.mercadona.es/product/82219/) | 750 g bag | 1 × pack | 0.85 € |
+| Egg, whole, raw: 55 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 2 eggs | 3.05 € |
 | Garlic, raw: 18 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 250 g | 1 × pack | 1.85 € |
 | Fresh parsley: 10 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 40 g | 1 × pack | 0.95 € |
 | Salt: 10 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
@@ -148,12 +148,12 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Onion, raw: 150 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1000 g | 1 × pack | 1.50 € |
 | Green bell pepper, raw: 120 g | [Pimiento verde freír](https://tienda.mercadona.es/product/69320/) | 90 g | 2 × pack | 0.23 € |
 | Carrot, raw: 100 g | [Zanahorias](https://tienda.mercadona.es/product/69586/) | 1000 g | 1 × pack | 1.00 € |
-| Tomate triturado Hacendado: 800 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 800 g | 1 × pack | 1.00 € |
+| Tomate triturado Hacendado: 800 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 800 g jar | 1 × pack | 1.00 € |
 | Sugar: 4 g | [Azúcar blanco Hacendado](https://tienda.mercadona.es/product/19897/) | 1000 g | 1 × pack | 0.90 € |
 | Paprika: 3 g | [Pimentón dulce Hacendado](https://tienda.mercadona.es/product/60573/) | 75 g | 1 × pack | 1.30 € |
 | Oregano, dried: 1 g | [Orégano Hacendado](https://tienda.mercadona.es/product/5598/) | 25 g | 1 × pack | 1.00 € |
 | Bay leaf: 0.5 g | [Hoja de laurel Hacendado](https://tienda.mercadona.es/product/47994/) | 12 g | 1 × pack | 0.85 € |
-| Cous cous mediano Hacendado: 240 g | [Cous cous mediano Hacendado](https://tienda.mercadona.es/product/9395/) | 1000 g | 1 × pack | 1.95 € |
+| Cous cous mediano Hacendado: 240 g | [Cous cous mediano Hacendado](https://tienda.mercadona.es/product/9395/) | 1 kg box | 1 × pack | 1.95 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

@@ -164,7 +164,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 | Yogur griego natural ligero Hacendado 2% MG: 600 g | [Yogur griego natural ligero Hacendado 2% MG](https://tienda.mercadona.es/product/21358/) | 1000 g | 1 × pack | 2.10 € |
 | Cucumber, with peel, raw: 160 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Fresh mint: 4 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 40 g | 1 × pack | 1.35 € |
-| Wholemeal wheat flour, atta: 235 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1000 g | 1 × pack | 0.90 € |
+| Wholemeal wheat flour, atta: 235 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1 kg bag | 1 × pack | 0.90 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

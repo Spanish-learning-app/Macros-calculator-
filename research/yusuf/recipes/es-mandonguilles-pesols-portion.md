@@ -127,16 +127,16 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Breadcrumbs, dry, plain: 40 g | [Pan rallado Hacendado](https://tienda.mercadona.es/product/82219/) | 750 g | 1 × pack | 0.85 € |
-| Egg, whole, raw: 50 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 1 eggs | 3.05 € |
+| Breadcrumbs, dry, plain: 40 g | [Pan rallado Hacendado](https://tienda.mercadona.es/product/82219/) | 750 g bag | 1 × pack | 0.85 € |
+| Egg, whole, raw: 50 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 1 eggs | 3.05 € |
 | Garlic, raw: 6 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 250 g | 1 × pack | 1.85 € |
 | Fresh parsley: 8 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 40 g | 1 × pack | 0.95 € |
 | Salt: 9 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
 | Olive oil: 32 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Onion, raw: 240 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1000 g | 1 × pack | 1.50 € |
-| Tomate triturado Hacendado: 400 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 800 g | 1 × pack | 1.00 € |
-| Green peas, frozen, raw: 400 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1000 g | 1 × pack | 1.50 € |
+| Tomate triturado Hacendado: 400 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 800 g jar | 1 × pack | 1.00 € |
+| Green peas, frozen, raw: 400 g | [Guisante fino Hacendado ultracongelado](https://tienda.mercadona.es/product/61215/) | 1 kg bag | 1 × pack | 1.50 € |
 | Potato, raw: 600 g | [Patatas](https://tienda.mercadona.es/product/69166/) | 3000 g | 1 × pack | 4.65 € |
 | Paprika: 2 g | [Pimentón dulce Hacendado](https://tienda.mercadona.es/product/60573/) | 75 g | 1 × pack | 1.30 € |
 | Bay leaf: 1 g | [Hoja de laurel Hacendado](https://tienda.mercadona.es/product/47994/) | 12 g | 1 × pack | 0.85 € |

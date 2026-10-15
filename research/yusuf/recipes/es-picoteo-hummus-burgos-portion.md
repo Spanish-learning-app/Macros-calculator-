@@ -130,16 +130,16 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Hummus de garbanzos Hacendado receta clásica: 140 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g | 1 × pack | 1.05 € |
+| Hummus de garbanzos Hacendado receta clásica: 140 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g tub | 1 × pack | 1.05 € |
 | Carrot, raw: 160 g | [Zanahorias](https://tienda.mercadona.es/product/69586/) | 1000 g | 1 × pack | 1.00 € |
 | Red bell pepper, raw: 140 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Cucumber, with peel, raw: 160 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Cherry tomatoes, raw: 120 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g | 1 × pack | 2.20 € |
 | Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 pieces | 3.05 € |
-| Queso fresco de Burgos desnatado 0% Hacendado: 250 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g | 1 × pack | 1.15 € |
+| Queso fresco de Burgos desnatado 0% Hacendado: 250 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g (4 tubs) | 1 × pack | 1.15 € |
 | Olive oil: 6 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Oregano, dried: 1 g | [Orégano Hacendado](https://tienda.mercadona.es/product/5598/) | 25 g | 1 × pack | 1.00 € |
-| Picos 100% integral Hacendado: 60 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 250 g | 1 × pack | 0.80 € |
+| Picos 100% integral Hacendado: 60 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 250 g bag | 1 × pack | 0.80 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

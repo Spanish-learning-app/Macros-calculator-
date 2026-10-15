@@ -125,7 +125,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Lenteja cocida Hacendado: 400 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 570 g (400 g drained) | 1 × pack | 0.90 € |
+| Lenteja cocida Hacendado: 400 g | [Lenteja cocida Hacendado](https://tienda.mercadona.es/product/26030/) | 570 g jar (400 g drained) | 1 × pack | 0.90 € |
 | Tomato, raw: 200 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
 | Cucumber, with peel, raw: 120 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Rúcula lavada: 40 g | [Rúcula lavada](https://tienda.mercadona.es/product/69753/) | 50 g | 1 × pack | 0.85 € |
@@ -134,8 +134,8 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Lemon juice: 30 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Cumin: 2 g | [Comino molido Hacendado](https://tienda.mercadona.es/product/34120/) | 58 g | 1 × pack | 1.15 € |
 | Fresh mint: 4 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 40 g | 1 × pack | 1.35 € |
-| Queso fresco de Burgos desnatado 0% Hacendado: 250 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g | 1 × pack | 1.15 € |
-| Arroz cocido integral Sabroz: 250 g | [Arroz cocido integral Sabroz](https://tienda.mercadona.es/product/22281/) | 250 g | 1 × pack | 1.05 € |
+| Queso fresco de Burgos desnatado 0% Hacendado: 250 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g (4 tubs) | 1 × pack | 1.15 € |
+| Arroz cocido integral Sabroz: 250 g | [Arroz cocido integral Sabroz](https://tienda.mercadona.es/product/22281/) | 2 × 125 g cups | 1 × pack | 1.05 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 

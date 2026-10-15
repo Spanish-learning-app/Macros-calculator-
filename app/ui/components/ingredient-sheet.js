@@ -8,6 +8,20 @@ import { halalChip, estimateBadge } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
 import { searchNoteText } from './search-notes.js';
 import { fmtKcal, fmtGrams, portionText, defaultServingOf, portionNutrients } from './format.js';
+import { pluralLabel } from '../../core/mealprep.js';
+
+const NO_PLURAL = /^(g|kg|ml|l|oz|tbsp|tsp|katori|pao)\b/i;
+
+/**
+ * The amount on a picker row: a whole count over 1 reads in the plural ("3 medium potatoes",
+ * "5 large eggs"); units, fractions and "2 × 1 cup" stay as portionText writes them.
+ * @param {{ id: string, label: string }} serving @param {number} qty @returns {string}
+ */
+export function amountText(serving, qty) {
+  const text = portionText(serving, qty);
+  const m = /^(\d+) ([^\d×]+)$/.exec(text);
+  return qty > 1 && m && !NO_PLURAL.test(m[2]) ? `${m[1]} ${pluralLabel(m[2])}` : text;
+}
 
 const UNITS = {
   g: 'g',
@@ -247,7 +261,7 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
           { class: 'food-portion' },
           portion.servingId === 'g'
             ? `${fmtGrams(n.grams)} g · ${fmtKcal(n.kcal)} kcal`
-            : `${portion.qty === 1 ? serving.label : portionText(serving, portion.qty)} (${fmtGrams(n.grams)} g) · ${fmtKcal(n.kcal)} kcal`,
+            : `${portion.qty === 1 ? serving.label : amountText(serving, portion.qty)} (${fmtGrams(n.grams)} g) · ${fmtKcal(n.kcal)} kcal`,
         ),
       ),
       h(

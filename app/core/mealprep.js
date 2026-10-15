@@ -563,7 +563,7 @@ export function buyAmount(food, grams) {
   const label = String(serving?.label ?? '');
   // "1 medium onion" → "medium onion"; "Juice of 1 lemon" (id 'lemon') → "lemon"; else no count.
   const one = /^1\s/.test(label)
-    ? label.replace(/^1\s+/, '')
+    ? label.replace(/^1\s+/, '').split(' (')[0].trim() // "small bunch (9 sprigs)" → "small bunch"
     : COUNT_BY_ID.has(serving?.id)
       ? serving.id
       : null;

@@ -1,37 +1,81 @@
 {
- "totals": [
-  {
-   "day": "Monday",
-   "kcal": 2085.62,
-   "protein": 136.514,
-   "fiber": 51.769999999999996
-  },
-  {
-   "day": "Tuesday",
-   "kcal": 2050.2365,
-   "protein": 131.3562,
-   "fiber": 49.51175
-  },
-  {
-   "day": "Wednesday",
-   "kcal": 2087,
-   "protein": 131.74200000000002,
-   "fiber": 38.068
-  },
-  {
-   "day": "Thursday",
-   "kcal": 2128.555,
-   "protein": 139.26,
-   "fiber": 44.002
-  },
-  {
-   "day": "Friday",
-   "kcal": 2144.545,
-   "protein": 132.203,
-   "fiber": 49.669999999999995
-  }
- ],
- "till": 80.88440000000001,
- "eaten": 45.665118701826295,
- "unpriced": []
+ "v2": {
+  "totals": [
+   {
+    "day": "Monday",
+    "kcal": 2133.62,
+    "protein": 138.114,
+    "fiber": 45.87
+   },
+   {
+    "day": "Tuesday",
+    "kcal": 2098.2365,
+    "protein": 132.9562,
+    "fiber": 43.61175
+   },
+   {
+    "day": "Wednesday",
+    "kcal": 2039,
+    "protein": 130.142,
+    "fiber": 43.968
+   },
+   {
+    "day": "Thursday",
+    "kcal": 2048.3,
+    "protein": 124.658,
+    "fiber": 51.269999999999996
+   },
+   {
+    "day": "Friday",
+    "kcal": 2086.565,
+    "protein": 134.40099999999998,
+    "fiber": 52.538
+   }
+  ],
+  "till": 75.9644,
+  "eaten": 47.874002654706246,
+  "freezer": 1.9324516777188325,
+  "unpriced": []
+ },
+ "budget": {
+  "totals": [
+   {
+    "day": "Monday",
+    "kcal": 2012.38,
+    "protein": 124.442,
+    "fiber": 48.20400000000001
+   },
+   {
+    "day": "Tuesday",
+    "kcal": 2012.38,
+    "protein": 124.442,
+    "fiber": 48.20400000000001
+   },
+   {
+    "day": "Wednesday",
+    "kcal": 1978,
+    "protein": 128.84799999999998,
+    "fiber": 51.92
+   },
+   {
+    "day": "Thursday",
+    "kcal": 1985.12,
+    "protein": 126.898,
+    "fiber": 54.868
+   },
+   {
+    "day": "Friday",
+    "kcal": 1988.3600000000001,
+    "protein": 114.444,
+    "fiber": 51.43600000000001
+   }
+  ],
+  "till": 54.98359999999999,
+  "eaten": 33.845996960040566,
+  "tillPerDay": 10.996719999999998,
+  "eatenPerDay": 6.7691993920081135,
+  "unpriced": [
+   "green-chilli"
+  ]
+ }
 }

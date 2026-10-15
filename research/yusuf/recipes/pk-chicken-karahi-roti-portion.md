@@ -141,7 +141,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 |---|---|---|---|---|
 | Tomato, raw: 600 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
 | Onion, raw: 120 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1000 g | 1 × pack | 1.50 € |
-| Yogur natural Hacendado: 120 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 750 g | 1 × pack | 1.00 € |
+| Yogur natural Hacendado: 120 g | [Yogur natural Hacendado](https://tienda.mercadona.es/product/22313/) | 6 × 125 g pots | 1 × pack | 1.00 € |
 | Garlic, raw: 20 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 250 g | 1 × pack | 1.85 € |
 | Ginger root, raw: 20 g | [Jengibre](https://tienda.mercadona.es/product/69289/) | 200 g | 1 × pack | 1.65 € |
 | Fresh coriander: 8 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
@@ -150,7 +150,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 | Black pepper: 2 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
 | Salt: 9.2 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
 | Sunflower oil: 40 g | [Aceite de girasol refinado 0,2º Hacendado](https://tienda.mercadona.es/product/4040/) | 1 l | 1 × pack | 1.85 € |
-| Wholemeal wheat flour, atta: 235 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1000 g | 1 × pack | 0.90 € |
+| Wholemeal wheat flour, atta: 235 g | [Harina integral de trigo Hacendado](https://tienda.mercadona.es/product/29134/) | 1 kg bag | 1 × pack | 0.90 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)
 
