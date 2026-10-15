@@ -75,6 +75,6 @@ export default {
     'A halal-certified soy sauce is part of the recipe; with a soy sauce without the logo the box is check (alcohol from brewing).',
   ],
   confidence: 'B',
-  confidenceWhy: 'Chicken from Bognár; quinoa from USDA cooked quinoa (the cup\'s OFF label does not add up); USDA vegetables, peanuts and soy sauce.',
+  confidenceWhy: 'Chicken from Bognár; quinoa from Javier\'s Sabroz pouch record (label, reviewed by Ayesha 2026-10-15); USDA vegetables, peanuts and soy sauce.',
   halal: { status: 'halal', reason: 'With a halal-certified soy sauce, as the recipe says. Brewed soy sauce can carry alcohol from fermentation, so with an uncertified bottle (Mercadona\'s Hacendado 17360 lists none, 2026-10-15) treat it as check.' },
 };

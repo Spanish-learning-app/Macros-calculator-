@@ -1472,20 +1472,6 @@
   "satFat": 6,
   "sodiumMg": 600
  },
- "quinoa-cooked": {
-  "label": "Quinoa, cooked (Sabroz quinoa blanca y roja cocida, 2 × 125 g cups; USDA 168917, because the cup label on OFF, 147 kcal with 30 g carbs and 3.9 g fat, does not add up)",
-  "src": "fdc",
-  "code": 168917,
-  "citation": "USDA FDC SR Legacy 168917 (Quinoa, cooked)",
-  "kcal": 120,
-  "protein": 4.4,
-  "carbs": 18.5,
-  "fat": 1.92,
-  "fiber": 2.8,
-  "sugars": 0.87,
-  "satFat": 0.231,
-  "sodiumMg": 7
- },
  "rice-noodles": {
   "label": "Noodles de arroz Hacendado, dry (rice flour, tapioca starch, salt)",
   "src": "off",
@@ -1612,24 +1598,6 @@
   "satFat": 7.723,
   "sodiumMg": 6
  },
- "tortilla-corn": {
-  "label": "Tortillas de maíz Hacendado (8 × 26 g)",
-  "src": "db",
-  "code": "intl-tortilla-corn",
-  "citation": "Lab record intl-tortilla-corn (USDA FDC SR Legacy 175036; direct, confidence B, javier 2026-10-15)",
-  "kcal": 218,
-  "protein": 5.7,
-  "carbs": 38.3,
-  "fat": 2.9,
-  "fiber": 6.3,
-  "sugars": 0.9,
-  "satFat": 0.5,
-  "sodiumMg": 45,
-  "halal": {
-   "status": "halal",
-   "reason": "Corn flour, water, gums, salt, sunflower oil and preservatives on the Mercadona label: no emulsifier E-471 (unlike its wheat wraps)."
-  }
- },
  "salsa-mexicana": {
   "label": "Salsa Mexicana Hacendado (300 g jar, pico de gallo type)",
   "src": "db",
@@ -1663,6 +1631,41 @@
   "sodiumMg": 252,
   "halal": {
    "status": "halal"
+  }
+ },
+ "quinoa-cooked": {
+  "label": "Quinoa cocida blanca y roja Sabroz (2 × 125 g pouches, with olive oil)",
+  "src": "db",
+  "code": "intl-quinoa-pouch",
+  "citation": "Lab record intl-quinoa-pouch (Label: Mercadona Quinoa blanca y roja cocida Sabroz, 2 × 125 g pouches, read 2026-10-15; label, confidence B, javier 2026-10-15)",
+  "kcal": 187,
+  "protein": 5.9,
+  "carbs": 30,
+  "fat": 3.9,
+  "fiber": 3.8,
+  "sugars": 0.8,
+  "satFat": 0.6,
+  "sodiumMg": 204,
+  "halal": {
+   "status": "halal"
+  }
+ },
+ "tortilla-corn": {
+  "label": "Tortillas de maíz Hacendado (8 × 26 g)",
+  "src": "db",
+  "code": "intl-tortilla-corn",
+  "citation": "Lab record intl-tortilla-corn (Label: Mercadona Tortillas de maíz Hacendado, 8 tortillas (208 g), read 2026-10-15; label, confidence B, javier 2026-10-15)",
+  "kcal": 236,
+  "protein": 3.5,
+  "carbs": 44,
+  "fat": 3.2,
+  "fiber": 7.6,
+  "sugars": 9.5,
+  "satFat": 0.4,
+  "sodiumMg": 865,
+  "halal": {
+   "status": "check",
+   "reason": "The label lists glycerine (E-422) of unstated origin, which can be made from animal fat. Swap: Pitta bread (no glycerine, no E-471), halal on the Mercadona label."
   }
  }
 }
