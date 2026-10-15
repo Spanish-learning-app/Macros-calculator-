@@ -212,7 +212,12 @@ test('sehri line §12.4: before fajr, under the goal; it is the day’s one tip'
     isToday: true,
     today: '2027-02-08',
   };
-  assert.deepEqual(sehriTip(base), { key: 'ramadan:sehri', suggestFor: 'sehri', eaten: 8, goal: 30 });
+  assert.deepEqual(sehriTip(base), {
+    key: 'ramadan:sehri',
+    suggestFor: 'sehri',
+    eaten: 8,
+    goal: 30,
+  });
   assert.equal(sehriTip({ ...base, sehriEaten: 30 }), null);
   assert.equal(sehriTip({ ...base, minutes: 382 }), null); // fajr has come
   assert.equal(sehriTip({ ...base, currentSlot: 'iftar' }), null);
@@ -315,7 +320,12 @@ test('storage: Ramadan entries, day presets and the new settings are valid v1 da
   assert.deepEqual(validateUserData(merged), []);
   assert.equal(merged.days['2027-02-08'].entries[0].slot, 'sehri');
   // A day with a preset that does not exist is invalid; older days without one stay valid.
-  assert.ok(validateUserData({ ...data, days: { ...data.days, '2027-02-08': { ...data.days['2027-02-08'], slotPreset: 'x' } } }).length);
+  assert.ok(
+    validateUserData({
+      ...data,
+      days: { ...data.days, '2027-02-08': { ...data.days['2027-02-08'], slotPreset: 'x' } },
+    }).length,
+  );
   const old = structuredClone(data);
   delete old.days['2027-02-01'].slotPreset;
   delete old.settings.ramadanMode;
