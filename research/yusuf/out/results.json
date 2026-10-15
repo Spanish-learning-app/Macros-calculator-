@@ -3,6 +3,8 @@
   "id": "pk-chicken-tikka-rice-box",
   "n": 1,
   "file": "research/yusuf/recipes/01-chicken-tikka-rice.mjs",
+  "effort": "cook",
+  "minutes": 40,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -10,24 +12,24 @@
   "cookedG": 2574,
   "yield": 1.066,
   "per100g": {
-   "kcal": 101,
-   "protein": 7.7,
+   "kcal": 110,
+   "protein": 7.4,
    "carbs": 10.7,
-   "fat": 2.8,
+   "fat": 3.9,
    "fiber": 1.3,
    "sugars": 2.3,
-   "satFat": 0.8,
-   "sodium": 241
+   "satFat": 1,
+   "sodium": 232
   },
   "addedFatPer100g": 0.8,
-  "tableKcalPer100g": 105,
-  "energyGapPct": 3.6,
+  "tableKcalPer100g": 113,
+  "energyGapPct": 2.4,
   "box": {
    "grams": 644,
-   "kcal": 650,
-   "protein": 49.6,
+   "kcal": 708,
+   "protein": 47.7,
    "carbs": 68.9,
-   "fat": 18,
+   "fat": 25.1,
    "fiber": 8.4
   },
   "halfBoxG": 322,
@@ -48,14 +50,14 @@
     "cookedG": 1131,
     "boxG": 283,
     "totals": {
-     "kcal": 1403.0900000000001,
-     "protein": 155.76090000000005,
+     "kcal": 1606.89662,
+     "protein": 148.21890000000002,
      "carbs": 44.853699999999996,
-     "fat": 59.24790000000001,
+     "fat": 86.57910000000001,
      "fiber": 17.316000000000003,
      "sugars": 30.264799999999997,
-     "satFat": 13.92284,
-     "sodiumMg": 3488.74
+     "satFat": 17.962040000000002,
+     "sodiumMg": 3253.516
     },
     "lines": [
      {
@@ -66,14 +68,14 @@
       "yield": 0.794,
       "cookedG": 571.6800000000001,
       "n": {
-       "kcal": 871.2,
-       "protein": 141.55200000000002,
+       "kcal": 1075.00662,
+       "protein": 134.01,
        "carbs": 0,
-       "fat": 29.664,
+       "fat": 56.995200000000004,
        "fiber": 0,
        "sugars": 0,
-       "satFat": 7.8984000000000005,
-       "sodiumMg": 684
+       "satFat": 11.9376,
+       "sodiumMg": 448.776
       }
      },
      {
@@ -542,7 +544,7 @@
   "shopping": [
    {
     "ingId": "chicken-thigh",
-    "label": "Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel)",
+    "label": "Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel; USDA Foundation 2646171, the same food as the Lab record intl-chicken-thigh-raw; was SR Legacy 173627 until 2026-10-14, Ayesha's review)",
     "grams": 720,
     "shop": "butcher",
     "price": {
@@ -861,6 +863,8 @@
   "id": "pk-keema-matar-rice-box",
   "n": 2,
   "file": "research/yusuf/recipes/02-keema-matar-rice.mjs",
+  "effort": "cook",
+  "minutes": 45,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -1654,6 +1658,8 @@
   "id": "pk-yakhni-chicken-pulao-box",
   "n": 3,
   "file": "research/yusuf/recipes/03-yakhni-chicken-pulao.mjs",
+  "effort": "cook",
+  "minutes": 45,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -2497,6 +2503,8 @@
   "id": "pk-shami-kebab-pita-box",
   "n": 4,
   "file": "research/yusuf/recipes/04-shami-kebab-pita.mjs",
+  "effort": "cook",
+  "minutes": 60,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -3568,6 +3576,8 @@
   "id": "es-pollo-ajillo-limon-rice-box",
   "n": 5,
   "file": "research/yusuf/recipes/05-pollo-al-ajillo.mjs",
+  "effort": "cook",
+  "minutes": 40,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -3575,24 +3585,24 @@
   "cookedG": 2093,
   "yield": 1.092,
   "per100g": {
-   "kcal": 115,
-   "protein": 8.8,
+   "kcal": 125,
+   "protein": 8.4,
    "carbs": 11.5,
-   "fat": 3.4,
+   "fat": 4.7,
    "fiber": 1.7,
    "sugars": 1.3,
-   "satFat": 0.7,
-   "sodium": 212
+   "satFat": 0.9,
+   "sodium": 201
   },
   "addedFatPer100g": 1.4,
-  "tableKcalPer100g": 117,
-  "energyGapPct": 2.1,
+  "tableKcalPer100g": 127,
+  "energyGapPct": 1.7,
   "box": {
    "grams": 523,
-   "kcal": 601,
-   "protein": 46,
+   "kcal": 654,
+   "protein": 43.9,
    "carbs": 60.1,
-   "fat": 17.8,
+   "fat": 24.6,
    "fiber": 8.9
   },
   "halfBoxG": 262,
@@ -3613,14 +3623,14 @@
     "cookedG": 724,
     "boxG": 181,
     "totals": {
-     "kcal": 1224.3650000000002,
-     "protein": 145.11745000000005,
+     "kcal": 1428.1716200000003,
+     "protein": 137.57545000000002,
      "carbs": 18.10915,
-     "fat": 60.406200000000005,
+     "fat": 87.73740000000001,
      "fiber": 2.4245,
      "sugars": 2.1557,
-     "satFat": 12.192040000000002,
-     "sodiumMg": 3026.695
+     "satFat": 16.231239999999996,
+     "sodiumMg": 2791.471
     },
     "lines": [
      {
@@ -3631,14 +3641,14 @@
       "yield": 0.801,
       "cookedG": 576.72,
       "n": {
-       "kcal": 871.2,
-       "protein": 141.55200000000002,
+       "kcal": 1075.00662,
+       "protein": 134.01,
        "carbs": 0,
-       "fat": 29.664,
+       "fat": 56.995200000000004,
        "fiber": 0,
        "sugars": 0,
-       "satFat": 7.8984000000000005,
-       "sodiumMg": 684
+       "satFat": 11.9376,
+       "sodiumMg": 448.776
       }
      },
      {
@@ -3922,7 +3932,7 @@
   "shopping": [
    {
     "ingId": "chicken-thigh",
-    "label": "Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel)",
+    "label": "Chicken thigh, boneless, skinless, raw (contramuslo deshuesado sin piel; USDA Foundation 2646171, the same food as the Lab record intl-chicken-thigh-raw; was SR Legacy 173627 until 2026-10-14, Ayesha's review)",
     "grams": 720,
     "shop": "butcher",
     "price": {
@@ -4139,6 +4149,8 @@
   "id": "es-albondigas-tomate-couscous-box",
   "n": 6,
   "file": "research/yusuf/recipes/06-albondigas-couscous.mjs",
+  "effort": "cook",
+  "minutes": 50,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -4943,6 +4955,8 @@
   "id": "med-moroccan-chicken-couscous-box",
   "n": 7,
   "file": "research/yusuf/recipes/07-moroccan-chicken-couscous.mjs",
+  "effort": "cook",
+  "minutes": 35,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -5627,6 +5641,8 @@
   "id": "pk-chicken-seekh-tabbouleh-box",
   "n": 8,
   "file": "research/yusuf/recipes/08-chicken-seekh-tabbouleh.mjs",
+  "effort": "cook",
+  "minutes": 45,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -6541,6 +6557,8 @@
   "id": "pk-chicken-chana-chaat-box",
   "n": 9,
   "file": "research/yusuf/recipes/09-chicken-chana-chaat.mjs",
+  "effort": "cook",
+  "minutes": 35,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -7447,6 +7465,8 @@
   "id": "es-garbanzos-atun-salad-box",
   "n": 10,
   "file": "research/yusuf/recipes/10-chickpea-tuna-salad.mjs",
+  "effort": "cook",
+  "minutes": 25,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -8047,6 +8067,8 @@
   "id": "med-chicken-hummus-pasta-salad-box",
   "n": 11,
   "file": "research/yusuf/recipes/11-chicken-hummus-pasta.mjs",
+  "effort": "cook",
+  "minutes": 30,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -8662,6 +8684,8 @@
   "id": "es-tortilla-proteica-skyr-box",
   "n": 12,
   "file": "research/yusuf/recipes/12-protein-tortilla-skyr.mjs",
+  "effort": "cook",
+  "minutes": 40,
   "slot": "lunch",
   "serving": "box",
   "boxes": 4,
@@ -9104,6 +9128,8 @@
   "id": "intl-overnight-oats-protein-jar",
   "n": 13,
   "file": "research/yusuf/recipes/13-overnight-oats-protein.mjs",
+  "effort": "assemble",
+  "minutes": 10,
   "slot": "breakfast",
   "serving": "jar",
   "boxes": 3,
@@ -9452,6 +9478,8 @@
   "id": "intl-egg-muffins-roti-portion",
   "n": 14,
   "file": "research/yusuf/recipes/14-egg-muffins-roti.mjs",
+  "effort": "cook",
+  "minutes": 35,
   "slot": "breakfast",
   "serving": "portion",
   "boxes": 4,
@@ -10115,6 +10143,8 @@
   "id": "intl-protein-pancakes-portion",
   "n": 15,
   "file": "research/yusuf/recipes/15-protein-pancakes.mjs",
+  "effort": "cook",
+  "minutes": 35,
   "slot": "breakfast",
   "serving": "portion",
   "boxes": 4,
@@ -10441,6 +10471,8 @@
   "id": "pk-aloo-paratha-raita-portion",
   "n": 16,
   "file": "research/yusuf/recipes/16-aloo-paratha-raita.mjs",
+  "effort": "cook",
+  "minutes": 50,
   "slot": "breakfast",
   "serving": "portion",
   "boxes": 4,
@@ -11014,6 +11046,8 @@
   "id": "pk-anda-paratha-roll-portion",
   "n": 17,
   "file": "research/yusuf/recipes/17-anda-paratha-roll.mjs",
+  "effort": "cook",
+  "minutes": 45,
   "slot": "breakfast",
   "serving": "portion",
   "boxes": 4,
@@ -11551,6 +11585,8 @@
   "id": "pk-chicken-egg-roti-wrap-portion",
   "n": 18,
   "file": "research/yusuf/recipes/18-chicken-egg-roti-wrap.mjs",
+  "effort": "cook",
+  "minutes": 45,
   "slot": "breakfast",
   "serving": "portion",
   "boxes": 4,
@@ -12216,6 +12252,8 @@
   "id": "pk-chicken-karahi-roti-portion",
   "n": 19,
   "file": "research/yusuf/recipes/19-chicken-karahi-roti.mjs",
+  "effort": "cook",
+  "minutes": 60,
   "slot": "dinner",
   "serving": "portion",
   "boxes": 4,
@@ -12911,6 +12949,8 @@
   "id": "pk-keema-matar-roti-portion",
   "n": 20,
   "file": "research/yusuf/recipes/20-keema-matar-roti.mjs",
+  "effort": "cook",
+  "minutes": 55,
   "slot": "dinner",
   "serving": "portion",
   "boxes": 4,
@@ -13641,6 +13681,8 @@
   "id": "pk-chicken-jalfrezi-roti-portion",
   "n": 21,
   "file": "research/yusuf/recipes/21-chicken-jalfrezi-roti.mjs",
+  "effort": "cook",
+  "minutes": 55,
   "slot": "dinner",
   "serving": "portion",
   "boxes": 4,
@@ -14372,6 +14414,8 @@
   "id": "pk-aloo-gosht-roti-portion",
   "n": 22,
   "file": "research/yusuf/recipes/22-aloo-gosht-roti.mjs",
+  "effort": "cook",
+  "minutes": 55,
   "slot": "dinner",
   "serving": "portion",
   "boxes": 4,
@@ -15077,6 +15121,8 @@
   "id": "pk-seekh-kebab-roti-portion",
   "n": 23,
   "file": "research/yusuf/recipes/23-seekh-kebab-roti.mjs",
+  "effort": "cook",
+  "minutes": 60,
   "slot": "dinner",
   "serving": "portion",
   "boxes": 4,
@@ -16013,6 +16059,8 @@
   "id": "pk-daal-palak-roti-portion",
   "n": 24,
   "file": "research/yusuf/recipes/24-daal-palak-roti.mjs",
+  "effort": "cook",
+  "minutes": 45,
   "slot": "dinner",
   "serving": "portion",
   "boxes": 4,
@@ -16841,6 +16889,8 @@
   "id": "es-mandonguilles-pesols-portion",
   "n": 25,
   "file": "research/yusuf/recipes/25-mandonguilles-pesols.mjs",
+  "effort": "cook",
+  "minutes": 45,
   "slot": "dinner",
   "serving": "portion",
   "boxes": 4,
@@ -17458,6 +17508,6953 @@
      "date": "2026-10-13"
     },
     "cost": 0.07083333333333333
+   }
+  ]
+ },
+ "es-queso-batido-parfait-jar": {
+  "id": "es-queso-batido-parfait-jar",
+  "n": 26,
+  "file": "research/yusuf/recipes/26-batido-parfait-jar.mjs",
+  "effort": "assemble",
+  "minutes": 10,
+  "slot": "breakfast",
+  "serving": "jar",
+  "boxes": 3,
+  "rawG": 1044,
+  "cookedG": 1044,
+  "yield": 1,
+  "per100g": {
+   "kcal": 115,
+   "protein": 7.6,
+   "carbs": 11.6,
+   "fat": 3.6,
+   "fiber": 3.1,
+   "sugars": 4.2,
+   "satFat": 0.4,
+   "sodium": 27
+  },
+  "addedFatPer100g": 0,
+  "tableKcalPer100g": 114,
+  "energyGapPct": -0.5,
+  "box": {
+   "grams": 348,
+   "kcal": 400,
+   "protein": 26.4,
+   "carbs": 40.4,
+   "fat": 12.5,
+   "fiber": 10.8
+  },
+  "halfBoxG": 174,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 3,
+  "components": [
+   {
+    "id": "jar",
+    "label": "Queso batido, oats, chia and walnuts",
+    "storage": "overnight-oats",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 837,
+    "cookedG": 837,
+    "boxG": 279,
+    "totals": {
+     "kcal": 1068.5700000000002,
+     "protein": 77.31689999999999,
+     "carbs": 97.04310000000001,
+     "fat": 36.03359999999999,
+     "fiber": 25.641,
+     "sugars": 24.9795,
+     "satFat": 4.47159,
+     "sodiumMg": 276.78000000000003
+    },
+    "lines": [
+     {
+      "ingId": "queso-batido",
+      "grams": 660,
+      "note": "220 g per jar (one 500 g tub and a third of a second)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 660,
+      "n": {
+       "kcal": 303.6,
+       "protein": 52.8,
+       "carbs": 23.1,
+       "fat": 3.3,
+       "fiber": 0,
+       "sugars": 23.1,
+       "satFat": 0.66,
+       "sodiumMg": 264
+      }
+     },
+     {
+      "ingId": "oats",
+      "grams": 120,
+      "note": "40 g per jar",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 454.8,
+       "protein": 15.78,
+       "carbs": 69.12,
+       "fat": 7.824,
+       "fiber": 12.12,
+       "sugars": 1.188,
+       "satFat": 1.332,
+       "sodiumMg": 7.2
+      }
+     },
+     {
+      "ingId": "chia",
+      "grams": 30,
+      "note": "10 g (1 tbsp) per jar",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 30,
+      "n": {
+       "kcal": 145.8,
+       "protein": 4.962,
+       "carbs": 2.316,
+       "fat": 9.222,
+       "fiber": 10.32,
+       "sugars": 0,
+       "satFat": 0.9990000000000001,
+       "sodiumMg": 4.8
+      }
+     },
+     {
+      "ingId": "walnuts",
+      "grams": 24,
+      "note": "8 g per jar, chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 24,
+      "n": {
+       "kcal": 156.96,
+       "protein": 3.6552,
+       "carbs": 1.6824000000000001,
+       "fat": 15.6504,
+       "fiber": 1.608,
+       "sugars": 0.6264,
+       "satFat": 1.47024,
+       "sodiumMg": 0.48
+      }
+     },
+     {
+      "ingId": "cinnamon",
+      "grams": 3,
+      "note": "ground",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 3,
+      "n": {
+       "kcal": 7.41,
+       "protein": 0.1197,
+       "carbs": 0.8247,
+       "fat": 0.0372,
+       "fiber": 1.5930000000000002,
+       "sugars": 0.06509999999999999,
+       "satFat": 0.01035,
+       "sodiumMg": 0.3
+      }
+     }
+    ]
+   },
+   {
+    "id": "fruit",
+    "label": "Kiwi, sliced in the morning",
+    "storage": "proposed:whole-fruit",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 207,
+    "cookedG": 207,
+    "boxG": 69,
+    "totals": {
+     "kcal": 126.27,
+     "protein": 2.277,
+     "carbs": 24.218999999999998,
+     "fat": 1.035,
+     "fiber": 6.21,
+     "sugars": 18.63,
+     "satFat": 0,
+     "sodiumMg": 6.21
+    },
+    "lines": [
+     {
+      "ingId": "kiwi",
+      "grams": 207,
+      "note": "1 kiwi (69 g peeled) per jar",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 207,
+      "n": {
+       "kcal": 126.27,
+       "protein": 2.277,
+       "carbs": 24.218999999999998,
+       "fat": 1.035,
+       "fiber": 6.21,
+       "sugars": 18.63,
+       "satFat": 0,
+       "sodiumMg": 6.21
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 1.08,
+   "batch": 3.24,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "queso-batido",
+    "label": "Queso fresco batido desnatado 0% Hacendado (whipped fresh cheese)",
+    "grams": 660,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "51071",
+     "name": "Queso fresco batido desnatado 0% MG Hacendado",
+     "packPrice": 1.1,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0022,
+     "url": "https://tienda.mercadona.es/product/51071/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.4520000000000002
+   },
+   {
+    "ingId": "oats",
+    "label": "Rolled oats, dry (copos de avena)",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "86341",
+     "name": "Copos de avena Brüggen",
+     "packPrice": 1.3,
+     "packG": 800,
+     "pack": "800 g",
+     "eurPerG": 0.0016250000000000001,
+     "url": "https://tienda.mercadona.es/product/86341/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.195
+   },
+   {
+    "ingId": "chia",
+    "label": "Chia seeds, dry",
+    "grams": 30,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "5464",
+     "name": "Semillas de chía Hacendado",
+     "packPrice": 1.45,
+     "packG": 150,
+     "pack": "150 g",
+     "eurPerG": 0.009666666666666667,
+     "url": "https://tienda.mercadona.es/product/5464/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.29000000000000004
+   },
+   {
+    "ingId": "walnuts",
+    "label": "Walnuts, shelled (USDA; the OFF entry for Hacendado nuez shows 21 g protein, which looks mistyped)",
+    "grams": 24,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34024",
+     "name": "Nuez natural Hacendado pelada",
+     "packPrice": 2.4,
+     "packG": 200,
+     "pack": "200 g",
+     "eurPerG": 0.012,
+     "url": "https://tienda.mercadona.es/product/34024/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.28800000000000003
+   },
+   {
+    "ingId": "cinnamon",
+    "label": "Cinnamon (stick or ground)",
+    "grams": 3,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34177",
+     "name": "Canela molida Hacendado",
+     "packPrice": 1,
+     "packG": 52,
+     "pack": "52 g",
+     "eurPerG": 0.019230769230769232,
+     "url": "https://tienda.mercadona.es/product/34177/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.057692307692307696
+   },
+   {
+    "ingId": "kiwi",
+    "label": "Kiwi verde (1 = 69 g edible)",
+    "grams": 207,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3820",
+     "name": "Kiwi verde",
+     "packPrice": 0.51,
+     "packG": 110,
+     "pack": "110 g",
+     "eurPerG": 0.004636363636363636,
+     "url": "https://tienda.mercadona.es/product/3820/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.9597272727272728
+   }
+  ]
+ },
+ "es-pa-amb-tomaquet-burgos-ous-portion": {
+  "id": "es-pa-amb-tomaquet-burgos-ous-portion",
+  "n": 27,
+  "file": "research/yusuf/recipes/27-pa-amb-tomaquet-burgos-egg.mjs",
+  "effort": "assemble",
+  "minutes": 12,
+  "slot": "breakfast",
+  "serving": "portion",
+  "boxes": 3,
+  "rawG": 1317,
+  "cookedG": 1317,
+  "yield": 1,
+  "per100g": {
+   "kcal": 115,
+   "protein": 6.5,
+   "carbs": 12.5,
+   "fat": 4,
+   "fiber": 1.5,
+   "sugars": null,
+   "satFat": 1,
+   "sodium": 229
+  },
+  "addedFatPer100g": 1.1,
+  "tableKcalPer100g": 115,
+  "energyGapPct": 0,
+  "box": {
+   "grams": 439,
+   "kcal": 505,
+   "protein": 28.5,
+   "carbs": 54.9,
+   "fat": 17.6,
+   "fiber": 6.6
+  },
+  "halfBoxG": 220,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 3,
+  "components": [
+   {
+    "id": "eggs",
+    "label": "Hard-boiled eggs (2 per portion)",
+    "storage": "egg-dish",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 300,
+    "cookedG": 300,
+    "boxG": 100,
+    "totals": {
+     "kcal": 465,
+     "protein": 37.8,
+     "carbs": 3.3,
+     "fat": 31.8,
+     "fiber": 0,
+     "sugars": 3.3,
+     "satFat": 9.9,
+     "sodiumMg": 372
+    },
+    "lines": [
+     {
+      "ingId": "egg-boiled",
+      "grams": 300,
+      "note": "6 large eggs boiled 10 min on Sunday, kept in their shells",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 300,
+      "n": {
+       "kcal": 465,
+       "protein": 37.8,
+       "carbs": 3.3,
+       "fat": 31.8,
+       "fiber": 0,
+       "sugars": 3.3,
+       "satFat": 9.9,
+       "sodiumMg": 372
+      }
+     }
+    ]
+   },
+   {
+    "id": "cheese",
+    "label": "Queso de Burgos 0% (1 tub)",
+    "storage": "proposed:sealed-pack",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 188,
+    "cookedG": 188,
+    "boxG": 63,
+    "totals": {
+     "kcal": 125.625,
+     "protein": 22.5,
+     "carbs": 7.3125,
+     "fat": 0.75,
+     "fiber": 0,
+     "sugars": 7.3125,
+     "satFat": 0.1875,
+     "sodiumMg": 682.5
+    },
+    "lines": [
+     {
+      "ingId": "burgos-0",
+      "grams": 187.5,
+      "note": "3 of the 4 single 62.5 g tubs",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 187.5,
+      "n": {
+       "kcal": 125.625,
+       "protein": 22.5,
+       "carbs": 7.3125,
+       "fat": 0.75,
+       "fiber": 0,
+       "sugars": 7.3125,
+       "satFat": 0.1875,
+       "sodiumMg": 682.5
+      }
+     }
+    ]
+   },
+   {
+    "id": "toast",
+    "label": "Toasted barra with tomato and olive oil (made in the morning)",
+    "storage": "proposed:bread",
+    "eat": "hot",
+    "pot": null,
+    "rawG": 436,
+    "cookedG": 436,
+    "boxG": 145,
+    "totals": {
+     "kcal": 738.6,
+     "protein": 21.504,
+     "carbs": 117.642,
+     "fat": 19.2,
+     "fiber": 10.56,
+     "sugars": 4.734,
+     "satFat": 3.0816,
+     "sodiumMg": 1956.8799999999999
+    },
+    "lines": [
+     {
+      "ingId": "pan-barra",
+      "grams": 240,
+      "note": "80 g per portion (a third of a barra), toasted",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 240,
+      "n": {
+       "kcal": 573.6,
+       "protein": 19.92,
+       "carbs": 112.8,
+       "fat": 3.84,
+       "fiber": 8.4,
+       "sugars": 0,
+       "satFat": 0.96,
+       "sodiumMg": 1560
+      }
+     },
+     {
+      "ingId": "tomato",
+      "grams": 180,
+      "note": "60 g ripe tomato per portion, grated or rubbed on",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 180,
+      "n": {
+       "kcal": 32.4,
+       "protein": 1.584,
+       "carbs": 4.8420000000000005,
+       "fat": 0.36,
+       "fiber": 2.16,
+       "sugars": 4.734,
+       "satFat": 0.0504,
+       "sodiumMg": 9
+      }
+     },
+     {
+      "ingId": "oil-olive",
+      "grams": 15,
+      "note": "5 g (1 tsp) per portion, weighed",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 15,
+      "n": {
+       "kcal": 132.6,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 15,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 2.0712,
+       "sodiumMg": 0.3
+      }
+     },
+     {
+      "ingId": "salt",
+      "grams": 1,
+      "note": "a pinch",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 0,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 0,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 0,
+       "sodiumMg": 387.58
+      }
+     }
+    ]
+   },
+   {
+    "id": "fruit",
+    "label": "Orange",
+    "storage": "proposed:whole-fruit",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 393,
+    "cookedG": 393,
+    "boxG": 131,
+    "totals": {
+     "kcal": 184.71,
+     "protein": 3.537,
+     "carbs": 36.942,
+     "fat": 0.393,
+     "fiber": 9.431999999999999,
+     "sugars": 36.942,
+     "satFat": 0,
+     "sodiumMg": 0
+    },
+    "lines": [
+     {
+      "ingId": "orange",
+      "grams": 393,
+      "note": "1 orange (131 g edible) per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 393,
+      "n": {
+       "kcal": 184.71,
+       "protein": 3.537,
+       "carbs": 36.942,
+       "fat": 0.393,
+       "fiber": 9.431999999999999,
+       "sugars": 36.942,
+       "satFat": 0,
+       "sodiumMg": 0
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 1.27,
+   "batch": 3.82,
+   "complete": false,
+   "partialMajor": true,
+   "unpriced": [
+    {
+     "ingId": "pan-barra",
+     "grams": 240,
+     "why": "bakery (forn) price not looked up"
+    }
+   ],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "egg-boiled",
+    "label": "Egg, hard-boiled (1 large egg = 50 g edible)",
+    "grams": 300,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "31504",
+     "name": "Huevos grandes L",
+     "packPrice": 3.05,
+     "packG": 600,
+     "pack": "12 × 50 g edible",
+     "eurPerG": 0.005083333333333333,
+     "url": "https://tienda.mercadona.es/product/31504/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.525
+   },
+   {
+    "ingId": "burgos-0",
+    "label": "Queso fresco de Burgos desnatado 0% Hacendado (4 × 62.5 g tubs)",
+    "grams": 187.5,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "52409",
+     "name": "Queso fresco Burgos desnatado 0% MG Hacendado",
+     "packPrice": 1.15,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0046,
+     "url": "https://tienda.mercadona.es/product/52409/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.8624999999999999
+   },
+   {
+    "ingId": "pan-barra",
+    "label": "Barra de pan from a bakery (forn): flour, water, salt, yeast",
+    "grams": 240,
+    "shop": "bakery",
+    "price": {
+     "shop": "bakery",
+     "name": "Barra de pan from a bakery (forn): flour, water, salt, yeast",
+     "eurPerG": null,
+     "note": "bakery (forn) price not looked up"
+    }
+   },
+   {
+    "ingId": "tomato",
+    "label": "Tomato, raw",
+    "grams": 180,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69971",
+     "name": "Tomates",
+     "packPrice": 4.2,
+     "packG": 2000,
+     "pack": "2000 g",
+     "eurPerG": 0.0021000000000000003,
+     "url": "https://tienda.mercadona.es/product/69971/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.37800000000000006
+   },
+   {
+    "ingId": "oil-olive",
+    "label": "Olive oil",
+    "grams": 15,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4240",
+     "name": "Aceite de oliva 0,4º Hacendado",
+     "packPrice": 3.7,
+     "packG": 910,
+     "pack": "1 l",
+     "eurPerG": 0.004065934065934066,
+     "url": "https://tienda.mercadona.es/product/4240/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.06098901098901099
+   },
+   {
+    "ingId": "salt",
+    "label": "Salt",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "19731",
+     "name": "Sal fina Hacendado",
+     "packPrice": 0.4,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.0004,
+     "url": "https://tienda.mercadona.es/product/19731/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0004
+   },
+   {
+    "ingId": "orange",
+    "label": "Naranja de mesa (1 = 131 g edible)",
+    "grams": 393,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3235",
+     "name": "Naranja de mesa",
+     "packPrice": 0.68,
+     "packG": 270,
+     "pack": "270 g",
+     "eurPerG": 0.002518518518518519,
+     "url": "https://tienda.mercadona.es/product/3235/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.989777777777778
+   }
+  ]
+ },
+ "pk-fruit-chaat-protein-dahi-portion": {
+  "id": "pk-fruit-chaat-protein-dahi-portion",
+  "n": 28,
+  "file": "research/yusuf/recipes/28-fruit-chaat-protein-dahi.mjs",
+  "effort": "assemble",
+  "minutes": 12,
+  "slot": "breakfast",
+  "serving": "portion",
+  "boxes": 2,
+  "rawG": 1100,
+  "cookedG": 1100,
+  "yield": 1,
+  "per100g": {
+   "kcal": 82,
+   "protein": 5.6,
+   "carbs": 8.7,
+   "fat": 2.3,
+   "fiber": 1.9,
+   "sugars": 7.3,
+   "satFat": 0.2,
+   "sodium": 1
+  },
+  "addedFatPer100g": 0,
+  "tableKcalPer100g": 78,
+  "energyGapPct": -5.2,
+  "box": {
+   "grams": 550,
+   "kcal": 451,
+   "protein": 30.8,
+   "carbs": 47.9,
+   "fat": 12.7,
+   "fiber": 10.5
+  },
+  "halfBoxG": 275,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "chaat",
+    "label": "Fruit chaat with chaat masala and lemon",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 479,
+    "cookedG": 479,
+    "boxG": 240,
+    "totals": {
+     "kcal": 284.03,
+     "protein": 4.1467,
+     "carbs": 56.85889999999999,
+     "fat": 2.5563000000000002,
+     "fiber": 13.144,
+     "sugars": 51.66279999999999,
+     "satFat": 0.15744000000000002,
+     "sodiumMg": 10.08
+    },
+    "lines": [
+     {
+      "ingId": "apple",
+      "grams": 180,
+      "note": "diced, skin on (1 apple)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 180,
+      "n": {
+       "kcal": 93.6,
+       "protein": 0.54,
+       "carbs": 20.52,
+       "fat": 0.36,
+       "fiber": 4.32,
+       "sugars": 18.72,
+       "satFat": 0,
+       "sodiumMg": 1.8
+      }
+     },
+     {
+      "ingId": "mandarin",
+      "grams": 176,
+      "note": "2 mandarins, segmented",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 176,
+      "n": {
+       "kcal": 93.28,
+       "protein": 1.4080000000000001,
+       "carbs": 20.24,
+       "fat": 0.528,
+       "fiber": 3.168,
+       "sugars": 18.656,
+       "satFat": 0,
+       "sodiumMg": 3.52
+      }
+     },
+     {
+      "ingId": "pomegranate",
+      "grams": 100,
+      "note": "arils (about a third of a fruit)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 100,
+      "n": {
+       "kcal": 83,
+       "protein": 1.7,
+       "carbs": 14.7,
+       "fat": 1.2,
+       "fiber": 4,
+       "sugars": 13.7,
+       "satFat": 0.1,
+       "sodiumMg": 3
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 20,
+      "note": "keeps the apple from browning",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 20,
+      "n": {
+       "kcal": 4.4,
+       "protein": 0.07,
+       "carbs": 1.32,
+       "fat": 0.048,
+       "fiber": 0.06,
+       "sugars": 0.504,
+       "satFat": 0.008,
+       "sodiumMg": 0.2
+      }
+     },
+     {
+      "ingId": "chaat-masala",
+      "grams": 3,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 3,
+      "n": {
+       "kcal": 9.75,
+       "protein": 0.42869999999999997,
+       "carbs": 0.07889999999999986,
+       "fat": 0.4203,
+       "fiber": 1.5960000000000003,
+       "sugars": 0.0828,
+       "satFat": 0.04944,
+       "sodiumMg": 1.56
+      }
+     }
+    ]
+   },
+   {
+    "id": "yogurt",
+    "label": "Protein yogurt and almonds",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 520,
+    "cookedG": 520,
+    "boxG": 260,
+    "totals": {
+     "kcal": 481.2,
+     "protein": 56.480000000000004,
+     "carbs": 18.52,
+     "fat": 22.36,
+     "fiber": 5,
+     "sugars": 16.64,
+     "satFat": 2,
+     "sodiumMg": 0.4
+    },
+    "lines": [
+     {
+      "ingId": "protein-yogurt",
+      "grams": 480,
+      "note": "240 g per portion (two 120 g servings from the 500 g tub)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 480,
+      "n": {
+       "kcal": 249.6,
+       "protein": 48,
+       "carbs": 14.88,
+       "fat": 2.4,
+       "fiber": 0,
+       "sugars": 14.88,
+       "satFat": 0.48,
+       "sodiumMg": 0
+      }
+     },
+     {
+      "ingId": "almonds",
+      "grams": 40,
+      "note": "20 g per portion (about 16 almonds), chopped, added in the morning",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 40,
+      "n": {
+       "kcal": 231.6,
+       "protein": 8.48,
+       "carbs": 3.64,
+       "fat": 19.96,
+       "fiber": 5,
+       "sugars": 1.76,
+       "satFat": 1.52,
+       "sodiumMg": 0.4
+      }
+     }
+    ]
+   },
+   {
+    "id": "banana",
+    "label": "Banana, sliced in the morning",
+    "storage": "proposed:whole-fruit",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 101,
+    "cookedG": 101,
+    "boxG": 51,
+    "totals": {
+     "kcal": 89.89,
+     "protein": 1.1009,
+     "carbs": 20.4424,
+     "fat": 0.3333,
+     "fiber": 2.6260000000000003,
+     "sugars": 12.3523,
+     "satFat": 0.11312,
+     "sodiumMg": 1.01
+    },
+    "lines": [
+     {
+      "ingId": "banana",
+      "grams": 101,
+      "note": "½ small banana per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 101,
+      "n": {
+       "kcal": 89.89,
+       "protein": 1.1009,
+       "carbs": 20.4424,
+       "fat": 0.3333,
+       "fiber": 2.6260000000000003,
+       "sugars": 12.3523,
+       "satFat": 0.11312,
+       "sodiumMg": 1.01
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 1.87,
+   "batch": 3.75,
+   "complete": false,
+   "partialMajor": false,
+   "unpriced": [
+    {
+     "ingId": "chaat-masala",
+     "grams": 3,
+     "why": "no current price found"
+    }
+   ],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "apple",
+    "label": "Apple, with skin (manzana Golden)",
+    "grams": 180,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3028",
+     "name": "Manzana Golden",
+     "packPrice": 0.4,
+     "packG": 200,
+     "pack": "200 g",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/3028/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.36
+   },
+   {
+    "ingId": "mandarin",
+    "label": "Mandarina / clementina (1 = 88 g edible)",
+    "grams": 176,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3238",
+     "name": "Mandarina",
+     "packPrice": 0.31,
+     "packG": 120,
+     "pack": "120 g",
+     "eurPerG": 0.0025833333333333333,
+     "url": "https://tienda.mercadona.es/product/3238/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.45466666666666666
+   },
+   {
+    "ingId": "pomegranate",
+    "label": "Granada, arils (1 fruit = 282 g arils)",
+    "grams": 100,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3915",
+     "name": "Granada",
+     "packPrice": 1.56,
+     "packG": 282,
+     "pack": "1 × 282 g edible",
+     "eurPerG": 0.005531914893617021,
+     "url": "https://tienda.mercadona.es/product/3915/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.5531914893617021
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 20,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.09708737864077667
+   },
+   {
+    "ingId": "chaat-masala",
+    "label": "Chaat masala",
+    "grams": 3,
+    "shop": "desi",
+    "price": {
+     "shop": "desi",
+     "name": "Chaat masala",
+     "eurPerG": null,
+     "date": "2026-10-13"
+    }
+   },
+   {
+    "ingId": "protein-yogurt",
+    "label": "Postre lácteo natural +Proteínas 10 g 0% MG (Mercadona skyr-style high-protein pot)",
+    "grams": 480,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "21256",
+     "name": "Postre lácteo natural +Proteínas 10 g 0% MG",
+     "packPrice": 1.4,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0028,
+     "url": "https://tienda.mercadona.es/product/21256/",
+     "date": "2026-10-13"
+    },
+    "cost": 1.344
+   },
+   {
+    "ingId": "almonds",
+    "label": "Almendra natural Hacendado (200 g)",
+    "grams": 40,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34865",
+     "name": "Almendra natural Hacendado",
+     "packPrice": 2.3,
+     "packG": 200,
+     "pack": "200 g",
+     "eurPerG": 0.0115,
+     "url": "https://tienda.mercadona.es/product/34865/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.45999999999999996
+   },
+   {
+    "ingId": "banana",
+    "label": "Banana, raw, peeled (Plátano de Canarias; 1 small = 101 g edible, USDA)",
+    "grams": 101,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3819",
+     "name": "Plátano de Canarias IGP",
+     "packPrice": 0.48,
+     "packG": 101,
+     "pack": "1 × 101 g edible",
+     "eurPerG": 0.004752475247524752,
+     "url": "https://tienda.mercadona.es/product/3819/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.48
+   }
+  ]
+ },
+ "es-lentejas-atun-feta-salad-box": {
+  "id": "es-lentejas-atun-feta-salad-box",
+  "n": 29,
+  "file": "research/yusuf/recipes/29-lentil-feta-tuna-salad.mjs",
+  "effort": "assemble",
+  "minutes": 12,
+  "slot": "lunch",
+  "serving": "box",
+  "boxes": 2,
+  "rawG": 1342,
+  "cookedG": 1342,
+  "yield": 1,
+  "per100g": {
+   "kcal": 88,
+   "protein": 6.8,
+   "carbs": 6.4,
+   "fat": 3.3,
+   "fiber": 2.7,
+   "sugars": 1.4,
+   "satFat": 1.3,
+   "sodium": 272
+  },
+  "addedFatPer100g": 1.5,
+  "tableKcalPer100g": 87,
+  "energyGapPct": -1.2,
+  "box": {
+   "grams": 671,
+   "kcal": 590,
+   "protein": 45.6,
+   "carbs": 42.9,
+   "fat": 22.1,
+   "fiber": 18.1
+  },
+  "halfBoxG": 336,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "salad",
+    "label": "Lentils, tuna, feta and vegetables",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 1342,
+    "cookedG": 1342,
+    "boxG": 671,
+    "totals": {
+     "kcal": 1166.56,
+     "protein": 91.89600000000002,
+     "carbs": 86.20689999999999,
+     "fat": 43.70230000000001,
+     "fiber": 36.298,
+     "sugars": 18.6939,
+     "satFat": 17.19087,
+     "sodiumMg": 3656.58
+    },
+    "lines": [
+     {
+      "ingId": "lentils-jar",
+      "grams": 600,
+      "note": "1½ jars, drained and rinsed (300 g per box)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 600,
+      "n": {
+       "kcal": 534,
+       "protein": 49.2,
+       "carbs": 64.2,
+       "fat": 2.4,
+       "fiber": 29.4,
+       "sugars": 3,
+       "satFat": 0.6,
+       "sodiumMg": 2400
+      }
+     },
+     {
+      "ingId": "tuna",
+      "grams": 120,
+      "note": "2 cans atún claro al natural, drained (60 g per box)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 118.5,
+       "protein": 25.2,
+       "carbs": 1.08,
+       "fat": 1.44,
+       "fiber": 0,
+       "sugars": 0.6,
+       "satFat": 0.48,
+       "sodiumMg": 528
+      }
+     },
+     {
+      "ingId": "feta",
+      "grams": 80,
+      "note": "40 g per box, cubes",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 80,
+      "n": {
+       "kcal": 219.2,
+       "protein": 12.8,
+       "carbs": 0.8,
+       "fat": 18.56,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 13.12,
+       "sodiumMg": 704
+      }
+     },
+     {
+      "ingId": "pepper-red",
+      "grams": 120,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 31.2,
+       "protein": 1.188,
+       "carbs": 4.716,
+       "fat": 0.36,
+       "fiber": 2.52,
+       "sugars": 5.04,
+       "satFat": 0.0708,
+       "sodiumMg": 4.8
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 160,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 160,
+      "n": {
+       "kcal": 24,
+       "protein": 1.04,
+       "carbs": 5.007999999999999,
+       "fat": 0.17600000000000002,
+       "fiber": 0.8,
+       "sugars": 2.6719999999999997,
+       "satFat": 0.0592,
+       "sodiumMg": 3.2
+      }
+     },
+     {
+      "ingId": "tomato-cherry",
+      "grams": 160,
+      "note": "halved",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 160,
+      "n": {
+       "kcal": 28.8,
+       "protein": 1.4080000000000001,
+       "carbs": 4.304000000000001,
+       "fat": 0.32,
+       "fiber": 1.92,
+       "sugars": 4.207999999999999,
+       "satFat": 0.044800000000000006,
+       "sodiumMg": 8
+      }
+     },
+     {
+      "ingId": "onion-red",
+      "grams": 40,
+      "note": "finely chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 40,
+      "n": {
+       "kcal": 17.6,
+       "protein": 0.37599999999999995,
+       "carbs": 3.092,
+       "fat": 0.04,
+       "fiber": 0.88,
+       "sugars": 2.304,
+       "satFat": 0,
+       "sodiumMg": 0.4
+      }
+     },
+     {
+      "ingId": "parsley",
+      "grams": 10,
+      "note": "chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 10,
+      "n": {
+       "kcal": 3.6,
+       "protein": 0.29700000000000004,
+       "carbs": 0.30300000000000005,
+       "fat": 0.079,
+       "fiber": 0.33,
+       "sugars": 0.085,
+       "satFat": 0.0132,
+       "sodiumMg": 5.6
+      }
+     },
+     {
+      "ingId": "oil-olive",
+      "grams": 20,
+      "note": "extra virgin, 10 g per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 20,
+      "n": {
+       "kcal": 176.8,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 20,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 2.7615999999999996,
+       "sodiumMg": 0.4
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 30,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 30,
+      "n": {
+       "kcal": 6.6,
+       "protein": 0.105,
+       "carbs": 1.9800000000000002,
+       "fat": 0.072,
+       "fiber": 0.09,
+       "sugars": 0.7559999999999999,
+       "satFat": 0.012,
+       "sodiumMg": 0.3
+      }
+     },
+     {
+      "ingId": "cumin",
+      "grams": 1,
+      "note": "ground",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 3.75,
+       "protein": 0.17809999999999998,
+       "carbs": 0.33740000000000003,
+       "fat": 0.2227,
+       "fiber": 0.105,
+       "sugars": 0.0225,
+       "satFat": 0.015349999999999999,
+       "sodiumMg": 1.68
+      }
+     },
+     {
+      "ingId": "black-pepper",
+      "grams": 1,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 2.51,
+       "protein": 0.1039,
+       "carbs": 0.38650000000000007,
+       "fat": 0.0326,
+       "fiber": 0.253,
+       "sugars": 0.0064,
+       "satFat": 0.013919999999999998,
+       "sodiumMg": 0.2
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 2.97,
+   "batch": 5.94,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "lentils-jar",
+    "label": "Lenteja cocida Hacendado (570 g jar = 400 g drained), drained and rinsed",
+    "grams": 600,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "26030",
+     "name": "Lenteja cocida Hacendado",
+     "packPrice": 0.9,
+     "packG": 400,
+     "pack": "570 g (400 g drained)",
+     "eurPerG": 0.0022500000000000003,
+     "url": "https://tienda.mercadona.es/product/26030/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.35
+   },
+   {
+    "ingId": "tuna",
+    "label": "Atún claro al natural Hacendado, drained (6 × 60 g drained)",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "18018",
+     "name": "Atún claro al natural Hacendado",
+     "packPrice": 4.2,
+     "packG": 360,
+     "pack": "480 g (360 g drained)",
+     "eurPerG": 0.011666666666666667,
+     "url": "https://tienda.mercadona.es/product/18018/",
+     "date": "2026-10-13"
+    },
+    "cost": 1.4000000000000001
+   },
+   {
+    "ingId": "feta",
+    "label": "Queso feta Hacendado en dados (370 g tub, 150 g drained)",
+    "grams": 80,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "51197",
+     "name": "Queso feta mezcla Hacendado en dados",
+     "packPrice": 2.4,
+     "packG": 150,
+     "pack": "370 g (150 g drained)",
+     "eurPerG": 0.016,
+     "url": "https://tienda.mercadona.es/product/51197/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.28
+   },
+   {
+    "ingId": "pepper-red",
+    "label": "Red bell pepper, raw",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69310",
+     "name": "Pimiento rojo",
+     "packPrice": 0.64,
+     "packG": 220,
+     "pack": "220 g",
+     "eurPerG": 0.0029090909090909093,
+     "url": "https://tienda.mercadona.es/product/69310/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.3490909090909091
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 160,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.27428571428571424
+   },
+   {
+    "ingId": "tomato-cherry",
+    "label": "Cherry tomatoes, raw (USDA tomato, red, ripe)",
+    "grams": 160,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69990",
+     "name": "Tomates cherry",
+     "packPrice": 2.2,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0044,
+     "url": "https://tienda.mercadona.es/product/69990/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.7040000000000001
+   },
+   {
+    "ingId": "onion-red",
+    "label": "Red onion, raw (cebolla morada)",
+    "grams": 40,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69153",
+     "name": "Cebollas morada",
+     "packPrice": 2,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/69153/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.08
+   },
+   {
+    "ingId": "parsley",
+    "label": "Fresh parsley",
+    "grams": 10,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69701",
+     "name": "Perejil troceado lavado",
+     "packPrice": 0.95,
+     "packG": 40,
+     "pack": "40 g",
+     "eurPerG": 0.02375,
+     "url": "https://tienda.mercadona.es/product/69701/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.2375
+   },
+   {
+    "ingId": "oil-olive",
+    "label": "Olive oil",
+    "grams": 20,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4240",
+     "name": "Aceite de oliva 0,4º Hacendado",
+     "packPrice": 3.7,
+     "packG": 910,
+     "pack": "1 l",
+     "eurPerG": 0.004065934065934066,
+     "url": "https://tienda.mercadona.es/product/4240/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.08131868131868131
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 30,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.145631067961165
+   },
+   {
+    "ingId": "cumin",
+    "label": "Cumin (seeds or ground)",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34120",
+     "name": "Comino molido Hacendado",
+     "packPrice": 1.15,
+     "packG": 58,
+     "pack": "58 g",
+     "eurPerG": 0.01982758620689655,
+     "url": "https://tienda.mercadona.es/product/34120/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.01982758620689655
+   },
+   {
+    "ingId": "black-pepper",
+    "label": "Black pepper",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34171",
+     "name": "Pimienta negra molida Hacendado",
+     "packPrice": 1.3,
+     "packG": 70,
+     "pack": "70 g",
+     "eurPerG": 0.018571428571428572,
+     "url": "https://tienda.mercadona.es/product/34171/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.018571428571428572
+   }
+  ]
+ },
+ "intl-salmon-brown-rice-bowl-box": {
+  "id": "intl-salmon-brown-rice-bowl-box",
+  "n": 30,
+  "file": "research/yusuf/recipes/30-salmon-brown-rice-bowl.mjs",
+  "effort": "assemble",
+  "minutes": 12,
+  "slot": "lunch",
+  "serving": "box",
+  "boxes": 2,
+  "rawG": 1127,
+  "cookedG": 1127,
+  "yield": 1,
+  "per100g": {
+   "kcal": 116,
+   "protein": 7.1,
+   "carbs": 9.1,
+   "fat": 5.3,
+   "fiber": 1.7,
+   "sugars": 1.4,
+   "satFat": 1.2,
+   "sodium": 159
+  },
+  "addedFatPer100g": 0,
+  "tableKcalPer100g": 117,
+  "energyGapPct": 0.6,
+  "box": {
+   "grams": 564,
+   "kcal": 654,
+   "protein": 40,
+   "carbs": 51.3,
+   "fat": 29.9,
+   "fiber": 9.6
+  },
+  "halfBoxG": 282,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "salmon",
+    "label": "Salmon, cucumber, carrot and avocado with lemon",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 677,
+    "cookedG": 677,
+    "boxG": 339,
+    "totals": {
+     "kcal": 595.6899999999999,
+     "protein": 45.4807,
+     "carbs": 23.2287,
+     "fat": 33.31980000000001,
+     "fiber": 11.810999999999998,
+     "sugars": 12.226599999999998,
+     "satFat": 5.58436,
+     "sodiumMg": 1248.46
+    },
+    "lines": [
+     {
+      "ingId": "salmon-can",
+      "grams": 240,
+      "note": "3 cans (80 g each), drained, flaked; 120 g per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 240,
+      "n": {
+       "kcal": 343.2,
+       "protein": 40.8,
+       "carbs": 4.32,
+       "fat": 18,
+       "fiber": 0,
+       "sugars": 1.2,
+       "satFat": 3.36,
+       "sodiumMg": 1152
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 160,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 160,
+      "n": {
+       "kcal": 24,
+       "protein": 1.04,
+       "carbs": 5.007999999999999,
+       "fat": 0.17600000000000002,
+       "fiber": 0.8,
+       "sugars": 2.6719999999999997,
+       "satFat": 0.0592,
+       "sodiumMg": 3.2
+      }
+     },
+     {
+      "ingId": "carrot",
+      "grams": 120,
+      "note": "grated",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 49.2,
+       "protein": 1.116,
+       "carbs": 8.136000000000001,
+       "fat": 0.288,
+       "fiber": 3.36,
+       "sugars": 5.688000000000001,
+       "satFat": 0.0384,
+       "sodiumMg": 82.8
+      }
+     },
+     {
+      "ingId": "avocado",
+      "grams": 100,
+      "note": "½ avocado, diced (25 g per box)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 100,
+      "n": {
+       "kcal": 160,
+       "protein": 2,
+       "carbs": 1.8,
+       "fat": 14.7,
+       "fiber": 6.7,
+       "sugars": 0.7,
+       "satFat": 2.1,
+       "sodiumMg": 7
+      }
+     },
+     {
+      "ingId": "onion-red",
+      "grams": 20,
+      "note": "finely chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 20,
+      "n": {
+       "kcal": 8.8,
+       "protein": 0.18799999999999997,
+       "carbs": 1.546,
+       "fat": 0.02,
+       "fiber": 0.44,
+       "sugars": 1.152,
+       "satFat": 0,
+       "sodiumMg": 0.2
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 30,
+      "note": "also stops the avocado browning",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 30,
+      "n": {
+       "kcal": 6.6,
+       "protein": 0.105,
+       "carbs": 1.9800000000000002,
+       "fat": 0.072,
+       "fiber": 0.09,
+       "sugars": 0.7559999999999999,
+       "satFat": 0.012,
+       "sodiumMg": 0.3
+      }
+     },
+     {
+      "ingId": "coriander",
+      "grams": 6,
+      "note": "chopped (or parsley)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 6,
+      "n": {
+       "kcal": 1.38,
+       "protein": 0.1278,
+       "carbs": 0.0522,
+       "fat": 0.031200000000000002,
+       "fiber": 0.16799999999999998,
+       "sugars": 0.052199999999999996,
+       "satFat": 0.00084,
+       "sodiumMg": 2.76
+      }
+     },
+     {
+      "ingId": "black-pepper",
+      "grams": 1,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 2.51,
+       "protein": 0.1039,
+       "carbs": 0.38650000000000007,
+       "fat": 0.0326,
+       "fiber": 0.253,
+       "sugars": 0.0064,
+       "satFat": 0.013919999999999998,
+       "sodiumMg": 0.2
+      }
+     }
+    ]
+   },
+   {
+    "id": "egg",
+    "label": "Hard-boiled eggs (2 per box)",
+    "storage": "egg-dish",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 200,
+    "cookedG": 200,
+    "boxG": 100,
+    "totals": {
+     "kcal": 310,
+     "protein": 25.2,
+     "carbs": 2.2,
+     "fat": 21.2,
+     "fiber": 0,
+     "sugars": 2.2,
+     "satFat": 6.6,
+     "sodiumMg": 248
+    },
+    "lines": [
+     {
+      "ingId": "egg-boiled",
+      "grams": 200,
+      "note": "4 eggs, boiled 10 min (or from the Sunday batch)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 200,
+      "n": {
+       "kcal": 310,
+       "protein": 25.2,
+       "carbs": 2.2,
+       "fat": 21.2,
+       "fiber": 0,
+       "sugars": 2.2,
+       "satFat": 6.6,
+       "sodiumMg": 248
+      }
+     }
+    ]
+   },
+   {
+    "id": "rice",
+    "label": "Brown rice microwave cup (sealed)",
+    "storage": "proposed:sealed-pack",
+    "eat": "hot",
+    "pot": null,
+    "rawG": 250,
+    "cookedG": 250,
+    "boxG": 125,
+    "totals": {
+     "kcal": 410,
+     "protein": 9.5,
+     "carbs": 77.5,
+     "fat": 5.5,
+     "fiber": 7,
+     "sugars": 1.25,
+     "satFat": 1,
+     "sodiumMg": 295
+    },
+    "lines": [
+     {
+      "ingId": "rice-cup-brown",
+      "grams": 250,
+      "note": "1 cup (125 g) per box, kept sealed",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 250,
+      "n": {
+       "kcal": 410,
+       "protein": 9.5,
+       "carbs": 77.5,
+       "fat": 5.5,
+       "fiber": 7,
+       "sugars": 1.25,
+       "satFat": 1,
+       "sodiumMg": 295
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 3.71,
+   "batch": 7.41,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "salmon-can",
+    "label": "Salmón al natural Hacendado (3 × 80 g cans)",
+    "grams": 240,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "18817",
+     "name": "Salmón al natural Hacendado",
+     "packPrice": 3.55,
+     "packG": 240,
+     "pack": "3 × 80 g edible",
+     "eurPerG": 0.014791666666666667,
+     "url": "https://tienda.mercadona.es/product/18817/",
+     "date": "2026-10-14"
+    },
+    "cost": 3.55
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 160,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.27428571428571424
+   },
+   {
+    "ingId": "carrot",
+    "label": "Carrot, raw",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69586",
+     "name": "Zanahorias",
+     "packPrice": 1,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.001,
+     "url": "https://tienda.mercadona.es/product/69586/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.12
+   },
+   {
+    "ingId": "avocado",
+    "label": "Aguacate, flesh (½ avocado = 100 g)",
+    "grams": 100,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3830",
+     "name": "Aguacate",
+     "packPrice": 1.65,
+     "packG": 201,
+     "pack": "1 × 201 g edible",
+     "eurPerG": 0.008208955223880597,
+     "url": "https://tienda.mercadona.es/product/3830/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.8208955223880596
+   },
+   {
+    "ingId": "onion-red",
+    "label": "Red onion, raw (cebolla morada)",
+    "grams": 20,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69153",
+     "name": "Cebollas morada",
+     "packPrice": 2,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/69153/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.04
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 30,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.145631067961165
+   },
+   {
+    "ingId": "coriander",
+    "label": "Fresh coriander (cilantro) leaves",
+    "grams": 6,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69690",
+     "name": "Cilantro",
+     "packPrice": 1.25,
+     "packG": 20,
+     "pack": "20 g",
+     "eurPerG": 0.0625,
+     "url": "https://tienda.mercadona.es/product/69690/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.375
+   },
+   {
+    "ingId": "black-pepper",
+    "label": "Black pepper",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34171",
+     "name": "Pimienta negra molida Hacendado",
+     "packPrice": 1.3,
+     "packG": 70,
+     "pack": "70 g",
+     "eurPerG": 0.018571428571428572,
+     "url": "https://tienda.mercadona.es/product/34171/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.018571428571428572
+   },
+   {
+    "ingId": "egg-boiled",
+    "label": "Egg, hard-boiled (1 large egg = 50 g edible)",
+    "grams": 200,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "31504",
+     "name": "Huevos grandes L",
+     "packPrice": 3.05,
+     "packG": 600,
+     "pack": "12 × 50 g edible",
+     "eurPerG": 0.005083333333333333,
+     "url": "https://tienda.mercadona.es/product/31504/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.0166666666666666
+   },
+   {
+    "ingId": "rice-cup-brown",
+    "label": "Arroz cocido integral Sabroz (microwave cup, 2 × 125 g)",
+    "grams": 250,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "22281",
+     "name": "Arroz cocido integral Sabroz",
+     "packPrice": 1.05,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.004200000000000001,
+     "url": "https://tienda.mercadona.es/product/22281/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.05
+   }
+  ]
+ },
+ "med-tuna-egg-pita-hummus-box": {
+  "id": "med-tuna-egg-pita-hummus-box",
+  "n": 31,
+  "file": "research/yusuf/recipes/31-tuna-egg-pita-hummus.mjs",
+  "effort": "assemble",
+  "minutes": 12,
+  "slot": "lunch",
+  "serving": "box",
+  "boxes": 2,
+  "rawG": 991,
+  "cookedG": 991,
+  "yield": 1,
+  "per100g": {
+   "kcal": 148,
+   "protein": 9.5,
+   "carbs": 14.6,
+   "fat": 5.3,
+   "fiber": 1.9,
+   "sugars": 2,
+   "satFat": 1,
+   "sodium": 228
+  },
+  "addedFatPer100g": 1,
+  "tableKcalPer100g": 148,
+  "energyGapPct": -0.3,
+  "box": {
+   "grams": 496,
+   "kcal": 734,
+   "protein": 47.1,
+   "carbs": 72.4,
+   "fat": 26.3,
+   "fiber": 9.4
+  },
+  "halfBoxG": 248,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "filling",
+    "label": "Tuna salad with peppers, cucumber and lettuce",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 551,
+    "cookedG": 551,
+    "boxG": 276,
+    "totals": {
+     "kcal": 392.30999999999995,
+     "protein": 53.139900000000004,
+     "carbs": 13.186499999999999,
+     "fat": 13.5706,
+     "fiber": 4.613,
+     "sugars": 9.446399999999999,
+     "satFat": 2.4821199999999997,
+     "sodiumMg": 1067.6000000000001
+    },
+    "lines": [
+     {
+      "ingId": "tuna",
+      "grams": 240,
+      "note": "4 cans atún claro al natural, drained (120 g per box)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 240,
+      "n": {
+       "kcal": 237,
+       "protein": 50.4,
+       "carbs": 2.16,
+       "fat": 2.88,
+       "fiber": 0,
+       "sugars": 1.2,
+       "satFat": 0.96,
+       "sodiumMg": 1056
+      }
+     },
+     {
+      "ingId": "pepper-red",
+      "grams": 100,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 100,
+      "n": {
+       "kcal": 26,
+       "protein": 0.99,
+       "carbs": 3.93,
+       "fat": 0.3,
+       "fiber": 2.1,
+       "sugars": 4.2,
+       "satFat": 0.059,
+       "sodiumMg": 4
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 100,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 100,
+      "n": {
+       "kcal": 15,
+       "protein": 0.65,
+       "carbs": 3.13,
+       "fat": 0.11,
+       "fiber": 0.5,
+       "sugars": 1.67,
+       "satFat": 0.037,
+       "sodiumMg": 2
+      }
+     },
+     {
+      "ingId": "lettuce",
+      "grams": 60,
+      "note": "shredded, packed on top",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 10.2,
+       "protein": 0.738,
+       "carbs": 0.714,
+       "fat": 0.18,
+       "fiber": 1.26,
+       "sugars": 0.714,
+       "satFat": 0.023399999999999997,
+       "sodiumMg": 4.8
+      }
+     },
+     {
+      "ingId": "onion-red",
+      "grams": 20,
+      "note": "finely chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 20,
+      "n": {
+       "kcal": 8.8,
+       "protein": 0.18799999999999997,
+       "carbs": 1.546,
+       "fat": 0.02,
+       "fiber": 0.44,
+       "sugars": 1.152,
+       "satFat": 0,
+       "sodiumMg": 0.2
+      }
+     },
+     {
+      "ingId": "oil-olive",
+      "grams": 10,
+      "note": "5 g per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 10,
+      "n": {
+       "kcal": 88.4,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 10,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 1.3807999999999998,
+       "sodiumMg": 0.2
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 20,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 20,
+      "n": {
+       "kcal": 4.4,
+       "protein": 0.07,
+       "carbs": 1.32,
+       "fat": 0.048,
+       "fiber": 0.06,
+       "sugars": 0.504,
+       "satFat": 0.008,
+       "sodiumMg": 0.2
+      }
+     },
+     {
+      "ingId": "black-pepper",
+      "grams": 1,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 2.51,
+       "protein": 0.1039,
+       "carbs": 0.38650000000000007,
+       "fat": 0.0326,
+       "fiber": 0.253,
+       "sugars": 0.0064,
+       "satFat": 0.013919999999999998,
+       "sodiumMg": 0.2
+      }
+     }
+    ]
+   },
+   {
+    "id": "egg",
+    "label": "Hard-boiled egg (1 per box)",
+    "storage": "egg-dish",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 100,
+    "cookedG": 100,
+    "boxG": 50,
+    "totals": {
+     "kcal": 155,
+     "protein": 12.6,
+     "carbs": 1.1,
+     "fat": 10.6,
+     "fiber": 0,
+     "sugars": 1.1,
+     "satFat": 3.3,
+     "sodiumMg": 124
+    },
+    "lines": [
+     {
+      "ingId": "egg-boiled",
+      "grams": 100,
+      "note": "2 eggs, boiled 10 min",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 100,
+      "n": {
+       "kcal": 155,
+       "protein": 12.6,
+       "carbs": 1.1,
+       "fat": 10.6,
+       "fiber": 0,
+       "sugars": 1.1,
+       "satFat": 3.3,
+       "sodiumMg": 124
+      }
+     }
+    ]
+   },
+   {
+    "id": "hummus",
+    "label": "Hummus pot",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": true,
+    "rawG": 100,
+    "cookedG": 100,
+    "boxG": 50,
+    "totals": {
+     "kcal": 305.9,
+     "protein": 6.4,
+     "carbs": 8.7,
+     "fat": 25.5,
+     "fiber": 8,
+     "sugars": 0.1,
+     "satFat": 3.9,
+     "sodiumMg": 400
+    },
+    "lines": [
+     {
+      "ingId": "hummus",
+      "grams": 100,
+      "note": "50 g per box in a small pot",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 100,
+      "n": {
+       "kcal": 305.9,
+       "protein": 6.4,
+       "carbs": 8.7,
+       "fat": 25.5,
+       "fiber": 8,
+       "sugars": 0.1,
+       "satFat": 3.9,
+       "sodiumMg": 400
+      }
+     }
+    ]
+   },
+   {
+    "id": "pita",
+    "label": "Pita bread (2 per box, in their bag)",
+    "storage": "proposed:bread",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 240,
+    "cookedG": 240,
+    "boxG": 120,
+    "totals": {
+     "kcal": 609.6,
+     "protein": 22.32,
+     "carbs": 121.92,
+     "fat": 2.4,
+     "fiber": 6.24,
+     "sugars": 9.36,
+     "satFat": 0.48,
+     "sodiumMg": 672
+    },
+    "lines": [
+     {
+      "ingId": "pita",
+      "grams": 240,
+      "note": "2 Mission pitas (60 g each) per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 240,
+      "n": {
+       "kcal": 609.6,
+       "protein": 22.32,
+       "carbs": 121.92,
+       "fat": 2.4,
+       "fiber": 6.24,
+       "sugars": 9.36,
+       "satFat": 0.48,
+       "sodiumMg": 672
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 3.17,
+   "batch": 6.35,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "tuna",
+    "label": "Atún claro al natural Hacendado, drained (6 × 60 g drained)",
+    "grams": 240,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "18018",
+     "name": "Atún claro al natural Hacendado",
+     "packPrice": 4.2,
+     "packG": 360,
+     "pack": "480 g (360 g drained)",
+     "eurPerG": 0.011666666666666667,
+     "url": "https://tienda.mercadona.es/product/18018/",
+     "date": "2026-10-13"
+    },
+    "cost": 2.8000000000000003
+   },
+   {
+    "ingId": "pepper-red",
+    "label": "Red bell pepper, raw",
+    "grams": 100,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69310",
+     "name": "Pimiento rojo",
+     "packPrice": 0.64,
+     "packG": 220,
+     "pack": "220 g",
+     "eurPerG": 0.0029090909090909093,
+     "url": "https://tienda.mercadona.es/product/69310/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.29090909090909095
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 100,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.17142857142857143
+   },
+   {
+    "ingId": "lettuce",
+    "label": "Romaine lettuce, raw",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69435",
+     "name": "Lechuga romana cortada y lavada",
+     "packPrice": 1.15,
+     "packG": 200,
+     "pack": "200 g",
+     "eurPerG": 0.00575,
+     "url": "https://tienda.mercadona.es/product/69435/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.345
+   },
+   {
+    "ingId": "onion-red",
+    "label": "Red onion, raw (cebolla morada)",
+    "grams": 20,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69153",
+     "name": "Cebollas morada",
+     "packPrice": 2,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/69153/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.04
+   },
+   {
+    "ingId": "oil-olive",
+    "label": "Olive oil",
+    "grams": 10,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4240",
+     "name": "Aceite de oliva 0,4º Hacendado",
+     "packPrice": 3.7,
+     "packG": 910,
+     "pack": "1 l",
+     "eurPerG": 0.004065934065934066,
+     "url": "https://tienda.mercadona.es/product/4240/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.040659340659340654
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 20,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.09708737864077667
+   },
+   {
+    "ingId": "black-pepper",
+    "label": "Black pepper",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34171",
+     "name": "Pimienta negra molida Hacendado",
+     "packPrice": 1.3,
+     "packG": 70,
+     "pack": "70 g",
+     "eurPerG": 0.018571428571428572,
+     "url": "https://tienda.mercadona.es/product/34171/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.018571428571428572
+   },
+   {
+    "ingId": "egg-boiled",
+    "label": "Egg, hard-boiled (1 large egg = 50 g edible)",
+    "grams": 100,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "31504",
+     "name": "Huevos grandes L",
+     "packPrice": 3.05,
+     "packG": 600,
+     "pack": "12 × 50 g edible",
+     "eurPerG": 0.005083333333333333,
+     "url": "https://tienda.mercadona.es/product/31504/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.5083333333333333
+   },
+   {
+    "ingId": "hummus",
+    "label": "Hummus de garbanzos Hacendado receta clásica (made by Simply Greek)",
+    "grams": 100,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "80858",
+     "name": "Hummus de garbanzos Hacendado receta clásica",
+     "packPrice": 1.05,
+     "packG": 240,
+     "pack": "240 g",
+     "eurPerG": 0.004375,
+     "url": "https://tienda.mercadona.es/product/80858/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.43750000000000006
+   },
+   {
+    "ingId": "pita",
+    "label": "Pan de pita Mission (5 × 60 g)",
+    "grams": 240,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "14378",
+     "name": "Pan de pita Mission",
+     "packPrice": 2,
+     "packG": 300,
+     "pack": "300 g",
+     "eurPerG": 0.006666666666666667,
+     "url": "https://tienda.mercadona.es/product/14378/",
+     "date": "2026-10-13"
+    },
+    "cost": 1.6
+   }
+  ]
+ },
+ "med-cuscus-caballa-garbanzos-box": {
+  "id": "med-cuscus-caballa-garbanzos-box",
+  "n": 32,
+  "file": "research/yusuf/recipes/32-couscous-mackerel-chickpea.mjs",
+  "effort": "assemble",
+  "minutes": 10,
+  "slot": "lunch",
+  "serving": "box",
+  "boxes": 1,
+  "rawG": 623,
+  "cookedG": 623,
+  "yield": 1,
+  "per100g": {
+   "kcal": 116,
+   "protein": 6.6,
+   "carbs": 11.7,
+   "fat": 4.3,
+   "fiber": 2.1,
+   "sugars": 2.4,
+   "satFat": 0.7,
+   "sodium": null
+  },
+  "addedFatPer100g": 0,
+  "tableKcalPer100g": 117,
+  "energyGapPct": 1.2,
+  "box": {
+   "grams": 623,
+   "kcal": 723,
+   "protein": 41.1,
+   "carbs": 72.9,
+   "fat": 26.8,
+   "fiber": 13.1
+  },
+  "halfBoxG": 312,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 1,
+  "components": [
+   {
+    "id": "couscous",
+    "label": "Couscous (soaked)",
+    "storage": "cooked-starch",
+    "eat": "either",
+    "pot": null,
+    "rawG": 160,
+    "cookedG": 160,
+    "boxG": 160,
+    "totals": {
+     "kcal": 210.9,
+     "protein": 7.2525,
+     "carbs": 42.39,
+     "fat": 0.996,
+     "fiber": 2.385,
+     "sugars": 1.878,
+     "satFat": 0.246,
+     "sodiumMg": 193.94
+    },
+    "lines": [
+     {
+      "ingId": "couscous",
+      "grams": 60,
+      "note": "dry",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 207.6,
+       "protein": 7.2,
+       "carbs": 41.4,
+       "fat": 0.96,
+       "fiber": 2.34,
+       "sugars": 1.5,
+       "satFat": 0.24,
+       "sodiumMg": 0
+      }
+     },
+     {
+      "ingId": "water",
+      "grams": 84,
+      "note": "boiling, from the kettle: 1.4 g per g couscous (the Sprint 1 ratio), all absorbed",
+      "yieldKey": "absorbed",
+      "yield": 1,
+      "cookedG": 84,
+      "n": null
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 15,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 15,
+      "n": {
+       "kcal": 3.3,
+       "protein": 0.0525,
+       "carbs": 0.9900000000000001,
+       "fat": 0.036,
+       "fiber": 0.045,
+       "sugars": 0.37799999999999995,
+       "satFat": 0.006,
+       "sodiumMg": 0.15
+      }
+     },
+     {
+      "ingId": "salt",
+      "grams": 0.5,
+      "note": "a pinch",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 0.5,
+      "n": {
+       "kcal": 0,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 0,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 0,
+       "sodiumMg": 193.79
+      }
+     }
+    ]
+   },
+   {
+    "id": "salad",
+    "label": "Mackerel, chickpeas and vegetables",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 401,
+    "cookedG": 401,
+    "boxG": 401,
+    "totals": {
+     "kcal": 477.725,
+     "protein": 26.20155,
+     "carbs": 28.221200000000003,
+     "fat": 25.82785,
+     "fiber": 10.6875,
+     "sugars": 10.778749999999999,
+     "satFat": 3.8505749999999996,
+     "sodiumMg": 588.44
+    },
+    "lines": [
+     {
+      "ingId": "mackerel",
+      "grams": 85,
+      "note": "1 can, drained (its own olive oil is enough dressing)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 85,
+      "n": {
+       "kcal": 259.25,
+       "protein": 15.3,
+       "carbs": 0.51,
+       "fat": 22.1,
+       "fiber": 0,
+       "sugars": 0.425,
+       "satFat": 3.4849999999999994,
+       "sodiumMg": 302.6
+      }
+     },
+     {
+      "ingId": "chickpeas-jar",
+      "grams": 130,
+      "note": "drained, rinsed",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 130,
+      "n": {
+       "kcal": 179.4,
+       "protein": 9.152000000000001,
+       "carbs": 21.541,
+       "fat": 3.2110000000000003,
+       "fiber": 8.19,
+       "sugars": 5.2,
+       "satFat": 0.2769,
+       "sodiumMg": 275.6
+      }
+     },
+     {
+      "ingId": "pepper-red",
+      "grams": 60,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 15.6,
+       "protein": 0.594,
+       "carbs": 2.358,
+       "fat": 0.18,
+       "fiber": 1.26,
+       "sugars": 2.52,
+       "satFat": 0.0354,
+       "sodiumMg": 2.4
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 60,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 9,
+       "protein": 0.39,
+       "carbs": 1.878,
+       "fat": 0.066,
+       "fiber": 0.3,
+       "sugars": 1.0019999999999998,
+       "satFat": 0.022199999999999998,
+       "sodiumMg": 1.2
+      }
+     },
+     {
+      "ingId": "tomato-cherry",
+      "grams": 60,
+      "note": "halved",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 10.8,
+       "protein": 0.528,
+       "carbs": 1.6140000000000003,
+       "fat": 0.12,
+       "fiber": 0.72,
+       "sugars": 1.5779999999999998,
+       "satFat": 0.0168,
+       "sodiumMg": 3
+      }
+     },
+     {
+      "ingId": "parsley",
+      "grams": 5,
+      "note": "chopped (or mint)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 5,
+      "n": {
+       "kcal": 1.8,
+       "protein": 0.14850000000000002,
+       "carbs": 0.15150000000000002,
+       "fat": 0.0395,
+       "fiber": 0.165,
+       "sugars": 0.0425,
+       "satFat": 0.0066,
+       "sodiumMg": 2.8
+      }
+     },
+     {
+      "ingId": "cumin",
+      "grams": 0.5,
+      "note": "ground",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 0.5,
+      "n": {
+       "kcal": 1.875,
+       "protein": 0.08904999999999999,
+       "carbs": 0.16870000000000002,
+       "fat": 0.11135,
+       "fiber": 0.0525,
+       "sugars": 0.01125,
+       "satFat": 0.0076749999999999995,
+       "sodiumMg": 0.84
+      }
+     }
+    ]
+   },
+   {
+    "id": "cheese",
+    "label": "Queso de Burgos 0% (1 tub, crumbled at lunch)",
+    "storage": "proposed:sealed-pack",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 63,
+    "cookedG": 63,
+    "boxG": 63,
+    "totals": {
+     "kcal": 41.875,
+     "protein": 7.5,
+     "carbs": 2.4375,
+     "fat": 0.25,
+     "fiber": 0,
+     "sugars": 2.4375,
+     "satFat": 0.0625,
+     "sodiumMg": 227.5
+    },
+    "lines": [
+     {
+      "ingId": "burgos-0",
+      "grams": 62.5,
+      "note": "1 single tub",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 62.5,
+      "n": {
+       "kcal": 41.875,
+       "protein": 7.5,
+       "carbs": 2.4375,
+       "fat": 0.25,
+       "fiber": 0,
+       "sugars": 2.4375,
+       "satFat": 0.0625,
+       "sodiumMg": 227.5
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 2.88,
+   "batch": 2.88,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "couscous",
+    "label": "Cous cous mediano Hacendado (made by Bia SpA), dry",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "9395",
+     "name": "Cous cous mediano Hacendado",
+     "packPrice": 1.95,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.00195,
+     "url": "https://tienda.mercadona.es/product/9395/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.11699999999999999
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 15,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0728155339805825
+   },
+   {
+    "ingId": "salt",
+    "label": "Salt",
+    "grams": 0.5,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "19731",
+     "name": "Sal fina Hacendado",
+     "packPrice": 0.4,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.0004,
+     "url": "https://tienda.mercadona.es/product/19731/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0002
+   },
+   {
+    "ingId": "mackerel",
+    "label": "Filetes de caballa en aceite de oliva Hacendado (2 × 85 g drained)",
+    "grams": 85,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "13628",
+     "name": "Filetes de caballa del sur en aceite de oliva Hacendado",
+     "packPrice": 2.95,
+     "packG": 170,
+     "pack": "2 × 85 g edible",
+     "eurPerG": 0.01735294117647059,
+     "url": "https://tienda.mercadona.es/product/13628/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.475
+   },
+   {
+    "ingId": "chickpeas-jar",
+    "label": "Chickpeas, canned/jarred, drained and rinsed (Hacendado garbanzo cocido, 570 g jar = 400 g drained)",
+    "grams": 130,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "26029",
+     "name": "Garbanzo cocido Hacendado",
+     "packPrice": 0.8,
+     "packG": 400,
+     "pack": "570 g (400 g drained)",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/26029/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.26
+   },
+   {
+    "ingId": "pepper-red",
+    "label": "Red bell pepper, raw",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69310",
+     "name": "Pimiento rojo",
+     "packPrice": 0.64,
+     "packG": 220,
+     "pack": "220 g",
+     "eurPerG": 0.0029090909090909093,
+     "url": "https://tienda.mercadona.es/product/69310/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.17454545454545456
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.10285714285714286
+   },
+   {
+    "ingId": "tomato-cherry",
+    "label": "Cherry tomatoes, raw (USDA tomato, red, ripe)",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69990",
+     "name": "Tomates cherry",
+     "packPrice": 2.2,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0044,
+     "url": "https://tienda.mercadona.es/product/69990/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.264
+   },
+   {
+    "ingId": "parsley",
+    "label": "Fresh parsley",
+    "grams": 5,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69701",
+     "name": "Perejil troceado lavado",
+     "packPrice": 0.95,
+     "packG": 40,
+     "pack": "40 g",
+     "eurPerG": 0.02375,
+     "url": "https://tienda.mercadona.es/product/69701/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.11875
+   },
+   {
+    "ingId": "cumin",
+    "label": "Cumin (seeds or ground)",
+    "grams": 0.5,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34120",
+     "name": "Comino molido Hacendado",
+     "packPrice": 1.15,
+     "packG": 58,
+     "pack": "58 g",
+     "eurPerG": 0.01982758620689655,
+     "url": "https://tienda.mercadona.es/product/34120/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.009913793103448275
+   },
+   {
+    "ingId": "burgos-0",
+    "label": "Queso fresco de Burgos desnatado 0% Hacendado (4 × 62.5 g tubs)",
+    "grams": 62.5,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "52409",
+     "name": "Queso fresco Burgos desnatado 0% MG Hacendado",
+     "packPrice": 1.15,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0046,
+     "url": "https://tienda.mercadona.es/product/52409/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.2875
+   }
+  ]
+ },
+ "med-lentil-rice-burgos-bowl-box": {
+  "id": "med-lentil-rice-burgos-bowl-box",
+  "n": 33,
+  "file": "research/yusuf/recipes/33-lentil-rice-cup-burgos-bowl.mjs",
+  "effort": "assemble",
+  "minutes": 10,
+  "slot": "lunch",
+  "serving": "box",
+  "boxes": 2,
+  "rawG": 1346,
+  "cookedG": 1346,
+  "yield": 1,
+  "per100g": {
+   "kcal": 90,
+   "protein": 5.7,
+   "carbs": 10.8,
+   "fat": 2.2,
+   "fiber": 2.3,
+   "sugars": 1.8,
+   "satFat": 0.3,
+   "sodium": 211
+  },
+  "addedFatPer100g": 1.5,
+  "tableKcalPer100g": 89,
+  "energyGapPct": -0.7,
+  "box": {
+   "grams": 673,
+   "kcal": 606,
+   "protein": 38.4,
+   "carbs": 72.7,
+   "fat": 14.8,
+   "fiber": 15.5
+  },
+  "halfBoxG": 337,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "lentils",
+    "label": "Cumin-lemon lentils with tomato, cucumber and rocket",
+    "storage": "cold-salad",
+    "eat": "either",
+    "pot": null,
+    "rawG": 846,
+    "cookedG": 846,
+    "boxG": 423,
+    "totals": {
+     "kcal": 625.86,
+     "protein": 37.25479999999999,
+     "carbs": 57.8142,
+     "fat": 22.988599999999998,
+     "fiber": 24.472,
+     "sugars": 12.633,
+     "satFat": 3.3523399999999994,
+     "sodiumMg": 1628.76
+    },
+    "lines": [
+     {
+      "ingId": "lentils-jar",
+      "grams": 400,
+      "note": "1 jar, drained and rinsed (200 g per box)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 400,
+      "n": {
+       "kcal": 356,
+       "protein": 32.8,
+       "carbs": 42.8,
+       "fat": 1.6,
+       "fiber": 19.6,
+       "sugars": 2,
+       "satFat": 0.4,
+       "sodiumMg": 1600
+      }
+     },
+     {
+      "ingId": "tomato",
+      "grams": 200,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 200,
+      "n": {
+       "kcal": 36,
+       "protein": 1.76,
+       "carbs": 5.380000000000001,
+       "fat": 0.4,
+       "fiber": 2.4,
+       "sugars": 5.26,
+       "satFat": 0.05600000000000001,
+       "sodiumMg": 10
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 120,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 18,
+       "protein": 0.78,
+       "carbs": 3.756,
+       "fat": 0.132,
+       "fiber": 0.6,
+       "sugars": 2.0039999999999996,
+       "satFat": 0.044399999999999995,
+       "sodiumMg": 2.4
+      }
+     },
+     {
+      "ingId": "rocket",
+      "grams": 40,
+      "note": "packed on top",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 40,
+      "n": {
+       "kcal": 10,
+       "protein": 1.04,
+       "carbs": 0.84,
+       "fat": 0.28,
+       "fiber": 0.64,
+       "sugars": 0.84,
+       "satFat": 0.04,
+       "sodiumMg": 10.8
+      }
+     },
+     {
+      "ingId": "onion-red",
+      "grams": 30,
+      "note": "finely chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 30,
+      "n": {
+       "kcal": 13.2,
+       "protein": 0.282,
+       "carbs": 2.319,
+       "fat": 0.03,
+       "fiber": 0.66,
+       "sugars": 1.7279999999999998,
+       "satFat": 0,
+       "sodiumMg": 0.3
+      }
+     },
+     {
+      "ingId": "oil-olive",
+      "grams": 20,
+      "note": "10 g per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 20,
+      "n": {
+       "kcal": 176.8,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 20,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 2.7615999999999996,
+       "sodiumMg": 0.4
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 30,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 30,
+      "n": {
+       "kcal": 6.6,
+       "protein": 0.105,
+       "carbs": 1.9800000000000002,
+       "fat": 0.072,
+       "fiber": 0.09,
+       "sugars": 0.7559999999999999,
+       "satFat": 0.012,
+       "sodiumMg": 0.3
+      }
+     },
+     {
+      "ingId": "cumin",
+      "grams": 2,
+      "note": "ground",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 2,
+      "n": {
+       "kcal": 7.5,
+       "protein": 0.35619999999999996,
+       "carbs": 0.6748000000000001,
+       "fat": 0.4454,
+       "fiber": 0.21,
+       "sugars": 0.045,
+       "satFat": 0.030699999999999998,
+       "sodiumMg": 3.36
+      }
+     },
+     {
+      "ingId": "mint",
+      "grams": 4,
+      "note": "chopped (or parsley)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 4,
+      "n": {
+       "kcal": 1.76,
+       "protein": 0.1316,
+       "carbs": 0.06440000000000001,
+       "fat": 0.0292,
+       "fiber": 0.272,
+       "sugars": 0,
+       "satFat": 0.00764,
+       "sodiumMg": 1.2
+      }
+     }
+    ]
+   },
+   {
+    "id": "cheese",
+    "label": "Queso de Burgos 0% (2 tubs)",
+    "storage": "proposed:sealed-pack",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 250,
+    "cookedG": 250,
+    "boxG": 125,
+    "totals": {
+     "kcal": 167.5,
+     "protein": 30,
+     "carbs": 9.75,
+     "fat": 1,
+     "fiber": 0,
+     "sugars": 9.75,
+     "satFat": 0.25,
+     "sodiumMg": 910
+    },
+    "lines": [
+     {
+      "ingId": "burgos-0",
+      "grams": 250,
+      "note": "4 tubs of 62.5 g (2 per box)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 250,
+      "n": {
+       "kcal": 167.5,
+       "protein": 30,
+       "carbs": 9.75,
+       "fat": 1,
+       "fiber": 0,
+       "sugars": 9.75,
+       "satFat": 0.25,
+       "sodiumMg": 910
+      }
+     }
+    ]
+   },
+   {
+    "id": "rice",
+    "label": "Brown rice microwave cup (sealed)",
+    "storage": "proposed:sealed-pack",
+    "eat": "hot",
+    "pot": null,
+    "rawG": 250,
+    "cookedG": 250,
+    "boxG": 125,
+    "totals": {
+     "kcal": 410,
+     "protein": 9.5,
+     "carbs": 77.5,
+     "fat": 5.5,
+     "fiber": 7,
+     "sugars": 1.25,
+     "satFat": 1,
+     "sodiumMg": 295
+    },
+    "lines": [
+     {
+      "ingId": "rice-cup-brown",
+      "grams": 250,
+      "note": "1 cup (125 g) per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 250,
+      "n": {
+       "kcal": 410,
+       "protein": 9.5,
+       "carbs": 77.5,
+       "fat": 5.5,
+       "fiber": 7,
+       "sugars": 1.25,
+       "satFat": 1,
+       "sodiumMg": 295
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 2.43,
+   "batch": 4.87,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "lentils-jar",
+    "label": "Lenteja cocida Hacendado (570 g jar = 400 g drained), drained and rinsed",
+    "grams": 400,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "26030",
+     "name": "Lenteja cocida Hacendado",
+     "packPrice": 0.9,
+     "packG": 400,
+     "pack": "570 g (400 g drained)",
+     "eurPerG": 0.0022500000000000003,
+     "url": "https://tienda.mercadona.es/product/26030/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.9000000000000001
+   },
+   {
+    "ingId": "tomato",
+    "label": "Tomato, raw",
+    "grams": 200,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69971",
+     "name": "Tomates",
+     "packPrice": 4.2,
+     "packG": 2000,
+     "pack": "2000 g",
+     "eurPerG": 0.0021000000000000003,
+     "url": "https://tienda.mercadona.es/product/69971/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.42000000000000004
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.2057142857142857
+   },
+   {
+    "ingId": "rocket",
+    "label": "Rúcula lavada (50 g bag)",
+    "grams": 40,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69753",
+     "name": "Rúcula lavada",
+     "packPrice": 0.85,
+     "packG": 50,
+     "pack": "50 g",
+     "eurPerG": 0.017,
+     "url": "https://tienda.mercadona.es/product/69753/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.68
+   },
+   {
+    "ingId": "onion-red",
+    "label": "Red onion, raw (cebolla morada)",
+    "grams": 30,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69153",
+     "name": "Cebollas morada",
+     "packPrice": 2,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/69153/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.06
+   },
+   {
+    "ingId": "oil-olive",
+    "label": "Olive oil",
+    "grams": 20,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4240",
+     "name": "Aceite de oliva 0,4º Hacendado",
+     "packPrice": 3.7,
+     "packG": 910,
+     "pack": "1 l",
+     "eurPerG": 0.004065934065934066,
+     "url": "https://tienda.mercadona.es/product/4240/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.08131868131868131
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 30,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.145631067961165
+   },
+   {
+    "ingId": "cumin",
+    "label": "Cumin (seeds or ground)",
+    "grams": 2,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34120",
+     "name": "Comino molido Hacendado",
+     "packPrice": 1.15,
+     "packG": 58,
+     "pack": "58 g",
+     "eurPerG": 0.01982758620689655,
+     "url": "https://tienda.mercadona.es/product/34120/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0396551724137931
+   },
+   {
+    "ingId": "mint",
+    "label": "Fresh mint (hierbabuena = spearmint)",
+    "grams": 4,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "68037",
+     "name": "Hierbabuena",
+     "packPrice": 1.35,
+     "packG": 40,
+     "pack": "40 g",
+     "eurPerG": 0.03375,
+     "url": "https://tienda.mercadona.es/product/68037/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.135
+   },
+   {
+    "ingId": "burgos-0",
+    "label": "Queso fresco de Burgos desnatado 0% Hacendado (4 × 62.5 g tubs)",
+    "grams": 250,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "52409",
+     "name": "Queso fresco Burgos desnatado 0% MG Hacendado",
+     "packPrice": 1.15,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0046,
+     "url": "https://tienda.mercadona.es/product/52409/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.15
+   },
+   {
+    "ingId": "rice-cup-brown",
+    "label": "Arroz cocido integral Sabroz (microwave cup, 2 × 125 g)",
+    "grams": 250,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "22281",
+     "name": "Arroz cocido integral Sabroz",
+     "packPrice": 1.05,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.004200000000000001,
+     "url": "https://tienda.mercadona.es/product/22281/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.05
+   }
+  ]
+ },
+ "es-salmorejo-huevo-atun-portion": {
+  "id": "es-salmorejo-huevo-atun-portion",
+  "n": 34,
+  "file": "research/yusuf/recipes/34-salmorejo-egg-tuna-dinner.mjs",
+  "effort": "assemble",
+  "minutes": 8,
+  "slot": "dinner",
+  "serving": "portion",
+  "boxes": 2,
+  "rawG": 1148,
+  "cookedG": 1148,
+  "yield": 1,
+  "per100g": {
+   "kcal": 108,
+   "protein": 5.8,
+   "carbs": 7.8,
+   "fat": 5.6,
+   "fiber": 1.7,
+   "sugars": 3.7,
+   "satFat": 1.1,
+   "sodium": null
+  },
+  "addedFatPer100g": 0.5,
+  "tableKcalPer100g": 110,
+  "energyGapPct": 1.4,
+  "box": {
+   "grams": 574,
+   "kcal": 620,
+   "protein": 33.3,
+   "carbs": 44.8,
+   "fat": 32.1,
+   "fiber": 9.8
+  },
+  "halfBoxG": 287,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "salmorejo",
+    "label": "Salmorejo (from the carton, opened)",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 500,
+    "cookedG": 500,
+    "boxG": 250,
+    "totals": {
+     "kcal": 425,
+     "protein": 5.5,
+     "carbs": 25.5,
+     "fat": 32,
+     "fiber": 6.5,
+     "sugars": 13.5,
+     "satFat": 4.5,
+     "sodiumMg": 0
+    },
+    "lines": [
+     {
+      "ingId": "salmorejo",
+      "grams": 500,
+      "note": "250 g (about 245 ml) per portion; the 1 l brik covers 4",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 500,
+      "n": {
+       "kcal": 425,
+       "protein": 5.5,
+       "carbs": 25.5,
+       "fat": 32,
+       "fiber": 6.5,
+       "sugars": 13.5,
+       "satFat": 4.5,
+       "sodiumMg": 0
+      }
+     }
+    ]
+   },
+   {
+    "id": "topping",
+    "label": "Boiled eggs and tuna",
+    "storage": "egg-dish",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 326,
+    "cookedG": 326,
+    "boxG": 163,
+    "totals": {
+     "kcal": 481.54,
+     "protein": 50.4,
+     "carbs": 3.2800000000000002,
+     "fat": 28.64,
+     "fiber": 0,
+     "sugars": 2.8000000000000003,
+     "satFat": 7.90848,
+     "sodiumMg": 776.12
+    },
+    "lines": [
+     {
+      "ingId": "egg-boiled",
+      "grams": 200,
+      "note": "2 eggs per portion, chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 200,
+      "n": {
+       "kcal": 310,
+       "protein": 25.2,
+       "carbs": 2.2,
+       "fat": 21.2,
+       "fiber": 0,
+       "sugars": 2.2,
+       "satFat": 6.6,
+       "sodiumMg": 248
+      }
+     },
+     {
+      "ingId": "tuna",
+      "grams": 120,
+      "note": "1 can (60 g drained) per portion, kept sealed until dinner",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 118.5,
+       "protein": 25.2,
+       "carbs": 1.08,
+       "fat": 1.44,
+       "fiber": 0,
+       "sugars": 0.6,
+       "satFat": 0.48,
+       "sodiumMg": 528
+      }
+     },
+     {
+      "ingId": "oil-olive",
+      "grams": 6,
+      "note": "a few drops on top (3 g per portion)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 6,
+      "n": {
+       "kcal": 53.04,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 6,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 0.82848,
+       "sodiumMg": 0.12
+      }
+     }
+    ]
+   },
+   {
+    "id": "picos",
+    "label": "Wholemeal picos",
+    "storage": "proposed:bread",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 60,
+    "cookedG": 60,
+    "boxG": 30,
+    "totals": {
+     "kcal": 227.4,
+     "protein": 8.4,
+     "carbs": 36.54,
+     "fat": 3.84,
+     "fiber": 6.6,
+     "sugars": 1.86,
+     "satFat": 0.48,
+     "sodiumMg": 504
+    },
+    "lines": [
+     {
+      "ingId": "picos",
+      "grams": 60,
+      "note": "30 g per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 227.4,
+       "protein": 8.4,
+       "carbs": 36.54,
+       "fat": 3.84,
+       "fiber": 6.6,
+       "sugars": 1.86,
+       "satFat": 0.48,
+       "sodiumMg": 504
+      }
+     }
+    ]
+   },
+   {
+    "id": "fruit",
+    "label": "Orange",
+    "storage": "proposed:whole-fruit",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 262,
+    "cookedG": 262,
+    "boxG": 131,
+    "totals": {
+     "kcal": 123.14,
+     "protein": 2.358,
+     "carbs": 24.628,
+     "fat": 0.262,
+     "fiber": 6.287999999999999,
+     "sugars": 24.628,
+     "satFat": 0,
+     "sodiumMg": 0
+    },
+    "lines": [
+     {
+      "ingId": "orange",
+      "grams": 262,
+      "note": "1 orange (131 g edible) per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 262,
+      "n": {
+       "kcal": 123.14,
+       "protein": 2.358,
+       "carbs": 24.628,
+       "fat": 0.262,
+       "fiber": 6.287999999999999,
+       "sugars": 24.628,
+       "satFat": 0,
+       "sodiumMg": 0
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 2.18,
+   "batch": 4.36,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "salmorejo",
+    "label": "Salmorejo al estilo cordobés Hacendado (1 l brik)",
+    "grams": 500,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "39902",
+     "name": "Salmorejo al estilo cordobés Hacendado",
+     "packPrice": 2.2,
+     "packG": 1030,
+     "pack": "1 l",
+     "eurPerG": 0.0021359223300970874,
+     "url": "https://tienda.mercadona.es/product/39902/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.0679611650485437
+   },
+   {
+    "ingId": "egg-boiled",
+    "label": "Egg, hard-boiled (1 large egg = 50 g edible)",
+    "grams": 200,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "31504",
+     "name": "Huevos grandes L",
+     "packPrice": 3.05,
+     "packG": 600,
+     "pack": "12 × 50 g edible",
+     "eurPerG": 0.005083333333333333,
+     "url": "https://tienda.mercadona.es/product/31504/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.0166666666666666
+   },
+   {
+    "ingId": "tuna",
+    "label": "Atún claro al natural Hacendado, drained (6 × 60 g drained)",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "18018",
+     "name": "Atún claro al natural Hacendado",
+     "packPrice": 4.2,
+     "packG": 360,
+     "pack": "480 g (360 g drained)",
+     "eurPerG": 0.011666666666666667,
+     "url": "https://tienda.mercadona.es/product/18018/",
+     "date": "2026-10-13"
+    },
+    "cost": 1.4000000000000001
+   },
+   {
+    "ingId": "oil-olive",
+    "label": "Olive oil",
+    "grams": 6,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4240",
+     "name": "Aceite de oliva 0,4º Hacendado",
+     "packPrice": 3.7,
+     "packG": 910,
+     "pack": "1 l",
+     "eurPerG": 0.004065934065934066,
+     "url": "https://tienda.mercadona.es/product/4240/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.024395604395604394
+   },
+   {
+    "ingId": "picos",
+    "label": "Picos 100% integral Hacendado (wholemeal breadsticks)",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "86215",
+     "name": "Picos 100% integral de trigo Hacendado",
+     "packPrice": 0.8,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0032,
+     "url": "https://tienda.mercadona.es/product/86215/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.192
+   },
+   {
+    "ingId": "orange",
+    "label": "Naranja de mesa (1 = 131 g edible)",
+    "grams": 262,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3235",
+     "name": "Naranja de mesa",
+     "packPrice": 0.68,
+     "packG": 270,
+     "pack": "270 g",
+     "eurPerG": 0.002518518518518519,
+     "url": "https://tienda.mercadona.es/product/3235/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.6598518518518519
+   }
+  ]
+ },
+ "pk-microwave-chana-masala-portion": {
+  "id": "pk-microwave-chana-masala-portion",
+  "n": 35,
+  "file": "research/yusuf/recipes/35-microwave-chana-masala.mjs",
+  "effort": "assemble",
+  "minutes": 15,
+  "slot": "dinner",
+  "serving": "portion",
+  "boxes": 2,
+  "rawG": 1281,
+  "cookedG": 1281,
+  "yield": 1,
+  "per100g": {
+   "kcal": 100,
+   "protein": 5.2,
+   "carbs": 13.4,
+   "fat": 2.2,
+   "fiber": 3,
+   "sugars": 2.8,
+   "satFat": 0.3,
+   "sodium": 227
+  },
+  "addedFatPer100g": 0.8,
+  "tableKcalPer100g": 102,
+  "energyGapPct": 1.9,
+  "box": {
+   "grams": 641,
+   "kcal": 641,
+   "protein": 33.3,
+   "carbs": 85.9,
+   "fat": 14.1,
+   "fiber": 19.2
+  },
+  "halfBoxG": 321,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "chana",
+    "label": "Chana masala (microwaved)",
+    "storage": "cooked-curry",
+    "eat": "hot",
+    "pot": null,
+    "rawG": 729,
+    "cookedG": 729,
+    "boxG": 365,
+    "totals": {
+     "kcal": 761.23,
+     "protein": 32.9428,
+     "carbs": 84.66220000000001,
+     "fat": 21.7165,
+     "fiber": 33.947,
+     "sugars": 27.121499999999997,
+     "satFat": 2.43968,
+     "sodiumMg": 2037.4099999999996
+    },
+    "lines": [
+     {
+      "ingId": "chickpeas-jar",
+      "grams": 400,
+      "note": "1 jar, drained and rinsed (200 g per portion)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 400,
+      "n": {
+       "kcal": 552,
+       "protein": 28.16,
+       "carbs": 66.28,
+       "fat": 9.88,
+       "fiber": 25.2,
+       "sugars": 16,
+       "satFat": 0.852,
+       "sodiumMg": 848
+      }
+     },
+     {
+      "ingId": "tomato-crushed",
+      "grams": 200,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 200,
+      "n": {
+       "kcal": 42,
+       "protein": 2,
+       "carbs": 7,
+       "fat": 0.2,
+       "fiber": 3.8,
+       "sugars": 7,
+       "satFat": 0,
+       "sodiumMg": 400
+      }
+     },
+     {
+      "ingId": "onion",
+      "grams": 80,
+      "note": "finely chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 80,
+      "n": {
+       "kcal": 32,
+       "protein": 0.88,
+       "carbs": 6.111999999999999,
+       "fat": 0.08,
+       "fiber": 1.36,
+       "sugars": 3.3920000000000003,
+       "satFat": 0.033600000000000005,
+       "sodiumMg": 3.2
+      }
+     },
+     {
+      "ingId": "oil-olive",
+      "grams": 10,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 10,
+      "n": {
+       "kcal": 88.4,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 10,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 1.3807999999999998,
+       "sodiumMg": 0.2
+      }
+     },
+     {
+      "ingId": "garlic",
+      "grams": 6,
+      "note": "2 cloves, grated",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 6,
+      "n": {
+       "kcal": 8.94,
+       "protein": 0.38160000000000005,
+       "carbs": 1.8576,
+       "fat": 0.03,
+       "fiber": 0.126,
+       "sugars": 0.06,
+       "satFat": 0.00534,
+       "sodiumMg": 1.02
+      }
+     },
+     {
+      "ingId": "ginger",
+      "grams": 6,
+      "note": "grated",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 6,
+      "n": {
+       "kcal": 4.8,
+       "protein": 0.1092,
+       "carbs": 0.9462,
+       "fat": 0.045,
+       "fiber": 0.12,
+       "sugars": 0.102,
+       "satFat": 0.01218,
+       "sodiumMg": 0.78
+      }
+     },
+     {
+      "ingId": "garam-masala",
+      "grams": 3,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 3,
+      "n": {
+       "kcal": 9.75,
+       "protein": 0.42869999999999997,
+       "carbs": 0.07889999999999986,
+       "fat": 0.4203,
+       "fiber": 1.5960000000000003,
+       "sugars": 0.0828,
+       "satFat": 0.04944,
+       "sodiumMg": 1.56
+      }
+     },
+     {
+      "ingId": "cumin",
+      "grams": 2,
+      "note": "ground",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 2,
+      "n": {
+       "kcal": 7.5,
+       "protein": 0.35619999999999996,
+       "carbs": 0.6748000000000001,
+       "fat": 0.4454,
+       "fiber": 0.21,
+       "sugars": 0.045,
+       "satFat": 0.030699999999999998,
+       "sodiumMg": 3.36
+      }
+     },
+     {
+      "ingId": "coriander-seed",
+      "grams": 2,
+      "note": "ground",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 2,
+      "n": {
+       "kcal": 5.96,
+       "protein": 0.24739999999999998,
+       "carbs": 0.2618000000000001,
+       "fat": 0.3554,
+       "fiber": 0.838,
+       "sugars": 0,
+       "satFat": 0.019799999999999998,
+       "sodiumMg": 0.7
+      }
+     },
+     {
+      "ingId": "chilli-powder",
+      "grams": 1,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 3.18,
+       "protein": 0.1201,
+       "carbs": 0.2943,
+       "fat": 0.1727,
+       "fiber": 0.272,
+       "sugars": 0.10339999999999999,
+       "satFat": 0.0326,
+       "sodiumMg": 0.3
+      }
+     },
+     {
+      "ingId": "turmeric",
+      "grams": 1,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 3.12,
+       "protein": 0.0968,
+       "carbs": 0.44439999999999996,
+       "fat": 0.0325,
+       "fiber": 0.22699999999999998,
+       "sugars": 0.0321,
+       "satFat": 0.01838,
+       "sodiumMg": 0.27
+      }
+     },
+     {
+      "ingId": "salt",
+      "grams": 2,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 2,
+      "n": {
+       "kcal": 0,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 0,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 0,
+       "sodiumMg": 775.16
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 10,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 10,
+      "n": {
+       "kcal": 2.2,
+       "protein": 0.035,
+       "carbs": 0.66,
+       "fat": 0.024,
+       "fiber": 0.03,
+       "sugars": 0.252,
+       "satFat": 0.004,
+       "sodiumMg": 0.1
+      }
+     },
+     {
+      "ingId": "coriander",
+      "grams": 6,
+      "note": "chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 6,
+      "n": {
+       "kcal": 1.38,
+       "protein": 0.1278,
+       "carbs": 0.0522,
+       "fat": 0.031200000000000002,
+       "fiber": 0.16799999999999998,
+       "sugars": 0.052199999999999996,
+       "satFat": 0.00084,
+       "sodiumMg": 2.76
+      }
+     }
+    ]
+   },
+   {
+    "id": "raita",
+    "label": "Protein raita pot",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": true,
+    "rawG": 302,
+    "cookedG": 302,
+    "boxG": 151,
+    "totals": {
+     "kcal": 134.68,
+     "protein": 24.4558,
+     "carbs": 9.3502,
+     "fat": 1.2806,
+     "fiber": 0.436,
+     "sugars": 8.442,
+     "satFat": 0.26602,
+     "sodiumMg": 1.7999999999999998
+    },
+    "lines": [
+     {
+      "ingId": "protein-yogurt",
+      "grams": 240,
+      "note": "120 g per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 240,
+      "n": {
+       "kcal": 124.8,
+       "protein": 24,
+       "carbs": 7.44,
+       "fat": 1.2,
+       "fiber": 0,
+       "sugars": 7.44,
+       "satFat": 0.24,
+       "sodiumMg": 0
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 60,
+      "note": "grated, squeezed",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 9,
+       "protein": 0.39,
+       "carbs": 1.878,
+       "fat": 0.066,
+       "fiber": 0.3,
+       "sugars": 1.0019999999999998,
+       "satFat": 0.022199999999999998,
+       "sodiumMg": 1.2
+      }
+     },
+     {
+      "ingId": "mint",
+      "grams": 2,
+      "note": "chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 2,
+      "n": {
+       "kcal": 0.88,
+       "protein": 0.0658,
+       "carbs": 0.032200000000000006,
+       "fat": 0.0146,
+       "fiber": 0.136,
+       "sugars": 0,
+       "satFat": 0.00382,
+       "sodiumMg": 0.6
+      }
+     }
+    ]
+   },
+   {
+    "id": "rice",
+    "label": "Basmati microwave cup (sealed)",
+    "storage": "proposed:sealed-pack",
+    "eat": "hot",
+    "pot": null,
+    "rawG": 250,
+    "cookedG": 250,
+    "boxG": 125,
+    "totals": {
+     "kcal": 410,
+     "protein": 9.75,
+     "carbs": 77.5,
+     "fat": 5.5,
+     "fiber": 4,
+     "sugars": 0,
+     "satFat": 0.75,
+     "sodiumMg": 875
+    },
+    "lines": [
+     {
+      "ingId": "rice-cup-basmati",
+      "grams": 250,
+      "note": "1 cup (125 g) per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 250,
+      "n": {
+       "kcal": 410,
+       "protein": 9.75,
+       "carbs": 77.5,
+       "fat": 5.5,
+       "fiber": 4,
+       "sugars": 0,
+       "satFat": 0.75,
+       "sodiumMg": 875
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 1.88,
+   "batch": 3.76,
+   "complete": false,
+   "partialMajor": false,
+   "unpriced": [
+    {
+     "ingId": "garam-masala",
+     "grams": 3,
+     "why": "no current price found"
+    },
+    {
+     "ingId": "coriander-seed",
+     "grams": 2,
+     "why": "no current price found"
+    }
+   ],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "chickpeas-jar",
+    "label": "Chickpeas, canned/jarred, drained and rinsed (Hacendado garbanzo cocido, 570 g jar = 400 g drained)",
+    "grams": 400,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "26029",
+     "name": "Garbanzo cocido Hacendado",
+     "packPrice": 0.8,
+     "packG": 400,
+     "pack": "570 g (400 g drained)",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/26029/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.8
+   },
+   {
+    "ingId": "tomato-crushed",
+    "label": "Tomate triturado Hacendado (fibre not on the label: USDA 170501 crushed canned tomatoes)",
+    "grams": 200,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "16043",
+     "name": "Tomate triturado Hacendado",
+     "packPrice": 1,
+     "packG": 800,
+     "pack": "800 g",
+     "eurPerG": 0.00125,
+     "url": "https://tienda.mercadona.es/product/16043/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.25
+   },
+   {
+    "ingId": "onion",
+    "label": "Onion, raw",
+    "grams": 80,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69089",
+     "name": "Cebollas",
+     "packPrice": 1.5,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.0015,
+     "url": "https://tienda.mercadona.es/product/69089/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.12
+   },
+   {
+    "ingId": "oil-olive",
+    "label": "Olive oil",
+    "grams": 10,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4240",
+     "name": "Aceite de oliva 0,4º Hacendado",
+     "packPrice": 3.7,
+     "packG": 910,
+     "pack": "1 l",
+     "eurPerG": 0.004065934065934066,
+     "url": "https://tienda.mercadona.es/product/4240/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.040659340659340654
+   },
+   {
+    "ingId": "garlic",
+    "label": "Garlic, raw (1 clove = 3 g, USDA)",
+    "grams": 6,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69297",
+     "name": "Ajos morados",
+     "packPrice": 1.85,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0074,
+     "url": "https://tienda.mercadona.es/product/69297/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0444
+   },
+   {
+    "ingId": "ginger",
+    "label": "Ginger root, raw",
+    "grams": 6,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69289",
+     "name": "Jengibre",
+     "packPrice": 1.65,
+     "packG": 200,
+     "pack": "200 g",
+     "eurPerG": 0.00825,
+     "url": "https://tienda.mercadona.es/product/69289/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0495
+   },
+   {
+    "ingId": "garam-masala",
+    "label": "Garam masala (Shan, National or similar; halal-certified packs)",
+    "grams": 3,
+    "shop": "desi",
+    "price": {
+     "shop": "desi",
+     "name": "Garam masala",
+     "eurPerG": null,
+     "date": "2026-10-13"
+    }
+   },
+   {
+    "ingId": "cumin",
+    "label": "Cumin (seeds or ground)",
+    "grams": 2,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34120",
+     "name": "Comino molido Hacendado",
+     "packPrice": 1.15,
+     "packG": 58,
+     "pack": "58 g",
+     "eurPerG": 0.01982758620689655,
+     "url": "https://tienda.mercadona.es/product/34120/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0396551724137931
+   },
+   {
+    "ingId": "coriander-seed",
+    "label": "Coriander seed (whole or ground)",
+    "grams": 2,
+    "shop": "desi",
+    "price": {
+     "shop": "desi",
+     "name": "Coriander seeds or ground coriander (dhania)",
+     "eurPerG": null,
+     "date": "2026-10-13"
+    }
+   },
+   {
+    "ingId": "chilli-powder",
+    "label": "Red chilli powder (USDA red or cayenne pepper)",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "37417",
+     "name": "Cayena molida Hacendado",
+     "packPrice": 1.65,
+     "packG": 55,
+     "pack": "55 g",
+     "eurPerG": 0.03,
+     "url": "https://tienda.mercadona.es/product/37417/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.03
+   },
+   {
+    "ingId": "turmeric",
+    "label": "Turmeric, ground",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34163",
+     "name": "Cúrcuma molida Hacendado",
+     "packPrice": 1.3,
+     "packG": 60,
+     "pack": "60 g",
+     "eurPerG": 0.021666666666666667,
+     "url": "https://tienda.mercadona.es/product/34163/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.021666666666666667
+   },
+   {
+    "ingId": "salt",
+    "label": "Salt",
+    "grams": 2,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "19731",
+     "name": "Sal fina Hacendado",
+     "packPrice": 0.4,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.0004,
+     "url": "https://tienda.mercadona.es/product/19731/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0008
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 10,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.048543689320388335
+   },
+   {
+    "ingId": "coriander",
+    "label": "Fresh coriander (cilantro) leaves",
+    "grams": 6,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69690",
+     "name": "Cilantro",
+     "packPrice": 1.25,
+     "packG": 20,
+     "pack": "20 g",
+     "eurPerG": 0.0625,
+     "url": "https://tienda.mercadona.es/product/69690/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.375
+   },
+   {
+    "ingId": "protein-yogurt",
+    "label": "Postre lácteo natural +Proteínas 10 g 0% MG (Mercadona skyr-style high-protein pot)",
+    "grams": 240,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "21256",
+     "name": "Postre lácteo natural +Proteínas 10 g 0% MG",
+     "packPrice": 1.4,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0028,
+     "url": "https://tienda.mercadona.es/product/21256/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.672
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.10285714285714286
+   },
+   {
+    "ingId": "mint",
+    "label": "Fresh mint (hierbabuena = spearmint)",
+    "grams": 2,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "68037",
+     "name": "Hierbabuena",
+     "packPrice": 1.35,
+     "packG": 40,
+     "pack": "40 g",
+     "eurPerG": 0.03375,
+     "url": "https://tienda.mercadona.es/product/68037/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0675
+   },
+   {
+    "ingId": "rice-cup-basmati",
+    "label": "Arroz cocido basmati Sabroz (microwave cup, 2 × 125 g)",
+    "grams": 250,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "22280",
+     "name": "Arroz cocido basmati Sabroz",
+     "packPrice": 1.1,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0044,
+     "url": "https://tienda.mercadona.es/product/22280/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.1
+   }
+  ]
+ },
+ "es-picoteo-hummus-burgos-portion": {
+  "id": "es-picoteo-hummus-burgos-portion",
+  "n": 36,
+  "file": "research/yusuf/recipes/36-picoteo-box.mjs",
+  "effort": "assemble",
+  "minutes": 10,
+  "slot": "dinner",
+  "serving": "portion",
+  "boxes": 2,
+  "rawG": 1237,
+  "cookedG": 1237,
+  "yield": 1,
+  "per100g": {
+   "kcal": 108,
+   "protein": 6.3,
+   "carbs": 6.9,
+   "fat": 5.6,
+   "fiber": 2.3,
+   "sugars": 2.7,
+   "satFat": 1.1,
+   "sodium": 190
+  },
+  "addedFatPer100g": 0.5,
+  "tableKcalPer100g": 108,
+  "energyGapPct": 0,
+  "box": {
+   "grams": 619,
+   "kcal": 669,
+   "protein": 39,
+   "carbs": 42.7,
+   "fat": 34.7,
+   "fiber": 14.2
+  },
+  "halfBoxG": 310,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "crudites",
+    "label": "Crudités and hummus",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 720,
+    "cookedG": 720,
+    "boxG": 360,
+    "totals": {
+     "kcal": 575.86,
+     "protein": 13.93,
+     "carbs": 36.766,
+     "fat": 36.92000000000001,
+     "fiber": 20.860000000000003,
+     "sugars": 19.432,
+     "satFat": 5.686599999999999,
+     "sodiumMg": 685.2
+    },
+    "lines": [
+     {
+      "ingId": "hummus",
+      "grams": 140,
+      "note": "70 g per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 140,
+      "n": {
+       "kcal": 428.26,
+       "protein": 8.96,
+       "carbs": 12.18,
+       "fat": 35.7,
+       "fiber": 11.2,
+       "sugars": 0.14,
+       "satFat": 5.46,
+       "sodiumMg": 560
+      }
+     },
+     {
+      "ingId": "carrot",
+      "grams": 160,
+      "note": "sticks",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 160,
+      "n": {
+       "kcal": 65.6,
+       "protein": 1.4880000000000002,
+       "carbs": 10.847999999999999,
+       "fat": 0.384,
+       "fiber": 4.48,
+       "sugars": 7.5840000000000005,
+       "satFat": 0.0512,
+       "sodiumMg": 110.4
+      }
+     },
+     {
+      "ingId": "pepper-red",
+      "grams": 140,
+      "note": "strips",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 140,
+      "n": {
+       "kcal": 36.4,
+       "protein": 1.386,
+       "carbs": 5.502000000000001,
+       "fat": 0.42,
+       "fiber": 2.94,
+       "sugars": 5.88,
+       "satFat": 0.08259999999999999,
+       "sodiumMg": 5.6
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 160,
+      "note": "sticks",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 160,
+      "n": {
+       "kcal": 24,
+       "protein": 1.04,
+       "carbs": 5.007999999999999,
+       "fat": 0.17600000000000002,
+       "fiber": 0.8,
+       "sugars": 2.6719999999999997,
+       "satFat": 0.0592,
+       "sodiumMg": 3.2
+      }
+     },
+     {
+      "ingId": "tomato-cherry",
+      "grams": 120,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 21.6,
+       "protein": 1.056,
+       "carbs": 3.2280000000000006,
+       "fat": 0.24,
+       "fiber": 1.44,
+       "sugars": 3.1559999999999997,
+       "satFat": 0.0336,
+       "sodiumMg": 6
+      }
+     }
+    ]
+   },
+   {
+    "id": "eggs",
+    "label": "Hard-boiled eggs (2 per portion)",
+    "storage": "egg-dish",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 200,
+    "cookedG": 200,
+    "boxG": 100,
+    "totals": {
+     "kcal": 310,
+     "protein": 25.2,
+     "carbs": 2.2,
+     "fat": 21.2,
+     "fiber": 0,
+     "sugars": 2.2,
+     "satFat": 6.6,
+     "sodiumMg": 248
+    },
+    "lines": [
+     {
+      "ingId": "egg-boiled",
+      "grams": 200,
+      "note": "4 eggs from the Sunday batch",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 200,
+      "n": {
+       "kcal": 310,
+       "protein": 25.2,
+       "carbs": 2.2,
+       "fat": 21.2,
+       "fiber": 0,
+       "sugars": 2.2,
+       "satFat": 6.6,
+       "sodiumMg": 248
+      }
+     }
+    ]
+   },
+   {
+    "id": "cheese",
+    "label": "Queso de Burgos 0% (2 tubs)",
+    "storage": "proposed:sealed-pack",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 257,
+    "cookedG": 257,
+    "boxG": 129,
+    "totals": {
+     "kcal": 223.19,
+     "protein": 30.09,
+     "carbs": 10.0142,
+     "fat": 7.0428,
+     "fiber": 0.425,
+     "sugars": 9.7909,
+     "satFat": 1.0939899999999998,
+     "sodiumMg": 910.37
+    },
+    "lines": [
+     {
+      "ingId": "burgos-0",
+      "grams": 250,
+      "note": "2 tubs of 62.5 g per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 250,
+      "n": {
+       "kcal": 167.5,
+       "protein": 30,
+       "carbs": 9.75,
+       "fat": 1,
+       "fiber": 0,
+       "sugars": 9.75,
+       "satFat": 0.25,
+       "sodiumMg": 910
+      }
+     },
+     {
+      "ingId": "oil-olive",
+      "grams": 6,
+      "note": "a drizzle with oregano (3 g per portion)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 6,
+      "n": {
+       "kcal": 53.04,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 6,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 0.82848,
+       "sodiumMg": 0.12
+      }
+     },
+     {
+      "ingId": "oregano",
+      "grams": 1,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 2.65,
+       "protein": 0.09,
+       "carbs": 0.2642,
+       "fat": 0.042800000000000005,
+       "fiber": 0.425,
+       "sugars": 0.0409,
+       "satFat": 0.01551,
+       "sodiumMg": 0.25
+      }
+     }
+    ]
+   },
+   {
+    "id": "picos",
+    "label": "Wholemeal picos",
+    "storage": "proposed:bread",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 60,
+    "cookedG": 60,
+    "boxG": 30,
+    "totals": {
+     "kcal": 227.4,
+     "protein": 8.4,
+     "carbs": 36.54,
+     "fat": 3.84,
+     "fiber": 6.6,
+     "sugars": 1.86,
+     "satFat": 0.48,
+     "sodiumMg": 504
+    },
+    "lines": [
+     {
+      "ingId": "picos",
+      "grams": 60,
+      "note": "30 g per portion",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 227.4,
+       "protein": 8.4,
+       "carbs": 36.54,
+       "fat": 3.84,
+       "fiber": 6.6,
+       "sugars": 1.86,
+       "satFat": 0.48,
+       "sodiumMg": 504
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 2.2,
+   "batch": 4.41,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "hummus",
+    "label": "Hummus de garbanzos Hacendado receta clásica (made by Simply Greek)",
+    "grams": 140,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "80858",
+     "name": "Hummus de garbanzos Hacendado receta clásica",
+     "packPrice": 1.05,
+     "packG": 240,
+     "pack": "240 g",
+     "eurPerG": 0.004375,
+     "url": "https://tienda.mercadona.es/product/80858/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.6125
+   },
+   {
+    "ingId": "carrot",
+    "label": "Carrot, raw",
+    "grams": 160,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69586",
+     "name": "Zanahorias",
+     "packPrice": 1,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.001,
+     "url": "https://tienda.mercadona.es/product/69586/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.16
+   },
+   {
+    "ingId": "pepper-red",
+    "label": "Red bell pepper, raw",
+    "grams": 140,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69310",
+     "name": "Pimiento rojo",
+     "packPrice": 0.64,
+     "packG": 220,
+     "pack": "220 g",
+     "eurPerG": 0.0029090909090909093,
+     "url": "https://tienda.mercadona.es/product/69310/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.4072727272727273
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 160,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.27428571428571424
+   },
+   {
+    "ingId": "tomato-cherry",
+    "label": "Cherry tomatoes, raw (USDA tomato, red, ripe)",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69990",
+     "name": "Tomates cherry",
+     "packPrice": 2.2,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0044,
+     "url": "https://tienda.mercadona.es/product/69990/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.528
+   },
+   {
+    "ingId": "egg-boiled",
+    "label": "Egg, hard-boiled (1 large egg = 50 g edible)",
+    "grams": 200,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "31504",
+     "name": "Huevos grandes L",
+     "packPrice": 3.05,
+     "packG": 600,
+     "pack": "12 × 50 g edible",
+     "eurPerG": 0.005083333333333333,
+     "url": "https://tienda.mercadona.es/product/31504/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.0166666666666666
+   },
+   {
+    "ingId": "burgos-0",
+    "label": "Queso fresco de Burgos desnatado 0% Hacendado (4 × 62.5 g tubs)",
+    "grams": 250,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "52409",
+     "name": "Queso fresco Burgos desnatado 0% MG Hacendado",
+     "packPrice": 1.15,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0046,
+     "url": "https://tienda.mercadona.es/product/52409/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.15
+   },
+   {
+    "ingId": "oil-olive",
+    "label": "Olive oil",
+    "grams": 6,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4240",
+     "name": "Aceite de oliva 0,4º Hacendado",
+     "packPrice": 3.7,
+     "packG": 910,
+     "pack": "1 l",
+     "eurPerG": 0.004065934065934066,
+     "url": "https://tienda.mercadona.es/product/4240/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.024395604395604394
+   },
+   {
+    "ingId": "oregano",
+    "label": "Oregano, dried",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "5598",
+     "name": "Orégano Hacendado",
+     "packPrice": 1,
+     "packG": 25,
+     "pack": "25 g",
+     "eurPerG": 0.04,
+     "url": "https://tienda.mercadona.es/product/5598/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.04
+   },
+   {
+    "ingId": "picos",
+    "label": "Picos 100% integral Hacendado (wholemeal breadsticks)",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "86215",
+     "name": "Picos 100% integral de trigo Hacendado",
+     "packPrice": 0.8,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0032,
+     "url": "https://tienda.mercadona.es/product/86215/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.192
+   }
+  ]
+ },
+ "med-protein-hummus-veg-sticks-box": {
+  "id": "med-protein-hummus-veg-sticks-box",
+  "n": 37,
+  "file": "research/yusuf/recipes/37-protein-hummus-veg-sticks.mjs",
+  "effort": "assemble",
+  "minutes": 8,
+  "slot": "snacks",
+  "serving": "box",
+  "boxes": 2,
+  "rawG": 651,
+  "cookedG": 651,
+  "yield": 1,
+  "per100g": {
+   "kcal": 84,
+   "protein": 4.8,
+   "carbs": 6.6,
+   "fat": 3.7,
+   "fiber": 2.3,
+   "sugars": 3.2,
+   "satFat": 0.6,
+   "sodium": 105
+  },
+  "addedFatPer100g": 0,
+  "tableKcalPer100g": 81,
+  "energyGapPct": -3.2,
+  "box": {
+   "grams": 326,
+   "kcal": 274,
+   "protein": 15.6,
+   "carbs": 21.5,
+   "fat": 12.1,
+   "fiber": 7.5
+  },
+  "halfBoxG": 163,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "dip",
+    "label": "Hummus whipped with queso fresco batido",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 351,
+    "cookedG": 351,
+    "boxG": 176,
+    "totals": {
+     "kcal": 369.34,
+     "protein": 26.096400000000003,
+     "carbs": 16.910899999999998,
+     "fat": 21.8529,
+     "fiber": 6.779000000000001,
+     "sugars": 9.535400000000001,
+     "satFat": 3.4053999999999998,
+     "sodiumMg": 424.78000000000003
+    },
+    "lines": [
+     {
+      "ingId": "hummus",
+      "grams": 80,
+      "note": "40 g per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 80,
+      "n": {
+       "kcal": 244.72,
+       "protein": 5.12,
+       "carbs": 6.96,
+       "fat": 20.4,
+       "fiber": 6.4,
+       "sugars": 0.08,
+       "satFat": 3.12,
+       "sodiumMg": 320
+      }
+     },
+     {
+      "ingId": "queso-batido",
+      "grams": 260,
+      "note": "130 g per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 260,
+      "n": {
+       "kcal": 119.6,
+       "protein": 20.8,
+       "carbs": 9.1,
+       "fat": 1.3,
+       "fiber": 0,
+       "sugars": 9.1,
+       "satFat": 0.26,
+       "sodiumMg": 104
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 10,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 10,
+      "n": {
+       "kcal": 2.2,
+       "protein": 0.035,
+       "carbs": 0.66,
+       "fat": 0.024,
+       "fiber": 0.03,
+       "sugars": 0.252,
+       "satFat": 0.004,
+       "sodiumMg": 0.1
+      }
+     },
+     {
+      "ingId": "paprika",
+      "grams": 1,
+      "note": "on top",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 2.82,
+       "protein": 0.1414,
+       "carbs": 0.19090000000000004,
+       "fat": 0.12890000000000001,
+       "fiber": 0.349,
+       "sugars": 0.10339999999999999,
+       "satFat": 0.021400000000000002,
+       "sodiumMg": 0.68
+      }
+     }
+    ]
+   },
+   {
+    "id": "veg",
+    "label": "Veg sticks",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 280,
+    "cookedG": 280,
+    "boxG": 140,
+    "totals": {
+     "kcal": 84.2,
+     "protein": 2.4960000000000004,
+     "carbs": 13.944,
+     "fat": 0.6539999999999999,
+     "fiber": 5.76,
+     "sugars": 10.89,
+     "satFat": 0.11959999999999998,
+     "sodiumMg": 88
+    },
+    "lines": [
+     {
+      "ingId": "carrot",
+      "grams": 120,
+      "note": "sticks",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 49.2,
+       "protein": 1.116,
+       "carbs": 8.136000000000001,
+       "fat": 0.288,
+       "fiber": 3.36,
+       "sugars": 5.688000000000001,
+       "satFat": 0.0384,
+       "sodiumMg": 82.8
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 60,
+      "note": "sticks (half a cucumber)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 60,
+      "n": {
+       "kcal": 9,
+       "protein": 0.39,
+       "carbs": 1.878,
+       "fat": 0.066,
+       "fiber": 0.3,
+       "sugars": 1.0019999999999998,
+       "satFat": 0.022199999999999998,
+       "sodiumMg": 1.2
+      }
+     },
+     {
+      "ingId": "pepper-red",
+      "grams": 100,
+      "note": "strips",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 100,
+      "n": {
+       "kcal": 26,
+       "protein": 0.99,
+       "carbs": 3.93,
+       "fat": 0.3,
+       "fiber": 2.1,
+       "sugars": 4.2,
+       "satFat": 0.059,
+       "sodiumMg": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "picos",
+    "label": "Wholemeal picos",
+    "storage": "proposed:bread",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 20,
+    "cookedG": 20,
+    "boxG": 10,
+    "totals": {
+     "kcal": 75.8,
+     "protein": 2.8,
+     "carbs": 12.18,
+     "fat": 1.28,
+     "fiber": 2.2,
+     "sugars": 0.62,
+     "satFat": 0.16,
+     "sodiumMg": 168
+    },
+    "lines": [
+     {
+      "ingId": "picos",
+      "grams": 20,
+      "note": "10 g per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 20,
+      "n": {
+       "kcal": 75.8,
+       "protein": 2.8,
+       "carbs": 12.18,
+       "fat": 1.28,
+       "fiber": 2.2,
+       "sugars": 0.62,
+       "satFat": 0.16,
+       "sodiumMg": 168
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 0.78,
+   "batch": 1.57,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "hummus",
+    "label": "Hummus de garbanzos Hacendado receta clásica (made by Simply Greek)",
+    "grams": 80,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "80858",
+     "name": "Hummus de garbanzos Hacendado receta clásica",
+     "packPrice": 1.05,
+     "packG": 240,
+     "pack": "240 g",
+     "eurPerG": 0.004375,
+     "url": "https://tienda.mercadona.es/product/80858/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.35000000000000003
+   },
+   {
+    "ingId": "queso-batido",
+    "label": "Queso fresco batido desnatado 0% Hacendado (whipped fresh cheese)",
+    "grams": 260,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "51071",
+     "name": "Queso fresco batido desnatado 0% MG Hacendado",
+     "packPrice": 1.1,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0022,
+     "url": "https://tienda.mercadona.es/product/51071/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.5720000000000001
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 10,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.048543689320388335
+   },
+   {
+    "ingId": "paprika",
+    "label": "Paprika (pimentón dulce)",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "60573",
+     "name": "Pimentón dulce Hacendado",
+     "packPrice": 1.3,
+     "packG": 75,
+     "pack": "75 g",
+     "eurPerG": 0.017333333333333333,
+     "url": "https://tienda.mercadona.es/product/60573/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.017333333333333333
+   },
+   {
+    "ingId": "carrot",
+    "label": "Carrot, raw",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69586",
+     "name": "Zanahorias",
+     "packPrice": 1,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.001,
+     "url": "https://tienda.mercadona.es/product/69586/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.12
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 60,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.10285714285714286
+   },
+   {
+    "ingId": "pepper-red",
+    "label": "Red bell pepper, raw",
+    "grams": 100,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69310",
+     "name": "Pimiento rojo",
+     "packPrice": 0.64,
+     "packG": 220,
+     "pack": "220 g",
+     "eurPerG": 0.0029090909090909093,
+     "url": "https://tienda.mercadona.es/product/69310/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.29090909090909095
+   },
+   {
+    "ingId": "picos",
+    "label": "Picos 100% integral Hacendado (wholemeal breadsticks)",
+    "grams": 20,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "86215",
+     "name": "Picos 100% integral de trigo Hacendado",
+     "packPrice": 0.8,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0032,
+     "url": "https://tienda.mercadona.es/product/86215/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.064
+   }
+  ]
+ },
+ "intl-protein-chia-pudding-pomegranate-jar": {
+  "id": "intl-protein-chia-pudding-pomegranate-jar",
+  "n": 38,
+  "file": "research/yusuf/recipes/38-chia-pudding-pomegranate.mjs",
+  "effort": "assemble",
+  "minutes": 8,
+  "slot": "snacks",
+  "serving": "jar",
+  "boxes": 3,
+  "rawG": 826,
+  "cookedG": 826,
+  "yield": 1,
+  "per100g": {
+   "kcal": 81,
+   "protein": 7.4,
+   "carbs": 5.8,
+   "fat": 2.5,
+   "fiber": 2.7,
+   "sugars": 5.2,
+   "satFat": null,
+   "sodium": 10
+  },
+  "addedFatPer100g": 0,
+  "tableKcalPer100g": 81,
+  "energyGapPct": -0.2,
+  "box": {
+   "grams": 275,
+   "kcal": 223,
+   "protein": 20.4,
+   "carbs": 16,
+   "fat": 6.9,
+   "fiber": 7.4
+  },
+  "halfBoxG": 138,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 3,
+  "components": [
+   {
+    "id": "pudding",
+    "label": "Chia set in protein yogurt and milk",
+    "storage": "overnight-oats",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 676,
+    "cookedG": 676,
+    "boxG": 225,
+    "totals": {
+     "kcal": 543.37,
+     "protein": 58.2429,
+     "carbs": 26.1589,
+     "fat": 18.975399999999997,
+     "fiber": 16.011,
+     "sugars": 22.4317,
+     "satFat": 1.9519499999999999,
+     "sodiumMg": 77.5
+    },
+    "lines": [
+     {
+      "ingId": "chia",
+      "grams": 45,
+      "note": "15 g per jar",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 45,
+      "n": {
+       "kcal": 218.7,
+       "protein": 7.443,
+       "carbs": 3.4739999999999998,
+       "fat": 13.833,
+       "fiber": 15.48,
+       "sugars": 0,
+       "satFat": 1.4985,
+       "sodiumMg": 7.2
+      }
+     },
+     {
+      "ingId": "protein-yogurt",
+      "grams": 450,
+      "note": "150 g per jar",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 450,
+      "n": {
+       "kcal": 234,
+       "protein": 45,
+       "carbs": 13.95,
+       "fat": 2.25,
+       "fiber": 0,
+       "sugars": 13.95,
+       "satFat": 0.45,
+       "sodiumMg": 0
+      }
+     },
+     {
+      "ingId": "milk-semi",
+      "grams": 180,
+      "note": "60 g per jar",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 180,
+      "n": {
+       "kcal": 88.2,
+       "protein": 5.76,
+       "carbs": 8.46,
+       "fat": 2.88,
+       "fiber": 0,
+       "sugars": 8.46,
+       "satFat": 0,
+       "sodiumMg": 70.2
+      }
+     },
+     {
+      "ingId": "cinnamon",
+      "grams": 1,
+      "note": "or vanilla",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 2.47,
+       "protein": 0.039900000000000005,
+       "carbs": 0.27490000000000003,
+       "fat": 0.0124,
+       "fiber": 0.531,
+       "sugars": 0.0217,
+       "satFat": 0.00345,
+       "sodiumMg": 0.1
+      }
+     }
+    ]
+   },
+   {
+    "id": "fruit",
+    "label": "Pomegranate arils (added in the morning)",
+    "storage": "proposed:whole-fruit",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 150,
+    "cookedG": 150,
+    "boxG": 50,
+    "totals": {
+     "kcal": 124.5,
+     "protein": 2.55,
+     "carbs": 22.05,
+     "fat": 1.8,
+     "fiber": 6,
+     "sugars": 20.55,
+     "satFat": 0.15,
+     "sodiumMg": 4.5
+    },
+    "lines": [
+     {
+      "ingId": "pomegranate",
+      "grams": 150,
+      "note": "50 g per jar",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 150,
+      "n": {
+       "kcal": 124.5,
+       "protein": 2.55,
+       "carbs": 22.05,
+       "fat": 1.8,
+       "fiber": 6,
+       "sugars": 20.55,
+       "satFat": 0.15,
+       "sodiumMg": 4.5
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 0.9,
+   "batch": 2.69,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "chia",
+    "label": "Chia seeds, dry",
+    "grams": 45,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "5464",
+     "name": "Semillas de chía Hacendado",
+     "packPrice": 1.45,
+     "packG": 150,
+     "pack": "150 g",
+     "eurPerG": 0.009666666666666667,
+     "url": "https://tienda.mercadona.es/product/5464/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.435
+   },
+   {
+    "ingId": "protein-yogurt",
+    "label": "Postre lácteo natural +Proteínas 10 g 0% MG (Mercadona skyr-style high-protein pot)",
+    "grams": 450,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "21256",
+     "name": "Postre lácteo natural +Proteínas 10 g 0% MG",
+     "packPrice": 1.4,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0028,
+     "url": "https://tienda.mercadona.es/product/21256/",
+     "date": "2026-10-13"
+    },
+    "cost": 1.26
+   },
+   {
+    "ingId": "milk-semi",
+    "label": "Leche semidesnatada Hacendado (UHT, 1.55% fat)",
+    "grams": 180,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "10382",
+     "name": "Leche semidesnatada Hacendado",
+     "packPrice": 0.83,
+     "packG": 1030,
+     "pack": "1 l",
+     "eurPerG": 0.0008058252427184466,
+     "url": "https://tienda.mercadona.es/product/10382/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.14504854368932038
+   },
+   {
+    "ingId": "cinnamon",
+    "label": "Cinnamon (stick or ground)",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34177",
+     "name": "Canela molida Hacendado",
+     "packPrice": 1,
+     "packG": 52,
+     "pack": "52 g",
+     "eurPerG": 0.019230769230769232,
+     "url": "https://tienda.mercadona.es/product/34177/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.019230769230769232
+   },
+   {
+    "ingId": "pomegranate",
+    "label": "Granada, arils (1 fruit = 282 g arils)",
+    "grams": 150,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "3915",
+     "name": "Granada",
+     "packPrice": 1.56,
+     "packG": 282,
+     "pack": "1 × 282 g edible",
+     "eurPerG": 0.005531914893617021,
+     "url": "https://tienda.mercadona.es/product/3915/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.8297872340425532
+   }
+  ]
+ },
+ "pk-chana-chaat-dahi-snack-box": {
+  "id": "pk-chana-chaat-dahi-snack-box",
+  "n": 39,
+  "file": "research/yusuf/recipes/39-chana-chaat-dahi-snack.mjs",
+  "effort": "assemble",
+  "minutes": 10,
+  "slot": "snacks",
+  "serving": "box",
+  "boxes": 2,
+  "rawG": 638,
+  "cookedG": 638,
+  "yield": 1,
+  "per100g": {
+   "kcal": 81,
+   "protein": 6.9,
+   "carbs": 8.9,
+   "fat": 1.3,
+   "fiber": 3.1,
+   "sugars": 3.5,
+   "satFat": 0.1,
+   "sodium": 88
+  },
+  "addedFatPer100g": 0,
+  "tableKcalPer100g": 83,
+  "energyGapPct": 2.7,
+  "box": {
+   "grams": 319,
+   "kcal": 258,
+   "protein": 22,
+   "carbs": 28.4,
+   "fat": 4.1,
+   "fiber": 9.9
+  },
+  "halfBoxG": 160,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "chaat",
+    "label": "Chana chaat",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 397,
+    "cookedG": 397,
+    "boxG": 199,
+    "totals": {
+     "kcal": 402.03,
+     "protein": 19.959,
+     "carbs": 48.9129,
+     "fat": 7.105500000000001,
+     "fiber": 19.854000000000003,
+     "sugars": 14.898,
+     "satFat": 0.63311,
+     "sodiumMg": 560.18
+    },
+    "lines": [
+     {
+      "ingId": "chickpeas-jar",
+      "grams": 260,
+      "note": "drained, rinsed (about two-thirds of the jar)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 260,
+      "n": {
+       "kcal": 358.8,
+       "protein": 18.304000000000002,
+       "carbs": 43.082,
+       "fat": 6.422000000000001,
+       "fiber": 16.38,
+       "sugars": 10.4,
+       "satFat": 0.5538,
+       "sodiumMg": 551.2
+      }
+     },
+     {
+      "ingId": "tomato",
+      "grams": 80,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 80,
+      "n": {
+       "kcal": 14.4,
+       "protein": 0.7040000000000001,
+       "carbs": 2.1520000000000006,
+       "fat": 0.16,
+       "fiber": 0.96,
+       "sugars": 2.1039999999999996,
+       "satFat": 0.022400000000000003,
+       "sodiumMg": 4
+      }
+     },
+     {
+      "ingId": "onion-red",
+      "grams": 30,
+      "note": "finely chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 30,
+      "n": {
+       "kcal": 13.2,
+       "protein": 0.282,
+       "carbs": 2.319,
+       "fat": 0.03,
+       "fiber": 0.66,
+       "sugars": 1.7279999999999998,
+       "satFat": 0,
+       "sodiumMg": 0.3
+      }
+     },
+     {
+      "ingId": "coriander",
+      "grams": 6,
+      "note": "chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 6,
+      "n": {
+       "kcal": 1.38,
+       "protein": 0.1278,
+       "carbs": 0.0522,
+       "fat": 0.031200000000000002,
+       "fiber": 0.16799999999999998,
+       "sugars": 0.052199999999999996,
+       "satFat": 0.00084,
+       "sodiumMg": 2.76
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 15,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 15,
+      "n": {
+       "kcal": 3.3,
+       "protein": 0.0525,
+       "carbs": 0.9900000000000001,
+       "fat": 0.036,
+       "fiber": 0.045,
+       "sugars": 0.37799999999999995,
+       "satFat": 0.006,
+       "sodiumMg": 0.15
+      }
+     },
+     {
+      "ingId": "chaat-masala",
+      "grams": 3,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 3,
+      "n": {
+       "kcal": 9.75,
+       "protein": 0.42869999999999997,
+       "carbs": 0.07889999999999986,
+       "fat": 0.4203,
+       "fiber": 1.5960000000000003,
+       "sugars": 0.0828,
+       "satFat": 0.04944,
+       "sodiumMg": 1.56
+      }
+     },
+     {
+      "ingId": "green-chilli",
+      "grams": 3,
+      "note": "optional",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 3,
+      "n": {
+       "kcal": 1.2,
+       "protein": 0.06,
+       "carbs": 0.2388,
+       "fat": 0.006000000000000001,
+       "fiber": 0.045,
+       "sugars": 0.153,
+       "satFat": 0.00063,
+       "sodiumMg": 0.21
+      }
+     }
+    ]
+   },
+   {
+    "id": "dahi",
+    "label": "Protein dahi pot",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": true,
+    "rawG": 241,
+    "cookedG": 241,
+    "boxG": 121,
+    "totals": {
+     "kcal": 128.55,
+     "protein": 24.1781,
+     "carbs": 7.7774,
+     "fat": 1.4226999999999999,
+     "fiber": 0.105,
+     "sugars": 7.4625,
+     "satFat": 0.25534999999999997,
+     "sodiumMg": 1.68
+    },
+    "lines": [
+     {
+      "ingId": "protein-yogurt",
+      "grams": 240,
+      "note": "120 g per box",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 240,
+      "n": {
+       "kcal": 124.8,
+       "protein": 24,
+       "carbs": 7.44,
+       "fat": 1.2,
+       "fiber": 0,
+       "sugars": 7.44,
+       "satFat": 0.24,
+       "sodiumMg": 0
+      }
+     },
+     {
+      "ingId": "cumin",
+      "grams": 1,
+      "note": "roasted, ground",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 3.75,
+       "protein": 0.17809999999999998,
+       "carbs": 0.33740000000000003,
+       "fat": 0.2227,
+       "fiber": 0.105,
+       "sugars": 0.0225,
+       "satFat": 0.015349999999999999,
+       "sodiumMg": 1.68
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 0.94,
+   "batch": 1.89,
+   "complete": false,
+   "partialMajor": false,
+   "unpriced": [
+    {
+     "ingId": "chaat-masala",
+     "grams": 3,
+     "why": "no current price found"
+    },
+    {
+     "ingId": "green-chilli",
+     "grams": 3,
+     "why": "no current price found"
+    }
+   ],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "chickpeas-jar",
+    "label": "Chickpeas, canned/jarred, drained and rinsed (Hacendado garbanzo cocido, 570 g jar = 400 g drained)",
+    "grams": 260,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "26029",
+     "name": "Garbanzo cocido Hacendado",
+     "packPrice": 0.8,
+     "packG": 400,
+     "pack": "570 g (400 g drained)",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/26029/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.52
+   },
+   {
+    "ingId": "tomato",
+    "label": "Tomato, raw",
+    "grams": 80,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69971",
+     "name": "Tomates",
+     "packPrice": 4.2,
+     "packG": 2000,
+     "pack": "2000 g",
+     "eurPerG": 0.0021000000000000003,
+     "url": "https://tienda.mercadona.es/product/69971/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.16800000000000004
+   },
+   {
+    "ingId": "onion-red",
+    "label": "Red onion, raw (cebolla morada)",
+    "grams": 30,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69153",
+     "name": "Cebollas morada",
+     "packPrice": 2,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/69153/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.06
+   },
+   {
+    "ingId": "coriander",
+    "label": "Fresh coriander (cilantro) leaves",
+    "grams": 6,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69690",
+     "name": "Cilantro",
+     "packPrice": 1.25,
+     "packG": 20,
+     "pack": "20 g",
+     "eurPerG": 0.0625,
+     "url": "https://tienda.mercadona.es/product/69690/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.375
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 15,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.0728155339805825
+   },
+   {
+    "ingId": "chaat-masala",
+    "label": "Chaat masala",
+    "grams": 3,
+    "shop": "desi",
+    "price": {
+     "shop": "desi",
+     "name": "Chaat masala",
+     "eurPerG": null,
+     "date": "2026-10-13"
+    }
+   },
+   {
+    "ingId": "green-chilli",
+    "label": "Green chilli, raw",
+    "grams": 3,
+    "shop": "desi",
+    "price": {
+     "shop": "desi",
+     "name": "Green chillies (hari mirch)",
+     "eurPerG": null,
+     "date": "2026-10-13"
+    }
+   },
+   {
+    "ingId": "protein-yogurt",
+    "label": "Postre lácteo natural +Proteínas 10 g 0% MG (Mercadona skyr-style high-protein pot)",
+    "grams": 240,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "21256",
+     "name": "Postre lácteo natural +Proteínas 10 g 0% MG",
+     "packPrice": 1.4,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0028,
+     "url": "https://tienda.mercadona.es/product/21256/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.672
+   },
+   {
+    "ingId": "cumin",
+    "label": "Cumin (seeds or ground)",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34120",
+     "name": "Comino molido Hacendado",
+     "packPrice": 1.15,
+     "packG": 58,
+     "pack": "58 g",
+     "eurPerG": 0.01982758620689655,
+     "url": "https://tienda.mercadona.es/product/34120/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.01982758620689655
+   }
+  ]
+ },
+ "es-lentejas-atun-burgos-salad-box": {
+  "id": "es-lentejas-atun-burgos-salad-box",
+  "n": 40,
+  "file": "research/yusuf/recipes/40-lentil-burgos-tuna-salad.mjs",
+  "effort": "assemble",
+  "minutes": 12,
+  "slot": "lunch",
+  "serving": "box",
+  "boxes": 2,
+  "rawG": 1341,
+  "cookedG": 1341,
+  "yield": 1,
+  "per100g": {
+   "kcal": 87,
+   "protein": 7,
+   "carbs": 6.6,
+   "fat": 3,
+   "fiber": 2.7,
+   "sugars": 1.7,
+   "satFat": 0.5,
+   "sodium": 254
+  },
+  "addedFatPer100g": 2.5,
+  "tableKcalPer100g": 85,
+  "energyGapPct": -1.8,
+  "box": {
+   "grams": 671,
+   "kcal": 584,
+   "protein": 47,
+   "carbs": 44.3,
+   "fat": 20.1,
+   "fiber": 18.1
+  },
+  "halfBoxG": 336,
+  "targets": {
+   "kcal": true,
+   "protein": true,
+   "fiber": true
+  },
+  "fridgeDays": 2,
+  "components": [
+   {
+    "id": "salad",
+    "label": "Lentils, tuna and vegetables",
+    "storage": "cold-salad",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 1216,
+    "cookedG": 1216,
+    "boxG": 608,
+    "totals": {
+     "kcal": 1062.12,
+     "protein": 78.70600000000002,
+     "carbs": 83.5289,
+     "fat": 39.07630000000001,
+     "fiber": 35.998000000000005,
+     "sugars": 17.6919,
+     "satFat": 5.981789999999999,
+     "sodiumMg": 2951.66
+    },
+    "lines": [
+     {
+      "ingId": "lentils-jar",
+      "grams": 600,
+      "note": "1½ jars, drained and rinsed (300 g per box)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 600,
+      "n": {
+       "kcal": 534,
+       "protein": 49.2,
+       "carbs": 64.2,
+       "fat": 2.4,
+       "fiber": 29.4,
+       "sugars": 3,
+       "satFat": 0.6,
+       "sodiumMg": 2400
+      }
+     },
+     {
+      "ingId": "tuna",
+      "grams": 120,
+      "note": "2 cans atún claro al natural, drained (60 g per box)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 118.5,
+       "protein": 25.2,
+       "carbs": 1.08,
+       "fat": 1.44,
+       "fiber": 0,
+       "sugars": 0.6,
+       "satFat": 0.48,
+       "sodiumMg": 528
+      }
+     },
+     {
+      "ingId": "pepper-red",
+      "grams": 120,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 120,
+      "n": {
+       "kcal": 31.2,
+       "protein": 1.188,
+       "carbs": 4.716,
+       "fat": 0.36,
+       "fiber": 2.52,
+       "sugars": 5.04,
+       "satFat": 0.0708,
+       "sodiumMg": 4.8
+      }
+     },
+     {
+      "ingId": "cucumber",
+      "grams": 100,
+      "note": "diced",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 100,
+      "n": {
+       "kcal": 15,
+       "protein": 0.65,
+       "carbs": 3.13,
+       "fat": 0.11,
+       "fiber": 0.5,
+       "sugars": 1.67,
+       "satFat": 0.037,
+       "sodiumMg": 2
+      }
+     },
+     {
+      "ingId": "tomato-cherry",
+      "grams": 160,
+      "note": "halved",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 160,
+      "n": {
+       "kcal": 28.8,
+       "protein": 1.4080000000000001,
+       "carbs": 4.304000000000001,
+       "fat": 0.32,
+       "fiber": 1.92,
+       "sugars": 4.207999999999999,
+       "satFat": 0.044800000000000006,
+       "sodiumMg": 8
+      }
+     },
+     {
+      "ingId": "onion-red",
+      "grams": 40,
+      "note": "finely chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 40,
+      "n": {
+       "kcal": 17.6,
+       "protein": 0.37599999999999995,
+       "carbs": 3.092,
+       "fat": 0.04,
+       "fiber": 0.88,
+       "sugars": 2.304,
+       "satFat": 0,
+       "sodiumMg": 0.4
+      }
+     },
+     {
+      "ingId": "parsley",
+      "grams": 10,
+      "note": "chopped",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 10,
+      "n": {
+       "kcal": 3.6,
+       "protein": 0.29700000000000004,
+       "carbs": 0.30300000000000005,
+       "fat": 0.079,
+       "fiber": 0.33,
+       "sugars": 0.085,
+       "satFat": 0.0132,
+       "sodiumMg": 5.6
+      }
+     },
+     {
+      "ingId": "oil-olive",
+      "grams": 34,
+      "note": "extra virgin, 17 g per box (the Burgos brings almost no fat)",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 34,
+      "n": {
+       "kcal": 300.56,
+       "protein": 0,
+       "carbs": 0,
+       "fat": 34,
+       "fiber": 0,
+       "sugars": 0,
+       "satFat": 4.69472,
+       "sodiumMg": 0.68
+      }
+     },
+     {
+      "ingId": "lemon-juice",
+      "grams": 30,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 30,
+      "n": {
+       "kcal": 6.6,
+       "protein": 0.105,
+       "carbs": 1.9800000000000002,
+       "fat": 0.072,
+       "fiber": 0.09,
+       "sugars": 0.7559999999999999,
+       "satFat": 0.012,
+       "sodiumMg": 0.3
+      }
+     },
+     {
+      "ingId": "cumin",
+      "grams": 1,
+      "note": "ground",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 3.75,
+       "protein": 0.17809999999999998,
+       "carbs": 0.33740000000000003,
+       "fat": 0.2227,
+       "fiber": 0.105,
+       "sugars": 0.0225,
+       "satFat": 0.015349999999999999,
+       "sodiumMg": 1.68
+      }
+     },
+     {
+      "ingId": "black-pepper",
+      "grams": 1,
+      "note": "",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 1,
+      "n": {
+       "kcal": 2.51,
+       "protein": 0.1039,
+       "carbs": 0.38650000000000007,
+       "fat": 0.0326,
+       "fiber": 0.253,
+       "sugars": 0.0064,
+       "satFat": 0.013919999999999998,
+       "sodiumMg": 0.2
+      }
+     }
+    ]
+   },
+   {
+    "id": "cheese",
+    "label": "Queso de Burgos 0% (1 tub per box)",
+    "storage": "proposed:sealed-pack",
+    "eat": "cold",
+    "pot": null,
+    "rawG": 125,
+    "cookedG": 125,
+    "boxG": 63,
+    "totals": {
+     "kcal": 83.75,
+     "protein": 15,
+     "carbs": 4.875,
+     "fat": 0.5,
+     "fiber": 0,
+     "sugars": 4.875,
+     "satFat": 0.125,
+     "sodiumMg": 455
+    },
+    "lines": [
+     {
+      "ingId": "burgos-0",
+      "grams": 125,
+      "note": "2 tubs of 62.5 g (1 per box), crumbled over at lunch",
+      "yieldKey": "none",
+      "yield": 1,
+      "cookedG": 125,
+      "n": {
+       "kcal": 83.75,
+       "protein": 15,
+       "carbs": 4.875,
+       "fat": 0.5,
+       "fiber": 0,
+       "sugars": 4.875,
+       "satFat": 0.125,
+       "sodiumMg": 455
+      }
+     }
+    ]
+   }
+  ],
+  "cost": {
+   "perBox": 2.59,
+   "batch": 5.19,
+   "complete": true,
+   "partialMajor": false,
+   "unpriced": [],
+   "mercadonaDate": "2026-10-13",
+   "otherDate": "2026-10-13"
+  },
+  "shopping": [
+   {
+    "ingId": "lentils-jar",
+    "label": "Lenteja cocida Hacendado (570 g jar = 400 g drained), drained and rinsed",
+    "grams": 600,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "26030",
+     "name": "Lenteja cocida Hacendado",
+     "packPrice": 0.9,
+     "packG": 400,
+     "pack": "570 g (400 g drained)",
+     "eurPerG": 0.0022500000000000003,
+     "url": "https://tienda.mercadona.es/product/26030/",
+     "date": "2026-10-14"
+    },
+    "cost": 1.35
+   },
+   {
+    "ingId": "tuna",
+    "label": "Atún claro al natural Hacendado, drained (6 × 60 g drained)",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "18018",
+     "name": "Atún claro al natural Hacendado",
+     "packPrice": 4.2,
+     "packG": 360,
+     "pack": "480 g (360 g drained)",
+     "eurPerG": 0.011666666666666667,
+     "url": "https://tienda.mercadona.es/product/18018/",
+     "date": "2026-10-13"
+    },
+    "cost": 1.4000000000000001
+   },
+   {
+    "ingId": "pepper-red",
+    "label": "Red bell pepper, raw",
+    "grams": 120,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69310",
+     "name": "Pimiento rojo",
+     "packPrice": 0.64,
+     "packG": 220,
+     "pack": "220 g",
+     "eurPerG": 0.0029090909090909093,
+     "url": "https://tienda.mercadona.es/product/69310/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.3490909090909091
+   },
+   {
+    "ingId": "cucumber",
+    "label": "Cucumber, with peel, raw",
+    "grams": 100,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69584",
+     "name": "Pepino",
+     "packPrice": 0.36,
+     "packG": 210,
+     "pack": "210 g",
+     "eurPerG": 0.0017142857142857142,
+     "url": "https://tienda.mercadona.es/product/69584/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.17142857142857143
+   },
+   {
+    "ingId": "tomato-cherry",
+    "label": "Cherry tomatoes, raw (USDA tomato, red, ripe)",
+    "grams": 160,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69990",
+     "name": "Tomates cherry",
+     "packPrice": 2.2,
+     "packG": 500,
+     "pack": "500 g",
+     "eurPerG": 0.0044,
+     "url": "https://tienda.mercadona.es/product/69990/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.7040000000000001
+   },
+   {
+    "ingId": "onion-red",
+    "label": "Red onion, raw (cebolla morada)",
+    "grams": 40,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69153",
+     "name": "Cebollas morada",
+     "packPrice": 2,
+     "packG": 1000,
+     "pack": "1000 g",
+     "eurPerG": 0.002,
+     "url": "https://tienda.mercadona.es/product/69153/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.08
+   },
+   {
+    "ingId": "parsley",
+    "label": "Fresh parsley",
+    "grams": 10,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "69701",
+     "name": "Perejil troceado lavado",
+     "packPrice": 0.95,
+     "packG": 40,
+     "pack": "40 g",
+     "eurPerG": 0.02375,
+     "url": "https://tienda.mercadona.es/product/69701/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.2375
+   },
+   {
+    "ingId": "oil-olive",
+    "label": "Olive oil",
+    "grams": 34,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4240",
+     "name": "Aceite de oliva 0,4º Hacendado",
+     "packPrice": 3.7,
+     "packG": 910,
+     "pack": "1 l",
+     "eurPerG": 0.004065934065934066,
+     "url": "https://tienda.mercadona.es/product/4240/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.13824175824175824
+   },
+   {
+    "ingId": "lemon-juice",
+    "label": "Lemon juice (1 lemon yields 48 g, USDA)",
+    "grams": 30,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "4903",
+     "name": "Limón exprimido Hacendado",
+     "packPrice": 1.4,
+     "packG": 288.40000000000003,
+     "pack": "0.28 l",
+     "eurPerG": 0.004854368932038834,
+     "url": "https://tienda.mercadona.es/product/4903/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.145631067961165
+   },
+   {
+    "ingId": "cumin",
+    "label": "Cumin (seeds or ground)",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34120",
+     "name": "Comino molido Hacendado",
+     "packPrice": 1.15,
+     "packG": 58,
+     "pack": "58 g",
+     "eurPerG": 0.01982758620689655,
+     "url": "https://tienda.mercadona.es/product/34120/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.01982758620689655
+   },
+   {
+    "ingId": "black-pepper",
+    "label": "Black pepper",
+    "grams": 1,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "34171",
+     "name": "Pimienta negra molida Hacendado",
+     "packPrice": 1.3,
+     "packG": 70,
+     "pack": "70 g",
+     "eurPerG": 0.018571428571428572,
+     "url": "https://tienda.mercadona.es/product/34171/",
+     "date": "2026-10-13"
+    },
+    "cost": 0.018571428571428572
+   },
+   {
+    "ingId": "burgos-0",
+    "label": "Queso fresco de Burgos desnatado 0% Hacendado (4 × 62.5 g tubs)",
+    "grams": 125,
+    "shop": "mercadona",
+    "price": {
+     "shop": "mercadona",
+     "id": "52409",
+     "name": "Queso fresco Burgos desnatado 0% MG Hacendado",
+     "packPrice": 1.15,
+     "packG": 250,
+     "pack": "250 g",
+     "eurPerG": 0.0046,
+     "url": "https://tienda.mercadona.es/product/52409/",
+     "date": "2026-10-14"
+    },
+    "cost": 0.575
    }
   ]
  }
