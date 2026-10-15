@@ -4,7 +4,7 @@
   "phase": "Sprint 2 · Recipes & meal prep",
   "sprint": 2,
   "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
-  "updatedAt": "2026-10-15T15:44:00Z",
+  "updatedAt": "2026-10-15T15:50:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -26,8 +26,8 @@
     },
     "lena": {
       "location": "office",
-      "status": "working",
-      "task": "Sprint 2 done incl. BUG-TC1 and quick-amount ingredient entry"
+      "status": "idle",
+      "task": "Fix wave 2 done (Meeting 004 A)"
     },
     "ayesha": {
       "location": "office",
@@ -51,8 +51,8 @@
     },
     "kenji": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: gate M2, e2e A16-A18 (144 pass, 0 fail)"
+      "status": "working",
+      "task": "Tests for fix wave 2"
     },
     "zainab": {
       "location": "office",
@@ -82,14 +82,14 @@
   },
   "inFlight": [
     {
-      "member": "lena",
-      "task": "Sprint 2 fix wave (Meeting 004 A1-A5, A7, A8): partial work committed in ebda7b2",
-      "output": "app/** (not data), tests/unit/dev/**"
-    },
-    {
       "member": "priya",
       "task": "Design refinements (Meeting 004 B): partial work committed in ebda7b2",
       "output": "totals-bar.js, icons.js, tokens.css, base.css, views.css, main.js shell, welcome.js, day.js"
+    },
+    {
+      "member": "kenji",
+      "task": "Update meal-prep e2e for new wording; independent tests for search ranking, quantities, weekly shopping list, search note, family pot; perf test verdict",
+      "output": "tests/**"
     }
   ],
   "checkIn": {
@@ -173,11 +173,6 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
-    {
-      "member": "kenji",
-      "task": "e2e for new/moved testids; tests for weekly list merge and search ranking (after Lena)",
-      "output": "tests/**"
-    },
     {
       "member": "omar",
       "task": "Republish app (preview v3) after fix wave; Report #2 to the Boss",

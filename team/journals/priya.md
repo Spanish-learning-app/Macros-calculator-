@@ -113,3 +113,18 @@ Timestamps are UTC.
   "+"; empty day; week). At 13:30 Lunch is fully under the fold: the macro panel (~230 px) and the
   3-line Tonight card push Breakfast to y≈640. Plan: strip in sticky bar, panel collapsed behind it,
   Tonight in one line, empty card, tab icons, tick/"Added" via CSS + day.js (no add-sheet.js edit).
+- 2026-10-15 (resume after the usage limit) Code on disk already had items 1–7: strip + folded panel
+  (`totals-bar.js`), one-line Tonight, tab icons with filled pill (`renderShell`), "Added" tick on the
+  sheet row + status line (CSS + `day.js` `markAdded`, reduced-motion = no animation), tabular nums,
+  `--text-faint` #5e5246 (7.0:1) / #b3a796 (7.9:1), empty-day card (`empty-day`, `empty-search`),
+  katori mark in header/welcome/empty card, open at the current meal. Shots had failed: the Tonight
+  row widened the page (grid track + its sr-only sentence) so the FAB sat off screen.
+- Fixes: `.day-prep .prep-tonight` gets `minmax(0,1fr)` and `.tonight-text` `position: relative`
+  (page is 360 wide at 360 again); copy buttons keep one-line labels (`nowrap`, stack when cramped);
+  `main.js` view host scrolls to top when the tab changes (Day scrolls itself to the meal, and that
+  leaked into Week). Shot script reloads before the empty-day shot.
+- After-shots re-taken (400×860, light/dark) next to the befores; 360×740 probe: no overflow,
+  no target under 44 px, Lunch at y=161 after the open-at-meal scroll. `npm run check` green.
+- e2e: 28 fails, all `meal-prep.spec.js` "N of 4 left" vs Lena's new "4 to eat · 1 eaten" wording
+  (fix-wave item 3, not mine). With those strings swapped in a temp copy the spec passes (22/22
+  phone+small), so my Tonight/Day changes hold. Spec update left for Lena/Kenji.

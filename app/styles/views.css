@@ -528,7 +528,9 @@
 }
 
 .day-tools .btn {
-  flex: 1 1 150px;
+  flex: 1 1 auto; /* side by side at 360 px, never a two-line label */
+  padding-inline: var(--space-3);
+  white-space: nowrap;
 }
 
 /* Phones: a docked, opaque bar above the navigation, full width, so the add button never floats
@@ -1676,6 +1678,7 @@
 }
 
 .day-prep .tonight-text {
+  position: relative; /* holds its sr-only sentence, which would otherwise widen the page */
   flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
