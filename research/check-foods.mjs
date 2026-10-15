@@ -40,7 +40,7 @@ const ID_PREFIXES = ['pk-', 'es-', 'med-', 'intl-'];
 const RESTAURANT_STYLES = new Set(['restaurant', 'dhaba', 'street']);
 
 const KEYS = {
-  record: new Set(['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'serve', 'tags', 'slots', 'halal', 'source']),
+  record: new Set(['id', 'name', 'shortName', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'serve', 'tags', 'slots', 'halal', 'source']),
   per100g: new Set(['kcal', 'protein', 'carbs', 'fat', 'fiber', 'sugars', 'satFat', 'sodium']),
   serving: new Set(['id', 'label', 'labelUr', 'grams', 'default']),
   source: new Set(['citation', 'method', 'confidence', 'reviewer', 'date', 'notes']),
@@ -333,6 +333,19 @@ function checkRecord(f, ctx) {
   if (f.serve !== undefined) {
     if (!['cold', 'hot', 'either'].includes(f.serve)) F('G10', `serve must be 'cold', 'hot' or 'either'`);
     if (f.group !== 'lunchbox') W('G20', 'serve is for meal-prep records (group lunchbox)');
+  }
+
+  // G24 shortName (rules v1.7, Meeting 005 e): optional; plain words, at most N characters, no brackets
+  if (f.shortName !== undefined) {
+    const sn = V.fieldRules.shortName;
+    if (typeof f.shortName !== 'string' || !f.shortName.trim()) F('G24', 'shortName must be a non-empty string when present');
+    else {
+      if (f.shortName !== f.shortName.trim() || /\s{2,}/.test(f.shortName)) F('G24', `shortName "${f.shortName}" has extra spaces`);
+      if ([...f.shortName].length > sn.maxChars) F('G24', `shortName "${f.shortName}" is ${[...f.shortName].length} characters (max ${sn.maxChars})`);
+      const bad = [...sn.forbiddenChars].filter((c) => f.shortName.includes(c));
+      if (bad.length) F('G24', `shortName "${f.shortName}" must be plain words (no ${bad.join(' ')})`);
+      if (sn.mustBeShorterThanName && isStr(f.name) && [...f.shortName].length >= [...f.name].length) F('G24', `shortName "${f.shortName}" is not shorter than name`);
+    }
   }
 
   // G20 unknown top-level keys

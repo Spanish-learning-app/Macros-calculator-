@@ -663,6 +663,14 @@ export default {
       assumedPlate: { ids: ['plate', 'half-plate'], labelMustInclude: 'assumed', katoriMultipleStep: 0.5, tolerancePct: 2 },
     },
 
+    // Optional record fields with their own rules (Meeting 005 e). Checked by gate G24.
+    // shortName: what a narrow row shows instead of `name` (the full name stays in search and detail).
+    // At most 22 characters, plain words: no brackets of any kind, no leading/trailing spaces, and it
+    // must be shorter than `name`. Written by the record's researcher.
+    fieldRules: {
+      shortName: { maxChars: 22, forbiddenChars: '()[]{}', mustBeShorterThanName: true },
+    },
+
     // ---------------------------------------------------------------- vocabularies
     // record.tags: every tag must be listed here. Rules: at least one `cuisine` tag; `vegan`
     // requires `vegetarian`; at most one `seafood` tag (use the most restrictive one in the dish:
@@ -744,6 +752,9 @@ export default {
       { id: 'restaurant', label: 'Restaurant', labelRoman: 'Restaurant' },
       { id: 'dhaba', label: 'Dhaba', labelRoman: 'Dhaba' },
       { id: 'street', label: 'Street stall', labelRoman: 'Thela' },
+      // Sprint 3 (Meeting 005 d): a home recipe cooked with less oil. Always paired with a 'home'
+      // record of the same family; derived from that record's recipe sheet (see kamTel below, G25).
+      { id: 'home-light', label: 'Kam tel (less oil)', labelRoman: 'Kam tel' },
     ],
 
     sourceMethods: [
