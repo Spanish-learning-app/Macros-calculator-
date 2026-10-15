@@ -1,0 +1,71 @@
+// R-MP-55 · Chickpea shakshuka with bread and yogurt (dinner portion). Sauce batch of 4; eggs cooked on the night.
+export default {
+  n: 55,
+  slot: 'dinner',
+  serving: 'portion',
+  boxes: 4,
+  effort: 'cook',
+  minutes: 20,
+  cuisine: 'middle-eastern',
+  shortName: 'Chickpea shakshuka',
+  id: 'me-shakshuka-garbanzos-portion',
+  name: 'Chickpea shakshuka with eggs, bread and yogurt (dinner portion)',
+  names: {
+    en: 'Chickpea shakshuka with eggs, bread and yogurt',
+    es: 'Shakshuka de garbanzos con huevos, pan y yogur',
+    ca: 'Shakshuka de cigrons amb ous, pa i iogurt',
+  },
+  aliases: ['shakshuka', 'shakshouka', 'chakchouka', 'eggs in tomato sauce', 'huevos en salsa de tomate', 'chickpea shakshuka', 'ous amb tomaquet'],
+  pitch: 'A spiced pepper, tomato and chickpea sauce from the freezer; crack two eggs into it on the night and dip bread. Eight minutes at dinner.',
+  eat: 'hot',
+  tags: ['middle-eastern', 'meal-prep', 'contains-egg', 'vegetarian'],
+  references: [
+    { title: 'Food Network Kitchen, Shakshuka with chickpeas', url: 'https://www.foodnetwork.com/recipes/food-network-kitchen/shakshuka-with-chickpeas-3363804.amp', used: 'cumin, canned chickpeas, diced tomatoes with chiles and 8 eggs for 4; served with pita and a yogurt sauce', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Pulses.org, Shakshuka with chickpeas', url: 'https://www.pulses.org/recipes/recipe/234-shakshuka-with-chickpeas', used: 'green pepper, paprika and tomato paste; eggs poached covered 5–7 min; serves 4–6', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'sauce', label: 'Pepper, tomato and chickpea sauce', storage: 'cooked-curry', yield: 'none', eat: 'hot',
+      lines: [
+        ['oil-olive', 20, ''],
+        ['onion', 200, 'sliced', 'onionSoft'],
+        ['pepper-red', 300, 'strips', 'pepperStew'],
+        ['garlic', 9, '', 'onionSoft'],
+        ['tomato-crushed', 800, '', 'vegStew'],
+        ['chickpeas-jar', 400, '1 jar, drained'],
+        ['cumin', 4, ''],
+        ['paprika', 6, ''],
+        ['chilli-powder', 1, ''],
+        ['salt', 3, ''],
+      ],
+    },
+    {
+      id: 'eggs', label: 'Eggs poached in the sauce (2 per portion, on the night)', storage: 'egg-dish', yield: 'eggSet', eat: 'hot',
+      lines: [['egg', 400, '8 eggs']],
+    },
+    {
+      id: 'yogurt', label: 'Yogurt pot', storage: 'cold-salad', pot: true, yield: 'none', eat: 'cold',
+      lines: [['yogurt-greek-light', 240, '60 g per portion']],
+    },
+    {
+      id: 'bread', label: 'Bread (½ bocadillo roll per portion)', storage: 'proposed:bread', yield: 'none', eat: 'hot',
+      lines: [['bocadillo-bread', 260, '2 rolls']],
+    },
+  ],
+  method: [
+    'Soften onion and pepper in the oil 8 min; add garlic and spices for 1 min.',
+    'Add the tomato and chickpeas; simmer 15 min until thick. Cool and freeze in 4 portions.',
+    'On the night: heat one portion in a small pan, make 2 wells, crack in 2 eggs, cover and cook 6–8 min. Serve with yogurt and ½ roll.',
+  ],
+  keeps: 'Sauce 3 days or 3 months frozen; eggs cooked fresh',
+  storagePlan: 'Freeze the sauce in 4 portions; take one down the night before. The eggs are cracked in on the night (they are counted in the portion).',
+  reheat: 'The sauce is brought to a simmer before the eggs go in; cook until the whites are set.',
+  crossCheck: null,
+  changes: [
+    'Chickpeas and yogurt bring 2 eggs a portion to 30 g protein or more.',
+    'Half a bocadillo roll (no emulsifier) replaces the pita for dipping.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Bognár yields for the vegetables and the egg (scrambled-egg row, nearest); USDA and label values.',
+  halal: { status: 'halal', reason: 'Vegetables, chickpeas, eggs, yogurt and a roll of flour, water, yeast and salt.' },
+};

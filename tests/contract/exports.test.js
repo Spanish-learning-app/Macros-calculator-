@@ -68,7 +68,7 @@ const CONTRACT = {
       averageTotals: 1,
       slotForTime: 2,
     },
-    constants: ['SLOT_IDS', 'DEFAULT_SLOT_LABELS'],
+    constants: ['SLOT_IDS', 'ENTRY_SLOT_IDS', 'DEFAULT_SLOT_LABELS'],
   },
   targets: {
     functions: {
@@ -143,6 +143,35 @@ const CONTRACT = {
     },
     constants: [],
   },
+  // Sprint 3 wave 2, ARCHITECTURE §15: Ramadan mode and protein tips.
+  ramadan: {
+    functions: {
+      parseTime: 1,
+      timeText: 1,
+      ramadanModeProblems: 1,
+      defaultStartDate: 1,
+      ramadanRange: 1,
+      isRamadanDay: 2,
+      ramadanTimes: 3,
+      ramadanDayStart: 3,
+      loggingDate: 3,
+      ramadanSlots: 1,
+      sehriProteinGoal: 3,
+      ramadanFlagNotes: 2,
+    },
+    constants: ['RAMADAN_DAYS', 'RAMADAN_SLOT_IDS'],
+  },
+  nudges: {
+    functions: {
+      nudgeSettingsProblems: 1,
+      tipsOn: 3,
+      dueCheckpoint: 4,
+      proteinTip: 1,
+      sehriTip: 1,
+      tipIdeas: 3,
+    },
+    constants: [],
+  },
 };
 
 for (const [name, spec] of Object.entries(CONTRACT)) {
@@ -166,6 +195,8 @@ test('binding constants match the kickoff minutes', async () => {
   const storage = await import('../../app/core/storage.js');
   const foods = await import('../../app/core/foods.js');
   assert.deepEqual(days.SLOT_IDS, ['breakfast', 'lunch', 'evening', 'dinner', 'snacks']);
+  // DECISIONS 2026-10-15: one global set of entry slot ids (Ramadan ids are additive).
+  assert.deepEqual(days.ENTRY_SLOT_IDS, [...days.SLOT_IDS, 'sehri', 'iftar', 'after_taraweeh']);
   assert.deepEqual(days.DEFAULT_SLOT_LABELS, {
     breakfast: 'Nashta',
     lunch: 'Lunch',

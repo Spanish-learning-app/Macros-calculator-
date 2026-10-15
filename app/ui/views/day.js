@@ -13,6 +13,7 @@ import { createUndoToast } from '../components/toast.js';
 import { addDays, fmtDateShort, fmtDateLong, relativeDay } from '../components/format.js';
 import { useByText, boxWord, frozenDueText, pluralWord } from '../components/prep-bits.js';
 import { rowName } from '../components/food-bits.js';
+import { renderTipCard, renderRamadanBar, renderFluidsLine } from '../components/day-tips.js';
 
 /**
  * @param {HTMLElement} container
@@ -114,7 +115,7 @@ export function mount(container, ctx) {
         type: 'button',
         class: 'btn btn-quiet empty-day-search',
         'data-testid': 'empty-search',
-        onclick: () => openAdd(store.defaultSlot()),
+        onclick: () => openAdd(store.defaultSlot(date)),
       },
       iconEl('search', 18),
       h('span', null, 'Search foods'),
@@ -126,7 +127,7 @@ export function mount(container, ctx) {
       type: 'button',
       class: 'fab',
       'data-testid': 'add-food',
-      onclick: () => openAdd(store.defaultSlot()),
+      onclick: () => openAdd(store.defaultSlot(date)),
     },
     iconEl('plus', 24),
     h('span', null, 'Add food'),
@@ -150,7 +151,7 @@ export function mount(container, ctx) {
         tools,
         h('div', { class: 'fab-bar' }, fab),
       ),
-      h('div', { class: 'day-main' }, prepBox, emptyCard, slotsBox),
+      h('div', { class: 'day-main' }, tipBox, prepBox, emptyCard, slotsBox),
     ),
     toast.el,
   );
@@ -312,12 +313,19 @@ export function mount(container, ctx) {
     openActionSheet({ title: label, actions, testid: 'slot-menu' });
   }
 
+  /** This day's meals, then the everyday ones (a Ramadan day can copy from a normal day). */
+  function copyFromSlots() {
+    const list = store.slots(date);
+    const ids = new Set(list.map((s) => s.id));
+    return [...list, ...store.slots().filter((s) => !ids.has(s.id))];
+  }
+
   function copySlotFrom(slot) {
     const field = dateField(addDays(date, -1), 'From day');
     const from = h(
       'select',
       { class: 'select' },
-      store.slots().map((s) => h('option', { value: s.id, selected: s.id === slot }, s.label)),
+      copyFromSlots().map((s) => h('option', { value: s.id, selected: s.id === slot }, s.label)),
     );
     const handle = openDialog({
       title: `Copy into ${store.slotLabel(slot)}`,
@@ -537,14 +545,18 @@ export function mount(container, ctx) {
     slotsBox.classList.toggle('slots--compact', empty);
     const bySlot = store.totals(date).all.bySlot;
     const hideKcal = Boolean(store.settings().hideCalories);
+    const tip = date === today ? store.proteinTip(date) : null;
+    const ramadan = store.dayPreset(date) === 'ramadan' ? store.ramadan(date) : null;
+    renderTop(tip, ramadan);
     mountChildren(
       slotsBox,
-      store.slots().map(({ id, label }) =>
+      store.slots(date).map(({ id, label }) =>
         renderSlotSection({
           slot: id,
           label,
           entries: day.entries.filter((e) => e.slot === id),
-          subtotal: bySlot[id],
+          subtotal: bySlot[id] ?? ZERO,
+          aside: slotAside(id, tip, ramadan, today),
           store,
           rules,
           hideKcal,
@@ -562,6 +574,75 @@ export function mount(container, ctx) {
     if (focusKey && !document.querySelector('dialog[open]')) {
       container.querySelector(`[data-focus-key="${CSS.escape(focusKey)}"]`)?.focus();
     }
+  }
+
+  // ------------------------------------------------------------------ tips and Ramadan (Sprint 3)
+
+  const tipBox = h('div', { class: 'day-tips' });
+  let shownKey = null;
+
+  /** The Ramadan line and health notes, and today's protein tip (not the sehri one: its slot). */
+  function renderTop(tip, ramadan) {
+    mountChildren(
+      tipBox,
+      ramadan?.isDay ? renderRamadanBar({ info: ramadan, router }) : null,
+      tip && tip.kind !== 'sehri' ? tipCard(tip) : null,
+    );
+    if (tip && tip.key !== shownKey) {
+      shownKey = tip.key;
+      // After this render: recording "shown" re-renders the view once (idempotent).
+      queueMicrotask(() => store.markTipShown(tip.key));
+    }
+    if (!tip) shownKey = null;
+  }
+
+  function tipCard(tip) {
+    return renderTipCard({
+      tip,
+      rules,
+      hideKcal: Boolean(store.settings().hideCalories),
+      onIdea: (idea) => openIdea(idea, tip.suggestFor),
+      onNotToday: () => store.tipNotToday(),
+      onTurnOff: () => {
+        store.setTipsOn(false);
+        toast.notify('Protein tips are off. You can turn them on again in Profile.');
+      },
+    });
+  }
+
+  /** One tap on an idea: the portion picker for that food, set to the idea's serving. */
+  function openIdea(idea, slot) {
+    openPortionPicker({
+      store,
+      rules,
+      food: idea.food,
+      servingId: idea.servingId,
+      qty: idea.qty,
+      slot,
+      date,
+      mode: 'add',
+      onAdd: ({ foodId, servingId, qty }) =>
+        store.addFood({ date, slot, foodId: foodId ?? idea.food.id, servingId, qty }),
+    });
+  }
+
+  /** What a slot shows under its heading: the sehri tip, or the fluids line (§12.4, §12.5). */
+  function slotAside(slot, tip, ramadan, today) {
+    if (tip?.kind === 'sehri' && slot === 'sehri') return tipCard(tip);
+    if (
+      ramadan?.isDay &&
+      date === today &&
+      ramadan.fluids &&
+      !ramadan.fluidsHidden &&
+      ramadan.fluidsSlots.includes(slot)
+    ) {
+      return renderFluidsLine({
+        text: ramadan.fluids,
+        slot,
+        onHide: () => store.hideFluidsToday(),
+      });
+    }
+    return null;
   }
 
   /** "Tonight": frozen boxes for tomorrow, one tap each (A18 step 4). Only on today's page. */
@@ -689,7 +770,7 @@ export function mount(container, ctx) {
   function planSpare(s, word, today) {
     const tomorrow = addDays(today, 1);
     const days = s.kind === 'frozen' ? [tomorrow] : s.kind === 'soon' ? [today, tomorrow] : [today];
-    const slots = store.slots().filter((x) => x.id !== 'snacks');
+    const slots = store.slots(days[0]).filter((x) => x.id !== 'snacks');
     openActionSheet({
       title: `Plan ${word} ${s.number}`,
       testid: 'spare-plan-sheet',
@@ -726,7 +807,7 @@ export function mount(container, ctx) {
     if (date !== store.today()) return;
     requestAnimationFrame(() => {
       if (userScrolled || !root.isConnected || sheet) return;
-      const section = slotsBox.querySelector(`[data-testid="slot-${store.defaultSlot()}"]`);
+      const section = slotsBox.querySelector(`[data-testid="slot-${store.defaultSlot(date)}"]`);
       if (!section) return;
       // What covers the page: the sticky totals (phones) or the sticky tab bar (wide), and the
       // docked add bar plus the tab bar at the bottom (phones).
@@ -846,6 +927,8 @@ export function mount(container, ctx) {
     },
   };
 }
+
+const ZERO = Object.freeze({ kcal: 0, protein: 0, carbs: 0, fat: 0, fiber: 0 });
 
 function capitalize(word) {
   return word.charAt(0).toUpperCase() + word.slice(1);

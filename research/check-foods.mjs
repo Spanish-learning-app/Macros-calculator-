@@ -64,6 +64,22 @@ const LARD_QUALIFIERS = V.banned.lardQualifiers.map(wordRe);
 const HALAL_STATUSES = new Map(V.halalStatuses.map((h) => [h.id, h]));
 const NOT_HALAL = V.halalRules.notHalal;
 const NOT_HALAL_REASON = NOT_HALAL.reasonMustMention.map(wordRe);
+// Rules 1.7.1: a reason saying an alcoholic ingredient is LISTED ("the label lists red wine",
+// "made with mirin") on a halal/check record. Hedged clauses ("may", "often", "some"), negations
+// ("no wine") and vinegar ("wine vinegar") do not count. One sentence at a time.
+const ALC = V.halalRules.alcoholIngredient;
+const ALC_LISTED = new RegExp(
+  `(?<![\\p{L}\\p{N}])(?:${ALC.listedVerbs.map(escapeRe).join('|')})(?:\\s+[\\p{L}()]+){0,3}?\\s+\\(?(${ALC.words.map(escapeRe).join('|')})(?![\\p{L}\\p{N}])(?!\\)?\\s+(?:${ALC.notWhenFollowedBy.map(escapeRe).join('|')}))`,
+  'iu',
+);
+const ALC_HEDGE = /(?<![\p{L}])(?:may|might|can|could|often|some|sometimes|usually|possibly|no|not|without|never|ask)(?![\p{L}])/iu;
+const listedAlcohol = (reason) => {
+  for (const sentence of reason.split(/(?<=[.;!?])\s+/)) {
+    const m = ALC_LISTED.exec(sentence);
+    if (m && !ALC_HEDGE.test(sentence.slice(0, m.index + m[0].length))) return m[1];
+  }
+  return null;
+};
 
 const isNum = (v) => typeof v === 'number' && Number.isFinite(v);
 const isStr = (v) => typeof v === 'string' && v.trim().length > 0;
@@ -267,8 +283,11 @@ function checkRecord(f, ctx) {
     for (const k of Object.keys(h)) if (!KEYS.halal.has(k)) W('G20', `unknown halal key "${k}"`);
     if (h.status === 'not-halal') {
       if (NOT_HALAL.forbiddenGroups.includes(f.group)) F('G21', `not-halal is only for non-meat foods with lard; group "${f.group}" is not allowed (pork meat stays out)`);
-      if (isStr(h.reason) && !NOT_HALAL_REASON.some((re) => re.test(h.reason))) F('G21', `not-halal reason must name the lard (${NOT_HALAL.reasonMustMention.join(' / ')})`);
+      if (isStr(h.reason) && !NOT_HALAL_REASON.some((re) => re.test(h.reason))) F('G21', `not-halal reason must name the lard or the alcoholic ingredient (${NOT_HALAL.reasonMustMention.join(' / ')})`);
       if (Array.isArray(f.slots) && f.slots.length) W('G21', 'not-halal foods are never suggested: slot hints are ignored');
+    } else if (def && isStr(h.reason)) {
+      const alc = listedAlcohol(h.reason);
+      if (alc) F('G21', `the reason says "${alc}" is a listed ingredient: an alcoholic ingredient makes the food "not-halal" (rules 1.7.1; fermentation traces stay "check", wine vinegar stays "halal")`);
     }
   }
 

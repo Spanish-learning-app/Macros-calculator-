@@ -160,7 +160,8 @@ qa('createEntry refuses bad input', [createEntry], () => {
   }
   assertThrowsKind(() => createEntry({ ...ok, servingId: 'plate' }), RangeError, 'serving');
   assertThrowsKind(() => createEntry({ ...ok, slot: 'brunch' }), RangeError, 'slot');
-  assertThrowsKind(() => createEntry({ ...ok, slot: 'sehri' }), RangeError, 'Ramadan slot (S3)');
+  // DECISIONS 2026-10-15 (Ramadan mode storage, Lena wave 2): Ramadan ids are valid entry slots.
+  assert.equal(createEntry({ ...ok, slot: 'sehri' }).slot, 'sehri', 'Ramadan slot (S3)');
   assertThrowsKind(() => createEntry({ ...ok, status: 'done' }), RangeError, 'status');
   assertBadInput(() => createEntry({ ...ok, food: null }), 'no food');
 });

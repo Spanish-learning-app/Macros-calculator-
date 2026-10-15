@@ -1,0 +1,80 @@
+// R-MP-49 · Asian chicken and quinoa salad with peanuts and a ginger-lime dressing (lunch box, cold). Batch: 2 boxes.
+export default {
+  n: 49,
+  serving: 'box',
+  boxes: 2,
+  effort: 'cook',
+  minutes: 20,
+  cuisine: 'asian',
+  shortName: 'Asian chicken quinoa',
+  id: 'as-chicken-quinoa-peanut-salad-box',
+  name: 'Asian chicken and quinoa salad with peanuts and ginger dressing (cold lunch box)',
+  names: {
+    en: 'Asian chicken and quinoa salad with peanuts and a ginger dressing',
+    es: 'Ensalada asiática de quinoa y pollo con cacahuetes y aliño de jengibre',
+    ca: 'Amanida asiàtica de quinoa i pollastre amb cacauets i amaniment de gingebre',
+  },
+  aliases: ['quinoa salad', 'asian salad', 'chicken quinoa salad', 'ensalada de quinoa', 'peanut chicken salad', 'amanida de quinoa', 'crunchy asian salad'],
+  pitch: 'Ginger chicken, quinoa, crunchy carrot, cucumber and red pepper with roasted peanuts and a sweet-sour ginger dressing. No cooking for the grain: the quinoa comes in a cup.',
+  eat: 'cold',
+  tags: ['international', 'meal-prep', 'eat-cold'],
+  references: [
+    { title: 'Bread A DA, Crunchy Asian quinoa salad with peanut butter dressing', url: 'https://breada.org/recipe/crunchy-asian-quinoa-salad-with-peanut-butter-dressing', used: 'quinoa, chopped peanuts, cilantro and green onion; dressing of lime juice, soy sauce, ginger and a little sweetener', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Real Life Nutritionist, Quinoa edamame salad', url: 'https://reallifenutritionist.com/wprm_print/quinoa-edamame-salad', used: 'quinoa with crunchy vegetables and peanuts; peanut, soy, lime and sesame dressing thinned with water', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'chicken', label: 'Ginger-garlic chicken', storage: 'cooked-meat', yield: 'breastPanFried', eat: 'cold',
+      lines: [
+        ['chicken-breast', 280, 'strips'],
+        ['oil-sunflower', 6, ''],
+        ['ginger', 6, 'grated', 'onionSoft'],
+        ['garlic', 4, '', 'onionSoft'],
+        ['salt', 1, ''],
+      ],
+    },
+    {
+      id: 'quinoa', label: 'Quinoa cup (sealed, 1 per box)', storage: 'proposed:sealed-pack', yield: 'none', eat: 'cold',
+      lines: [['quinoa-cooked', 250, '1 pack of 2 × 125 g Sabroz cups']],
+    },
+    {
+      id: 'veg', label: 'Carrot, cucumber, red pepper, coriander and peanuts', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['carrot', 160, 'grated or in matchsticks'],
+        ['cucumber', 160, 'in matchsticks'],
+        ['pepper-red', 160, 'sliced thin'],
+        ['coriander', 10, 'chopped'],
+        ['peanuts', 30, 'roasted, no added salt; packed on top'],
+      ],
+    },
+    {
+      id: 'dressing', label: 'Ginger-lemon dressing pot', storage: 'cold-salad', pot: true, yield: 'none', eat: 'cold',
+      lines: [
+        ['soy-sauce-halal', 20, 'halal-certified'],
+        ['lemon-juice', 30, 'or lime'],
+        ['oil-sunflower', 10, ''],
+        ['ginger', 6, 'grated'],
+        ['sugar', 6, ''],
+        ['chilli-powder', 1, 'optional'],
+      ],
+    },
+  ],
+  method: [
+    'Toss the chicken with ginger, garlic and salt; sear in the oil 6 min (75 °C). Cool and slice.',
+    'Cut the vegetables; shake the dressing in a jar until the sugar dissolves.',
+    'Box chicken and vegetables with peanuts on top, a sealed quinoa cup and a dressing pot.',
+    'At lunch: tip the quinoa in, pour the dressing, toss.',
+  ],
+  keeps: '2 days in the fridge; quinoa cups to their date',
+  storagePlan: 'Make 2 boxes at a time. The quinoa cup stays sealed, so the box does not hit the 1-day rule for cooked grains.',
+  reheat: 'Not reheated. Eat within 2 h of leaving the fridge (1 h above 32 °C).',
+  crossCheck: null,
+  changes: [
+    'Whole roasted peanuts instead of peanut butter (Mercadona Barcelona had no peanut butter in its nut shelf on 2026-10-15): the same flavour and crunch.',
+    'Sealed quinoa cups: no pot to boil and no 1-day limit.',
+    'A halal-certified soy sauce is part of the recipe; with a soy sauce without the logo the box is check (alcohol from brewing).',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Chicken from Bognár; quinoa from USDA cooked quinoa (the cup\'s OFF label does not add up); USDA vegetables, peanuts and soy sauce.',
+  halal: { status: 'halal', reason: 'With a halal-certified soy sauce, as the recipe says. Brewed soy sauce can carry alcohol from fermentation, so with an uncertified bottle (Mercadona\'s Hacendado 17360 lists none, 2026-10-15) treat it as check.' },
+};

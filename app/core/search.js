@@ -2,7 +2,7 @@
 // Owner: Hamza. Contract: docs/ARCHITECTURE.md §5.6.
 
 import { isISODate, diffDays } from './dates.js';
-import { SLOT_IDS } from './days.js';
+import { ENTRY_SLOT_IDS } from './days.js';
 import { STYLES } from './foods.js';
 
 /** @typedef {import('./types.js').Food} Food */
@@ -343,7 +343,7 @@ export function recordUse(recents, use) {
     throw new TypeError('servingId must be a string');
   }
   if (!(Number.isFinite(qty) && qty > 0)) throw new RangeError(`qty must be > 0, got ${qty}`);
-  if (!SLOT_IDS.includes(slot)) throw new RangeError(`unknown slot '${slot}'`);
+  if (!ENTRY_SLOT_IDS.includes(slot)) throw new RangeError(`unknown slot '${slot}'`);
   if (!isISODate(date)) throw new RangeError(`date must be 'YYYY-MM-DD', got '${date}'`);
   const prev = recents?.[foodId];
   const slots = { ...(prev?.slots ?? {}) };

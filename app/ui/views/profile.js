@@ -10,6 +10,7 @@ import { fmtKcal, fmtGrams, fmtMinutes, ESTIMATE_LINE } from '../components/form
 import { targetNotes } from './welcome.js';
 import { renderMealNames } from '../components/meal-names.js';
 import { createWeightCard } from '../components/weight-card.js';
+import { createRamadanCard } from '../components/ramadan-card.js';
 
 const PRESET_NAMES = { default: 'Pakistani meal times', spain: 'Spanish meal times' };
 const KEYS = [
@@ -324,6 +325,7 @@ export function mount(container, ctx) {
   }
   let presetHelp = null;
   let weightCard = null;
+  let ramadanCard = null;
 
   function foodCard() {
     const toggle = h('input', {
@@ -350,6 +352,37 @@ export function mount(container, ctx) {
         'Hides foods whose usual recipe has lard. Search always tells you when something is hidden, and why.',
       ),
       seafoodField(),
+      tipsField(),
+    );
+  }
+
+  /** Protein tips (§13): at most one a day; the person's own switch. */
+  function tipsField() {
+    if (!rules.proteinNudges) return null;
+    const text = rules.proteinNudges.text ?? {};
+    const toggle = h('input', {
+      type: 'checkbox',
+      role: 'switch',
+      class: 'switch-input',
+      'data-testid': 'tips-toggle',
+      checked: store.tipsOn(),
+      onchange: () => store.setTipsOn(toggle.checked),
+    });
+    return h(
+      'div',
+      { class: 'field' },
+      h(
+        'label',
+        { class: 'switch switch--row' },
+        toggle,
+        h('span', { class: 'switch-track', 'aria-hidden': 'true' }),
+        h('span', null, text.profileToggle ?? 'Protein tips (at most one a day)'),
+      ),
+      h(
+        'p',
+        { class: 'field-help' },
+        'Some protein ideas on the Day view when you might want them. Days on track never show one.',
+      ),
     );
   }
 
@@ -453,6 +486,8 @@ export function mount(container, ctx) {
     presetHelp = meals.querySelector('.preset-help');
     weightCard?.destroy();
     weightCard = createWeightCard({ store, rules });
+    ramadanCard?.destroy();
+    ramadanCard = createRamadanCard({ store, rules });
     renderTargets();
     mountChildren(
       root,
@@ -496,6 +531,7 @@ export function mount(container, ctx) {
           'div',
           { class: 'profile-col' },
           meals,
+          ramadanCard.el,
           foodCard(),
           displayCard(),
           h(
@@ -542,6 +578,7 @@ export function mount(container, ctx) {
     unmount() {
       unsubscribe();
       weightCard?.destroy();
+      ramadanCard?.destroy();
       toast.destroy();
       container.replaceChildren();
     },

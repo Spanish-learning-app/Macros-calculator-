@@ -1611,5 +1611,58 @@
   "sugars": 4.9,
   "satFat": 7.723,
   "sodiumMg": 6
+ },
+ "tortilla-corn": {
+  "label": "Tortillas de maíz Hacendado (8 × 26 g)",
+  "src": "db",
+  "code": "intl-tortilla-corn",
+  "citation": "Lab record intl-tortilla-corn (USDA FDC SR Legacy 175036; direct, confidence B, javier 2026-10-15)",
+  "kcal": 218,
+  "protein": 5.7,
+  "carbs": 38.3,
+  "fat": 2.9,
+  "fiber": 6.3,
+  "sugars": 0.9,
+  "satFat": 0.5,
+  "sodiumMg": 45,
+  "halal": {
+   "status": "halal",
+   "reason": "Corn flour, water, gums, salt, sunflower oil and preservatives on the Mercadona label: no emulsifier E-471 (unlike its wheat wraps)."
+  }
+ },
+ "salsa-mexicana": {
+  "label": "Salsa Mexicana Hacendado (300 g jar, pico de gallo type)",
+  "src": "db",
+  "code": "es-salsa-mexicana",
+  "citation": "Lab record es-salsa-mexicana (Label: Mercadona Salsa Mexicana Hacendado, 300 g jar, read 2026-10-15; label, confidence B, javier 2026-10-15)",
+  "kcal": 38,
+  "protein": 1.4,
+  "carbs": 6.8,
+  "fat": 0.1,
+  "fiber": 2.1,
+  "sugars": 4.1,
+  "satFat": 0,
+  "sodiumMg": 360,
+  "halal": {
+   "status": "halal",
+   "reason": "Wine vinegar only (vinegar, not wine); no alcohol or animal ingredients on the Mercadona label."
+  }
+ },
+ "crema-verduras": {
+  "label": "Crema de verduras Hacendado (500 ml brik = 515 g)",
+  "src": "db",
+  "code": "es-crema-verduras-brik",
+  "citation": "Lab record es-crema-verduras-brik (Label: Mercadona Crema de verduras Hacendado, 500 ml brik, read 2026-10-15; label, confidence B, javier 2026-10-15)",
+  "kcal": 32,
+  "protein": 0.5,
+  "carbs": 4.8,
+  "fat": 1.3,
+  "fiber": 0.6,
+  "sugars": 1.1,
+  "satFat": 0.2,
+  "sodiumMg": 252,
+  "halal": {
+   "status": "halal"
+  }
  }
 }

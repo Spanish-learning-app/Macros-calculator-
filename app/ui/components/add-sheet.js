@@ -685,7 +685,9 @@ export function createAddSheet(props) {
     setText(title, `Add to ${label}`);
     setText(when, countsForText(date, store));
     slotSelect.replaceChildren(
-      ...store.slots().map((s) => h('option', { value: s.id, selected: s.id === slot }, s.label)),
+      ...store
+        .slots(date)
+        .map((s) => h('option', { value: s.id, selected: s.id === slot }, s.label)),
     );
     halalToggle.checked = Boolean(store.settings().halalOnly);
   }

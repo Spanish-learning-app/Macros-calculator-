@@ -7,7 +7,7 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.7.0',
+  version: '1.7.1',
   updated: '2026-10-15',
 
   // ---------------------------------------------------------------- energy
@@ -910,17 +910,41 @@ export default {
     // A recipe or box takes the WORST status of its ingredients (order: not-halal > check > halal).
     halalStatuses: [
       { id: 'halal', label: 'Halal', reasonRequired: false, description: 'Plant foods, dairy, eggs, fish, and meat from a halal butcher or with halal certification.' },
-      { id: 'check', label: 'Check', reasonRequired: true, description: 'Possible lard (pastries), gelatine, often cooked with wine, restaurant meat in Spain, imported product without a halal seal, or a label with an animal-derivable ingredient of unstated origin (rennet/cuajo in cheese, emulsifiers E-471/E-472).' },
-      { id: 'not-halal', label: 'Not halal', reasonRequired: true, description: 'Only non-meat foods whose standard recipe contains lard (e.g. ensaïmada). Never suggested; hidden by "Halal only".' },
+      { id: 'check', label: 'Check', reasonRequired: true, description: 'Possible lard (pastries), gelatine, often cooked with wine, restaurant meat in Spain, imported product without a halal seal, a label with an animal-derivable ingredient of unstated origin (rennet/cuajo in cheese, emulsifiers E-471/E-472, glycerine E-422), or a trace of alcohol from fermentation (brewed soy sauce).' },
+      { id: 'not-halal', label: 'Not halal', reasonRequired: true, description: 'Only non-meat foods whose standard recipe contains lard (e.g. ensaïmada), or whose label lists an alcoholic ingredient (wine, mirin, sake, beer, spirits; e.g. a teriyaki sauce with red wine). Never suggested; hidden by "Halal only".' },
     ],
     halalRules: {
       worstFirst: ['not-halal', 'check', 'halal'],
       halalOnlyFilterDefault: true, // the search filter "Halal only" starts ON
       notHalal: {
-        // A not-halal record must be a non-meat item whose standard recipe contains lard.
+        // A not-halal record must be a non-meat item whose standard recipe contains lard, or (rules
+        // 1.7.1) a product whose label lists an alcoholic ingredient. Its reason must name the
+        // ingredient: reasonMustMention = lardWords + alcoholIngredient.words (whole words, any case).
         forbiddenGroups: ['meat-fish', 'curry-meat', 'grill-kebab', 'lunchbox'],
-        reasonMustMention: ['lard', 'manteca', 'saïm', 'saim'],
+        reasonMustMention: [
+          'lard', 'manteca', 'saïm', 'saim',
+          'wine', 'vino', 'mirin', 'sake', 'beer', 'cerveza', 'spirits', 'rum', 'brandy', 'sherry',
+          'jerez', 'cognac', 'coñac', 'liqueur', 'licor', 'whisky', 'whiskey', 'vodka',
+        ],
         neverSuggested: true, // not in suggestions, templates or recipe pickers
+      },
+      // Rules 1.7.1 (alcohol as an ingredient). Alcoholic drinks themselves never ship (`banned`).
+      // - An ALCOHOLIC INGREDIENT listed on the label or in the standard recipe (wine, mirin, sake,
+      //   beer, spirits, cooking wine) → 'not-halal', reason names it (e.g. teriyaki with red wine).
+      // - A FERMENTATION TRACE (brewed soy sauce, vinegar-free ferments) → 'check', reason says so.
+      // - VINEGAR (wine vinegar, vinagre de vino, alcohol vinegar) → 'halal'; the alcohol has
+      //   become acid. A reason that says "wine vinegar" is never read as a listed alcohol.
+      // Gate G21: a 'halal' or 'check' reason that says the label lists / contains / is made with
+      // one of `words` (not followed by a `notWhenFollowedBy` word) fails: it must be 'not-halal'.
+      alcoholIngredient: {
+        words: [
+          'wine', 'vino', 'mirin', 'sake', 'beer', 'cerveza', 'spirits', 'rum', 'brandy', 'sherry',
+          'jerez', 'cognac', 'coñac', 'liqueur', 'licor', 'whisky', 'whiskey', 'vodka',
+        ],
+        listedVerbs: ['lists', 'listed', 'contains', 'made with', 'cooked with', 'includes', 'lleva', 'contiene'],
+        notWhenFollowedBy: ['vinegar', 'vinagre'],
+        traceStatus: 'check', // fermentation traces (brewed soy sauce)
+        vinegarStatus: 'halal',
       },
       // Seafood setting (onboarding question in Sprint 2). Records stay status 'halal'; the app
       // shows 'check' with seafoodNote when a food's seafood tag is outside the user's choice.

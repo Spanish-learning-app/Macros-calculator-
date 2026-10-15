@@ -149,7 +149,9 @@ test('createQuickEntry: no food record, missing macros are 0', () => {
   assert.throws(quick({ nutrients: { kcal: -5 } }), RangeError);
   assert.throws(quick({ nutrients: { kcal: 100, fat: NaN } }), RangeError);
   assert.throws(quick({ name: '  ' }), TypeError);
-  assert.throws(quick({ slot: 'sehri' }), RangeError);
+  assert.throws(quick({ slot: 'brunch' }), RangeError);
+  // DECISIONS 2026-10-15 (Ramadan mode storage): the Ramadan ids are valid entry slots.
+  assert.equal(quick({ slot: 'sehri' })().slot, 'sehri');
   assert.throws(quick({ nutrients: null }), TypeError);
 });
 

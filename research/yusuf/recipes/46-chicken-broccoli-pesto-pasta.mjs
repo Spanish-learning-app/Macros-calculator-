@@ -1,0 +1,76 @@
+// R-MP-46 · Chicken, broccoli and almond-basil pesto pasta, hot or cold (lunch box). Batch: 4 boxes. Sprint 3 variety.
+export default {
+  n: 46,
+  serving: 'box',
+  boxes: 4,
+  effort: 'cook',
+  minutes: 25,
+  cuisine: 'italian',
+  shortName: 'Chicken pesto pasta',
+  id: 'it-chicken-broccoli-pesto-pasta-box',
+  name: 'Chicken, broccoli and almond pesto pasta (lunch box)',
+  names: {
+    en: 'Chicken, broccoli and almond-basil pesto pasta',
+    es: 'Pasta integral con pollo, brócoli y pesto de almendra',
+    ca: 'Pasta integral amb pollastre, bròquil i pesto d\'ametlla',
+    roman: 'pesto pasta',
+  },
+  aliases: ['pesto pasta', 'chicken pesto pasta', 'pasta al pesto', 'pasta con pollo y brocoli', 'pasta pesto pollo', 'broccoli pasta', 'pasta amb pesto'],
+  pitch: 'Wholewheat penne, seared chicken and broccoli tossed in a fresh almond-basil pesto with cherry tomatoes. Good hot from the microwave or cold as a pasta salad.',
+  eat: 'either',
+  tags: ['international', 'meal-prep', 'eat-cold'],
+  references: [
+    { title: 'One Clever Chef, Pesto chicken broccoli pasta meal prep', url: 'https://www.onecleverchef.com/pesto-chicken-broccoli-pasta-meal-prep/', used: 'baked chicken, penne with frozen broccoli added for the last 2 minutes of boiling, pesto; portioned for a week of lunches', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Damn Delicious, Chicken pesto pasta meal prep', url: 'https://damndelicious.net/2017/08/14/chicken-pesto-pasta-meal-prep', used: 'whole wheat penne, chicken, cherry tomatoes and pesto in meal-prep containers', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Occasionally Eggs, Dairy-free pesto', url: 'https://www.occasionallyeggs.com/wprm_print/dairy-free-pesto', used: 'basil, toasted almonds, garlic, olive oil and lemon, no Parmesan', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'chicken', label: 'Seared chicken', storage: 'cooked-meat', yield: 'breastPanFried', eat: 'either',
+      lines: [
+        ['chicken-breast', 540, 'bite-size pieces'],
+        ['oil-olive', 8, ''],
+        ['garlic', 6, '', 'onionSoft'],
+        ['salt', 3, ''],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'pasta', label: 'Wholewheat penne and broccoli', storage: 'cooked-starch', yield: 'pastaWW', eat: 'either',
+      lines: [
+        ['pasta-wholewheat', 280, '70 g dry per box'],
+        ['broccoli-frozen', 400, 'into the pasta water for the last 3 minutes', 'broccoliBoiled'],
+      ],
+    },
+    {
+      id: 'pesto', label: 'Almond-basil pesto (no cheese) and cherry tomatoes', storage: 'cold-salad', yield: 'none', eat: 'either',
+      lines: [
+        ['basil', 40, '2 trays'],
+        ['almonds', 40, 'toasted'],
+        ['oil-olive', 44, 'extra virgin'],
+        ['garlic', 6, ''],
+        ['lemon-juice', 30, ''],
+        ['salt', 2, ''],
+        ['water', 40, 'from the pasta pot, to loosen'],
+        ['tomato-cherry', 240, 'halved, added cold'],
+      ],
+    },
+  ],
+  method: [
+    'Sear the seasoned chicken in the oil 6–8 min (75 °C inside).',
+    'Boil the penne; add the frozen broccoli for the last 3 minutes. Drain, keeping a cup of the water.',
+    'Blitz basil, almonds, oil, garlic, lemon and salt with 40 g of the pasta water.',
+    'Toss pasta, broccoli, chicken and pesto; cool fast. Add the tomatoes when you box it.',
+  ],
+  keeps: 'Box 1 in the fridge (pasta keeps 1 day); boxes 2–4 frozen',
+  storagePlan: 'Pasta keeps 1 day in the fridge, so box 1 goes in the fridge and boxes 2–4 in the freezer (1 month); move one down each evening. Freeze without the tomatoes and add a handful in the morning.',
+  reheat: 'Hot: microwave until steaming (75 °C), stir once; or eat cold within 2 h of leaving the fridge.',
+  crossCheck: null,
+  changes: [
+    'Shop pesto has cheese with rennet (Hacendado 35438, 35186; Javier marks intl-pesto-basil check): a 5-minute almond pesto replaces it.',
+    'Broccoli cooked in the pasta water: one pot, and with wholewheat penne about 12 g fibre per box.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Pasta and broccoli yields from USDA dry/cooked pairs, chicken from Bognár; label and USDA values.',
+  halal: { status: 'halal', reason: 'Chicken from a halal butcher; home-made pesto with no cheese.' },
+};

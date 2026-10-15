@@ -1649,7 +1649,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170379', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 6.64 − fibre 2.6 = 4 g available. Serving weights: USDA SR 170379 portions (1 cup chopped = 91 g, 1 spear = 31 g, 1 NLEA serving = 148 g). Boiled broccoli (SR 169967) is 35 kcal per 100 g, so one record covers raw and cooked.' },
+    source: { citation: 'USDA FDC SR Legacy 170379', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 6.64 − fibre 2.6 = 4 g available. Serving weights: USDA SR 170379 portions (1 cup chopped = 91 g, 1 spear = 31 g, 1 NLEA serving = 148 g). Boiled broccoli (SR 169967) is 35 kcal per 100 g, so one record covers raw and cooked.' },
   },
   {
     id: 'intl-mushrooms',
@@ -1670,7 +1670,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'meal-prep'],
     slots: ['lunch', 'dinner', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169251', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 3.26 − fibre 1 = 2.3 g available. Serving weights: USDA SR 169251 portions (1 cup pieces or slices = 70 g, 1 medium = 18 g, 1 large = 23 g).' },
+    source: { citation: 'USDA FDC SR Legacy 169251', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 3.26 − fibre 1 = 2.3 g available. Serving weights: USDA SR 169251 portions (1 cup pieces or slices = 70 g, 1 medium = 18 g, 1 large = 23 g).' },
   },
   {
     id: 'intl-tomato-cherry',
@@ -1689,7 +1689,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170457', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 3.89 − fibre 1.2 = 2.7 g available. USDA does not list cherry tomatoes apart from "Tomatoes, red, ripe, raw"; per-100 g values are the same as intl-tomato. Servings: USDA SR 170457 portions (1 cherry = 17 g, 1 cup = 149 g).' },
+    source: { citation: 'USDA FDC SR Legacy 170457', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 3.89 − fibre 1.2 = 2.7 g available. USDA does not list cherry tomatoes apart from "Tomatoes, red, ripe, raw"; per-100 g values are the same as intl-tomato. Servings: USDA SR 170457 portions (1 cherry = 17 g, 1 cup = 149 g).' },
   },
   {
     id: 'intl-sweetcorn-tinned',
@@ -1710,7 +1710,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'meal-prep', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169214', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 14.34 − fibre 2 = 12.3 g available. Serving weights: USDA SR 169214 (1 cup drained = 164 g). Mercadona Maíz dulce Hacendado (product 16712, EAN 8480000167125) lists corn, water and salt; its OFF label reads 75 kcal, P 2.6, C 9.3, F 2.3 per 100 g, the same range. Tin: 150 g net, 140 g drained (3-pack drained weight 420 g).' },
+    source: { citation: 'USDA FDC SR Legacy 169214', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 14.34 − fibre 2 = 12.3 g available. Serving weights: USDA SR 169214 (1 cup drained = 164 g). Mercadona Maíz dulce Hacendado (product 16712, EAN 8480000167125) lists corn, water and salt; its OFF label reads 75 kcal, P 2.6, C 9.3, F 2.3 per 100 g, the same range. Tin: 150 g net, 140 g drained (3-pack drained weight 420 g).' },
   },
   {
     id: 'intl-mozzarella-fresh',
@@ -1729,7 +1729,7 @@ export default [
     tags: ['international', 'vegetarian', 'packaged', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Mercadona fresh mozzarella (Hacendado) lists microbial coagulant (coagulante microbiano). Other brands may use animal rennet: read the label.' },
-    source: { citation: 'USDA FDC SR Legacy 170845', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 2.4 g (no fibre), used as available carbs. Servings: Mercadona Mozzarella fresca de vaca Hacendado (product 51050): 250 g pack, 125 g drained = 1 ball; USDA 1 oz = 28.35 g, 1 cup shredded = 112 g.' },
+    source: { citation: 'USDA FDC SR Legacy 170845', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 2.4 g (no fibre), used as available carbs. Servings: Mercadona Mozzarella fresca de vaca Hacendado (product 51050): 250 g pack, 125 g drained = 1 ball; USDA 1 oz = 28.35 g, 1 cup shredded = 112 g.' },
   },
   {
     id: 'intl-mozzarella-grated',
@@ -1748,7 +1748,7 @@ export default [
     tags: ['international', 'vegetarian', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'The Mercadona label lists microbial coagulant (coagulante microbiano), not animal rennet.' },
-    source: { citation: 'Label: Mercadona Queso rallado mozzarella pizza-Roma de vaca Hacendado, 200 g bag, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 51110 (tienda.mercadona.es/product/51110, EAN 8480000511102); per-100 g values from Open Food Facts 8480000511102. Label per 100 g: 1176 kJ (283 kcal), P 21, C 2.5 (sugars 0.8), F 21, sat 13, salt 1 g. Ingredients: pasteurised cow milk, microbial coagulant, lactic ferments, salt, anti-caking starch. Servings: USDA SR 170846 style handful 1 oz = 28.35 g; 1 cup shredded = 112 g (USDA 170845).' },
+    source: { citation: 'Label: Mercadona Queso rallado mozzarella pizza-Roma de vaca Hacendado, 200 g bag, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 51110 (tienda.mercadona.es/product/51110, EAN 8480000511102); per-100 g values from Open Food Facts 8480000511102. Label per 100 g: 1176 kJ (283 kcal), P 21, C 2.5 (sugars 0.8), F 21, sat 13, salt 1 g. Ingredients: pasteurised cow milk, microbial coagulant, lactic ferments, salt, anti-caking starch. Servings: USDA SR 170846 style handful 1 oz = 28.35 g; 1 cup shredded = 112 g (USDA 170845).' },
   },
   {
     id: 'intl-cheese-grated-mix',
@@ -1767,7 +1767,7 @@ export default [
     tags: ['international', 'vegetarian', 'packaged'],
     slots: ['lunch', 'dinner', 'breakfast'],
     halal: { status: 'halal', reason: 'Every cheese in the Mercadona mix lists microbial coagulant (coagulante microbiano).' },
-    source: { citation: 'Label: Mercadona Queso rallado 4 quesos Hacendado, 200 g bag, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 21581 (tienda.mercadona.es/product/21581, EAN 8402001044434); per-100 g values from Open Food Facts 8402001044434. Label per 100 g: 1469.5 kJ (351 kcal; OFF also shows a mistyped 177 kcal), P 23, C 2.5, F 28, sat 19, salt 1.87 g. Ingredients: 45 % emmental, 30 % cheddar, 20 % gouda, 5 % aged cheese (cow, goat and sheep milk), all with microbial coagulant, anti-caking starch. Servings: USDA 1 oz = 28.35 g, 1 cup shredded cheddar 113 g.' },
+    source: { citation: 'Label: Mercadona Queso rallado 4 quesos Hacendado, 200 g bag, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 21581 (tienda.mercadona.es/product/21581, EAN 8402001044434); per-100 g values from Open Food Facts 8402001044434. Label per 100 g: 1469.5 kJ (351 kcal; OFF also shows a mistyped 177 kcal), P 23, C 2.5, F 28, sat 19, salt 1.87 g. Ingredients: 45 % emmental, 30 % cheddar, 20 % gouda, 5 % aged cheese (cow, goat and sheep milk), all with microbial coagulant, anti-caking starch. Servings: USDA 1 oz = 28.35 g, 1 cup shredded cheddar 113 g.' },
   },
   {
     id: 'intl-grana-padano-grated',
@@ -1785,6 +1785,6 @@ export default [
     tags: ['international', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'Grana Padano is made with rennet and the label says only "cuajo". Rennet (cuajo) of unstated origin; some people avoid animal rennet. Swap: cheese made with microbial coagulant, such as the grated cheese or mozzarella records here, or a hard cheese labelled "coagulante microbiano".' },
-    source: { citation: 'Label: Mercadona Queso en polvo grana padano Hacendado, 100 g tub, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 51146 (tienda.mercadona.es/product/51146, EAN 8002710411147); per-100 g values from Open Food Facts 8002710411147. Label per 100 g: 1654 kJ (398 kcal), P 33, C 0, F 29, sat 18, salt 1.5 g. Ingredients: milk, salt, rennet (cuajo), lysozyme from egg. Serving 10 g (label).' },
+    source: { citation: 'Label: Mercadona Queso en polvo grana padano Hacendado, 100 g tub, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 51146 (tienda.mercadona.es/product/51146, EAN 8002710411147); per-100 g values from Open Food Facts 8002710411147. Label per 100 g: 1654 kJ (398 kcal), P 33, C 0, F 29, sat 18, salt 1.5 g. Ingredients: milk, salt, rennet (cuajo), lysozyme from egg. Serving 10 g (label).' },
   },
 ];

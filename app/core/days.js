@@ -2,6 +2,7 @@
 // never mutates its arguments. Owner: Hamza. Contract: docs/ARCHITECTURE.md §5.4.
 
 import { isISODate } from './dates.js';
+import { RAMADAN_SLOT_IDS } from './ramadan.js';
 import {
   NUTRIENT_KEYS,
   GRAMS,
@@ -27,6 +28,15 @@ export const DEFAULT_SLOT_LABELS = Object.freeze({
   snacks: 'Snacks',
 });
 
+/**
+ * Every id an entry may carry: one global set (DECISIONS 2026-10-15, Ramadan mode storage). The
+ * Ramadan ids join the five everyday ids; a day records the preset it was logged with.
+ */
+export const ENTRY_SLOT_IDS = Object.freeze([
+  ...SLOT_IDS,
+  ...RAMADAN_SLOT_IDS.filter((id) => !SLOT_IDS.includes(id)),
+]);
+
 const STATUSES = Object.freeze(['planned', 'eaten']);
 const INCLUDES = Object.freeze(['all', 'eaten', 'planned']);
 const PATCH_KEYS = new Set(['qty', 'servingId', 'status', 'slot']);
@@ -38,7 +48,7 @@ const zero = () => sumNutrients([]);
 const show = (v) => (typeof v === 'string' ? `'${v}'` : String(v));
 
 function checkSlot(slot) {
-  if (!SLOT_IDS.includes(slot)) throw new RangeError(`unknown slot ${show(slot)}`);
+  if (!ENTRY_SLOT_IDS.includes(slot)) throw new RangeError(`unknown slot ${show(slot)}`);
 }
 
 function checkStatus(status) {

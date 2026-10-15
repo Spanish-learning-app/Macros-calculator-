@@ -1,0 +1,80 @@
+// R-MP-41 · Chicken, piquillo pepper and almond-basil pesto bocadillo (lunch box). Batch: 2 boxes. Sprint 3 variety.
+export default {
+  n: 41,
+  serving: 'box',
+  boxes: 2,
+  effort: 'cook',
+  minutes: 20,
+  cuisine: 'spanish',
+  shortName: 'Chicken piquillo roll',
+  id: 'es-bocadillo-pollo-piquillo-box',
+  name: 'Chicken, piquillo pepper and almond pesto bocadillo (lunch box)',
+  names: {
+    en: 'Chicken, piquillo pepper and almond-basil pesto bocadillo',
+    es: 'Bocadillo de pollo con pimientos del piquillo y pesto de almendra',
+    ca: 'Entrepà de pollastre amb pebrots del piquillo i pesto d\'ametlla',
+  },
+  aliases: ['chicken bocadillo', 'bocadillo de pollo', 'chicken sandwich', 'entrepa de pollastre', 'bocata de pollo', 'chicken pesto sandwich', 'pollo con pimientos'],
+  pitch: 'A proper Spanish bocadillo: paprika chicken, sweet piquillo peppers and a cheese-free almond pesto in a crusty roll you fill at lunch.',
+  eat: 'cold',
+  tags: ['spanish', 'meal-prep', 'eat-cold'],
+  references: [
+    { title: 'Directo al Paladar, Bocadillos de pollo con chimichurri', url: 'https://www.directoalpaladar.com/tapas-y-pinchos/bocadillos-de-pollo-con-chimichurri-receta-facil-para-la-primavera/amp', used: 'cooked chicken breast with red onion and a green herb-oil sauce with red pepper and garlic, in bread; 2 people', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Mayo Clinic, Roasted red pepper and chicken wrap', url: 'https://mayoclinic.org/es/healthy-lifestyle/recipes/roasted-red-pepper-and-chicken-wrap/rcp-20049703', used: 'chicken breast strips with roasted red pepper', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Occasionally Eggs, Dairy-free pesto', url: 'https://www.occasionallyeggs.com/wprm_print/dairy-free-pesto', used: 'basil, toasted almonds, garlic, olive oil and lemon, no Parmesan', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'chicken', label: 'Paprika chicken', storage: 'cooked-meat', yield: 'breastPanFried', eat: 'cold',
+      lines: [
+        ['chicken-breast', 300, 'thin fillets'],
+        ['oil-olive', 6, ''],
+        ['paprika', 2, 'pimentón dulce'],
+        ['garlic', 6, 'grated', 'onionSoft'],
+        ['salt', 2, ''],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'pesto', label: 'Almond-basil pesto (no cheese)', storage: 'cold-salad', pot: true, yield: 'none', eat: 'cold',
+      lines: [
+        ['basil', 20, '1 tray'],
+        ['almonds', 20, 'toasted in a dry pan'],
+        ['oil-olive', 14, 'extra virgin'],
+        ['garlic', 3, '1 clove'],
+        ['lemon-juice', 10, ''],
+        ['salt', 1, ''],
+      ],
+    },
+    {
+      id: 'veg', label: 'Piquillo peppers, tomato and lettuce', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['piquillo', 160, '½ jar, drained, in strips'],
+        ['tomato', 160, 'sliced'],
+        ['lettuce', 60, ''],
+      ],
+    },
+    {
+      id: 'bread', label: 'Bocadillo roll (1 per box, in its bag)', storage: 'proposed:bread', yield: 'none', eat: 'cold',
+      lines: [['bocadillo-bread', 260, '2 Hacendado bocadillo rolls of 130 g']],
+    },
+  ],
+  method: [
+    'Season the chicken with paprika, garlic, salt and pepper; sear in the oil 3–4 min a side (75 °C inside). Cool and slice.',
+    'Blitz basil, almonds, oil, garlic, lemon and salt (a stick blender in a jug, 1 minute). Spoon into 2 small pots.',
+    'Pack chicken, piquillo strips, tomato and lettuce in each box. The roll stays in its bag.',
+    'At lunch (or in the morning): split the roll, spread the pesto, fill with chicken and vegetables. Filling it late keeps the bread crisp.',
+  ],
+  keeps: '2 days in the fridge (chicken 3, pesto 2); bread to the pack date',
+  storagePlan: 'Make on Sunday night for Monday and Tuesday, or double the chicken and freeze half (3 months). The rolls keep in their bag 2–3 days; freeze them if you will not use them by then.',
+  reheat: 'Not reheated. Eat within 2 h of leaving the fridge (1 h above 32 °C).',
+  crossCheck: null,
+  changes: [
+    'Shop pesto has Grana Padano with rennet (Hacendado 35438 and 35186, labels read 2026-10-15), so the pesto here is basil, almonds, olive oil, garlic and lemon, with no cheese: halal and 5 minutes.',
+    'The roll is the Hacendado bocadillo (flour, water, yeast, salt), not a barra with E-472e.',
+    '150 g raw chicken per box for a full lunch with 35 g protein or more.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Chicken from Bognár\'s pan-fried breast row; bread from its label; vegetables, basil and almonds from USDA and the Lab record. Jarred piquillo from USDA canned red peppers (its OFF entry is mistyped).',
+  halal: { status: 'halal', reason: 'Chicken from a halal butcher; roll of flour, water, yeast and salt (Mercadona 9664, read 2026-10-15); home-made pesto with no cheese.' },
+};

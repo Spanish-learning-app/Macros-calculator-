@@ -1984,3 +1984,143 @@
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+
+/* ------------------------------------------------------------------ Sprint 3 wave 2: tips, Ramadan */
+/* Calm: surface colours and the protein ink; no red, no warning icons (NUTRITION.md §12, §13). */
+
+.day-tips {
+  display: grid;
+  gap: var(--space-3);
+}
+.day-tips:empty {
+  display: none;
+}
+
+.tip-card {
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--protein);
+}
+.tip-card--sehri {
+  margin: var(--space-2) 0 var(--space-3);
+  box-shadow: none;
+  background: var(--surface-2);
+}
+.tip-title {
+  margin: 0;
+  font-weight: 600;
+}
+.tip-body {
+  margin: var(--space-1) 0 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+.tip-ideas {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+.tip-idea {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  width: 100%;
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.tip-idea:hover {
+  border-color: var(--border-strong);
+}
+.tip-idea-text {
+  flex: 1 1 12rem;
+  font-size: var(--text-sm);
+}
+.tip-idea-kcal {
+  color: var(--text-faint);
+  font-size: var(--text-sm);
+}
+.tip-idea-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.tip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.tip-help {
+  margin-top: var(--space-1);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+.tip-help summary {
+  cursor: pointer;
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+}
+.tip-help p {
+  margin: 0;
+}
+
+.ramadan-bar {
+  padding: var(--space-3) var(--space-4);
+}
+.ramadan-line {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+.ramadan-notes {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+}
+.ramadan-notes p {
+  margin: var(--space-1) 0 0;
+}
+
+.fluids-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-2) 0;
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+.fluids-line > svg {
+  flex: none;
+  color: var(--fiber);
+}
+.fluids-line p {
+  flex: 1;
+  margin: 0;
+}
+
+.ramadan-card .field + .field {
+  margin-top: var(--space-3);
+}
+.ramadan-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.ramadan-times .field {
+  flex: 1 1 8rem;
+  margin: 0;
+}

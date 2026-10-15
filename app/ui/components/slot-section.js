@@ -10,7 +10,7 @@ import { renderEntryRow } from './entry-row.js';
  *   store: object, rules: object, hideKcal: boolean,
  *   onAdd: () => void, onTickAll: () => void, onMenu: () => void,
  *   onToggle: (entry: object) => void, onEdit: (entry: object) => void,
- *   onEntryMenu: (entry: object) => void }} props
+ *   onEntryMenu: (entry: object) => void, aside?: Node|null }} props
  * @returns {HTMLElement}
  */
 export function renderSlotSection(props) {
@@ -63,6 +63,8 @@ export function renderSlotSection(props) {
         h('span', { 'aria-hidden': 'true' }, 'Add'),
       ),
     ),
+    // Sprint 3 (Lena): a calm line under the heading (the sehri tip, the fluids line), or null.
+    props.aside ?? null,
     planned
       ? h(
           'button',

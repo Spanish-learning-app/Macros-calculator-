@@ -814,7 +814,7 @@ export default [
     tags: ['spanish', 'catalan', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner', 'breakfast'],
     halal: { status: 'halal', reason: 'Flour, water, yeast and salt only on the Mercadona label; no emulsifier. A plain barra (83202) lists E-472e, so choose this roll or ask your bakery.' },
-    source: { citation: 'Label: Mercadona 3 Bocadillos Hacendado (pan de bocadillo), bag of 3 rolls, 390 g, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 9664 (tienda.mercadona.es/product/9664, EAN 8480000096647); per-100 g values from Open Food Facts 8480000096647. Label per 100 g: 1090.4 kJ (259 kcal), P 8.1, C 52 (sugars 2.8), F 1.1, sat 0.2, fibre 3.5, salt 1.18 g. Ingredients: wheat flour, water, yeast, salt (no emulsifier). Serving: 130 g = 1 roll (label). The plain Mercadona "Barra de pan" (product 83202) lists emulsifier E-472e, so this roll is the bakery bocadillo bread to use.' },
+    source: { citation: 'Label: Mercadona 3 Bocadillos Hacendado (pan de bocadillo), bag of 3 rolls, 390 g, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 9664 (tienda.mercadona.es/product/9664, EAN 8480000096647); per-100 g values from Open Food Facts 8480000096647. Label per 100 g: 1090.4 kJ (259 kcal), P 8.1, C 52 (sugars 2.8), F 1.1, sat 0.2, fibre 3.5, salt 1.18 g. Ingredients: wheat flour, water, yeast, salt (no emulsifier). Serving: 130 g = 1 roll (label). The plain Mercadona "Barra de pan" (product 83202) lists emulsifier E-472e, so this roll is the bakery bocadillo bread to use.' },
   },
   {
     id: 'es-tomate-frito',
@@ -836,7 +836,7 @@ export default [
     tags: ['spanish', 'catalan', 'vegetarian', 'vegan', 'packaged', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Tomate frito Hacendado, 560 g jar, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 17108 (tienda.mercadona.es/product/17108, EAN 8480000171085); per-100 g values from Open Food Facts 8480000171085. Label per 100 g: 316.5 kJ (77 kcal), P 1.5, C 9.5 (sugars 6.9), F 3.5, sat 0.3, salt 1 g; fibre not on OFF: 0.8 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: tomato, sunflower oil, sugar, corn starch, salt, onion, garlic. Katori servings × 1.116 g/ml (USDA SR 171192 marinara sauce: ½ cup = 132 g).' },
+    source: { citation: 'Label: Mercadona Tomate frito Hacendado, 560 g jar, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 17108 (tienda.mercadona.es/product/17108, EAN 8480000171085); per-100 g values from Open Food Facts 8480000171085. Label per 100 g: 316.5 kJ (77 kcal), P 1.5, C 9.5 (sugars 6.9), F 3.5, sat 0.3, salt 1 g; fibre not on OFF: 0.8 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: tomato, sunflower oil, sugar, corn starch, salt, onion, garlic. Katori servings × 1.116 g/ml (USDA SR 171192 marinara sauce: ½ cup = 132 g).' },
   },
   {
     id: 'es-salsa-mexicana',
@@ -857,7 +857,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'eat-cold'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal', reason: 'Wine vinegar only (vinegar, not wine); no alcohol or animal ingredients on the Mercadona label.' },
-    source: { citation: 'Label: Mercadona Salsa Mexicana Hacendado, 300 g jar, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 16827 (tienda.mercadona.es/product/16827, EAN 8480000168276); per-100 g values from Open Food Facts 8480000168276. Label per 100 g: 162 kJ (38 kcal), P 1.4, C 6.8 (sugars 4.1), F 0.1, salt 0.9 g; fibre not on OFF: 2.1 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: tomato, onion, green pepper, wine vinegar, modified corn starch, sugar, lemon juice, garlic, salt, spices. Katori servings × 1.095 g/ml (USDA SR 174524 salsa: 1 cup = 259 g).' },
+    source: { citation: 'Label: Mercadona Salsa Mexicana Hacendado, 300 g jar, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 16827 (tienda.mercadona.es/product/16827, EAN 8480000168276); per-100 g values from Open Food Facts 8480000168276. Label per 100 g: 162 kJ (38 kcal), P 1.4, C 6.8 (sugars 4.1), F 0.1, salt 0.9 g; fibre not on OFF: 2.1 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: tomato, onion, green pepper, wine vinegar, modified corn starch, sugar, lemon juice, garlic, salt, spices. Katori servings × 1.095 g/ml (USDA SR 174524 salsa: 1 cup = 259 g).' },
   },
   {
     id: 'es-crema-verduras-brik',
@@ -878,7 +878,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Crema de verduras Hacendado, 500 ml brik, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 60308 (tienda.mercadona.es/product/60308, EAN 8402001021039); per-100 g values from Open Food Facts 8402001021039. OFF 8402001021039: 138 kJ (33 kcal), P 0.5, C 4.9 (sugars 1.1), F 1.3, sat 0.2, fibre 0.6, salt 0.65 g per 100 ml (serving 250 ml), divided by 1.03 g/ml (RULES water-like) for per 100 g. Ingredients: water, vegetables 43–45 % (carrot, potato, onion, courgette, spinach, pumpkin, green beans, leek), olive oil, starch, salt. Katori servings × 1.03.' },
+    source: { citation: 'Label: Mercadona Crema de verduras Hacendado, 500 ml brik, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 60308 (tienda.mercadona.es/product/60308, EAN 8402001021039); per-100 g values from Open Food Facts 8402001021039. OFF 8402001021039: 138 kJ (33 kcal), P 0.5, C 4.9 (sugars 1.1), F 1.3, sat 0.2, fibre 0.6, salt 0.65 g per 100 ml (serving 250 ml), divided by 1.03 g/ml (RULES water-like) for per 100 g. Ingredients: water, vegetables 43–45 % (carrot, potato, onion, courgette, spinach, pumpkin, green beans, leek), olive oil, starch, salt. Katori servings × 1.03.' },
   },
   {
     id: 'es-crema-calabacin-brik',
@@ -899,6 +899,6 @@ export default [
     tags: ['spanish', 'vegetarian', 'packaged', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'Contains sweet whey (suero de leche dulce) in the caramel powder, a cheese-making by-product, and the label does not say whether the rennet was animal. Swap: Crema de verduras Hacendado (no dairy).' },
-    source: { citation: 'Label: Mercadona Crema de calabacín Hacendado, 500 ml brik, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 14930 (tienda.mercadona.es/product/14930, EAN 8402001040122); per-100 g values from Open Food Facts 8402001040122. OFF 8402001040122: 175 kJ (42 kcal), P 0.8, C 6.1 (sugars 1.6), F 1.4, sat 0.4, fibre 0.7, salt 0.61 g per 100 ml (serving 250 ml), divided by 1.03 g/ml for per 100 g. Ingredients: water, vegetables 42 % (courgette 26.7 %, potato, onion), Greek-style yogurt 3.6 %, modified corn starch, caramel powder (sugar, sweet whey, skimmed milk, butter), olive oil, salt, garlic. Katori servings × 1.03.' },
+    source: { citation: 'Label: Mercadona Crema de calabacín Hacendado, 500 ml brik, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 14930 (tienda.mercadona.es/product/14930, EAN 8402001040122); per-100 g values from Open Food Facts 8402001040122. OFF 8402001040122: 175 kJ (42 kcal), P 0.8, C 6.1 (sugars 1.6), F 1.4, sat 0.4, fibre 0.7, salt 0.61 g per 100 ml (serving 250 ml), divided by 1.03 g/ml for per 100 g. Ingredients: water, vegetables 42 % (courgette 26.7 %, potato, onion), Greek-style yogurt 3.6 %, modified corn starch, caramel powder (sugar, sweet whey, skimmed milk, butter), olive oil, salt, garlic. Katori servings × 1.03.' },
   },
 ];

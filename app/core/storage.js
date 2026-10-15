@@ -4,8 +4,10 @@
 
 import { isISODate } from './dates.js';
 import { NUTRIENT_KEYS } from './foods.js';
-import { SLOT_IDS } from './days.js';
+import { ENTRY_SLOT_IDS } from './days.js';
 import { weightLogProblems, mergeWeightLogs, weightEntries } from './weight.js';
+import { ramadanModeProblems } from './ramadan.js';
+import { nudgeSettingsProblems } from './nudges.js';
 
 /** @typedef {import('./types.js').UserData} UserData */
 
@@ -14,6 +16,8 @@ export const SCHEMA_VERSION = 1;
 export const EXPORT_KIND = 'katori-backup';
 
 const SLOT_PRESETS = ['default', 'spain'];
+/** A day records the preset it was logged with (Sprint 3, Ramadan mode); optional, additive. */
+const DAY_PRESETS = ['default', 'spain', 'ramadan'];
 const SEAFOOD = ['all', 'fish-prawns', 'fish-only'];
 const ONBOARDING = ['pending', 'done', 'skipped'];
 const WEIGHT_UNITS = ['kg', 'lb'];
@@ -98,7 +102,9 @@ function settingsProblems(s) {
   oneOf('slotPreset', SLOT_PRESETS);
   if (
     !isObject(s.slotLabels) ||
-    !Object.entries(s.slotLabels).every(([k, v]) => SLOT_IDS.includes(k) && typeof v === 'string')
+    !Object.entries(s.slotLabels).every(
+      ([k, v]) => ENTRY_SLOT_IDS.includes(k) && typeof v === 'string',
+    )
   ) {
     p.push('settings.slotLabels must map slot ids to strings');
   }
@@ -119,6 +125,8 @@ function settingsProblems(s) {
   oneOf('weekStartsOn', WEEK_STARTS);
   oneOf('theme', THEMES);
   if (typeof s.hideCalories !== 'boolean') p.push('settings.hideCalories must be true or false');
+  // Sprint 3 (DECISIONS 2026-10-15): optional; absent = Ramadan mode off, tips on their default.
+  p.push(...ramadanModeProblems(s.ramadanMode), ...nudgeSettingsProblems(s.nudges));
   return p;
 }
 
@@ -128,7 +136,7 @@ function entryProblems(e, where, seen) {
   if (typeof e.id !== 'string' || e.id === '') p.push(`${where}.id must be a non-empty string`);
   else if (seen.has(e.id)) p.push(`${where}: duplicate entry id ${show(e.id)}`);
   else seen.add(e.id);
-  if (!SLOT_IDS.includes(e.slot)) p.push(`${where}.slot ${show(e.slot)} is not a slot id`);
+  if (!ENTRY_SLOT_IDS.includes(e.slot)) p.push(`${where}.slot ${show(e.slot)} is not a slot id`);
   if (e.foodId !== null && (typeof e.foodId !== 'string' || e.foodId === '')) {
     p.push(`${where}.foodId must be a string or null`);
   }
@@ -162,6 +170,9 @@ function daysProblems(days) {
       continue;
     }
     if (day.date !== date) p.push(`${where}.date must be '${date}'`);
+    if (day.slotPreset !== undefined && !DAY_PRESETS.includes(day.slotPreset)) {
+      p.push(`${where}.slotPreset must be one of ${DAY_PRESETS.join(', ')}`);
+    }
     const seen = new Set();
     day.entries.forEach((e, i) => p.push(...entryProblems(e, `${where}.entries[${i}]`, seen)));
   }
@@ -276,6 +287,13 @@ export function migrate(raw) {
     if (given.onboarding === undefined) {
       data.settings.onboarding = isObject(data.profile) ? 'done' : 'pending';
     }
+  }
+  // Sprint 3 (§15): a broken Ramadan or tips setting falls back to its default, never 'corrupt'.
+  if (isObject(data.settings)) {
+    const settings = { ...data.settings };
+    if (ramadanModeProblems(settings.ramadanMode).length) delete settings.ramadanMode;
+    if (nudgeSettingsProblems(settings.nudges).length) delete settings.nudges;
+    data.settings = settings;
   }
   // Sprint 3 (§14): one bad weight must never make the whole document 'corrupt'; keep the good ones.
   if (Object.hasOwn(source, 'weightLog') && weightLogProblems(source.weightLog).length > 0) {

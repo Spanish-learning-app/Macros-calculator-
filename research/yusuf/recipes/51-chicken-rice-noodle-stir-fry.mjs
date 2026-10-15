@@ -1,0 +1,77 @@
+// R-MP-51 · Chicken and vegetable rice-noodle stir-fry with halal soy sauce (lunch box, hot). Batch: 4 boxes.
+export default {
+  n: 51,
+  serving: 'box',
+  boxes: 4,
+  effort: 'cook',
+  minutes: 25,
+  cuisine: 'asian',
+  shortName: 'Chicken rice noodles',
+  id: 'as-chicken-rice-noodle-stir-fry-box',
+  name: 'Chicken and vegetable rice-noodle stir-fry with halal soy (lunch box)',
+  names: {
+    en: 'Chicken and vegetable rice-noodle stir-fry with halal soy sauce',
+    es: 'Salteado de fideos de arroz con pollo y verduras, con salsa de soja halal',
+    ca: 'Saltat de fideus d\'arròs amb pollastre i verdures, amb salsa de soja halal',
+    roman: 'chicken noodles',
+  },
+  aliases: ['stir fry', 'chicken stir fry', 'noodles', 'chicken noodles', 'rice noodles', 'fideos de arroz', 'salteado de pollo', 'wok de pollo', 'chow mein', 'pad thai style'],
+  pitch: 'A wok of ginger-garlic chicken, broccoli, peppers, carrot, mushrooms and peas with rice noodles in a soy, lemon and chilli sauce. Microwave and eat.',
+  eat: 'hot',
+  tags: ['international', 'meal-prep'],
+  references: [
+    { title: 'Crohn\'s & Colitis Australia, Chicken stir fry with rice noodles', url: 'https://crohnsandcolitis.org.au/recipes/chicken-stir-fry-with-rice-noodles/', used: 'chicken, rice noodles, courgette, carrot and greens; soy, cornflour and brown sugar sauce; serves 4', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Barefeet in the Kitchen, Stir fry noodles', url: 'https://barefeetinthekitchen.com/stir-fry-noodles-recipe/', used: 'chicken with broccoli, mushrooms and cabbage in a chili-soy sauce; 30 minutes, 5 servings', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'chicken', label: 'Ginger-garlic chicken', storage: 'cooked-meat', yield: 'breastPanFried', eat: 'hot',
+      lines: [
+        ['chicken-breast', 560, 'thin strips'],
+        ['oil-sunflower', 12, ''],
+        ['garlic', 9, '', 'onionSoft'],
+        ['ginger', 10, 'grated', 'onionSoft'],
+      ],
+    },
+    {
+      id: 'veg', label: 'Stir-fried vegetables', storage: 'cooked-curry', yield: 'none', eat: 'hot',
+      lines: [
+        ['oil-sunflower', 10, ''],
+        ['onion', 100, 'sliced', 'onionSoft'],
+        ['pepper-red', 200, 'strips', 'pepperStew'],
+        ['carrot', 160, 'matchsticks', 'carrotStew'],
+        ['broccoli-frozen', 300, 'thawed', 'broccoliBoiled'],
+        ['mushrooms', 200, 'sliced', 'mushroomStirFry'],
+        ['peas', 200, 'frozen', 'peasStewed'],
+      ],
+    },
+    {
+      id: 'noodles', label: 'Rice noodles in the sauce', storage: 'cooked-starch', yield: 'none', eat: 'hot',
+      lines: [
+        ['rice-noodles', 320, '80 g dry per box, soaked in just-boiled water 6 min', 'riceNoodles'],
+        ['soy-sauce-halal', 60, 'halal-certified'],
+        ['lemon-juice', 20, 'or lime'],
+        ['sugar', 8, ''],
+        ['chilli-powder', 1, 'or fresh chilli'],
+      ],
+    },
+  ],
+  method: [
+    'Soak the noodles in just-boiled water 6 min; drain and rinse cold.',
+    'Stir-fry the chicken with garlic and ginger in a very hot wok or big pan, 5 min; take it out.',
+    'Add the second oil and stir-fry onion, carrot and pepper 3 min, then broccoli, mushrooms and peas 4 min.',
+    'Mix soy, lemon, sugar and chilli; add with the noodles and chicken, toss 2 min. Cool fast and box.',
+  ],
+  keeps: 'Box 1 in the fridge (noodles keep 1 day); boxes 2–4 frozen',
+  storagePlan: 'Cooked noodles keep 1 day: box 1 in the fridge, boxes 2–4 in the freezer (1 month). Move one down each evening.',
+  reheat: 'Microwave with a splash of water, covered, until steaming hot (75 °C).',
+  crossCheck: null,
+  changes: [
+    'Rice noodles (rice flour, tapioca, salt) instead of egg noodles: one ingredient list to read.',
+    'Peas and broccoli bring the box to 8 g fibre; rice noodles alone have little.',
+    'No mirin, oyster sauce or teriyaki (Javier marks teriyaki not usable: red wine). Halal-certified soy sauce with lemon and a little sugar.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Noodle, broccoli and mushroom yields from USDA dry/cooked pairs; chicken, peppers, carrot, peas and onion from Bognár.',
+  halal: { status: 'halal', reason: 'With a halal-certified soy sauce, as the recipe says (with an uncertified brewed soy sauce, treat it as check: alcohol from fermentation). Chicken from a halal butcher; rice noodles of rice flour, tapioca and salt.' },
+};

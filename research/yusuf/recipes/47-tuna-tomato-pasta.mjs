@@ -1,0 +1,63 @@
+// R-MP-47 · Tuna, tomato, pea and olive pasta (lunch box). Batch: 4 boxes. Sprint 3 variety.
+export default {
+  n: 47,
+  serving: 'box',
+  boxes: 4,
+  effort: 'cook',
+  minutes: 20,
+  cuisine: 'italian',
+  shortName: 'Tuna tomato pasta',
+  id: 'it-tuna-tomato-pasta-box',
+  name: 'Tuna, tomato, pea and olive pasta (lunch box)',
+  names: {
+    en: 'Tuna, tomato, pea and olive wholewheat pasta',
+    es: 'Macarrones integrales con atún, tomate, guisantes y aceitunas',
+    ca: 'Macarrons integrals amb tonyina, tomàquet, pèsols i olives',
+  },
+  aliases: ['tuna pasta', 'pasta con atun', 'macarrones con atun', 'pasta tonno', 'tuna tomato pasta', 'macarrons amb tonyina', 'pasta atun tomate'],
+  pitch: 'The student classic done properly: wholewheat penne in a garlicky tomato sauce with tuna, peas and green olives. Twenty minutes, one pan and one pot.',
+  eat: 'either',
+  tags: ['international', 'meal-prep', 'eat-cold', 'seafood-fish'],
+  references: [
+    { title: 'Directo al Paladar, Pasta con atún y tomate', url: 'https://www.directoalpaladar.com/recetas-de-pasta/pasta-con-atun-y-tomate', used: 'for 2: 160 g pasta, 200 g tomato sauce, 1 can tuna, 10 olives, 1 garlic clove, basil and oregano; 15 min', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Vitónica, Pasta con atún salteado en salsa de tomate picante', url: 'https://www.vitonica.com/recetas-saludables/pasta-con-atun-salteado-en-salsa-de-tomate-picante-receta-saludable', used: 'short pasta, tinned tomato, garlic, pitted olives, chilli and tuna (its white wine left out here)', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'sauce', label: 'Tomato, tuna, pea and olive sauce', storage: 'cooked-meat', yield: 'none', eat: 'either',
+      lines: [
+        ['oil-olive', 20, ''],
+        ['onion', 150, 'chopped', 'onionSoft'],
+        ['garlic', 9, '', 'onionSoft'],
+        ['tomato-crushed', 800, '', 'vegStew'],
+        ['peas', 300, 'frozen', 'peasStewed'],
+        ['tuna', 360, '6 cans atún claro al natural, drained, stirred in off the heat'],
+        ['olives-green', 60, 'sliced'],
+        ['oregano', 2, ''],
+        ['chilli-powder', 1, 'optional'],
+        ['salt', 2, ''],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'pasta', label: 'Wholewheat penne', storage: 'cooked-starch', yield: 'pastaWW', eat: 'either',
+      lines: [['pasta-wholewheat', 360, '90 g dry per box']],
+    },
+  ],
+  method: [
+    'Soften the onion and garlic in the oil 6 min. Add the tomato, oregano and chilli; simmer 10 min.',
+    'Add the peas for 4 min, then take off the heat and fold in the tuna and olives.',
+    'Boil the penne al dente, drain and toss with the sauce. Cool fast and box.',
+  ],
+  keeps: 'Box 1 in the fridge (pasta keeps 1 day); boxes 2–4 frozen',
+  storagePlan: 'Box 1 in the fridge, boxes 2–4 in the freezer (1 month): move one down each evening. Or keep the sauce (3 days) apart and boil pasta the night before.',
+  reheat: 'Microwave until steaming hot (75 °C), or eat it cold as a pasta salad within 2 h of leaving the fridge.',
+  crossCheck: null,
+  changes: [
+    'No white wine (the Vitónica version uses it): tomato only.',
+    '90 g tuna and 75 g peas per box for 35 g protein or more and 8 g fibre or more with wholewheat penne.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Pasta yield from the USDA whole-wheat pair; tomato and peas from Bognár; tuna added after cooking (label values).',
+  halal: { status: 'halal', reason: 'Tuna (tuna, water, salt), tomato, olives (no anchovy: plain pitted manzanilla 33114, read 2026-10-15); no wine.' },
+};

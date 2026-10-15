@@ -1,6 +1,6 @@
 // Hash router. parseRoute/formatRoute are pure (Node-testable); createRouter binds to a window.
 // Owner: Lena. Contract: docs/ARCHITECTURE.md §7.2.
-import { SLOT_IDS } from '../core/days.js';
+import { ENTRY_SLOT_IDS } from '../core/days.js';
 import { isISODate } from '../core/dates.js';
 
 /** @typedef {{ name: string, params: { date?: string|null, slot?: string } }} Route */
@@ -39,7 +39,7 @@ export function parseRoute(hash) {
   if (parts.length === 0) return { name: 'day', params: { date: null } };
   if (head === 'day' && okDate(date)) {
     if (parts.length <= 2) return { name: 'day', params: { date: date ?? null } };
-    if (parts.length === 4 && sub === 'add' && date && SLOT_IDS.includes(slot)) {
+    if (parts.length === 4 && sub === 'add' && date && ENTRY_SLOT_IDS.includes(slot)) {
       return { name: 'add', params: { date, slot } };
     }
   }

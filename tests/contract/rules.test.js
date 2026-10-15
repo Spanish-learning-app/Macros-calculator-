@@ -51,6 +51,19 @@ const READ_BY_CODE = [
   'vocab.styles',
   'vocab.sourceMethods',
   'vocab.confidenceGrades',
+  // Sprint 3 wave 2 (§12, §13): Ramadan mode and protein tips.
+  'mealSlots.ramadan',
+  'ramadan.sehriProtein',
+  'ramadan.fluids',
+  'ramadan.dayStart',
+  'ramadan.slotsFromMaghrib',
+  'ramadan.flagNotes',
+  'ramadan.text',
+  'ramadan.timetables.barcelona2027.rows',
+  'proteinNudges.checkpoints',
+  'proteinNudges.suggestions',
+  'proteinNudges.text',
+  'proteinNudges.minGapG',
 ];
 
 const get = (obj, path) => path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);

@@ -1,0 +1,67 @@
+// R-MP-57 · Chicken, spinach and tomato pasta bake with mozzarella (dinner portion). Batch: 4 portions.
+export default {
+  n: 57,
+  slot: 'dinner',
+  serving: 'portion',
+  boxes: 4,
+  effort: 'cook',
+  minutes: 25,
+  cuisine: 'italian',
+  shortName: 'Chicken pasta bake',
+  id: 'it-chicken-spinach-pasta-bake-portion',
+  name: 'Chicken, spinach and tomato pasta bake with mozzarella (dinner portion)',
+  names: {
+    en: 'Chicken, spinach and tomato pasta bake with mozzarella',
+    es: 'Pasta al horno con pollo, espinacas, tomate y mozzarella',
+    ca: 'Pasta al forn amb pollastre, espinacs, tomàquet i mozzarella',
+  },
+  aliases: ['pasta bake', 'pasta al horno', 'macarrones al horno', 'baked pasta', 'chicken pasta bake', 'pasta gratinada', 'macarrons al forn'],
+  pitch: 'Wholewheat penne in a garlicky tomato and spinach sauce with chicken, under melted mozzarella. Comfort food from the freezer.',
+  eat: 'hot',
+  tags: ['international', 'meal-prep'],
+  references: [
+    { title: 'SparkPeople, Chicken spinach pasta bake', url: 'https://recipes.sparkpeople.com/recipe-detail.asp?recipe=146316', used: '8 oz whole wheat penne, ground chicken breast, light ricotta and mozzarella; 5 servings', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'An Affair from the Heart, Chicken spinach pasta bake', url: 'https://anaffairfromtheheart.com/wprm_print/chicken-spinach-pasta-bake', used: 'chicken, spinach and pasta baked with a lighter cheese sauce', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'sauce', label: 'Chicken, spinach and tomato sauce', storage: 'cooked-meat', yield: 'none', eat: 'hot',
+      lines: [
+        ['oil-olive', 10, ''],
+        ['chicken-breast', 400, 'bite-size', 'breastPanFried'],
+        ['onion', 150, 'chopped', 'onionSoft'],
+        ['garlic', 6, '', 'onionSoft'],
+        ['spinach-frozen', 300, '', 'spinachStewed'],
+        ['tomato-crushed', 600, '', 'vegStew'],
+        ['oregano', 2, ''],
+        ['salt', 3, ''],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'pasta', label: 'Wholewheat penne', storage: 'cooked-starch', yield: 'pastaWW', eat: 'hot',
+      lines: [['pasta-wholewheat', 280, '70 g dry per portion, boiled 2 min short']],
+    },
+    {
+      id: 'cheese', label: 'Mozzarella light on top', storage: 'cooked-meat', yield: 'none', eat: 'hot',
+      lines: [['mozzarella-light', 250, '2 balls, torn']],
+    },
+  ],
+  method: [
+    'Brown the chicken in the oil; add onion and garlic, 5 min; then spinach, tomato, oregano, salt and pepper; simmer 10 min.',
+    'Boil the penne 2 min less than the pack says; drain and mix with the sauce.',
+    'Spread in a dish, scatter the mozzarella, bake at 200 °C for 15 min.',
+    'Cool fast; cut into 4 portions.',
+  ],
+  keeps: 'Portion 1 in the fridge (pasta keeps 1 day); 2–4 frozen',
+  storagePlan: 'Pasta keeps 1 day in the fridge, so portion 1 is for the next day and portions 2–4 go in the freezer (1 month). Move one down the night before.',
+  reheat: 'Microwave covered until steaming hot (75 °C).',
+  crossCheck: null,
+  changes: [
+    'Hacendado mozzarella light says coagulante microbiano (2026-10-15), so it is halal; no Parmesan.',
+    '100 g raw chicken per portion keeps protein under 50 g with the cheese.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Pasta from the USDA whole-wheat pair, chicken and vegetables from Bognár; the mozzarella label; baking loss of the cheese not counted.',
+  halal: { status: 'halal', reason: 'Chicken from a halal butcher; mozzarella with microbial coagulant (Mercadona 51230, read 2026-10-15).' },
+};

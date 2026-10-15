@@ -1905,8 +1905,8 @@ const s3Intl = [
       source: merc3('Salsa Teriyaki Hacendado', 17362, '4006824999137', '250 ml bottle', 'OFF 4006824999137 (Aiko): 797 kJ (188 kcal), P 4.5, C 41.8 (sugars 36.5), F 0.1, salt 7.4 g, taken as per 100 ml (liquid sold by volume) and divided by 1.22 g/ml (USDA SR 171167 teriyaki sauce: 1 cup = 288 g). Ingredients: soy sauce (water, soybeans, wheat, salt), sugar, water, red wine (contains sulphites), alcohol vinegar, modified corn starch, cane sugar syrup, spices, yeast extract. Fibre 0. Servings: USDA SR 171167, 1 tbsp = 18 g.'),
       servings: [sv('tbsp', '1 tablespoon', 18, true, 'بڑا چمچ'), sv('two-tbsp', '2 tablespoons (36 g)', 36)],
       pack: { grams: 305, label: '250 ml bottle' },
-      tags: ['international', 'packaged'], slots: ['lunch', 'dinner'],
-      halal: check('The label lists red wine (vino tinto) and a soy sauce that may be brewed with alcohol. Many people will not use it. Swap: halal-certified soy sauce with honey or sugar, rice vinegar and grated ginger (no mirin, no wine).'),
+      tags: ['international', 'packaged'], // no slots: not-halal foods are never suggested (G21)
+      halal: { status: 'not-halal', reason: 'The label lists red wine (vino tinto) as an ingredient. Swap: halal-certified soy sauce with honey or sugar, rice vinegar and grated ginger (no mirin, no wine).' },
     };
   })(),
   {

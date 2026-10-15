@@ -1,7 +1,8 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 3, version 1.7.0 (2026-10-15).
+**Status:** Sprint 3, version 1.7.1 (2026-10-15).
+- Version 1.7.1 (Sprint 3 variety add-on): alcohol as an ingredient. A product whose label lists wine, mirin, sake, beer or spirits is `not-halal` with the reason naming it; fermentation traces (brewed soy sauce) stay `check`; wine vinegar stays `halal` (§4.6, gate G21). Glycerine (E-422) of unstated origin joins the label `check` list.
 - Version 1.7.0 (Meeting 005, Sprint 3 wave 1): Ramadan mode for Barcelona (§12), protein tips (§13), weight trend (§14), kam tel `home-light` variants (§6.1, gate G25), the optional `shortName` field (§3, gate G24), and `serve`/`pack` rules moved into `RULES.vocab.fieldRules`.
 - Version 1.6.1 (Sprint 2 market add-on): label rule for `check` (rennet and E-471/E-472 of unstated origin, §4.6).
 - Version 1.6 (Meeting 003 fix wave): the Spanish slot labels; the "thora sa" taste chip rule (§5.6); assumed plate servings and gate G23 (§5.5); notified naan and roti weights are dough weights (§5.2); dry daal density (§5.3).
@@ -581,13 +582,31 @@ How the hours are stored and used:
 |---|---|---|
 | `halal` | Plant foods, dairy, eggs, fish. Meat **only** from a halal butcher or with halal certification. | (optional) |
 | `check` | Possible lard (pastries), gelatine, often cooked with wine, restaurant meat in Spain, imported product without a halal seal | "Cheap pastries may use lard (manteca). Ask the bakery." |
-| `check` (labels) | A packaged food whose label lists an ingredient that can be animal-derived and does not say its origin: rennet (*cuajo*) in cheese, emulsifiers E-471 / E-472 in bread and wraps, gelatine | "Made with rennet (cuajo) of unstated origin …" / "contains the emulsifier E-471 …". "Cuajo microbiano" or "E-471 de origen vegetal" on the label → `halal`. |
-| `not-halal` | **Only** non-meat foods whose standard recipe contains lard | "Traditionally made with pork lard (saïm)." |
+| `check` (labels) | A packaged food whose label lists an ingredient that can be animal-derived and does not say its origin: rennet (*cuajo*) in cheese, emulsifiers E-471 / E-472 in bread and wraps, glycerine (*glicerina*, E-422) in tortillas and wraps, gelatine | "Made with rennet (cuajo) of unstated origin …" / "contains the emulsifier E-471 …". "Cuajo microbiano" or "E-471 de origen vegetal" on the label → `halal`. |
+| `check` (fermentation) | A trace of alcohol from fermentation that the label does not state as an ingredient: brewed soy sauce | "Brewed soy sauce can contain a trace of alcohol from fermentation …" |
+| `not-halal` | **Only** non-meat foods whose standard recipe contains lard, **or** whose label or standard recipe lists an alcoholic ingredient (wine, mirin, sake, beer, spirits, cooking wine) | "Traditionally made with pork lard (saïm)." / "The label lists red wine (vino tinto) as an ingredient." |
+
+**Alcohol as an ingredient (rules 1.7.1, `halalRules.alcoholIngredient`):**
+- **Listed ingredient → `not-halal`.** If the label (or the standard recipe) lists wine, mirin,
+  sake, beer or a spirit, the food is `not-halal` and the reason names that ingredient, the same
+  way lard is handled. Cooking does not change the status. Example: Hacendado teriyaki (red wine).
+- **Fermentation trace → `check`.** Brewed soy sauce can carry a trace of alcohol from
+  fermentation that is not an added ingredient. It stays `check` with that reason; a soy sauce or
+  tamari with a halal seal is `halal`.
+- **Vinegar → `halal`.** Wine vinegar, *vinagre de vino* and alcohol vinegar are vinegar, not
+  alcohol. A reason that mentions "wine vinegar" is never read as a listed alcohol.
+- **Restaurant dishes** that are *sometimes* cooked with wine stay `check` ("often cooked with
+  wine"). Only a listed or standard-recipe ingredient makes a food `not-halal`.
+- Alcoholic **drinks** still never ship (§3, `banned`), and alcohol words stay out of names and
+  aliases (G17). The rule above covers foods that contain alcohol, not drinks.
+- **Recipes and preps** take the worst status (below), so a prep that uses a `not-halal` sauce is
+  `not-halal` and is never suggested. Use the halal swap in the recipe instead.
 
 **Rules:**
 - `reason` is required for `check` and `not-halal`. Write it as a fact, never a ruling.
 - `not-halal` is never allowed in the groups `meat-fish`, `curry-meat`, `grill-kebab` or
-  `lunchbox`, and its reason must name the lard. Pork meat products never ship.
+  `lunchbox`, and its reason must name the lard or the alcoholic ingredient. Pork meat products
+  never ship.
 - `not-halal` foods are never suggested and never appear in templates or recipe pickers. "Halal
   only" (on by default) hides them, and search says that one item is hidden and why.
 - A recipe or box takes the **worst** status of its ingredients: not-halal > check > halal.
@@ -949,7 +968,7 @@ Show this text as written:
 | G18 | **Family:** members of a family share a group | warn |
 | G19 | **Review:** reviewer is not `ayesha` yet | warn (counted) |
 | G20 | **Unknown field:** the record has a key not in §3 | warn |
-| G21 | **Halal:** `halal { status, reason }` present; status valid; reason required unless `halal`; `not-halal` only outside meat groups and with a reason naming the lard | fail |
+| G21 | **Halal:** `halal { status, reason }` present; status valid; reason required unless `halal`; `not-halal` only outside meat groups and with a reason naming the lard or the alcoholic ingredient; a `halal` or `check` reason that says an alcoholic ingredient is listed ("the label lists red wine", "made with mirin"; not hedged, negated or vinegar) fails, because it must be `not-halal` (rules 1.7.1) | fail |
 | G22 | **Meal prep:** `lunchbox` records have `slots` (primary slot first) and a default `box`, `jar` or `portion` serving whose kcal fits the primary slot's band | fail |
 | G23 | **Assumed plate:** a `plate` or `half-plate` serving's label contains "assumed", and its grams are a multiple of ½ katori (±2%) when the food has a `katori` serving | fail |
 | G24 | **Short name:** optional `shortName` is a non-empty string of at most 22 characters, with no brackets and no extra spaces, and is shorter than `name` | fail |

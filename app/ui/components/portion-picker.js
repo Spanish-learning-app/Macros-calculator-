@@ -130,7 +130,9 @@ export function openPortionPicker(props) {
               slot = slotSelect.value;
             },
           },
-          store.slots().map((s) => h('option', { value: s.id, selected: s.id === slot }, s.label)),
+          store
+            .slots(props.date ?? null)
+            .map((s) => h('option', { value: s.id, selected: s.id === slot }, s.label)),
         )
       : null;
 

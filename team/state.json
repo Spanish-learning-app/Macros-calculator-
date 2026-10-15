@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-15T20:56:00Z",
+  "updatedAt": "2026-10-15T21:04:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -31,8 +31,8 @@
     },
     "ayesha": {
       "location": "office",
-      "status": "working",
-      "task": "Alcohol rule + reviews"
+      "status": "idle",
+      "task": "Done: alcohol rule 1.7.1, 38 reviewed"
     },
     "bilal": {
       "location": "office",
@@ -61,8 +61,8 @@
     },
     "javier": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: 24 base foods for variety"
+      "status": "working",
+      "task": "Two review fixes"
     },
     "nasreen": {
       "location": "office",
@@ -92,9 +92,9 @@
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
-      "member": "ayesha",
-      "task": "Alcohol rule (teriyaki), review backlog incl. kam-tel, Javier base foods, seafood, Yusuf preps",
-      "output": "rules.js, NUTRITION.md, check-foods.mjs, research/review/**"
+      "member": "javier",
+      "task": "Ayesha's fixes: quinoa pouch values, corn tortilla check + label values",
+      "output": "research/javier/**"
     }
   ],
   "checkIn": {

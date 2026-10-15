@@ -29,6 +29,7 @@ import {
 } from '../core/weight.js';
 import {
   SLOT_IDS,
+  ENTRY_SLOT_IDS,
   DEFAULT_SLOT_LABELS,
   emptyDay,
   createEntry,
@@ -55,6 +56,18 @@ import {
   recentForSlot,
 } from '../core/search.js';
 import { defaultData, serializeExport, parseImport, mergeImport } from '../core/storage.js';
+import {
+  loggingDate,
+  isRamadanDay,
+  ramadanRange,
+  ramadanTimes,
+  ramadanDayStart,
+  ramadanSlots,
+  sehriProteinGoal,
+  ramadanFlagNotes,
+  defaultStartDate,
+} from '../core/ramadan.js';
+import { proteinTip, sehriTip, tipIdeas, tipsOn } from '../core/nudges.js';
 
 /** Slot presets whose names can be chosen on their own (Sprint 3, meeting 005). */
 const MEAL_NAME_SETS = ['default', 'spain'];
@@ -125,7 +138,8 @@ export function createStore({
   }
 
   /** Replace the document. Undoable actions pass a label; every other change ends the undo window. */
-  function commit(nextData, undoLabel = null) {
+  function commit(nextData, undoLabel = null, { stamp = true } = {}) {
+    if (stamp) nextData = stampPresets(nextData);
     // Box statuses follow the entries that point at them (§13.2 syncBatches).
     if (Array.isArray(nextData.batches) && nextData.batches.length) {
       const synced = syncBatches(nextData.batches, nextData.days ?? {});
@@ -133,6 +147,32 @@ export function createStore({
     }
     undoSnapshot = undoLabel ? state.data : null;
     setState({ data: nextData, undo: undoLabel ? { label: undoLabel } : null });
+    scheduleSave();
+  }
+
+  /**
+   * Each changed day records the slot preset it was logged with (DECISIONS 2026-10-15), so past
+   * days keep their own meals when Ramadan mode or the meal times change. Today and later days
+   * follow the current preset; a past day keeps the one it has.
+   */
+  function stampPresets(nextData) {
+    const before = state.data.days ?? {};
+    const days = nextData.days ?? {};
+    const t = today();
+    let out = null;
+    for (const [date, d] of Object.entries(days)) {
+      if (d === before[date] || !d?.entries?.length) continue;
+      const want = d.slotPreset && date < t ? d.slotPreset : presetFor(date);
+      if (d.slotPreset === want) continue;
+      out ??= { ...days };
+      out[date] = { ...d, slotPreset: want };
+    }
+    return out ? { ...nextData, days: out } : nextData;
+  }
+
+  /** A settings change that is no action of the person's (a tip was shown): keeps the undo window. */
+  function commitQuiet(nextData) {
+    setState({ data: nextData });
     scheduleSave();
   }
 
@@ -248,15 +288,140 @@ export function createStore({
   };
 
   // ------------------------------------------------------------------ selectors
-  const today = () => todayISO(now(), settings().dayStartMinutes);
+  // The logging day: the DECISIONS 04:00 rule, or the Ramadan boundary on a Ramadan day (§12.2).
+  const today = () => loggingDate(now(), settings(), rules);
   const day = (date) => data().days?.[date] ?? emptyDay(date);
   const food = (id) => index().get(id);
+
+  // ------------------------------------------------------------------ Ramadan mode (§12)
+  const ramadanMode = () => settings().ramadanMode ?? null;
+  /** The preset a date uses now: 'ramadan' on a Ramadan day, else the person's meal times. */
+  const presetFor = (date) =>
+    rules?.mealSlots?.ramadan && isRamadanDay(date, ramadanMode()) ? 'ramadan' : preset();
+  /** A past day keeps the preset it was logged with; today and later follow the current one. */
+  function dayPreset(date) {
+    const recorded = data().days?.[date]?.slotPreset;
+    if (recorded && rules?.mealSlots?.[recorded] && date < today()) return recorded;
+    return presetFor(date);
+  }
+  function timesFor(date) {
+    return ramadanTimes(date, ramadanMode(), rules);
+  }
+  /** Minute the logging day `date` began at (the Ramadan boundary on a Ramadan day). */
+  function dayStartOf(date) {
+    const plain = settings().dayStartMinutes;
+    return isRamadanDay(date, ramadanMode())
+      ? ramadanDayStart(timesFor(date).fajr, plain, rules)
+      : plain;
+  }
+  /** The day's slot windows, RULES.mealSlots shape (Ramadan: from that day's maghrib, §12.1). */
+  function slotDefs(date) {
+    const p = dayPreset(date);
+    if (p !== 'ramadan') return rules?.mealSlots?.[p] ?? [];
+    return ramadanSlots(rules, { maghrib: timesFor(date).maghrib, dayStart: dayStartOf(date) });
+  }
+  function slotAt(minutes, date) {
+    return slotForTime(minutes, { mealSlots: { day: slotDefs(date) } }, 'day');
+  }
+  function activeFlags() {
+    return [...(data().profile?.healthFlags ?? []), ...(targetResult()?.warnings ?? [])];
+  }
 
   function slotLabel(slot) {
     const own = settings().slotLabels?.[slot];
     if (own) return own;
-    const fromRules = rules?.mealSlots?.[preset()]?.find((s) => s.id === slot)?.label;
+    const fromRules =
+      rules?.mealSlots?.[preset()]?.find((s) => s.id === slot)?.label ??
+      rules?.mealSlots?.ramadan?.find((s) => s.id === slot)?.label;
     return fromRules ?? DEFAULT_SLOT_LABELS[slot] ?? slot;
+  }
+
+  /**
+   * The slots shown for a date: its preset's, then any other slot that holds food (a day never
+   * hides an entry). Without a date: the everyday meal times (Profile names, meal prep).
+   */
+  function slotsFor(date) {
+    if (!date) return SLOT_IDS.map((id) => ({ id, label: slotLabel(id) }));
+    const ids = slotDefs(date).map((s) => s.id);
+    const used = new Set(day(date).entries.map((e) => e.slot));
+    const extra = ENTRY_SLOT_IDS.filter((id) => used.has(id) && !ids.includes(id));
+    return [...ids, ...extra].map((id) => ({ id, label: slotLabel(id) }));
+  }
+
+  // ------------------------------------------------------------------ protein tips (§13, §12.4)
+  function recentFoodIds(t) {
+    const days = rules?.proteinNudges?.recentDays ?? 14;
+    const from = addDays(t, -days);
+    return new Set(
+      Object.entries(data().recents ?? {})
+        .filter(([, r]) => (r?.lastUsed ?? '') >= from)
+        .map(([id]) => id),
+    );
+  }
+
+  /** Today's tip (or the sehri line), with its ideas; null on any other date or when on track. */
+  function tipFor(date) {
+    const t = today();
+    if (date !== t || !rules?.proteinNudges) return null;
+    const s = settings();
+    const target = targets()?.protein ?? null;
+    const p = dayPreset(t);
+    const slots = slotDefs(t);
+    const minutes = minutesOfDay(now());
+    const d = day(t);
+    const all = dayTotals(d, index(), { include: 'all' });
+    const common = {
+      rules,
+      target,
+      flags: activeFlags(),
+      nudges: s.nudges,
+      isToday: true,
+      today: t,
+    };
+    let tip = null;
+    if (p === 'ramadan') {
+      const goal = sehriProteinGoal(targetResult()?.prw ?? null, target, rules);
+      const sehri = sehriTip({
+        ...common,
+        currentSlot: slotAt(minutes, t),
+        minutes,
+        fajr: timesFor(t).fajr,
+        sehriEaten: all.bySlot.sehri?.protein ?? 0,
+        goal,
+      });
+      if (sehri) tip = { kind: 'sehri', ...sehri };
+    }
+    if (!tip) {
+      const found = proteinTip({
+        ...common,
+        preset: p,
+        slots,
+        minutes,
+        dayStart: dayStartOf(t),
+        eaten: all.total.protein,
+        entries: d.entries.length,
+      });
+      if (found) tip = { kind: 'checkpoint', ...found };
+    }
+    if (!tip) return null;
+    const ideas = tipIdeas(tip.suggestFor, rules, {
+      foodIndex: index(),
+      recentIds: recentFoodIds(t),
+      showCheck: !s.halalOnly,
+    });
+    return {
+      ...tip,
+      slotLabel: slotLabel(tip.suggestFor),
+      afterLabel: tip.afterSlot ? slotLabel(tip.afterSlot) : null,
+      ideas,
+    };
+  }
+
+  function nudgesPatch(patch) {
+    return {
+      ...data(),
+      settings: { ...(data().settings ?? {}), nudges: { ...(settings().nudges ?? {}), ...patch } },
+    };
   }
 
   function targetResult() {
@@ -436,10 +601,12 @@ export function createStore({
 
     // selectors
     today,
-    defaultSlot: () => slotForTime(minutesOfDay(now()), rules, preset()),
+    /** The meal the clock is in, on `date`'s slots (Ramadan windows on a Ramadan day). */
+    defaultSlot: (date = null) => slotAt(minutesOfDay(now()), date ?? today()),
     clockDate: () => todayISO(now(), 0), // the wall-clock date; differs from today() after midnight
     settings,
-    slots: () => SLOT_IDS.map((id) => ({ id, label: slotLabel(id) })),
+    slots: (date = null) => slotsFor(date),
+    dayPreset,
     slotLabel,
     onboardingState,
     needsOnboarding: () => onboardingState() === 'pending',
@@ -692,7 +859,7 @@ export function createStore({
         ...suggestRails(rules, { tdee: result?.tdee ?? null, sex: profile.sex, bodyKg }),
         allowSuggest: personal && Boolean(result?.ok) && !hideCaloriesOffered(),
         flags: [...(profile.healthFlags ?? []), ...(result?.warnings ?? [])],
-        ramadanMode: s.slotPreset === 'ramadan' || s.ramadanMode === true,
+        ramadanMode: Boolean(s.ramadanMode?.on), // §14.4: no suggestion while the mode is on
         today: today(),
         changedOn: s.targetsChangedOn ?? null,
         dismissedOn: s.weightSuggestDismissedOn ?? null,
@@ -715,6 +882,45 @@ export function createStore({
           ?.id ?? null
       );
     },
+
+    // Ramadan mode (§12): the switch, the times and the day's calm lines
+    /**
+     * @param {string} [date] default today
+     * @returns {{ on: boolean, startDate: string|null, defaultStart: string|null,
+     *   range: { start: string, end: string }|null, isDay: boolean, times: object,
+     *   dayStart: number, notes: { id: string, text: string }[], fluids: string|null,
+     *   fluidsHidden: boolean, notRulings: string, timesNote: string }}
+     */
+    ramadan(date = null) {
+      const d = date ?? today();
+      const mode = ramadanMode();
+      const text = rules?.ramadan?.text ?? {};
+      const f = rules?.ramadan?.fluids ?? {};
+      const isDay = isRamadanDay(d, mode);
+      return {
+        on: Boolean(mode?.on),
+        startDate: mode?.startDate ?? null,
+        defaultStart: defaultStartDate(rules),
+        range: ramadanRange(mode),
+        isDay,
+        typed: { fajr: mode?.fajr ?? null, maghrib: mode?.maghrib ?? null },
+        times: timesFor(d),
+        dayStart: dayStartOf(d),
+        notes: ramadanFlagNotes(activeFlags(), rules),
+        fluids:
+          rules?.ramadan?.fluidsReminder === false || !text.fluids
+            ? null
+            : text.fluids.replace('{min}', f.glassesMin ?? 6).replace('{max}', f.glassesMax ?? 8),
+        fluidsSlots: f.showInSlots ?? ['iftar', 'after_taraweeh'],
+        fluidsHidden: mode?.fluidsHiddenOn === d,
+        notRulings: text.notRulings ?? '',
+        timesNote: text.timesNote ?? '',
+      };
+    },
+    // Protein tips (§13)
+    proteinTip: tipFor,
+    tipsOn: () => tipsOn(settings().nudges, activeFlags(), rules),
+
     exportText: () => serializeExport(data(), localDateTime(now())),
     previewImport: (text) => parseImport(text),
 
@@ -754,6 +960,46 @@ export function createStore({
     },
     updateSettings(patch) {
       commit({ ...data(), settings: { ...(data().settings ?? {}), ...patch } });
+    },
+    /**
+     * settings.ramadanMode = { on, startDate, fajr?, maghrib? } (DECISIONS 2026-10-15). The start
+     * date defaults to the built-in table's first day. fajr/maghrib null = use the table.
+     */
+    setRamadanMode(patch) {
+      const current = ramadanMode() ?? {};
+      const next = {
+        on: false,
+        startDate: current.startDate ?? defaultStartDate(rules) ?? today(),
+        ...current,
+        ...patch,
+      };
+      for (const key of ['fajr', 'maghrib']) if (next[key] == null) delete next[key];
+      commit({ ...data(), settings: { ...(data().settings ?? {}), ramadanMode: next } });
+    },
+    /** The fluids line, hidden for the rest of the day (nothing is tracked). */
+    hideFluidsToday() {
+      const current = ramadanMode();
+      if (!current) return;
+      commit({
+        ...data(),
+        settings: {
+          ...(data().settings ?? {}),
+          ramadanMode: { ...current, fluidsHiddenOn: today() },
+        },
+      });
+    },
+    /** Records that today's tip showed (the one-a-day rule). Idempotent; keeps the undo window. */
+    markTipShown(key) {
+      const n = settings().nudges ?? {};
+      const t = today();
+      if (n.shownOn === t && n.shownKey === key) return;
+      commitQuiet(nudgesPatch({ shownOn: t, shownKey: key }));
+    },
+    tipNotToday() {
+      commit(nudgesPatch({ notTodayDate: today() }));
+    },
+    setTipsOn(on) {
+      commit(nudgesPatch({ off: !on }));
     },
 
     // actions: entries
@@ -1132,11 +1378,12 @@ export function createStore({
       commit(
         mergeImport(data(), parsed.data, mode),
         mode === 'merge' ? 'Merged backup' : 'Imported backup',
+        { stamp: false }, // imported days keep the presets they were logged with
       );
       return { ok: true, summary: parsed.summary };
     },
     resetData() {
-      commit(fresh(), 'Reset all data');
+      commit(fresh(), 'Reset all data', { stamp: false });
     },
   };
   return api;

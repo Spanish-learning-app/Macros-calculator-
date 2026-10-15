@@ -1,0 +1,81 @@
+// R-MP-48 · Greek chicken pasta salad with tzatziki dressing (lunch box, cold). Batch: 4 boxes. Sprint 3 variety.
+export default {
+  n: 48,
+  serving: 'box',
+  boxes: 4,
+  effort: 'cook',
+  minutes: 25,
+  cuisine: 'mediterranean',
+  shortName: 'Greek chicken pasta',
+  id: 'med-greek-chicken-pasta-salad-box',
+  name: 'Greek chicken pasta salad with tzatziki dressing (cold lunch box)',
+  names: {
+    en: 'Greek chicken pasta salad with tzatziki dressing',
+    es: 'Ensalada griega de pasta con pollo y aliño de tzatziki',
+    ca: 'Amanida grega de pasta amb pollastre i amaniment de tzatziki',
+  },
+  aliases: ['greek pasta salad', 'greek chicken pasta', 'ensalada griega', 'ensalada de pasta griega', 'tzatziki pasta', 'amanida grega', 'mediterranean pasta salad'],
+  pitch: 'Oregano-lemon chicken, penne, cucumber, tomatoes, green pepper, red onion and olives in a cool tzatziki dressing. A cold lunch that tastes like summer.',
+  eat: 'cold',
+  tags: ['mediterranean', 'meal-prep', 'eat-cold'],
+  references: [
+    { title: 'Crunch, Greek chicken pasta salad', url: 'https://crunch.com/thehub/greek-chicken-pasta-salad/', used: 'tzatziki dressing of Greek yogurt, olive oil, vinegar, garlic and dill; pasta, chicken, vegetables, olives and herbs; serves 10', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'The Girl on Bloor, Mediterranean pasta salad', url: 'https://thegirlonbloor.com/wprm_print/mediterranean-pasta-salad', used: 'Greek yogurt, lemon and olive oil dressing; pasta al dente; keeps 4 days', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'chicken', label: 'Oregano-lemon chicken', storage: 'cooked-meat', yield: 'breastPanFried', eat: 'cold',
+      lines: [
+        ['chicken-breast', 540, ''],
+        ['oil-olive', 8, ''],
+        ['oregano', 3, ''],
+        ['garlic', 6, '', 'onionSoft'],
+        ['lemon-juice', 10, ''],
+        ['salt', 3, ''],
+        ['black-pepper', 1, ''],
+      ],
+    },
+    {
+      id: 'pasta', label: 'Wholewheat penne', storage: 'cooked-starch', yield: 'pastaWW', eat: 'cold',
+      lines: [['pasta-wholewheat', 280, '70 g dry per box, rinsed cold']],
+    },
+    {
+      id: 'veg', label: 'Cucumber, tomato, pepper, onion and olives', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['cucumber', 300, 'diced'],
+        ['tomato-cherry', 320, 'halved'],
+        ['pepper-green', 160, 'diced'],
+        ['onion-red', 60, 'sliced thin'],
+        ['olives-green', 80, 'halved'],
+      ],
+    },
+    {
+      id: 'dressing', label: 'Tzatziki dressing', storage: 'cold-salad', pot: true, yield: 'none', eat: 'cold',
+      lines: [
+        ['yogurt-greek-light', 240, ''],
+        ['oil-olive', 24, ''],
+        ['lemon-juice', 30, ''],
+        ['garlic', 6, 'grated'],
+        ['mint', 6, 'chopped (dill is not sold at Mercadona)'],
+        ['salt', 2, ''],
+      ],
+    },
+  ],
+  method: [
+    'Season the chicken with oregano, garlic, lemon, salt and pepper; sear in the oil 6–8 min (75 °C). Cool and slice.',
+    'Boil the penne al dente, rinse cold, drain well.',
+    'Chop the vegetables; stir the dressing.',
+    'Box pasta, chicken and vegetables; dressing in a pot. Toss at lunch.',
+  ],
+  keeps: 'Pasta 1 day: box 1 assembled, boxes 2–4 from the freezer',
+  storagePlan: 'Cooked pasta keeps 1 day and dressed vegetables 2: box 1 assembled on Sunday; pasta for boxes 2–4 frozen plain and chicken frozen or chilled (3 days). Each evening move one pasta portion down and add vegetables and a dressing pot in the morning. Cut the vegetables again on Tuesday.',
+  reheat: 'Not reheated. Eat within 2 h of leaving the fridge (1 h above 32 °C).',
+  crossCheck: null,
+  changes: [
+    'No feta: Mercadona\'s feta lists rennet of unstated origin (check). The olives and the tzatziki give the salt and creaminess.',
+    'Mint instead of dill (not sold at Mercadona Barcelona).',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Pasta yield from the USDA whole-wheat pair, chicken from Bognár; labels and USDA for the rest.',
+  halal: { status: 'halal', reason: 'Chicken from a halal butcher; yogurt (milk and cultures); no cheese.' },
+};

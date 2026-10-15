@@ -635,7 +635,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'gym', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 168874', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 64.16 − fibre 7 = 57.2 g available. Servings: USDA SR 168874, 1 cup dry = 170 g, so ⅓ cup = 57 g. Carbohydrate is by difference minus 7 g fibre.' },
+    source: { citation: 'USDA FDC SR Legacy 168874', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 64.16 − fibre 7 = 57.2 g available. Servings: USDA SR 168874, 1 cup dry = 170 g, so ⅓ cup = 57 g. Carbohydrate is by difference minus 7 g fibre.' },
   },
   {
     id: 'intl-quinoa-cooked',
@@ -674,7 +674,7 @@ export default [
     tags: ['international', 'vegetarian', 'contains-egg', 'packaged', 'gym', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Nidos al huevo Hacendado, 500 g pack, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 6321 (tienda.mercadona.es/product/6321, EAN 8480000063212); per-100 g values from Open Food Facts 8480000063212. Label per 100 g: 1509.7 kJ (357 kcal), P 14, C 67 (sugars 3.5), F 2.7, sat 0.8, fibre 4.1, salt 0.05 g (the spaghetti al huevo, product 6302, is identical). Ingredients: durum wheat semolina 87 %, egg 13 %. Serving: 80 g dry, the same dry-pasta portion as intl-pasta-wholewheat-dry.' },
+    source: { citation: 'Label: Mercadona Nidos al huevo Hacendado, 500 g pack, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 6321 (tienda.mercadona.es/product/6321, EAN 8480000063212); per-100 g values from Open Food Facts 8480000063212. Label per 100 g: 1509.7 kJ (357 kcal), P 14, C 67 (sugars 3.5), F 2.7, sat 0.8, fibre 4.1, salt 0.05 g (the spaghetti al huevo, product 6302, is identical). Ingredients: durum wheat semolina 87 %, egg 13 %. Serving: 80 g dry, the same dry-pasta portion as intl-pasta-wholewheat-dry.' },
   },
   {
     id: 'intl-noodles-rice-dry',
@@ -693,7 +693,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Noodles de arroz Hacendado, 200 g pack, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 35981 (tienda.mercadona.es/product/35981, EAN 8402001011924); per-100 g values from Open Food Facts 8402001011924. Label per 100 g: 1469.4 kJ (347 kcal), P 5.3, C 79 (sugars 1.1), F 0.7, sat 0.3, fibre 1.3, salt 0.57 g. Ingredients: rice flour, tapioca starch, salt. Serving: 50 g (label portion). USDA SR 169742 rice noodles dry reads 364 kcal.' },
+    source: { citation: 'Label: Mercadona Noodles de arroz Hacendado, 200 g pack, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 35981 (tienda.mercadona.es/product/35981, EAN 8402001011924); per-100 g values from Open Food Facts 8402001011924. Label per 100 g: 1469.4 kJ (347 kcal), P 5.3, C 79 (sugars 1.1), F 0.7, sat 0.3, fibre 1.3, salt 0.57 g. Ingredients: rice flour, tapioca starch, salt. Serving: 50 g (label portion). USDA SR 169742 rice noodles dry reads 364 kcal.' },
   },
   {
     id: 'intl-tortilla-corn',
@@ -736,7 +736,7 @@ export default [
     tags: ['pakistani', 'international', 'vegetarian', 'vegan', 'packaged', 'gym', 'meal-prep', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 174285', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 21.49 − fibre 5.5 = 16 g available. Katori servings × 0.7607999999999999 g/ml (USDA FNDDS 2707363: 1 cup canned beans = 180 g; no cup weight is listed for kidney beans). Jar: Mercadona Alubia cocida roja Hacendado (product 26000, EAN 8429386916101): 570 g jar, 400 g drained; ingredients red beans, water, salt, E-385. The label is not on Open Food Facts.' },
+    source: { citation: 'USDA FDC SR Legacy 174285', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 21.49 − fibre 5.5 = 16 g available. Katori servings × 0.7607999999999999 g/ml (USDA FNDDS 2707363: 1 cup canned beans = 180 g; no cup weight is listed for kidney beans). Jar: Mercadona Alubia cocida roja Hacendado (product 26000, EAN 8429386916101): 570 g jar, 400 g drained; ingredients red beans, water, salt, E-385. The label is not on Open Food Facts.' },
   },
   {
     id: 'intl-black-beans-tinned',
@@ -757,7 +757,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'gym', 'meal-prep', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC FNDDS 2707363', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 24.34 − fibre 10.1 = 14.2 g available. Servings × 0.761 g/ml (FNDDS 2707363: 1 cup = 180 g). USDA states 134 kcal with its specific Atwater factors, which fail our 4/4/9/2 energy gate by 15 %; the energy is restated with our factors (4P + 4C + 9F + 2 fibre = 117 kcal) and the macros are USDA\'s. Mercadona sells only dry black beans (Alubia negra Hacendado, product 67608); tinned black beans are brand-dependent.' },
+    source: { citation: 'USDA FDC FNDDS 2707363', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 24.34 − fibre 10.1 = 14.2 g available. Servings × 0.761 g/ml (FNDDS 2707363: 1 cup = 180 g). USDA states 134 kcal with its specific Atwater factors, which fail our 4/4/9/2 energy gate by 15 %; the energy is restated with our factors (4P + 4C + 9F + 2 fibre = 117 kcal) and the macros are USDA\'s. Mercadona sells only dry black beans (Alubia negra Hacendado, product 67608); tinned black beans are brand-dependent.' },
   },
   {
     id: 'intl-pesto-basil',
@@ -776,7 +776,7 @@ export default [
     tags: ['international', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'The Mercadona pesto contains Grana Padano. Rennet (cuajo) of unstated origin; some people avoid animal rennet. Swap: a pesto without cheese (pesto vegano or "sin queso"), a home pesto made with a microbial-coagulant cheese (see the grated cheese records), or stir the sauce through pasta with plain tomato sauce instead.' },
-    source: { citation: 'Label: Mercadona Salsa Pesto con albahaca Hacendado, 190 g jar, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 35438 (tienda.mercadona.es/product/35438, EAN 8402001009051); per-100 g values from Open Food Facts 8402001009051. Label per 100 g: 2350 kJ (570 kcal), P 5.9, C 7.7 (sugars 1.4), F 57, sat 7.3, salt 3 g; fibre not on OFF: 1.3 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: sunflower oil, basil 21 %, cashews, Grana Padano PDO (milk, salt, rennet / cuajo, egg lysozyme), olive oil, pine nuts 0.5 %, garlic. Servings: USDA SR 171580 pesto, ¼ cup = 61 g, so 1 tbsp = 15 g.' },
+    source: { citation: 'Label: Mercadona Salsa Pesto con albahaca Hacendado, 190 g jar, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 35438 (tienda.mercadona.es/product/35438, EAN 8402001009051); per-100 g values from Open Food Facts 8402001009051. Label per 100 g: 2350 kJ (570 kcal), P 5.9, C 7.7 (sugars 1.4), F 57, sat 7.3, salt 3 g; fibre not on OFF: 1.3 g = label energy left after 4P + 4C + 9F at 2 kcal/g. Ingredients: sunflower oil, basil 21 %, cashews, Grana Padano PDO (milk, salt, rennet / cuajo, egg lysozyme), olive oil, pine nuts 0.5 %, garlic. Servings: USDA SR 171580 pesto, ¼ cup = 61 g, so 1 tbsp = 15 g.' },
   },
   {
     id: 'intl-soy-sauce',
@@ -794,7 +794,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'Brewed soy sauce can contain a trace of alcohol from fermentation, and the label does not say. Swap: a soy sauce with a halal certificate (check the seal), or coconut aminos.' },
-    source: { citation: 'Label: Mercadona Salsa de Soja Hacendado, 250 ml bottle, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 17360 (tienda.mercadona.es/product/17360, EAN 4006824005715); per-100 g values from Open Food Facts 4006824005715. OFF 4006824005715 (Aiko, the supplier of the Hacendado bottle): 272.3 kJ = 65 kcal per 100 ml (OFF also shows 74 kcal, which contradicts its kJ), P 7.5, C 8.3 (sugars 4.3), F 0.1, salt 15.45 g, taken as per 100 ml because it is a liquid sold by volume, and divided by 1.08 g/ml (USDA SR 174277 shoyu: 1 tbsp = 16 g). Ingredients: water, salt, soybeans, wheat, sugar, lactic acid, guar gum. Fibre 0.' },
+    source: { citation: 'Label: Mercadona Salsa de Soja Hacendado, 250 ml bottle, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 17360 (tienda.mercadona.es/product/17360, EAN 4006824005715); per-100 g values from Open Food Facts 4006824005715. OFF 4006824005715 (Aiko, the supplier of the Hacendado bottle): 272.3 kJ = 65 kcal per 100 ml (OFF also shows 74 kcal, which contradicts its kJ), P 7.5, C 8.3 (sugars 4.3), F 0.1, salt 15.45 g, taken as per 100 ml because it is a liquid sold by volume, and divided by 1.08 g/ml (USDA SR 174277 shoyu: 1 tbsp = 16 g). Ingredients: water, salt, soybeans, wheat, sugar, lactic acid, guar gum. Fibre 0.' },
   },
   {
     id: 'intl-teriyaki-sauce',
@@ -810,9 +810,8 @@ export default [
     ],
     pack: { grams: 305, label: '250 ml bottle' },
     tags: ['international', 'packaged'],
-    slots: ['lunch', 'dinner'],
-    halal: { status: 'check', reason: 'The label lists red wine (vino tinto) and a soy sauce that may be brewed with alcohol. Many people will not use it. Swap: halal-certified soy sauce with honey or sugar, rice vinegar and grated ginger (no mirin, no wine).' },
-    source: { citation: 'Label: Mercadona Salsa Teriyaki Hacendado, 250 ml bottle, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 17362 (tienda.mercadona.es/product/17362, EAN 4006824999137); per-100 g values from Open Food Facts 4006824999137. OFF 4006824999137 (Aiko): 797 kJ (188 kcal), P 4.5, C 41.8 (sugars 36.5), F 0.1, salt 7.4 g, taken as per 100 ml (liquid sold by volume) and divided by 1.22 g/ml (USDA SR 171167 teriyaki sauce: 1 cup = 288 g). Ingredients: soy sauce (water, soybeans, wheat, salt), sugar, water, red wine (contains sulphites), alcohol vinegar, modified corn starch, cane sugar syrup, spices, yeast extract. Fibre 0. Servings: USDA SR 171167, 1 tbsp = 18 g.' },
+    halal: { status: 'not-halal', reason: 'The label lists red wine (vino tinto) as an ingredient. Swap: halal-certified soy sauce with honey or sugar, rice vinegar and grated ginger (no mirin, no wine).' },
+    source: { citation: 'Label: Mercadona Salsa Teriyaki Hacendado, 250 ml bottle, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 17362 (tienda.mercadona.es/product/17362, EAN 4006824999137); per-100 g values from Open Food Facts 4006824999137. OFF 4006824999137 (Aiko): 797 kJ (188 kcal), P 4.5, C 41.8 (sugars 36.5), F 0.1, salt 7.4 g, taken as per 100 ml (liquid sold by volume) and divided by 1.22 g/ml (USDA SR 171167 teriyaki sauce: 1 cup = 288 g). Ingredients: soy sauce (water, soybeans, wheat, salt), sugar, water, red wine (contains sulphites), alcohol vinegar, modified corn starch, cane sugar syrup, spices, yeast extract. Fibre 0. Servings: USDA SR 171167, 1 tbsp = 18 g.' },
   },
   {
     id: 'intl-caesar-dressing',
@@ -830,6 +829,6 @@ export default [
     tags: ['international', 'contains-egg', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'The Mercadona dressing contains cheese powder. Rennet (cuajo) of unstated origin; some people avoid animal rennet. Swap: a home dressing of Greek yogurt, lemon, garlic, mustard and a little olive oil, or a microbial-coagulant cheese. The label shows no wine or alcohol, only alcohol vinegar; other brands add Worcestershire sauce or wine, so read those.' },
-    source: { citation: 'Label: Mercadona Salsa César Hacendado, 310 ml bottle, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 17366 (tienda.mercadona.es/product/17366, EAN 8402001024467); per-100 g values from Open Food Facts 8402001024467. Label per 100 g (OFF nutrition_data_per 100g, serving 100 g): 1415.6 kJ (342 kcal), P 2.3, C 13.5 (sugars 7), F 31, sat 4.2. The OFF salt value (0.01 g) is not credible for a dressing with cheese and anchovy powder, so sodium is left out; fibre 0. Ingredients: water, sunflower oil, sugar, cheese powder (milk), alcohol vinegar, starch, pasteurised egg yolk, mustard, milk powder, cream powder, pickled onion, salt, anchovy powder (fish), spices, lemon juice, garlic. Servings: USDA SR 169055 caesar dressing, 1 tbsp = 14.7 g, 2 tbsp = 30 g.' },
+    source: { citation: 'Label: Mercadona Salsa César Hacendado, 310 ml bottle, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 17366 (tienda.mercadona.es/product/17366, EAN 8402001024467); per-100 g values from Open Food Facts 8402001024467. Label per 100 g (OFF nutrition_data_per 100g, serving 100 g): 1415.6 kJ (342 kcal), P 2.3, C 13.5 (sugars 7), F 31, sat 4.2. The OFF salt value (0.01 g) is not credible for a dressing with cheese and anchovy powder, so sodium is left out; fibre 0. Ingredients: water, sunflower oil, sugar, cheese powder (milk), alcohol vinegar, starch, pasteurised egg yolk, mustard, milk powder, cream powder, pickled onion, salt, anchovy powder (fish), spices, lemon juice, garlic. Servings: USDA SR 169055 caesar dressing, 1 tbsp = 14.7 g, 2 tbsp = 30 g.' },
   },
 ];
