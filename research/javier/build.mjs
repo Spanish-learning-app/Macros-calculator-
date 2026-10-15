@@ -1813,12 +1813,22 @@ const s3Intl = [
   },
   {
     id: 'intl-quinoa-cooked', name: 'Quinoa, cooked (boiled)', shortName: 'Quinoa, cooked',
-    aliases: ['cooked quinoa', 'quinoa cocida', 'boiled quinoa', 'quinoa pouch', 'quinoa vasito', 'sabroz quinoa'],
-    group: 'grain-cooked', state: 'cooked in water, no added fat',
-    ...fromUsda3(168917, 'A', 'Katori servings × 0.782 g/ml (USDA SR 168917: 1 cup = 185 g). Pouch: Mercadona Quinoa cocida blanca y roja Sabroz (product 22278, EAN 8410184040754), 2 × 125 g; its OFF label (147 kcal, P 5.9, C 30) does not add up (178 kcal by 4/4/9), so USDA values are used.'),
-    servings: [sv('pouch', '1 pouch (125 g)', 125, true), ...katori(185 / 236.6).map(({ default: _d, ...s }) => s)],
-    pack: { grams: 250, label: '2 × 125 g pouches (Sabroz)' },
+    aliases: ['cooked quinoa', 'quinoa cocida', 'boiled quinoa', 'quinoa hervida', 'home-cooked quinoa'],
+    group: 'grain-cooked', state: 'cooked in water, no added fat (home-boiled; for the ready-cooked pouch see intl-quinoa-pouch)',
+    ...fromUsda3(168917, 'A', 'Katori servings × 0.782 g/ml (USDA SR 168917: 1 cup = 185 g). This is plain home-boiled quinoa. The Sabroz pouch is a different product (olive oil, less water, about 187 kcal per 100 g) and has its own record, intl-quinoa-pouch.'),
+    servings: kat2(185 / 236.6).map((s) => (s.id === 'katori' ? { ...s, default: true } : s)),
     tags: ['international', 'vegetarian', 'vegan', 'gym', 'meal-prep', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+  },
+  {
+    id: 'intl-quinoa-pouch', name: 'Quinoa, microwave pouch (ready cooked)', shortName: 'Quinoa pouch',
+    aliases: ['quinoa pouch', 'quinoa vasito', 'sabroz quinoa', 'quinoa blanca y roja', 'quinoa blanca y roja cocida', 'ready quinoa', 'microwave quinoa'],
+    group: 'rice-dish', // oil-dressed ready grain at 187 kcal/100 g: above the grain-cooked ceiling (180), within rice-dish (110-260); flag for Ayesha
+    state: 'cooked white and red quinoa with olive oil and salt, as sold (heat 40–60 s)',
+    per100g: { kcal: Math.round(784 / 4.184), protein: 5.9, carbs: 30, fat: 3.9, fiber: 3.8, sugars: 0.8, satFat: 0.6, sodium: salt2na(0.51) },
+    servings: [sv('pouch', '1 pouch (125 g)', 125, true), ...kat2(185 / 236.6)],
+    pack: { grams: 250, label: '2 × 125 g pouches (Sabroz)' },
+    tags: ['international', 'vegetarian', 'vegan', 'packaged', 'gym', 'meal-prep', 'eat-cold'], slots: ['lunch', 'dinner'], halal: HALAL,
+    source: merc3('Quinoa blanca y roja cocida Sabroz', 22278, '8410184040754', '2 × 125 g pouches', 'Label per 100 g: 784 kJ = 187 kcal (kJ ÷ 4.184; the printed 147 kcal is a typo, the macros agree with 187: 4P + 4C + 9F + 2 fibre = 186), P 5.9, C 30 (sugars 0.8), F 3.9 (sat 0.6), fibre 3.8, salt 0.51 g. Ingredients: cooked white quinoa 92 %, cooked red quinoa 7 %, virgin olive oil, salt, sunflower lecithin. Label serving 1 pouch = 125 g. Katori servings × 0.782 g/ml (USDA SR 168917 cup weight, the pouch is a little wetter than plain, so this is slightly generous).'),
   },
   {
     id: 'intl-noodles-egg-dry', name: 'Egg noodles (pasta al huevo), dry', shortName: 'Egg noodles, dry',
@@ -1844,11 +1854,12 @@ const s3Intl = [
     id: 'intl-tortilla-corn', name: 'Corn tortilla (tortilla de maíz, taco size)', shortName: 'Corn tortilla',
     aliases: ['corn tortilla', 'corn tortillas', 'tortilla de maíz', 'tortillas de maíz', 'tortilla de maiz', 'taco tortilla', 'corn wrap', 'tortilla mexicana', 'tortilla de blat de moro'],
     group: 'bread', state: 'precooked, as sold (heat 20 s per side in a dry pan)',
-    ...fromUsda3(175036, 'B', 'Generic USDA corn tortilla (SR 175036, ready-to-bake). The Mercadona label (Tortillas de maíz Hacendado, product 86328, EAN 8402001019623: P 3.5, C 44, F 3.2, fibre 7.6) is internally inconsistent on OFF (204 kcal printed, 986.7 kJ = 236 kcal), so USDA values are used; both sit near 218. Serving: 26 g per tortilla (label; 8 per 208 g pack).'),
+    per100g: { kcal: Math.round(986.7 / 4.184), protein: 3.5, carbs: 44, fat: 3.2, fiber: 7.6, sugars: 9.5, satFat: 0.4, sodium: salt2na(2.1625) },
+    source: merc3('Tortillas de maíz Hacendado', 86328, '8402001019623', '8 tortillas (208 g)', 'Label per 100 g: 986.7 kJ = 236 kcal (kJ ÷ 4.184), P 3.5, C 44 (sugars 9.5), F 3.2 (sat 0.4), fibre 7.6, salt 2.16 g. The label energy agrees with its macros (4P + 4C + 9F + 2 fibre = 234); only the printed 204 kcal on OFF is a typo. The flour is wholegrain maize (fibre 7.6 against USDA 6.3). Cross-check: USDA SR 175036 corn tortilla, 218 kcal. Ingredients: precooked wholegrain maize flour 52 %, water, stabilisers (glycerine, guar gum, xanthan gum, cellulose gum), salt, high-oleic sunflower oil, preservatives, acidity regulator. Serving: 26 g per tortilla (label; 8 per 208 g pack).'),
     servings: [sv('tortilla', '1 tortilla (26 g)', 26, true), sv('two', '2 tortillas (52 g)', 52), sv('three', '3 tortillas (78 g)', 78)],
     pack: { grams: 208, label: '8 tortillas (208 g)' },
     tags: ['international', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'],
-    halal: { status: 'halal', reason: 'Corn flour, water, gums, salt, sunflower oil and preservatives on the Mercadona label: no emulsifier E-471 (unlike its wheat wraps).' },
+    halal: check('The label lists glycerine (E-422) of unstated origin, which can be made from animal fat. Swap: Pitta bread (no glycerine, no E-471), halal on the Mercadona label.'),
   },
   {
     id: 'intl-kidney-beans-tinned', name: 'Red kidney beans, tinned or jarred (drained)', shortName: 'Kidney beans, tinned',
@@ -1995,7 +2006,7 @@ esmed.push(...s3Esmed);
   for (const a of ['pechuga a la plancha', 'pechuga de pollo a la plancha', 'pollo a la plancha', 'grilled chicken breast', 'cooked chicken breast', 'pechuga cocida'])
     if (!chicken.aliases.includes(a)) chicken.aliases.push(a);
   const wrap = find('intl-tortilla-wrap-wholewheat');
-  wrap.halal = check(`${wrap.halal.reason} Swap: Corn tortilla (intl-tortilla-corn, no emulsifier) or Pitta bread (no E-471), both halal on the Mercadona label.`);
+  wrap.halal = check('The wrap lists the emulsifier E-471 (mono- and diglycerides) and glycerine (E-422), which can be made from animal fat; the label does not say vegetable origin. Swap: Pitta bread (no E-471, no glycerine), halal on the Mercadona label.');
   const falafel = find('med-falafel');
   falafel.halal = { status: 'halal', reason: 'Chickpeas, herbs and spices deep-fried in vegetable oil; no animal ingredient. If bought ready-made, ask whether the fryer is shared with meat.' };
 }
@@ -2096,7 +2107,7 @@ const SHORT = {
   'intl-greek-yogurt-whole': 'Greek yogurt, whole', 'intl-pizza-cheese': 'Cheese pizza', 'intl-burger-beef': 'Beef burger',
   'intl-burger-zinger': 'Zinger burger', 'intl-fries': 'French fries', 'intl-chicken-nuggets': 'Chicken nuggets',
   'intl-chicken-sandwich': 'Chicken mayo sandwich', 'intl-bread-white': 'White bread, sliced',
-  'intl-rice-cup-basmati': 'Basmati rice cup', 'intl-rice-cup-brown': 'Brown rice cup', 'intl-rice-brown-dry': 'Brown rice, dry',
+  'intl-rice-cup-basmati': 'Basmati rice cup', 'intl-quinoa-pouch': 'Quinoa pouch', 'intl-rice-cup-brown': 'Brown rice cup', 'intl-rice-brown-dry': 'Brown rice, dry',
   'intl-pasta-wholewheat-dry': 'Wholewheat pasta, dry', 'intl-bread-wholemeal-sliced': 'Wholemeal sliced bread',
   'intl-tortilla-wrap-wholewheat': 'Wholewheat wrap', 'intl-chana-dal-dry': 'Chana dal, dry', 'intl-masoor-dal-dry': 'Masoor dal, dry',
   // es-med

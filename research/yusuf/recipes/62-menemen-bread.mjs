@@ -1,0 +1,60 @@
+// R-MP-62 · Menemen: Turkish eggs with peppers and tomato, with bread (breakfast portion). Batch: 2 portions.
+export default {
+  n: 62,
+  slot: 'breakfast',
+  serving: 'portion',
+  boxes: 2,
+  effort: 'cook',
+  minutes: 15,
+  cuisine: 'middle-eastern',
+  shortName: 'Menemen with bread',
+  id: 'me-menemen-portion',
+  name: 'Menemen: eggs with peppers and tomato, with bread (breakfast portion)',
+  names: {
+    en: 'Menemen: Turkish eggs with green peppers and tomato, with bread',
+    es: 'Menemen: huevos a la turca con pimiento verde y tomate, con pan',
+    ca: 'Menemen: ous a la turca amb pebrot verd i tomàquet, amb pa',
+  },
+  aliases: ['menemen', 'turkish eggs', 'huevos a la turca', 'shakshuka breakfast', 'eggs with tomato', 'huevos con tomate', 'ous amb tomaquet'],
+  pitch: 'Soft eggs stirred into green peppers and tomato with a pinch of chilli, the Turkish breakfast, with bread to scoop. Cook two, reheat one tomorrow.',
+  eat: 'hot',
+  tags: ['middle-eastern', 'meal-prep', 'contains-egg', 'vegetarian'],
+  references: [
+    { title: 'The Mediterranean Dish, Menemen (Turkish scrambled eggs with tomatoes)', url: 'https://www.themediterraneandish.com/wprm_print/menemen-recipe-turkish-scrambled-eggs-with-tomatoes', used: 'peppers softened, tomatoes cooked down, eggs stirred in soft; served with crusty bread', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Unicorns in the Kitchen, Menemen Turkish eggs and tomatoes', url: 'https://www.unicornsinthekitchen.com/wprm_print/menemen-turkish-eggs-and-tomatoes-recipe', used: 'onion optional; chilli flakes; leftovers keep 2 days in an airtight box', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'eggs', label: 'Menemen', storage: 'egg-dish', yield: 'none', eat: 'hot',
+      lines: [
+        ['oil-olive', 10, ''],
+        ['onion', 80, 'chopped', 'onionSoft'],
+        ['pepper-green', 200, 'diced', 'pepperStew'],
+        ['tomato', 300, 'grated or chopped', 'vegStew'],
+        ['egg', 300, '6 eggs', 'eggSet'],
+        ['chilli-powder', 1, 'or pul biber'],
+        ['salt', 2, ''],
+      ],
+    },
+    {
+      id: 'bread', label: 'Bread (½ bocadillo roll per portion)', storage: 'proposed:bread', yield: 'none', eat: 'hot',
+      lines: [['bocadillo-bread', 130, '1 roll']],
+    },
+  ],
+  method: [
+    'Soften onion and peppers in the oil 6 min. Add the tomato and cook 5 min until most of the juice is gone.',
+    'Beat the eggs with salt and chilli; stir into the pan over low heat until just set, 2–3 min.',
+    'Eat one portion now with ½ roll; box the other for tomorrow.',
+  ],
+  keeps: '2 days in the fridge (the references say 2; egg dishes are allowed 3)',
+  storagePlan: 'Cook 2 portions: one now, one tomorrow.',
+  reheat: 'Microwave 1–1½ min, stirring once, until hot right through (75 °C).',
+  crossCheck: null,
+  changes: [
+    'Three eggs per portion for 25 g protein; no cheese.',
+    'Half a bocadillo roll (no emulsifier) instead of simit.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'Bognár yields for onion, pepper, tomato and eggs; USDA and label values.',
+  halal: { status: 'halal', reason: 'Eggs, vegetables and a roll of flour, water, yeast and salt.' },
+};

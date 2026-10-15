@@ -56,3 +56,9 @@ carbs, fat and fiber.
 - Check that meal prep is not mainly Pakistani dishes. "I'm not gonna bring any Pakistani food to
   lunch except the rice etc. For sure not roti salan." Add easy cooking options such as sandwiches,
   salads and pastas, and don't be limited to those: there should be real variety.
+
+## Update from the Boss — 2026-10-15 (night): how to make each prep
+
+- Each prep shows ingredients, amounts and the shopping list, but not how to cook it. The Boss is not
+  an expert cook: show a step-by-step method with the order of adding, cut/form, amounts, heat (pan,
+  oven), times, and whether cooking is needed at all.

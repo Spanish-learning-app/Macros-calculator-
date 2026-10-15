@@ -1,0 +1,61 @@
+// R-MP-59 · Tostada with grated tomato, tuna, avocado and a boiled egg (breakfast portion). Batch: 2 portions.
+export default {
+  n: 59,
+  slot: 'breakfast',
+  serving: 'portion',
+  boxes: 2,
+  effort: 'assemble',
+  minutes: 8,
+  cuisine: 'spanish',
+  shortName: 'Tuna avocado tostada',
+  id: 'es-tostada-tomate-atun-aguacate-portion',
+  name: 'Tostada with tomato, tuna, avocado and egg (breakfast portion)',
+  names: {
+    en: 'Tostada with grated tomato, tuna, avocado and a boiled egg',
+    es: 'Tostada con tomate rallado, atún, aguacate y huevo duro',
+    ca: 'Torrada amb tomàquet ratllat, tonyina, alvocat i ou dur',
+  },
+  aliases: ['tostada', 'tostada de atun', 'tostada con tomate', 'avocado toast', 'tosta de aguacate', 'torrada', 'tuna toast', 'desayuno espanol'],
+  pitch: 'A Spanish café breakfast at home: toasted roll with grated tomato and olive oil, topped with tuna, avocado and a sliced egg.',
+  eat: 'cold',
+  tags: ['spanish', 'meal-prep', 'eat-cold', 'contains-egg', 'seafood-fish'],
+  references: [
+    { title: 'UnoTV, Desayunos fáciles con una lata de atún', url: 'https://www.unotv.com/estilo-de-vida/gastronomia/desayunos-faciles-rapidos-y-baratos-con-una-lata-de-atun-recetas/', used: 'toast topped with drained tuna, mashed avocado and olive oil', read: 'search-engine result summary, 2026-10-15' },
+    { title: 'Directo al Paladar, Tosta de aguacate fácil y rápida', url: 'https://www.directoalpaladar.com/recetas-vegetarianas/esta-tosta-aguacate-facil-rapida-te-resuelte-cena-que-desayuno', used: 'avocado on toast with lemon and sliced tomato', read: 'search-engine result summary, 2026-10-15' },
+  ],
+  components: [
+    {
+      id: 'topping', label: 'Grated tomato, tuna and avocado', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      lines: [
+        ['tomato', 200, 'grated (pulp, skin left behind)'],
+        ['tuna', 120, '2 cans, drained (1 per portion)'],
+        ['avocado', 100, '½ avocado for the 2 mornings, sliced on the day (50 g each)'],
+        ['oil-olive', 6, 'extra virgin'],
+        ['salt', 1, ''],
+      ],
+    },
+    {
+      id: 'egg', label: 'Hard-boiled egg (1 per portion)', storage: 'egg-dish', yield: 'none', eat: 'cold',
+      lines: [['egg-boiled', 100, '2 eggs']],
+    },
+    {
+      id: 'bread', label: 'Toasted roll (½ bocadillo roll per portion)', storage: 'proposed:bread', yield: 'none', eat: 'cold',
+      lines: [['bocadillo-bread', 130, '1 roll, split; toasting is not counted']],
+    },
+  ],
+  method: [
+    'The night before: grate the tomato into a small pot (keeps 2 days); boil eggs if you have none.',
+    'In the morning: toast ½ roll, spoon on the tomato, a little oil and salt, then the tuna, sliced avocado and egg.',
+  ],
+  keeps: 'Tomato pulp 2 days; eggs 3 days; avocado cut on the day',
+  storagePlan: 'Grate tomato for 2 mornings at a time. Use half an avocado per day: wrap the other half with its stone and a drop of lemon.',
+  reheat: 'Not reheated.',
+  crossCheck: null,
+  changes: [
+    'Half a bocadillo roll (flour, water, yeast, salt) instead of a barra with E-472e.',
+    'A can of tuna and an egg take a tostada to 25 g protein or more.',
+  ],
+  confidence: 'B',
+  confidenceWhy: 'No cooking (toasting not counted: it removes water, not nutrients); labels and Lab records.',
+  halal: { status: 'halal', reason: 'Tuna (tuna, water, salt), roll of flour, water, yeast and salt, egg, avocado and tomato.' },
+};

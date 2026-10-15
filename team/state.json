@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-15T21:04:00Z",
+  "updatedAt": "2026-10-15T21:05:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -83,7 +83,7 @@
   "inFlight": [
     {
       "member": "yusuf",
-      "task": "20-25 international easy preps, cuisine tags, redo weekly plans, shortName (team/briefs/s3-variety.md)",
+      "task": "20-25 international easy preps, cuisine tags, redo weekly plans, shortName (team/briefs/s3-variety.md) + beginner method on every library recipe (team/briefs/s3-method.md)",
       "output": "foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
     },
     {
@@ -185,6 +185,10 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
+    {
+      "member": "lena",
+      "task": "After Ramadan: \"How to make it\" UI + step-by-step mode + My method (team/briefs/s3-method.md)"
+    },
     {
       "member": "lena",
       "task": "Wave 2: protein nudges + Ramadan mode UI (after Ayesha rules)"
