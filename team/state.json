@@ -3,7 +3,7 @@
   "status": "working",
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
-  "sprintGoal": "A first usable build: plan and log a desi day in under a minute, with sourced numbers",
+  "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
   "updatedAt": "2026-10-15T16:20:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
@@ -26,13 +26,13 @@
     },
     "lena": {
       "location": "office",
-      "status": "idle",
-      "task": "Fix wave 2 done (Meeting 004 A)"
+      "status": "working",
+      "task": "Weight log, spare-box warning, meal-name choice"
     },
     "ayesha": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: 12 raw records, 25 reviewed, rules 1.6.1"
+      "status": "working",
+      "task": "Sprint 3 rules"
     },
     "bilal": {
       "location": "office",
@@ -57,7 +57,7 @@
     "zainab": {
       "location": "office",
       "status": "working",
-      "task": "Pakistani food records (4 files)"
+      "task": "Kam-tel variants + short names"
     },
     "javier": {
       "location": "office",
@@ -80,7 +80,23 @@
       "task": "Review 2 done: 8/10"
     }
   },
-  "inFlight": [],
+  "inFlight": [
+    {
+      "member": "ayesha",
+      "task": "Sprint 3 rules 1.7.0: protein nudges, Ramadan (Barcelona), weight trend, kam-tel, shortName; then review backlog",
+      "output": "rules.js, NUTRITION.md, check-foods.mjs, research/review/**"
+    },
+    {
+      "member": "zainab",
+      "task": "Kam-tel (home-light) variants of oily desi dishes + shortName on Pakistani records",
+      "output": "app/data/foods-pk-*.js, research/zainab/**"
+    },
+    {
+      "member": "lena",
+      "task": "Sprint 3 wave 1: weight log + trend, spare-box warning on Day, first-run meal names, short names in rows",
+      "output": "app/** (not data), tests/unit/dev/**"
+    }
+  ],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
@@ -92,7 +108,8 @@
     "001-kickoff",
     "002-boss-update",
     "003-review-1",
-    "004-review-2"
+    "004-review-2",
+    "005-sprint-3-plan"
   ],
   "checkIns": [
     {
@@ -161,7 +178,32 @@
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
     "note": "Boss can prompt the session during the day to work anyway"
   },
-  "queued": [],
+  "queued": [
+    {
+      "member": "lena",
+      "task": "Wave 2: protein nudges + Ramadan mode UI (after Ayesha rules)"
+    },
+    {
+      "member": "yusuf",
+      "task": "Wave 2: low-cook/budget weeks as one-tap plans + shortName on preps"
+    },
+    {
+      "member": "javier",
+      "task": "Wave 2: shortName on his records"
+    },
+    {
+      "member": "priya",
+      "task": "Wave 2: accessibility, performance, Week view polish"
+    },
+    {
+      "member": "kenji",
+      "task": "Wave 2: independent tests for waves 1-2, full e2e"
+    },
+    {
+      "member": "customer panel",
+      "task": "Wave 3: Review 3 (full week incl. Ramadan mode), then fix wave, final audit, delivery report"
+    }
+  ],
   "reports": [
     "001-sprint-1",
     "002-sprint-2"
