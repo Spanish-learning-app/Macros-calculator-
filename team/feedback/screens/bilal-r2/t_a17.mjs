@@ -26,8 +26,9 @@ console.log('batch note:', await card.getByTestId('batch-note').innerText({timeo
 await L.shot(run,'a17-02-fifth-friday');
 console.log('undo visible:', await p.getByTestId('undo').isVisible().catch(()=>false), '| toast:', (await p.locator('[role=status], .toast').allInnerTexts()).join(' / '));
 console.log('dialogs', run.dialogs);
-await L.tap(run, p.getByTestId('undo')); await p.waitForTimeout(300);
+await L.tap(run, p.getByTestId('undo').getByRole('button',{name:'Undo'})); await p.waitForTimeout(300);
 console.log('A17 step 2 (friday + undo): actions', run.actions);
+await p.waitForTimeout(1500); console.log('Fri chip after undo+1.5s:', await card.locator('[data-testid=place-day][data-date="2026-11-06"]').getAttribute('class'), '| note:', await card.getByTestId('batch-note').innerText({timeout:300}).catch(()=>'(none)'));
 console.log('after undo: boxes-left', (await card.getByTestId('boxes-left').innerText()).replace(/\n/g,' '));
 console.log('batch note after undo:', await card.getByTestId('batch-note').innerText({timeout:500}).catch(()=>'(none)'));
 // step 3: Monday 14:00 tick

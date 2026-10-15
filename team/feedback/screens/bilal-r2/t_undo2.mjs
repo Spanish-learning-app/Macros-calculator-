@@ -1,0 +1,16 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-11-01T20:00:00+01:00'}); const p = run.page;
+await L.onboardP1(run);
+await p.goto(L.URL+'#/prep'); await p.waitForSelector('[data-testid=prep-view]');
+await p.locator('[data-testid=library-row]').filter({hasText:/Chicken tikka rice bowl/}).getByTestId('library-cook').click();
+await p.waitForSelector('[data-testid=cook-dialog]'); await p.getByTestId('cook-save').click(); await p.waitForTimeout(400);
+const card=p.getByTestId('batch-card').first();
+const days=async()=>{await p.waitForTimeout(600); const d=await p.evaluate(()=>JSON.parse(localStorage.getItem('mmc.v1'))); return Object.entries(d.days).map(([k,v])=>k.slice(5)+':'+(v.entries||[]).length).join(' ');};
+await card.locator('[data-testid=place-day][data-date="2026-11-02"]').click(); console.log('placed Mon (box 1 of 4):', await days());
+await p.getByTestId('undo').getByRole('button',{name:'Undo'}).click(); console.log('undo (not over capacity):', await days(), '| left', (await card.getByTestId('boxes-left').innerText()).replace(/\n/g,' '));
+await card.getByTestId('fill-mon-thu').click(); console.log('fill:', await days());
+await card.locator('[data-testid=place-day][data-date="2026-11-06"]').click(); console.log('Fri 5th:', await days());
+console.log('toast text:', await p.locator('.toast').allInnerTexts());
+await p.getByTestId('undo').getByRole('button',{name:'Undo'}).click(); console.log('undo 5th:', await days());
+await L.shot(run,'undo2');
+await run.browser.close();

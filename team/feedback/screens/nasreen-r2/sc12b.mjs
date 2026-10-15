@@ -1,0 +1,18 @@
+import { open, shot, txt, onboard, tab, pakistaniTimes, dlg } from './lib3.mjs';
+import { makeSalan } from './sc1b.mjs';
+const S = await open('2026-10-15T13:30:00+02:00'); const {page}=S;
+await onboard(page); await pakistaniTimes(page); await makeSalan(page);
+await tab(page,'Day');
+await page.locator('[data-testid=slot-lunch] .btn-add').click(); await page.waitForTimeout(400);
+await page.keyboard.type('salan pot'); await page.waitForTimeout(450);
+await dlg(page).locator('.food-name',{hasText:'Chicken salan pot'}).first().click(); await page.waitForTimeout(400);
+await page.locator('.serving-chip').nth(3).click();
+await page.locator('[data-testid=portion-picker] button[type=submit]').click(); await page.waitForTimeout(400);
+await dlg(page).getByRole('button',{name:'Done'}).click(); await page.waitForTimeout(400);
+await page.locator('header button, button').filter({has:page.locator('svg')}).nth(1).click().catch(()=>{});
+await page.evaluate(()=>window.scrollTo(0,0));
+await page.locator('button[aria-label*="ext"], button[aria-label*="omorrow"]').first().click(); await page.waitForTimeout(400);
+await page.locator('[data-testid=slot-lunch] .btn-add').click(); await page.waitForTimeout(400);
+await shot(page,'98-tomorrow-recent-pot');
+console.log((await dlg(page).innerText()).split('Halal only')[1].slice(0,400));
+await S.browser.close();

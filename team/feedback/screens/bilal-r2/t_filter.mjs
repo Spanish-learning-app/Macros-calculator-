@@ -1,0 +1,20 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-18T18:00:00+02:00'}); const p = run.page;
+await L.onboardP1(run);
+await p.goto(L.URL+'#/prep'); await p.waitForSelector('[data-testid=prep-view]');
+const count = async()=> p.locator('[data-testid=library-row]').count();
+const rowsData = async()=> p.locator('[data-testid=library-row]').evaluateAll(els=>els.map(e=>e.innerText.replace(/\n+/g,' | ')));
+console.log('All:', await count());
+const f = p.getByTestId('library-filter');
+console.log('filter html:', (await f.innerText()).replace(/\n/g,' | '));
+L.start(run);
+await L.tap(run, f.getByRole('button',{name:/^Cook/}).or(f.getByText(/^Cook$/)).first()); await p.waitForTimeout(300);
+console.log('Cook:', await count(), 'actions', run.actions);
+await L.shot(run,'filter-cook');
+await L.tap(run, f.getByText(/No-cook/).first()); await p.waitForTimeout(300);
+console.log('No-cook:', await count());
+await L.shot(run,'filter-nocook');
+const nc = await rowsData(); nc.forEach(r=>console.log('  NC', r));
+await p.evaluate(()=>window.scrollTo(0,0)); await L.shot(run,'filter-nocook-top');
+// library empty state? try filter + empty
+await run.browser.close();

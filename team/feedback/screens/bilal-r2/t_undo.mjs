@@ -1,0 +1,17 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-11-01T20:00:00+01:00'}); const p = run.page;
+await L.onboardP1(run);
+await p.goto(L.URL+'#/prep'); await p.waitForSelector('[data-testid=prep-view]');
+await p.locator('[data-testid=library-row]').filter({hasText:/Chicken tikka rice bowl/}).getByTestId('library-cook').click();
+await p.waitForSelector('[data-testid=cook-dialog]'); await p.getByTestId('cook-save').click(); await p.waitForTimeout(400);
+const card=p.getByTestId('batch-card').first();
+await card.getByTestId('fill-mon-thu').click(); await p.waitForTimeout(300);
+const snap = async (t)=>{ await p.waitForTimeout(700); const d = await p.evaluate(()=>JSON.parse(localStorage.getItem('mmc.v1'))); const days=Object.entries(d.days).map(([k,v])=>k+':'+(v.entries||[]).length); const b=d.batches[0]; console.log(t,'| days',days.join(' '),'| boxes',b.boxes.map(x=>x.placed?x.placed.date+'/'+x.placed.slot:'-').join(' ')); };
+await snap('after fill');
+await card.locator('[data-testid=place-day][data-date="2026-11-06"]').click(); await snap('after Fri');
+console.log('undo buttons:', await p.getByTestId('undo').count(), await p.locator('.toast').allInnerTexts());
+await p.getByTestId('undo').getByRole('button',{name:'Undo'}).click(); await snap('after undo'); await p.waitForTimeout(2500); await snap('after undo +2.5s'); await p.reload(); await snap('after reload');
+console.log('note:', await card.getByTestId('batch-note').innerText({timeout:300}).catch(()=>'(none)'));
+console.log('Fri chip state:', await card.locator('[data-testid=place-day][data-date="2026-11-06"]').getAttribute('class'));
+await L.shot(run,'undo-after');
+await run.browser.close();

@@ -1,0 +1,20 @@
+import { open, shot, fullshot, txt, onboard, tab, pakistaniTimes, dlg } from './lib3.mjs';
+const S = await open('2026-10-15T20:30:00+02:00'); const {page}=S;
+await onboard(page); await pakistaniTimes(page);
+await page.locator('[data-testid=slot-dinner] .btn-add').click(); await page.waitForTimeout(400);
+const add=async(q,name,chip)=>{
+  await dlg(page).locator('input').first().fill(q); await page.waitForTimeout(450);
+  await dlg(page).locator('.food-name',{hasText:name}).first().click(); await page.waitForTimeout(350);
+  if(chip) await page.locator('.qty-chip',{hasText:new RegExp('^'+chip)}).first().click();
+  await page.locator('[data-testid=portion-picker] button[type=submit]').click(); await page.waitForTimeout(350); };
+await add('korma','Chicken korma (shadi','2');
+await add('pulao','Chicken pulao (restaurant)','2');
+await add('kheer','Kheer','2');
+await add('biscuit','Marie biscuit','2');
+await add('roti','Roti / chapati (home, no ghee)','2');
+await dlg(page).getByRole('button',{name:'Done'}).click(); await page.waitForTimeout(500);
+await page.evaluate(()=>window.scrollTo(0,0)); await shot(page,'90-big-day-top');
+await fullshot(page,'90-big-day-full');
+console.log((await txt(page)).slice(0,1400));
+await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight)); await page.waitForTimeout(300); await shot(page,'91-big-day-bottom');
+await S.browser.close();

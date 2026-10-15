@@ -1,0 +1,18 @@
+import { open, shot, txt, onboard, tab, pakistaniTimes, dlg } from './lib3.mjs';
+import { makeSalan } from './sc1b.mjs';
+const S = await open('2026-10-15T13:30:00+02:00'); const {page}=S;
+await onboard(page); await pakistaniTimes(page); await makeSalan(page);
+await tab(page,'Day');
+await page.locator('[data-testid=slot-lunch] .btn-add').click(); await page.waitForTimeout(400);
+await page.keyboard.type('salan pot'); await page.waitForTimeout(450);
+await dlg(page).locator('.food-name',{hasText:'Chicken salan pot'}).first().click(); await page.waitForTimeout(400);
+const chips = page.locator('.serving-chip'); console.log(await chips.allInnerTexts());
+await chips.nth(3).click(); await page.waitForTimeout(200);
+await shot(page,'97-pot-katori-selected');
+console.log((await dlg(page).innerText()).split('Quantity')[1].slice(0,120));
+await page.locator('[data-testid=portion-picker] button[type=submit]').click(); await page.waitForTimeout(400);
+await dlg(page).getByRole('button',{name:'Done'}).click(); await page.waitForTimeout(400);
+console.log((await txt(page)).split('Lunch')[1].slice(0,200));
+await page.locator('[data-testid=slot-lunch] .btn-add').click().catch(()=>{});
+await page.getByRole('button',{name:/next|Tomorrow|›/i}).first().click().catch(()=>{});
+await S.browser.close();

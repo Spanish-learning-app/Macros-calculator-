@@ -1,0 +1,10 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-19T13:00:00+02:00'}); const p = run.page;
+await L.onboardP1(run);
+await L.openSlot(run,'Lunch'); await L.search(run,'roti');
+const row=L.rows(run).first();
+await row.locator('.btn-plus').click(); await p.waitForTimeout(120);
+await L.shot(run,'x-plus-feedback-120ms');
+console.log('row after +:', (await row.innerText()).replace(/\n+/g,' | '), '| toast:', (await p.locator('.toast,[role=status]').allInnerTexts()).join(' / '));
+console.log('plus aria after:', await row.locator('.btn-plus').getAttribute('aria-label'), await row.locator('.btn-plus').evaluate(e=>e.className));
+await run.browser.close();
