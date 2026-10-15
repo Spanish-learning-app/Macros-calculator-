@@ -433,6 +433,7 @@ export default [
     ],
     tags: ['international', 'meal-prep', 'eat-cold', 'vegetarian'],
     slots: ['breakfast'],
+    serve: 'cold',
     halal: {
       status: 'halal',
       reason: 'Dairy, oats, seeds, nuts and fruit only; milk and yogurt labels checked (no gelatine), 2026-10-13/14.',
@@ -829,6 +830,7 @@ export default [
     ],
     tags: ['spanish', 'meal-prep', 'eat-cold', 'vegetarian'],
     slots: ['breakfast'],
+    serve: 'cold',
     halal: {
       status: 'halal',
       reason: 'Dairy (no rennet, no gelatine: label read 2026-10-14), oats, seeds, nuts and fruit only.',
@@ -856,6 +858,7 @@ export default [
     ],
     tags: ['catalan', 'spanish', 'meal-prep', 'contains-egg', 'vegetarian'],
     slots: ['breakfast'],
+    serve: 'either',
     halal: {
       status: 'halal',
       reason: 'Bakery bread of flour, water, salt and yeast; Burgos with microbial rennet (label 2026-10-14); eggs, tomato, olive oil and fruit. Mercadona\'s own barras list E-472e of unstated origin: buy at a forn or check.',
@@ -894,6 +897,7 @@ export default [
     ],
     tags: ['pakistani', 'meal-prep', 'eat-cold', 'vegetarian', 'iftar'],
     slots: ['breakfast'],
+    serve: 'cold',
     halal: {
       status: 'halal',
       reason: 'Fruit, nuts, spices and a protein yogurt of milk and cultures only (no gelatine; label read 2026-10-13/14).',
@@ -931,6 +935,7 @@ export default [
     ],
     tags: ['spanish', 'mediterranean', 'meal-prep', 'eat-cold', 'seafood-fish'],
     slots: ['lunch'],
+    serve: 'cold',
     halal: {
       status: 'check',
       reason: 'Feta made with rennet (cuajo) of unstated origin. Swap: queso de Burgos 0% (cuajo microbiano) makes it halal.',
@@ -967,6 +972,7 @@ export default [
     ],
     tags: ['international', 'meal-prep', 'eat-cold', 'contains-egg', 'seafood-fish'],
     slots: ['lunch'],
+    serve: 'either',
     halal: { status: 'halal', reason: 'Fish, egg, rice and vegetables only; no soy sauce or mirin.' },
     source: {
       citation: 'Recipe R-MP-30: Salmon and brown-rice bowl with avocado, cucumber and egg, standard batch of 2 boxes (research/yusuf/recipes/intl-salmon-brown-rice-bowl-box.md)',
@@ -1000,6 +1006,7 @@ export default [
     ],
     tags: ['mediterranean', 'meal-prep', 'eat-cold', 'contains-egg', 'seafood-fish'],
     slots: ['lunch'],
+    serve: 'cold',
     halal: {
       status: 'halal',
       reason: 'Tuna (tuna, water, salt), hummus with additives de origen vegetal, pita without E471, eggs and vegetables (labels read 2026-10-13/14).',
@@ -1027,6 +1034,7 @@ export default [
     ],
     tags: ['mediterranean', 'middle-eastern', 'meal-prep', 'eat-cold', 'seafood-fish'],
     slots: ['lunch'],
+    serve: 'either',
     halal: {
       status: 'halal',
       reason: 'Fish (mackerel, olive oil, salt), couscous (durum wheat, water), chickpeas, vegetables and Burgos with microbial rennet.',
@@ -1064,6 +1072,7 @@ export default [
     ],
     tags: ['middle-eastern', 'mediterranean', 'meal-prep', 'eat-cold', 'vegetarian'],
     slots: ['lunch'],
+    serve: 'either',
     halal: {
       status: 'halal',
       reason: 'Lentils, rice, vegetables and queso de Burgos with microbial rennet (label 2026-10-14).',
@@ -1091,6 +1100,7 @@ export default [
     ],
     tags: ['spanish', 'meal-prep', 'eat-cold', 'contains-egg', 'seafood-fish'],
     slots: ['dinner', 'lunch'],
+    serve: 'cold',
     halal: {
       status: 'halal',
       reason: 'Salmorejo of tomato, bread, olive oil, pepper, garlic, salt and vinegar; tuna, eggs, wholemeal picos (no lard) and fruit (labels read 2026-10-13/14).',
@@ -1129,6 +1139,7 @@ export default [
     ],
     tags: ['pakistani', 'meal-prep', 'vegetarian'],
     slots: ['dinner', 'lunch'],
+    serve: 'hot',
     halal: {
       status: 'halal',
       reason: 'Chickpeas, tomato, vegetables, spices, rice and a protein yogurt of milk and cultures only.',
@@ -1165,6 +1176,7 @@ export default [
     ],
     tags: ['spanish', 'mediterranean', 'meal-prep', 'eat-cold', 'contains-egg', 'vegetarian'],
     slots: ['dinner', 'lunch'],
+    serve: 'cold',
     halal: {
       status: 'halal',
       reason: 'Hummus (additives de origen vegetal), Burgos with microbial rennet, eggs, vegetables and picos without lard.',
@@ -1201,6 +1213,7 @@ export default [
     ],
     tags: ['mediterranean', 'meal-prep', 'eat-cold', 'vegetarian'],
     slots: ['snacks', 'evening'],
+    serve: 'cold',
     halal: {
       status: 'halal',
       reason: 'Hummus (additives de origen vegetal), queso batido (milk and cultures, no rennet), vegetables and picos without lard.',
@@ -1228,6 +1241,7 @@ export default [
     ],
     tags: ['international', 'meal-prep', 'eat-cold', 'vegetarian'],
     slots: ['snacks', 'evening'],
+    serve: 'cold',
     halal: { status: 'halal', reason: 'Milk, protein yogurt (no gelatine), chia and fruit only.' },
     source: {
       citation: 'Recipe R-MP-38: Protein chia pudding with pomegranate, standard batch of 3 jars (research/yusuf/recipes/intl-protein-chia-pudding-pomegranate-jar.md)',
@@ -1263,6 +1277,7 @@ export default [
     ],
     tags: ['pakistani', 'meal-prep', 'eat-cold', 'vegetarian', 'iftar'],
     slots: ['snacks', 'evening'],
+    serve: 'cold',
     halal: {
       status: 'halal',
       reason: 'Chickpeas, vegetables, spices and a protein yogurt of milk and cultures only.',
@@ -1274,6 +1289,44 @@ export default [
       reviewer: 'yusuf',
       date: '2026-10-15',
       notes: 'No-cook prep (effort assemble, 10 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 319 g = 258 kcal, 22.0 g protein, 9.9 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+    },
+  },
+  {
+    id: 'es-lentejas-atun-burgos-salad-box',
+    name: 'Lentil salad with tuna, queso de Burgos and peppers (cold lunch box)',
+    nameRoman: 'daal salad tuna burgos',
+    aliases: ['Ensalada de lentejas con atún, queso de Burgos y pimiento', 'Amanida de llenties amb tonyina, formatge de Burgos i pebrot', 'lentil salad with burgos', 'lentil tuna salad halal', 'ensalada de lentejas con queso de burgos', 'lentil salad without feta', 'amanida de llenties amb formatge fresc', 'lentejas con atun y burgos'],
+    group: 'lunchbox',
+    state: 'assembled (no cooking), one packed lunch box as eaten, all pots included (lentils, tuna and vegetables 608 g, queso de burgos 0% (1 tub per box) 63 g)',
+    per100g: {
+      kcal: 87,
+      protein: 7,
+      carbs: 6.6,
+      fat: 3,
+      fiber: 2.7,
+      sugars: 1.7,
+      satFat: 0.5,
+      sodium: 254,
+    },
+    addedFatPer100g: 2.5,
+    servings: [
+      { id: 'box', label: '1 box', grams: 671, default: true },
+      { id: 'half-box', label: '½ box', grams: 336 },
+    ],
+    tags: ['spanish', 'mediterranean', 'meal-prep', 'eat-cold', 'seafood-fish'],
+    slots: ['lunch'],
+    serve: 'cold',
+    halal: {
+      status: 'halal',
+      reason: 'Lentils, tuna, vegetables and queso de Burgos 0% with microbial rennet (cuajo microbiano, label read 2026-10-14). The halal variant of the feta salad (R-MP-29).',
+    },
+    source: {
+      citation: 'Recipe R-MP-40: Lentil salad with tuna, queso de Burgos and peppers, standard batch of 2 boxes (research/yusuf/recipes/es-lentejas-atun-burgos-salad-box.md)',
+      method: 'recipe',
+      confidence: 'B',
+      reviewer: 'yusuf',
+      date: '2026-10-15',
+      notes: 'No-cook prep (effort assemble, 12 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 671 g = 584 kcal, 47.0 g protein, 18.1 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
 ];

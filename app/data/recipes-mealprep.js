@@ -9,6 +9,7 @@
 // meats and spices. storage: one RULES.mealPrep.storage id per component; { id, pot: true } = a side pot packed
 // apart; sealed packs, bread and whole fruit are not use-by items and are left out. effort: 'cook' (batch-cooked)
 // or 'assemble' (15 min or less, little or no cooking); minutes = hands-on minutes for the batch (§13.1).
+// serve (assemble preps only, Meeting 004): 'cold' | 'hot' | 'either', how the prep is eaten (hot = microwave).
 
 export default [
   {
@@ -490,6 +491,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 10,
+    serve: 'cold',
   },
   {
     foodId: 'intl-egg-muffins-roti-portion',
@@ -955,6 +957,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 10,
+    serve: 'cold',
   },
   {
     foodId: 'es-pa-amb-tomaquet-burgos-ous-portion',
@@ -971,6 +974,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 12,
+    serve: 'either',
   },
   {
     foodId: 'pk-fruit-chaat-protein-dahi-portion',
@@ -993,6 +997,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 12,
+    serve: 'cold',
   },
   {
     foodId: 'es-lentejas-atun-feta-salad-box',
@@ -1019,6 +1024,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 12,
+    serve: 'cold',
   },
   {
     foodId: 'intl-salmon-brown-rice-bowl-box',
@@ -1043,6 +1049,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 12,
+    serve: 'either',
   },
   {
     foodId: 'med-tuna-egg-pita-hummus-box',
@@ -1072,6 +1079,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 12,
+    serve: 'cold',
   },
   {
     foodId: 'med-cuscus-caballa-garbanzos-box',
@@ -1092,6 +1100,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 10,
+    serve: 'either',
   },
   {
     foodId: 'med-lentil-rice-burgos-bowl-box',
@@ -1117,6 +1126,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 10,
+    serve: 'either',
   },
   {
     foodId: 'es-salmorejo-huevo-atun-portion',
@@ -1132,6 +1142,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 8,
+    serve: 'cold',
   },
   {
     foodId: 'pk-microwave-chana-masala-portion',
@@ -1172,6 +1183,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 15,
+    serve: 'hot',
   },
   {
     foodId: 'es-picoteo-hummus-burgos-portion',
@@ -1191,6 +1203,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 10,
+    serve: 'cold',
   },
   {
     foodId: 'med-protein-hummus-veg-sticks-box',
@@ -1208,6 +1221,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 8,
+    serve: 'cold',
   },
   {
     foodId: 'intl-protein-chia-pudding-pomegranate-jar',
@@ -1222,6 +1236,7 @@ export default [
     ],
     effort: 'assemble',
     minutes: 8,
+    serve: 'cold',
   },
   {
     foodId: 'pk-chana-chaat-dahi-snack-box',
@@ -1253,5 +1268,33 @@ export default [
     ],
     effort: 'assemble',
     minutes: 10,
+    serve: 'cold',
+  },
+  {
+    foodId: 'es-lentejas-atun-burgos-salad-box',
+    boxes: 2,
+    storage: ['cold-salad'],
+    ingredients: [
+      { foodId: 'es-lentejas-cocidas', grams: 600, section: 'supermarket' },
+      { foodId: 'intl-tuna-canned-water', grams: 120, section: 'supermarket' },
+      { foodId: 'intl-pepper-red', grams: 120, section: 'supermarket' },
+      { foodId: 'intl-cucumber', grams: 100, section: 'supermarket' },
+      { foodId: 'intl-tomato', name: 'Cherry tomatoes', grams: 160, section: 'supermarket' },
+      {
+        foodId: 'intl-onion',
+        name: 'Red onion (cebolla morada)',
+        grams: 40,
+        section: 'supermarket',
+      },
+      { foodId: 'intl-parsley-fresh', grams: 10, section: 'supermarket' },
+      { foodId: 'med-olive-oil', grams: 34, section: 'supermarket' },
+      { foodId: 'intl-lemon-juice', grams: 30, section: 'supermarket' },
+      { name: 'Cumin', grams: 1, section: 'supermarket' },
+      { name: 'Black pepper', grams: 1, section: 'supermarket' },
+      { foodId: 'es-queso-burgos-0', grams: 125, section: 'supermarket' },
+    ],
+    effort: 'assemble',
+    minutes: 12,
+    serve: 'cold',
   },
 ];
