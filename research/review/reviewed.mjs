@@ -164,6 +164,33 @@ export const REVIEWS = {
   'pk-seekh-kebab-roti-portion': '2026-10-14',
   'pk-daal-palak-roti-portion': '2026-10-14',
   'es-mandonguilles-pesols-portion': '2026-10-14',
+  // Sprint 3 wave 1 review, 2026-10-15 (research/review/s3-wave1.md), riskiest first.
+  // Javier: all 9 seafood records (7 direct/label values match BEDCA/USDA/label exactly; gambas al ajillo recipe checked).
+  'intl-prawns-raw': '2026-10-15',
+  'intl-prawns-cooked': '2026-10-15',
+  'intl-squid-raw': '2026-10-15',
+  'intl-mussels-cooked': '2026-10-15',
+  'intl-clams-cooked': '2026-10-15',
+  'es-gambas-al-ajillo': '2026-10-15',
+  'es-pulpo-cocido': '2026-10-15',
+  'es-calamar-plancha': '2026-10-15',
+  'es-mejillones-escabeche': '2026-10-15',
+  // Yusuf: all 15 preps #26-40 (independent recompute from recipe foodIds within ±6 %, halal and seafood tags consistent).
+  'es-queso-batido-parfait-jar': '2026-10-15',
+  'es-pa-amb-tomaquet-burgos-ous-portion': '2026-10-15',
+  'pk-fruit-chaat-protein-dahi-portion': '2026-10-15',
+  'es-lentejas-atun-feta-salad-box': '2026-10-15',
+  'intl-salmon-brown-rice-bowl-box': '2026-10-15',
+  'med-tuna-egg-pita-hummus-box': '2026-10-15',
+  'med-cuscus-caballa-garbanzos-box': '2026-10-15',
+  'med-lentil-rice-burgos-bowl-box': '2026-10-15',
+  'es-salmorejo-huevo-atun-portion': '2026-10-15',
+  'pk-microwave-chana-masala-portion': '2026-10-15',
+  'es-picoteo-hummus-burgos-portion': '2026-10-15',
+  'med-protein-hummus-veg-sticks-box': '2026-10-15',
+  'intl-protein-chia-pudding-pomegranate-jar': '2026-10-15',
+  'pk-chana-chaat-dahi-snack-box': '2026-10-15',
+  'es-lentejas-atun-burgos-salad-box': '2026-10-15',
 };
 
 export function stampReview(rec) {

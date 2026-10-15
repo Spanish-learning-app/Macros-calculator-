@@ -636,7 +636,11 @@ export function createStore({
       const on = date ?? today();
       return spareBoxes(batchesList(), on, useByOf).map((item) => {
         const batch = findBatch(item.batchId);
-        return { ...item, name: food(batch.recipeId)?.name ?? batch.name ?? 'Box' };
+        return {
+          ...item,
+          recipeId: batch.recipeId,
+          name: food(batch.recipeId)?.name ?? batch.name ?? 'Box',
+        };
       });
     },
     chai: () => recipesList().find((r) => r.kind === 'chai') ?? null,

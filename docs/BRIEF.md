@@ -50,3 +50,9 @@ carbs, fat and fiber.
 - Meal prep should also use healthy food bought ready from the market (fruit and more) and things
   from Mercadona and other shops that need little or no cooking (salads and more), to reduce the
   cooking load. The Boss's examples are only examples: "don't be limited to that."
+
+## Update from the Boss — 2026-10-15 (evening): variety, not mainly desi
+
+- Check that meal prep is not mainly Pakistani dishes. "I'm not gonna bring any Pakistani food to
+  lunch except the rice etc. For sure not roti salan." Add easy cooking options such as sandwiches,
+  salads and pastas, and don't be limited to those: there should be real variety.

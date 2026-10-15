@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-15T16:30:00Z",
+  "updatedAt": "2026-10-15T16:32:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -62,7 +62,7 @@
     "javier": {
       "location": "office",
       "status": "working",
-      "task": "Short names"
+      "task": "Base foods for variety"
     },
     "nasreen": {
       "location": "office",
@@ -93,7 +93,7 @@
     },
     {
       "member": "javier",
-      "task": "shortName on his records (wave 2 item pulled forward)",
+      "task": "Base foods for meal-prep variety (team/briefs/s3-variety.md)",
       "output": "research/javier/**, his app/data files"
     }
   ],
@@ -179,6 +179,11 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
+    {
+      "member": "yusuf",
+      "task": "20-25 international easy preps + redo low-cook and budget weeks (team/briefs/s3-variety.md); then plans + shortName",
+      "output": "foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
+    },
     {
       "member": "lena",
       "task": "Wave 2: protein nudges + Ramadan mode UI (after Ayesha rules)"

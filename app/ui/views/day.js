@@ -11,7 +11,8 @@ import { openPortionPicker } from '../components/portion-picker.js';
 import { openDialog, openActionSheet } from '../components/dialog.js';
 import { createUndoToast } from '../components/toast.js';
 import { addDays, fmtDateShort, fmtDateLong, relativeDay } from '../components/format.js';
-import { useByText, boxWord, frozenDueText } from '../components/prep-bits.js';
+import { useByText, boxWord, frozenDueText, pluralWord } from '../components/prep-bits.js';
+import { rowName } from '../components/food-bits.js';
 
 /**
  * @param {HTMLElement} container
@@ -568,6 +569,7 @@ export function mount(container, ctx) {
     const move = date === today ? store.prepNotices(today).moveTonight : [];
     mountChildren(
       prepBox,
+      date === today ? spareLine(today) : null,
       move.length
         ? h(
             'section',
@@ -610,6 +612,95 @@ export function mount(container, ctx) {
           )
         : null,
     );
+  }
+
+  /**
+   * Spare or old boxes (Sprint 3, Lena): one calm line for the most urgent unplanned box, with one
+   * action; more go to Prep. Never red.
+   */
+  function spareLine(today) {
+    const spare = store.spareBoxes(today);
+    if (!spare.length) return null;
+    const s = spare[0];
+    const f = store.food(s.recipeId);
+    const dish = (f && rowName(f)) ?? s.name;
+    const word = boxWord(f, rules);
+    const one = `${capitalize(word)} ${s.number} of ${dish}`;
+    const text = {
+      past: `${one} is past its use-by. Best not to eat it.`,
+      'last-day': `${one}: today is its last day.`,
+      soon: `${one} is good until tomorrow.`,
+      frozen:
+        s.count > 1
+          ? `${s.count} ${pluralWord(word)} of ${dish} are in the freezer with no day planned.`
+          : `${one} is in the freezer with no day planned.`,
+    }[s.kind];
+    const button = (label, testid, onclick, primary = false) =>
+      h(
+        'button',
+        {
+          type: 'button',
+          class: ['btn', primary ? 'btn-secondary' : 'btn-quiet'],
+          'data-testid': testid,
+          onclick,
+        },
+        label,
+      );
+    const actions =
+      s.kind === 'past'
+        ? [button('Discard', 'spare-discard', () => store.discardBox(s.batchId, s.boxId), true)]
+        : s.kind === 'frozen'
+          ? [
+              button('Plan it', 'spare-plan', () => planSpare(s, word, today), true),
+              button('Move to fridge', 'spare-to-fridge', () =>
+                store.setBoxStorage(s.batchId, s.boxId, 'fridge'),
+              ),
+            ]
+          : [button('Plan it', 'spare-plan', () => planSpare(s, word, today), true)];
+    return h(
+      'section',
+      {
+        class: 'card spare-box',
+        'data-testid': 'spare-box',
+        'data-kind': s.kind,
+        'aria-label': 'Meal prep box to use',
+      },
+      h('p', { class: 'spare-text' }, text),
+      h(
+        'div',
+        { class: 'spare-actions' },
+        actions,
+        spare.length > 1
+          ? h(
+              'a',
+              {
+                class: 'link-btn',
+                'data-testid': 'spare-more',
+                href: router.href({ name: 'prep', params: {} }),
+              },
+              `${spare.length - 1} more in Prep`,
+            )
+          : null,
+      ),
+    );
+  }
+
+  /** "Plan it": a meal today (or tomorrow when the box keeps, or must thaw first). */
+  function planSpare(s, word, today) {
+    const tomorrow = addDays(today, 1);
+    const days = s.kind === 'frozen' ? [tomorrow] : s.kind === 'soon' ? [today, tomorrow] : [today];
+    const slots = store.slots().filter((x) => x.id !== 'snacks');
+    openActionSheet({
+      title: `Plan ${word} ${s.number}`,
+      testid: 'spare-plan-sheet',
+      actions: days.flatMap((d) =>
+        slots.map((x) => ({
+          label: `${d === today ? 'Today' : 'Tomorrow'} · ${x.label}`,
+          testid: `spare-plan-${d === today ? 'today' : 'tomorrow'}-${x.id}`,
+          onSelect: () => store.placeBox({ batchId: s.batchId, date: d, slot: x.id }),
+        })),
+      ),
+    });
   }
 
   // ------------------------------------------------------------------ open at the current meal

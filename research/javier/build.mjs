@@ -1771,8 +1771,71 @@ const PACKS = {
   console.log(`pack sizes: ${Object.keys(PACKS).length}`);
 }
 
+// ---------------------------------------------------------------- short names (Meeting 005 wave 2)
+// shortName for every record whose name is longer than 22 characters (RULES.vocab.fieldRules.shortName:
+// at most 22 chars, no brackets, shorter than name). Spanish names stay Spanish where that is what people say.
+const SHORT = {
+  // basics
+  'intl-dates': 'Dates, khajoor', 'intl-potato-boiled': 'Potato, boiled', 'intl-potato-raw': 'Potato, raw',
+  'intl-salad-kachumber': 'Kachumber salad', 'intl-milk-buffalo': 'Buffalo milk', 'intl-dahi': 'Dahi, full-fat', 'intl-raita': 'Raita',
+  'intl-chicken-breast-roasted': 'Roast chicken breast', 'intl-chicken-breast-raw': 'Chicken breast, raw',
+  'intl-chicken-thigh-roasted': 'Roast chicken thigh', 'intl-chicken-thigh-raw': 'Chicken thigh, raw',
+  'intl-beef-mince-cooked': 'Beef mince, cooked', 'intl-beef-mince-raw': 'Beef mince, raw', 'intl-beef-mince-lean-raw': 'Lean beef mince, raw',
+  'intl-beef-cubes-raw': 'Beef stewing cubes', 'intl-mutton-roasted': 'Mutton, roasted', 'intl-fish-rohu': 'Rohu fish, cooked',
+  'intl-tuna-canned-water': 'Tuna in water', 'intl-tuna-canned-oil': 'Tuna in oil', 'intl-beef-sausage-halal': 'Halal beef sausage',
+  'intl-cooking-oil': 'Cooking oil', 'intl-desi-ghee': 'Desi ghee', 'pk-achaar-mixed': 'Mixed achaar',
+  'intl-melon': 'Melon, piel de sapo', 'intl-pineapple': 'Pineapple', 'intl-spinach-raw': 'Spinach, raw', 'intl-spinach-frozen': 'Spinach, frozen',
+  'intl-salad-leaves-mixed': 'Mixed salad leaves', 'intl-pepper-red': 'Red pepper', 'intl-pepper-green': 'Green pepper', 'intl-courgette': 'Courgette',
+  'intl-peas-frozen': 'Frozen peas', 'intl-green-beans-frozen': 'Frozen green beans', 'intl-green-chilli': 'Green chillies',
+  'intl-coriander-fresh': 'Fresh coriander', 'intl-mint-fresh': 'Fresh mint', 'intl-milk-semi-skimmed': 'Semi-skimmed milk',
+  'intl-egg-whites-liquid': 'Liquid egg whites', 'es-queso-fresco-batido': 'Queso batido', 'es-queso-burgos-0': 'Queso de Burgos 0 %',
+  'intl-feta': 'Feta cheese', 'es-yogur-proteinas-natural': 'Protein yogurt, plain', 'es-yogur-griego-ligero': 'Yogur griego ligero',
+  'intl-salmon-canned': 'Canned salmon', 'intl-sardines-olive-oil': 'Sardines in olive oil', 'intl-mackerel-olive-oil': 'Mackerel in olive oil',
+  'intl-prawns-raw': 'Prawns, raw', 'intl-prawns-cooked': 'Prawns, cooked', 'intl-squid-raw': 'Squid, raw',
+  'intl-mussels-cooked': 'Mussels, cooked', 'intl-clams-cooked': 'Clams, cooked',
+  // intl
+  'intl-whey-protein': 'Whey protein, 1 scoop', 'intl-oats-porridge': 'Oats porridge', 'intl-greek-yogurt': 'Greek yogurt, nonfat',
+  'intl-greek-yogurt-whole': 'Greek yogurt, whole', 'intl-pizza-cheese': 'Cheese pizza', 'intl-burger-beef': 'Beef burger',
+  'intl-burger-zinger': 'Zinger burger', 'intl-fries': 'French fries', 'intl-chicken-nuggets': 'Chicken nuggets',
+  'intl-chicken-sandwich': 'Chicken mayo sandwich', 'intl-bread-white': 'White bread, sliced',
+  'intl-rice-cup-basmati': 'Basmati rice cup', 'intl-rice-cup-brown': 'Brown rice cup', 'intl-rice-brown-dry': 'Brown rice, dry',
+  'intl-pasta-wholewheat-dry': 'Wholewheat pasta, dry', 'intl-bread-wholemeal-sliced': 'Wholemeal sliced bread',
+  'intl-tortilla-wrap-wholewheat': 'Wholewheat wrap', 'intl-chana-dal-dry': 'Chana dal, dry', 'intl-masoor-dal-dry': 'Masoor dal, dry',
+  // es-med
+  'es-tortilla-de-patatas': 'Tortilla de patatas', 'es-lentejas': 'Lentejas', 'es-garbanzos-con-espinacas': 'Garbanzos y espinacas',
+  'es-paella-de-pollo': 'Paella de pollo', 'es-gazpacho': 'Gazpacho', 'es-pan-con-tomate': 'Pan con tomate',
+  'es-tostada-con-aceite': 'Tostada con aceite', 'es-pisto': 'Pisto', 'es-croquetas-de-pollo': 'Croquetas de pollo',
+  'es-ensalada-mixta': 'Ensalada mixta', 'es-lentejas-pardinas-secas': 'Pardina lentils, dry', 'es-pan-barra': 'Pan de barra',
+  'es-pan-integral': 'Pan integral', 'es-napolitana-chocolate': 'Napolitana chocolate', 'es-magdalena': 'Magdalena',
+  'es-ensaimada': 'Ensaïmada', 'es-cafe-con-leche': 'Café con leche', 'es-cortado': 'Cortado', 'es-zumo-naranja-natural': 'Zumo de naranja',
+  'es-yogur-griego': 'Yogur griego', 'es-bocadillo-de-tortilla': 'Bocadillo de tortilla', 'es-bocadillo-de-atun': 'Bocadillo de atún',
+  'es-garbanzos-cocidos': 'Garbanzos cocidos', 'es-lentejas-cocidas': 'Lentejas cocidas', 'es-gazpacho-envasado': 'Gazpacho, carton',
+  'es-salmorejo-envasado': 'Salmorejo, carton', 'med-guacamole': 'Guacamole', 'es-picos-integrales': 'Picos integrales',
+  'es-tomate-triturado': 'Tomate triturado', 'es-pan-rallado': 'Pan rallado', 'es-gambas-al-ajillo': 'Gambas al ajillo',
+  'es-pulpo-cocido': 'Pulpo cocido', 'es-calamar-plancha': 'Calamar a la plancha', 'es-mejillones-escabeche': 'Mejillones escabeche',
+  // pk-packaged
+  'pk-marie-biscuit': 'Marie biscuit', 'pk-sooper-biscuit': 'Sooper biscuit', 'pk-gluco-biscuit': 'Gluco biscuit', 'pk-rio-biscuit': 'Rio biscuit',
+  'pk-uht-milk-full-cream': 'UHT milk, full-cream', 'pk-cola-regular': 'Cola, regular', 'pk-juice-mango': 'Mango juice',
+  'pk-juice-apple': 'Apple juice', 'pk-rooh-afza-syrup': 'Rooh Afza syrup',
+};
+{
+  const all = [...basics, ...intl, ...esmed, ...pk];
+  const seen = new Set();
+  for (const [id, sn] of Object.entries(SHORT)) {
+    const r = all.find((x) => x.id === id);
+    if (!r) throw new Error(`SHORT: unknown record ${id}`);
+    if (sn.length > 22 || sn.length >= r.name.length || /[()[\]{}]/.test(sn)) throw new Error(`SHORT: bad shortName for ${id}: ${sn}`);
+    if (seen.has(sn.toLowerCase())) throw new Error(`SHORT: duplicate within my files: ${sn}`);
+    seen.add(sn.toLowerCase());
+    r.shortName = sn;
+  }
+  const missing = all.filter((r) => r.name.length > 22 && !r.shortName).map((r) => r.id);
+  if (missing.length) throw new Error(`SHORT: no shortName for ${missing.join(', ')}`);
+  console.log(`short names: ${Object.keys(SHORT).length}`);
+}
+
 // ---------------------------------------------------------------- write files
-const KEY_ORDER = ['id', 'name', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'tags', 'slots', 'halal', 'source'];
+const KEY_ORDER = ['id', 'name', 'shortName', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'tags', 'slots', 'halal', 'source'];
 const q = (s) => `'${String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
 function lit(v) {
   if (Array.isArray(v)) return `[${v.map(lit).join(', ')}]`;

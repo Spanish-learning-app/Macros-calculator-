@@ -7,6 +7,7 @@ export default [
   {
     id: 'pk-marie-biscuit',
     name: 'Marie biscuit (tea biscuit)',
+    shortName: 'Marie biscuit',
     nameUr: 'میری بسکٹ',
     nameRoman: 'marie biscuit',
     aliases: ['biscuit', 'biscuits', 'biskut', 'marie', 'mari', 'marie biscuit', 'tea biscuit', 'chai biscuit', 'peek freans marie', 'galleta maría', 'galletas maria'],
@@ -24,6 +25,7 @@ export default [
   {
     id: 'pk-sooper-biscuit',
     name: 'Sooper biscuit (Peek Freans)',
+    shortName: 'Sooper biscuit',
     nameUr: 'سوپر بسکٹ',
     nameRoman: 'sooper',
     aliases: ['sooper', 'super biscuit', 'sooper biscuit', 'peek freans sooper', 'biscuit', 'biscuits', 'egg and butter biscuit'],
@@ -42,6 +44,7 @@ export default [
   {
     id: 'pk-gluco-biscuit',
     name: 'Gluco biscuit (Peek Freans)',
+    shortName: 'Gluco biscuit',
     nameUr: 'گلوکو بسکٹ',
     nameRoman: 'gluco',
     aliases: ['gluco', 'glucose biscuit', 'gluco biscuit', 'peek freans gluco', 'biscuit', 'biscuits'],
@@ -59,6 +62,7 @@ export default [
   {
     id: 'pk-rio-biscuit',
     name: 'Rio biscuit (cream sandwich, Peek Freans)',
+    shortName: 'Rio biscuit',
     nameUr: 'ریو بسکٹ',
     nameRoman: 'rio',
     aliases: ['rio', 'rio biscuit', 'cream biscuit', 'sandwich biscuit', 'peek freans rio', 'biscuit', 'biscuits'],
@@ -111,6 +115,7 @@ export default [
   {
     id: 'pk-uht-milk-full-cream',
     name: 'UHT milk, full-cream (Olper\'s / Milk Pak type)',
+    shortName: 'UHT milk, full-cream',
     nameUr: 'ڈبے کا دودھ',
     nameRoman: 'doodh pack',
     aliases: ['olper\'s', 'olpers', 'milk pak', 'milkpak', 'nurpur', 'packet milk', 'doodh pack', 'dabbay ka doodh', 'tetra pack milk', 'uht milk', 'doodh', 'dudh', 'milk'],
@@ -129,6 +134,7 @@ export default [
   {
     id: 'pk-cola-regular',
     name: 'Cola, regular (soft drink)',
+    shortName: 'Cola, regular',
     nameUr: 'کولڈ ڈرنک',
     nameRoman: 'cold drink',
     aliases: ['cold drink', 'coke', 'pepsi', 'cola', 'soft drink', 'coca cola', 'coca-cola', 'next cola', 'gourmet cola', 'botal', 'refresco de cola', 'cocacola'],
@@ -149,6 +155,7 @@ export default [
   {
     id: 'pk-juice-mango',
     name: 'Mango juice (pack, Nestlé Fruita Vitals Chaunsa)',
+    shortName: 'Mango juice',
     nameUr: 'آم کا جوس',
     nameRoman: 'mango juice',
     aliases: ['mango juice', 'aam ka juice', 'juice', 'fruita vitals', 'nestle juice', 'shezan', 'mango drink', 'jus', 'zumo de mango'],
@@ -167,6 +174,7 @@ export default [
   {
     id: 'pk-juice-apple',
     name: 'Apple juice (pack, Frooto)',
+    shortName: 'Apple juice',
     nameUr: 'سیب کا جوس',
     nameRoman: 'apple juice',
     aliases: ['apple juice', 'seb ka juice', 'juice', 'frooto', 'apple drink', 'zumo de manzana'],
@@ -184,6 +192,7 @@ export default [
   {
     id: 'pk-rooh-afza-syrup',
     name: 'Rooh Afza syrup (concentrate)',
+    shortName: 'Rooh Afza syrup',
     nameUr: 'روح افزا',
     nameRoman: 'rooh afza',
     aliases: ['rooh afza', 'roohafza', 'ruh afza', 'rooh afza syrup', 'sharbat', 'sherbet', 'hamdard', 'jam-e-shirin'],

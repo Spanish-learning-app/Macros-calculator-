@@ -7,6 +7,7 @@ export default [
   {
     id: 'es-tortilla-de-patatas',
     name: 'Tortilla de patatas (Spanish omelette)',
+    shortName: 'Tortilla de patatas',
     aliases: ['tortilla', 'tortilla de patatas', 'tortilla de patata', 'tortilla española', 'spanish omelette', 'spanish omelet', 'potato omelette', 'truita de patates'],
     group: 'egg',
     state: 'cooked, as served (eggs, potato and onion fried in olive oil, oil drained)',
@@ -25,6 +26,7 @@ export default [
   {
     id: 'es-lentejas',
     name: 'Lentejas (Spanish lentil stew, halal)',
+    shortName: 'Lentejas',
     aliases: ['lentejas', 'lentils', 'lentil stew', 'lentejas estofadas', 'lentejas guisadas', 'llenties', 'spanish lentils', 'lentil soup'],
     group: 'daal-legume',
     state: 'cooked stew as served, with vegetables, olive oil and halal beef sausage (no chorizo)',
@@ -44,6 +46,7 @@ export default [
   {
     id: 'es-garbanzos-con-espinacas',
     name: 'Garbanzos con espinacas (chickpea and spinach stew)',
+    shortName: 'Garbanzos y espinacas',
     aliases: ['garbanzos', 'potaje', 'potaje de garbanzos', 'garbanzos con espinacas', 'chickpea stew', 'chickpeas and spinach', 'cigrons amb espinacs'],
     group: 'daal-legume',
     state: 'cooked stew as served, with spinach, vegetables, olive oil and boiled egg',
@@ -63,6 +66,7 @@ export default [
   {
     id: 'es-paella-de-pollo',
     name: 'Paella de pollo (chicken paella, home-made)',
+    shortName: 'Paella de pollo',
     aliases: ['paella', 'paella de pollo', 'chicken paella', 'paella valenciana', 'arroz con pollo', 'paella de pollastre'],
     group: 'rice-dish',
     state: 'cooked, as served (rice, chicken, green beans, garrofó, olive oil)',
@@ -83,6 +87,7 @@ export default [
   {
     id: 'es-gazpacho',
     name: 'Gazpacho (cold tomato soup)',
+    shortName: 'Gazpacho',
     aliases: ['gazpacho', 'gaspacho', 'gazpacho andaluz', 'cold tomato soup', 'sopa fría de tomate'],
     group: 'soup',
     state: 'raw, blended and chilled, with olive oil, bread and vinegar',
@@ -103,6 +108,7 @@ export default [
   {
     id: 'es-pan-con-tomate',
     name: 'Pan con tomate (pa amb tomàquet)',
+    shortName: 'Pan con tomate',
     aliases: ['pan con tomate', 'pa amb tomàquet', 'pa amb tomaquet', 'pan tumaca', 'pa amb tomata', 'tostada', 'tostada con tomate', 'bread with tomato', 'tomato toast'],
     group: 'bread',
     state: 'toasted country bread rubbed with ripe tomato, with olive oil and salt',
@@ -120,6 +126,7 @@ export default [
   {
     id: 'es-tostada-con-aceite',
     name: 'Tostada con aceite (toast with olive oil)',
+    shortName: 'Tostada con aceite',
     aliases: ['tostada con aceite', 'tostada', 'torrada amb oli', 'pa amb oli', 'toast with olive oil', 'olive oil toast', 'tostada de aceite'],
     group: 'bread-fried',
     state: 'toasted white bread (barra) with olive oil and salt',
@@ -137,6 +144,7 @@ export default [
   {
     id: 'es-pisto',
     name: 'Pisto (Spanish vegetable stew)',
+    shortName: 'Pisto',
     aliases: ['pisto', 'pisto manchego', 'samfaina', 'ratatouille', 'spanish ratatouille', 'mixed vegetables'],
     group: 'curry-veg',
     state: 'stewed in olive oil, as served',
@@ -156,6 +164,7 @@ export default [
   {
     id: 'es-croquetas-de-pollo',
     name: 'Croquetas de pollo (chicken croquettes)',
+    shortName: 'Croquetas de pollo',
     aliases: ['croquetas', 'croqueta', 'croquetas de pollo', 'chicken croquettes', 'croquetes de pollastre', 'croquettes'],
     group: 'snack-fried',
     state: 'breaded and fried, as served',
@@ -172,6 +181,7 @@ export default [
   {
     id: 'es-ensalada-mixta',
     name: 'Ensalada mixta (mixed salad with tuna and egg)',
+    shortName: 'Ensalada mixta',
     aliases: ['ensalada mixta', 'ensalada', 'mixed salad', 'tuna salad', 'amanida', 'amanida variada', 'salad'],
     group: 'side-dip',
     state: 'raw, dressed with olive oil and vinegar',
@@ -245,6 +255,7 @@ export default [
   {
     id: 'es-lentejas-pardinas-secas',
     name: 'Lentils, brown (lenteja pardina), dry',
+    shortName: 'Pardina lentils, dry',
     aliases: ['lentejas secas', 'lenteja pardina', 'dry lentils', 'brown lentils', 'lentils raw', 'llenties seques'],
     group: 'dry-staple',
     state: 'dry, raw (for cooking from scratch)',
@@ -262,6 +273,7 @@ export default [
   {
     id: 'es-pan-barra',
     name: 'Pan de barra (Spanish white bread, baguette type)',
+    shortName: 'Pan de barra',
     aliases: ['barra', 'pan', 'pan de barra', 'baguette', 'barra de pan', 'pa', 'barra de pa', 'pan blanco', 'bread', 'bocata bread'],
     group: 'bread',
     state: 'white bread, as sold',
@@ -280,6 +292,7 @@ export default [
   {
     id: 'es-pan-integral',
     name: 'Pan integral (wholemeal bread)',
+    shortName: 'Pan integral',
     aliases: ['pan integral', 'pan de molde integral', 'wholemeal bread', 'brown bread', 'whole wheat bread', 'pa integral', 'atta bread'],
     group: 'bread',
     state: 'wholemeal bread, as sold',
@@ -315,6 +328,7 @@ export default [
   {
     id: 'es-napolitana-chocolate',
     name: 'Napolitana de chocolate (chocolate croissant)',
+    shortName: 'Napolitana chocolate',
     aliases: ['napolitana', 'napolitana de chocolate', 'croissant de chocolate', 'pain au chocolat', 'chocolate croissant', 'napolitana de xocolata'],
     group: 'biscuit-bakery',
     state: 'as sold',
@@ -330,6 +344,7 @@ export default [
   {
     id: 'es-magdalena',
     name: 'Magdalena (Spanish muffin)',
+    shortName: 'Magdalena',
     aliases: ['magdalena', 'magdalenas', 'madeleine', 'spanish muffin', 'cupcake', 'magdalena valenciana'],
     group: 'biscuit-bakery',
     state: 'as sold',
@@ -347,6 +362,7 @@ export default [
   {
     id: 'es-ensaimada',
     name: 'Ensaïmada (Mallorcan pastry)',
+    shortName: 'Ensaïmada',
     aliases: ['ensaïmada', 'ensaimada', 'ensaimada de mallorca', 'saïm pastry'],
     group: 'biscuit-bakery',
     state: 'as sold',
@@ -361,6 +377,7 @@ export default [
   {
     id: 'es-cafe-con-leche',
     name: 'Café con leche (coffee with milk)',
+    shortName: 'Café con leche',
     aliases: ['café con leche', 'cafe con leche', 'cafè amb llet', 'coffee with milk', 'white coffee', 'coffee', 'latte'],
     group: 'drink-tea-coffee',
     state: 'as served, no sugar',
@@ -377,6 +394,7 @@ export default [
   {
     id: 'es-cortado',
     name: 'Cortado (espresso with a little milk)',
+    shortName: 'Cortado',
     aliases: ['cortado', 'tallat', 'café cortado', 'cafe cortado', 'espresso with milk', 'coffee'],
     group: 'drink-tea-coffee',
     state: 'as served, no sugar',
@@ -424,6 +442,7 @@ export default [
   {
     id: 'es-zumo-naranja-natural',
     name: 'Zumo de naranja natural (fresh orange juice)',
+    shortName: 'Zumo de naranja',
     aliases: ['zumo de naranja', 'zumo de naranja natural', 'suc de taronja', 'orange juice', 'fresh orange juice', 'malta juice', 'orange juice fresh'],
     group: 'drink-other',
     state: 'freshly squeezed, no added sugar',
@@ -440,6 +459,7 @@ export default [
   {
     id: 'es-yogur-griego',
     name: 'Yogur griego (Spanish style, full-fat)',
+    shortName: 'Yogur griego',
     aliases: ['yogur griego', 'yogur griego natural', 'griego', 'iogurt grec', 'iogurt grec natural', 'spanish greek yogurt', 'greek style yogurt', 'greek yogurt'],
     group: 'dairy',
     state: 'plain, unsweetened, full-fat (milk and cream), as sold',
@@ -458,6 +478,7 @@ export default [
   {
     id: 'es-bocadillo-de-tortilla',
     name: 'Bocadillo de tortilla (tortilla sandwich)',
+    shortName: 'Bocadillo de tortilla',
     aliases: ['bocadillo de tortilla', 'bocata de tortilla', 'entrepà de truita', 'tortilla sandwich', 'bocadillo', 'bocata'],
     group: 'fastfood',
     state: 'barrita filled with tortilla de patatas, as served',
@@ -474,6 +495,7 @@ export default [
   {
     id: 'es-bocadillo-de-atun',
     name: 'Bocadillo de atún (tuna sandwich)',
+    shortName: 'Bocadillo de atún',
     aliases: ['bocadillo de atún', 'bocadillo de atun', 'bocata de atún', 'entrepà de tonyina', 'tuna sandwich', 'bocadillo', 'bocata'],
     group: 'fastfood',
     state: 'barrita with tuna in olive oil and tomato, as served',
@@ -490,6 +512,7 @@ export default [
   {
     id: 'es-garbanzos-cocidos',
     name: 'Chickpeas, jarred (cooked), drained',
+    shortName: 'Garbanzos cocidos',
     nameUr: 'کابلی چنے',
     nameRoman: 'kabuli chanay',
     aliases: ['chickpeas', 'jarred chickpeas', 'canned chickpeas', 'garbanzos cocidos', 'garbanzo cocido', 'garbanzos de bote', 'cigrons', 'cigrons cuits', 'chana', 'chanay', 'kabuli chana', 'safaid chanay'],
@@ -513,6 +536,7 @@ export default [
   {
     id: 'es-lentejas-cocidas',
     name: 'Lentils, jarred (cooked), drained',
+    shortName: 'Lentejas cocidas',
     aliases: ['jarred lentils', 'canned lentils', 'cooked lentils', 'lentejas cocidas', 'lenteja cocida', 'lentejas de bote', 'llenties cuites', 'lentils'],
     group: 'daal-legume',
     state: 'cooked, drained (from a jar)',
@@ -533,6 +557,7 @@ export default [
   {
     id: 'es-gazpacho-envasado',
     name: 'Gazpacho, supermarket carton (Hacendado tradicional)',
+    shortName: 'Gazpacho, carton',
     aliases: ['gazpacho hacendado', 'gazpacho de brick', 'gazpacho envasado', 'gazpacho mercadona', 'gaspatxo', 'gazpacho', 'cold tomato soup'],
     group: 'soup',
     state: 'chilled, as sold',
@@ -554,6 +579,7 @@ export default [
   {
     id: 'es-salmorejo-envasado',
     name: 'Salmorejo, supermarket carton (Hacendado)',
+    shortName: 'Salmorejo, carton',
     aliases: ['salmorejo', 'salmorejo hacendado', 'salmorejo cordobés', 'salmorejo de brick', 'cold tomato cream'],
     group: 'soup',
     state: 'chilled, as sold, without toppings',
@@ -574,6 +600,7 @@ export default [
   {
     id: 'med-guacamole',
     name: 'Guacamole (supermarket tub)',
+    shortName: 'Guacamole',
     aliases: ['guacamole', 'guac', 'guacamole hacendado', 'avocado dip', 'aguacate dip'],
     group: 'side-dip',
     state: 'chilled, as sold',
@@ -594,6 +621,7 @@ export default [
   {
     id: 'es-picos-integrales',
     name: 'Picos integrales (wholemeal breadsticks)',
+    shortName: 'Picos integrales',
     aliases: ['picos', 'picos integrales', 'picos de pan', 'mini breadsticks', 'regañás', 'rosquilletas', 'breadsticks', 'picos 100% integral'],
     group: 'bread',
     state: 'baked crunchy mini breadsticks, as sold',
@@ -661,6 +689,7 @@ export default [
   {
     id: 'es-tomate-triturado',
     name: 'Crushed tomato (tomate triturado, jar)',
+    shortName: 'Tomate triturado',
     aliases: ['crushed tomato', 'crushed tomatoes', 'tomate triturado', 'tomàquet triturat', 'passata', 'tinned tomatoes', 'tamatar puree'],
     group: 'vegetable',
     state: 'canned/jarred crushed tomato, as sold',
@@ -678,6 +707,7 @@ export default [
   {
     id: 'es-pan-rallado',
     name: 'Breadcrumbs (pan rallado)',
+    shortName: 'Pan rallado',
     aliases: ['breadcrumbs', 'bread crumbs', 'pan rallado', 'pa ratllat', 'panko', 'crumbs'],
     group: 'dry-staple',
     state: 'dry, as sold',
@@ -695,6 +725,7 @@ export default [
   {
     id: 'es-gambas-al-ajillo',
     name: 'Gambas al ajillo (prawns in garlic and olive oil)',
+    shortName: 'Gambas al ajillo',
     nameUr: 'لہسن والے جھینگے',
     nameRoman: 'jhinga lehsan',
     aliases: ['gambas al ajillo', 'gambas ajillo', 'garlic prawns', 'garlic shrimp', 'prawns in garlic', 'prawns in garlic oil', 'gambes a l\'all', 'gambes a lall', 'gambes a l all', 'jhinga lehsan', 'jhinga garlic', 'gambas'],
@@ -714,6 +745,7 @@ export default [
   {
     id: 'es-pulpo-cocido',
     name: 'Octopus, cooked (pulpo cocido, as sold)',
+    shortName: 'Pulpo cocido',
     aliases: ['pulpo', 'pulpo cocido', 'pulpo gallego', 'pulpo a feira', 'patas de pulpo', 'pota de pop', 'pop', 'pop bullit', 'octopus', 'cooked octopus', 'boiled octopus'],
     group: 'meat-fish',
     state: 'boiled, as sold in vacuum trays in Spain (plain, with salt; no oil, no paprika)',
@@ -732,6 +764,7 @@ export default [
   {
     id: 'es-calamar-plancha',
     name: 'Squid, griddled (calamar a la plancha)',
+    shortName: 'Calamar a la plancha',
     aliases: ['calamar a la plancha', 'calamares a la plancha', 'calamar plancha', 'grilled squid', 'griddled squid', 'chipirones a la plancha', 'chipirones plancha', 'calamars a la planxa', 'xipirons a la planxa', 'squid a la plancha', 'calamari grilled'],
     group: 'meat-fish',
     state: 'cooked on a hot griddle (dry heat), cleaned, edible part; oil for the griddle not included',
@@ -749,6 +782,7 @@ export default [
   {
     id: 'es-mejillones-escabeche',
     name: 'Mussels in escabeche (tin, mejillones en escabeche)',
+    shortName: 'Mejillones escabeche',
     aliases: ['mejillones en escabeche', 'mejillones escabeche', 'mejillones lata', 'mejillones en conserva', 'lata de mejillones', 'mussels in escabeche', 'tinned mussels', 'canned mussels', 'pickled mussels', 'musclos en escabetx', 'musclos en conserva', 'mejillones'],
     group: 'meat-fish',
     state: 'canned in olive oil and vinegar sauce (escabeche), drained mussels, as sold',

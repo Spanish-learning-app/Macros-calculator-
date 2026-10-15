@@ -45,6 +45,7 @@ export default [
   {
     id: 'intl-dates',
     name: 'Dates (khajoor, semi-dry)',
+    shortName: 'Dates, khajoor',
     nameUr: 'کھجور',
     nameRoman: 'khajoor',
     aliases: ['khajoor', 'khajur', 'kajoor', 'khajoorain', 'khajoorein', 'dates', 'date', 'dátiles', 'datiles', 'dàtils', 'aseel'],
@@ -264,6 +265,7 @@ export default [
   {
     id: 'intl-potato-boiled',
     name: 'Potato, boiled (peeled)',
+    shortName: 'Potato, boiled',
     nameUr: 'ابلے ہوئے آلو',
     nameRoman: 'ubla aloo',
     aliases: ['aloo', 'alu', 'aaloo', 'ubla aloo', 'boiled potato', 'potato', 'patata hervida', 'patata', 'patata bullida'],
@@ -283,6 +285,7 @@ export default [
   {
     id: 'intl-potato-raw',
     name: 'Potato, raw (with skin)',
+    shortName: 'Potato, raw',
     nameUr: 'کچے آلو',
     nameRoman: 'kacha aloo',
     aliases: ['aloo', 'alu', 'raw potato', 'potato', 'patata cruda', 'patata', 'papa'],
@@ -320,6 +323,7 @@ export default [
   {
     id: 'intl-salad-kachumber',
     name: 'Salad, kachumber (kheera, tamatar, pyaz)',
+    shortName: 'Kachumber salad',
     nameUr: 'کچومر سلاد',
     nameRoman: 'kachumber salad',
     aliases: ['salad', 'salaad', 'kachumber', 'kachumar', 'kachoomar', 'kachumber salad', 'kheera tamatar salad', 'cucumber tomato salad', 'ensalada de pepino y tomate'],
@@ -414,6 +418,7 @@ export default [
   {
     id: 'intl-milk-buffalo',
     name: 'Milk, buffalo (khula doodh)',
+    shortName: 'Buffalo milk',
     nameUr: 'بھینس کا دودھ',
     nameRoman: 'bhains ka doodh',
     aliases: ['bhains ka doodh', 'bhens ka dudh', 'khula doodh', 'gawala doodh', 'buffalo milk', 'doodh', 'dudh', 'leche de búfala'],
@@ -432,6 +437,7 @@ export default [
   {
     id: 'intl-dahi',
     name: 'Dahi (plain yogurt, full-fat)',
+    shortName: 'Dahi, full-fat',
     nameUr: 'دہی',
     nameRoman: 'dahi',
     aliases: ['dahi', 'dahee', 'dehi', 'dai', 'yogurt', 'yoghurt', 'curd', 'plain yogurt', 'yogur', 'yogur natural', 'iogurt', 'iogurt natural'],
@@ -454,6 +460,7 @@ export default [
   {
     id: 'intl-raita',
     name: 'Raita (kheera, cucumber)',
+    shortName: 'Raita',
     nameUr: 'رائتہ',
     nameRoman: 'raita',
     aliases: ['raita', 'raitha', 'rayta', 'kheera raita', 'cucumber raita', 'yogurt sauce', 'salsa de yogur'],
@@ -475,6 +482,7 @@ export default [
   {
     id: 'intl-chicken-breast-roasted',
     name: 'Chicken breast, roasted (no skin)',
+    shortName: 'Roast chicken breast',
     nameUr: 'مرغی کا سینہ، روسٹ',
     nameRoman: 'murghi ka seena',
     aliases: ['chicken breast', 'grilled chicken', 'boneless chicken', 'chikan', 'murgh', 'murg', 'pechuga de pollo', 'pit de pollastre'],
@@ -493,6 +501,7 @@ export default [
   {
     id: 'intl-chicken-breast-raw',
     name: 'Chicken breast, raw (boneless, skinless)',
+    shortName: 'Chicken breast, raw',
     nameUr: 'کچا مرغی کا سینہ',
     nameRoman: 'kacha chicken breast',
     aliases: ['raw chicken breast', 'chicken breast', 'boneless chicken', 'murgh', 'pechuga de pollo cruda', 'pit de pollastre'],
@@ -511,6 +520,7 @@ export default [
   {
     id: 'intl-chicken-thigh-roasted',
     name: 'Chicken thigh, roasted (no skin)',
+    shortName: 'Roast chicken thigh',
     nameUr: 'مرغی کی ران',
     nameRoman: 'murghi ki raan',
     aliases: ['chicken thigh', 'chicken leg', 'leg piece', 'raan', 'murgh', 'muslo de pollo', 'cuixa de pollastre'],
@@ -529,6 +539,7 @@ export default [
   {
     id: 'intl-beef-mince-cooked',
     name: 'Beef mince, cooked (qeema, 85 % lean)',
+    shortName: 'Beef mince, cooked',
     nameUr: 'قیمہ',
     nameRoman: 'qeema',
     aliases: ['qeema', 'keema', 'kheema', 'qima', 'beef mince', 'ground beef', 'mince', 'carne picada', 'carn picada'],
@@ -547,6 +558,7 @@ export default [
   {
     id: 'intl-beef-mince-raw',
     name: 'Beef mince, raw (85 % lean)',
+    shortName: 'Beef mince, raw',
     nameUr: 'کچا قیمہ',
     nameRoman: 'kacha qeema',
     aliases: ['raw qeema', 'qeema', 'keema', 'beef mince', 'ground beef', 'carne picada cruda'],
@@ -565,6 +577,7 @@ export default [
   {
     id: 'intl-chicken-thigh-raw',
     name: 'Chicken thigh, raw (boneless, skinless)',
+    shortName: 'Chicken thigh, raw',
     nameUr: 'کچی مرغی کی ران (بغیر ہڈی)',
     nameRoman: 'kachi murghi ki raan (boneless)',
     aliases: ['raw chicken thigh', 'chicken thigh', 'boneless chicken thigh', 'thigh fillet', 'boneless chicken', 'raan boneless', 'contramuslo', 'contramuslo de pollo', 'contramuslo deshuesado', 'cuixa de pollastre desossada'],
@@ -603,6 +616,7 @@ export default [
   {
     id: 'intl-beef-mince-lean-raw',
     name: 'Beef mince, lean, raw (90 % lean)',
+    shortName: 'Lean beef mince, raw',
     nameUr: 'کچا قیمہ (کم چکنائی)',
     nameRoman: 'kacha qeema (lean)',
     aliases: ['lean beef mince', 'lean mince', 'lean qeema', 'lean keema', 'extra lean mince', 'beef mince 10% fat', 'carne picada magra', 'carne picada de ternera magra', 'carn picada magra'],
@@ -622,6 +636,7 @@ export default [
   {
     id: 'intl-beef-cubes-raw',
     name: 'Beef, boneless stewing cubes, raw (lean)',
+    shortName: 'Beef stewing cubes',
     nameUr: 'کچا گوشت (بغیر ہڈی)',
     nameRoman: 'kacha gosht (boneless)',
     aliases: ['beef cubes', 'boneless beef', 'stewing beef', 'beef stew meat', 'gosht', 'boneless gosht', 'bade ka gosht', 'carne de ternera para guisar', 'carne sin hueso', 'carne a tacos', 'ternera a tacos', 'vedella per guisar'],
@@ -641,6 +656,7 @@ export default [
   {
     id: 'intl-mutton-roasted',
     name: 'Mutton (goat), roasted, lean',
+    shortName: 'Mutton, roasted',
     nameUr: 'بکرے کا گوشت',
     nameRoman: 'bakray ka gosht',
     aliases: ['mutton', 'bakra', 'bakray ka gosht', 'gosht', 'ghosht', 'goat meat', 'cabrito', 'carne de cabra'],
@@ -659,6 +675,7 @@ export default [
   {
     id: 'intl-fish-rohu',
     name: 'Fish, rohu or carp, cooked (dry heat)',
+    shortName: 'Rohu fish, cooked',
     nameUr: 'روہو مچھلی',
     nameRoman: 'rohu machhli',
     aliases: ['rohu', 'machhli', 'machli', 'macchi', 'fish', 'carp', 'pescado', 'carpa', 'peix'],
@@ -677,6 +694,7 @@ export default [
   {
     id: 'intl-tuna-canned-water',
     name: 'Tuna, canned in water (drained)',
+    shortName: 'Tuna in water',
     nameUr: 'ٹونا مچھلی',
     nameRoman: 'tuna',
     aliases: ['tuna', 'canned tuna', 'tuna in water', 'atún al natural', 'atun', 'tonyina'],
@@ -695,6 +713,7 @@ export default [
   {
     id: 'intl-tuna-canned-oil',
     name: 'Tuna, canned in oil (drained)',
+    shortName: 'Tuna in oil',
     nameUr: 'تیل میں ٹونا',
     nameRoman: 'tuna',
     aliases: ['tuna in oil', 'tuna', 'canned tuna', 'atún en aceite', 'atun en aceite', 'tonyina en oli'],
@@ -713,6 +732,7 @@ export default [
   {
     id: 'intl-beef-sausage-halal',
     name: 'Beef sausage, halal (frankfurter type)',
+    shortName: 'Halal beef sausage',
     nameUr: 'بیف ساسیج',
     nameRoman: 'beef sausage',
     aliases: ['halal beef sausage', 'beef sausage', 'halal sausage', 'beef frankfurter', 'salchicha de ternera', 'salchicha halal', 'salsitxa de vedella'],
@@ -731,6 +751,7 @@ export default [
   {
     id: 'intl-cooking-oil',
     name: 'Cooking oil (vegetable)',
+    shortName: 'Cooking oil',
     nameUr: 'کوکنگ آئل',
     nameRoman: 'tel',
     aliases: ['tel', 'oil', 'cooking oil', 'vegetable oil', 'canola oil', 'soybean oil', 'sunflower oil', 'aceite', 'aceite de girasol', 'oli'],
@@ -749,6 +770,7 @@ export default [
   {
     id: 'intl-desi-ghee',
     name: 'Desi ghee (clarified butter)',
+    shortName: 'Desi ghee',
     nameUr: 'دیسی گھی',
     nameRoman: 'desi ghee',
     aliases: ['desi ghee', 'ghee', 'ghi', 'asli ghee', 'clarified butter', 'mantequilla clarificada', 'ghee (mantequilla)'],
@@ -857,6 +879,7 @@ export default [
   {
     id: 'pk-achaar-mixed',
     name: 'Achaar, mixed pickle in oil',
+    shortName: 'Mixed achaar',
     nameUr: 'اچار',
     nameRoman: 'achaar',
     aliases: ['achaar', 'achar', 'aachar', 'pickle', 'mixed pickle', 'aam ka achaar', 'national achaar', 'encurtido indio'],
@@ -966,6 +989,7 @@ export default [
   {
     id: 'intl-melon',
     name: 'Melon (piel de sapo / honeydew)',
+    shortName: 'Melon, piel de sapo',
     aliases: ['melon', 'melón', 'melon piel de sapo', 'piel de sapo', 'meló', 'honeydew'],
     group: 'fruit',
     state: 'raw, flesh only',
@@ -982,6 +1006,7 @@ export default [
   {
     id: 'intl-pineapple',
     name: 'Pineapple (fresh, also ready-cut tub)',
+    shortName: 'Pineapple',
     nameRoman: 'ananas',
     aliases: ['pineapple', 'piña', 'pina', 'pinya', 'ananas', 'ananás', 'piña natural', 'piña a rodajas', 'cut pineapple', 'fruit cup'],
     group: 'fruit',
@@ -1034,6 +1059,7 @@ export default [
   {
     id: 'intl-spinach-raw',
     name: 'Spinach, raw (bagged baby spinach)',
+    shortName: 'Spinach, raw',
     nameUr: 'پالک',
     nameRoman: 'palak',
     aliases: ['spinach', 'baby spinach', 'palak', 'paalak', 'espinacas', 'espinacas baby', 'espinaca', 'espinacs', 'bagged spinach'],
@@ -1069,6 +1095,7 @@ export default [
   {
     id: 'intl-salad-leaves-mixed',
     name: 'Salad leaves, mixed (bagged)',
+    shortName: 'Mixed salad leaves',
     aliases: ['mixed leaves', 'salad leaves', 'bagged salad', 'ensalada mezcla', 'mezcla de lechugas', 'brotes tiernos', 'canónigos', 'canonigos', 'ensalada 4 estaciones', 'mezclum', 'enciam', 'lechuga', 'salad'],
     group: 'vegetable',
     state: 'raw mixed leaves (lettuces, lamb\'s lettuce, chard), washed, undressed',
@@ -1086,6 +1113,7 @@ export default [
   {
     id: 'intl-pepper-red',
     name: 'Red pepper (bell pepper), raw',
+    shortName: 'Red pepper',
     nameUr: 'لال شملہ مرچ',
     nameRoman: 'lal shimla mirch',
     aliases: ['red pepper', 'red bell pepper', 'red capsicum', 'pimiento rojo', 'pimiento', 'pebrot vermell', 'shimla mirch', 'lal shimla mirch', 'capsicum'],
@@ -1105,6 +1133,7 @@ export default [
   {
     id: 'intl-pepper-green',
     name: 'Green pepper (bell pepper), raw',
+    shortName: 'Green pepper',
     nameUr: 'شملہ مرچ',
     nameRoman: 'shimla mirch',
     aliases: ['green pepper', 'green bell pepper', 'capsicum', 'shimla mirch', 'simla mirch', 'pimiento verde', 'pimiento italiano', 'pebrot verd'],
@@ -1124,6 +1153,7 @@ export default [
   {
     id: 'intl-courgette',
     name: 'Courgette (zucchini), raw',
+    shortName: 'Courgette',
     aliases: ['courgette', 'zucchini', 'calabacín', 'calabacin', 'carbassó', 'carbasso', 'calabacín verde'],
     group: 'vegetable',
     state: 'raw, with skin',
@@ -1140,6 +1170,7 @@ export default [
   {
     id: 'intl-peas-frozen',
     name: 'Peas, frozen (uncooked)',
+    shortName: 'Frozen peas',
     nameUr: 'مٹر',
     nameRoman: 'matar',
     aliases: ['peas', 'green peas', 'frozen peas', 'matar', 'mattar', 'mutter', 'guisantes', 'guisante', 'pèsols', 'pesols'],
@@ -1159,6 +1190,7 @@ export default [
   {
     id: 'intl-green-beans-frozen',
     name: 'Green beans, frozen (uncooked)',
+    shortName: 'Frozen green beans',
     nameUr: 'پھلیاں',
     nameRoman: 'phaliyan',
     aliases: ['green beans', 'frozen green beans', 'french beans', 'phali', 'phaliyan', 'judías verdes', 'judias verdes', 'judía verde', 'mongetes tendres', 'bajoques'],
@@ -1215,6 +1247,7 @@ export default [
   {
     id: 'intl-green-chilli',
     name: 'Green chillies, fresh (hari mirch)',
+    shortName: 'Green chillies',
     nameUr: 'ہری مرچ',
     nameRoman: 'hari mirch',
     aliases: ['hari mirch', 'hari mirchi', 'green chilli', 'green chillies', 'green chili', 'chilli', 'guindilla verde', 'chile verde', 'bitxo verd'],
@@ -1252,6 +1285,7 @@ export default [
   {
     id: 'intl-coriander-fresh',
     name: 'Coriander leaves, fresh (dhania)',
+    shortName: 'Fresh coriander',
     nameUr: 'ہرا دھنیا',
     nameRoman: 'hara dhania',
     aliases: ['dhania', 'hara dhania', 'dhaniya', 'coriander', 'fresh coriander', 'cilantro', 'cilantro fresco', 'coriandre'],
@@ -1270,6 +1304,7 @@ export default [
   {
     id: 'intl-mint-fresh',
     name: 'Mint leaves, fresh (podina)',
+    shortName: 'Fresh mint',
     nameUr: 'پودینہ',
     nameRoman: 'podina',
     aliases: ['podina', 'pudina', 'podeena', 'mint', 'fresh mint', 'hierbabuena', 'menta', 'menta fresca'],
@@ -1305,6 +1340,7 @@ export default [
   {
     id: 'intl-spinach-frozen',
     name: 'Spinach, frozen chopped (uncooked)',
+    shortName: 'Spinach, frozen',
     nameUr: 'پالک',
     nameRoman: 'palak (frozen)',
     aliases: ['frozen spinach', 'spinach', 'palak', 'espinaca congelada', 'espinacas ultracongeladas', 'espinaca troceada', 'espinacs congelats'],
@@ -1324,6 +1360,7 @@ export default [
   {
     id: 'intl-milk-semi-skimmed',
     name: 'Milk, semi-skimmed (UHT)',
+    shortName: 'Semi-skimmed milk',
     nameUr: 'دودھ',
     nameRoman: 'doodh (semi skimmed)',
     aliases: ['semi skimmed milk', 'semi-skimmed milk', 'leche semidesnatada', 'semidesnatada', 'llet semidesnatada', 'low fat milk', 'doodh', 'milk'],
@@ -1343,6 +1380,7 @@ export default [
   {
     id: 'intl-egg-whites-liquid',
     name: 'Egg whites, liquid pasteurised (carton)',
+    shortName: 'Liquid egg whites',
     aliases: ['egg whites', 'liquid egg whites', 'claras de huevo', 'claras', 'claras líquidas', 'clares d\'ou', 'egg white carton', 'anday ki safedi', 'safedi'],
     group: 'egg',
     state: 'pasteurised liquid egg white, as sold (cook before eating)',
@@ -1361,6 +1399,7 @@ export default [
   {
     id: 'es-queso-fresco-batido',
     name: 'Queso fresco batido 0 % (whipped fresh cheese)',
+    shortName: 'Queso batido',
     aliases: ['queso fresco batido', 'queso batido', 'formatge fresc batut', 'quark', 'fresh cheese', 'high protein cheese', 'batido 0'],
     group: 'dairy',
     state: 'skimmed whipped fresh cheese (0 % fat), as sold',
@@ -1379,6 +1418,7 @@ export default [
   {
     id: 'es-queso-burgos-0',
     name: 'Queso fresco de Burgos 0 % (fresh cheese, single tub)',
+    shortName: 'Queso de Burgos 0 %',
     aliases: ['queso de burgos', 'queso burgos', 'burgos 0', 'queso fresco', 'formatge de burgos', 'formatge fresc', 'fresh cheese', 'paneer style cheese'],
     group: 'dairy',
     state: 'skimmed fresh cheese, drained, as sold',
@@ -1396,6 +1436,7 @@ export default [
   {
     id: 'intl-feta',
     name: 'Feta cheese (sheep and goat, cubes)',
+    shortName: 'Feta cheese',
     aliases: ['feta', 'feta cheese', 'queso feta', 'feta en dados', 'formatge feta'],
     group: 'dairy',
     state: 'drained cubes in brine, as eaten',
@@ -1413,6 +1454,7 @@ export default [
   {
     id: 'es-yogur-proteinas-natural',
     name: 'Protein yogurt, plain 0 % (Mercadona +Proteínas)',
+    shortName: 'Protein yogurt, plain',
     aliases: ['protein yogurt', '+proteinas', 'mas proteinas', 'yogur proteinas', 'yogur +proteínas', 'postre lácteo proteínas', 'yogur proteico', 'iogurt proteïnes', 'protein dahi'],
     group: 'dairy',
     state: 'skimmed fermented milk, plain, as sold',
@@ -1430,6 +1472,7 @@ export default [
   {
     id: 'es-yogur-griego-ligero',
     name: 'Greek-style yogurt, light 2 % (Hacendado griego ligero)',
+    shortName: 'Yogur griego ligero',
     aliases: ['yogur griego ligero', 'griego ligero', 'yogur griego natural ligero', 'yogur griego hacendado', 'greek yogurt light', 'light greek yogurt', '2% greek yogurt', 'iogurt grec lleuger', 'yogur griego 2%'],
     group: 'dairy',
     state: 'partly skimmed, plain, as sold',
@@ -1447,6 +1490,7 @@ export default [
   {
     id: 'intl-salmon-canned',
     name: 'Salmon, canned (al natural)',
+    shortName: 'Canned salmon',
     aliases: ['canned salmon', 'tinned salmon', 'salmon', 'salmón al natural', 'salmon en lata', 'salmó', 'salmon can'],
     group: 'meat-fish',
     state: 'canned in its own juice, as sold (small can)',
@@ -1463,6 +1507,7 @@ export default [
   {
     id: 'intl-sardines-olive-oil',
     name: 'Sardines in olive oil, canned',
+    shortName: 'Sardines in olive oil',
     aliases: ['sardines', 'sardine', 'sardinas', 'sardinas en aceite', 'sardinillas', 'sardines en oli', 'canned sardines'],
     group: 'meat-fish',
     state: 'canned in olive oil, drained, as eaten',
@@ -1479,6 +1524,7 @@ export default [
   {
     id: 'intl-mackerel-olive-oil',
     name: 'Mackerel fillets in olive oil, canned (caballa)',
+    shortName: 'Mackerel in olive oil',
     aliases: ['mackerel', 'caballa', 'caballa en aceite', 'filetes de caballa', 'verat', 'canned mackerel', 'melva'],
     group: 'meat-fish',
     state: 'canned in olive oil, drained, as eaten',
@@ -1495,6 +1541,7 @@ export default [
   {
     id: 'intl-prawns-raw',
     name: 'Prawns or shrimp, raw, peeled (gambas, jhinga)',
+    shortName: 'Prawns, raw',
     nameUr: 'جھینگا',
     nameRoman: 'jhinga',
     aliases: ['jhinga', 'jheenga', 'jhingay', 'jhingey', 'jhinge', 'prawn', 'prawns', 'shrimp', 'shrimps', 'raw prawns', 'raw shrimp', 'gamba', 'gambas', 'gambas crudas', 'langostino', 'langostinos', 'gamba cruda', 'gambes', 'gambeta', 'llagostins', 'جھینگے'],
@@ -1514,6 +1561,7 @@ export default [
   {
     id: 'intl-prawns-cooked',
     name: 'Prawns or shrimp, cooked and peeled (gambas cocidas peladas)',
+    shortName: 'Prawns, cooked',
     nameUr: 'ابلے ہوئے جھینگے',
     nameRoman: 'jhinga (boiled)',
     aliases: ['jhinga', 'jheenga', 'jhingay', 'boiled prawns', 'cooked prawns', 'cooked shrimp', 'peeled prawns', 'prawns', 'shrimp', 'gambas cocidas', 'gambas cocidas peladas', 'gamba cocida', 'gambas', 'langostinos cocidos', 'langostino cocido', 'gambes cuites', 'llagostins cuits'],
@@ -1533,6 +1581,7 @@ export default [
   {
     id: 'intl-squid-raw',
     name: 'Squid, raw, cleaned (calamar, calamares)',
+    shortName: 'Squid, raw',
     aliases: ['squid', 'calamari', 'calamar', 'calamares', 'calamar crudo', 'chipirón', 'chipirones', 'chipiron', 'potón', 'pota', 'calamars', 'xipirons', 'raw squid'],
     group: 'meat-fish',
     state: 'raw, cleaned (tube, tentacles), edible part',
@@ -1551,6 +1600,7 @@ export default [
   {
     id: 'intl-mussels-cooked',
     name: 'Mussels, cooked, meat only (mejillones cocidos)',
+    shortName: 'Mussels, cooked',
     aliases: ['mussels', 'mussel', 'steamed mussels', 'boiled mussels', 'mejillones', 'mejillón', 'mejillon', 'mejillones cocidos', 'mejillones al vapor', 'musclos', 'musclos al vapor', 'cooked mussels'],
     group: 'meat-fish',
     state: 'boiled or steamed, shucked meat only (no shell, no sauce)',
@@ -1568,6 +1618,7 @@ export default [
   {
     id: 'intl-clams-cooked',
     name: 'Clams, cooked, meat only (almejas)',
+    shortName: 'Clams, cooked',
     aliases: ['clams', 'clam', 'steamed clams', 'cooked clams', 'almejas', 'almeja', 'almejas cocidas', 'chirlas', 'cloïsses', 'cloisses', 'cloïssa', 'vongole'],
     group: 'meat-fish',
     state: 'steamed or boiled, shucked meat only (no shell, no sauce)',

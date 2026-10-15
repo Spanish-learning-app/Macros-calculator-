@@ -7,6 +7,7 @@ export default [
   {
     id: 'intl-whey-protein',
     name: 'Whey protein powder (1 scoop)',
+    shortName: 'Whey protein, 1 scoop',
     nameUr: 'وے پروٹین',
     nameRoman: 'whey protein',
     aliases: ['whey', 'protein shake', 'protein powder', 'whey protein', 'protein', 'gold standard', 'proteína', 'batido de proteínas', 'scoop'],
@@ -42,6 +43,7 @@ export default [
   {
     id: 'intl-oats-porridge',
     name: 'Oats porridge, cooked with water',
+    shortName: 'Oats porridge',
     nameUr: 'دلیہ',
     nameRoman: 'oats daliya',
     aliases: ['porridge', 'oats porridge', 'oatmeal', 'daliya', 'dalia', 'oats', 'gachas de avena', 'porridge de avena'],
@@ -62,6 +64,7 @@ export default [
   {
     id: 'intl-greek-yogurt',
     name: 'Greek yogurt, plain, nonfat (0%)',
+    shortName: 'Greek yogurt, nonfat',
     aliases: ['greek yogurt', 'greek yoghurt', 'greek yogurt 0%', 'nonfat greek yogurt', 'fat free greek yogurt', 'strained yogurt', 'yogur griego 0%', 'yogur griego desnatado', 'iogurt grec 0%'],
     group: 'dairy',
     state: 'plain, nonfat, strained',
@@ -78,6 +81,7 @@ export default [
   {
     id: 'intl-greek-yogurt-whole',
     name: 'Greek yogurt, plain, whole milk (full-fat)',
+    shortName: 'Greek yogurt, whole',
     aliases: ['greek yogurt', 'greek yoghurt', 'full fat greek yogurt', 'whole milk greek yogurt', 'greek yogurt full fat', 'strained yogurt', 'hung curd', 'lataka dahi', 'tanga dahi', 'yogur griego natural', 'iogurt grec'],
     group: 'dairy',
     state: 'plain, whole milk, strained (as sold)',
@@ -240,6 +244,7 @@ export default [
   {
     id: 'intl-pizza-cheese',
     name: 'Pizza, cheese (pizza chain, regular crust)',
+    shortName: 'Cheese pizza',
     nameUr: 'پیزا',
     nameRoman: 'pizza',
     aliases: ['pizza', 'cheese pizza', 'margherita', 'pizza slice', 'pizza de queso', 'pizza margarita'],
@@ -258,6 +263,7 @@ export default [
   {
     id: 'intl-burger-beef',
     name: 'Beef burger (fast food, with condiments)',
+    shortName: 'Beef burger',
     nameUr: 'برگر',
     nameRoman: 'burger',
     aliases: ['burger', 'beef burger', 'hamburger', 'burgur', 'hamburguesa', 'hamburguesa de ternera'],
@@ -275,6 +281,7 @@ export default [
   {
     id: 'intl-burger-zinger',
     name: 'Fried chicken burger (zinger type)',
+    shortName: 'Zinger burger',
     nameUr: 'زنگر برگر',
     nameRoman: 'zinger burger',
     aliases: ['zinger', 'zinger burger', 'chicken burger', 'crispy chicken burger', 'fried chicken sandwich', 'hamburguesa de pollo', 'burger de pollo crujiente'],
@@ -293,6 +300,7 @@ export default [
   {
     id: 'intl-fries',
     name: 'French fries (fast food)',
+    shortName: 'French fries',
     nameUr: 'فرائز',
     nameRoman: 'fries',
     aliases: ['fries', 'french fries', 'chips', 'finger chips', 'aloo fries', 'patatas fritas', 'patates fregides'],
@@ -312,6 +320,7 @@ export default [
   {
     id: 'intl-chicken-nuggets',
     name: 'Chicken nuggets (fast food)',
+    shortName: 'Chicken nuggets',
     nameUr: 'چکن نگٹس',
     nameRoman: 'chicken nuggets',
     aliases: ['nuggets', 'chicken nuggets', 'nugget', 'naggets', 'nuggets de pollo'],
@@ -330,6 +339,7 @@ export default [
   {
     id: 'intl-chicken-sandwich',
     name: 'Chicken mayo sandwich (white bread)',
+    shortName: 'Chicken mayo sandwich',
     nameUr: 'چکن سینڈوچ',
     nameRoman: 'chicken sandwich',
     aliases: ['sandwich', 'chicken sandwich', 'club sandwich', 'chicken mayo sandwich', 'sandwitch', 'sándwich de pollo', 'sandvitx de pollastre'],
@@ -365,6 +375,7 @@ export default [
   {
     id: 'intl-bread-white',
     name: 'White bread, sliced (double roti)',
+    shortName: 'White bread, sliced',
     nameUr: 'ڈبل روٹی',
     nameRoman: 'double roti',
     aliases: ['double roti', 'dabal roti', 'bread', 'white bread', 'bread slice', 'toast', 'sliced bread', 'pan de molde', 'pa de motlle'],
@@ -401,6 +412,7 @@ export default [
   {
     id: 'intl-rice-cup-basmati',
     name: 'Basmati rice, microwave cup (ready cooked)',
+    shortName: 'Basmati rice cup',
     nameRoman: 'chawal cup',
     aliases: ['rice cup', 'microwave rice', 'vasito de arroz', 'arroz cocido basmati', 'sabroz', 'arroz basmati cocido', 'chawal', 'ready rice'],
     group: 'grain-cooked',
@@ -422,6 +434,7 @@ export default [
   {
     id: 'intl-rice-cup-brown',
     name: 'Brown rice, microwave cup (ready cooked)',
+    shortName: 'Brown rice cup',
     nameRoman: 'brown chawal cup',
     aliases: ['brown rice cup', 'microwave brown rice', 'arroz integral cocido', 'vasito arroz integral', 'sabroz integral', 'brown rice', 'ready rice'],
     group: 'grain-cooked',
@@ -462,6 +475,7 @@ export default [
   {
     id: 'intl-rice-brown-dry',
     name: 'Brown rice, long grain, dry',
+    shortName: 'Brown rice, dry',
     nameRoman: 'brown chawal (kachay)',
     aliases: ['brown rice', 'dry brown rice', 'arroz integral', 'arroz integral largo', 'arròs integral'],
     group: 'dry-staple',
@@ -480,6 +494,7 @@ export default [
   {
     id: 'intl-pasta-wholewheat-dry',
     name: 'Wholewheat pasta, dry (penne)',
+    shortName: 'Wholewheat pasta, dry',
     aliases: ['wholewheat pasta', 'whole wheat pasta', 'brown pasta', 'pasta integral', 'macarrones integrales', 'macarrón integral', 'espaguetis integrales', 'pasta integral seca'],
     group: 'dry-staple',
     state: 'dry, uncooked, as sold',
@@ -514,6 +529,7 @@ export default [
   {
     id: 'intl-bread-wholemeal-sliced',
     name: 'Wholemeal sliced bread (pan de molde 100 % integral)',
+    shortName: 'Wholemeal sliced bread',
     aliases: ['wholemeal bread', 'brown bread', 'whole wheat bread', 'pan de molde integral', 'pan integral de molde', 'pa de motlle integral', 'brown double roti', 'atta bread'],
     group: 'bread',
     state: 'as sold (sliced loaf)',
@@ -531,6 +547,7 @@ export default [
   {
     id: 'intl-tortilla-wrap-wholewheat',
     name: 'Wholewheat tortilla wrap',
+    shortName: 'Wholewheat wrap',
     aliases: ['wrap', 'wraps', 'tortilla wrap', 'wholewheat wrap', 'tortillas de trigo integrales', 'tortilla integral', 'fajita wrap', 'roti wrap'],
     group: 'bread',
     state: 'as sold (heat 20 s in a pan or microwave)',
@@ -567,6 +584,7 @@ export default [
   {
     id: 'intl-chana-dal-dry',
     name: 'Chana dal, dry (split Bengal gram)',
+    shortName: 'Chana dal, dry',
     nameUr: 'چنے کی دال',
     nameRoman: 'chanay ki daal',
     aliases: ['chana dal', 'chana daal', 'chanay ki daal', 'chane ki dal', 'split chickpeas', 'bengal gram dal', 'chana dal dry'],
@@ -585,6 +603,7 @@ export default [
   {
     id: 'intl-masoor-dal-dry',
     name: 'Masoor dal, dry (split red lentils)',
+    shortName: 'Masoor dal, dry',
     nameUr: 'مسور کی دال',
     nameRoman: 'masoor ki daal',
     aliases: ['masoor dal', 'masoor daal', 'masur dal', 'red lentils', 'split red lentils', 'lentejas rojas', 'lentejas peladas', 'masoor dry'],
