@@ -405,10 +405,24 @@ export function createFakeStore({
     prepNotices: () => ({ moveTonight: [] }),
     chai: () => null,
     savedMeals: () => [],
+    // Sprint 3 read-only stand-ins (weight log, spare boxes, meal names).
+    spareBoxes: () => [],
+    weights: () => [],
+    weightOn: () => null,
+    weightTrend: () => ({
+      ready: false,
+      points: [],
+      latest: null,
+      weeklyRateKg: null,
+      spanDays: 0,
+      suggestion: null,
+    }),
+    mealNameSets: () => [],
+    mealNameSet: () => null,
     variants(foodId) {
       const f = index.get(foodId);
       if (!f.family) return [f];
-      const order = ['home', 'restaurant', 'dhaba', 'street'];
+      const order = ['home', 'home-light', 'restaurant', 'dhaba', 'street'];
       return foods
         .filter((x) => x.family === f.family)
         .sort((a, b) => order.indexOf(a.style) - order.indexOf(b.style));

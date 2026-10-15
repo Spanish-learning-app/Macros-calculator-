@@ -4,7 +4,7 @@
 // says why instead of showing nothing. Your own recipes are not offered as ingredients.
 import { h, uid, setText, mountChildren } from '../dom.js';
 import { iconEl } from './icons.js';
-import { halalChip, estimateBadge } from './food-bits.js';
+import { halalChip, estimateBadge, rowName, fullNameLine } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
 import { searchNoteText } from './search-notes.js';
 import { fmtKcal, fmtGrams, portionText, defaultServingOf, portionNutrients } from './format.js';
@@ -252,7 +252,8 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
                 pickNow(store.food(foodId) ?? food, servingId, qty),
             }),
         },
-        h('span', { class: 'food-name' }, food.name),
+        h('span', { class: 'food-name' }, rowName(food)),
+        fullNameLine(food),
         estimateBadge(food, rules)
           ? h('span', { class: 'entry-tags' }, estimateBadge(food, rules))
           : null,

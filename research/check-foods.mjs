@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Nutrition Lab self-check: applies every data gate in docs/NUTRITION.md §8 (G1-G23) to food records.
+// Nutrition Lab self-check: applies every data gate in docs/NUTRITION.md §8 (G1-G25) to food records,
+// plus the rules self-checks (protein-tip foods, Ramadan timetable; rules 1.7.0).
 // Researchers run it before every hand-off. Owner: Dr. Ayesha Siddiqui (Nutrition Lab).
 //
 //   node research/check-foods.mjs                       # all app/data/foods-*.js
@@ -38,6 +39,7 @@ const SR = V.servingRules;
 const isWholeDish = (id) => typeof id === 'string' && (id === SR.wholeDish.idPrefix || id.startsWith(`${SR.wholeDish.idPrefix}-`));
 const ID_PREFIXES = ['pk-', 'es-', 'med-', 'intl-'];
 const RESTAURANT_STYLES = new Set(['restaurant', 'dhaba', 'street']);
+const KT = RULES.kamTel;
 
 const KEYS = {
   record: new Set(['id', 'name', 'shortName', 'nameUr', 'nameRoman', 'aliases', 'group', 'state', 'style', 'family', 'per100g', 'addedFatPer100g', 'servings', 'pack', 'serve', 'tags', 'slots', 'halal', 'source']),
@@ -325,14 +327,40 @@ function checkRecord(f, ctx) {
     else {
       if (!isNum(f.pack.grams) || f.pack.grams <= 0) F('G10', 'pack.grams must be a number > 0');
       if (!isStr(f.pack.label)) F('G10', 'pack.label must be a non-empty string');
-      for (const k of Object.keys(f.pack)) if (k !== 'grams' && k !== 'label') W('G20', `unknown pack key "${k}"`);
+      for (const k of Object.keys(f.pack)) if (!V.fieldRules.pack.keys.includes(k)) W('G20', `unknown pack key "${k}"`);
     }
   }
 
   // serve (Meeting 004): optional, how a no-cook (assemble) prep is eaten; meal-prep records only
   if (f.serve !== undefined) {
-    if (!['cold', 'hot', 'either'].includes(f.serve)) F('G10', `serve must be 'cold', 'hot' or 'either'`);
-    if (f.group !== 'lunchbox') W('G20', 'serve is for meal-prep records (group lunchbox)');
+    const sv = V.fieldRules.serve;
+    if (!sv.values.includes(f.serve)) F('G10', `serve must be ${sv.values.map((v) => `'${v}'`).join(', ')}`);
+    if (!sv.groups.includes(f.group)) W('G20', `serve is for meal-prep records (group ${sv.groups.join(', ')})`);
+  }
+
+  // G25 kam tel (rules 1.7.0, Meeting 005 d): a home-light record is its family's home recipe with less oil
+  if (f.style === KT.style) {
+    const home = isStr(f.family) ? (ctx.familyStyles.get(f.family) ?? []).filter((r) => r.style === KT.pairsWithStyle) : [];
+    const lights = isStr(f.family) ? (ctx.familyStyles.get(f.family) ?? []).filter((r) => r.style === KT.style) : [];
+    if (home.length !== 1) F('G25', `${KT.style} needs exactly one "${KT.pairsWithStyle}" record in family "${f.family}" (found ${home.length})`);
+    if (lights.length > 1) F('G25', `family "${f.family}" has ${lights.length} ${KT.style} records (one only)`);
+    if (src && src.method !== 'recipe') F('G25', `${KT.style} records use method "recipe" (derived from the home sheet)`);
+    const h = home[0];
+    if (h && nutrientsOk && h.per100g) {
+      if (h.group !== f.group) F('G25', `group "${f.group}" differs from home record ${h.id} ("${h.group}")`);
+      if (!(p.kcal < h.per100g.kcal)) F('G25', `kcal ${p.kcal} is not below home ${h.id} (${h.per100g.kcal})`);
+      else if ((1 - p.kcal / h.per100g.kcal) * 100 < KT.gate.warnKcalDropBelowPct) W('G25', `only ${fmt((1 - p.kcal / h.per100g.kcal) * 100)}% fewer kcal than ${h.id}: is a light variant worth it?`);
+      if (!(p.fat < h.per100g.fat)) F('G25', `fat ${p.fat} g is not below home ${h.id} (${h.per100g.fat} g)`);
+      if (isNum(f.addedFatPer100g) && isNum(h.addedFatPer100g)) {
+        const cap = Math.max(KT.minAddedFatPer100g, h.addedFatPer100g * KT.gate.maxAddedFatRatio);
+        if (f.addedFatPer100g > cap + 0.05) F('G25', `addedFatPer100g ${f.addedFatPer100g} > ${fmt(cap)} (home ${h.addedFatPer100g} × ${KT.gate.maxAddedFatRatio}, NUTRITION.md §6.1)`);
+        if (f.addedFatPer100g < KT.minAddedFatPer100g - 0.05) W('G25', `addedFatPer100g ${f.addedFatPer100g} is under the ${KT.minAddedFatPer100g} g floor`);
+      }
+      const order = KT.gate.confidenceOrder;
+      if (src && h.source && order.indexOf(src.confidence) < order.indexOf(h.source.confidence)) F('G25', `confidence ${src.confidence} is better than home ${h.id} (${h.source.confidence})`);
+      const ids = (r) => (Array.isArray(r.servings) ? r.servings.map((x) => x && x.id).sort().join(',') : '');
+      if (ids(f) !== ids(h)) W('G25', `servings differ from home ${h.id} (keep the same ids and density)`);
+    }
   }
 
   // G24 shortName (rules v1.7, Meeting 005 e): optional; plain words, at most N characters, no brackets
@@ -379,15 +407,20 @@ for (const file of loadSet) {
 const rel = (f) => path.relative(ROOT, f) || f;
 const idFiles = new Map();
 const familyGroups = new Map();
+const familyStyles = new Map(); // family -> records (for G25)
+const byId = new Map();
 for (const [file, recs] of loaded) {
   if (recs instanceof Error) continue;
   for (const r of recs) {
     if (!r || typeof r.id !== 'string') continue;
     if (!idFiles.has(r.id)) idFiles.set(r.id, []);
     idFiles.get(r.id).push(rel(file));
+    if (!byId.has(r.id)) byId.set(r.id, r);
     if (typeof r.family === 'string') {
       if (!familyGroups.has(r.family)) familyGroups.set(r.family, new Set());
       familyGroups.get(r.family).add(r.group);
+      if (!familyStyles.has(r.family)) familyStyles.set(r.family, []);
+      familyStyles.get(r.family).push(r);
     }
   }
 }
@@ -397,7 +430,7 @@ let total = 0;
 let failed = 0;
 let warned = 0;
 let loadErrors = 0;
-const ctx = { idFiles, familyGroups, pendingReview: 0, file: '' };
+const ctx = { idFiles, familyGroups, familyStyles, pendingReview: 0, file: '' };
 
 for (const file of targets) {
   const recs = loaded.get(file);
@@ -420,6 +453,39 @@ for (const file of targets) {
     for (const m of warn) console.log(`       ! ${m}`);
   });
 }
+
+// ------------------------------------------------------------------ rules self-checks (rules 1.7.0)
+// R1 protein-tip foods resolve, are halal or check (never not-halal), and their stated protein/kcal match FOODS.
+// R2 the Ramadan timetable rows are consecutive dates with HH:MM times, fajr before maghrib.
+const ruleFails = [];
+const PN = RULES.proteinNudges;
+for (const [slot, items] of Object.entries(PN?.suggestions ?? {})) {
+  for (const it of items) {
+    const r = byId.get(it.foodId);
+    const sv = r && Array.isArray(r.servings) ? r.servings.find((x) => x && x.id === it.servingId) : null;
+    if (!r) { ruleFails.push(`R1 ${slot}: food "${it.foodId}" not found`); continue; }
+    if (!sv) { ruleFails.push(`R1 ${slot}: ${it.foodId} has no serving "${it.servingId}"`); continue; }
+    if (r.halal?.status === 'not-halal') ruleFails.push(`R1 ${slot}: ${it.foodId} is not-halal`);
+    const g = sv.grams * it.qty;
+    const prot = (g * r.per100g.protein) / 100;
+    const kcal = (g * r.per100g.kcal) / 100;
+    if (Math.abs(prot - it.proteinG) > 0.6) ruleFails.push(`R1 ${slot}: ${it.foodId} protein ${fmt(prot)} g, rules say ${it.proteinG}`);
+    if (Math.abs(kcal - it.kcal) > 1) ruleFails.push(`R1 ${slot}: ${it.foodId} kcal ${fmt(kcal, 0)}, rules say ${it.kcal}`);
+  }
+}
+const HHMM = /^([01]\d|2[0-3]):[0-5]\d$/;
+for (const [name, t] of Object.entries(RULES.ramadan?.timetables ?? {})) {
+  let prev = null;
+  for (const [d, fajr, maghrib] of t.rows) {
+    if (!ISO_DATE.test(d) || !HHMM.test(fajr) || !HHMM.test(maghrib)) ruleFails.push(`R2 ${name}: bad row ${d} ${fajr} ${maghrib}`);
+    else if (fajr >= maghrib) ruleFails.push(`R2 ${name}: ${d} fajr ${fajr} is not before maghrib ${maghrib}`);
+    if (prev && Date.parse(d) - Date.parse(prev) !== 86400000) ruleFails.push(`R2 ${name}: ${d} does not follow ${prev}`);
+    prev = d;
+  }
+}
+console.log(`\nRules self-checks: ${ruleFails.length ? `${ruleFails.length} FAIL` : 'PASS'} (protein tips, Ramadan timetable)`);
+for (const m of ruleFails) console.log(`  ✗ ${m}`);
+if (ruleFails.length) failed++;
 
 console.log(
   `\nSummary: ${total} records, ${total - failed} pass, ${failed} fail, ${warned} with warnings` +

@@ -1,6 +1,6 @@
 // Whole-pot recipes, meal-prep batches, use-by and shopping lists. Pure: no I/O, no clock.
 // Owner: Lena (Sprint 2). Contract: docs/ARCHITECTURE.md §13 and §13.2.
-import { addDays, isISODate } from './dates.js';
+import { addDays, diffDays, isISODate } from './dates.js';
 import {
   NUTRIENT_KEYS,
   HALAL_STATUSES,
@@ -624,4 +624,61 @@ export function shoppingForShop(list, foodIndex, rules = null) {
     });
   }
   return { sections };
+}
+
+const SPARE_ORDER = { past: 0, 'last-day': 1, soon: 2, frozen: 3 };
+
+/**
+ * Spare or old boxes for the Day view's calm line (Sprint 3, meeting 005): unplaced boxes that
+ * are near or past their use-by, and batches whose boxes all wait in the freezer with no day
+ * planned. Most urgent first: 'past', 'last-day', 'soon' (use-by within `soonDays`), 'frozen'
+ * (the batch has no fridge box left, no box planned from `date` on, and was cooked at least
+ * `frozenIdleDays` ago; one item per batch with its `count`).
+ * @param {object[]} batches @param {string} date 'YYYY-MM-DD'
+ * @param {(batch: object, box: object) => string|null} useByOf the store's boxUseBy wrapper
+ * @param {{ soonDays?: number, frozenIdleDays?: number }} [options]
+ * @returns {{ kind: 'past'|'last-day'|'soon'|'frozen', batchId: string, boxId: string,
+ *   number: number, count: number, useBy: string|null }[]}
+ */
+export function spareBoxes(batches, date, useByOf, { soonDays = 1, frozenIdleDays = 7 } = {}) {
+  if (!isISODate(date)) throw new RangeError('date must be YYYY-MM-DD');
+  if (typeof useByOf !== 'function') throw new TypeError('useByOf must be a function');
+  const out = [];
+  for (const batch of Array.isArray(batches) ? batches : []) {
+    if (!isObject(batch) || !Array.isArray(batch.boxes)) continue;
+    const frozen = [];
+    let fridgeLeft = 0;
+    let plannedAhead = false;
+    batch.boxes.forEach((box, i) => {
+      if (box.status === 'placed' && (box.placed?.date ?? '') >= date) plannedAhead = true;
+      if (box.status !== 'available') return;
+      const inFreezer = box.storage === 'freezer' && !box.movedToFridgeOn;
+      if (inFreezer) {
+        frozen.push({ box, number: i + 1 });
+        return;
+      }
+      fridgeLeft += 1;
+      const useBy = useByOf(batch, box);
+      if (!isISODate(useBy)) return;
+      const left = diffDays(date, useBy);
+      const kind = left < 0 ? 'past' : left === 0 ? 'last-day' : left <= soonDays ? 'soon' : null;
+      if (kind)
+        out.push({ kind, batchId: batch.id, boxId: box.id, number: i + 1, count: 1, useBy });
+    });
+    const idle = isISODate(batch.cookedOn) && diffDays(batch.cookedOn, date) >= frozenIdleDays;
+    if (frozen.length && !fridgeLeft && !plannedAhead && idle) {
+      out.push({
+        kind: 'frozen',
+        batchId: batch.id,
+        boxId: frozen[0].box.id,
+        number: frozen[0].number,
+        count: frozen.length,
+        useBy: null,
+      });
+    }
+  }
+  return out.sort(
+    (a, b) =>
+      SPARE_ORDER[a.kind] - SPARE_ORDER[b.kind] || String(a.useBy).localeCompare(String(b.useBy)),
+  );
 }

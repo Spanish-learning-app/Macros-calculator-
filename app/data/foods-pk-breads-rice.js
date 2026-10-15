@@ -8,6 +8,7 @@ export default [
   {
     id: 'pk-roti',
     name: 'Roti / chapati (home, no ghee)',
+    shortName: 'Roti',
     nameUr: 'روٹی',
     nameRoman: 'ghar ki roti',
     aliases: [
@@ -54,6 +55,7 @@ export default [
   {
     id: 'pk-roti-ghee',
     name: 'Roti with ghee (chupri roti)',
+    shortName: 'Roti with ghee',
     nameUr: 'گھی والی روٹی',
     nameRoman: 'ghee wali roti',
     aliases: [
@@ -277,6 +279,7 @@ export default [
   {
     id: 'pk-paratha-dhaba',
     name: 'Paratha (dhaba / restaurant)',
+    shortName: 'Dhaba paratha',
     nameUr: 'پراٹھا (ڈھابہ)',
     nameRoman: 'dhaba paratha',
     aliases: [
@@ -327,6 +330,7 @@ export default [
   {
     id: 'pk-anda-paratha',
     name: 'Anda paratha (egg paratha, home)',
+    shortName: 'Anda paratha',
     nameUr: 'انڈا پراٹھا',
     nameRoman: 'anda paratha',
     aliases: [
@@ -423,6 +427,7 @@ export default [
   {
     id: 'pk-rice-plain',
     name: 'Rice, plain boiled (white basmati)',
+    shortName: 'Plain rice',
     nameUr: 'سادہ چاول',
     nameRoman: 'saada chawal',
     aliases: [
@@ -469,6 +474,7 @@ export default [
   {
     id: 'pk-daal-chawal',
     name: 'Daal chawal (home plate)',
+    shortName: 'Daal chawal',
     nameUr: 'دال چاول',
     nameRoman: 'daal chawal',
     aliases: [

@@ -8,6 +8,7 @@ export default [
   {
     id: 'pk-chai-doodh-patti-0tsp',
     name: 'Chai, doodh patti (home), no sugar',
+    shortName: 'Chai, no sugar',
     nameUr: 'دودھ پتی چائے',
     nameRoman: 'doodh patti cheeni ke baghair',
     aliases: [
@@ -55,6 +56,7 @@ export default [
   {
     id: 'pk-chai-doodh-patti-1tsp',
     name: 'Chai, doodh patti (home), 1 tsp sugar',
+    shortName: 'Chai, 1 tsp sugar',
     nameUr: 'دودھ پتی چائے',
     nameRoman: 'doodh patti 1 chamach cheeni',
     aliases: [
@@ -101,6 +103,7 @@ export default [
   {
     id: 'pk-chai-doodh-patti-2tsp',
     name: 'Chai, doodh patti (home), 2 tsp sugar',
+    shortName: 'Chai, 2 tsp sugar',
     nameUr: 'دودھ پتی چائے',
     nameRoman: 'doodh patti 2 chamach cheeni',
     aliases: [
@@ -149,6 +152,7 @@ export default [
   {
     id: 'pk-chai-dhaba',
     name: 'Chai, dhaba (karak, 3 tsp sugar)',
+    shortName: 'Dhaba chai',
     nameUr: 'ڈھابے کی چائے',
     nameRoman: 'dhaba chai',
     aliases: [
@@ -201,6 +205,7 @@ export default [
   {
     id: 'pk-chai-dhaba-extra-sugar',
     name: 'Chai, dhaba, extra sugar (4 tsp)',
+    shortName: 'Dhaba chai, 4 tsp',
     nameUr: 'ڈھابے کی چائے، زیادہ چینی',
     nameRoman: 'dhaba chai zyada cheeni',
     aliases: [
@@ -252,6 +257,7 @@ export default [
   {
     id: 'pk-chai-kashmiri',
     name: 'Kashmiri chai (pink tea)',
+    shortName: 'Kashmiri chai',
     nameUr: 'کشمیری چائے',
     nameRoman: 'kashmiri chai',
     aliases: [
@@ -287,6 +293,7 @@ export default [
   {
     id: 'pk-rooh-afza',
     name: 'Rooh Afza sharbat (with water)',
+    shortName: 'Rooh Afza sharbat',
     nameUr: 'روح افزا شربت',
     nameRoman: 'rooh afza',
     aliases: [
@@ -323,6 +330,7 @@ export default [
   {
     id: 'pk-cold-drink-cola',
     name: 'Cold drink, cola (regular)',
+    shortName: 'Cold drink, cola',
     nameUr: 'کولڈ ڈرنک',
     nameRoman: 'cold drink',
     aliases: [
@@ -457,6 +465,7 @@ export default [
   {
     id: 'pk-suji-halwa',
     name: 'Suji halwa (halwa puri halwa)',
+    shortName: 'Suji halwa',
     nameUr: 'سوجی کا حلوہ',
     nameRoman: 'suji ka halwa',
     aliases: [
@@ -567,6 +576,7 @@ export default [
   {
     id: 'pk-sheer-khurma',
     name: 'Sheer khurma / meethi seviyan',
+    shortName: 'Sheer khurma',
     nameUr: 'شیر خرمہ',
     nameRoman: 'sheer khurma',
     aliases: [
@@ -644,6 +654,7 @@ export default [
   {
     id: 'pk-rooh-afza-milk',
     name: 'Rooh Afza with milk (doodh sharbat)',
+    shortName: 'Rooh Afza with milk',
     nameUr: 'روح افزا دودھ',
     nameRoman: 'rooh afza doodh',
     aliases: [

@@ -5,6 +5,7 @@
 import { isISODate } from './dates.js';
 import { NUTRIENT_KEYS } from './foods.js';
 import { SLOT_IDS } from './days.js';
+import { weightLogProblems, mergeWeightLogs, weightEntries } from './weight.js';
 
 /** @typedef {import('./types.js').UserData} UserData */
 
@@ -233,6 +234,8 @@ export function validateUserData(data) {
     if (data.savedMeals !== undefined && !Array.isArray(data.savedMeals)) {
       p.push('savedMeals must be an array');
     }
+    // Sprint 3 (§14): optional; absent means no weights logged.
+    p.push(...weightLogProblems(data.weightLog));
     return p;
   } catch (error) {
     return [`the document could not be validated (${messageOf(error)})`];
@@ -273,6 +276,12 @@ export function migrate(raw) {
     if (given.onboarding === undefined) {
       data.settings.onboarding = isObject(data.profile) ? 'done' : 'pending';
     }
+  }
+  // Sprint 3 (§14): one bad weight must never make the whole document 'corrupt'; keep the good ones.
+  if (Object.hasOwn(source, 'weightLog') && weightLogProblems(source.weightLog).length > 0) {
+    const kept = weightEntries(source.weightLog).filter((e) => e.kg > 0);
+    if (kept.length) data.weightLog = Object.fromEntries(kept.map((e) => [e.date, { kg: e.kg }]));
+    else delete data.weightLog;
   }
   const problems = validateUserData(data);
   if (problems.length > 0) {
@@ -479,7 +488,8 @@ function mergeRecent(a, b) {
 /**
  * 'replace' -> incoming. 'merge' -> days unioned; same date: entries unioned by id (incoming wins);
  * profile/settings/targets kept from current unless current.profile is null; customFoods unioned
- * by id (incoming wins); recents: max count, latest lastUsed.
+ * by id (incoming wins); recents: max count, latest lastUsed; weightLog unioned by date (incoming
+ * wins).
  * @param {UserData} current @param {UserData} incoming @param {'replace'|'merge'} mode
  * @returns {UserData}
  */
@@ -520,6 +530,10 @@ export function mergeImport(current, incoming, mode) {
     // Sprint 2 (§13.1): optional; absent means none.
     ...(current.savedMeals || incoming.savedMeals
       ? { savedMeals: unionById(current.savedMeals, incoming.savedMeals) }
+      : {}),
+    // Sprint 3 (§14): optional; one weight per date, the incoming one wins a shared date.
+    ...(current.weightLog || incoming.weightLog
+      ? { weightLog: mergeWeightLogs(current.weightLog, incoming.weightLog) }
       : {}),
   };
 }

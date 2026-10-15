@@ -290,18 +290,21 @@ export default {
       { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1200, 1440] }, // 20:00-24:00
       { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: [0, 300] }, // 00:00-05:00 (Meeting 003: after midnight defaults to Snacks)
     ],
-    // Ramadan mode (Sprint 2). Hours are typical for Pakistan and shift with sunrise and sunset.
+    // Ramadan mode (rules 1.7.0, Meeting 005 b; NUTRITION.md §12). Slots: sehri, iftar (iftar and the
+    // meal after maghrib), after taraweeh, snacks. These fixed hours are the fallback, set for Barcelona
+    // in Ramadan 2027 (maghrib 18:13-18:53). When the app knows today's maghrib, it uses
+    // RULES.ramadan.slotsFromMaghrib instead. Shares sum to 100.
     ramadan: [
-      { id: 'sehri', label: 'Sehri', labelUr: 'سحری', sharePct: 35, hours: [60, 720] }, // 01:00-12:00
-      { id: 'iftar', label: 'Iftar', labelUr: 'افطار', sharePct: 25, hours: [720, 1170] }, // 12:00-19:30
-      { id: 'dinner', label: 'Dinner', labelUr: 'رات کا کھانا', sharePct: 30, hours: [1170, 1290] }, // 19:30-21:30
+      { id: 'sehri', label: 'Sehri', labelUr: 'سحری', sharePct: 35, hours: [240, 1050] }, // 04:00-17:30 (sehri, logged any time in the fasting day)
+      { id: 'iftar', label: 'Iftar', labelUr: 'افطار', sharePct: 45, hours: [1050, 1260] }, // 17:30-21:00 (iftar and the meal after it)
       {
         id: 'after_taraweeh',
         label: 'After taraweeh',
         labelUr: 'تراویح کے بعد',
-        sharePct: 10,
-        hours: [1290, 60],
-      }, // 21:30-01:00
+        sharePct: 15,
+        hours: [1260, 60],
+      }, // 21:00-01:00
+      { id: 'snacks', label: 'Snacks', labelUr: 'اسنیکس', sharePct: 5, hours: [60, 240] }, // 01:00-04:00
     ],
   },
   // Which slot preset a new user starts with: by the device's IANA time zone
@@ -311,7 +314,208 @@ export default {
     byTimeZone: { 'Europe/Madrid': 'spain', 'Africa/Ceuta': 'spain', 'Atlantic/Canary': 'spain' },
     fallback: 'default',
   },
-  ramadan: { minProteinGAtSehri: 30, fluidsReminder: true },
+
+  // ---------------------------------------------------------------- Ramadan mode (NUTRITION.md §12)
+  // Switched on and off by the user. It changes the slots, the day boundary and two reminders; it never
+  // changes the kcal or macro targets, and it never says who should fast or what breaks a fast.
+  ramadan: {
+    // Sehri protein: min(capG, max(floorG, round(gPerKgPrw × PRW)), round(maxPctOfDailyTarget% × protein target)).
+    // Schoenfeld & Aragon 2018: ~0.4 g/kg per meal; with two main meals a day, sehri carries a big share.
+    minProteinGAtSehri: 30, // the cap (capG); kept under this name for the code that already reads it
+    sehriProtein: { gPerKgPrw: 0.4, floorG: 20, capG: 30, maxPctOfDailyTarget: 40 },
+    fluidsReminder: true,
+    // EFSA 2010 adequate intake of total water: 2.0 L/day women, 2.5 L/day men, of which ~80 % from drinks.
+    fluids: { glassMl: 250, glassesMin: 6, glassesMax: 8, showInSlots: ['iftar', 'after_taraweeh'] },
+    // Logging day in Ramadan mode (DECISIONS 2026-10-13): starts at
+    //   max(earliestMinutes, min(settings.dayStartMinutes, fajr − sehriLeadMinutes)),
+    // so sehri always lands on the new fasting day and after-taraweeh food stays on the day it follows.
+    // Barcelona 2027: 04:00 until 25 Feb, then 03:59 down to 03:42 on 9 Mar.
+    dayStart: { sehriLeadMinutes: 120, earliestMinutes: 60 },
+    // Slot windows from today's times (minutes relative to maghrib or fajr); the windows tile the day:
+    //   snacks [after_taraweeh end, day start) · sehri [day start, maghrib + iftarStartOffset)
+    //   iftar [maghrib + iftarStartOffset, maghrib + afterTaraweehStartOffset) · after_taraweeh [.., afterTaraweehEnd)
+    slotsFromMaghrib: { iftarStartOffsetMin: -30, afterTaraweehStartOffsetMin: 150, afterTaraweehEndMinutes: 60 },
+    // Times the user can edit: a per-day override, or a fixed offset to match a mosque timetable.
+    userEdit: { offsetMinRange: { min: -30, max: 30 }, perDayOverride: true },
+    // Health flags that show a note when Ramadan mode is switched on and on each Ramadan day's header.
+    flagNotes: {
+      diabetes_hypo_risk:
+        'You told us you take insulin or sulfonylurea tablets. Fasting with these medicines can cause low blood sugar. Please plan Ramadan with your doctor before it starts. Diabetes and Ramadan guidelines (IDF-DAR 2021) advise ending the fast if your sugar falls below 3.9 mmol/L (70 mg/dL), or if you feel shaky, sweaty or confused.',
+      pregnant: 'Fasting can affect you and your baby. Please talk to your doctor or midwife before Ramadan.',
+      breastfeeding: 'Fasting can affect your milk and your energy. Please talk to your doctor or midwife before Ramadan.',
+      kidney_disease: 'Fasting can affect your kidneys. Please talk to your kidney doctor before Ramadan.',
+    },
+    text: {
+      fluids: 'Between iftar and sehri, about {min} to {max} glasses of water keep you going through the fast.',
+      sehriProtein: 'Sehri so far: {eaten} g protein. Ideas that add some:',
+      timesNote: 'Times are for planning. Use your mosque\'s timetable if it differs; you can change them here.',
+      notRulings: 'Katori does not give religious rulings. Ask your imam about fasting, and your doctor about your health.',
+    },
+    // Fajr and maghrib for Barcelona, Ramadan 2027 (expected first fast 8 Feb, last 9 Mar; the dates depend
+    // on the moon sighting and the user picks the start). Local time, CET (UTC+1; summer time starts 28 Mar).
+    timetables: {
+      barcelona2027: {
+        place: 'Barcelona',
+        lat: 41.3874,
+        lon: 2.1686,
+        timeZone: 'Europe/Madrid',
+        expectedFirstFast: '2027-02-08',
+        expectedLastFast: '2027-03-09',
+        method: 'Muslim World League (fajr at sun 18° below the horizon; maghrib at sunset)',
+        source:
+          'Computed with adhan-js 4.4.3 (Batoul Apps), MuslimWorldLeague method, for 41.3874 N, 2.1686 E. Cross-check: ihadis.com Barcelona Ramadan calendar, 8 Feb 2027: sehri 06:22, iftar 18:16 (same). Expected dates: Wego, "Ramadan 2027 in Spain" (first fast 8 Feb; final dates set by the Comisión Islámica de España).',
+        // [date, fajr, maghrib]
+        rows: [
+        ['2027-02-06', '06:24', '18:13'], ['2027-02-07', '06:23', '18:15'], ['2027-02-08', '06:22', '18:16'],
+        ['2027-02-09', '06:21', '18:17'], ['2027-02-10', '06:20', '18:18'], ['2027-02-11', '06:19', '18:20'],
+        ['2027-02-12', '06:17', '18:21'], ['2027-02-13', '06:16', '18:22'], ['2027-02-14', '06:15', '18:23'],
+        ['2027-02-15', '06:14', '18:25'], ['2027-02-16', '06:13', '18:26'], ['2027-02-17', '06:11', '18:27'],
+        ['2027-02-18', '06:10', '18:28'], ['2027-02-19', '06:09', '18:30'], ['2027-02-20', '06:08', '18:31'],
+        ['2027-02-21', '06:06', '18:32'], ['2027-02-22', '06:05', '18:33'], ['2027-02-23', '06:03', '18:34'],
+        ['2027-02-24', '06:02', '18:36'], ['2027-02-25', '06:01', '18:37'], ['2027-02-26', '05:59', '18:38'],
+        ['2027-02-27', '05:58', '18:39'], ['2027-02-28', '05:56', '18:40'], ['2027-03-01', '05:55', '18:42'],
+        ['2027-03-02', '05:53', '18:43'], ['2027-03-03', '05:52', '18:44'], ['2027-03-04', '05:50', '18:45'],
+        ['2027-03-05', '05:48', '18:46'], ['2027-03-06', '05:47', '18:47'], ['2027-03-07', '05:45', '18:49'],
+        ['2027-03-08', '05:44', '18:50'], ['2027-03-09', '05:42', '18:51'], ['2027-03-10', '05:40', '18:52'],
+        ['2027-03-11', '05:38', '18:53'],
+        ],
+      },
+    },
+  },
+
+  // ---------------------------------------------------------------- protein tips (NUTRITION.md §13)
+  // At most one tip a day, only on today, only when protein so far is under the checkpoint share of the
+  // target. On-track days never see one. The user can turn tips off (Profile) or hide today's ("Not today").
+  proteinNudges: {
+    enabledByDefault: true,
+    offByDefaultForFlags: ['eating_disorder'], // the user may turn them on
+    neverForFlags: ['kidney_disease'], // protein is capped for a reason; also never when targets are null
+    maxPerDay: 1,
+    minGapG: 15, // and only when (checkpoint share × target) − eaten >= 15 g
+    minEntriesToday: 1, // a day with nothing logged is not a low-protein day
+    // A checkpoint is due once the clock is past the end of `afterSlot`'s window (on today's Day view,
+    // checked on open and after each entry), until the end of `suggestFor`'s window.
+    checkpoints: {
+      default: [
+        { afterSlot: 'lunch', minPctOfTarget: 40, suggestFor: 'evening' },
+        { afterSlot: 'evening', minPctOfTarget: 50, suggestFor: 'dinner' },
+      ],
+      spain: [
+        { afterSlot: 'lunch', minPctOfTarget: 40, suggestFor: 'evening' },
+        { afterSlot: 'evening', minPctOfTarget: 50, suggestFor: 'dinner' },
+      ],
+      ramadan: [{ afterSlot: 'iftar', minPctOfTarget: 55, suggestFor: 'after_taraweeh' }],
+    },
+    show: 3, // ideas per tip: foods logged in the last 14 days first, then list order
+    recentDays: 14,
+    // Halal-first: status 'check' items show only when the user shows 'check' foods; seafood follows the
+    // user's seafood setting. proteinG/kcal are for the listed serving × qty (the app recomputes from FOODS).
+    suggestions: {
+      evening: [
+        { foodId: 'intl-skyr', servingId: 'pot', qty: 1, proteinG: 16, kcal: 95 },
+        { foodId: 'es-yogur-proteinas-natural', servingId: 'pot', qty: 1, proteinG: 12, kcal: 62 },
+        { foodId: 'intl-egg-boiled', servingId: 'egg', qty: 2, proteinG: 13, kcal: 155 },
+        { foodId: 'pk-shami-kebab', servingId: 'piece', qty: 1, proteinG: 12, kcal: 135 },
+        { foodId: 'pk-chana-chaat-dahi-snack-box', servingId: 'box', qty: 1, proteinG: 22, kcal: 258 },
+        { foodId: 'es-queso-fresco-batido', servingId: 'serving', qty: 1, proteinG: 8, kcal: 46 },
+        { foodId: 'intl-milk-semi-skimmed', servingId: 'glass', qty: 1, proteinG: 8, kcal: 124 },
+        { foodId: 'intl-peanuts', servingId: 'handful', qty: 1, proteinG: 7, kcal: 166 },
+      ],
+      dinner: [
+        { foodId: 'pk-chicken-tikka', servingId: 'piece', qty: 1, proteinG: 29, kcal: 300 },
+        { foodId: 'pk-chicken-karahi-home', servingId: 'katori', qty: 1, proteinG: 27, kcal: 317 },
+        { foodId: 'intl-chicken-breast-roasted', servingId: 'piece', qty: 1, proteinG: 37, kcal: 198 },
+        { foodId: 'es-calamar-plancha', servingId: 'portion', qty: 1, proteinG: 25, kcal: 122 },
+        { foodId: 'intl-tuna-canned-water', servingId: 'can', qty: 1, proteinG: 20, kcal: 96 },
+        { foodId: 'pk-seekh-kebab', servingId: 'piece', qty: 2, proteinG: 16, kcal: 189 },
+        { foodId: 'es-lentejas-cocidas', servingId: 'katori', qty: 1, proteinG: 14, kcal: 149 },
+        { foodId: 'intl-greek-yogurt', servingId: 'container', qty: 1, proteinG: 16, kcal: 95 },
+      ],
+      after_taraweeh: [
+        { foodId: 'intl-milk-semi-skimmed', servingId: 'glass', qty: 1, proteinG: 8, kcal: 124 },
+        { foodId: 'intl-skyr', servingId: 'pot', qty: 1, proteinG: 16, kcal: 95 },
+        { foodId: 'es-yogur-proteinas-natural', servingId: 'pot', qty: 1, proteinG: 12, kcal: 62 },
+        { foodId: 'intl-egg-boiled', servingId: 'egg', qty: 2, proteinG: 13, kcal: 155 },
+        { foodId: 'intl-greek-yogurt', servingId: 'container', qty: 1, proteinG: 16, kcal: 95 },
+        { foodId: 'intl-peanut-butter', servingId: 'two-tbsp', qty: 1, proteinG: 7, kcal: 191 },
+      ],
+      sehri: [
+        { foodId: 'intl-egg-boiled', servingId: 'egg', qty: 2, proteinG: 13, kcal: 155 },
+        { foodId: 'pk-omelette-desi', servingId: 'omelette-2-egg', qty: 1, proteinG: 14, kcal: 293 },
+        { foodId: 'pk-anda-bhurji', servingId: 'serving-2-egg', qty: 1, proteinG: 14, kcal: 294 },
+        { foodId: 'intl-greek-yogurt', servingId: 'container', qty: 1, proteinG: 16, kcal: 95 },
+        { foodId: 'intl-skyr', servingId: 'pot', qty: 1, proteinG: 16, kcal: 95 },
+        { foodId: 'intl-dahi', servingId: 'katori', qty: 1, proteinG: 7, kcal: 126 },
+        { foodId: 'intl-milk-semi-skimmed', servingId: 'glass', qty: 1, proteinG: 8, kcal: 124 },
+        { foodId: 'pk-chicken-egg-roti-wrap-portion', servingId: 'portion', qty: 1, proteinG: 31, kcal: 367 },
+        { foodId: 'intl-overnight-oats-protein-jar', servingId: 'jar', qty: 1, proteinG: 29, kcal: 479 },
+        { foodId: 'es-queso-fresco-batido', servingId: 'serving', qty: 1, proteinG: 8, kcal: 46 },
+      ],
+    },
+    // Wording (inform, never judge). {slot} is the slot's label in the active preset.
+    text: {
+      title: 'Protein today: {eaten} g of {target} g',
+      body: 'Some ideas for {slot}, if you want more protein:',
+      item: '{name} · {serving} · {protein} g protein',
+      add: 'Add',
+      notToday: 'Not today',
+      turnOff: 'Turn off protein tips',
+      profileToggle: 'Protein tips (at most one a day)',
+      help: 'A tip shows at most once a day, when the protein you have logged so far is under {pct}% of your target after {afterSlot}. Days on track never show one.',
+    },
+    // Words the tip text must never contain (Kenji can test the strings above against this list).
+    bannedWords: ['only', 'low', 'should', 'must', 'bad', 'behind', 'fail', 'not enough', 'missed', 'too', 'warning'],
+  },
+
+  // ---------------------------------------------------------------- weight trend (NUTRITION.md §14)
+  // Read by app/core/weight.js (Lena). Smoothing: EMA over days, new reading weighted 1 − (1 − alphaPerDay)^gapDays.
+  // Rate: least-squares slope of the raw readings in the last windowDays, × 7. Suggestions are never applied.
+  weightTrend: {
+    smoothing: { alphaPerDay: 0.1, seed: 'first-entry' },
+    display: { minEntries: 5, minSpanDays: 7, trendDecimals: 1, rateDecimals: 1 },
+    rate: { windowDays: 28, minEntries: 6, minSpanDays: 14 },
+    suggest: {
+      minSpanDays: 21,
+      minEntries: 10,
+      toleranceKgPerWeek: 0.25,
+      stepKcal: 50,
+      maxChangeKcal: 200,
+      cooldownDaysAfterChange: 28, // after any target or goal change, or an accepted suggestion
+      snoozeDaysAfterDismiss: 14,
+      // Faster loss than this share of body weight per week (over the window) always earns a suggestion to eat more.
+      fastLossPctBodyWeightPerWeek: 1,
+      neverForFlags: ['pregnant', 'breastfeeding', 'eating_disorder'],
+      neverInRamadanMode: true,
+    },
+    text: {
+      tooFew: 'Your trend line shows after {n} weigh-ins across a week. Day-to-day weight moves by a kilo or more with water and salt; the trend smooths that out.',
+      rate: 'Trend: {rate} kg a week over the last {weeks} weeks.',
+      suggestion: 'Your trend is {rate} kg a week and your goal pace is {goal} kg a week. To match your goal, your daily target could be {newKcal} kcal ({change} kcal).',
+      accept: 'Use {newKcal} kcal',
+      dismiss: 'Not now',
+      tip: 'Weigh at the same time each day, ideally in the morning before eating or drinking.',
+    },
+  },
+
+  // ---------------------------------------------------------------- kam tel (NUTRITION.md §6.1, gate G25)
+  // A 'home-light' record is its family's 'home' recipe sheet with the added fat (oil/ghee, bhunai and tarka)
+  // multiplied by addedFatFraction. Everything else (ingredients, water, yield) is the same; the cooked
+  // weight falls by the oil removed. The tarka stays small: at most tarkaMaxGPer100gServed of the total.
+  kamTel: {
+    style: 'home-light',
+    pairsWithStyle: 'home',
+    addedFatFraction: 0.5,
+    tarkaMaxGPer100gServed: 1,
+    minAddedFatPer100g: 2, // enough oil to bhuno the masala; below this, use the floor
+    // Gate G25 (fail unless noted): a home record of the same family exists (exactly one); same group;
+    // fewer kcal and less fat per 100 g; method 'recipe'; confidence not better than the home record's;
+    // addedFatPer100g <= max(minAddedFatPer100g, home × maxAddedFatRatio).
+    gate: { maxAddedFatRatio: 0.6, warnKcalDropBelowPct: 5, confidenceOrder: ['A', 'B', 'C'] },
+    citationTemplate:
+      'Recipe: {homeName} home sheet (research/recipes/{homeId}.md), added fat {homeFatG} g → {lightFatG} g (×0.5, NUTRITION.md §6.1)',
+    nameSuffix: ' (kam tel)',
+    aliases: ['kam tel', 'less oil', 'light'],
+  },
 
   // ---------------------------------------------------------------- meal prep (Sprint 2 feature)
   // Use-by of a box = cookedDate + min(fridgeDays of its components). A frozen box has no use-by;
@@ -669,6 +873,8 @@ export default {
     // must be shorter than `name`. Written by the record's researcher.
     fieldRules: {
       shortName: { maxChars: 22, forbiddenChars: '()[]{}', mustBeShorterThanName: true },
+      serve: { values: ['cold', 'hot', 'either'], groups: ['lunchbox'] }, // Meeting 004 C
+      pack: { keys: ['grams', 'label'] }, // Meeting 004 A4: { grams > 0, label }
     },
 
     // ---------------------------------------------------------------- vocabularies
@@ -747,14 +953,15 @@ export default {
       lardQualifiers: ['cacao', 'cacahuete', 'karité'],
     },
 
+    // Order = variant order in the app (core STYLES must list the same ids in the same order).
     styles: [
       { id: 'home', label: 'Home-made', labelRoman: 'Ghar ka' },
+      // Sprint 3 (Meeting 005 d): a home recipe cooked with less oil. Always paired with a 'home'
+      // record of the same family; derived from that record's recipe sheet (RULES.kamTel, gate G25).
+      { id: 'home-light', label: 'Kam tel (less oil)', labelRoman: 'Kam tel' },
       { id: 'restaurant', label: 'Restaurant', labelRoman: 'Restaurant' },
       { id: 'dhaba', label: 'Dhaba', labelRoman: 'Dhaba' },
       { id: 'street', label: 'Street stall', labelRoman: 'Thela' },
-      // Sprint 3 (Meeting 005 d): a home recipe cooked with less oil. Always paired with a 'home'
-      // record of the same family; derived from that record's recipe sheet (see kamTel below, G25).
-      { id: 'home-light', label: 'Kam tel (less oil)', labelRoman: 'Kam tel' },
     ],
 
     sourceMethods: [

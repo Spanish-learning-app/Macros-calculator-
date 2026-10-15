@@ -8,6 +8,7 @@ export default [
   {
     id: 'pk-chicken-karahi-restaurant',
     name: 'Chicken karahi (restaurant)',
+    shortName: 'Restaurant karahi',
     nameUr: 'چکن کڑاہی (ریسٹورنٹ)',
     nameRoman: 'chicken karahi restaurant wali',
     aliases: [
@@ -156,6 +157,7 @@ export default [
   {
     id: 'pk-pakora',
     name: 'Pakora (mixed vegetable, besan)',
+    shortName: 'Pakora',
     nameUr: 'پکوڑا',
     nameRoman: 'pakora',
     aliases: [
@@ -196,6 +198,7 @@ export default [
   {
     id: 'pk-chicken-salan-restaurant',
     name: 'Chicken salan (restaurant / dhaba)',
+    shortName: 'Dhaba chicken salan',
     nameUr: 'چکن سالن (ہوٹل)',
     nameRoman: 'hotel ka chicken salan',
     aliases: [
@@ -262,6 +265,7 @@ export default [
   {
     id: 'pk-chana-daal-restaurant',
     name: 'Chana daal fry (restaurant / dhaba)',
+    shortName: 'Chana daal fry',
     nameUr: 'دال فرائی',
     nameRoman: 'daal fry',
     aliases: [
@@ -307,6 +311,7 @@ export default [
   {
     id: 'pk-mutton-karahi-restaurant',
     name: 'Mutton karahi (restaurant)',
+    shortName: 'Mutton karahi',
     nameUr: 'مٹن کڑاہی',
     nameRoman: 'mutton karahi',
     aliases: [
@@ -397,6 +402,7 @@ export default [
   {
     id: 'pk-aloo-gosht-restaurant',
     name: 'Aloo gosht (restaurant / dhaba)',
+    shortName: 'Dhaba aloo gosht',
     nameUr: 'آلو گوشت (ہوٹل)',
     nameRoman: 'aloo gosht',
     aliases: [
@@ -437,6 +443,7 @@ export default [
   {
     id: 'pk-chicken-biryani-restaurant',
     name: 'Chicken biryani (restaurant)',
+    shortName: 'Restaurant biryani',
     nameUr: 'چکن بریانی',
     nameRoman: 'chicken biryani',
     aliases: [
@@ -499,6 +506,7 @@ export default [
   {
     id: 'pk-chicken-pulao-restaurant',
     name: 'Chicken pulao (restaurant)',
+    shortName: 'Restaurant pulao',
     nameUr: 'چکن پلاؤ',
     nameRoman: 'chicken pulao',
     aliases: [
@@ -565,6 +573,7 @@ export default [
   {
     id: 'pk-nihari-restaurant',
     name: 'Nihari (beef, restaurant)',
+    shortName: 'Restaurant nihari',
     nameUr: 'نہاری',
     nameRoman: 'nihari',
     aliases: [
@@ -614,6 +623,7 @@ export default [
   {
     id: 'pk-haleem-restaurant',
     name: 'Haleem (beef, restaurant)',
+    shortName: 'Restaurant haleem',
     nameUr: 'حلیم',
     nameRoman: 'haleem',
     aliases: [
@@ -709,6 +719,7 @@ export default [
   {
     id: 'pk-chicken-tikka',
     name: 'Chicken tikka (leg piece, BBQ)',
+    shortName: 'Chicken tikka',
     nameUr: 'چکن تکہ',
     nameRoman: 'chicken tikka',
     aliases: [
@@ -803,6 +814,7 @@ export default [
   {
     id: 'pk-chanay-halwa-puri',
     name: 'Chanay (halwa puri style)',
+    shortName: 'Halwa puri chanay',
     nameUr: 'چنے (حلوہ پوری)',
     nameRoman: 'halwa puri wale chanay',
     aliases: [
@@ -855,6 +867,7 @@ export default [
   {
     id: 'pk-chicken-korma-restaurant',
     name: 'Chicken korma (shadi / restaurant)',
+    shortName: 'Shadi korma',
     nameUr: 'شادی والا قورمہ',
     nameRoman: 'shadi wala qorma',
     aliases: [

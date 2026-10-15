@@ -1,7 +1,8 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 2, version 1.6.1 (2026-10-14).
+**Status:** Sprint 3, version 1.7.0 (2026-10-15).
+- Version 1.7.0 (Meeting 005, Sprint 3 wave 1): Ramadan mode for Barcelona (§12), protein tips (§13), weight trend (§14), kam tel `home-light` variants (§6.1, gate G25), the optional `shortName` field (§3, gate G24), and `serve`/`pack` rules moved into `RULES.vocab.fieldRules`.
 - Version 1.6.1 (Sprint 2 market add-on): label rule for `check` (rennet and E-471/E-472 of unstated origin, §4.6).
 - Version 1.6 (Meeting 003 fix wave): the Spanish slot labels; the "thora sa" taste chip rule (§5.6); assumed plate servings and gate G23 (§5.5); notified naan and roti weights are dough weights (§5.2); dry daal density (§5.3).
 - Version 1.5: the carbs-below-zero ruling; `bread-fried` minimum lowered to 200; `drink-milk` minimum lowered to 25.
@@ -337,18 +338,19 @@ Every file `app/data/foods-*.js` (nine files, including `foods-mealprep.js`) is 
 |---|---|---|
 | `id` | HARD | Permanent and unique across all files. Kebab-case, with prefix `pk-` (Pakistani dishes and Pakistani packaged foods), `es-` (Spanish), `med-` (Mediterranean and Middle Eastern), or `intl-` (everything else, including basic foods). A style variant has its own id, e.g. `pk-chicken-karahi-home` and `pk-chicken-karahi-dhaba`. **Never rename a shipped id.** |
 | `name` | HARD | English display name, short and plain, e.g. "Chicken karahi (home-made)". |
+| `shortName` | SOFT (optional) | What a narrow row shows instead of `name` (search and details keep the full name). Rules (`RULES.vocab.fieldRules.shortName`, gate G24): (1) at most **22 characters**; (2) plain words, with no brackets `( ) [ ] { }`; (3) no leading, trailing or double spaces; (4) shorter than `name`. Add one when `name` is longer than about 22 characters. Examples: "Kam tel chicken karahi", "Chicken tikka rice box". Meeting 005 e. |
 | `nameUr` | Lab-required for `pk-` | Urdu script, e.g. `چکن کڑاہی`. |
 | `nameRoman` | Lab-required for `pk-` | Roman Urdu as people type it, e.g. `chicken karahi`. |
 | `aliases` | HARD (may be `[]`) | Other spellings and names. **Include WhatsApp-style Roman Urdu** (see §4.7), Spanish names for Spanish foods, and English synonyms. |
 | `group` | HARD | One id from `RULES.vocab.groups`. Drives the kcal range, the fibre-zero rule and serving sanity. |
 | `state` | HARD (Lab) | Exactly what the numbers describe, e.g. "cooked, as served with gravy, edible portion (bones removed)", "raw", "dry, as sold", "as served with milk and 1 tsp sugar per cup". |
-| `style` | SOFT | One of `home`, `restaurant`, `dhaba` or `street`. Use only when the dish has style variants. |
+| `style` | SOFT | One of `home`, `home-light`, `restaurant`, `dhaba` or `street`. Use only when the dish has style variants. A `home-light` record needs a `home` record in the same family (§6.1, G25). |
 | `family` | SOFT | Kebab-case id shared by all style variants of one dish, e.g. `chicken-karahi`. Required when `style` is set. |
 | `per100g` | HARD | `{ kcal, protein, carbs, fat, fiber }`, all numbers ≥ 0, plus optional `sugars`, `satFat` (g) and `sodium` (mg). Values are per 100 g **as eaten** (cooked, oil included, edible part only). kcal is a whole number; the others have at most 1 decimal. |
 | `addedFatPer100g` | Lab-required when `source.method` is `recipe` | Grams of cooking oil or ghee in 100 g as served. Must be ≤ `per100g.fat`. |
 | `servings` | HARD | At least one serving. Each is `{ id, label, labelUr?, grams, default? }`. Rules: `id` is kebab-case and unique within the food, and never `g` (reserved for raw grams); `label` names **one** unit, e.g. "1 roti (medium)" or "1 katori (medium)"; `grams` is the edible weight of one unit; **exactly one** serving has `default: true`. |
-| `pack` | SOFT (optional) | `{ grams, label }`: one shop pack of this food, for the weekly shopping list only (Meeting 004, decision A item 4). `grams` > 0 on the same basis as `per100g` (drained weight for tinned fish and jarred pulses, edible weight for eggs); `label` is a non-empty string the list can show, e.g. `'400 g jar'` or `'12 eggs'`. It has no effect on nutrition. Gate G10 checks `grams` and `label`. |
-| `serve` | SOFT (optional) | `'cold'`, `'hot'` or `'either'`: how a no-cook meal-prep record (group `lunchbox`, recipe `effort: 'assemble'`) is eaten, so its row can say Cold or Microwave (Meeting 004, decision C; Mariam Review 2 #7). No effect on nutrition. Gate G10 checks the value. |
+| `pack` | SOFT (optional) | `{ grams, label }`: one shop pack of this food, for the weekly shopping list only (Meeting 004, decision A item 4). `grams` > 0 on the same basis as `per100g` (drained weight for tinned fish and jarred pulses, edible weight for eggs); `label` is a non-empty string the list can show, e.g. `'400 g jar'` or `'12 eggs'`. It has no effect on nutrition. Gate G10 checks `grams` and `label` (`RULES.vocab.fieldRules.pack`). Confirmed for Sprint 3. |
+| `serve` | SOFT (optional) | `'cold'`, `'hot'` or `'either'`: how a no-cook meal-prep record (group `lunchbox`, recipe `effort: 'assemble'`) is eaten, so its row can say Cold or Microwave (Meeting 004, decision C; Mariam Review 2 #7). No effect on nutrition. Gate G10 checks the value (`RULES.vocab.fieldRules.serve`); on a record outside group `lunchbox` it warns (G20). Confirmed for Sprint 3. |
 | `tags` | HARD | Ids from `RULES.vocab.tags`. At least one cuisine tag; `vegan` requires `vegetarian`; at most one seafood tag. Halal is **not** a tag any more. |
 | `halal` | HARD | `{ status, reason? }`. `status` is `'halal'`, `'check'` or `'not-halal'`. `reason` is one plain, factual line, **required unless status is `halal`**. See §4.6. |
 | `slots` | SOFT | Meal-slot hints: ids from `RULES.mealSlots.default` (or `.ramadan`), e.g. `['breakfast']` for paratha. Used to rank search results. |
@@ -508,9 +510,12 @@ changed in `rules.js` after review; records never carry exceptions.
 | id | Label | Roman Urdu |
 |---|---|---|
 | `home` | Home-made | Ghar ka |
+| `home-light` | Kam tel (less oil) | Kam tel |
 | `restaurant` | Restaurant | Restaurant |
 | `dhaba` | Dhaba | Dhaba |
 | `street` | Street stall | Thela |
+
+The order of this table is the order the app lists variants in (`STYLES` in `app/core/foods.js` must match). `home-light` is explained in §6.1.
 
 ### 4.4 Source methods and confidence grades
 
@@ -561,21 +566,14 @@ Spanish meal names (Urdu labels: ناشتہ / کافی, دوپہر کا کھان
 - `Europe/Madrid`, `Africa/Ceuta` and `Atlantic/Canary` get `spain`; everything else gets `default`.
 - The user can switch preset or rename slots in Profile.
 
-**Ramadan slots (Sprint 2):**
-
-| id | Label | Share | Auto-pick hours |
-|---|---|---|---|
-| `sehri` | Sehri | 35% | 01:00–12:00 |
-| `iftar` | Iftar | 25% | 12:00–19:30 |
-| `dinner` | Dinner | 30% | 19:30–21:30 |
-| `after_taraweeh` | After taraweeh | 10% | 21:30–01:00 |
+**Ramadan slots** (`RULES.mealSlots.ramadan`, rules 1.7.0): `sehri` 35%, `iftar` 45% (iftar and the
+meal after maghrib), `after_taraweeh` 15%, `snacks` 5%. The hours, the day boundary and the reminders are in §12.
 
 How the hours are stored and used:
 - In `rules.js`, hours are `[startMinute, endMinute)` since local midnight, so the windows tile the
   whole day.
 - They only choose the default slot for a new entry. Shares guide suggestions and templates and are
   never enforced.
-- `RULES.ramadan` sets ≥ 30 g protein at sehri and a fluids reminder.
 
 ### 4.6 Halal status (`record.halal`, `RULES.vocab.halalStatuses` and `halalRules`)
 
@@ -802,7 +800,7 @@ composite has a recipe file `research/recipes/<record id>.md`, which is committe
    file.
 9. **Variants.** Home, restaurant and dhaba are separate records with the same `family`. They differ
    in added fat, and in meat-to-gravy ratio where the references say so.
-   **Sprint 2:** "kam tel" (light-oil) home variants for the top 10 dishes.
+   **Sprint 3:** "kam tel" (light-oil) home variants, style `home-light`: see §6.1.
 10. **Confidence.** Use C unless the yield is published for that dish and the references agree,
     which gives B.
 
@@ -818,6 +816,46 @@ composite has a recipe file `research/recipes/<record id>.md`, which is committe
 - energy check;
 - cross-check;
 - assumptions and confidence.
+
+
+### 6.1 Kam tel (`home-light`) variants (`RULES.kamTel`, gate G25)
+
+Many families cook the same dish with less oil ("kam tel"). A kam tel record is the home record's recipe
+sheet with less added fat; nothing else changes.
+
+1. **Start from the home sheet.** Use the same ingredients, water, yield method and references as the
+   family's `home` record (`research/recipes/<home id>.md`).
+2. **Halve the added fat.** Light added fat = **0.5 × the home sheet's added fat** in grams (all of it:
+   the bhunai oil and any tarka or baghar).
+3. **Keep the tarka small.** A tarka is at most **1 g of oil per 100 g served** (about 2 tsp for a 1 kg pot
+   of daal), counted inside the halved total.
+4. **Keep a floor.** Added fat is never below **2 g per 100 g served**: the masala still has to be bhuno'd.
+   If halving would go under the floor, use the floor. If the home record has under 4 g, a light variant
+   is not worth making.
+5. **Cooked weight.** Light cooked weight = home cooked weight − the oil removed. Oil does not evaporate;
+   the water and yield are the same as home.
+6. **Per 100 g.** Recompute exactly as §6 step 7. Because the pot weighs a little less, the per-100 g
+   added fat comes out at about 0.51–0.55 of the home value, and protein per 100 g rises slightly.
+7. **Record fields.**
+   - Same `family`, `group`, `tags`, `halal`, `slots` and servings (same ids and density) as the home record.
+   - `style: 'home-light'`, name suffix " (kam tel)", aliases include "kam tel", "less oil", "light".
+   - `source.method: 'recipe'`, with confidence no better than the home record's.
+   - Citation: `Recipe: <home name> home sheet (research/recipes/<home id>.md), added fat <x> g → <y> g (×0.5, NUTRITION.md §6.1)`.
+   - A short recipe file `research/recipes/<light id>.md` holds the changed oil line, the totals, the cooked
+     weight, the per-100 g result and the energy check.
+8. **Gate G25 (fail):**
+   - exactly one `home` record in the same family, and only one `home-light`;
+   - the same group as that home record;
+   - **fewer kcal and less fat per 100 g** than the home record;
+   - method `recipe`, and confidence not better than home;
+   - `addedFatPer100g` at most max(2, 0.6 × home).
+   It warns when the kcal drop is under 5% or the serving ids differ from the home record's.
+
+Why half: the home ranges in §6 step 4 (salan or karahi 6–10%, daal 4–8%, biryani 4–6%) halve to 3–5%,
+2–4% and 2–3%. These are amounts a home cook can still bhuno with in a non-stick pan. Halving is a Lab
+convention, not a measured value, so a kam tel record keeps the home record's confidence (usually C,
+"estimate"). Both the Pakistan Dietary Guidelines for Better Nutrition (Government of Pakistan and FAO,
+2018) and the WHO healthy-diet fact sheet (2020) advise using less cooking oil and ghee.
 
 ---
 
@@ -885,7 +923,7 @@ Show this text as written:
 
 ---
 
-## 8. Data gates (`node research/check-foods.mjs [file…]`), G1–G23
+## 8. Data gates (`node research/check-foods.mjs [file…]`), G1–G25
 
 **Fail** blocks shipping. **Warn** is shown but does not block. The gates are:
 
@@ -914,6 +952,12 @@ Show this text as written:
 | G21 | **Halal:** `halal { status, reason }` present; status valid; reason required unless `halal`; `not-halal` only outside meat groups and with a reason naming the lard | fail |
 | G22 | **Meal prep:** `lunchbox` records have `slots` (primary slot first) and a default `box`, `jar` or `portion` serving whose kcal fits the primary slot's band | fail |
 | G23 | **Assumed plate:** a `plate` or `half-plate` serving's label contains "assumed", and its grams are a multiple of ½ katori (±2%) when the food has a `katori` serving | fail |
+| G24 | **Short name:** optional `shortName` is a non-empty string of at most 22 characters, with no brackets and no extra spaces, and is shorter than `name` | fail |
+| G25 | **Kam tel:** a `home-light` record has exactly one `home` record in its family (and is the only `home-light`), the same group, fewer kcal and less fat per 100 g, method `recipe`, confidence no better than home, and `addedFatPer100g` ≤ max(2, 0.6 × home) (§6.1). Warns when the kcal drop is under 5% or the serving ids differ | fail |
+
+**Rules self-checks** (also run by check-foods, rules 1.7.0):
+- **R1:** every protein-tip food (`RULES.proteinNudges.suggestions`) exists, has the named serving, is not `not-halal`, and its stated protein (±0.6 g) and kcal (±1) match FOODS.
+- **R2:** each Ramadan timetable has consecutive dates, `HH:MM` times, and fajr before maghrib.
 
 Kenji's official data gate (`tests/data/`) implements the same rules from this table.
 
@@ -943,12 +987,8 @@ Kenji's official data gate (`tests/data/`) implements the same rules from this t
     breakfast preps and 6–8 freezer dinners (desi curries welcome, with Zainab);
   - the seafood question;
   - "set my chai once".
-- **Sprint 3:**
-  - Ramadan mode;
-  - protein nudges;
-  - "kam tel" home variants for the top 10 dishes, as style `home-light` (needs the variant switch to
-    accept a fifth style);
-  - the final data audit.
+- **Sprint 3:** Ramadan mode (§12), protein tips (§13), weight trend (§14) and kam tel variants (§6.1)
+  are specified in rules 1.7.0. The final data audit is still to come.
 - **Open:** a published weight for the "plate" (replaces the assumed plate, §5.5); karchi if a source exists.
 
 ---
@@ -971,3 +1011,271 @@ default slot id.
 
 `app/data/index.js` does not export the templates (contract: RULES and FOODS only). Import them
 directly when the feature arrives.
+
+---
+
+## 12. Ramadan mode in Barcelona (`RULES.mealSlots.ramadan`, `RULES.ramadan`; rules 1.7.0)
+
+The user switches Ramadan mode on and off in Profile. It changes the slots, the day boundary and two
+reminders. **It never changes the kcal or macro targets**, and Katori gives no religious rulings: it does
+not say who fasts, what breaks a fast, or when Ramadan starts.
+
+### 12.1 Slots
+
+| id | Label | Share | Fallback hours | Hours when today's maghrib (M) is known |
+|---|---|---|---|---|
+| `sehri` | Sehri | 35% | 04:00–17:30 | day start → M − 30 min (food logged during the fasting day was eaten at sehri) |
+| `iftar` | Iftar | 45% | 17:30–21:00 | M − 30 min → M + 150 min (iftar and the meal after maghrib) |
+| `after_taraweeh` | After taraweeh | 15% | 21:00–01:00 | M + 150 min → 01:00 |
+| `snacks` | Snacks | 5% | 01:00–04:00 | 01:00 → day start |
+
+1. The fallback hours are set for Barcelona in Ramadan 2027 (maghrib 18:13–18:53). They tile 24 hours.
+2. With a known maghrib, the app uses `slotsFromMaghrib` (`iftarStartOffsetMin: -30`,
+   `afterTaraweehStartOffsetMin: 150`, `afterTaraweehEndMinutes: 60`). Example for 8 Feb 2027 (M 18:16):
+   iftar 17:46–20:46, after taraweeh 20:46–01:00, snacks 01:00–04:00, sehri 04:00–17:46.
+3. M + 150 min is about when taraweeh ends in Barcelona: isha is at 19:42–20:20 in this period, and
+   taraweeh takes about an hour after it.
+4. The old `dinner` slot is folded into `iftar`. Sehri is usually one meal and iftar is usually two, so
+   iftar carries the largest share.
+
+### 12.2 Day boundary (DECISIONS 2026-10-13, the 04:00 rule)
+
+1. Outside Ramadan the logging day starts at `settings.dayStartMinutes` (04:00).
+2. In Ramadan mode it starts at
+   **max(01:00, min(settings.dayStartMinutes, fajr − 120 min))** (`RULES.ramadan.dayStart`).
+3. As a result, sehri (eaten in the 2 hours before fajr) always lands on the new fasting day, and
+   after-taraweeh food (before 01:00) stays on the day it follows. This is the property the decision asks for.
+4. Barcelona 2027: the boundary is 04:00 until 25 Feb. It then moves a minute or two earlier each day,
+   reaching 03:42 on 9 Mar (fajr 05:42).
+5. Without fajr times (the table does not cover the date and the user has typed none), the boundary is
+   the plain 04:00 rule.
+
+### 12.3 Fajr and maghrib times (`RULES.ramadan.timetables.barcelona2027`)
+
+1. **Source.** Computed with adhan-js 4.4.3 (Batoul Apps), Muslim World League method (fajr when the sun is
+   18° below the horizon; maghrib at sunset), for Barcelona at 41.3874 N, 2.1686 E. Times are CET (UTC+1);
+   Spain's summer time starts on 28 Mar 2027, after Ramadan.
+2. **Cross-check.** The ihadis.com Barcelona Ramadan calendar gives 8 Feb 2027 as sehri 06:22 and
+   iftar 18:16, which matches the table exactly.
+3. **Dates.** Ramadan 2027 is expected to run from a first fast on 8 Feb to a last fast on 9 Mar (Wego,
+   "Ramadan 2027 in Spain"). The Comisión Islámica de España sets the final dates by moon sighting. The
+   table covers 6 Feb to 11 Mar (34 days), so it holds either way. **The user picks the start date.**
+4. **The table, every 7 days** (rules.js has every day):
+
+   | Date | Fajr | Maghrib |
+   |---|---|---|
+   | 8 Feb | 06:22 | 18:16 |
+   | 15 Feb | 06:14 | 18:25 |
+   | 22 Feb | 06:05 | 18:33 |
+   | 1 Mar | 05:55 | 18:42 |
+   | 8 Mar | 05:44 | 18:50 |
+
+5. **User edits** (`RULES.ramadan.userEdit`).
+   - The user can set a fixed offset from −30 to +30 minutes for fajr and for maghrib, to match their
+     mosque's timetable. Mosques in Spain use different fajr angles.
+   - The user can also type the times for a single day.
+   - Outside the table (another city or year), the user types the times. A typed time carries over to
+     the next days until it is changed.
+6. The app says next to the times: "Times are for planning. Use your mosque's timetable if it differs;
+   you can change them here."
+
+### 12.4 Protein at sehri (`RULES.ramadan.sehriProtein`)
+
+1. **Sehri protein goal** = min(30 g, max(20 g, round(0.4 × PRW)), round(40% × daily protein target)).
+2. **Why 0.4 g/kg:** about 0.4 g/kg per meal spreads protein well (Schoenfeld & Aragon, *JISSN* 2018;
+   15:10). With two main meals a day, sehri carries a big share, and protein also helps keep hunger away
+   through the fast. `minProteinGAtSehri: 30` stays in rules.js as the cap.
+3. **Examples:**
+   - PRW 75 kg, target 120 g → 30 g.
+   - PRW 55 kg, target 66 g → min(30, 22, 26) = 22 g.
+4. **How it shows:** while sehri is the current slot and the sehri protein logged so far is under the
+   goal, the sehri slot header shows "Sehri so far: {eaten} g protein. Ideas that add some:" followed by up
+   to 3 foods from `proteinNudges.suggestions.sehri` (§13.3).
+5. This line is the day's protein tip: it counts toward the one-a-day limit and follows the same off
+   switch.
+6. It never shows when targets are null or when the `kidney_disease` flag is on.
+
+### 12.5 Fluids reminder (`RULES.ramadan.fluids`)
+
+1. Text: "Between iftar and sehri, about 6 to 8 glasses of water keep you going through the fast."
+2. It shows once in the iftar slot and once in the after-taraweeh slot of each Ramadan day. It is
+   dismissible for the day, and nothing is tracked.
+3. **Source:** EFSA (2010), *Scientific Opinion on Dietary Reference Values for water*, EFSA Journal 8(3):1459.
+   It sets an adequate intake of total water of 2.0 L a day for women and 2.5 L for men, of which about
+   80% comes from drinks. That is 1.6–2.0 L, or 6–8 glasses of 250 ml, all of which have to fit between
+   iftar and sehri.
+
+### 12.6 Health notes (`RULES.ramadan.flagNotes`)
+
+1. When Ramadan mode is switched on, and at the top of each Ramadan day, the app shows the note for each
+   active flag. These notes are calm and plain, with no red.
+2. **`diabetes_hypo_risk`** (insulin or sulfonylureas): "You told us you take insulin or sulfonylurea
+   tablets. Fasting with these medicines can cause low blood sugar. Please plan Ramadan with your doctor
+   before it starts. Diabetes and Ramadan guidelines (IDF-DAR 2021) advise ending the fast if your sugar
+   falls below 3.9 mmol/L (70 mg/dL), or if you feel shaky, sweaty or confused."
+   - Source: International Diabetes Federation and DAR International Alliance, *Diabetes and Ramadan:
+     Practical Guidelines 2021*.
+   - The threshold is medical advice from that guideline, not a religious ruling.
+3. `pregnant`, `breastfeeding` and `kidney_disease` each get a one-line "talk to your doctor before
+   Ramadan" note (the text is in rules.js).
+4. Every note ends with the line `text.notRulings`: "Katori does not give religious rulings. Ask your imam
+   about fasting, and your doctor about your health."
+
+### 12.7 What the app builds (Lena, wave 2)
+
+1. The Ramadan switch and start date.
+2. The slot preset `ramadan`, with windows from maghrib (§12.1).
+3. The day-start formula (§12.2).
+4. The times screen: the table, the offset, per-day typing.
+5. The sehri protein line, the fluids line and the flag notes.
+6. Ramadan mode turns off weight-trend suggestions (§14.4).
+
+---
+
+## 13. Protein tips (`RULES.proteinNudges`; rules 1.7.0)
+
+The Boss's example day is low in protein. Many desi days are: protein comes late, at dinner. A tip
+**informs, never judges**, shows **at most once a day**, can be **turned off**, and **never shows when
+the user is on track**.
+
+### 13.1 When a tip shows
+
+All of these must hold:
+1. Tips are on (`enabledByDefault: true`; off by default when the `eating_disorder` flag is set, though
+   the user may turn them on). They never show when targets are null or when the `kidney_disease` flag is
+   on (protein is capped).
+2. The day shown is today, and the user has not pressed "Not today" today.
+3. No tip has shown today yet (`maxPerDay: 1`).
+4. At least 1 entry is logged today (`minEntriesToday`). A day with nothing logged is not a low-protein day.
+5. A checkpoint is due: the clock is past the end of the checkpoint's `afterSlot` window and before the end
+   of its `suggestFor` window. The app checks when the Day view opens and after each entry.
+6. Protein logged today so far is **under `minPctOfTarget`** of the protein target, **and** the gap
+   (minPctOfTarget × target − eaten) is at least **15 g** (`minGapG`).
+
+| Preset | Checkpoint (after) | Due from | Threshold | Ideas for |
+|---|---|---|---|---|
+| `spain` | lunch | 16:30 | 40% | Merienda |
+| `spain` | merienda (`evening`) | 20:00 | 50% | Dinner |
+| `default` | lunch | 15:30 | 40% | Shaam ki chai |
+| `default` | `evening` | 18:30 | 50% | Dinner |
+| `ramadan` | iftar | M + 150 min | 55% | After taraweeh |
+
+**Why these thresholds:** by the end of lunch the slot shares (§4.5) put 55% of the day's food behind
+the user (Spain: 20 + 35; default: 25 + 30), and 65% by the end of the evening slot. The thresholds are
+about ¾ of that (40% and 50%), so a normal day with a light lunch passes. Ramadan: sehri + iftar = 80%,
+and the threshold is 55%.
+
+**Example:** a target of 120 g, Spain preset, at 16:45.
+- Eaten 35 g: 40% is 48 g, and the gap is 13 g, under 15 g, so no tip.
+- Eaten 30 g: the gap is 18 g, so the merienda tip shows.
+
+The tip disappears as soon as the user is back over the threshold.
+
+### 13.2 What a tip says (`text`)
+
+- Title: "Protein today: {eaten} g of {target} g"
+- Body: "Some ideas for {slot}, if you want more protein:" ({slot} = the slot label in the active preset)
+- Each idea: "{name} · {serving} · {protein} g protein", with an **Add** button that logs that serving.
+- Actions: "Not today" (hides tips for the day) and "Turn off protein tips" (the Profile switch
+  "Protein tips (at most one a day)").
+- Help: "A tip shows at most once a day, when the protein you have logged so far is under {pct}% of your
+  target after {afterSlot}. Days on track never show one."
+- The text never uses these words (`bannedWords`): only, low, should, must, bad, behind, fail,
+  not enough, missed, too, warning. There are no colours that mean "bad".
+
+### 13.3 What a tip suggests (`suggestions`)
+
+1. The tip shows **3** ideas.
+2. Foods the user logged in the last 14 days come first, in list order, then the rest of the list.
+3. A food with halal status `check` appears only if the user shows `check` foods. Seafood follows the
+   user's seafood setting. `not-halal` foods are never listed (check-foods R1).
+4. Protein and kcal are for the serving × qty shown. The app recomputes them from FOODS; R1 keeps rules.js
+   in step with FOODS.
+
+| Slot | Ideas (protein, kcal) |
+|---|---|
+| Merienda / shaam ki chai (`evening`) | Skyr pot 16 g (95) · Mercadona +Proteínas yogurt 12 g (62) · 2 boiled eggs 13 g (155) · 1 shami kebab 12 g (135) · Chana chaat with protein dahi box 22 g (258) · Queso fresco batido 100 g 8 g (46) · Glass of semi-skimmed milk 8 g (124) · Handful of peanuts 7 g (166) |
+| Dinner | Chicken tikka leg piece 29 g (300) · Chicken karahi (home) katori 27 g (317) · Roast chicken breast 37 g (198) · Calamar a la plancha ración 25 g (122) · Tin of tuna in water 20 g (96) · 2 seekh kebabs 16 g (189) · Katori of jarred lentils 14 g (149) · Greek yogurt 0% pot 16 g (95) |
+| After taraweeh | Glass of milk 8 g (124) · Skyr 16 g (95) · Protein yogurt 12 g (62) · 2 boiled eggs 13 g (155) · Greek yogurt 0% 16 g (95) · 2 tbsp peanut butter 7 g (191) |
+| Sehri | 2 boiled eggs 13 g (155) · Desi omelette (2 eggs) 14 g (293) · Anda bhurji (2 eggs) 14 g (294) · Greek yogurt 0% 16 g (95) · Skyr 16 g (95) · Katori of dahi 7 g (126) · Glass of milk 8 g (124) · Chicken and egg roti wrap 31 g (367) · Protein overnight oats jar 29 g (479) · Queso fresco batido 8 g (46) |
+
+All ids are shipped records (see rules.js). Every item is halal; the tuna and calamar carry seafood tags.
+Roasted chana (bhuna chana, about 20 g protein per 100 g) would suit merienda well but has no record
+yet: it is requested from Zainab.
+
+### 13.4 What the app builds (Lena, wave 2)
+
+1. The checkpoint logic (§13.1) in core.
+2. The tip card on today's Day view, with Add, Not today and Turn off.
+3. The Profile switch.
+4. Settings `proteinTips: boolean` and `proteinTipHiddenOn: date`.
+5. The sehri line (§12.4) uses the same card.
+
+---
+
+## 14. Weight trend (`RULES.weightTrend`; rules 1.7.0)
+
+Daily weight moves by a kilo or more with water, salt and glycogen, so single weigh-ins mislead. The app
+shows a smoothed trend and a weekly rate, and it may **suggest** a target change. **It never applies a
+change by itself.**
+
+### 14.1 Smoothing
+
+1. **Method:** an exponential moving average over calendar days (the "trend" of J. Walker, *The Hacker's
+   Diet*, 2005, which uses 10% smoothing).
+2. **Parameter:** `alphaPerDay = 0.1`.
+3. **Irregular days:** a reading d days after the previous one gets weight 1 − 0.9^d. For example, a 1-day
+   gap gives 10%, a 7-day gap 52%, and a 30-day gap 96%, so after a long gap the trend effectively
+   restarts.
+4. **Seed:** the first entry.
+5. **Display:** the trend line and the trend value show from **5 entries spanning at least 7 days**
+   (`display`), with the trend to 0.1 kg. Before that, the app shows `text.tooFew`.
+
+### 14.2 Weekly rate
+
+1. The rate is the least-squares slope of the raw readings in the **last 28 days**, × 7, in kg a week,
+   shown to 0.1 kg.
+2. It shows from **6 entries spanning at least 14 days** in that window (`rate`).
+3. Text: "Trend: {rate} kg a week over the last {weeks} weeks."
+
+### 14.3 When to suggest a target change
+
+1. **All of these must hold:**
+   - the rate window has at least **10 entries spanning 21 days**;
+   - the rate differs from the goal's pace (lose −r, maintain 0, gain +r) by **more than 0.25 kg a week**;
+   - there has been no target or goal change, and no accepted suggestion, in the last **28 days**;
+   - no dismissal in the last **14 days**.
+2. **Size:** change = −(rate − pace) × 7,700 / 7 kcal a day, rounded to 50 kcal and capped at ±200 kcal.
+3. **Example:** goal −0.5 kg a week, trend −0.1. The difference is +0.4, which gives −440, capped to
+   **−200 kcal a day**.
+4. **Inside the rails** (§2.2, `RULES.rails`). The new target must still respect:
+   - when losing, the deficit caps (25% of TDEE, 1,000 kcal, 1% of body weight a week) and the floor
+     (1,200 kcal for women, 1,500 for men);
+   - when gaining, the surplus cap (20% of TDEE).
+
+   If the rails leave no room in the suggested direction, there is no suggestion.
+5. **Fast loss:** if the trend is losing more than **1% of body weight a week**, the app suggests eating
+   more even when that is within 0.25 kg a week of the goal.
+6. **Text:** "Your trend is {rate} kg a week and your goal pace is {goal} kg a week. To match your goal, your
+   daily target could be {newKcal} kcal ({change} kcal)."
+   - Buttons: "Use {newKcal} kcal" and "Not now".
+   - Accepting stores a kcal override (`resolveTargets`). Protein stays the same; Lena decides how fat and
+     carbs follow.
+
+### 14.4 Never suggest
+
+1. In Ramadan mode.
+2. With the `pregnant`, `breastfeeding` or `eating_disorder` flags.
+3. When targets are null.
+
+### 14.5 What the app builds (Lena, wave 1)
+
+1. `app/core/weight.js` already reads these keys.
+2. Still to add:
+   - the `display` minimums;
+   - `suggest.minEntries`, the cooldown and the snooze;
+   - the never-list (§14.4);
+   - a ceiling for gain in the rails (today only `floorKcal` is passed);
+   - the fast-loss rule (§14.3.5).
+3. Tip shown with the log: "Weigh at the same time each day, ideally in the morning before eating or
+   drinking."

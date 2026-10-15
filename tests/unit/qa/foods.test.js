@@ -54,7 +54,8 @@ function mutate(food, patch) {
 // ------------------------------------------------------------------ constants
 qa('constants: NUTRIENT_KEYS, STYLES, GRAMS, BOX and HALAL_STATUSES (binding)', [], () => {
   assert.deepEqual([...NUTRIENT_KEYS], ['kcal', 'protein', 'carbs', 'fat', 'fiber']);
-  assert.deepEqual([...STYLES], ['home', 'restaurant', 'dhaba', 'street']);
+  // home-light: kam tel, rules 1.7.0 (Meeting 005)
+  assert.deepEqual([...STYLES], ['home', 'home-light', 'restaurant', 'dhaba', 'street']);
   assert.equal(GRAMS, 'g');
   assert.equal(BOX, 'box');
   assert.deepEqual([...HALAL_STATUSES], ['halal', 'check', 'not-halal']);

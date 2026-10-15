@@ -3513,6 +3513,3209 @@
   "massCheck": 20.8,
   "file": "research/zainab/recipes/home-more.mjs"
  },
+ "chicken-karahi-home-light": {
+  "id": "chicken-karahi-home-light",
+  "dish": "Chicken karahi, home style, kam tel (less oil)",
+  "rawG": 1487.6,
+  "cookedG": 965.1,
+  "yield": 0.649,
+  "removedG": 250,
+  "per100g": {
+   "kcal": 161,
+   "protein": 17.7,
+   "carbs": 3.2,
+   "fat": 8.2,
+   "fiber": 1.9,
+   "sugars": 1.4,
+   "satFat": 2,
+   "sodium": 544
+  },
+  "waterPer100g": 67.2,
+  "addedFatPer100g": 5.2,
+  "lines": [
+   {
+    "id": "chicken-meat",
+    "qty": 1000,
+    "unit": "g",
+    "grams": 750,
+    "note": "bone-in skinless karahi-cut pieces; edible 0.75",
+    "kcal": 892.5,
+    "protein": 160.43,
+    "fat": 23.1
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "kam tel: home 80 g × 0.5 (home note: home cooking oil)",
+    "kcal": 353.6,
+    "protein": 0,
+    "fat": 40
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "kam tel: home 20 g × 0.5 (home note: desi ghee (TfT uses ghee + oil))",
+    "kcal": 90,
+    "protein": 0,
+    "fat": 10
+   },
+   {
+    "id": "tomato",
+    "qty": 500,
+    "unit": "g",
+    "grams": 500,
+    "note": "median of TfT 662, SuperChef 500, SBS 372 g/kg",
+    "kcal": 98,
+    "protein": 4.5,
+    "fat": 2.35
+   },
+   {
+    "id": "onion",
+    "qty": 55,
+    "unit": "g",
+    "grams": 55,
+    "note": "mean of TfT 165, SBS 0, SuperChef 0 g/kg",
+    "kcal": 26.4,
+    "protein": 0.83,
+    "fat": 0.13
+   },
+   {
+    "id": "yogurt",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "TfT 68, SBS 22 g/kg",
+    "kcal": 24.4,
+    "protein": 1.39,
+    "fat": 1.3
+   },
+   {
+    "id": "garlic",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "TfT 26, SuperChef 17, SBS 17 g/kg",
+    "kcal": 24.8,
+    "protein": 1.38,
+    "fat": 0.03
+   },
+   {
+    "id": "ginger",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "paste + julienne (2 × 1\" pieces ≈ 20 g)",
+    "kcal": 11,
+    "protein": 0.44,
+    "fat": 0.17
+   },
+   {
+    "id": "green-chilli",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "4 hari mirch",
+    "kcal": 8.5,
+    "protein": 0.47,
+    "fat": 0.14
+   },
+   {
+    "id": "coriander",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "SBS ½ cup = 8 g",
+    "kcal": 2.5,
+    "protein": 0.28,
+    "fat": 0.06
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "2 tsp",
+    "kcal": 8.5,
+    "protein": 0.46,
+    "fat": 0.23
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "2 tsp",
+    "kcal": 9.7,
+    "protein": 0.38,
+    "fat": 0.63
+   },
+   {
+    "id": "cumin",
+    "qty": 2.1,
+    "unit": "g",
+    "grams": 2.1,
+    "note": "1 tsp",
+    "kcal": 6.4,
+    "protein": 0.29,
+    "fat": 0.35
+   },
+   {
+    "id": "black-pepper",
+    "qty": 2.3,
+    "unit": "g",
+    "grams": 2.3,
+    "note": "1 tsp",
+    "kcal": 5,
+    "protein": 0.23,
+    "fat": 0.06
+   },
+   {
+    "id": "garam-masala",
+    "qty": 1,
+    "unit": "g",
+    "grams": 1,
+    "note": "½ tsp",
+    "kcal": 3,
+    "protein": 0.14,
+    "fat": 0.17
+   },
+   {
+    "id": "salt",
+    "qty": 12,
+    "unit": "g",
+    "grams": 12,
+    "note": "2 tsp",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 162,
+  "atwater": 161,
+  "atwaterGap": 0.006,
+  "boneShareServed": 0.206,
+  "massCheck": 31,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "chicken-salan-home-light": {
+  "id": "chicken-salan-home-light",
+  "dish": "Chicken salan, home style, kam tel (less oil)",
+  "rawG": 1748.6,
+  "cookedG": 1485.6,
+  "yield": 0.85,
+  "removedG": 250,
+  "per100g": {
+   "kcal": 101,
+   "protein": 11.4,
+   "carbs": 2.5,
+   "fat": 4.8,
+   "fiber": 1,
+   "sugars": 1.2,
+   "satFat": 0.9,
+   "sodium": 274
+  },
+  "waterPer100g": 79.6,
+  "addedFatPer100g": 3,
+  "lines": [
+   {
+    "id": "chicken-meat",
+    "qty": 1000,
+    "unit": "g",
+    "grams": 750,
+    "note": "bone-in skinless curry-cut pieces; edible 0.75",
+    "kcal": 892.5,
+    "protein": 160.43,
+    "fat": 23.1
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 45,
+    "unit": "g",
+    "grams": 45,
+    "note": "kam tel: home 90 g × 0.5 (home note: median of the home references)",
+    "kcal": 397.8,
+    "protein": 0,
+    "fat": 45
+   },
+   {
+    "id": "onion",
+    "qty": 250,
+    "unit": "g",
+    "grams": 250,
+    "note": "TfT 154, F&S 441, kalya 306 g/kg",
+    "kcal": 120,
+    "protein": 3.75,
+    "fat": 0.6
+   },
+   {
+    "id": "tomato",
+    "qty": 150,
+    "unit": "g",
+    "grams": 150,
+    "note": "TfT 137, F&S 271, kalya 0 g/kg",
+    "kcal": 29.4,
+    "protein": 1.35,
+    "fat": 0.7
+   },
+   {
+    "id": "garlic",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "6–8 cloves / 1 heaped tbsp",
+    "kcal": 24.8,
+    "protein": 1.38,
+    "fat": 0.03
+   },
+   {
+    "id": "ginger",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "1\" piece",
+    "kcal": 5.5,
+    "protein": 0.22,
+    "fat": 0.09
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 2.7,
+    "unit": "g",
+    "grams": 2.7,
+    "note": "",
+    "kcal": 7.3,
+    "protein": 0.29,
+    "fat": 0.47
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 2.25,
+    "unit": "g",
+    "grams": 2.3,
+    "note": "",
+    "kcal": 5.3,
+    "protein": 0.29,
+    "fat": 0.14
+   },
+   {
+    "id": "turmeric",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.11,
+    "fat": 0.08
+   },
+   {
+    "id": "cumin",
+    "qty": 3.1500000000000004,
+    "unit": "g",
+    "grams": 3.2,
+    "note": "seeds + ground",
+    "kcal": 9.6,
+    "protein": 0.44,
+    "fat": 0.52
+   },
+   {
+    "id": "garam-masala",
+    "qty": 1,
+    "unit": "g",
+    "grams": 1,
+    "note": "",
+    "kcal": 3,
+    "protein": 0.14,
+    "fat": 0.17
+   },
+   {
+    "id": "salt",
+    "qty": 9,
+    "unit": "g",
+    "grams": 9,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "coriander",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 1.2,
+    "protein": 0.14,
+    "fat": 0.03
+   },
+   {
+    "id": "water",
+    "qty": 490,
+    "unit": "g",
+    "grams": 490,
+    "note": "TfT 1¾–2 cups per 907 g chicken",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 101,
+  "atwater": 101,
+  "atwaterGap": 0,
+  "boneShareServed": 0.144,
+  "massCheck": 19.7,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "aloo-gosht-home-light": {
+  "id": "aloo-gosht-home-light",
+  "dish": "Aloo gosht (beef or mutton with potatoes), home style, kam tel (less oil)",
+  "rawG": 3983,
+  "cookedG": 2632.8,
+  "yield": 0.661,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 104,
+   "protein": 9.1,
+   "carbs": 5.5,
+   "fat": 4.8,
+   "fiber": 1.2,
+   "sugars": 1.1,
+   "satFat": 1.4,
+   "sodium": 237
+  },
+  "waterPer100g": 78.1,
+  "addedFatPer100g": 2.8,
+  "lines": [
+   {
+    "id": "beef-stew",
+    "qty": 1000,
+    "unit": "g",
+    "grams": 1000,
+    "note": "boneless beef (F&S); bone-in goat in TfT",
+    "kcal": 1280,
+    "protein": 217.5,
+    "fat": 44.8
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 60,
+    "unit": "g",
+    "grams": 60,
+    "note": "kam tel: home 120 g × 0.5",
+    "kcal": 530.4,
+    "protein": 0,
+    "fat": 60
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "kam tel: home 30 g × 0.5",
+    "kcal": 135,
+    "protein": 0,
+    "fat": 15
+   },
+   {
+    "id": "potato",
+    "qty": 600,
+    "unit": "g",
+    "grams": 600,
+    "note": "TfT 2 small (340 g) per ~0.5 kg; F&S 2 potatoes per 454 g",
+    "kcal": 418.8,
+    "protein": 9.24,
+    "fat": 1.38
+   },
+   {
+    "id": "onion",
+    "qty": 330,
+    "unit": "g",
+    "grams": 330,
+    "note": "TfT 1 medium, F&S 2 medium per ~450 g meat",
+    "kcal": 158.4,
+    "protein": 4.95,
+    "fat": 0.79
+   },
+   {
+    "id": "tomato",
+    "qty": 300,
+    "unit": "g",
+    "grams": 300,
+    "note": "TfT 2 small, F&S 2",
+    "kcal": 58.8,
+    "protein": 2.7,
+    "fat": 1.41
+   },
+   {
+    "id": "garlic",
+    "qty": 30,
+    "unit": "g",
+    "grams": 30,
+    "note": "",
+    "kcal": 37.1,
+    "protein": 2.08,
+    "fat": 0.05
+   },
+   {
+    "id": "ginger",
+    "qty": 25,
+    "unit": "g",
+    "grams": 25,
+    "note": "",
+    "kcal": 13.8,
+    "protein": 0.56,
+    "fat": 0.21
+   },
+   {
+    "id": "yogurt",
+    "qty": 30,
+    "unit": "g",
+    "grams": 30,
+    "note": "TfT 1 tbsp",
+    "kcal": 18.3,
+    "protein": 1.04,
+    "fat": 0.97
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 5.4,
+    "unit": "g",
+    "grams": 5.4,
+    "note": "",
+    "kcal": 14.5,
+    "protein": 0.58,
+    "fat": 0.94
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "",
+    "kcal": 8.5,
+    "protein": 0.46,
+    "fat": 0.23
+   },
+   {
+    "id": "turmeric",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 8.4,
+    "protein": 0.23,
+    "fat": 0.15
+   },
+   {
+    "id": "garam-masala",
+    "qty": 2,
+    "unit": "g",
+    "grams": 2,
+    "note": "",
+    "kcal": 6.1,
+    "protein": 0.28,
+    "fat": 0.33
+   },
+   {
+    "id": "salt",
+    "qty": 14,
+    "unit": "g",
+    "grams": 14,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "coriander",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 1.6,
+    "protein": 0.18,
+    "fat": 0.03
+   },
+   {
+    "id": "water",
+    "qty": 560,
+    "unit": "g",
+    "grams": 560,
+    "note": "first cooking water (TfT 1–1¼ cups; F&S 2.5 cups) per 450 g → per kg",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "water",
+    "qty": 1000,
+    "unit": "g",
+    "grams": 1000,
+    "note": "shorba water (TfT 2–2¼ cups per ~450 g)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 102,
+  "atwater": 104,
+  "atwaterGap": -0.019,
+  "boneShareServed": 0,
+  "massCheck": 20.6,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "keema-home-light": {
+  "id": "keema-home-light",
+  "dish": "Keema (beef mince) with peas/potatoes, home style, kam tel (less oil)",
+  "rawG": 2474.7,
+  "cookedG": 1620.8,
+  "yield": 0.655,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 207,
+   "protein": 13.2,
+   "carbs": 5.9,
+   "fat": 14,
+   "fiber": 2.2,
+   "sugars": 1.5,
+   "satFat": 4.3,
+   "sodium": 377
+  },
+  "waterPer100g": 62.9,
+  "addedFatPer100g": 4.3,
+  "lines": [
+   {
+    "id": "beef-mince-80",
+    "qty": 500,
+    "unit": "g",
+    "grams": 500,
+    "note": "half of the mince as 80/20 (TfT: lean or full-fat both work)",
+    "kcal": 1270,
+    "protein": 85.85,
+    "fat": 100
+   },
+   {
+    "id": "beef-mince-90",
+    "qty": 500,
+    "unit": "g",
+    "grams": 500,
+    "note": "half as 90/10 (F&S lean)",
+    "kcal": 880,
+    "protein": 100,
+    "fat": 50
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 70,
+    "unit": "g",
+    "grams": 70,
+    "note": "kam tel: home 140 g × 0.5",
+    "kcal": 618.8,
+    "protein": 0,
+    "fat": 70
+   },
+   {
+    "id": "onion",
+    "qty": 240,
+    "unit": "g",
+    "grams": 240,
+    "note": "TfT 1 large (150) / 1 medium (110), F&S 1 small (70) per lb",
+    "kcal": 115.2,
+    "protein": 3.6,
+    "fat": 0.58
+   },
+   {
+    "id": "tomato",
+    "qty": 330,
+    "unit": "g",
+    "grams": 330,
+    "note": "TfT 1 large (182), 1 medium (123); F&S 3 (≈ 369) per lb",
+    "kcal": 64.7,
+    "protein": 2.97,
+    "fat": 1.55
+   },
+   {
+    "id": "potato",
+    "qty": 200,
+    "unit": "g",
+    "grams": 200,
+    "note": "aloo keema: 1 potato (≈ 200 g) per lb; keema matar: none",
+    "kcal": 139.6,
+    "protein": 3.08,
+    "fat": 0.46
+   },
+   {
+    "id": "peas-green",
+    "qty": 160,
+    "unit": "g",
+    "grams": 160,
+    "note": "keema matar: 1 cup (145 g) per lb; aloo keema: none",
+    "kcal": 130.1,
+    "protein": 11.6,
+    "fat": 0.21
+   },
+   {
+    "id": "garlic",
+    "qty": 25,
+    "unit": "g",
+    "grams": 25,
+    "note": "",
+    "kcal": 30.9,
+    "protein": 1.73,
+    "fat": 0.04
+   },
+   {
+    "id": "ginger",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "",
+    "kcal": 11,
+    "protein": 0.44,
+    "fat": 0.17
+   },
+   {
+    "id": "yogurt",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "1–2 tbsp per lb",
+    "kcal": 24.4,
+    "protein": 1.39,
+    "fat": 1.3
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 5.4,
+    "unit": "g",
+    "grams": 5.4,
+    "note": "",
+    "kcal": 14.5,
+    "protein": 0.58,
+    "fat": 0.94
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "",
+    "kcal": 8.5,
+    "protein": 0.46,
+    "fat": 0.23
+   },
+   {
+    "id": "turmeric",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 8.4,
+    "protein": 0.23,
+    "fat": 0.15
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "garam-masala",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "",
+    "kcal": 4.6,
+    "protein": 0.21,
+    "fat": 0.25
+   },
+   {
+    "id": "salt",
+    "qty": 14,
+    "unit": "g",
+    "grams": 14,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "coriander",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "",
+    "kcal": 2.5,
+    "protein": 0.28,
+    "fat": 0.06
+   },
+   {
+    "id": "green-chilli",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "",
+    "kcal": 8.5,
+    "protein": 0.47,
+    "fat": 0.14
+   },
+   {
+    "id": "water",
+    "qty": 330,
+    "unit": "g",
+    "grams": 330,
+    "note": "TfT ¼–½ cup, F&S 1 cup per lb",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 206,
+  "atwater": 207,
+  "atwaterGap": -0.005,
+  "boneShareServed": 0,
+  "massCheck": 35.3,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "masoor-daal-home-light": {
+  "id": "masoor-daal-home-light",
+  "dish": "Masoor daal, home style, kam tel (less oil)",
+  "rawG": 1393.1,
+  "cookedG": 975.9,
+  "yield": 0.701,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 104,
+   "protein": 5.3,
+   "carbs": 12.1,
+   "fat": 3.2,
+   "fiber": 3,
+   "sugars": 1.1,
+   "satFat": null,
+   "sodium": 318
+  },
+  "waterPer100g": 75,
+  "addedFatPer100g": 2.8,
+  "lines": [
+   {
+    "id": "masoor-dal",
+    "qty": 192,
+    "unit": "g",
+    "grams": 192,
+    "note": "1 cup (both refs)",
+    "kcal": 619,
+    "protein": 46.75,
+    "fat": 1.44
+   },
+   {
+    "id": "water",
+    "qty": 900,
+    "unit": "g",
+    "grams": 900,
+    "note": "TfT 769 + ~237 ml, F&S 3–3.5 cups → mean ~900 g",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 17.8,
+    "unit": "g",
+    "grams": 17.8,
+    "note": "kam tel, bhunai: home 54.5 g × 0.5 (home note: ¼ cup (both refs)), less the tarka",
+    "kcal": 157.4,
+    "protein": 0,
+    "fat": 17.8
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 9.5,
+    "unit": "g",
+    "grams": 9.5,
+    "note": "kam tel, tarka on top (≤ 1 g per 100 g served)",
+    "kcal": 84,
+    "protein": 0,
+    "fat": 9.5
+   },
+   {
+    "id": "onion",
+    "qty": 70,
+    "unit": "g",
+    "grams": 70,
+    "note": "TfT small-medium onion ~90 g; F&S ⅓ cup = 53 g",
+    "kcal": 33.6,
+    "protein": 1.05,
+    "fat": 0.17
+   },
+   {
+    "id": "tomato",
+    "qty": 150,
+    "unit": "g",
+    "grams": 150,
+    "note": "TfT 2 small = 182 g; F&S 2 tomatoes, optional",
+    "kcal": 29.4,
+    "protein": 1.35,
+    "fat": 0.7
+   },
+   {
+    "id": "garlic",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "~5 cloves",
+    "kcal": 18.6,
+    "protein": 1.04,
+    "fat": 0.02
+   },
+   {
+    "id": "ginger",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "½\" piece",
+    "kcal": 1.6,
+    "protein": 0.07,
+    "fat": 0.03
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "1–4 green chillies",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "seeds in tarka + ground",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 1.8,
+    "unit": "g",
+    "grams": 1.8,
+    "note": "1 tsp (TfT)",
+    "kcal": 4.8,
+    "protein": 0.19,
+    "fat": 0.31
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1.35,
+    "unit": "g",
+    "grams": 1.4,
+    "note": "¼–1 tsp",
+    "kcal": 3.2,
+    "protein": 0.17,
+    "fat": 0.09
+   },
+   {
+    "id": "turmeric",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "½ tsp",
+    "kcal": 4.2,
+    "protein": 0.11,
+    "fat": 0.08
+   },
+   {
+    "id": "salt",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "1⅛ tsp table salt (TfT) to 1.5 tsp (F&S)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "1 tsp",
+    "kcal": 1.1,
+    "protein": 0.02,
+    "fat": 0.01
+   },
+   {
+    "id": "coriander",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "chopped cilantro",
+    "kcal": 1.2,
+    "protein": 0.14,
+    "fat": 0.03
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 100,
+  "atwater": 104,
+  "atwaterGap": -0.038,
+  "boneShareServed": 0,
+  "massCheck": 23.6,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "moong-daal-home-light": {
+  "id": "moong-daal-home-light",
+  "dish": "Moong daal, home style, kam tel (less oil)",
+  "rawG": 1268.1,
+  "cookedG": 762.5,
+  "yield": 0.601,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 121,
+   "protein": 6.4,
+   "carbs": 14.8,
+   "fat": 3.3,
+   "fiber": 3,
+   "sugars": 0.9,
+   "satFat": null,
+   "sodium": 356
+  },
+  "waterPer100g": 70.7,
+  "addedFatPer100g": 3,
+  "lines": [
+   {
+    "id": "moong-dal",
+    "qty": 136,
+    "unit": "g",
+    "grams": 136,
+    "note": "⅔–¾ cup moong (TfT ⅔, F&S ¾)",
+    "kcal": 443.1,
+    "protein": 32.48,
+    "fat": 1.84
+   },
+   {
+    "id": "masoor-dal",
+    "qty": 56,
+    "unit": "g",
+    "grams": 56,
+    "note": "¼–⅓ cup masoor (both mix it in)",
+    "kcal": 180.5,
+    "protein": 13.64,
+    "fat": 0.42
+   },
+   {
+    "id": "water",
+    "qty": 950,
+    "unit": "g",
+    "grams": 950,
+    "note": "TfT 5 cups (1185 g), F&S 3 cups (711 g) → mean",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "kam tel: home 30 g × 0.5 (home note: tarka)",
+    "kcal": 132.6,
+    "protein": 0,
+    "fat": 15
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 7.5,
+    "unit": "g",
+    "grams": 7.5,
+    "note": "kam tel, tarka on top (≤ 1 g per 100 g served)",
+    "kcal": 67.5,
+    "protein": 0,
+    "fat": 7.5
+   },
+   {
+    "id": "onion",
+    "qty": 55,
+    "unit": "g",
+    "grams": 55,
+    "note": "F&S ½ onion (TfT none)",
+    "kcal": 26.4,
+    "protein": 0.83,
+    "fat": 0.13
+   },
+   {
+    "id": "garlic",
+    "qty": 18,
+    "unit": "g",
+    "grams": 18,
+    "note": "4 + 2 cloves (TfT)",
+    "kcal": 22.3,
+    "protein": 1.25,
+    "fat": 0.03
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "cumin",
+    "qty": 2.1,
+    "unit": "g",
+    "grams": 2.1,
+    "note": "seeds + ground",
+    "kcal": 6.4,
+    "protein": 0.29,
+    "fat": 0.35
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1.35,
+    "unit": "g",
+    "grams": 1.4,
+    "note": "½–1 tsp",
+    "kcal": 3.2,
+    "protein": 0.17,
+    "fat": 0.09
+   },
+   {
+    "id": "turmeric",
+    "qty": 1.2000000000000002,
+    "unit": "g",
+    "grams": 1.2,
+    "note": "⅓–½ tsp",
+    "kcal": 3.4,
+    "protein": 0.09,
+    "fat": 0.06
+   },
+   {
+    "id": "salt",
+    "qty": 7,
+    "unit": "g",
+    "grams": 7,
+    "note": "1¼ tsp",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 1.1,
+    "protein": 0.02,
+    "fat": 0.01
+   },
+   {
+    "id": "coriander",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 1.2,
+    "protein": 0.14,
+    "fat": 0.03
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 117,
+  "atwater": 121,
+  "atwaterGap": -0.033,
+  "boneShareServed": 0,
+  "massCheck": 27.5,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "mash-daal-home-light": {
+  "id": "mash-daal-home-light",
+  "dish": "Daal mash (urad), home style, dry (khushk), kam tel (less oil)",
+  "rawG": 991.7,
+  "cookedG": 838.6,
+  "yield": 0.846,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 137,
+   "protein": 6.2,
+   "carbs": 14.9,
+   "fat": 4.9,
+   "fiber": 4.1,
+   "sugars": 1.4,
+   "satFat": null,
+   "sodium": 324
+  },
+  "waterPer100g": 68.1,
+  "addedFatPer100g": 4.2,
+  "lines": [
+   {
+    "id": "urad-dal",
+    "qty": 200,
+    "unit": "g",
+    "grams": 200,
+    "note": "1 cup (Fatima Cooks 200 g; TfT 1 cup)",
+    "kcal": 648.2,
+    "protein": 46.12,
+    "fat": 3.38
+   },
+   {
+    "id": "water",
+    "qty": 449,
+    "unit": "g",
+    "grams": 449,
+    "note": "water held by the soaked, boiled dal: dry matter conserved to CoFID 13-059 boiled urad dahl (72.0% water); all other water is cooked off (TfT)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 35,
+    "unit": "g",
+    "grams": 35,
+    "note": "kam tel: home 70 g × 0.5 (home note: see added fat)",
+    "kcal": 309.4,
+    "protein": 0,
+    "fat": 35
+   },
+   {
+    "id": "onion",
+    "qty": 110,
+    "unit": "g",
+    "grams": 110,
+    "note": "1 medium (both)",
+    "kcal": 52.8,
+    "protein": 1.65,
+    "fat": 0.26
+   },
+   {
+    "id": "tomato",
+    "qty": 140,
+    "unit": "g",
+    "grams": 140,
+    "note": "TfT 1 small-medium; Fatima 180 g",
+    "kcal": 27.4,
+    "protein": 1.26,
+    "fat": 0.66
+   },
+   {
+    "id": "garlic",
+    "qty": 18,
+    "unit": "g",
+    "grams": 18,
+    "note": "5–6 cloves",
+    "kcal": 22.3,
+    "protein": 1.25,
+    "fat": 0.03
+   },
+   {
+    "id": "ginger",
+    "qty": 6,
+    "unit": "g",
+    "grams": 6,
+    "note": "1 tbsp julienne",
+    "kcal": 3.3,
+    "protein": 0.13,
+    "fat": 0.05
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 2.7,
+    "unit": "g",
+    "grams": 2.7,
+    "note": "1½ tsp",
+    "kcal": 7.3,
+    "protein": 0.29,
+    "fat": 0.47
+   },
+   {
+    "id": "cumin",
+    "qty": 3.1500000000000004,
+    "unit": "g",
+    "grams": 3.2,
+    "note": "",
+    "kcal": 9.6,
+    "protein": 0.44,
+    "fat": 0.52
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 2.7,
+    "unit": "g",
+    "grams": 2.7,
+    "note": "Kashmiri + red chilli",
+    "kcal": 6.4,
+    "protein": 0.34,
+    "fat": 0.17
+   },
+   {
+    "id": "turmeric",
+    "qty": 1.5,
+    "unit": "g",
+    "grams": 1.5,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.11,
+    "fat": 0.08
+   },
+   {
+    "id": "black-pepper",
+    "qty": 1.15,
+    "unit": "g",
+    "grams": 1.1,
+    "note": "",
+    "kcal": 2.5,
+    "protein": 0.12,
+    "fat": 0.03
+   },
+   {
+    "id": "salt",
+    "qty": 7,
+    "unit": "g",
+    "grams": 7,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "coriander",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 0.9,
+    "protein": 0.11,
+    "fat": 0.02
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 2.5,
+    "unit": "g",
+    "grams": 2.5,
+    "note": "",
+    "kcal": 0.6,
+    "protein": 0.01,
+    "fat": 0.01
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 131,
+  "atwater": 137,
+  "atwaterGap": -0.044,
+  "boneShareServed": 0,
+  "massCheck": 30.1,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "chana-daal-home-light": {
+  "id": "chana-daal-home-light",
+  "dish": "Chana daal, home style, kam tel (less oil)",
+  "rawG": 1225.6,
+  "cookedG": 684,
+  "yield": 0.558,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 143,
+   "protein": 6.6,
+   "carbs": 15.1,
+   "fat": 5.1,
+   "fiber": 5.2,
+   "sugars": 1.2,
+   "satFat": null,
+   "sodium": 340
+  },
+  "waterPer100g": 66.3,
+  "addedFatPer100g": 3.4,
+  "lines": [
+   {
+    "id": "chana-dal",
+    "qty": 192,
+    "unit": "g",
+    "grams": 192,
+    "note": "1 cup",
+    "kcal": 631.9,
+    "protein": 41.38,
+    "fat": 10.2
+   },
+   {
+    "id": "water",
+    "qty": 790,
+    "unit": "g",
+    "grams": 790,
+    "note": "F&S 4 cups (stovetop) / TfT 2 cups per ¾ cup (pressure) → mean per cup",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "kam tel: home 30 g × 0.5",
+    "kcal": 132.6,
+    "protein": 0,
+    "fat": 15
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 2,
+    "unit": "g",
+    "grams": 2,
+    "note": "kam tel, bhunai: home 17 g × 0.5, less the tarka",
+    "kcal": 18,
+    "protein": 0,
+    "fat": 2
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 6.5,
+    "unit": "g",
+    "grams": 6.5,
+    "note": "kam tel, tarka on top (≤ 1 g per 100 g served)",
+    "kcal": 58.5,
+    "protein": 0,
+    "fat": 6.5
+   },
+   {
+    "id": "tomato",
+    "qty": 120,
+    "unit": "g",
+    "grams": 120,
+    "note": "1–2 tomatoes / 1 small-medium",
+    "kcal": 23.5,
+    "protein": 1.08,
+    "fat": 0.56
+   },
+   {
+    "id": "onion",
+    "qty": 60,
+    "unit": "g",
+    "grams": 60,
+    "note": "½ onion / 1 small",
+    "kcal": 28.8,
+    "protein": 0.9,
+    "fat": 0.14
+   },
+   {
+    "id": "garlic",
+    "qty": 9,
+    "unit": "g",
+    "grams": 9,
+    "note": "TfT",
+    "kcal": 11.1,
+    "protein": 0.62,
+    "fat": 0.01
+   },
+   {
+    "id": "ginger",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 1.6,
+    "protein": 0.07,
+    "fat": 0.03
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1.35,
+    "unit": "g",
+    "grams": 1.4,
+    "note": "",
+    "kcal": 3.2,
+    "protein": 0.17,
+    "fat": 0.09
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 0.9,
+    "unit": "g",
+    "grams": 0.9,
+    "note": "",
+    "kcal": 2.4,
+    "protein": 0.1,
+    "fat": 0.16
+   },
+   {
+    "id": "turmeric",
+    "qty": 0.75,
+    "unit": "g",
+    "grams": 0.8,
+    "note": "",
+    "kcal": 2.1,
+    "protein": 0.06,
+    "fat": 0.04
+   },
+   {
+    "id": "cumin",
+    "qty": 2.1,
+    "unit": "g",
+    "grams": 2.1,
+    "note": "",
+    "kcal": 6.4,
+    "protein": 0.29,
+    "fat": 0.35
+   },
+   {
+    "id": "salt",
+    "qty": 6,
+    "unit": "g",
+    "grams": 6,
+    "note": "1 tsp",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "coriander",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 1.2,
+    "protein": 0.14,
+    "fat": 0.03
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 0.7,
+    "protein": 0.01,
+    "fat": 0.01
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 135,
+  "atwater": 143,
+  "atwaterGap": -0.056,
+  "boneShareServed": 0,
+  "massCheck": 32,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "bhindi-home-light": {
+  "id": "bhindi-home-light",
+  "dish": "Bhindi (okra) sabzi, home style, kam tel (less oil)",
+  "rawG": 707.7,
+  "cookedG": 503.4,
+  "yield": 0.711,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 97,
+   "protein": 2.6,
+   "carbs": 6.2,
+   "fat": 5.7,
+   "fiber": 5.1,
+   "sugars": 1.8,
+   "satFat": 0.8,
+   "sodium": 423
+  },
+  "waterPer100g": 78.1,
+  "addedFatPer100g": 5.2,
+  "lines": [
+   {
+    "id": "okra",
+    "qty": 454,
+    "unit": "g",
+    "grams": 454,
+    "note": "1 lb (both)",
+    "kcal": 124.8,
+    "protein": 9.44,
+    "fat": 1
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 26,
+    "unit": "g",
+    "grams": 26,
+    "note": "kam tel: home 52 g × 0.5",
+    "kcal": 229.8,
+    "protein": 0,
+    "fat": 26
+   },
+   {
+    "id": "onion",
+    "qty": 75,
+    "unit": "g",
+    "grams": 75,
+    "note": "TfT 1 large (150 g); F&S none",
+    "kcal": 36,
+    "protein": 1.13,
+    "fat": 0.18
+   },
+   {
+    "id": "tomato",
+    "qty": 123,
+    "unit": "g",
+    "grams": 123,
+    "note": "TfT 2 medium (246 g); F&S none",
+    "kcal": 24.1,
+    "protein": 1.11,
+    "fat": 0.58
+   },
+   {
+    "id": "garlic",
+    "qty": 7.5,
+    "unit": "g",
+    "grams": 7.5,
+    "note": "2–3 cloves (TfT)",
+    "kcal": 9.3,
+    "protein": 0.52,
+    "fat": 0.01
+   },
+   {
+    "id": "ginger",
+    "qty": 2,
+    "unit": "g",
+    "grams": 2,
+    "note": "1 tsp",
+    "kcal": 1.1,
+    "protein": 0.04,
+    "fat": 0.02
+   },
+   {
+    "id": "green-chilli",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 2.1,
+    "protein": 0.12,
+    "fat": 0.04
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 0.9,
+    "unit": "g",
+    "grams": 0.9,
+    "note": "",
+    "kcal": 2.4,
+    "protein": 0.1,
+    "fat": 0.16
+   },
+   {
+    "id": "turmeric",
+    "qty": 0.75,
+    "unit": "g",
+    "grams": 0.8,
+    "note": "",
+    "kcal": 2.1,
+    "protein": 0.06,
+    "fat": 0.04
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1.35,
+    "unit": "g",
+    "grams": 1.4,
+    "note": "",
+    "kcal": 3.2,
+    "protein": 0.17,
+    "fat": 0.09
+   },
+   {
+    "id": "salt",
+    "qty": 5.5,
+    "unit": "g",
+    "grams": 5.5,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 2.5,
+    "unit": "g",
+    "grams": 2.5,
+    "note": "",
+    "kcal": 0.6,
+    "protein": 0.01,
+    "fat": 0.01
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 89,
+  "atwater": 97,
+  "atwaterGap": -0.082,
+  "boneShareServed": 0,
+  "massCheck": 19.6,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "aloo-gobi-home-light": {
+  "id": "aloo-gobi-home-light",
+  "dish": "Aloo gobi (potato and cauliflower sabzi), home style, kam tel (less oil)",
+  "rawG": 1061.7,
+  "cookedG": 857.9,
+  "yield": 0.808,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 88,
+   "protein": 2,
+   "carbs": 10.1,
+   "fat": 3.7,
+   "fiber": 3.1,
+   "sugars": 1.5,
+   "satFat": null,
+   "sodium": 294
+  },
+  "waterPer100g": 79.3,
+  "addedFatPer100g": 3.2,
+  "lines": [
+   {
+    "id": "potato",
+    "qty": 395,
+    "unit": "g",
+    "grams": 395,
+    "note": "TfT 2 small = 340 g (USDA small 170 g); F&S 3 cups diced = 450 g (USDA ½ cup diced = 75 g)",
+    "kcal": 275.7,
+    "protein": 6.08,
+    "fat": 0.91
+   },
+   {
+    "id": "cauliflower",
+    "qty": 240,
+    "unit": "g",
+    "grams": 240,
+    "note": "TfT 1 small head = 265 g (USDA); F&S 2 cups chopped = 214 g (USDA 107 g/cup)",
+    "kcal": 55,
+    "protein": 5.16,
+    "fat": 1.06
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 27.3,
+    "unit": "g",
+    "grams": 27.3,
+    "note": "kam tel: home 54.5 g × 0.5 (home note: ¼ cup (both))",
+    "kcal": 241.3,
+    "protein": 0,
+    "fat": 27.3
+   },
+   {
+    "id": "onion",
+    "qty": 95,
+    "unit": "g",
+    "grams": 95,
+    "note": "TfT 1 medium 110 g; F&S ½ cup = 80 g",
+    "kcal": 45.6,
+    "protein": 1.42,
+    "fat": 0.23
+   },
+   {
+    "id": "tomato",
+    "qty": 250,
+    "unit": "g",
+    "grams": 250,
+    "note": "TfT 2–3 small (228 g); F&S 2–3 (≈ 308 g)",
+    "kcal": 49,
+    "protein": 2.25,
+    "fat": 1.17
+   },
+   {
+    "id": "garlic",
+    "qty": 16,
+    "unit": "g",
+    "grams": 16,
+    "note": "5–6 cloves",
+    "kcal": 19.8,
+    "protein": 1.11,
+    "fat": 0.03
+   },
+   {
+    "id": "ginger",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 2.8,
+    "protein": 0.11,
+    "fat": 0.04
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 2.25,
+    "unit": "g",
+    "grams": 2.3,
+    "note": "",
+    "kcal": 6.1,
+    "protein": 0.24,
+    "fat": 0.39
+   },
+   {
+    "id": "cumin",
+    "qty": 3.1500000000000004,
+    "unit": "g",
+    "grams": 3.2,
+    "note": "seeds + ground",
+    "kcal": 9.6,
+    "protein": 0.44,
+    "fat": 0.52
+   },
+   {
+    "id": "turmeric",
+    "qty": 1.2000000000000002,
+    "unit": "g",
+    "grams": 1.2,
+    "note": "",
+    "kcal": 3.4,
+    "protein": 0.09,
+    "fat": 0.06
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1.26,
+    "unit": "g",
+    "grams": 1.3,
+    "note": "",
+    "kcal": 3,
+    "protein": 0.16,
+    "fat": 0.08
+   },
+   {
+    "id": "salt",
+    "qty": 6.5,
+    "unit": "g",
+    "grams": 6.5,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "coriander",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 1.6,
+    "protein": 0.18,
+    "fat": 0.03
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 0.9,
+    "protein": 0.01,
+    "fat": 0.01
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 84,
+  "atwater": 88,
+  "atwaterGap": -0.045,
+  "boneShareServed": 0,
+  "massCheck": 18.9,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "sarson-ka-saag-light": {
+  "id": "sarson-ka-saag-light",
+  "dish": "Sarson ka saag (mustard greens), home, kam tel (less oil)",
+  "rawG": 2021.8,
+  "cookedG": 1554.7,
+  "yield": 0.769,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 66,
+   "protein": 2.9,
+   "carbs": 5.2,
+   "fat": 3,
+   "fiber": 3.4,
+   "sugars": null,
+   "satFat": null,
+   "sodium": 175
+  },
+  "waterPer100g": 83.5,
+  "addedFatPer100g": 2.4,
+  "lines": [
+   {
+    "id": "mustard-greens",
+    "qty": 650,
+    "unit": "g",
+    "grams": 650,
+    "note": "Food Fusion",
+    "kcal": 197.6,
+    "protein": 22.88,
+    "fat": 3.31
+   },
+   {
+    "id": "spinach",
+    "qty": 500,
+    "unit": "g",
+    "grams": 500,
+    "note": "Food Fusion 350 g spinach + 150 g bathua (as spinach)",
+    "kcal": 122,
+    "protein": 10.7,
+    "fat": 3.2
+   },
+   {
+    "id": "fenugreek-leaves",
+    "qty": 50,
+    "unit": "g",
+    "grams": 50,
+    "note": "Food Fusion 1 bunch methi",
+    "kcal": 17.2,
+    "protein": 1.84,
+    "fat": 0.41
+   },
+   {
+    "id": "maize-flour",
+    "qty": 60,
+    "unit": "g",
+    "grams": 60,
+    "note": "½ cup makai ka atta (FF); TfT ¼ cup corn flour",
+    "kcal": 200.5,
+    "protein": 5.28,
+    "fat": 2.26
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 21.8,
+    "unit": "g",
+    "grams": 21.8,
+    "note": "kam tel, bhunai: home 54.5 g × 0.5 (home note: ¼ cup tarka (both)), less the tarka",
+    "kcal": 192.7,
+    "protein": 0,
+    "fat": 21.8
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 5.5,
+    "unit": "g",
+    "grams": 5.5,
+    "note": "kam tel, tarka on top (≤ 1 g per 100 g served)",
+    "kcal": 48.6,
+    "protein": 0,
+    "fat": 5.5
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "kam tel, tarka on top (≤ 1 g per 100 g served)",
+    "kcal": 90,
+    "protein": 0,
+    "fat": 10
+   },
+   {
+    "id": "onion",
+    "qty": 40,
+    "unit": "g",
+    "grams": 40,
+    "note": "tarka onion",
+    "kcal": 19.2,
+    "protein": 0.6,
+    "fat": 0.1
+   },
+   {
+    "id": "garlic",
+    "qty": 30,
+    "unit": "g",
+    "grams": 30,
+    "note": "",
+    "kcal": 37.1,
+    "protein": 2.08,
+    "fat": 0.05
+   },
+   {
+    "id": "ginger",
+    "qty": 25,
+    "unit": "g",
+    "grams": 25,
+    "note": "",
+    "kcal": 13.8,
+    "protein": 0.56,
+    "fat": 0.21
+   },
+   {
+    "id": "green-chilli",
+    "qty": 30,
+    "unit": "g",
+    "grams": 30,
+    "note": "",
+    "kcal": 12.7,
+    "protein": 0.71,
+    "fat": 0.22
+   },
+   {
+    "id": "salt",
+    "qty": 7,
+    "unit": "g",
+    "grams": 7,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "water",
+    "qty": 592.5,
+    "unit": "g",
+    "grams": 592.5,
+    "note": "2 cups + ½ cup (FF); TfT 2 + 1 cups",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 61,
+  "atwater": 66,
+  "atwaterGap": -0.076,
+  "boneShareServed": 0,
+  "massCheck": 14.5,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "chicken-korma-home-light": {
+  "id": "chicken-korma-home-light",
+  "dish": "Chicken korma, home style, kam tel (less oil)",
+  "rawG": 1647.5,
+  "cookedG": 1280.7,
+  "yield": 0.777,
+  "removedG": 250,
+  "per100g": {
+   "kcal": 150,
+   "protein": 14,
+   "carbs": 4.1,
+   "fat": 8.3,
+   "fiber": 1.4,
+   "sugars": 2.4,
+   "satFat": 2.4,
+   "sodium": 416
+  },
+  "waterPer100g": 70.8,
+  "addedFatPer100g": 4.7,
+  "lines": [
+   {
+    "id": "chicken-meat",
+    "qty": 1000,
+    "unit": "g",
+    "grams": 750,
+    "note": "bone-in skinless; edible 0.75",
+    "kcal": 892.5,
+    "protein": 160.43,
+    "fat": 23.1
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 45,
+    "unit": "g",
+    "grams": 45,
+    "note": "kam tel: home 90 g × 0.5",
+    "kcal": 397.8,
+    "protein": 0,
+    "fat": 45
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "kam tel: home 30 g × 0.5",
+    "kcal": 135,
+    "protein": 0,
+    "fat": 15
+   },
+   {
+    "id": "onion",
+    "qty": 300,
+    "unit": "g",
+    "grams": 300,
+    "note": "Shan 300 g; TfT 2 large",
+    "kcal": 144,
+    "protein": 4.5,
+    "fat": 0.72
+   },
+   {
+    "id": "yogurt",
+    "qty": 203,
+    "unit": "g",
+    "grams": 203,
+    "note": "TfT ¾ cup per 907 g",
+    "kcal": 123.8,
+    "protein": 7.04,
+    "fat": 6.6
+   },
+   {
+    "id": "tomato",
+    "qty": 50,
+    "unit": "g",
+    "grams": 50,
+    "note": "TfT 2 small, optional",
+    "kcal": 9.8,
+    "protein": 0.45,
+    "fat": 0.23
+   },
+   {
+    "id": "garlic",
+    "qty": 27,
+    "unit": "g",
+    "grams": 27,
+    "note": "",
+    "kcal": 33.4,
+    "protein": 1.87,
+    "fat": 0.04
+   },
+   {
+    "id": "ginger",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "paste + julienne",
+    "kcal": 11,
+    "protein": 0.44,
+    "fat": 0.17
+   },
+   {
+    "id": "green-chilli",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 6.3,
+    "protein": 0.35,
+    "fat": 0.11
+   },
+   {
+    "id": "cream",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "TfT 2–3 tbsp",
+    "kcal": 68,
+    "protein": 0.57,
+    "fat": 7.22
+   },
+   {
+    "id": "almonds",
+    "qty": 12,
+    "unit": "g",
+    "grams": 12,
+    "note": "TfT 10–12 almonds",
+    "kcal": 69.5,
+    "protein": 2.54,
+    "fat": 5.99
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "",
+    "kcal": 9.7,
+    "protein": 0.38,
+    "fat": 0.63
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 2.7,
+    "unit": "g",
+    "grams": 2.7,
+    "note": "",
+    "kcal": 6.4,
+    "protein": 0.34,
+    "fat": 0.17
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "garam-masala",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "whole spices, mace, nutmeg",
+    "kcal": 9.1,
+    "protein": 0.42,
+    "fat": 0.5
+   },
+   {
+    "id": "salt",
+    "qty": 12,
+    "unit": "g",
+    "grams": 12,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "water",
+    "qty": 165,
+    "unit": "g",
+    "grams": 165,
+    "note": "TfT ½–¾ cup, F&S ½ cup, Shan ½–1 cup per kg",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 151,
+  "atwater": 150,
+  "atwaterGap": 0.007,
+  "boneShareServed": 0.163,
+  "massCheck": 27.8,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "chicken-biryani-home-light": {
+  "id": "chicken-biryani-home-light",
+  "dish": "Chicken biryani, home style, kam tel (less oil)",
+  "rawG": 4470.2,
+  "cookedG": 3543.5,
+  "yield": 0.793,
+  "removedG": 250,
+  "per100g": {
+   "kcal": 130,
+   "protein": 6.8,
+   "carbs": 18.1,
+   "fat": 3.2,
+   "fiber": 0.9,
+   "sugars": 0.9,
+   "satFat": 0.6,
+   "sodium": 172
+  },
+  "waterPer100g": 69.8,
+  "addedFatPer100g": 2.1,
+  "lines": [
+   {
+    "id": "rice-basmati-raw",
+    "qty": 750,
+    "unit": "g",
+    "grams": 750,
+    "note": "Shan 750 g (3½ cups)",
+    "kcal": 2632.5,
+    "protein": 60.75,
+    "fat": 3.75
+   },
+   {
+    "id": "water",
+    "qty": 1431,
+    "unit": "g",
+    "grams": 1431,
+    "note": "water held by the cooked rice (CoFID 11-857 → 11-858)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "chicken-meat",
+    "qty": 1000,
+    "unit": "g",
+    "grams": 750,
+    "note": "meat on bones 1 kg (Shan); edible 0.75",
+    "kcal": 892.5,
+    "protein": 160.43,
+    "fat": 23.1
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 75,
+    "unit": "g",
+    "grams": 75,
+    "note": "kam tel: home 150 g × 0.5",
+    "kcal": 663,
+    "protein": 0,
+    "fat": 75
+   },
+   {
+    "id": "onion",
+    "qty": 250,
+    "unit": "g",
+    "grams": 250,
+    "note": "Shan 250 g",
+    "kcal": 120,
+    "protein": 3.75,
+    "fat": 0.6
+   },
+   {
+    "id": "tomato",
+    "qty": 300,
+    "unit": "g",
+    "grams": 300,
+    "note": "Shan 250–300 g",
+    "kcal": 58.8,
+    "protein": 2.7,
+    "fat": 1.41
+   },
+   {
+    "id": "yogurt",
+    "qty": 200,
+    "unit": "g",
+    "grams": 200,
+    "note": "Shan 1 cup / 200 g",
+    "kcal": 122,
+    "protein": 6.94,
+    "fat": 6.5
+   },
+   {
+    "id": "potato",
+    "qty": 125,
+    "unit": "g",
+    "grams": 125,
+    "note": "Karachi style (Shan Bombay 250 g)",
+    "kcal": 87.3,
+    "protein": 1.93,
+    "fat": 0.29
+   },
+   {
+    "id": "garlic",
+    "qty": 17,
+    "unit": "g",
+    "grams": 17,
+    "note": "2 tbsp paste (Shan Bombay)",
+    "kcal": 21,
+    "protein": 1.18,
+    "fat": 0.03
+   },
+   {
+    "id": "ginger",
+    "qty": 17,
+    "unit": "g",
+    "grams": 17,
+    "note": "2 tbsp paste",
+    "kcal": 9.4,
+    "protein": 0.38,
+    "fat": 0.14
+   },
+   {
+    "id": "green-chilli",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "",
+    "kcal": 8.5,
+    "protein": 0.47,
+    "fat": 0.14
+   },
+   {
+    "id": "coriander",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "½ cup (USDA ½ cup ≈ 8 g)",
+    "kcal": 2.5,
+    "protein": 0.28,
+    "fat": 0.06
+   },
+   {
+    "id": "mint",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "½ cup",
+    "kcal": 3,
+    "protein": 0.37,
+    "fat": 0.05
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "lemon / alu bukhara for sourness",
+    "kcal": 3.3,
+    "protein": 0.05,
+    "fat": 0.04
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 5.4,
+    "unit": "g",
+    "grams": 5.4,
+    "note": "biryani masala (red chilli, coriander, cumin, whole spices)",
+    "kcal": 12.8,
+    "protein": 0.69,
+    "fat": 0.35
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "",
+    "kcal": 9.7,
+    "protein": 0.38,
+    "fat": 0.63
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "garam-masala",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "whole spices",
+    "kcal": 9.1,
+    "protein": 0.42,
+    "fat": 0.5
+   },
+   {
+    "id": "salt",
+    "qty": 14,
+    "unit": "g",
+    "grams": 14,
+    "note": "masala salt; salt from the rice-boiling water is not counted (mostly drained)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "water",
+    "qty": 474,
+    "unit": "g",
+    "grams": 474,
+    "note": "Shan: chicken cooked in 2 cups water, then fried dry",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 132,
+  "atwater": 130,
+  "atwaterGap": 0.015,
+  "boneShareServed": 0.066,
+  "massCheck": 29,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "chicken-pulao-home-light": {
+  "id": "chicken-pulao-home-light",
+  "dish": "Chicken yakhni pulao, home style, kam tel (less oil)",
+  "rawG": 2393.8,
+  "cookedG": 2201.2,
+  "yield": 0.92,
+  "removedG": 200,
+  "per100g": {
+   "kcal": 143,
+   "protein": 8,
+   "carbs": 18.3,
+   "fat": 4,
+   "fiber": 0.7,
+   "sugars": 0.5,
+   "satFat": 1.1,
+   "sodium": 198
+  },
+  "waterPer100g": 67.8,
+  "addedFatPer100g": 2.8,
+  "lines": [
+   {
+    "id": "rice-basmati-raw",
+    "qty": 500,
+    "unit": "g",
+    "grams": 500,
+    "note": "",
+    "kcal": 1755,
+    "protein": 40.5,
+    "fat": 2.5
+   },
+   {
+    "id": "water",
+    "qty": 954,
+    "unit": "g",
+    "grams": 954,
+    "note": "water held by the cooked rice (CoFID 11-857 → 11-858)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "chicken-meat",
+    "qty": 800,
+    "unit": "g",
+    "grams": 600,
+    "note": "bone-in pieces (TfT 1020, Shan 667 per 500 g rice); edible 0.75",
+    "kcal": 714,
+    "protein": 128.34,
+    "fat": 18.48
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 45,
+    "unit": "g",
+    "grams": 45,
+    "note": "kam tel: home 90 g × 0.5",
+    "kcal": 397.8,
+    "protein": 0,
+    "fat": 45
+   },
+   {
+    "id": "ghee-desi",
+    "qty": 17.5,
+    "unit": "g",
+    "grams": 17.5,
+    "note": "kam tel: home 35 g × 0.5",
+    "kcal": 157.5,
+    "protein": 0,
+    "fat": 17.5
+   },
+   {
+    "id": "onion",
+    "qty": 110,
+    "unit": "g",
+    "grams": 110,
+    "note": "1 medium browned (TfT; F&S 1 cup)",
+    "kcal": 52.8,
+    "protein": 1.65,
+    "fat": 0.26
+   },
+   {
+    "id": "tomato",
+    "qty": 45,
+    "unit": "g",
+    "grams": 45,
+    "note": "TfT 1 small, optional",
+    "kcal": 8.8,
+    "protein": 0.41,
+    "fat": 0.21
+   },
+   {
+    "id": "yogurt",
+    "qty": 60,
+    "unit": "g",
+    "grams": 60,
+    "note": "TfT 1½ tbsp; Shan 200 g per 750 g rice",
+    "kcal": 36.6,
+    "protein": 2.08,
+    "fat": 1.95
+   },
+   {
+    "id": "garlic",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 18.6,
+    "protein": 1.04,
+    "fat": 0.02
+   },
+   {
+    "id": "ginger",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 5.5,
+    "protein": 0.22,
+    "fat": 0.09
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 1.2,
+    "protein": 0.14,
+    "fat": 0.03
+   },
+   {
+    "id": "mint",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 1.1,
+    "protein": 0.14,
+    "fat": 0.02
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "whole spices",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 1.8,
+    "unit": "g",
+    "grams": 1.8,
+    "note": "",
+    "kcal": 4.8,
+    "protein": 0.19,
+    "fat": 0.31
+   },
+   {
+    "id": "black-pepper",
+    "qty": 2.3,
+    "unit": "g",
+    "grams": 2.3,
+    "note": "",
+    "kcal": 5,
+    "protein": 0.23,
+    "fat": 0.06
+   },
+   {
+    "id": "garam-masala",
+    "qty": 2,
+    "unit": "g",
+    "grams": 2,
+    "note": "",
+    "kcal": 6.1,
+    "protein": 0.28,
+    "fat": 0.33
+   },
+   {
+    "id": "salt",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 145,
+  "atwater": 143,
+  "atwaterGap": 0.014,
+  "boneShareServed": 0.083,
+  "massCheck": 31,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "anda-curry-home-light": {
+  "id": "anda-curry-home-light",
+  "dish": "Anda curry (aloo anday ka salan), home style, kam tel (less oil)",
+  "rawG": 1641,
+  "cookedG": 1361.8,
+  "yield": 0.83,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 100,
+   "protein": 3.7,
+   "carbs": 6.9,
+   "fat": 6.1,
+   "fiber": 1.4,
+   "sugars": 1.4,
+   "satFat": 1.3,
+   "sodium": 283
+  },
+  "waterPer100g": 80.6,
+  "addedFatPer100g": 3.5,
+  "lines": [
+   {
+    "id": "egg-boiled",
+    "qty": 300,
+    "unit": "g",
+    "grams": 300,
+    "note": "6 boiled eggs (F&S); FC 4",
+    "kcal": 465,
+    "protein": 37.74,
+    "fat": 31.83
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 47.5,
+    "unit": "g",
+    "grams": 47.5,
+    "note": "kam tel: home 95 g × 0.5",
+    "kcal": 419.9,
+    "protein": 0,
+    "fat": 47.5
+   },
+   {
+    "id": "onion",
+    "qty": 180,
+    "unit": "g",
+    "grams": 180,
+    "note": "2 small-medium onions",
+    "kcal": 86.4,
+    "protein": 2.7,
+    "fat": 0.43
+   },
+   {
+    "id": "tomato",
+    "qty": 150,
+    "unit": "g",
+    "grams": 150,
+    "note": "F&S 1 tomato; FC tomatoes",
+    "kcal": 29.4,
+    "protein": 1.35,
+    "fat": 0.7
+   },
+   {
+    "id": "potato",
+    "qty": 400,
+    "unit": "g",
+    "grams": 400,
+    "note": "2 medium potatoes (both)",
+    "kcal": 279.2,
+    "protein": 6.16,
+    "fat": 0.92
+   },
+   {
+    "id": "garlic",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 18.6,
+    "protein": 1.04,
+    "fat": 0.02
+   },
+   {
+    "id": "ginger",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 8.3,
+    "protein": 0.33,
+    "fat": 0.13
+   },
+   {
+    "id": "green-chilli",
+    "qty": 20,
+    "unit": "g",
+    "grams": 20,
+    "note": "",
+    "kcal": 8.5,
+    "protein": 0.47,
+    "fat": 0.14
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 2.7,
+    "unit": "g",
+    "grams": 2.7,
+    "note": "",
+    "kcal": 6.4,
+    "protein": 0.34,
+    "fat": 0.17
+   },
+   {
+    "id": "turmeric",
+    "qty": 3,
+    "unit": "g",
+    "grams": 3,
+    "note": "",
+    "kcal": 8.4,
+    "protein": 0.23,
+    "fat": 0.15
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 1.8,
+    "unit": "g",
+    "grams": 1.8,
+    "note": "",
+    "kcal": 4.8,
+    "protein": 0.19,
+    "fat": 0.31
+   },
+   {
+    "id": "salt",
+    "qty": 9,
+    "unit": "g",
+    "grams": 9,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "coriander",
+    "qty": 8,
+    "unit": "g",
+    "grams": 8,
+    "note": "",
+    "kcal": 2.5,
+    "protein": 0.28,
+    "fat": 0.06
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 3.3,
+    "protein": 0.05,
+    "fat": 0.04
+   },
+   {
+    "id": "water",
+    "qty": 474,
+    "unit": "g",
+    "grams": 474,
+    "note": "F&S 2 cups; FC ~1½ cups",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 98,
+  "atwater": 100,
+  "atwaterGap": -0.02,
+  "boneShareServed": 0,
+  "massCheck": 18.1,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "cholay-home-light": {
+  "id": "cholay-home-light",
+  "dish": "Cholay (chickpea curry), home style, kam tel (less oil)",
+  "rawG": 1255.6,
+  "cookedG": 1054.8,
+  "yield": 0.84,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 117,
+   "protein": 4.8,
+   "carbs": 12.4,
+   "fat": 4.3,
+   "fiber": 4.8,
+   "sugars": 3.3,
+   "satFat": 0.6,
+   "sodium": 334
+  },
+  "waterPer100g": 72,
+  "addedFatPer100g": 2.8,
+  "lines": [
+   {
+    "id": "chickpea-kabuli-boiled",
+    "qty": 492,
+    "unit": "g",
+    "grams": 492,
+    "note": "TfT 2 cans drained; F&S 2 cups (328 g)",
+    "kcal": 806.9,
+    "protein": 43.59,
+    "fat": 12.74
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 30,
+    "unit": "g",
+    "grams": 30,
+    "note": "kam tel: home 60 g × 0.5",
+    "kcal": 265.2,
+    "protein": 0,
+    "fat": 30
+   },
+   {
+    "id": "onion",
+    "qty": 110,
+    "unit": "g",
+    "grams": 110,
+    "note": "1 medium (TfT, F&S)",
+    "kcal": 52.8,
+    "protein": 1.65,
+    "fat": 0.26
+   },
+   {
+    "id": "tomato",
+    "qty": 190,
+    "unit": "g",
+    "grams": 190,
+    "note": "TfT 2 medium (246 g); F&S 120–140 g",
+    "kcal": 37.2,
+    "protein": 1.71,
+    "fat": 0.89
+   },
+   {
+    "id": "potato",
+    "qty": 70,
+    "unit": "g",
+    "grams": 70,
+    "note": "F&S 130–150 g; TfT none",
+    "kcal": 48.9,
+    "protein": 1.08,
+    "fat": 0.16
+   },
+   {
+    "id": "garlic",
+    "qty": 15,
+    "unit": "g",
+    "grams": 15,
+    "note": "",
+    "kcal": 18.6,
+    "protein": 1.04,
+    "fat": 0.02
+   },
+   {
+    "id": "ginger",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 5.5,
+    "protein": 0.22,
+    "fat": 0.09
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 3.6,
+    "unit": "g",
+    "grams": 3.6,
+    "note": "",
+    "kcal": 9.7,
+    "protein": 0.38,
+    "fat": 0.63
+   },
+   {
+    "id": "cumin",
+    "qty": 4.2,
+    "unit": "g",
+    "grams": 4.2,
+    "note": "",
+    "kcal": 12.8,
+    "protein": 0.58,
+    "fat": 0.7
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 1.8,
+    "unit": "g",
+    "grams": 1.8,
+    "note": "",
+    "kcal": 4.3,
+    "protein": 0.23,
+    "fat": 0.12
+   },
+   {
+    "id": "turmeric",
+    "qty": 1,
+    "unit": "g",
+    "grams": 1,
+    "note": "",
+    "kcal": 2.8,
+    "protein": 0.08,
+    "fat": 0.05
+   },
+   {
+    "id": "salt",
+    "qty": 9,
+    "unit": "g",
+    "grams": 9,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 1.1,
+    "protein": 0.02,
+    "fat": 0.01
+   },
+   {
+    "id": "coriander",
+    "qty": 4,
+    "unit": "g",
+    "grams": 4,
+    "note": "",
+    "kcal": 1.2,
+    "protein": 0.14,
+    "fat": 0.03
+   },
+   {
+    "id": "water",
+    "qty": 300,
+    "unit": "g",
+    "grams": 300,
+    "note": "F&S 1 cup (aloo chholay) / 1½ cups (puri chole)",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 121,
+  "atwater": 117,
+  "atwaterGap": 0.034,
+  "boneShareServed": 0,
+  "massCheck": 26.3,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
+ "aloo-palak-home-light": {
+  "id": "aloo-palak-home-light",
+  "dish": "Aloo palak (spinach and potato), home, kam tel (less oil)",
+  "rawG": 1068.6,
+  "cookedG": 865.6,
+  "yield": 0.81,
+  "removedG": 0,
+  "per100g": {
+   "kcal": 83,
+   "protein": 2.2,
+   "carbs": 8.6,
+   "fat": 3.8,
+   "fiber": 2.8,
+   "sugars": 1.2,
+   "satFat": null,
+   "sodium": 246
+  },
+  "waterPer100g": 80.1,
+  "addedFatPer100g": 3.2,
+  "lines": [
+   {
+    "id": "spinach",
+    "qty": 454,
+    "unit": "g",
+    "grams": 454,
+    "note": "TfT 1 lb; F&S 312 g",
+    "kcal": 110.8,
+    "protein": 9.72,
+    "fat": 2.91
+   },
+   {
+    "id": "potato",
+    "qty": 320,
+    "unit": "g",
+    "grams": 320,
+    "note": "TfT 1 large (369 g); F&S 275 g",
+    "kcal": 223.4,
+    "protein": 4.93,
+    "fat": 0.74
+   },
+   {
+    "id": "oil-cooking",
+    "qty": 27.3,
+    "unit": "g",
+    "grams": 27.3,
+    "note": "kam tel: home 54.5 g × 0.5",
+    "kcal": 241.3,
+    "protein": 0,
+    "fat": 27.3
+   },
+   {
+    "id": "onion",
+    "qty": 85,
+    "unit": "g",
+    "grams": 85,
+    "note": "TfT 1 medium; F&S ½",
+    "kcal": 40.8,
+    "protein": 1.27,
+    "fat": 0.2
+   },
+   {
+    "id": "tomato",
+    "qty": 140,
+    "unit": "g",
+    "grams": 140,
+    "note": "TfT 1 medium-large; F&S 1",
+    "kcal": 27.4,
+    "protein": 1.26,
+    "fat": 0.66
+   },
+   {
+    "id": "garlic",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 12.4,
+    "protein": 0.69,
+    "fat": 0.02
+   },
+   {
+    "id": "ginger",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 2.8,
+    "protein": 0.11,
+    "fat": 0.04
+   },
+   {
+    "id": "green-chilli",
+    "qty": 10,
+    "unit": "g",
+    "grams": 10,
+    "note": "",
+    "kcal": 4.2,
+    "protein": 0.24,
+    "fat": 0.07
+   },
+   {
+    "id": "coriander-powder",
+    "qty": 1.8,
+    "unit": "g",
+    "grams": 1.8,
+    "note": "",
+    "kcal": 4.8,
+    "protein": 0.19,
+    "fat": 0.31
+   },
+   {
+    "id": "cumin",
+    "qty": 3.1500000000000004,
+    "unit": "g",
+    "grams": 3.2,
+    "note": "",
+    "kcal": 9.6,
+    "protein": 0.44,
+    "fat": 0.52
+   },
+   {
+    "id": "turmeric",
+    "qty": 0.8999999999999999,
+    "unit": "g",
+    "grams": 0.9,
+    "note": "",
+    "kcal": 2.5,
+    "protein": 0.07,
+    "fat": 0.05
+   },
+   {
+    "id": "chilli-powder",
+    "qty": 0.9,
+    "unit": "g",
+    "grams": 0.9,
+    "note": "",
+    "kcal": 2.1,
+    "protein": 0.11,
+    "fat": 0.06
+   },
+   {
+    "id": "salt",
+    "qty": 5.5,
+    "unit": "g",
+    "grams": 5.5,
+    "note": "",
+    "kcal": 0,
+    "protein": 0,
+    "fat": 0
+   },
+   {
+    "id": "lemon-juice",
+    "qty": 5,
+    "unit": "g",
+    "grams": 5,
+    "note": "",
+    "kcal": 1.1,
+    "protein": 0.02,
+    "fat": 0.01
+   }
+  ],
+  "cookingDetail": null,
+  "kcalIngredientSum": 79,
+  "atwater": 83,
+  "atwaterGap": -0.048,
+  "boneShareServed": 0,
+  "massCheck": 17.4,
+  "file": "research/zainab/recipes/kam-tel.mjs"
+ },
  "mutton-karahi-restaurant": {
   "id": "mutton-karahi-restaurant",
   "dish": "Mutton (goat) karahi, restaurant style",

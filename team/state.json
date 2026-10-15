@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-15T16:20:00Z",
+  "updatedAt": "2026-10-15T16:30:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -56,13 +56,13 @@
     },
     "zainab": {
       "location": "office",
-      "status": "working",
-      "task": "Kam-tel variants + short names"
+      "status": "idle",
+      "task": "Done: 17 kam-tel variants, 64 short names"
     },
     "javier": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: 9 seafood records, 46 pack sizes"
+      "status": "working",
+      "task": "Short names"
     },
     "nasreen": {
       "location": "office",
@@ -87,14 +87,14 @@
       "output": "rules.js, NUTRITION.md, check-foods.mjs, research/review/**"
     },
     {
-      "member": "zainab",
-      "task": "Kam-tel (home-light) variants of oily desi dishes + shortName on Pakistani records",
-      "output": "app/data/foods-pk-*.js, research/zainab/**"
-    },
-    {
       "member": "lena",
       "task": "Sprint 3 wave 1: weight log + trend, spare-box warning on Day, first-run meal names, short names in rows",
       "output": "app/** (not data), tests/unit/dev/**"
+    },
+    {
+      "member": "javier",
+      "task": "shortName on his records (wave 2 item pulled forward)",
+      "output": "research/javier/**, his app/data files"
     }
   ],
   "checkIn": {
@@ -186,10 +186,6 @@
     {
       "member": "yusuf",
       "task": "Wave 2: low-cook/budget weeks as one-tap plans + shortName on preps"
-    },
-    {
-      "member": "javier",
-      "task": "Wave 2: shortName on his records"
     },
     {
       "member": "priya",

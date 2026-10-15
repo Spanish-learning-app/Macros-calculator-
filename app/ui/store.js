@@ -3,6 +3,7 @@
 // No DOM access: persistence, clock, ids and timers are injected, so it runs in Node tests.
 // Every action builds a new document with the pure core functions and then notifies subscribers.
 import { todayISO, minutesOfDay, weekDates, localDateTime, addDays } from '../core/dates.js';
+import { fmtDateShort } from './components/format.js';
 import { buildFoodIndex, defaultServing, findServing, variantsOf } from '../core/foods.js';
 import {
   RECIPE_PREFIX,
@@ -17,7 +18,9 @@ import {
   syncBatches,
   shoppingList,
   shoppingForShop,
+  spareBoxes,
 } from '../core/mealprep.js';
+import { setWeight, removeWeight, weightEntries, weightTrend } from '../core/weight.js';
 import {
   SLOT_IDS,
   DEFAULT_SLOT_LABELS,
@@ -46,6 +49,9 @@ import {
   recentForSlot,
 } from '../core/search.js';
 import { defaultData, serializeExport, parseImport, mergeImport } from '../core/storage.js';
+
+/** Slot presets whose names can be chosen on their own (Sprint 3, meeting 005). */
+const MEAL_NAME_SETS = ['default', 'spain'];
 
 /** Settings a document may lack (older or partial data); merged under data.settings on read. */
 const SETTINGS_FALLBACK = Object.freeze({
@@ -622,8 +628,53 @@ export function createStore({
         discarded: n('discarded'),
       };
     },
+    /**
+     * Spare or old boxes for the Day view line (Sprint 3): core spareBoxes plus the dish name and
+     * the batch's box word. Most urgent first.
+     */
+    spareBoxes(date = null) {
+      const on = date ?? today();
+      return spareBoxes(batchesList(), on, useByOf).map((item) => {
+        const batch = findBatch(item.batchId);
+        return { ...item, name: food(batch.recipeId)?.name ?? batch.name ?? 'Box' };
+      });
+    },
     chai: () => recipesList().find((r) => r.kind === 'chai') ?? null,
     savedMeals: () => data().savedMeals ?? [],
+
+    // weight log (Sprint 3, §14): { date, kg }[] oldest first; the trend reads RULES.weightTrend
+    weights: () => weightEntries(data().weightLog),
+    weightOn: (date) => data().weightLog?.[date]?.kg ?? null,
+    /** core weightTrend with the person's goal and target; a suggestion is never applied. */
+    weightTrend() {
+      const result = targetResult();
+      const kcal = targetKind() === 'personal' ? (targets()?.kcal ?? null) : null;
+      const sex = data().profile?.sex;
+      return weightTrend(weightEntries(data().weightLog), rules, {
+        goal: result?.effectiveGoal ?? 'maintain',
+        rateKgPerWeek: Math.abs(result?.effectiveRateKgPerWeek ?? 0),
+        kcal,
+        floorKcal: rules?.rails?.minKcalWhenLosing?.[sex] ?? null,
+        allowSuggest: Boolean(result?.ok) && !hideCaloriesOffered(),
+      });
+    },
+
+    // meal names (Sprint 3): Pakistani or Spanish names, whatever the meal times
+    /** [{ id: 'default'|'spain', labels: { [slot]: label } }] from RULES.mealSlots. */
+    mealNameSets() {
+      return MEAL_NAME_SETS.filter((id) => rules?.mealSlots?.[id]).map((id) => ({
+        id,
+        labels: Object.fromEntries(rules.mealSlots[id].map((x) => [x.id, x.label])),
+      }));
+    },
+    /** The set the five shown names match, or null when the person renamed a meal. */
+    mealNameSet() {
+      const shown = SLOT_IDS.map((id) => slotLabel(id));
+      return (
+        api.mealNameSets().find((set) => SLOT_IDS.every((id, i) => set.labels[id] === shown[i]))
+          ?.id ?? null
+      );
+    },
     exportText: () => serializeExport(data(), localDateTime(now())),
     previewImport: (text) => parseImport(text),
 
@@ -964,6 +1015,30 @@ export function createStore({
       commit(
         { ...data(), savedMeals: (data().savedMeals ?? []).filter((m) => m.id !== mealId) },
         `Deleted ${meal.name}`,
+      );
+    },
+
+    /**
+     * Meal names (Sprint 3): the preset's own names when they match the meal times (no renames
+     * stored), else the set's five names as renames, so changing the times keeps them.
+     */
+    setMealNames(id) {
+      const set = api.mealNameSets().find((x) => x.id === id);
+      if (!set) throw new RangeError(`Unknown meal names ${id}`);
+      const slotLabels = id === preset() ? {} : { ...set.labels };
+      commit({ ...data(), settings: { ...(data().settings ?? {}), slotLabels } });
+    },
+
+    // actions: weight log (Sprint 3, §14)
+    /** One weight per day: replaces that day's. RangeError outside RULES.profileLimits.weightKg. */
+    setWeight(date, kg) {
+      commit({ ...data(), weightLog: setWeight(data().weightLog, date, kg, rules) });
+    },
+    removeWeight(date) {
+      if (!data().weightLog?.[date]) return;
+      commit(
+        { ...data(), weightLog: removeWeight(data().weightLog, date) },
+        `Deleted the weight for ${fmtDateShort(date)}`,
       );
     },
 

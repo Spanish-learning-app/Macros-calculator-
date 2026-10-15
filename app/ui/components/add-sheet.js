@@ -9,7 +9,14 @@
 // - The sheet stays open for the next food. Quick add: name and kcal, macros optional.
 import { h, uid, setText, mountChildren } from '../dom.js';
 import { iconEl } from './icons.js';
-import { halalChip, estimateBadge, styleLabel, urduName } from './food-bits.js';
+import {
+  halalChip,
+  estimateBadge,
+  styleLabel,
+  urduName,
+  rowName,
+  fullNameLine,
+} from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
 import { boxWord } from './prep-bits.js';
 import { normalize, foodKind } from '../../core/search.js';
@@ -263,7 +270,8 @@ export function createAddSheet(props) {
           'aria-haspopup': 'dialog',
           onclick: () => pick(food, { servingId, qty }),
         },
-        h('span', { class: 'food-name' }, food.name),
+        h('span', { class: 'food-name' }, rowName(food)),
+        fullNameLine(food),
         urduName(food),
         style || kind || estimateBadge(food, rules)
           ? h(

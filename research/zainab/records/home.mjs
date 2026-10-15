@@ -1,13 +1,15 @@
 // Record specs: Pakistani home cooking → app/data/foods-pk-home.js (built by research/zainab/build.mjs).
 import { PK, PKV, PKVG, MEAL, D, boneIn, SP, uniq } from './common.mjs';
+import { KAM_TEL } from '../kam-tel-rule.mjs';
 
 const BONE_STATE = 'cooked, as served with masala/gravy, edible portion (bones removed)';
 
-export default [
+const SPECS = [
   {
     id: 'pk-chicken-karahi-home',
     recipe: 'chicken-karahi-home',
     name: 'Chicken karahi (home-made)',
+    shortName: 'Chicken karahi',
     nameUr: 'چکن کڑاہی',
     nameRoman: 'chicken karahi',
     aliases: uniq(SP.karahi, ['chicken karahi', 'chicken karai', 'chicken kadai', 'chicken karhai', 'murgh karahi', 'murg karahi', 'ghar ki karahi', 'karahi chicken', 'کڑاہی']),
@@ -34,6 +36,7 @@ export default [
     id: 'pk-chicken-salan-home',
     recipe: 'chicken-salan-home',
     name: 'Chicken salan (home-made)',
+    shortName: 'Chicken salan',
     nameUr: 'چکن سالن',
     nameRoman: 'murghi ka salan',
     aliases: uniq(['chicken salan', 'chicken saalan', 'murgh salan', 'murghi salan', 'murgi ka salan', 'chicken curry', 'chicken shorba', 'shorba wala chicken', 'ghar ka salan', 'salan', 'saalan', 'curry', 'سالن', 'مرغی کا سالن']),
@@ -58,6 +61,7 @@ export default [
     id: 'pk-masoor-daal-home',
     recipe: 'masoor-daal-home',
     name: 'Masoor daal (home-made)',
+    shortName: 'Masoor daal',
     nameUr: 'مسور کی دال',
     nameRoman: 'masoor ki daal',
     aliases: uniq(SP.daal, ['masoor', 'masoor daal', 'masoor dal', 'masoor ki dal', 'masur', 'red lentils', 'lal daal', 'lentil curry', 'دال', 'مسور']),
@@ -94,6 +98,7 @@ export default [
     id: 'pk-mash-daal-home',
     recipe: 'mash-daal-home',
     name: 'Daal mash (urad, home-made)',
+    shortName: 'Daal mash',
     nameUr: 'دال ماش',
     nameRoman: 'daal mash',
     aliases: uniq(SP.daal, ['daal mash', 'dal mash', 'mash ki daal', 'maash ki daal', 'mash daal', 'maash', 'urad', 'urad dal', 'urad daal', 'white lentils', 'safaid daal', 'khushk daal', 'دال ماش', 'ماش کی دال']),
@@ -155,6 +160,7 @@ export default [
     id: 'pk-bhindi-home',
     recipe: 'bhindi-home',
     name: 'Bhindi (okra) sabzi (home-made)',
+    shortName: 'Bhindi',
     nameUr: 'بھنڈی',
     nameRoman: 'bhindi',
     aliases: uniq(['bhindi', 'bhindi ki sabzi', 'bhindi masala', 'bhindi fry', 'bindi', 'okra', 'ladyfinger', 'lady finger', 'bhendi', 'sabzi', 'بھنڈی']),
@@ -171,6 +177,7 @@ export default [
     id: 'pk-omelette-desi',
     recipe: 'desi-omelette',
     name: 'Desi omelette (anda, pyaz, tamatar)',
+    shortName: 'Desi omelette',
     nameUr: 'دیسی آملیٹ',
     nameRoman: 'desi omelette',
     aliases: uniq(SP.anda, ['omelette', 'omelet', 'omlet', 'amlet', 'amlate', 'masala omelette', 'desi omelet', 'anday ka omelette', 'anda omelette', 'lahori omelette', 'آملیٹ', 'انڈا']),
@@ -215,6 +222,7 @@ export default [
     id: 'pk-chicken-biryani-home',
     recipe: 'chicken-biryani-home',
     name: 'Chicken biryani (home-made)',
+    shortName: 'Chicken biryani',
     nameUr: 'چکن بریانی',
     nameRoman: 'ghar ki biryani',
     aliases: uniq(SP.biryani, ['chicken biryani', 'murgh biryani', 'ghar ki biryani', 'home biryani', 'biryani chawal', 'بریانی']),
@@ -233,6 +241,7 @@ export default [
     id: 'pk-chicken-pulao-home',
     recipe: 'chicken-pulao-home',
     name: 'Chicken pulao (home-made, yakhni)',
+    shortName: 'Yakhni pulao',
     nameUr: 'یخنی پلاؤ',
     nameRoman: 'yakhni pulao',
     aliases: uniq(['chicken pulao', 'yakhni pulao', 'pulao', 'pulau', 'pilau', 'pulaao', 'murgh pulao', 'ghar ka pulao', 'پلاؤ']),
@@ -269,6 +278,7 @@ export default [
     id: 'pk-keema-home',
     recipe: 'keema-home',
     name: 'Keema (beef mince, home-made)',
+    shortName: 'Keema',
     nameUr: 'قیمہ',
     nameRoman: 'qeema',
     aliases: uniq(SP.qeema, ['keema matar', 'qeema matar', 'aloo keema', 'aloo qeema', 'keema aloo', 'beef keema', 'mince curry', 'kheema', 'قیمہ']),
@@ -290,6 +300,7 @@ export default [
     id: 'pk-nihari-home',
     recipe: 'nihari-home',
     name: 'Nihari (beef, home-made)',
+    shortName: 'Nihari',
     nameUr: 'نہاری',
     nameRoman: 'ghar ki nihari',
     aliases: uniq(['nihari', 'nihaari', 'nahari', 'nehari', 'beef nihari', 'ghar ki nihari', 'نہاری']),
@@ -308,6 +319,7 @@ export default [
     id: 'pk-haleem-home',
     recipe: 'haleem-home',
     name: 'Haleem (beef, home-made)',
+    shortName: 'Haleem',
     nameUr: 'حلیم',
     nameRoman: 'ghar ka haleem',
     aliases: uniq(['haleem', 'daleem', 'khichra', 'halim', 'beef haleem', 'ghar ka haleem', 'حلیم']),
@@ -325,6 +337,7 @@ export default [
     id: 'pk-shami-kebab',
     recipe: 'shami-kebab',
     name: 'Shami kebab (beef and chana daal)',
+    shortName: 'Shami kebab',
     nameUr: 'شامی کباب',
     nameRoman: 'shami kabab',
     aliases: uniq(['shami kebab', 'shami kabab', 'shami', 'shaami kabab', 'shami kabob', 'kabab', 'kebab', 'anda shami', 'شامی کباب']),
@@ -343,6 +356,7 @@ export default [
     id: 'pk-cholay-home',
     recipe: 'cholay-home',
     name: 'Cholay (chickpea curry, home-made)',
+    shortName: 'Cholay',
     nameUr: 'چھولے',
     nameRoman: 'cholay',
     aliases: uniq(['cholay', 'chole', 'chholay', 'chanay', 'chana masala', 'safaid chanay', 'aloo cholay', 'chickpea curry', 'chana', 'چھولے', 'چنے']),
@@ -361,6 +375,7 @@ export default [
     id: 'pk-kadhi-pakora',
     recipe: 'kadhi-pakora-home',
     name: 'Kadhi pakora (home-made)',
+    shortName: 'Kadhi pakora',
     nameUr: 'کڑھی پکوڑا',
     nameRoman: 'kadhi pakora',
     aliases: uniq(['kadhi', 'karhi', 'kadhi pakora', 'karhi pakora', 'kadi', 'kari pakora', 'kadhi chawal', 'کڑھی']),
@@ -376,6 +391,7 @@ export default [
     id: 'pk-anda-curry',
     recipe: 'anda-curry-home',
     name: 'Anda curry (egg and potato salan)',
+    shortName: 'Anda curry',
     nameUr: 'انڈے کا سالن',
     nameRoman: 'anday ka salan',
     aliases: uniq(SP.anda, ['anda curry', 'anday ka salan', 'aloo anday', 'anda aloo', 'egg curry', 'egg salan', 'anday aloo ka salan', 'انڈے کا سالن']),
@@ -393,6 +409,7 @@ export default [
     id: 'pk-sarson-ka-saag',
     recipe: 'sarson-ka-saag',
     name: 'Sarson ka saag (home-made)',
+    shortName: 'Sarson ka saag',
     nameUr: 'سرسوں کا ساگ',
     nameRoman: 'sarson ka saag',
     aliases: uniq(['sarson ka saag', 'saag', 'sarson saag', 'sarson da saag', 'mustard greens', 'saag palak', 'saag makai', 'ساگ', 'سرسوں کا ساگ']),
@@ -409,6 +426,7 @@ export default [
     id: 'pk-chicken-korma-home',
     recipe: 'chicken-korma-home',
     name: 'Chicken korma (home-made)',
+    shortName: 'Chicken korma',
     nameUr: 'چکن قورمہ',
     nameRoman: 'chicken qorma',
     aliases: uniq(['chicken korma', 'chicken qorma', 'korma', 'qorma', 'murgh korma', 'murgh qorma', 'chicken kurma', 'قورمہ']),
@@ -463,3 +481,64 @@ export default [
     source: { confidence: 'C' },
   },
 ];
+
+// ---------------------------------------------------------------- kam tel (style 'home-light')
+// Sprint 3 (Meeting 005): a lighter version of the oily home dishes, next to its home record and in
+// the same family. Numbers come from the derived sheets in research/zainab/recipes/kam-tel.mjs (the
+// home sheet with the added fat cut per the Lab's kam-tel rule); servings are the home record's own.
+// Home records that had no style/family get style 'home' and the family named here.
+const KAM_TEL_DATE = '2026-10-15';
+const LIGHT = {
+  'pk-chicken-karahi-home': { base: 'Chicken karahi', terms: ['karahi', 'chicken karahi', 'karai'], sn: 'Kam tel chicken karahi' },
+  'pk-chicken-salan-home': { base: 'Chicken salan', terms: ['salan', 'chicken salan', 'chicken curry'], sn: 'Kam tel chicken salan' },
+  'pk-aloo-gosht-home': { base: 'Aloo gosht', terms: ['aloo gosht'], sn: 'Kam tel aloo gosht' },
+  'pk-keema-home': { base: 'Keema', family: 'keema', terms: ['keema', 'qeema', 'keema matar'], sn: 'Kam tel keema' },
+  'pk-masoor-daal-home': { base: 'Masoor daal', family: 'masoor-daal', terms: ['masoor daal', 'masoor dal', 'daal'], sn: 'Kam tel masoor daal' },
+  'pk-moong-daal-home': { base: 'Moong daal', family: 'moong-daal', terms: ['moong daal', 'moong dal'], sn: 'Kam tel moong daal' },
+  'pk-mash-daal-home': { base: 'Daal mash', family: 'mash-daal', terms: ['daal mash', 'mash ki daal'], sn: 'Kam tel daal mash' },
+  'pk-chana-daal-home': { base: 'Chana daal', terms: ['chana daal', 'chana dal'], sn: 'Kam tel chana daal' },
+  'pk-bhindi-home': { base: 'Bhindi sabzi', family: 'bhindi', terms: ['bhindi', 'okra'], sn: 'Kam tel bhindi' },
+  'pk-aloo-gobi-home': { base: 'Aloo gobi', family: 'aloo-gobi', terms: ['aloo gobi'], sn: 'Kam tel aloo gobi' },
+  'pk-sarson-ka-saag': { base: 'Sarson ka saag', family: 'sarson-ka-saag', terms: ['saag', 'sarson ka saag'], sn: 'Kam tel saag' },
+  'pk-chicken-korma-home': { base: 'Chicken korma', terms: ['korma', 'qorma', 'chicken korma'], sn: 'Kam tel chicken korma' },
+  'pk-chicken-biryani-home': { base: 'Chicken biryani', terms: ['biryani', 'chicken biryani'], sn: 'Kam tel biryani' },
+  'pk-chicken-pulao-home': { base: 'Yakhni pulao', terms: ['pulao', 'yakhni pulao', 'chicken pulao'], sn: 'Kam tel pulao' },
+  'pk-anda-curry': { base: 'Anda curry', family: 'anda-curry', terms: ['anda curry', 'anday ka salan', 'egg curry'], sn: 'Kam tel anda curry' },
+  'pk-cholay-home': { base: 'Cholay', terms: ['cholay', 'chana masala'], sn: 'Kam tel cholay' },
+  'pk-aloo-palak': { base: 'Aloo palak', family: 'aloo-palak', terms: ['aloo palak'], sn: 'Kam tel aloo palak' },
+};
+
+function light(home, c) {
+  if (!home.style) Object.assign(home, { style: 'home', family: c.family });
+  if (!home.family) throw new Error(`${home.id}: needs a family for its kam-tel variant`);
+  const id = home.id.replace(/-home$/, '') + '-light';
+  return {
+    id,
+    recipe: `${home.recipe}-light`,
+    name: `${c.base}${KAM_TEL.nameSuffix}`,
+    shortName: c.sn,
+    nameUr: `${home.nameUr} (کم تیل)`,
+    nameRoman: `kam tel ${home.nameRoman}`,
+    aliases: uniq(c.terms.flatMap((t) => [`kam tel ${t}`, `${t} kam tel`, `kam oil ${t}`, `light ${t}`, `less oil ${t}`, `low oil ${t}`]), KAM_TEL.aliases, ['kam tail', 'kam oil', 'low oil', 'کم تیل']),
+    group: home.group,
+    style: 'home-light',
+    family: home.family,
+    state: `${home.state}; kam tel: home recipe with less added oil`,
+    servingsFrom: home.id,
+    tags: home.tags,
+    slots: home.slots,
+    halal: home.halal,
+    date: KAM_TEL_DATE,
+    // the home record's independent references, re-run against the light numbers (notes stay on the home record)
+    crossCheck: (home.crossCheck || []).map(({ src, code }) => ({ src, code, note: `Same reference as the home record ${home.id}.` })),
+    assumptions: [
+      `Derived from the home recipe R-${home.id} (sheet \`${home.recipe}\`): the same ingredients, quantities, cooking steps and water loss; only the added fat is cut, per the Lab's kam-tel rule (see "Added fat").`,
+      `Servings are the home record's own katori weights: a katori of the lighter dish holds the same food.`,
+      ...(home.assumptions || []).filter((a) => !/^(Fat|Oil)\b/.test(a)).map((a) => `Home: ${a}`),
+    ],
+    confidenceWhy: 'recipe with assumed oil and yield, as its home record.',
+    source: { confidence: 'C', notes: `Kam tel (less oil) variant of ${home.id}: its home recipe sheet with the added fat × ${KAM_TEL.addedFatFraction} (NUTRITION.md §6.1); full calculation in research/zainab/recipes/${id}.md.` },
+  };
+}
+
+export default SPECS.flatMap((s) => (LIGHT[s.id] ? [s, light(s, LIGHT[s.id])] : [s]));

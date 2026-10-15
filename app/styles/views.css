@@ -1835,3 +1835,134 @@
     opacity: 1;
   }
 }
+
+/* Sprint 3: a row shows the Lab's shortName; the full name is this quiet one-line second line. */
+.food-fullname {
+  font-size: var(--text-sm);
+  line-height: 1.35;
+  color: var(--text-muted);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* ------------------------------------------------------------------ Sprint 3: weight log */
+
+.chip[aria-pressed='true'] {
+  border-color: var(--selected);
+  background: var(--selected);
+  color: var(--selected-text);
+}
+
+.weight-days {
+  margin-block: var(--space-2);
+}
+
+.weight-list {
+  display: grid;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.weight-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.weight-row-main {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-1);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+}
+
+.weight-row-main:hover {
+  background: var(--surface-2);
+}
+
+.weight-row-kg {
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.weight-chart {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin-block: var(--space-2);
+  overflow: visible;
+}
+
+.wc-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.wc-axis {
+  fill: var(--text-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.wc-dot {
+  fill: var(--text-faint);
+  stroke: var(--surface);
+  stroke-width: 1.5;
+}
+
+.wc-trend {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.weight-trend {
+  margin: 0;
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.weight-suggestion {
+  margin: var(--space-2) 0 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-soft-text);
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------------------------ Sprint 3: spare box line */
+
+.spare-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+
+.spare-text {
+  flex: 1 1 14rem;
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.spare-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}

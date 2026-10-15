@@ -7,6 +7,7 @@ import { h, mountChildren } from '../dom.js';
 import { fmtKcal, fmtGrams, paceNote, ESTIMATE_LINE } from '../components/format.js';
 import { createProfileForm } from '../components/profile-form.js';
 import { katoriMark } from '../components/icons.js';
+import { renderMealNames } from '../components/meal-names.js';
 
 /**
  * Texts for the warning codes and flag ids of a TargetResult (RULES.warnings and flag notes).
@@ -67,6 +68,8 @@ export function mount(container, ctx) {
           h('li', null, 'Desi, Spanish and café food, in katori, roti and cup sizes.'),
         ),
       ),
+      // Sprint 3 (Meeting 005): meal names, pre-chosen by time zone; one tap changes them.
+      renderMealNames({ store, help: 'Only the names change. You can change them in Profile.' }),
       h(
         'div',
         { class: 'form-actions' },

@@ -8,6 +8,8 @@ import { createProfileForm } from '../components/profile-form.js';
 import { createUndoToast } from '../components/toast.js';
 import { fmtKcal, fmtGrams, fmtMinutes, ESTIMATE_LINE } from '../components/format.js';
 import { targetNotes } from './welcome.js';
+import { renderMealNames } from '../components/meal-names.js';
+import { createWeightCard } from '../components/weight-card.js';
 
 const PRESET_NAMES = { default: 'Pakistani meal times', spain: 'Spanish meal times' };
 const KEYS = [
@@ -244,6 +246,7 @@ export function mount(container, ctx) {
               if (v) labels[id] = v;
               else delete labels[id];
               store.updateSettings({ slotLabels: labels });
+              renderNames();
             },
           });
           return h(
@@ -256,6 +259,13 @@ export function mount(container, ctx) {
       );
     };
     renderLabels();
+    const namesBox = h('div', { class: 'meal-names-box' });
+    const renderNames = () =>
+      mountChildren(
+        namesBox,
+        renderMealNames({ store, legend: 'Meal names', onPick: () => renderLabels() }),
+      );
+    renderNames();
     const startOptions = [];
     for (let m = 0; m <= 300; m += 30) startOptions.push(m);
     const dayStart = h(
@@ -285,10 +295,13 @@ export function mount(container, ctx) {
         (p) => {
           store.updateSettings({ slotPreset: p });
           renderLabels();
+          renderNames();
           presetHelp.textContent = slotTimes(p);
         },
       ),
       h('p', { class: 'field-help preset-help' }, slotTimes(s.slotPreset)),
+      // Sprint 3: names apart from times (Pakistani names on the Spanish clock, or the reverse).
+      namesBox,
       h(
         'details',
         { class: 'prefs' },

@@ -124,8 +124,23 @@ const CONTRACT = {
       shoppingForShop: 2,
       buyAmount: 2,
       pluralLabel: 1,
+      spareBoxes: 3, // Sprint 3 (meeting 005): the Day view's spare/old box line
     },
     constants: ['RECIPE_PREFIX', 'BOX_STORAGES', 'BOX_STATUSES', 'CUPBOARD_SECTION'],
+  },
+  // Sprint 3, ARCHITECTURE §14: the weight log and trend.
+  weight: {
+    functions: {
+      weightLimits: 0,
+      weightLogProblems: 1,
+      setWeight: 3,
+      removeWeight: 2,
+      weightEntries: 1,
+      mergeWeightLogs: 2,
+      trendRule: 1,
+      weightTrend: 2,
+    },
+    constants: [],
   },
 };
 
@@ -168,7 +183,8 @@ test('binding constants match the kickoff minutes', async () => {
   assert.equal(storage.STORAGE_KEY, 'mmc.v1');
   assert.equal(storage.SCHEMA_VERSION, 1);
   assert.deepEqual(foods.NUTRIENT_KEYS, ['kcal', 'protein', 'carbs', 'fat', 'fiber']);
-  assert.deepEqual(foods.STYLES, ['home', 'restaurant', 'dhaba', 'street']);
+  // Sprint 3 (meeting 005 d): 'home-light' (kam tel) ranks right after 'home'.
+  assert.deepEqual(foods.STYLES, ['home', 'home-light', 'restaurant', 'dhaba', 'street']);
   assert.equal(foods.GRAMS, 'g');
   assert.deepEqual(foods.HALAL_STATUSES, ['halal', 'check', 'not-halal']); // meeting 002
   assert.equal(foods.BOX, 'box');

@@ -80,3 +80,21 @@ export function urduName(food) {
   if (!food?.nameUr) return null;
   return h('span', { class: 'name-ur', lang: 'ur', dir: 'rtl' }, food.nameUr);
 }
+
+/**
+ * The name a narrow row shows: `shortName` when the Lab gave one (Sprint 3, rules 1.7.0 field
+ * rules), else `name`. The full name stays in the details and in fullNameLine().
+ */
+export function rowName(food) {
+  return typeof food?.shortName === 'string' && food.shortName.trim() ? food.shortName : food?.name;
+}
+
+/** The full name as a quiet second line, only when the row shows a short name; else null. */
+export function fullNameLine(food) {
+  if (!food || rowName(food) === food.name) return null;
+  return h(
+    'span',
+    { class: 'food-fullname', 'data-testid': 'food-fullname', title: food.name },
+    food.name,
+  );
+}

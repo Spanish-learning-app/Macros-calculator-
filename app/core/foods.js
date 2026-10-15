@@ -8,7 +8,8 @@ import { round } from './units.js';
 /** @typedef {import('./types.js').Nutrients} Nutrients */
 
 export const NUTRIENT_KEYS = Object.freeze(['kcal', 'protein', 'carbs', 'fat', 'fiber']);
-export const STYLES = Object.freeze(['home', 'restaurant', 'dhaba', 'street']);
+// RULES.vocab.styles order, which is also the rank: 'home-light' (kam tel, Sprint 3) right after 'home'.
+export const STYLES = Object.freeze(['home', 'home-light', 'restaurant', 'dhaba', 'street']);
 /** servingId meaning "qty is grams". Never used as a serving id inside a food record. */
 export const GRAMS = 'g';
 /** Binding (meeting 002, decision 4). Order = best to worst ("worst status" of a recipe, Sprint 2). */
@@ -348,8 +349,8 @@ function styleRank(food) {
 }
 
 /**
- * Style variants of the same dish (same `family`), including `food` itself, ordered by STYLES then
- * name. A food without a family -> [food].
+ * Style variants of the same dish (same `family`), including `food` itself, ordered by style (home,
+ * home-light, restaurant, dhaba, street; no style last) then name. A food without a family -> [food].
  * @param {Food} food @param {Map<string, Food>} foodIndex @returns {Food[]}
  */
 export function variantsOf(food, foodIndex) {

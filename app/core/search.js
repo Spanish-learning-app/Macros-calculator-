@@ -69,13 +69,16 @@ export function normalize(text) {
     .trim();
 }
 
-/** Searches name, nameRoman, nameUr and aliases. @param {Food[]} foods @returns {object} opaque index */
+/**
+ * Searches name, shortName (Sprint 3: what rows show), nameRoman, nameUr and aliases.
+ * @param {Food[]} foods @returns {object} opaque index
+ */
 export function buildSearchIndex(foods) {
   if (!Array.isArray(foods)) throw new TypeError('buildSearchIndex takes an array of foods');
   const entries = [];
   for (const food of foods) {
     if (!isObject(food)) continue;
-    const originals = [food.name, food.nameRoman, food.nameUr];
+    const originals = [food.name, food.shortName, food.nameRoman, food.nameUr];
     if (Array.isArray(food.aliases)) originals.push(...food.aliases);
     const names = [];
     for (const original of originals) {
@@ -111,7 +114,10 @@ export function singularWord(word) {
   return word.endsWith('s') ? word.slice(0, -1) : word;
 }
 
-/** Everyday foods (no style) and home style rank 0, then restaurant, dhaba, street (STYLES order). */
+/**
+ * Everyday foods (no style) and home style rank 0, then STYLES order: home-light (kam tel, Sprint 3:
+ * right after home), restaurant, dhaba, street.
+ */
 function styleRank(food) {
   const i = STYLES.indexOf(food?.style);
   return i <= 0 ? 0 : i;

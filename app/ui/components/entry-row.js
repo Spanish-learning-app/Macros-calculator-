@@ -4,7 +4,7 @@
 // (team/DECISIONS.md) and delete with Undo (A13).
 import { h } from '../dom.js';
 import { iconEl } from './icons.js';
-import { halalChip, estimateBadge, styleLabel } from './food-bits.js';
+import { halalChip, estimateBadge, styleLabel, rowName, fullNameLine } from './food-bits.js';
 import {
   fmtKcal,
   fmtGrams,
@@ -50,7 +50,8 @@ export function renderEntryRow({
   onMore,
 }) {
   const name = entry.snapshot?.name ?? food?.name ?? 'Food';
-  const displayName = food?.name ?? name;
+  // Sprint 3: the Lab's shortName when there is one; the full name is the quiet line below it.
+  const displayName = (food && rowName(food)) ?? name;
   const eaten = entry.status === 'eaten';
   const halal = food ? halalChip(food, rules) : null;
   const style = food ? styleLabel(food, rules) : null;
@@ -86,6 +87,7 @@ export function renderEntryRow({
         onclick: onEdit,
       },
       h('span', { class: 'entry-name' }, displayName),
+      fullNameLine(food),
       h(
         'span',
         { class: 'entry-tags' },
