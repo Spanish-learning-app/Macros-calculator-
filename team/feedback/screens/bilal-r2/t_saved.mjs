@@ -13,7 +13,7 @@ L.start(run);
 await L.tap(run, slot.getByRole('button',{name:/More|options|⋯|menu/i}).first()); await p.waitForTimeout(300);
 await L.shot(run,'saved-01-slot-menu');
 console.log('menu:', (await p.locator('[role=menu], .menu, dialog[open]').first().innerText().catch(()=>'')).replace(/\n+/g,' | '));
-const sv = p.getByRole('menuitem',{name:/Save/i}).or(p.getByRole('button',{name:/Save as/i})).first();
+const sv = p.getByText(/Save Lunch as a meal/).first();
 await L.tap(run, sv); await p.waitForTimeout(300);
 await L.shot(run,'saved-02-name-dialog');
 console.log('dialog:', (await p.locator('dialog[open]').innerText().catch(()=>'')).replace(/\n+/g,' | '));
