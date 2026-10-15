@@ -1,0 +1,10 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-18T18:00:00+02:00'}); const p = run.page;
+await L.onboardP1(run);
+await L.shot(run,'x-day');
+console.log(await p.evaluate(()=>[...document.querySelectorAll('nav a, nav button, [role=tab]')].map(e=>e.innerText+'|'+(e.getAttribute('href')||''))));
+await p.goto(L.URL+'#/prep'); await p.waitForTimeout(500);
+await L.shot(run,'x-prep',{fullPage:true});
+console.log((await p.innerText('body')).slice(0,6000));
+console.log(run.errors);
+await run.browser.close();

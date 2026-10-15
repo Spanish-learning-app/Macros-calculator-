@@ -45,3 +45,4 @@
   follows Ayesha's fridge/freezer rule) and A19 (S1, Spanish preset), plus the D5 PhD weekday, and
   updated the panel plan with Mariam. Open: "+" on search rows (A19's budget needs it) and the date
   for 00:00–01:00 entries. Nothing committed.
+- 2026-10-15: REVIEW 2 started (Sprint 2 build). Read briefs, Review 1, meeting 003, DESIGN-STUDY, A10/A16-A18. Serving app/ on :8772, scripts in team/feedback/screens/bilal-r2/. Nothing committed.

@@ -11,3 +11,4 @@
   leftovers, home-style salan logged without building a recipe, "kal wala salan" in one tap, no
   red or guilt, and plain words with no sign-up. Next: test hands-on from Review 1 with N1–N5.
   Nothing committed.
+- 2026-10-15 (Review 2) started: read briefs, Review 1 report, CUSTOMER A10/A16, DESIGN-STUDY 4-5. Serving app/ on :8773. Scripts and shots go in team/feedback/screens/nasreen-r2/.

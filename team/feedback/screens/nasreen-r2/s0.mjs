@@ -1,0 +1,10 @@
+import { open, shot, fullshot, txt, onboard } from './lib.mjs';
+const S = await open('2026-10-15T08:30:00+02:00'); const {page}=S;
+await shot(page,'01-first-open');
+await onboard(page);
+await shot(page,'02-day-after-onboarding');
+console.log(await txt(page));
+await page.getByRole('button',{name:/Prep/}).first().click(); await page.waitForTimeout(500);
+await shot(page,'03-prep-first-look'); await fullshot(page,'03-prep-first-look-full');
+console.log('-----PREP\n'+await txt(page));
+await S.browser.close();
