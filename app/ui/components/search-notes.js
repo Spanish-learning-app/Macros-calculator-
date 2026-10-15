@@ -156,14 +156,22 @@ export function excludedText(topic, { halalOnly = true } = {}) {
     : 'Katori has no pork or alcohol foods. A few bakery foods made with lard are marked “Not halal”.';
 }
 
-/** The line for a shellfish word with no food: the seafood the list does have, if any. */
-export function shellfishText(query, foods) {
-  const kinds = new Set();
-  for (const f of foods ?? []) {
-    for (const t of f?.tags ?? []) if (t === 'seafood-prawn' || t === 'seafood-other') kinds.add(t);
-  }
+/** The line for a shellfish word with no food; `hasShellfish` when the list has any at all. */
+export function shellfishText(query, hasShellfish) {
   const q = String(query ?? '').trim();
-  return kinds.size
+  return hasShellfish
     ? `No food for “${q}” yet. Katori has prawns and other seafood: try “prawns”, “squid” or “mussels”.`
     : `No food for “${q}” yet: Katori has no prawns or other shellfish foods so far.`;
+}
+
+/**
+ * The calm line for a query, or null. `hits` = how many foods the search shows; `hasShellfish` a
+ * boolean, or a function asked only when a shellfish word found nothing.
+ */
+export function searchNoteText(query, { hits, halalOnly = true, hasShellfish = false }) {
+  const found = excludedTopic(query);
+  if (!found || (!found.whole && hits > 0)) return null;
+  if (found.topic !== 'shellfish') return excludedText(found.topic, { halalOnly });
+  if (hits > 0) return null;
+  return shellfishText(query, typeof hasShellfish === 'function' ? hasShellfish() : hasShellfish);
 }

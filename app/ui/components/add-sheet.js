@@ -12,7 +12,8 @@ import { iconEl } from './icons.js';
 import { halalChip, estimateBadge, styleLabel, urduName } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
 import { boxWord } from './prep-bits.js';
-import { normalize } from '../../core/search.js';
+import { normalize, foodKind } from '../../core/search.js';
+import { searchNoteText } from './search-notes.js';
 import {
   fmtKcal,
   fmtGrams,
@@ -232,6 +233,7 @@ export function createAddSheet(props) {
   function foodRow(food, { servingId, qty }) {
     const halal = halalChip(food, rules);
     const style = styleLabel(food, rules);
+    const kind = kindTag(food);
     const plus = h(
       'button',
       {
@@ -263,10 +265,11 @@ export function createAddSheet(props) {
         },
         h('span', { class: 'food-name' }, food.name),
         urduName(food),
-        style || estimateBadge(food, rules)
+        style || kind || estimateBadge(food, rules)
           ? h(
               'span',
               { class: 'entry-tags' },
+              kind,
               style ? h('span', { class: 'tag-style' }, style) : null,
               estimateBadge(food, rules),
             )
@@ -349,9 +352,17 @@ export function createAddSheet(props) {
     const hits = found.hits.map((hit) => hit.food);
     const hidden = found.hidden.map((hit) => hit.food);
     const shown = revealHidden ? [...hits, ...hidden] : hits;
+    // Pork, alcohol and shellfish words get one calm line, never a bare "Nothing found" (Review 2).
+    const noteText = searchNoteText(q, {
+      hits: shown.length,
+      halalOnly: store.settings().halalOnly,
+      hasShellfish,
+    });
     const help = isTasteQuery(q)
       ? h('p', { class: 'help-row', 'data-testid': 'taste-help', role: 'note' }, TASTE_HELP)
-      : null;
+      : noteText
+        ? h('p', { class: 'help-row', 'data-testid': 'search-note', role: 'note' }, noteText)
+        : null;
     const list = h(
       'section',
       { class: 'result-group', 'data-testid': 'results', 'aria-label': 'Search results' },
@@ -373,6 +384,25 @@ export function createAddSheet(props) {
     // mountChildren drops null; replaceChildren(list, null) printed the text "null" (Review 1).
     mountChildren(results, list, hidden.length ? hiddenNote(hidden) : null);
     quick.setName(q);
+  }
+
+  /** "Prep" on a Lab meal-prep box, "My recipe" on the person's own (Review 2); chai has neither. */
+  function kindTag(food) {
+    const kind = foodKind(food);
+    if (kind === 'prep') {
+      return h('span', { class: 'tag-style tag-prep', 'data-testid': 'prep-tag' }, 'Prep');
+    }
+    if (kind === 'own' && food.group === 'lunchbox') {
+      return h('span', { class: 'tag-style tag-own', 'data-testid': 'own-tag' }, 'My recipe');
+    }
+    return null;
+  }
+
+  /** True when the food list has any prawn or other shellfish record (Javier's seafood). */
+  function hasShellfish() {
+    return ['prawn', 'squid', 'mussel'].some((w) =>
+      store.search(w, { limit: 3 }).hits.some((x) => /seafood-(prawn|other)/.test(x.food.tags)),
+    );
   }
 
   /**

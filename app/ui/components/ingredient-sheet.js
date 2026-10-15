@@ -6,6 +6,7 @@ import { h, uid, setText, mountChildren } from '../dom.js';
 import { iconEl } from './icons.js';
 import { halalChip, estimateBadge } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
+import { searchNoteText } from './search-notes.js';
 import { fmtKcal, fmtGrams, portionText, defaultServingOf, portionNutrients } from './format.js';
 
 const UNITS = {
@@ -288,15 +289,23 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
       all.filter((f) => !f.userRecipe && f.halal?.status !== 'not-halal'),
     );
     const blocked = all.filter((f) => f.halal?.status === 'not-halal');
+    const note = searchNoteText(q, {
+      hits: ok.length,
+      hasShellfish: () =>
+        ['prawn', 'squid', 'mussel'].some((w) =>
+          store.search(w, { limit: 3 }).hits.some((x) => /seafood-(prawn|other)/.test(x.food.tags)),
+        ),
+    });
     mountChildren(
       results,
+      note ? h('p', { class: 'help-row', 'data-testid': 'search-note', role: 'note' }, note) : null,
       ok.length
         ? h(
             'ul',
             { class: 'food-list', role: 'list' },
             ok.slice(0, 20).map((f) => row(f, amount)),
           )
-        : blocked.length
+        : blocked.length || note
           ? null
           : h('p', { class: 'empty-note' }, `Nothing found for “${q}”. Try another spelling.`),
       blocked.length
