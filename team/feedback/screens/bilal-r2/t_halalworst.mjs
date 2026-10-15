@@ -1,0 +1,12 @@
+import * as L from './lib.mjs';
+const run = await L.launch({time:'2026-10-18T18:00:00+02:00'}); const p = run.page;
+await L.skipOnboarding(run);
+await p.goto(L.URL+'#/prep'); await p.waitForSelector('[data-testid=prep-view]');
+await p.getByTestId('new-recipe').click(); await p.getByTestId('add-ingredient').click();
+const sh=p.locator('[data-testid=ingredient-sheet]'); await sh.waitFor();
+await p.getByTestId('ingredient-search').fill('1 croissant'); await p.waitForTimeout(300);
+await sh.locator('[data-testid=ingredient-row]').first().locator('.btn-plus').click();
+await sh.getByRole('button',{name:'Done'}).click(); await p.waitForTimeout(300);
+console.log('recipe halal:', (await p.getByTestId('recipe-halal').innerText()).replace(/\n+/g,' | '));
+await L.shot(run,'a16-06-recipe-halal-check');
+await run.browser.close();
