@@ -114,6 +114,17 @@ export function singularWord(word) {
   return word.endsWith('s') ? word.slice(0, -1) : word;
 }
 
+/** Shorter `matched`, then style, then the slot's hints, then name and id (Review 1 order). */
+function natural(a, b) {
+  return (
+    a.hit.matched.length - b.hit.matched.length ||
+    a.style - b.style ||
+    a.hint - b.hint ||
+    COLLATOR.compare(a.sortName, b.sortName) ||
+    COLLATOR.compare(String(a.hit.food.id), String(b.hit.food.id))
+  );
+}
+
 /**
  * Everyday foods (no style) and home style rank 0, then STYLES order: home-light (kam tel, Sprint 3:
  * right after home), restaurant, dhaba, street.
@@ -227,9 +238,10 @@ function bestMatch(entry, q, qWords, allowFuzzy, alt = null) {
  * "roti" lists rotis before roti boxes (Review 2).
  * score = TIERS[tier] + BOOST_WEIGHT * clamp(boosts[id] ?? 0, 0, 1). Sort: the person's own
  * recipes first (foodKind 'own', any tier but fuzzy: the only case where a lower score comes
- * first); then score desc, then single foods before preps, then shorter `matched`, then style (everyday or home first, then restaurant, dhaba, street: Review 1, home
- * chai before dhaba chai), then foods whose id is in `hints` (the slot's meal hints) first, then
- * name (en). Blank query -> no hits. `matched` = the original (unnormalized) string.
+ * first); then score desc, then single foods before preps, then shorter `matched`, then style (everyday or home first, then home-light, restaurant, dhaba,
+ * street: Review 1, home chai before dhaba chai), then foods whose id is in `hints` (the slot's
+ * meal hints) first, then name (en). Style variants of one family with the same score form one
+ * block at the place of the family's best match, ordered by style inside (Sprint 3). Blank query -> no hits. `matched` = the original (unnormalized) string.
  * Halal filter (meeting 002): with halalOnly (default true), foods whose halal.status is
  * 'not-halal' are moved from `hits` to `hidden` (same order), so the UI can say
  * "1 hidden: not halal" and show the reason. 'check' foods stay in hits. `limit` applies to hits.
@@ -280,16 +292,30 @@ export function searchFoods(
   };
   let matches = collect(false);
   if (matches.length < FUZZY_FILL_BELOW) matches = collect(true);
+  // Style variants of one dish (same family, same score) stay together, in style order (home,
+  // home-light, restaurant, dhaba, street), where the family's best match would be (Sprint 3:
+  // kam tel right after home, whatever the names' lengths). A food with no family leads itself.
+  const leaders = new Map();
+  for (const m of matches) {
+    const family = m.hit.food.family;
+    if (!family) {
+      m.lead = m;
+      continue;
+    }
+    const key = `${family}|${m.own}|${m.hit.score}|${m.kind}`;
+    const lead = leaders.get(key);
+    if (!lead || natural(m, lead) < 0) leaders.set(key, m);
+    m.leadKey = key;
+  }
+  for (const m of matches) if (m.leadKey) m.lead = leaders.get(m.leadKey);
   matches.sort(
     (a, b) =>
       a.own - b.own ||
       b.hit.score - a.hit.score ||
       a.kind - b.kind ||
-      a.hit.matched.length - b.hit.matched.length ||
+      natural(a.lead, b.lead) ||
       a.style - b.style ||
-      a.hint - b.hint ||
-      COLLATOR.compare(a.sortName, b.sortName) ||
-      COLLATOR.compare(String(a.hit.food.id), String(b.hit.food.id)),
+      natural(a, b),
   );
 
   const hits = [];
