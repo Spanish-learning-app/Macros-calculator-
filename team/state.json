@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-15T16:32:00Z",
+  "updatedAt": "2026-10-15T20:44:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -31,8 +31,8 @@
     },
     "ayesha": {
       "location": "office",
-      "status": "working",
-      "task": "Sprint 3 rules"
+      "status": "idle",
+      "task": "Rules 1.7.0 done; review backlog next"
     },
     "bilal": {
       "location": "office",
@@ -71,8 +71,8 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: low-cook week v2 (75.96 EUR), budget week (54.98 EUR), serve tags, feta swap R-MP-40"
+      "status": "working",
+      "task": "Variety preps"
     },
     "mariam": {
       "location": "office",
@@ -82,19 +82,19 @@
   },
   "inFlight": [
     {
-      "member": "ayesha",
-      "task": "Sprint 3 rules 1.7.0: protein nudges, Ramadan (Barcelona), weight trend, kam-tel, shortName; then review backlog",
-      "output": "rules.js, NUTRITION.md, check-foods.mjs, research/review/**"
-    },
-    {
       "member": "lena",
-      "task": "Sprint 3 wave 1: weight log + trend, spare-box warning on Day, first-run meal names, short names in rows",
+      "task": "Finish Sprint 3 wave 1 (weight log/trend, spare-box warning, meal-name choice, short names); then cuisine chips",
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
       "member": "javier",
       "task": "Base foods for meal-prep variety (team/briefs/s3-variety.md)",
       "output": "research/javier/**, his app/data files"
+    },
+    {
+      "member": "yusuf",
+      "task": "20-25 international easy preps, cuisine tags, redo weekly plans, shortName (team/briefs/s3-variety.md)",
+      "output": "foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
     }
   ],
   "checkIn": {
@@ -169,6 +169,12 @@
       "to": "2026-10-15T15:36:00Z",
       "reason": "Claude WEEKLY usage limit (resets 2026-10-18 15:00 UTC). Check-in routine disabled; one-shot wake-up trig_01WDWgsZ9ekPqCLj21nLA2PJ at 18:09 Madrid re-enables it.",
       "resumedBy": "Boss: free weekly-limit reset; asked to continue now"
+    },
+    {
+      "from": "2026-10-15T16:35:00Z",
+      "to": "2026-10-15T20:43:00Z",
+      "reason": "Session usage limit (reset 20:30 UTC)",
+      "resumedBy": "check-in backlog read at 20:43"
     }
   ],
   "workingHours": {
@@ -180,17 +186,12 @@
   },
   "queued": [
     {
-      "member": "yusuf",
-      "task": "20-25 international easy preps + redo low-cook and budget weeks (team/briefs/s3-variety.md); then plans + shortName",
-      "output": "foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
+      "member": "ayesha",
+      "task": "Review backlog (rules 1.7.0 done) incl. Zainab kam-tel and the new variety preps"
     },
     {
       "member": "lena",
       "task": "Wave 2: protein nudges + Ramadan mode UI (after Ayesha rules)"
-    },
-    {
-      "member": "yusuf",
-      "task": "Wave 2: low-cook/budget weeks as one-tap plans + shortName on preps"
     },
     {
       "member": "priya",
