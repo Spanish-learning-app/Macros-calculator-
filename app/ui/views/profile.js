@@ -323,6 +323,7 @@ export function mount(container, ctx) {
     );
   }
   let presetHelp = null;
+  let weightCard = null;
 
   function foodCard() {
     const toggle = h('input', {
@@ -450,6 +451,8 @@ export function mount(container, ctx) {
     const status = h('p', { class: 'form-status', role: 'status', 'aria-live': 'polite' });
     const meals = mealsCard();
     presetHelp = meals.querySelector('.preset-help');
+    weightCard?.destroy();
+    weightCard = createWeightCard({ store, rules });
     renderTargets();
     mountChildren(
       root,
@@ -486,6 +489,8 @@ export function mount(container, ctx) {
             }),
             status,
           ),
+          // Sprint 3 (Meeting 005): the weight log; its trend also shows on the Week view.
+          weightCard.el,
         ),
         h(
           'div',
@@ -536,6 +541,7 @@ export function mount(container, ctx) {
     },
     unmount() {
       unsubscribe();
+      weightCard?.destroy();
       toast.destroy();
       container.replaceChildren();
     },
