@@ -16,6 +16,7 @@ import {
   dayOfWeek,
   AT_LEAST_KEYS,
 } from '../components/format.js';
+import { fmtWeight, renderTrendLines, renderWeightChart } from '../components/weight-bits.js';
 
 const pct = (v, t) => (t ? `${Math.max(0, Math.min(100, (v / t) * 100)).toFixed(1)}%` : '0%');
 
@@ -253,11 +254,75 @@ export function mount(container, ctx) {
     );
   }
 
+  /**
+   * Weight (Sprint 3, Lena): the last 8 weeks up to the end of the shown week as a small chart,
+   * the trend line, and this week's readings. Logged in Profile.
+   */
+  function weightSection() {
+    const unit = store.settings().units?.weight === 'lb' ? 'lb' : 'kg';
+    const dates = store.week(date).dates;
+    const end = dates.at(-1);
+    const from = addDays(end, -55);
+    const trend = store.weightTrend();
+    const points = trend.points.filter((p) => p.date >= from && p.date <= end);
+    const thisWeek = points.filter((p) => p.date >= dates[0]);
+    const current = end >= store.today();
+    const profile = h(
+      'a',
+      { class: 'link-btn', href: router.href({ name: 'profile', params: {} }) },
+      points.length ? 'Add or change a weight in Profile' : 'Add your weight in Profile',
+    );
+    return h(
+      'section',
+      {
+        class: 'card week-weight',
+        'aria-labelledby': 'weight-title',
+        'data-testid': 'week-weight',
+      },
+      h('h3', { class: 'card-title', id: 'weight-title' }, 'Weight'),
+      points.length
+        ? [
+            renderWeightChart({ points, unit }),
+            // The rate and any suggestion are about now: shown on the current week only.
+            renderTrendLines(
+              current
+                ? trend
+                : { ...trend, latest: points.at(-1), weeklyRateKg: null, suggestion: null },
+              unit,
+            ),
+            thisWeek.length
+              ? h(
+                  'ul',
+                  { class: 'weight-list', role: 'list' },
+                  thisWeek.map((p) =>
+                    h(
+                      'li',
+                      {
+                        class: 'weight-row',
+                        'data-testid': 'week-weight-row',
+                        'data-date': p.date,
+                      },
+                      h(
+                        'span',
+                        { class: 'weight-row-main' },
+                        h('span', null, fmtDateShort(p.date)),
+                        h('span', { class: 'weight-row-kg' }, fmtWeight(p.kg, unit)),
+                      ),
+                    ),
+                  ),
+                )
+              : h('p', { class: 'field-help' }, 'No weight this week.'),
+          ]
+        : h('p', { class: 'field-help' }, 'No weights yet.'),
+      h('p', null, profile),
+    );
+  }
+
   function render() {
     mountChildren(
       root,
       h('h2', { class: 'sr-only' }, 'Week and month'),
-      h('div', { class: 'week-layout' }, weekSection(), monthSection()),
+      h('div', { class: 'week-layout' }, weekSection(), monthSection(), weightSection()),
     );
   }
 
