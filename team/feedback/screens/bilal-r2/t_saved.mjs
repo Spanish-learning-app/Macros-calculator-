@@ -30,4 +30,14 @@ L.start(run);
 await L.openSlot(run,'Dinner'); await p.waitForTimeout(300);
 await L.shot(run,'saved-04-dinner-sheet');
 console.log('dinner sheet top:', (await L.sheet(run).innerText()).replace(/\n+/g,' | ').slice(0,600));
+
+console.log('saved row html:', await L.sheet(run).locator('text=Ghar ka lunch').first().evaluate(e=>e.closest('li,div').innerHTML.slice(0,500)));
+const before=(await L.totals(run)).all.slice(0,40);
+await L.tap(run, L.sheet(run).getByRole('button',{name:/Add .*Ghar ka lunch/i}).first());
+await p.waitForTimeout(400);
+await L.done(run);
+console.log('ADD saved meal to dinner: actions', run.actions, L.elapsed(run));
+console.log('dinner entries:', await L.entries(run));
+console.log('totals', (await L.totals(run)).all.slice(0,60));
+await L.shot(run,'saved-05-dinner-added');
 await run.browser.close();

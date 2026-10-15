@@ -1,0 +1,12 @@
+import { open, shot, txt, onboard, tab, pakistaniTimes, dlg } from './lib3.mjs';
+const S = await open('2026-10-15T13:30:00+02:00'); const {page}=S;
+await onboard(page); await pakistaniTimes(page);
+const search=async(q,tag)=>{ await page.locator('[data-testid=slot-lunch] .btn-add').click(); await page.waitForTimeout(400);
+  await page.keyboard.type(q); await page.waitForTimeout(500); await shot(page,tag);
+  console.log('== '+q+' ('+tag+')\n'+(await dlg(page).innerText()).split('Halal only')[1].slice(0,600));
+  await dlg(page).getByRole('button',{name:'Done'}).click(); await page.waitForTimeout(300); };
+for (const q of ['shrimp','jhinga','prawns','tuna','crab'])  await search(q,'77-'+q+'-all');
+await tab(page,'Profile'); await page.locator('label:has-text("Fish only")').click(); await page.waitForTimeout(300);
+await tab(page,'Day');
+for (const q of ['shrimp','jhinga','crab','tuna'])  await search(q,'78-'+q+'-fishonly');
+await S.browser.close();
