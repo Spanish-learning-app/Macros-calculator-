@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-15T21:05:00Z",
+  "updatedAt": "2026-10-15T21:06:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -61,8 +61,8 @@
     },
     "javier": {
       "location": "office",
-      "status": "working",
-      "task": "Two review fixes"
+      "status": "idle",
+      "task": "Done: quinoa pouch split, corn tortilla check"
     },
     "nasreen": {
       "location": "office",
@@ -90,11 +90,6 @@
       "member": "lena",
       "task": "Wave 2: protein nudges + Ramadan mode (DECISIONS 2026-10-15 Ramadan storage)",
       "output": "app/** (not data), tests/unit/dev/**"
-    },
-    {
-      "member": "javier",
-      "task": "Ayesha's fixes: quinoa pouch values, corn tortilla check + label values",
-      "output": "research/javier/**"
     }
   ],
   "checkIn": {
