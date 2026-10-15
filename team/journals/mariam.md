@@ -13,3 +13,4 @@
   date". To me it's still tonight. M3 passes either way if it's obvious where it went and moving
   it is 1 tap. Next: run M1–M5 at Review 1 (400 px and desktop, Chromium, Europe/Madrid).
   Nothing committed.
+- 2026-10-15 00:15 UTC: REVIEW 2 started. Read common brief, my brief, Review 1 report, MEALPREP.md (library, no-cook, ready picks, low-cook week), CUSTOMER A16-A18 and D5, DESIGN-STUDY s4-5. Serving app/ on :8774, Playwright 400x860, Europe/Madrid, scripts in team/feedback/screens/mariam-r2/. Plan: explore Prep tab first, then S1 Sunday, S2 Mon-Fri, S3 Wed evening, S4 no-cook filter, S5 retest of M5 fail and R1 niggles.

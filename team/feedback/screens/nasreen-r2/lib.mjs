@@ -19,7 +19,7 @@ export async function onboard(page) {
   await page.getByRole('button',{name:'Start'}).click();
   await page.locator('input[value=female]').click();
   await page.locator('input[type=text]').nth(0).fill('42');
-  await page.locator('input[type=radio]').nth(3).click();
+  await page.locator('input[value=ftin]').click();
   const ins = page.locator('input[inputmode=decimal]');
   await ins.nth(1).fill('5'); await ins.nth(2).fill('3'); await ins.nth(3).fill('70');
   await page.locator('input[value=lose]').click();
