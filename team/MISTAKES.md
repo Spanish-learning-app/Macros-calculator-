@@ -104,6 +104,8 @@ The Manager (Omar) checks this file at every review meeting and before every rep
 - **What happened:** feed entries on the dashboard showed times hours ahead.
 - **Root cause:** I wrote times from memory instead of the clock.
 - **Fix:** I corrected them, and run `date -u` before every write.
+- **Repeat (2026-10-16 01:57 UTC):** I did it again an hour after writing this rule: I wrote "02:12" into the feed, state.json and STATUS when the clock said 01:57. I caught it myself and corrected it.
+- **Extra rule:** run `date -u` in the same command that writes the timestamp, never earlier.
 - **Rule:** see standing rule 5.
 
 ### M-02 · 2026-10-14 · Omar · Usage window burned in ten minutes
