@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T16:27:19Z",
+  "updatedAt": "2026-10-16T16:32:17Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -31,8 +31,8 @@
     },
     "ayesha": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: rules 1.7.2, halal guide data, 111 reviewed, bhindi ruled"
+      "status": "working",
+      "task": "Final reviews: 6 held preps, new records, Zainab 4, cola decision"
     },
     "bilal": {
       "location": "office",
@@ -56,8 +56,8 @@
     },
     "zainab": {
       "location": "office",
-      "status": "working",
-      "task": "Bhindi notes + rebuild for review stamps; cola duplicate; Sprint 1 FIXes"
+      "status": "idle",
+      "task": "Done: bhindi notes, cross-checks for haleem/kadhi/ras malai"
     },
     "javier": {
       "location": "office",
@@ -92,9 +92,9 @@
       "output": "app/ui/**, app/styles/**"
     },
     {
-      "member": "zainab",
-      "task": "Ayesha bhindi edits + rebuild, cola duplicate, haleem/kadhi pakora/ras malai FIXes",
-      "output": "research/zainab/**, foods-pk-*.js"
+      "member": "ayesha",
+      "task": "Re-check 6 held preps, Javier's 3 + falafel, Zainab's 4; cola decision; G19 to 0 plan",
+      "output": "research/review/**, docs/NUTRITION.md"
     }
   ],
   "checkIn": {
@@ -213,10 +213,6 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
-    {
-      "member": "ayesha",
-      "task": "Re-check the 6 held preps (#49, #51, #57, #60, #61, #64) now relinked; stamp; Zainab's cola proposal if any"
-    },
     {
       "member": "customer panel",
       "task": "Wave 3: Review 3 (full week incl. cooking from the app and Ramadan mode), fix wave, final audit, republish, delivery report"

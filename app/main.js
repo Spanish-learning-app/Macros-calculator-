@@ -49,8 +49,6 @@ async function loadFoodData() {
       status: 'ok',
       rules: mod.RULES ?? null,
       foods: Array.isArray(mod.FOODS) ? mod.FOODS : [],
-      library: await loadLibrary(),
-      plans: await loadPlans(),
     };
   } catch (error) {
     console.error('Katori: food data could not be loaded.', error);
@@ -78,6 +76,29 @@ async function loadPlans() {
     return null;
   }
 }
+
+/**
+ * The Lab's library recipes (methods, ~330 KB) and weekly plans are not needed for the first
+ * screen (STATUS O16, Priya): they load once, when Prep opens or a batch exists (box use-by dates
+ * and the add sheet's box rows read the library recipe). Foods, search included, load at start.
+ */
+function createLabLoader(store) {
+  let pending = null;
+  return {
+    load() {
+      pending ??= Promise.all([loadLibrary(), loadPlans()]).then(([library, plans]) => {
+        store.setLabData({ library, plans });
+      });
+      return pending;
+    },
+    get started() {
+      return pending !== null;
+    },
+  };
+}
+
+const needsLab = (store, route) =>
+  route.name === 'prep' || (store.getState().data.batches?.length ?? 0) > 0;
 
 /** window.localStorage, or null when even touching it throws (privacy modes, some Artifacts). */
 function storageBackend() {
@@ -239,8 +260,6 @@ async function boot() {
       persistence,
       rules: data.rules,
       foods: data.foods,
-      library: data.library ?? [],
-      plans: data.plans ?? null,
       foodsStatus: data.status,
       makeId: idMaker(),
       timeZone: deviceTimeZone(),
@@ -256,8 +275,13 @@ async function boot() {
   });
 
   const views = createViewHost(shell, { store, router, rules: data.rules });
+  const lab = createLabLoader(store);
+  // Data imported with batches needs the library recipes too (use-by dates).
+  store.subscribe((state) => {
+    if (!lab.started && state.data.batches?.length) lab.load();
+  });
 
-  function route(r) {
+  async function route(r) {
     if (r.name === 'notfound') {
       router.go({ name: 'day', params: { date: null } }, { replace: true });
       return;
@@ -265,6 +289,10 @@ async function boot() {
     if (NEEDS_ONBOARDING.has(r.name) && store.needsOnboarding()) {
       router.go({ name: 'welcome', params: {} }, { replace: true });
       return;
+    }
+    if (needsLab(store, r)) {
+      await lab.load();
+      if (router.current().name !== r.name) return; // the person moved on while it loaded
     }
     views.show(r);
   }
