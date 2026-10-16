@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-15T21:07:00Z",
+  "updatedAt": "2026-10-16T01:52:00Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -22,12 +22,12 @@
     "omar": {
       "location": "office",
       "status": "working",
-      "task": "Night shift: coordinating Sprint 2"
+      "task": "Mistakes log, status file, orphan audit (Boss request)"
     },
     "lena": {
       "location": "office",
       "status": "working",
-      "task": "Protein nudges + Ramadan mode"
+      "task": "How to make it UI, then Ramadan UI"
     },
     "ayesha": {
       "location": "office",
@@ -57,7 +57,7 @@
     "zainab": {
       "location": "office",
       "status": "idle",
-      "task": "Done: 17 kam-tel variants, 64 short names"
+      "task": "Next: beginner methods for the desi preps (s3-method Addendum)"
     },
     "javier": {
       "location": "office",
@@ -72,7 +72,7 @@
     "yusuf": {
       "location": "office",
       "status": "working",
-      "task": "Variety preps"
+      "task": "Variety preps 41-64 + method pipeline + beginner methods (non-desi)"
     },
     "mariam": {
       "location": "office",
@@ -83,18 +83,13 @@
   "inFlight": [
     {
       "member": "yusuf",
-      "task": "20-25 international easy preps, cuisine tags, redo weekly plans, shortName (team/briefs/s3-variety.md) + beginner method on every library recipe (team/briefs/s3-method.md)",
-      "output": "foods-mealprep.js, recipes-mealprep.js, research/yusuf/**, docs/MEALPREP.md"
+      "task": "Finish variety preps 41-64 (cuisine, shortName), build.mjs method pipeline, beginner methods for all non-desi sheets (s3-variety, s3-method Addendum)",
+      "output": "research/yusuf/**, foods-mealprep.js, recipes-mealprep.js, docs/MEALPREP.md"
     },
     {
       "member": "lena",
-      "task": "Wave 2: protein nudges + Ramadan mode (DECISIONS 2026-10-15 Ramadan storage)",
-      "output": "app/** (not data), tests/unit/dev/**"
-    },
-    {
-      "member": "kenji",
-      "task": "Independent tests for Sprint 3 wave 1 (weight trend, kam-tel gate, shortName, e2e weight/spare-box/meal names/cuisine chips)",
-      "output": "tests/**"
+      "task": "Stabilise protein-tip UI, then How to make it (cards, Cook dialog, step mode, My method), then Ramadan UI",
+      "output": "app/** (not data), docs/ARCHITECTURE.md, tests/unit/dev/**"
     }
   ],
   "checkIn": {
@@ -131,6 +126,10 @@
     {
       "at": "2026-10-15T00:10:01Z",
       "result": "5 check-ins (20:09-00:10) delivered at reset. Inbox empty. Yusuf restarted fresh; Review 2 started with Bilal and Nasreen (sonnet). Mariam queued for when Yusuf lands (low-cook week)."
+    },
+    {
+      "at": "2026-10-16T01:44:00Z",
+      "result": "5 check-ins (21:09-01:10 UTC) delivered at reset. Boss message on methods gap answered: MISTAKES.md, STATUS.md, definition of done, orphan audit. Yusuf and Lena restarted fresh; Zainab and Kenji queued."
     }
   ],
   "pauses": [
@@ -175,6 +174,12 @@
       "to": "2026-10-15T20:43:00Z",
       "reason": "Session usage limit (reset 20:30 UTC)",
       "resumedBy": "check-in backlog read at 20:43"
+    },
+    {
+      "from": "2026-10-15T21:10:00Z",
+      "to": "2026-10-16T01:44:00Z",
+      "reason": "Session usage limit",
+      "resumedBy": "check-in backlog read at 01:44"
     }
   ],
   "workingHours": {
@@ -186,12 +191,16 @@
   },
   "queued": [
     {
-      "member": "lena",
-      "task": "After Ramadan: \"How to make it\" UI + step-by-step mode + My method (team/briefs/s3-method.md)"
+      "member": "zainab",
+      "task": "Beginner methods for the desi sheets 01-04, 08, 09, 14, 16-24, 28, 35, 39 (s3-method Addendum)"
     },
     {
-      "member": "lena",
-      "task": "Wave 2: protein nudges + Ramadan mode UI (after Ayesha rules)"
+      "member": "kenji",
+      "task": "Sprint 3 wave 1 tests (partial on disk) + method contract tests + e2e step walkthrough"
+    },
+    {
+      "member": "yusuf",
+      "task": "Weekly plans redo (low-cook, budget) as one-tap plans"
     },
     {
       "member": "priya",
@@ -199,7 +208,7 @@
     },
     {
       "member": "customer panel",
-      "task": "Wave 3: Review 3 (full week incl. Ramadan mode), then fix wave, final audit, delivery report"
+      "task": "Wave 3: Review 3 (full week incl. cooking from the app and Ramadan mode), fix wave, final audit, republish, delivery report"
     }
   ],
   "reports": [

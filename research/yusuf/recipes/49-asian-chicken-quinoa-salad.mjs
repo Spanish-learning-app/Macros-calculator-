@@ -7,7 +7,7 @@ export default {
   minutes: 20,
   cuisine: 'asian',
   shortName: 'Asian chicken quinoa',
-  id: 'as-chicken-quinoa-peanut-salad-box',
+  id: 'intl-chicken-quinoa-peanut-salad-box',
   name: 'Asian chicken and quinoa salad with peanuts and ginger dressing (cold lunch box)',
   names: {
     en: 'Asian chicken and quinoa salad with peanuts and a ginger dressing',

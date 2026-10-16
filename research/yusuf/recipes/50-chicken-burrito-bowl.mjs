@@ -7,7 +7,7 @@ export default {
   minutes: 20,
   cuisine: 'mexican',
   shortName: 'Chicken burrito bowl',
-  id: 'mx-chicken-burrito-bowl-box',
+  id: 'intl-chicken-burrito-bowl-box',
   name: 'Chicken burrito bowl with beans, corn, rice and salsa (lunch box)',
   names: {
     en: 'Chicken burrito bowl with kidney beans, corn, brown rice and salsa',

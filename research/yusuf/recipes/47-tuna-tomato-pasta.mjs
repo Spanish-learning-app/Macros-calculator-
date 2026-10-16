@@ -7,7 +7,7 @@ export default {
   minutes: 20,
   cuisine: 'italian',
   shortName: 'Tuna tomato pasta',
-  id: 'it-tuna-tomato-pasta-box',
+  id: 'intl-tuna-tomato-pasta-box',
   name: 'Tuna, tomato, pea and olive pasta (lunch box)',
   names: {
     en: 'Tuna, tomato, pea and olive wholewheat pasta',

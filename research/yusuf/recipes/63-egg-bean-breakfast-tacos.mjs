@@ -8,7 +8,7 @@ export default {
   minutes: 15,
   cuisine: 'mexican',
   shortName: 'Egg and bean tacos',
-  id: 'mx-egg-bean-breakfast-tacos-portion',
+  id: 'intl-egg-bean-breakfast-tacos-portion',
   name: 'Egg and bean breakfast tacos with salsa (breakfast portion)',
   names: {
     en: 'Egg and kidney-bean breakfast tacos on corn tortillas with salsa',

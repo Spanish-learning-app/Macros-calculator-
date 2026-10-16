@@ -7,7 +7,7 @@ export default {
   minutes: 25,
   cuisine: 'italian',
   shortName: 'Chicken pesto pasta',
-  id: 'it-chicken-broccoli-pesto-pasta-box',
+  id: 'intl-chicken-broccoli-pesto-pasta-box',
   name: 'Chicken, broccoli and almond pesto pasta (lunch box)',
   names: {
     en: 'Chicken, broccoli and almond-basil pesto pasta',

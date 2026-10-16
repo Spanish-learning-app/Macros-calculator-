@@ -9,7 +9,7 @@ export default {
   minutes: 30,
   cuisine: 'middle-eastern',
   shortName: 'Harira with beef',
-  id: 'me-harira-beef-portion',
+  id: 'med-harira-beef-portion',
   name: 'Harira: beef, lentil and chickpea soup with bread (dinner portion)',
   names: {
     en: 'Harira: Moroccan beef, lentil and chickpea soup with bread',

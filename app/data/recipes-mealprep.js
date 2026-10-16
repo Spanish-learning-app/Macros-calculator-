@@ -1398,7 +1398,7 @@ export default [
     cuisine: 'spanish',
   },
   {
-    foodId: 'me-chicken-shawarma-pita-box',
+    foodId: 'med-chicken-shawarma-pita-box',
     boxes: 4,
     storage: [
       'cooked-meat',
@@ -1462,7 +1462,7 @@ export default [
     cuisine: 'international',
   },
   {
-    foodId: 'it-beef-bolognese-pasta-box',
+    foodId: 'intl-beef-bolognese-pasta-box',
     boxes: 4,
     storage: ['cooked-meat', 'cooked-starch'],
     ingredients: [
@@ -1484,7 +1484,7 @@ export default [
     cuisine: 'italian',
   },
   {
-    foodId: 'it-chicken-broccoli-pesto-pasta-box',
+    foodId: 'intl-chicken-broccoli-pesto-pasta-box',
     boxes: 4,
     storage: ['cooked-meat', 'cooked-starch', 'cold-salad'],
     ingredients: [
@@ -1510,7 +1510,7 @@ export default [
     cuisine: 'italian',
   },
   {
-    foodId: 'it-tuna-tomato-pasta-box',
+    foodId: 'intl-tuna-tomato-pasta-box',
     boxes: 4,
     storage: ['cooked-meat', 'cooked-starch'],
     ingredients: [
@@ -1567,7 +1567,7 @@ export default [
     cuisine: 'mediterranean',
   },
   {
-    foodId: 'as-chicken-quinoa-peanut-salad-box',
+    foodId: 'intl-chicken-quinoa-peanut-salad-box',
     boxes: 2,
     storage: [
       'cooked-meat',
@@ -1606,7 +1606,7 @@ export default [
     cuisine: 'asian',
   },
   {
-    foodId: 'mx-chicken-burrito-bowl-box',
+    foodId: 'intl-chicken-burrito-bowl-box',
     boxes: 4,
     storage: [
       'cooked-meat',
@@ -1640,7 +1640,7 @@ export default [
     cuisine: 'mexican',
   },
   {
-    foodId: 'as-chicken-rice-noodle-stir-fry-box',
+    foodId: 'intl-chicken-rice-noodle-stir-fry-box',
     boxes: 4,
     storage: ['cooked-meat', 'cooked-curry', 'cooked-starch'],
     ingredients: [
@@ -1738,7 +1738,7 @@ export default [
     cuisine: 'mediterranean',
   },
   {
-    foodId: 'mx-chili-con-carne-rice-portion',
+    foodId: 'intl-chili-con-carne-rice-portion',
     boxes: 4,
     storage: [
       'cooked-meat',
@@ -1766,7 +1766,7 @@ export default [
     cuisine: 'mexican',
   },
   {
-    foodId: 'me-shakshuka-garbanzos-portion',
+    foodId: 'med-shakshuka-garbanzos-portion',
     boxes: 4,
     storage: [
       'cooked-curry',
@@ -1793,7 +1793,7 @@ export default [
     cuisine: 'middle-eastern',
   },
   {
-    foodId: 'me-harira-beef-portion',
+    foodId: 'med-harira-beef-portion',
     boxes: 4,
     storage: ['cooked-meat'],
     ingredients: [
@@ -1820,7 +1820,7 @@ export default [
     cuisine: 'middle-eastern',
   },
   {
-    foodId: 'it-chicken-spinach-pasta-bake-portion',
+    foodId: 'intl-chicken-spinach-pasta-bake-portion',
     boxes: 4,
     storage: ['cooked-meat', 'cooked-starch'],
     ingredients: [
@@ -1920,7 +1920,7 @@ export default [
     cuisine: 'international',
   },
   {
-    foodId: 'me-menemen-portion',
+    foodId: 'med-menemen-portion',
     boxes: 2,
     storage: ['egg-dish'],
     ingredients: [
@@ -1938,7 +1938,7 @@ export default [
     cuisine: 'middle-eastern',
   },
   {
-    foodId: 'mx-egg-bean-breakfast-tacos-portion',
+    foodId: 'intl-egg-bean-breakfast-tacos-portion',
     boxes: 2,
     storage: [
       'egg-dish',
@@ -1964,7 +1964,7 @@ export default [
     cuisine: 'mexican',
   },
   {
-    foodId: 'it-caprese-snack-box',
+    foodId: 'intl-caprese-snack-box',
     boxes: 2,
     storage: ['cold-salad'],
     ingredients: [

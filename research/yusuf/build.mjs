@@ -525,8 +525,8 @@ const WEEKS = {
   v3: {
     batches: [
       { id: 'es-pollo-patatas-pimientos-horno-portion', when: 'Sunday', make: 4, note: 'Mon–Wed dinners (cooked meat keeps 3 days); the 4th portion goes in the freezer for next week' },
-      { id: 'mx-chicken-burrito-bowl-box', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'Mon, Tue lunches: half the 4-box recipe (1 pack of 2 rice cups)' },
-      { id: 'it-beef-bolognese-pasta-box', when: 'Sunday', make: 4, note: 'the sauce: 1 portion in the fridge for Wednesday, 3 in the freezer for the next weeks; boil the penne on Tuesday night (8 min)' },
+      { id: 'intl-chicken-burrito-bowl-box', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'Mon, Tue lunches: half the 4-box recipe (1 pack of 2 rice cups)' },
+      { id: 'intl-beef-bolognese-pasta-box', when: 'Sunday', make: 4, note: 'the sauce: 1 portion in the fridge for Wednesday, 3 in the freezer for the next weeks; boil the penne on Tuesday night (8 min)' },
       { id: 'es-queso-batido-parfait-jar', when: 'Sunday', make: 3, note: 'Mon–Wed breakfasts' },
       { id: 'es-bocadillo-atun-huevo-box', when: 'Wednesday night', make: 1, note: 'Thursday lunch: half the recipe (boil the egg while you mix)' },
       { id: 'intl-banana-oat-smoothie-jar', when: 'Wednesday night', make: 1, note: 'Thursday breakfast' },
@@ -536,9 +536,9 @@ const WEEKS = {
       { id: 'pk-chicken-karahi-roti-portion', when: 'Friday morning', make: 1, from: 'freezer', note: 'move 1 portion (with its 2 roti) from the freezer to the fridge for Friday dinner; cooked on an earlier Sunday' },
     ],
     days: [
-      { day: 'Monday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'mx-chicken-burrito-bowl-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-banana', 'medium', 1, 'banana'), R('intl-kinnow', 'medium', 1, 'mandarin'), R('intl-almonds', 'ten', 1, 'almonds')] },
-      { day: 'Tuesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'mx-chicken-burrito-bowl-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-queso-burgos-0', 'tub', 1, 'burgos-0'), R('intl-apple', 'medium', 1, 'apple'), R('intl-almonds', 'ten', 1, 'almonds'), R('es-picos-integrales', '30g', 1, 'picos')] },
-      { day: 'Wednesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'it-beef-bolognese-pasta-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-pear', 'medium', 1, 'pear'), R('intl-almonds', 'ten', 1, 'almonds')] },
+      { day: 'Monday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-chicken-burrito-bowl-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-banana', 'medium', 1, 'banana'), R('intl-kinnow', 'medium', 1, 'mandarin'), R('intl-almonds', 'ten', 1, 'almonds')] },
+      { day: 'Tuesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-chicken-burrito-bowl-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-queso-burgos-0', 'tub', 1, 'burgos-0'), R('intl-apple', 'medium', 1, 'apple'), R('intl-almonds', 'ten', 1, 'almonds'), R('es-picos-integrales', '30g', 1, 'picos')] },
+      { day: 'Wednesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-beef-bolognese-pasta-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-pear', 'medium', 1, 'pear'), R('intl-almonds', 'ten', 1, 'almonds')] },
       { day: 'Thursday', breakfast: 'intl-banana-oat-smoothie-jar', lunch: 'es-bocadillo-atun-huevo-box', dinner: 'es-crema-verduras-huevo-garbanzos-portion', ready: [R('intl-kinnow', 'medium', 1, 'mandarin'), R('es-queso-burgos-0', 'tub', 1, 'burgos-0')] },
       { day: 'Friday', breakfast: 'intl-banana-oat-smoothie-jar', lunch: 'intl-chicken-caesar-salad-box', dinner: 'pk-chicken-karahi-roti-portion', ready: [R('intl-apple', 'medium', 1, 'apple'), R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-almonds', 'ten', 1, 'almonds')] },
     ],
@@ -548,22 +548,22 @@ const WEEKS = {
   budget: {
     buy: { egg: { id: 31540, units: 6 } }, // the box of 6 large eggs, not 12
     batches: [
-      { id: 'it-tuna-tomato-pasta-box', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'Mon lunch and 1 box in the freezer for next week: half the recipe' },
-      { id: 'it-chicken-spinach-pasta-bake-portion', when: 'Sunday', make: 4, note: 'Mon dinner (fridge, pasta keeps 1 day); 3 in the freezer: Wednesday\'s dinner and 2 for next week' },
-      { id: 'me-shakshuka-garbanzos-portion', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'the sauce for Tue and Thu dinners (half the recipe); 2 eggs cracked in on the night' },
+      { id: 'intl-tuna-tomato-pasta-box', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'Mon lunch and 1 box in the freezer for next week: half the recipe' },
+      { id: 'intl-chicken-spinach-pasta-bake-portion', when: 'Sunday', make: 4, note: 'Mon dinner (fridge, pasta keeps 1 day); 3 in the freezer: Wednesday\'s dinner and 2 for next week' },
+      { id: 'med-shakshuka-garbanzos-portion', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'the sauce for Tue and Thu dinners (half the recipe); 2 eggs cracked in on the night' },
       { id: 'intl-overnight-oats-protein-jar', when: 'Sunday', make: 3, note: 'Mon–Wed breakfasts' },
       { id: 'es-bocadillo-pollo-piquillo-box', when: 'Monday night', make: 2, note: 'Tue, Wed lunches' },
       { id: 'med-lentil-rice-burgos-bowl-box', when: 'Wednesday night', make: 1, note: 'Thursday lunch (half the recipe: the other half jar of lentils goes into Friday\'s caesar or a salad)' },
-      { id: 'me-menemen-portion', when: 'Wednesday night', make: 2, note: 'Thu breakfast that night\'s pan, Fri reheated' },
+      { id: 'med-menemen-portion', when: 'Wednesday night', make: 2, note: 'Thu breakfast that night\'s pan, Fri reheated' },
       { id: 'intl-chicken-caesar-salad-box', when: 'Thursday night', make: 1, scale: true, minutes: 15, note: 'Friday lunch: half the recipe' },
       { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 2, note: 'dinner; the second portion goes in the freezer' },
     ],
     days: [
-      { day: 'Monday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'it-tuna-tomato-pasta-box', dinner: 'it-chicken-spinach-pasta-bake-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-apple', 'medium', 1, 'apple')] },
-      { day: 'Tuesday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'es-bocadillo-pollo-piquillo-box', dinner: 'me-shakshuka-garbanzos-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-apple', 'medium', 1, 'apple')] },
-      { day: 'Wednesday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'es-bocadillo-pollo-piquillo-box', dinner: 'it-chicken-spinach-pasta-bake-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-kinnow', 'medium', 1, 'mandarin')] },
-      { day: 'Thursday', breakfast: 'me-menemen-portion', lunch: 'med-lentil-rice-burgos-bowl-box', dinner: 'me-shakshuka-garbanzos-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt')] },
-      { day: 'Friday', breakfast: 'me-menemen-portion', lunch: 'intl-chicken-caesar-salad-box', dinner: 'pk-microwave-chana-masala-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-apple', 'medium', 1, 'apple')] },
+      { day: 'Monday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'intl-tuna-tomato-pasta-box', dinner: 'intl-chicken-spinach-pasta-bake-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-apple', 'medium', 1, 'apple')] },
+      { day: 'Tuesday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'es-bocadillo-pollo-piquillo-box', dinner: 'med-shakshuka-garbanzos-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-apple', 'medium', 1, 'apple')] },
+      { day: 'Wednesday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'es-bocadillo-pollo-piquillo-box', dinner: 'intl-chicken-spinach-pasta-bake-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-kinnow', 'medium', 1, 'mandarin')] },
+      { day: 'Thursday', breakfast: 'med-menemen-portion', lunch: 'med-lentil-rice-burgos-bowl-box', dinner: 'med-shakshuka-garbanzos-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt')] },
+      { day: 'Friday', breakfast: 'med-menemen-portion', lunch: 'intl-chicken-caesar-salad-box', dinner: 'pk-microwave-chana-masala-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-apple', 'medium', 1, 'apple')] },
     ],
   },
 };

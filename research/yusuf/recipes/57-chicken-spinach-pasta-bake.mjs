@@ -8,7 +8,7 @@ export default {
   minutes: 25,
   cuisine: 'italian',
   shortName: 'Chicken pasta bake',
-  id: 'it-chicken-spinach-pasta-bake-portion',
+  id: 'intl-chicken-spinach-pasta-bake-portion',
   name: 'Chicken, spinach and tomato pasta bake with mozzarella (dinner portion)',
   names: {
     en: 'Chicken, spinach and tomato pasta bake with mozzarella',

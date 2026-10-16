@@ -7,7 +7,7 @@ export default {
   minutes: 25,
   cuisine: 'middle-eastern',
   shortName: 'Chicken shawarma pitas',
-  id: 'me-chicken-shawarma-pita-box',
+  id: 'med-chicken-shawarma-pita-box',
   name: 'Chicken shawarma pitas with garlic yogurt, hummus and salad (lunch box)',
   names: {
     en: 'Chicken shawarma pitas with garlic yogurt, hummus and salad',

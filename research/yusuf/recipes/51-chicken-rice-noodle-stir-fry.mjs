@@ -7,7 +7,7 @@ export default {
   minutes: 25,
   cuisine: 'asian',
   shortName: 'Chicken rice noodles',
-  id: 'as-chicken-rice-noodle-stir-fry-box',
+  id: 'intl-chicken-rice-noodle-stir-fry-box',
   name: 'Chicken and vegetable rice-noodle stir-fry with halal soy (lunch box)',
   names: {
     en: 'Chicken and vegetable rice-noodle stir-fry with halal soy sauce',

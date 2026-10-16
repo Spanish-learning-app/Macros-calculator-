@@ -160,3 +160,12 @@
 - New Mercadona snapshot 2026-10-15 (all categories of the 10-14 snap + 56 queso rallado/lonchas, 116 mayonesa,
   140 platos calientes, 31 pescado fresco, 149 pescado congelado, 48 aves cocidas for reference). The new preps
   and both weeks are priced on 2026-10-15; the Sprint 1/2 sheets keep their own dates.
+
+## 2026-10-16 — Resume after usage-limit stop: finish variety, method pipeline, beginner methods
+
+- 01:48 UTC Resumed (fresh agent). Read _common, MISTAKES (M-01 is partly mine: methods never reached the app), my brief,
+  s3-variety, s3-method + Addendum. On disk: sheets 41–64 (.mjs + generated .md), build.mjs with cuisine/shortName,
+  v3 and budget weeks already reworked in build.mjs (weeks are a separate queued task: not touched in this run).
+  Rebuild works (only the build date moves). check-foods: 14 FAIL, all G1: the new ids use prefixes `me-`, `it-`, `as-`,
+  `mx-`, but NUTRITION §3 allows only pk-/es-/med-/intl-. The ids were never published (artifact published 10-15 16:17,
+  ids first committed 10-16 01:45 as WIP), so renaming is allowed: me- → med-, it-/as-/mx- → intl-. No collisions.

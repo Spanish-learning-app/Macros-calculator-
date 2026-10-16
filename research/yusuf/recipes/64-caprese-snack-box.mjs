@@ -8,7 +8,7 @@ export default {
   minutes: 5,
   cuisine: 'italian',
   shortName: 'Caprese snack box',
-  id: 'it-caprese-snack-box',
+  id: 'intl-caprese-snack-box',
   name: 'Caprese snack box: mozzarella, cherry tomatoes, basil and picos (snack box)',
   names: {
     en: 'Caprese snack box: mozzarella light, cherry tomatoes, basil and picos',

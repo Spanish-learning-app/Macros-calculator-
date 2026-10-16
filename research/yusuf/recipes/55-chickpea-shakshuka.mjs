@@ -9,7 +9,7 @@ export default {
   minutes: 20,
   cuisine: 'middle-eastern',
   shortName: 'Chickpea shakshuka',
-  id: 'me-shakshuka-garbanzos-portion',
+  id: 'med-shakshuka-garbanzos-portion',
   name: 'Chickpea shakshuka with eggs, bread and yogurt (dinner portion)',
   names: {
     en: 'Chickpea shakshuka with eggs, bread and yogurt',

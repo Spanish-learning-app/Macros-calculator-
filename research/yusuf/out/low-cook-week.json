@@ -8,7 +8,7 @@
     "protein": 136.946,
     "fiber": 46.152,
     "breakfast": "es-queso-batido-parfait-jar",
-    "lunch": "mx-chicken-burrito-bowl-box",
+    "lunch": "intl-chicken-burrito-bowl-box",
     "dinner": "es-pollo-patatas-pimientos-horno-portion",
     "lunchCuisine": "mexican",
     "dinnerCuisine": "spanish"
@@ -19,7 +19,7 @@
     "protein": 135.19,
     "fiber": 49.168,
     "breakfast": "es-queso-batido-parfait-jar",
-    "lunch": "mx-chicken-burrito-bowl-box",
+    "lunch": "intl-chicken-burrito-bowl-box",
     "dinner": "es-pollo-patatas-pimientos-horno-portion",
     "lunchCuisine": "mexican",
     "dinnerCuisine": "spanish"
@@ -30,7 +30,7 @@
     "protein": 128.256,
     "fiber": 48.318000000000005,
     "breakfast": "es-queso-batido-parfait-jar",
-    "lunch": "it-beef-bolognese-pasta-box",
+    "lunch": "intl-beef-bolognese-pasta-box",
     "dinner": "es-pollo-patatas-pimientos-horno-portion",
     "lunchCuisine": "italian",
     "dinnerCuisine": "spanish"
@@ -74,8 +74,8 @@
     "protein": 115.94399999999999,
     "fiber": 49.436,
     "breakfast": "intl-overnight-oats-protein-jar",
-    "lunch": "it-tuna-tomato-pasta-box",
-    "dinner": "it-chicken-spinach-pasta-bake-portion",
+    "lunch": "intl-tuna-tomato-pasta-box",
+    "dinner": "intl-chicken-spinach-pasta-bake-portion",
     "lunchCuisine": "italian",
     "dinnerCuisine": "italian"
    },
@@ -86,7 +86,7 @@
     "fiber": 43.336,
     "breakfast": "intl-overnight-oats-protein-jar",
     "lunch": "es-bocadillo-pollo-piquillo-box",
-    "dinner": "me-shakshuka-garbanzos-portion",
+    "dinner": "med-shakshuka-garbanzos-portion",
     "lunchCuisine": "spanish",
     "dinnerCuisine": "middle-eastern"
    },
@@ -97,7 +97,7 @@
     "fiber": 38.052,
     "breakfast": "intl-overnight-oats-protein-jar",
     "lunch": "es-bocadillo-pollo-piquillo-box",
-    "dinner": "it-chicken-spinach-pasta-bake-portion",
+    "dinner": "intl-chicken-spinach-pasta-bake-portion",
     "lunchCuisine": "spanish",
     "dinnerCuisine": "italian"
    },
@@ -106,9 +106,9 @@
     "kcal": 1868.42,
     "protein": 110.498,
     "fiber": 40.467999999999996,
-    "breakfast": "me-menemen-portion",
+    "breakfast": "med-menemen-portion",
     "lunch": "med-lentil-rice-burgos-bowl-box",
-    "dinner": "me-shakshuka-garbanzos-portion",
+    "dinner": "med-shakshuka-garbanzos-portion",
     "lunchCuisine": "mediterranean",
     "dinnerCuisine": "middle-eastern"
    },
@@ -117,7 +117,7 @@
     "kcal": 1909.66,
     "protein": 110.24399999999999,
     "fiber": 43.535999999999994,
-    "breakfast": "me-menemen-portion",
+    "breakfast": "med-menemen-portion",
     "lunch": "intl-chicken-caesar-salad-box",
     "dinner": "pk-microwave-chana-masala-portion",
     "lunchCuisine": "international",

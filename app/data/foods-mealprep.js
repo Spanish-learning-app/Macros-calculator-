@@ -1445,7 +1445,7 @@ export default [
     },
   },
   {
-    id: 'me-chicken-shawarma-pita-box',
+    id: 'med-chicken-shawarma-pita-box',
     name: 'Chicken shawarma pitas with garlic yogurt, hummus and salad (lunch box)',
     shortName: 'Chicken shawarma pitas',
     aliases: ['Pitas de shawarma de pollo con yogur al ajo, hummus y ensalada', 'Pites de shawarma de pollastre amb iogurt a l\'all, hummus i amanida', 'shawarma', 'chicken shawarma', 'shawarma de pollo', 'shawarma pita', 'pita de pollo', 'chicken pita', 'doner pita', 'chicken kebab pita'],
@@ -1473,7 +1473,7 @@ export default [
       reason: 'Chicken from a halal butcher; yogurt (milk and cultures), hummus with additives de origen vegetal, pita without E471.',
     },
     source: {
-      citation: 'Recipe R-MP-43: Chicken shawarma pitas with garlic yogurt, hummus and salad, standard batch of 4 boxes (research/yusuf/recipes/me-chicken-shawarma-pita-box.md)',
+      citation: 'Recipe R-MP-43: Chicken shawarma pitas with garlic yogurt, hummus and salad, standard batch of 4 boxes (research/yusuf/recipes/med-chicken-shawarma-pita-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1519,7 +1519,7 @@ export default [
     },
   },
   {
-    id: 'it-beef-bolognese-pasta-box',
+    id: 'intl-beef-bolognese-pasta-box',
     name: 'Halal beef bolognese with wholewheat penne (lunch box)',
     shortName: 'Beef bolognese pasta',
     nameRoman: 'bolognese pasta',
@@ -1545,7 +1545,7 @@ export default [
     slots: ['lunch'],
     halal: { status: 'halal', reason: 'Beef mince from a halal butcher; no wine, no stock cubes.' },
     source: {
-      citation: 'Recipe R-MP-45: Halal beef bolognese with wholewheat penne, standard batch of 4 boxes (research/yusuf/recipes/it-beef-bolognese-pasta-box.md)',
+      citation: 'Recipe R-MP-45: Halal beef bolognese with wholewheat penne, standard batch of 4 boxes (research/yusuf/recipes/intl-beef-bolognese-pasta-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1554,7 +1554,7 @@ export default [
     },
   },
   {
-    id: 'it-chicken-broccoli-pesto-pasta-box',
+    id: 'intl-chicken-broccoli-pesto-pasta-box',
     name: 'Chicken, broccoli and almond pesto pasta (lunch box)',
     shortName: 'Chicken pesto pasta',
     nameRoman: 'pesto pasta',
@@ -1580,7 +1580,7 @@ export default [
     slots: ['lunch'],
     halal: { status: 'halal', reason: 'Chicken from a halal butcher; home-made pesto with no cheese.' },
     source: {
-      citation: 'Recipe R-MP-46: Chicken, broccoli and almond-basil pesto pasta, standard batch of 4 boxes (research/yusuf/recipes/it-chicken-broccoli-pesto-pasta-box.md)',
+      citation: 'Recipe R-MP-46: Chicken, broccoli and almond-basil pesto pasta, standard batch of 4 boxes (research/yusuf/recipes/intl-chicken-broccoli-pesto-pasta-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1589,7 +1589,7 @@ export default [
     },
   },
   {
-    id: 'it-tuna-tomato-pasta-box',
+    id: 'intl-tuna-tomato-pasta-box',
     name: 'Tuna, tomato, pea and olive pasta (lunch box)',
     shortName: 'Tuna tomato pasta',
     aliases: ['Macarrones integrales con atún, tomate, guisantes y aceitunas', 'Macarrons integrals amb tonyina, tomàquet, pèsols i olives', 'tuna pasta', 'pasta con atun', 'macarrones con atun', 'pasta tonno', 'tuna tomato pasta', 'macarrons amb tonyina', 'pasta atun tomate'],
@@ -1617,7 +1617,7 @@ export default [
       reason: 'Tuna (tuna, water, salt), tomato, olives (no anchovy: plain pitted manzanilla 33114, read 2026-10-15); no wine.',
     },
     source: {
-      citation: 'Recipe R-MP-47: Tuna, tomato, pea and olive wholewheat pasta, standard batch of 4 boxes (research/yusuf/recipes/it-tuna-tomato-pasta-box.md)',
+      citation: 'Recipe R-MP-47: Tuna, tomato, pea and olive wholewheat pasta, standard batch of 4 boxes (research/yusuf/recipes/intl-tuna-tomato-pasta-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1663,7 +1663,7 @@ export default [
     },
   },
   {
-    id: 'as-chicken-quinoa-peanut-salad-box',
+    id: 'intl-chicken-quinoa-peanut-salad-box',
     name: 'Asian chicken and quinoa salad with peanuts and ginger dressing (cold lunch box)',
     shortName: 'Asian chicken quinoa',
     aliases: ['Ensalada asiática de quinoa y pollo con cacahuetes y aliño de jengibre', 'Amanida asiàtica de quinoa i pollastre amb cacauets i amaniment de gingebre', 'quinoa salad', 'asian salad', 'chicken quinoa salad', 'ensalada de quinoa', 'peanut chicken salad', 'amanida de quinoa', 'crunchy asian salad'],
@@ -1691,7 +1691,7 @@ export default [
       reason: 'With a halal-certified soy sauce, as the recipe says. Brewed soy sauce can carry alcohol from fermentation, so with an uncertified bottle (Mercadona\'s Hacendado 17360 lists none, 2026-10-15) treat it as check.',
     },
     source: {
-      citation: 'Recipe R-MP-49: Asian chicken and quinoa salad with peanuts and a ginger dressing, standard batch of 2 boxes (research/yusuf/recipes/as-chicken-quinoa-peanut-salad-box.md)',
+      citation: 'Recipe R-MP-49: Asian chicken and quinoa salad with peanuts and a ginger dressing, standard batch of 2 boxes (research/yusuf/recipes/intl-chicken-quinoa-peanut-salad-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1700,7 +1700,7 @@ export default [
     },
   },
   {
-    id: 'mx-chicken-burrito-bowl-box',
+    id: 'intl-chicken-burrito-bowl-box',
     name: 'Chicken burrito bowl with beans, corn, rice and salsa (lunch box)',
     shortName: 'Chicken burrito bowl',
     aliases: ['Burrito bowl de pollo con alubias rojas, maíz, arroz integral y salsa', 'Burrito bowl de pollastre amb mongetes vermelles, blat de moro, arròs integral i salsa', 'burrito bowl', 'chicken burrito bowl', 'mexican bowl', 'bowl mexicano', 'burrito', 'chipotle bowl', 'arroz con pollo mexicano', 'taco bowl'],
@@ -1719,7 +1719,7 @@ export default [
       reason: 'Chicken from a halal butcher; salsa with wine vinegar only (vinegar, not wine; Javier 2026-10-15); beans, corn and rice cups with plain ingredients.',
     },
     source: {
-      citation: 'Recipe R-MP-50: Chicken burrito bowl with kidney beans, corn, brown rice and salsa, standard batch of 4 boxes (research/yusuf/recipes/mx-chicken-burrito-bowl-box.md)',
+      citation: 'Recipe R-MP-50: Chicken burrito bowl with kidney beans, corn, brown rice and salsa, standard batch of 4 boxes (research/yusuf/recipes/intl-chicken-burrito-bowl-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1728,7 +1728,7 @@ export default [
     },
   },
   {
-    id: 'as-chicken-rice-noodle-stir-fry-box',
+    id: 'intl-chicken-rice-noodle-stir-fry-box',
     name: 'Chicken and vegetable rice-noodle stir-fry with halal soy (lunch box)',
     shortName: 'Chicken rice noodles',
     nameRoman: 'chicken noodles',
@@ -1757,7 +1757,7 @@ export default [
       reason: 'With a halal-certified soy sauce, as the recipe says (with an uncertified brewed soy sauce, treat it as check: alcohol from fermentation). Chicken from a halal butcher; rice noodles of rice flour, tapioca and salt.',
     },
     source: {
-      citation: 'Recipe R-MP-51: Chicken and vegetable rice-noodle stir-fry with halal soy sauce, standard batch of 4 boxes (research/yusuf/recipes/as-chicken-rice-noodle-stir-fry-box.md)',
+      citation: 'Recipe R-MP-51: Chicken and vegetable rice-noodle stir-fry with halal soy sauce, standard batch of 4 boxes (research/yusuf/recipes/intl-chicken-rice-noodle-stir-fry-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1834,7 +1834,7 @@ export default [
     },
   },
   {
-    id: 'mx-chili-con-carne-rice-portion',
+    id: 'intl-chili-con-carne-rice-portion',
     name: 'Beef chili con carne with brown rice and yogurt (dinner portion)',
     shortName: 'Chili con carne, rice',
     aliases: ['Chili con carne de ternera halal con arroz integral y yogur', 'Chili amb carn de vedella halal amb arròs integral i iogurt', 'chili', 'chilli', 'chili con carne', 'chilli con carne', 'chile con carne', 'beef chili', 'mince and beans', 'chili amb carn'],
@@ -1853,7 +1853,7 @@ export default [
       reason: 'Beef mince from a halal butcher; no stock cubes, no beer or wine.',
     },
     source: {
-      citation: 'Recipe R-MP-54: Halal beef chili con carne with brown rice and yogurt, standard batch of 4 portions (research/yusuf/recipes/mx-chili-con-carne-rice-portion.md)',
+      citation: 'Recipe R-MP-54: Halal beef chili con carne with brown rice and yogurt, standard batch of 4 portions (research/yusuf/recipes/intl-chili-con-carne-rice-portion.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1862,7 +1862,7 @@ export default [
     },
   },
   {
-    id: 'me-shakshuka-garbanzos-portion',
+    id: 'med-shakshuka-garbanzos-portion',
     name: 'Chickpea shakshuka with eggs, bread and yogurt (dinner portion)',
     shortName: 'Chickpea shakshuka',
     aliases: ['Shakshuka de garbanzos con huevos, pan y yogur', 'Shakshuka de cigrons amb ous, pa i iogurt', 'shakshuka', 'shakshouka', 'chakchouka', 'eggs in tomato sauce', 'huevos en salsa de tomate', 'chickpea shakshuka', 'ous amb tomaquet'],
@@ -1890,7 +1890,7 @@ export default [
       reason: 'Vegetables, chickpeas, eggs, yogurt and a roll of flour, water, yeast and salt.',
     },
     source: {
-      citation: 'Recipe R-MP-55: Chickpea shakshuka with eggs, bread and yogurt, standard batch of 4 portions (research/yusuf/recipes/me-shakshuka-garbanzos-portion.md)',
+      citation: 'Recipe R-MP-55: Chickpea shakshuka with eggs, bread and yogurt, standard batch of 4 portions (research/yusuf/recipes/med-shakshuka-garbanzos-portion.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -1899,7 +1899,7 @@ export default [
     },
   },
   {
-    id: 'me-harira-beef-portion',
+    id: 'med-harira-beef-portion',
     name: 'Harira: beef, lentil and chickpea soup with bread (dinner portion)',
     shortName: 'Harira with beef',
     aliases: ['Harira: sopa marroquí de ternera, lentejas y garbanzos con pan', 'Harira: sopa marroquina de vedella, llenties i cigrons amb pa', 'harira', 'hrira', 'moroccan soup', 'sopa marroqui', 'lentil soup', 'sopa de lentejas', 'ramadan soup', 'chorba'],
@@ -1924,7 +1924,7 @@ export default [
     slots: ['dinner'],
     halal: { status: 'halal', reason: 'Beef from a halal butcher; no stock cubes, no smen.' },
     source: {
-      citation: 'Recipe R-MP-56: Harira: Moroccan beef, lentil and chickpea soup with bread, standard batch of 4 portions (research/yusuf/recipes/me-harira-beef-portion.md)',
+      citation: 'Recipe R-MP-56: Harira: Moroccan beef, lentil and chickpea soup with bread, standard batch of 4 portions (research/yusuf/recipes/med-harira-beef-portion.md)',
       method: 'recipe',
       confidence: 'C',
       reviewer: 'yusuf',
@@ -1933,7 +1933,7 @@ export default [
     },
   },
   {
-    id: 'it-chicken-spinach-pasta-bake-portion',
+    id: 'intl-chicken-spinach-pasta-bake-portion',
     name: 'Chicken, spinach and tomato pasta bake with mozzarella (dinner portion)',
     shortName: 'Chicken pasta bake',
     aliases: ['Pasta al horno con pollo, espinacas, tomate y mozzarella', 'Pasta al forn amb pollastre, espinacs, tomàquet i mozzarella', 'pasta bake', 'pasta al horno', 'macarrones al horno', 'baked pasta', 'chicken pasta bake', 'pasta gratinada', 'macarrons al forn'],
@@ -1961,7 +1961,7 @@ export default [
       reason: 'Chicken from a halal butcher; mozzarella with microbial coagulant (Mercadona 51230, read 2026-10-15).',
     },
     source: {
-      citation: 'Recipe R-MP-57: Chicken, spinach and tomato pasta bake with mozzarella, standard batch of 4 portions (research/yusuf/recipes/it-chicken-spinach-pasta-bake-portion.md)',
+      citation: 'Recipe R-MP-57: Chicken, spinach and tomato pasta bake with mozzarella, standard batch of 4 portions (research/yusuf/recipes/intl-chicken-spinach-pasta-bake-portion.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -2112,7 +2112,7 @@ export default [
     },
   },
   {
-    id: 'me-menemen-portion',
+    id: 'med-menemen-portion',
     name: 'Menemen: eggs with peppers and tomato, with bread (breakfast portion)',
     shortName: 'Menemen with bread',
     aliases: ['Menemen: huevos a la turca con pimiento verde y tomate, con pan', 'Menemen: ous a la turca amb pebrot verd i tomàquet, amb pa', 'menemen', 'turkish eggs', 'huevos a la turca', 'shakshuka breakfast', 'eggs with tomato', 'huevos con tomate', 'ous amb tomaquet'],
@@ -2137,7 +2137,7 @@ export default [
     slots: ['breakfast'],
     halal: { status: 'halal', reason: 'Eggs, vegetables and a roll of flour, water, yeast and salt.' },
     source: {
-      citation: 'Recipe R-MP-62: Menemen: Turkish eggs with green peppers and tomato, with bread, standard batch of 2 portions (research/yusuf/recipes/me-menemen-portion.md)',
+      citation: 'Recipe R-MP-62: Menemen: Turkish eggs with green peppers and tomato, with bread, standard batch of 2 portions (research/yusuf/recipes/med-menemen-portion.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -2146,7 +2146,7 @@ export default [
     },
   },
   {
-    id: 'mx-egg-bean-breakfast-tacos-portion',
+    id: 'intl-egg-bean-breakfast-tacos-portion',
     name: 'Egg and bean breakfast tacos with salsa (breakfast portion)',
     shortName: 'Egg and bean tacos',
     aliases: ['Tacos de desayuno de huevo y alubias rojas en tortilla de maíz con salsa', 'Tacos d\'esmorzar d\'ou i mongetes vermelles en truita de blat de moro amb salsa', 'breakfast tacos', 'huevos rancheros', 'tacos de huevo', 'egg tacos', 'breakfast burrito', 'tacos de desayuno', 'mexican breakfast'],
@@ -2165,7 +2165,7 @@ export default [
       reason: 'Corn tortillas list glycerine (E-422) of unstated origin, which can be animal fat (Ayesha, 2026-10-15). Halal swap: fill a Mission pita (no E471 or E-422) instead. Eggs, beans and the salsa (wine vinegar only) are halal.',
     },
     source: {
-      citation: 'Recipe R-MP-63: Egg and kidney-bean breakfast tacos on corn tortillas with salsa, standard batch of 2 portions (research/yusuf/recipes/mx-egg-bean-breakfast-tacos-portion.md)',
+      citation: 'Recipe R-MP-63: Egg and kidney-bean breakfast tacos on corn tortillas with salsa, standard batch of 2 portions (research/yusuf/recipes/intl-egg-bean-breakfast-tacos-portion.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',
@@ -2174,7 +2174,7 @@ export default [
     },
   },
   {
-    id: 'it-caprese-snack-box',
+    id: 'intl-caprese-snack-box',
     name: 'Caprese snack box: mozzarella, cherry tomatoes, basil and picos (snack box)',
     shortName: 'Caprese snack box',
     aliases: ['Caprese para picar: mozzarella light, tomates cherry, albahaca y picos', 'Caprese per picar: mozzarella light, tomàquets cherry, alfàbrega i picos', 'caprese', 'caprese salad', 'mozzarella snack', 'ensalada caprese', 'mozzarella tomate', 'merienda', 'caprese skewers'],
@@ -2203,7 +2203,7 @@ export default [
       reason: 'Mozzarella with microbial coagulant (Mercadona 51230, 2026-10-15), tomatoes, basil, picos without lard.',
     },
     source: {
-      citation: 'Recipe R-MP-64: Caprese snack box: mozzarella light, cherry tomatoes, basil and picos, standard batch of 2 boxes (research/yusuf/recipes/it-caprese-snack-box.md)',
+      citation: 'Recipe R-MP-64: Caprese snack box: mozzarella light, cherry tomatoes, basil and picos, standard batch of 2 boxes (research/yusuf/recipes/intl-caprese-snack-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'yusuf',

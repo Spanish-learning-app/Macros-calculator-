@@ -8,7 +8,7 @@ export default {
   minutes: 15,
   cuisine: 'middle-eastern',
   shortName: 'Menemen with bread',
-  id: 'me-menemen-portion',
+  id: 'med-menemen-portion',
   name: 'Menemen: eggs with peppers and tomato, with bread (breakfast portion)',
   names: {
     en: 'Menemen: Turkish eggs with green peppers and tomato, with bread',

@@ -7,7 +7,7 @@ export default {
   minutes: 30,
   cuisine: 'italian',
   shortName: 'Beef bolognese pasta',
-  id: 'it-beef-bolognese-pasta-box',
+  id: 'intl-beef-bolognese-pasta-box',
   name: 'Halal beef bolognese with wholewheat penne (lunch box)',
   names: {
     en: 'Halal beef bolognese with wholewheat penne',

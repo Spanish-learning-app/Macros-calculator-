@@ -8,7 +8,7 @@ export default {
   minutes: 25,
   cuisine: 'mexican',
   shortName: 'Chili con carne, rice',
-  id: 'mx-chili-con-carne-rice-portion',
+  id: 'intl-chili-con-carne-rice-portion',
   name: 'Beef chili con carne with brown rice and yogurt (dinner portion)',
   names: {
     en: 'Halal beef chili con carne with brown rice and yogurt',
