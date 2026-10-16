@@ -1176,9 +1176,9 @@ details[open] > .cook-method-summary::before {
   text-align: left;
 }
 
-/* Where to buy (O5): a quiet second line under the item. */
+/* Where to buy (O5): one quiet line per shop under the section. */
 .shop-note {
-  display: block;
+  margin: var(--space-1) 0 var(--space-2);
   font-size: var(--text-sm);
   color: var(--text-muted);
 }

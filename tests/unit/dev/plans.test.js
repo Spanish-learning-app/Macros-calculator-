@@ -120,3 +120,21 @@ test('halalSwapOf: the feta box points at the Burgos box; a halal food has no sw
   assert.equal(halalSwapOf(s.food('es-lentejas-atun-burgos-salad-box'), null, lookup), null);
   assert.equal(halalSwapOf(feta, { halalSwap: 'nope' }, lookup), null);
 });
+
+test('O5: shoppingList keeps the where-to-buy note; shopNotes groups it per place', async () => {
+  const { shoppingList } = await import('../../../app/core/mealprep.js');
+  const { buildFoodIndex } = await import('../../../app/core/foods.js');
+  const { shopNotes } = await import('../../../app/ui/views/prep.js');
+  const recipe = LIBRARY.find((r) => r.ingredients.some((i) => i.note));
+  const list = shoppingList([{ recipe, boxes: recipe.boxes }], buildFoodIndex(FOODS), RULES);
+  const items = list.sections.flatMap((s) => s.items);
+  const noted = items.filter((i) => i.note);
+  assert.ok(noted.length > 0);
+  assert.ok(
+    items.filter((i) => !i.note).every((i) => !('note' in i)),
+    'absent, not null',
+  );
+  const lines = shopNotes(noted);
+  assert.equal(lines.length, new Set(noted.map((i) => i.note)).size);
+  assert.ok(lines[0].names.length > 0);
+});

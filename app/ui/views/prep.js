@@ -1233,17 +1233,25 @@ export function listText(title, list) {
   const lines = [title];
   for (const s of list.sections) {
     lines.push('', s.label);
-    for (const item of s.items)
-      lines.push(`- ${itemText(item)}${item.note ? ` · ${item.note}` : ''}`);
+    for (const item of s.items) lines.push(`- ${itemText(item)}`);
+    for (const n of shopNotes(s.items)) lines.push(`Where to buy: ${n.note}: ${n.names}`);
   }
   return lines.join('\n');
 }
 
-/** Where to buy (STATUS O5), from the Lab's ingredient `note`. */
-function shopNote(item) {
-  return item.note
-    ? h('span', { class: 'shop-note', 'data-testid': 'shop-note' }, item.note)
-    : null;
+/**
+ * Where to buy (STATUS O5), from the Lab's ingredient `note`: one line per place under the
+ * section, so the item lines stay "Name: amount" (and 44 lines do not repeat the same shop).
+ * @returns {{ note: string, names: string }[]}
+ */
+export function shopNotes(items) {
+  const by = new Map();
+  for (const i of items) {
+    if (!i.note) continue;
+    const name = String(i.name).split(/[,(]/)[0].trim();
+    by.set(i.note, [...(by.get(i.note) ?? []), name]);
+  }
+  return [...by].map(([note, names]) => ({ note, names: names.join(', ') }));
 }
 
 function shopSections(list) {
@@ -1255,7 +1263,15 @@ function shopSections(list) {
       h(
         'ul',
         { class: 'shop-items', role: 'list' },
-        s.items.map((i) => h('li', null, itemText(i), shopNote(i))),
+        s.items.map((i) => h('li', null, itemText(i))),
+      ),
+      shopNotes(s.items).map((n) =>
+        h(
+          'p',
+          { class: 'shop-note', 'data-testid': 'shop-note' },
+          h('strong', null, `${n.note}: `),
+          n.names,
+        ),
       ),
     ),
   );
