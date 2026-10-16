@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T18:56:24Z",
+  "updatedAt": "2026-10-16T19:03:41Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -31,8 +31,8 @@
     },
     "ayesha": {
       "location": "office",
-      "status": "working",
-      "task": "Final reviews: 6 held preps, new records, Zainab 4, cola decision"
+      "status": "idle",
+      "task": "Done: all 14 remaining records pass; R4 link check; cola split"
     },
     "bilal": {
       "location": "office",
@@ -92,9 +92,9 @@
       "output": "app/ui/**"
     },
     {
-      "member": "ayesha",
-      "task": "Final reviews (6 held, Javier 3 + falafel, Zainab 4), cola decision, G19 plan",
-      "output": "research/review/**"
+      "member": "lab (javier, zainab, yusuf)",
+      "task": "Apply Ayesha's notes + cola split, rebuild all three so stamps land: G19 -> 0",
+      "output": "research/{javier,zainab,yusuf}/**, app/data/foods-*.js"
     }
   ],
   "checkIn": {

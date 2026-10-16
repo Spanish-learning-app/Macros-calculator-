@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 18:56 UTC by Omar._
+_Last updated: 2026-10-16 19:03 UTC by Omar._
 
 ## Links
 
@@ -37,7 +37,8 @@ _Paused 16:40–18:56 UTC (session limit); restarted fresh at 18:56 UTC._
 
 - **Kenji:** rules tripwire test; e2e for plans, picks, swap, chips and Lena's changes.
 - **Priya:** faster first load (O16), plural fix. (The halal guide card on About and the 'What does Check mean?' button are **done in code**.)
-- **Ayesha:** final reviews (6 held preps, new records, Zainab's 4), the cola duplicate decision; G19 to 0.
+- **Lab rebuild (Javier, Zainab, Yusuf):** Ayesha's notes and the cola split, then rebuilds so her stamps land (G19 → 0).
+- Done: **Ayesha**: all 14 remaining records pass; new R4 check on meal-prep ingredient links (M-16); cola kept as two clearly named records (saved logs stay valid).
 - **Timeline (told to the Boss):** finish tonight, then Review 3, the fix wave, the final audit, a republish and the delivery report. Target: Sat 17 Oct about 10:00 Madrid, or Saturday night if a usage limit pauses us.
 - Done tonight:
   - **Yusuf:** budget week **58.97 €** (was 77.17 €), every figure generated (M-15 closed), the `halalSwap` field, 3 more prices, Ayesha's fixes (light mozzarella, halal soy sauce, smoothie 1 day). Omar tapped the budget plan and the swap in the app: both work.
