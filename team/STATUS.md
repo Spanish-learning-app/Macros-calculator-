@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 19:15 UTC by Omar._
+_Last updated: 2026-10-16 19:26 UTC by Omar._
 
 ## Links
 
@@ -39,7 +39,8 @@ _Paused 16:40–18:56 UTC (session limit); restarted fresh at 18:56 UTC._
 - Done: **Kenji**: everything green, 735 unit tests and 524 e2e (incl. plans, picks, swap, chips, Ramadan table, halal guide).
 - **Bilal:** Review 3, a lifter's week (numbers, speed, tap counts) on snapshot 4a702b5.
 - Done: **Priya**: first load 10–17 % faster (recipes load later), "2 biscuits" plurals, a11y re-check of the new dialogs; the halal guide card and Check button.
-- **Mariam:** Review 3, a full week on a fixed snapshot (commit 7434367), including cooking from the methods.
+- **Lena:** fix wave R3-A from Mariam's Review 3 (team/feedback/mariam-review3.md): plan ↔ batch link, the plan's fridge/freezer split, evening nudges on screen, a whole-week shopping list, the Merienda slot, the protein tip with a plan on.
+- Done: **Mariam Review 3: 8.5/10** (from 8). Plans hold together until the week starts, then batches, nudges and the shopping list drift (6 must-fix).
 - Done: **Lab rebuild**: G19 = **0** (every record reviewed), 351/351 pass, no numbers moved, cola names split.
 - Done: **Ayesha**: all 14 remaining records pass; new R4 check on meal-prep ingredient links (M-16); cola kept as two clearly named records (saved logs stay valid).
 - **Timeline (told to the Boss):** finish tonight, then Review 3, the fix wave, the final audit, a republish and the delivery report. Target: Sat 17 Oct about 10:00 Madrid, or Saturday night if a usage limit pauses us.

@@ -66,3 +66,4 @@
 - 2026-10-16T19:06:28Z: Lab rebuild done (G19 0). Snapshot worktree at 7434367 for Review 3; Mariam started. Bilal and Nasreen follow when a desk frees.
 - 2026-10-16T19:09:16Z: Kenji done (all green). Nasreen started Review 3 on the snapshot.
 - 2026-10-16T19:15:53Z: Priya done (O16). Bilal started Review 3 on snapshot 4a702b5.
+- 2026-10-16T19:26:07Z: Mariam Review 3 8.5/10, 6 must-fix (plans in the running week). Lena started fix wave R3-A. Waiting on Nasreen and Bilal.
