@@ -21,3 +21,4 @@
 - 2026-10-15 R2 seafood: set Fish only; nothing visible changes; searching prawn / shrimp / jhinga / crab all "Nothing found". So setting has no effect I can see.
 - 2026-10-15 R2 retests: "null" gone; Estimate explained; pace line calm; naan/Banana fixed; "Thora sa" chip + tasting help text now work; chawal has plate/half plate; big-day "882 kcal over" calm. Not fixed: Keep my weight preselected, ward work/gym 4 days, "edible part", tiny katori drawings, Source and details wording, grey "Added" line in sheet, pizza for chai, aadhi/dairh, no kind line on big day. Day/Week/Prep/Profile/Data: no sideways scroll at 400.
 - 2026-10-15 R2 DONE: wrote team/feedback/nasreen-review2.md (action counts: pot 22+7, re-log 2; chai 6+3; saved meal 4+4). Verdict yes-but: the whole pot is still the hardest part. Nothing committed.
+- 2026-10-16 19:09 UTC: Review 3 started: read brief, Review 1/2, MISTAKES. Serving snapshot on :8791.
