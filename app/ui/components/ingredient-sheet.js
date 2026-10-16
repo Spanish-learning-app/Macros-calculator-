@@ -15,19 +15,15 @@ import {
   portionNutrients,
   plainServingLabel,
 } from './format.js';
-import { pluralLabel } from '../../core/mealprep.js';
-
-const NO_PLURAL = /^(g|kg|ml|l|oz|tbsp|tsp|katori|pao)\b/i;
 
 /**
  * The amount on a picker row: a whole count over 1 reads in the plural ("3 medium potatoes",
- * "5 large eggs"); units, fractions and "2 × 1 cup" stay as portionText writes them.
+ * "5 large eggs"); units, fractions and "2 × 1 cup" stay as they are. The plural words live in
+ * format.js (PLURALS), shared with the day rows and the add sheet (STATUS O16).
  * @param {{ id: string, label: string }} serving @param {number} qty @returns {string}
  */
 export function amountText(serving, qty) {
-  const text = portionText(serving, qty);
-  const m = /^(\d+) ([^\d×]+)$/.exec(text);
-  return qty > 1 && m && !NO_PLURAL.test(m[2]) ? `${m[1]} ${pluralLabel(m[2])}` : text;
+  return portionText(serving, qty);
 }
 
 const UNITS = {

@@ -153,8 +153,125 @@ export function servingNote(serving) {
   return m ? m[1] : '';
 }
 
+// Plurals for the count words in the Lab's serving labels (STATUS O16: "2 biscuit" read wrong).
+// Only listed words change, so "katori", "café solo" or "portion dry" stay as the Lab wrote them.
+const PLURALS = new Map(
+  Object.entries({
+    apple: 'apples',
+    avocado: 'avocados',
+    bag: 'bags',
+    ball: 'balls',
+    banana: 'bananas',
+    biscuit: 'biscuits',
+    bottle: 'bottles',
+    bowl: 'bowls',
+    box: 'boxes',
+    breast: 'breasts',
+    bocadillo: 'bocadillos',
+    bunch: 'bunches',
+    burger: 'burgers',
+    can: 'cans',
+    carrot: 'carrots',
+    carton: 'cartons',
+    caqui: 'caquis',
+    cazuelita: 'cazuelitas',
+    clove: 'cloves',
+    croissant: 'croissants',
+    croqueta: 'croquetas',
+    cortado: 'cortados',
+    courgette: 'courgettes',
+    cucumber: 'cucumbers',
+    cup: 'cups',
+    date: 'dates',
+    egg: 'eggs',
+    ensaïmada: 'ensaïmadas',
+    falafel: 'falafels',
+    fig: 'figs',
+    fillet: 'fillets',
+    glass: 'glasses',
+    guava: 'guavas',
+    handful: 'handfuls',
+    jamun: 'jamuns',
+    jar: 'jars',
+    kebab: 'kebabs',
+    kinnow: 'kinnows',
+    kiwi: 'kiwis',
+    kulfi: 'kulfis',
+    leaf: 'leaves',
+    magdalena: 'magdalenas',
+    mango: 'mangoes',
+    medallion: 'medallions',
+    mug: 'mugs',
+    mushroom: 'mushrooms',
+    naan: 'naans',
+    napolitana: 'napolitanas',
+    nugget: 'nuggets',
+    omelette: 'omelettes',
+    onion: 'onions',
+    orange: 'oranges',
+    pack: 'packs',
+    pakora: 'pakoras',
+    paratha: 'parathas',
+    pat: 'pats',
+    pear: 'pears',
+    pepper: 'peppers',
+    piece: 'pieces',
+    pitta: 'pittas',
+    plate: 'plates',
+    pomegranate: 'pomegranates',
+    portion: 'portions',
+    pot: 'pots',
+    potato: 'potatoes',
+    pouch: 'pouches',
+    puri: 'puris',
+    ración: 'raciones',
+    roll: 'rolls',
+    roti: 'rotis',
+    rusk: 'rusks',
+    samosa: 'samosas',
+    sachet: 'sachets',
+    sandwich: 'sandwiches',
+    sausage: 'sausages',
+    scoop: 'scoops',
+    serving: 'servings',
+    share: 'shares',
+    shawarma: 'shawarmas',
+    slice: 'slices',
+    spear: 'spears',
+    tablespoon: 'tablespoons',
+    tapa: 'tapas',
+    teaspoon: 'teaspoons',
+    thigh: 'thighs',
+    tin: 'tins',
+    tomato: 'tomatoes',
+    tortilla: 'tortillas',
+    tostada: 'tostadas',
+    tub: 'tubs',
+    wedge: 'wedges',
+    wrap: 'wraps',
+  }),
+);
+
 /**
- * "1½ katori", "2 medium roti", "300 g", "3 egg" ("per egg"), and "½ plate" or "2 × ½ plate"
+ * The unit for a count over 1: the first listed count word before any comma or "of" turns
+ * plural (the second of two in a row: "bocadillo rolls") ("2 biscuits", "2 cups dry", "2 slices of pan de payés", "2 rotis, medium").
+ * Labels with "/" or "'" are left alone ("large glass / mug", "egg white's worth").
+ */
+export function pluralUnit(unit, qty) {
+  if (!(qty > 1) || /[/']/.test(unit)) return unit;
+  const cut = unit.search(/,|\sof\s/);
+  const head = cut < 0 ? unit : unit.slice(0, cut);
+  const words = head.split(' ');
+  let i = words.findIndex((w) => PLURALS.has(w.toLowerCase()));
+  if (i < 0) return unit;
+  // "bocadillo roll": the last of two count words in a row is the noun.
+  while (i + 1 < words.length && PLURALS.has(words[i + 1].toLowerCase())) i += 1;
+  words[i] = PLURALS.get(words[i].toLowerCase());
+  return words.join(' ') + unit.slice(head.length);
+}
+
+/**
+ * "1½ katori", "2 medium rotis", "300 g", "3 eggs" ("per egg"), and "½ plate" or "2 × ½ plate"
  * for labels that do not name a single unit.
  * @param {{ id: string, label: string }|null} serving @param {number} qty
  */
@@ -163,7 +280,7 @@ export function portionText(serving, qty) {
   if (serving.id === 'g') return `${fmtGrams(qty)} g`;
   const unit = unitName(serving);
   if (!countable(serving)) return qty === 1 ? unit : `${fmtQty(qty)} × ${unit}`;
-  return `${fmtQty(qty)} ${unit}`;
+  return `${fmtQty(qty)} ${pluralUnit(unit, qty)}`;
 }
 
 const GRAM_SERVING = Object.freeze({ id: 'g', label: 'g', grams: 1 });
