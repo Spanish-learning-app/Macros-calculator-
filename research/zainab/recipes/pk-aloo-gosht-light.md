@@ -39,7 +39,7 @@ Record id: `pk-aloo-gosht-light` · sheet: `research/zainab/recipes/kam-tel.mjs`
 
 ## Added fat
 
-Derived from the home sheet `aloo-gosht-home`. Home added fat: 150 g per pot (Per kg boneless-equivalent beef: TfT ¼ cup oil + 1 tbsp ghee (67 g) per ~0.45 kg edible meat → 150 g/kg; F&S ⅓ cup (73 g) per 454 g → 160 g/kg. Home standard 150 g/kg (120 g oil + 30 g ghee)). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 150 g × 0.5 = 75 g per pot (75 g less). No separate tarka in this dish: all the fat goes into the bhunai. Aloo gosht: half the oil and ghee for the masala; the beef's own fat helps the bhuna.
+Derived from the home sheet `aloo-gosht-home`. Home added fat: 150 g per pot (Per kg boneless-equivalent beef: TfT ¼ cup oil + 1 tbsp ghee (67 g) per ~0.45 kg edible meat → 150 g/kg; F&S ⅓ cup (73 g) per 454 g → 160 g/kg. Home standard 150 g/kg (120 g oil + 30 g ghee)). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 150 g × 0.5 = 75 g per pot (75 g less). No separate tarka in this dish: all the fat goes into the bhunai. Aloo gosht: half the oil and ghee for the masala; the beef's own fat helps the bhuna.
 
 Added fat in the served dish: **2.8 g per 100 g** (oil-cooking, ghee-desi).
 

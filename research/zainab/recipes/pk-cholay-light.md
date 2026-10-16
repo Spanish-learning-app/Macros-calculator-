@@ -38,7 +38,7 @@ Record id: `pk-cholay-light` · sheet: `research/zainab/recipes/kam-tel.mjs` (sh
 
 ## Added fat
 
-Derived from the home sheet `cholay-home`. Home added fat: 60 g per pot (Both home references use ¼ cup oil (54.5 g) for about 330–490 g cooked chickpeas → 60 g for 492 g). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 60 g × 0.5 = 30 g per pot (30 g less). No separate tarka in this dish: all the fat goes into the bhunai. Cholay: half the oil for the masala.
+Derived from the home sheet `cholay-home`. Home added fat: 60 g per pot (Both home references use ¼ cup oil (54.5 g) for about 330–490 g cooked chickpeas → 60 g for 492 g). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 60 g × 0.5 = 30 g per pot (30 g less). No separate tarka in this dish: all the fat goes into the bhunai. Cholay: half the oil for the masala.
 
 Added fat in the served dish: **2.8 g per 100 g** (oil-cooking).
 

@@ -42,7 +42,7 @@ Record id: `pk-chicken-pulao-light` · sheet: `research/zainab/recipes/kam-tel.m
 
 ## Added fat
 
-Derived from the home sheet `chicken-pulao-home`. Home added fat: 125 g per pot (Fat per 500 g rice: TfT ¼ cup oil + 2 tbsp ghee (80 g per 278 g rice → 144 g); Shan 161 g per 750 g → 107 g. Home standard 125 g (90 g oil + 35 g ghee)). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 125 g × 0.5 = 62.5 g per pot (62.5 g less). No separate tarka in this dish: all the fat goes into the bhunai. Yakhni pulao: onions browned and rice fried in half the oil and ghee.
+Derived from the home sheet `chicken-pulao-home`. Home added fat: 125 g per pot (Fat per 500 g rice: TfT ¼ cup oil + 2 tbsp ghee (80 g per 278 g rice → 144 g); Shan 161 g per 750 g → 107 g. Home standard 125 g (90 g oil + 35 g ghee)). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 125 g × 0.5 = 62.5 g per pot (62.5 g less). No separate tarka in this dish: all the fat goes into the bhunai. Yakhni pulao: onions browned and rice fried in half the oil and ghee.
 
 Added fat in the served dish: **2.8 g per 100 g** (oil-cooking, ghee-desi).
 

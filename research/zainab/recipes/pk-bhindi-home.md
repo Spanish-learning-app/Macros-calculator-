@@ -8,6 +8,8 @@ Record id: `pk-bhindi-home` · sheet: `research/zainab/recipes/sabzi-egg.mjs` (s
   ¼ cup oil (plus more as needed); 1 lb okra stir-fried until crisp; 1 large onion golden ~10 min; 2–3 garlic; 1 tsp ginger; 2 medium tomatoes; 1 tsp salt; cumin seeds, 1 tsp coriander, 1 tsp cumin, ½ tsp turmeric, chilli; green chillies; cilantro; lemon. "This dry curry…"
 - **F&S-bhindi** — https://www.flourandspiceblog.com/bhindi-ki-sabzi-or-spicy-pakistani-style-okra/  
   1 lb okra; "a little less than ¼ cup" oil; dried red chillies; cumin seeds; chilli flakes; ¾–1 tsp salt; cooked uncovered 15–18 min.
+- **MasalaTV-bhindi-kalonji** — https://masala.tv/bhindi-kalonji-recipe/  
+  Shireen Anwar: 250 g bhindi, ½ cup oil; bhindi fried 5 min and lifted out, onions fried in the same oil, bhindi returned for 10 min on dum; oil not drained. Fat data point only.
 
 ## Ingredients (standard recipe, raw)
 
@@ -31,7 +33,7 @@ Record id: `pk-bhindi-home` · sheet: `research/zainab/recipes/sabzi-egg.mjs` (s
 
 ## Added fat
 
-TfT ¼ cup (54.5 g) and F&S "a little less than ¼ cup" (taken as 3.5 tbsp = 48 g) per lb of okra → 52 g.
+TfT ¼ cup (54.5 g) and F&S "a little less than ¼ cup" (taken as 3.5 tbsp = 48 g) per lb of okra → 52 g. Masala TV (Shireen Anwar) uses ½ cup per 250 g, so 52 g per lb is the low end of Pakistani recipes.
 
 Added fat in the served dish: **9.8 g per 100 g** (oil-cooking).
 
@@ -53,10 +55,11 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 137 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-- CoFID 2021 15-627 "Curry, bhindi subji, homemade": 71 kcal, P 2.9, C 4.9, F 4.6, fibre 7.2 per 100 g → our value is +93% kcal. **Over 25%: see note.** Analysed homemade bhindi subji (Leeds); its water content sets our yield. Why: NOT explained yet: same water (74.3%), so the gap is oil (analysed F 4.6 g vs our 10.4 g from ¼ cup oil per lb okra in both recipes). Sprint 2 (Zainab): check how much stir-fry oil stays in the pan, or move toward the analysed value (Ayesha, 2026-10-14).
+- CoFID 2021 15-627 "Curry, bhindi subji, homemade": 71 kcal, P 2.9, C 4.9, F 4.6, fibre 7.2 per 100 g → our value is +93% kcal. **Over 25%: see note.** Analysed homemade bhindi subji (Leeds, 6 UK household samples); its water content sets our yield. Why: same water (74.3 %), so the gap is oil: analysed F 4.6 g vs our 10.4 g. Pakistani recipes use ¼ cup oil per lb of okra (Tea for Turmeric, Flour & Spice) up to ½ cup per 250 g (Masala TV, Shireen Anwar); we use the low end. The UK samples were cooked lighter: the kam tel bhindi (half the oil) is close to them. Reviewed by Ayesha, 2026-10-16.
 
 ## Assumptions and confidence
 
 - Water 74.3 g/100 g from the analysed CoFID 15-627.
 - Katori density 0.70 g/ml (FNDDS cooked okra, 1 cup = 165 g).
+- All the oil is counted as eaten (NUTRITION §6 step 4). A dry stir-fry leaves a little in the pan, so a cook who lifts the bhindi out with a slotted spoon eats a bit less.
 - Confidence **C**: recipe with assumed oil and/or yield.

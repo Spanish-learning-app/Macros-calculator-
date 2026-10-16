@@ -36,7 +36,7 @@ Record id: `pk-moong-daal-light` · sheet: `research/zainab/recipes/kam-tel.mjs`
 
 ## Added fat
 
-Derived from the home sheet `moong-daal-home`. Home added fat: 45 g per pot (TfT 2 tbsp oil + 2 tbsp ghee (≈ 53 g) and F&S 3 tbsp oil (41 g) per cup of dal → standard 30 g oil + 15 g ghee (mean 47 g). TfT's cream (2 tbsp) is optional and left out). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 45 g × 0.5 = 22.5 g per pot (22.5 g less). Tarka: 7.5 g on top (cap 1 g per 100 g × 762.5 g served), the rest of the fat softens the onion and masala in the pot. Moong daal: half the oil and ghee; a small ghee tarka on top, the rest softens the onion.
+Derived from the home sheet `moong-daal-home`. Home added fat: 45 g per pot (TfT 2 tbsp oil + 2 tbsp ghee (≈ 53 g) and F&S 3 tbsp oil (41 g) per cup of dal → standard 30 g oil + 15 g ghee (mean 47 g). TfT's cream (2 tbsp) is optional and left out). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 45 g × 0.5 = 22.5 g per pot (22.5 g less). Tarka: 7.5 g on top (cap 1 g per 100 g × 762.5 g served), the rest of the fat softens the onion and masala in the pot. Moong daal: half the oil and ghee; a small ghee tarka on top, the rest softens the onion.
 
 Added fat in the served dish: **3 g per 100 g** (oil-cooking, ghee-desi).
 

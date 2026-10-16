@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 16:25 UTC by Omar._
+_Last updated: 2026-10-16 16:27 UTC by Omar._
 
 ## Links
 
@@ -31,13 +31,17 @@ _Last updated: 2026-10-16 16:25 UTC by Omar._
 | Protein tips and Ramadan mode | done in code, checked in Chromium (Lena). Published in v4 |
 | Sprint 3 wave 1 tests | partial; restarts after Yusuf lands (Kenji) |
 
-## Working now (night shift from 18:10 Madrid)
+## Working now (night shift)
 
-- **Yusuf:** budget week at 60 € or less, with every number generated (M-15); the `halalSwap` field; prices for the 6 recipes that have no cost yet.
-- **Kenji:** rules tripwire test, e2e for plans, picks, swap, chips and Lena's changes.
-- **Javier:** halal soy sauce and light mozzarella records (Ayesha's review fixes), then a rebuild so her stamps reach the app.
-- Done tonight: **Lena**: "Plan it" now plans, step mode reads each step aloud, plainer recipe-editor wording, Ramadan offsets and the day table (O12), Urdu serving labels (O13), the halalSwap field in use. **Ayesha**: rules 1.7.2 in plain words; halal guide as data (`RULES.halalGuide`), which still needs Priya's About card; 111 records reviewed, 11 left after the rebuilds; bhindi numbers ruled correct.
-- Queued: Priya (halal guide UI, faster first load), Kenji (tests for plans, picks and chips), then Review 3.
+- **Kenji:** rules tripwire test; e2e for plans, picks, swap, chips and Lena's changes.
+- **Priya:** halal guide card on About (O8); faster first load (O16).
+- **Zainab:** Ayesha's bhindi edits plus a rebuild (review stamps), the cola duplicate, old FIXes.
+- Done tonight:
+  - **Yusuf:** budget week **58.97 €** (was 77.17 €), every figure generated (M-15 closed), the `halalSwap` field, 3 more prices, Ayesha's fixes (light mozzarella, halal soy sauce, smoothie 1 day). Omar tapped the budget plan and the swap in the app: both work.
+  - **Javier:** 3 records.
+  - **Lena:** Plan it, step-mode a11y, editor wording, Ramadan table (O12), Urdu labels (O13).
+  - **Ayesha:** rules 1.7.2, the halal guide as data, 111 reviews, the bhindi ruling.
+- Next: Ayesha re-checks the 6 held preps; then Review 3.
 
 ## Next, in order (from 18:09 Madrid)
 

@@ -43,7 +43,7 @@ Record id: `pk-keema-light` · sheet: `research/zainab/recipes/kam-tel.mjs` (she
 
 ## Added fat
 
-Derived from the home sheet `keema-home`. Home added fat: 140 g per pot (Oil per lb mince: TfT aloo keema ⅓ cup (73 g), TfT keema matar 3 tbsp (41 g), F&S ¼–⅓ cup (64 g) → median 64 g per 454 g → 140 g per kg mince). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 140 g × 0.5 = 70 g per pot (70 g less). No separate tarka in this dish: all the fat goes into the bhunai. Keema matar: TfT's own keema matar uses 3 tbsp oil per lb (≈ 90 g per kg mince), close to the kam-tel load (70 g per kg).
+Derived from the home sheet `keema-home`. Home added fat: 140 g per pot (Oil per lb mince: TfT aloo keema ⅓ cup (73 g), TfT keema matar 3 tbsp (41 g), F&S ¼–⅓ cup (64 g) → median 64 g per 454 g → 140 g per kg mince). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 140 g × 0.5 = 70 g per pot (70 g less). No separate tarka in this dish: all the fat goes into the bhunai. Keema matar: TfT's own keema matar uses 3 tbsp oil per lb (≈ 90 g per kg mince), close to the kam-tel load (70 g per kg).
 
 Added fat in the served dish: **4.3 g per 100 g** (oil-cooking).
 

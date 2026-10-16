@@ -169,9 +169,9 @@ const SPECS = [
     servings: ({ katoriSet }) => katoriSet(D.drySabzi),
     tags: PKVG,
     slots: MEAL,
-    crossCheck: [{ src: 'cofid', code: '15-627', note: 'Analysed homemade bhindi subji (Leeds); its water content sets our yield. Why: NOT explained yet: same water (74.3%), so the gap is oil (analysed F 4.6 g vs our 10.4 g from ¼ cup oil per lb okra in both recipes). Sprint 2 (Zainab): check how much stir-fry oil stays in the pan, or move toward the analysed value (Ayesha, 2026-10-14).' }],
-    assumptions: ['Water 74.3 g/100 g from the analysed CoFID 15-627.', 'Katori density 0.70 g/ml (FNDDS cooked okra, 1 cup = 165 g).'],
-    source: { confidence: 'C' },
+    crossCheck: [{ src: 'cofid', code: '15-627', note: 'Analysed homemade bhindi subji (Leeds, 6 UK household samples); its water content sets our yield. Why: same water (74.3 %), so the gap is oil: analysed F 4.6 g vs our 10.4 g. Pakistani recipes use ¼ cup oil per lb of okra (Tea for Turmeric, Flour & Spice) up to ½ cup per 250 g (Masala TV, Shireen Anwar); we use the low end. The UK samples were cooked lighter: the kam tel bhindi (half the oil) is close to them. Reviewed by Ayesha, 2026-10-16.' }],
+    assumptions: ['Water 74.3 g/100 g from the analysed CoFID 15-627.', 'Katori density 0.70 g/ml (FNDDS cooked okra, 1 cup = 165 g).', 'All the oil is counted as eaten (NUTRITION §6 step 4). A dry stir-fry leaves a little in the pan, so a cook who lifts the bhindi out with a slotted spoon eats a bit less.'],
+    source: { confidence: 'C', notes: 'Oil varies a lot between cooks. If you cook with little oil, pick Kam tel bhindi.' },
   },
   {
     id: 'pk-omelette-desi',

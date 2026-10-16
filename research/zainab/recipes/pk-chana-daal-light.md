@@ -39,7 +39,7 @@ Record id: `pk-chana-daal-light` · sheet: `research/zainab/recipes/kam-tel.mjs`
 
 ## Added fat
 
-Derived from the home sheet `chana-daal-home`. Home added fat: 47 g per pot (F&S 3 tbsp oil (41 g) per cup; TfT 2 tbsp ghee + 1 tbsp oil (≈ 40 g) per ¾ cup → 53 g per cup. Standard 30 g oil + 17 g ghee (mean 47 g per 192 g dal)). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 47 g × 0.5 = 23.5 g per pot (23.5 g less). Tarka: 6.5 g on top (cap 1 g per 100 g × 684 g served), the rest of the fat softens the onion and masala in the pot. Chana daal: half the oil and ghee; a small ghee tarka on top, the rest softens the onion and tomato.
+Derived from the home sheet `chana-daal-home`. Home added fat: 47 g per pot (F&S 3 tbsp oil (41 g) per cup; TfT 2 tbsp ghee + 1 tbsp oil (≈ 40 g) per ¾ cup → 53 g per cup. Standard 30 g oil + 17 g ghee (mean 47 g per 192 g dal)). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 47 g × 0.5 = 23.5 g per pot (23.5 g less). Tarka: 6.5 g on top (cap 1 g per 100 g × 684 g served), the rest of the fat softens the onion and masala in the pot. Chana daal: half the oil and ghee; a small ghee tarka on top, the rest softens the onion and tomato.
 
 Added fat in the served dish: **3.4 g per 100 g** (oil-cooking, ghee-desi).
 

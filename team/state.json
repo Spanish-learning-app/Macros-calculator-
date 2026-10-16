@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T16:25:08Z",
+  "updatedAt": "2026-10-16T16:27:19Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -46,8 +46,8 @@
     },
     "priya": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: serve chips, saved-meal totals, wording, kam-tel line"
+      "status": "working",
+      "task": "Halal guide card on About (O8), lazy-load recipe data, plural fix"
     },
     "kenji": {
       "location": "office",
@@ -56,13 +56,13 @@
     },
     "zainab": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: beginner methods for 19 desi preps"
+      "status": "working",
+      "task": "Bhindi notes + rebuild for review stamps; cola duplicate; Sprint 1 FIXes"
     },
     "javier": {
       "location": "office",
-      "status": "working",
-      "task": "Two records for Ayesha fixes: halal soy sauce, light mozzarella; rebuild for stamps"
+      "status": "idle",
+      "task": "Done: halal soy sauce, light mozzarella, salmon medallions"
     },
     "nasreen": {
       "location": "office",
@@ -71,8 +71,8 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "working",
-      "task": "Budget week under 60 EUR (M-15), halalSwap field, missing prices"
+      "status": "idle",
+      "task": "Done: budget week 58.97 EUR, generated figures, halalSwap, review fixes"
     },
     "mariam": {
       "location": "office",
@@ -82,19 +82,19 @@
   },
   "inFlight": [
     {
-      "member": "yusuf",
-      "task": "Budget week <=60 EUR with generated numbers (M-15); halalSwap on feta recipe; price the 6 missing",
-      "output": "research/yusuf/**, app/data/*mealprep.js, docs/MEALPREP.md"
-    },
-    {
-      "member": "javier",
-      "task": "intl-soy-sauce-halal, es-mozzarella-light (Ayesha FIX 1/2), medallones if quick, rebuild for review stamps",
-      "output": "research/javier/**, his app/data files"
-    },
-    {
       "member": "kenji",
       "task": "Rules 1.7.2 tripwire, M0-M2 plain, e2e for plans/picks/swap/chips/Lena's changes",
       "output": "tests/** (not dev)"
+    },
+    {
+      "member": "priya",
+      "task": "O8 halal guide UI, O16 lazy-load, plural",
+      "output": "app/ui/**, app/styles/**"
+    },
+    {
+      "member": "zainab",
+      "task": "Ayesha bhindi edits + rebuild, cola duplicate, haleem/kadhi pakora/ras malai FIXes",
+      "output": "research/zainab/**, foods-pk-*.js"
     }
   ],
   "checkIn": {
@@ -214,20 +214,12 @@
   },
   "queued": [
     {
-      "member": "priya",
-      "task": "O8 halal guide UI on About (after Ayesha), lazy-load recipe data, plural fix"
-    },
-    {
-      "member": "zainab",
-      "task": "Ayesha's bhindi notes/source edits (journal ayesha.md) + rebuild for review stamps; cola duplicate (330 vs 250 ml) decision"
+      "member": "ayesha",
+      "task": "Re-check the 6 held preps (#49, #51, #57, #60, #61, #64) now relinked; stamp; Zainab's cola proposal if any"
     },
     {
       "member": "customer panel",
       "task": "Wave 3: Review 3 (full week incl. cooking from the app and Ramadan mode), fix wave, final audit, republish, delivery report"
-    },
-    {
-      "member": "priya",
-      "task": "O16 rest: lazy-load recipes-mealprep.js until Prep opens (first load 1.4 s); plural fix ('2 biscuit')"
     }
   ],
   "reports": [

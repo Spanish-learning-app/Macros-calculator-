@@ -36,7 +36,7 @@ Record id: `pk-aloo-palak-light` · sheet: `research/zainab/recipes/kam-tel.mjs`
 
 ## Added fat
 
-Derived from the home sheet `aloo-palak-home`. Home added fat: 54.5 g per pot (TfT ¼ cup oil (54.5 g) for ~820 g spinach + potato; ghee optional and left out. F&S gives no amount). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 54.5 g × 0.5 = 27.3 g per pot (27.2 g less). No separate tarka in this dish: all the fat goes into the bhunai. Aloo palak: half the oil, cooked covered.
+Derived from the home sheet `aloo-palak-home`. Home added fat: 54.5 g per pot (TfT ¼ cup oil (54.5 g) for ~820 g spinach + potato; ghee optional and left out. F&S gives no amount). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 54.5 g × 0.5 = 27.3 g per pot (27.2 g less). No separate tarka in this dish: all the fat goes into the bhunai. Aloo palak: half the oil, cooked covered.
 
 Added fat in the served dish: **3.2 g per 100 g** (oil-cooking).
 

@@ -44,8 +44,9 @@ export default [
     sources: [
       { ref: 'TfT-bhindi', url: 'https://www.teaforturmeric.com/bhindi-okra-curry/', used: '¼ cup oil (plus more as needed); 1 lb okra stir-fried until crisp; 1 large onion golden ~10 min; 2–3 garlic; 1 tsp ginger; 2 medium tomatoes; 1 tsp salt; cumin seeds, 1 tsp coriander, 1 tsp cumin, ½ tsp turmeric, chilli; green chillies; cilantro; lemon. "This dry curry…"' },
       { ref: 'F&S-bhindi', url: 'https://www.flourandspiceblog.com/bhindi-ki-sabzi-or-spicy-pakistani-style-okra/', used: '1 lb okra; "a little less than ¼ cup" oil; dried red chillies; cumin seeds; chilli flakes; ¾–1 tsp salt; cooked uncovered 15–18 min.' },
+      { ref: 'MasalaTV-bhindi-kalonji', url: 'https://masala.tv/bhindi-kalonji-recipe/', used: 'Shireen Anwar: 250 g bhindi, ½ cup oil; bhindi fried 5 min and lifted out, onions fried in the same oil, bhindi returned for 10 min on dum; oil not drained. Fat data point only.' },
     ],
-    fatBasis: 'TfT ¼ cup (54.5 g) and F&S "a little less than ¼ cup" (taken as 3.5 tbsp = 48 g) per lb of okra → 52 g.',
+    fatBasis: 'TfT ¼ cup (54.5 g) and F&S "a little less than ¼ cup" (taken as 3.5 tbsp = 48 g) per lb of okra → 52 g. Masala TV (Shireen Anwar) uses ½ cup per 250 g, so 52 g per lb is the low end of Pakistani recipes.',
     ingredients: [
       ['okra', 454, '1 lb (both)'],
       ['oil-cooking', 52, ''],

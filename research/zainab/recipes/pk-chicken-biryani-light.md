@@ -46,7 +46,7 @@ Record id: `pk-chicken-biryani-light` · sheet: `research/zainab/recipes/kam-tel
 
 ## Added fat
 
-Derived from the home sheet `chicken-biryani-home`. Home added fat: 150 g per pot (Fat per 750 g raw rice: TfT 248 g, F&S 132 g, Shan pack 161 g (175 ml). Home standard 150 g cooking oil). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 150 g × 0.5 = 75 g per pot (75 g less). No separate tarka in this dish: all the fat goes into the bhunai. Home biryani: the chicken qorma layer cooked in half the oil.
+Derived from the home sheet `chicken-biryani-home`. Home added fat: 150 g per pot (Fat per 750 g raw rice: TfT 248 g, F&S 132 g, Shan pack 161 g (175 ml). Home standard 150 g cooking oil). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 150 g × 0.5 = 75 g per pot (75 g less). No separate tarka in this dish: all the fat goes into the bhunai. Home biryani: the chicken qorma layer cooked in half the oil.
 
 Added fat in the served dish: **2.1 g per 100 g** (oil-cooking).
 

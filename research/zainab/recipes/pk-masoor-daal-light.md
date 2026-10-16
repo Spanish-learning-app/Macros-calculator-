@@ -38,7 +38,7 @@ Record id: `pk-masoor-daal-light` · sheet: `research/zainab/recipes/kam-tel.mjs
 
 ## Added fat
 
-Derived from the home sheet `masoor-daal-home`. Home added fat: 54.5 g per pot (Both references use ¼ cup oil (54.5 g, FDC 171411 1 cup = 218 g) per cup of dal; TfT's optional tbsp of ghee is left out. The result is above the ~3% starting value in NUTRITION.md §6 because both Pakistani references agree on ¼ cup). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 54.5 g × 0.5 = 27.3 g per pot (27.2 g less). Tarka: 9.5 g on top (cap 1 g per 100 g × 975.9 g served), the rest of the fat softens the onion and masala in the pot. Masoor daal: onion and tomato softened in most of the (halved) oil, a small tarka on top.
+Derived from the home sheet `masoor-daal-home`. Home added fat: 54.5 g per pot (Both references use ¼ cup oil (54.5 g, FDC 171411 1 cup = 218 g) per cup of dal; TfT's optional tbsp of ghee is left out. The result is above the ~3% starting value in NUTRITION.md §6 because both Pakistani references agree on ¼ cup). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 54.5 g × 0.5 = 27.3 g per pot (27.2 g less). Tarka: 9.5 g on top (cap 1 g per 100 g × 975.9 g served), the rest of the fat softens the onion and masala in the pot. Masoor daal: onion and tomato softened in most of the (halved) oil, a small tarka on top.
 
 Added fat in the served dish: **2.8 g per 100 g** (oil-cooking).
 

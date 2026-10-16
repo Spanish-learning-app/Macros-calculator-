@@ -41,7 +41,7 @@ Record id: `pk-chicken-korma-light` · sheet: `research/zainab/recipes/kam-tel.m
 
 ## Added fat
 
-Derived from the home sheet `chicken-korma-home`. Home added fat: 120 g per pot (Per kg bone-in chicken: TfT 108 g (oil + ghee); Shan pack 161 g. Home standard 120 g (90 g oil + 30 g ghee)). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 120 g × 0.5 = 60 g per pot (60 g less). No separate tarka in this dish: all the fat goes into the bhunai. Korma: half the oil and ghee; the yogurt-onion base stays.
+Derived from the home sheet `chicken-korma-home`. Home added fat: 120 g per pot (Per kg bone-in chicken: TfT 108 g (oil + ghee); Shan pack 161 g. Home standard 120 g (90 g oil + 30 g ghee)). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 120 g × 0.5 = 60 g per pot (60 g less). No separate tarka in this dish: all the fat goes into the bhunai. Korma: half the oil and ghee; the yogurt-onion base stays.
 
 Added fat in the served dish: **4.7 g per 100 g** (oil-cooking, ghee-desi).
 

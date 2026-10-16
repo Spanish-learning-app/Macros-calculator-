@@ -312,3 +312,4 @@
   check-foods 351/351, 0 warnings; npm test 0 fail (the storage-count test passes now); prettier OK. STOP POINT
   (clean). Open: #1, #5 (boneless halal thigh) and #27 (forn barra) still have no cost; Lena drops HALAL_SWAPS;
   nobody has tapped the budget plan in the running app yet (M-14).
+- 16:26 UTC Omar relay: salmon-fillet (name-only line, #53) now links Javier's intl-salmon-medallions (same Hacendado pack, OFF 8480000267498); soy and mozzarella already linked. #53 unchanged (611 kcal). Rebuilt; check-foods and npm test re-run. Ayesha's 6 held preps are ready for her re-check.

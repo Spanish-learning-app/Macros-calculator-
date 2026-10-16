@@ -10,6 +10,8 @@ Record id: `pk-bhindi-light` · sheet: `research/zainab/recipes/kam-tel.mjs` (sh
   ¼ cup oil (plus more as needed); 1 lb okra stir-fried until crisp; 1 large onion golden ~10 min; 2–3 garlic; 1 tsp ginger; 2 medium tomatoes; 1 tsp salt; cumin seeds, 1 tsp coriander, 1 tsp cumin, ½ tsp turmeric, chilli; green chillies; cilantro; lemon. "This dry curry…"
 - **F&S-bhindi** — https://www.flourandspiceblog.com/bhindi-ki-sabzi-or-spicy-pakistani-style-okra/  
   1 lb okra; "a little less than ¼ cup" oil; dried red chillies; cumin seeds; chilli flakes; ¾–1 tsp salt; cooked uncovered 15–18 min.
+- **MasalaTV-bhindi-kalonji** — https://masala.tv/bhindi-kalonji-recipe/  
+  Shireen Anwar: 250 g bhindi, ½ cup oil; bhindi fried 5 min and lifted out, onions fried in the same oil, bhindi returned for 10 min on dum; oil not drained. Fat data point only.
 - **Sheet bhindi-home** — research/zainab/recipes/sabzi-egg.mjs  
   Every ingredient, quantity and cooking step taken from Zainab's home sheet; only the added fat changed. Bhindi: okra stir-fried with half the oil (non-stick pan).
 
@@ -35,7 +37,7 @@ Record id: `pk-bhindi-light` · sheet: `research/zainab/recipes/kam-tel.mjs` (sh
 
 ## Added fat
 
-Derived from the home sheet `bhindi-home`. Home added fat: 52 g per pot (TfT ¼ cup (54.5 g) and F&S "a little less than ¼ cup" (taken as 3.5 tbsp = 48 g) per lb of okra → 52 g). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 52 g × 0.5 = 26 g per pot (26 g less). No separate tarka in this dish: all the fat goes into the bhunai. Bhindi: okra stir-fried with half the oil (non-stick pan).
+Derived from the home sheet `bhindi-home`. Home added fat: 52 g per pot (TfT ¼ cup (54.5 g) and F&S "a little less than ¼ cup" (taken as 3.5 tbsp = 48 g) per lb of okra → 52 g. Masala TV (Shireen Anwar) uses ½ cup per 250 g, so 52 g per lb is the low end of Pakistani recipes). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 52 g × 0.5 = 26 g per pot (26 g less). No separate tarka in this dish: all the fat goes into the bhunai. Bhindi: okra stir-fried with half the oil (non-stick pan).
 
 Added fat in the served dish: **5.2 g per 100 g** (oil-cooking).
 
@@ -65,4 +67,5 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 97 (NUTRITION.md §6 step 7). Sum of the
 - Servings are the home record's own katori weights: a katori of the lighter dish holds the same food.
 - Home: Water 74.3 g/100 g from the analysed CoFID 15-627.
 - Home: Katori density 0.70 g/ml (FNDDS cooked okra, 1 cup = 165 g).
+- Home: All the oil is counted as eaten (NUTRITION §6 step 4). A dry stir-fry leaves a little in the pan, so a cook who lifts the bhindi out with a slotted spoon eats a bit less.
 - Confidence **C**: recipe with assumed oil and yield, as its home record.

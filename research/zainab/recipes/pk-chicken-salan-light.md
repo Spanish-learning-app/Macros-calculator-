@@ -39,7 +39,7 @@ Record id: `pk-chicken-salan-light` · sheet: `research/zainab/recipes/kam-tel.m
 
 ## Added fat
 
-Derived from the home sheet `chicken-salan-home`. Home added fat: 90 g per pot (Home references: TfT 80, F&S 92, F&S kalya 180 g oil per kg bone-in chicken → median 92 → standard 90 g cooking oil per kg). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 90 g × 0.5 = 45 g per pot (45 g less). No separate tarka in this dish: all the fat goes into the bhunai. Shorba salan: onions browned in half the oil, a splash of water when they catch.
+Derived from the home sheet `chicken-salan-home`. Home added fat: 90 g per pot (Home references: TfT 80, F&S 92, F&S kalya 180 g oil per kg bone-in chicken → median 92 → standard 90 g cooking oil per kg). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 90 g × 0.5 = 45 g per pot (45 g less). No separate tarka in this dish: all the fat goes into the bhunai. Shorba salan: onions browned in half the oil, a splash of water when they catch.
 
 Added fat in the served dish: **3 g per 100 g** (oil-cooking).
 

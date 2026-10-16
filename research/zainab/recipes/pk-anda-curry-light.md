@@ -37,7 +37,7 @@ Record id: `pk-anda-curry-light` · sheet: `research/zainab/recipes/kam-tel.mjs`
 
 ## Added fat
 
-Derived from the home sheet `anda-curry-home`. Home added fat: 95 g per pot (F&S ⅓ cup (73 g) per 6 eggs; Fatima Cooks 85 ml (78 g) per 4 eggs → 117 g per 6 eggs; standard 95 g per 6 eggs (mean)). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 95 g × 0.5 = 47.5 g per pot (47.5 g less). No separate tarka in this dish: all the fat goes into the bhunai. Anda curry: half the oil for the masala.
+Derived from the home sheet `anda-curry-home`. Home added fat: 95 g per pot (F&S ⅓ cup (73 g) per 6 eggs; Fatima Cooks 85 ml (78 g) per 4 eggs → 117 g per 6 eggs; standard 95 g per 6 eggs (mean)). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 95 g × 0.5 = 47.5 g per pot (47.5 g less). No separate tarka in this dish: all the fat goes into the bhunai. Anda curry: half the oil for the masala.
 
 Added fat in the served dish: **3.5 g per 100 g** (oil-cooking).
 

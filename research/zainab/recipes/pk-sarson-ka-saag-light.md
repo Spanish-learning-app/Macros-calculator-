@@ -35,7 +35,7 @@ Record id: `pk-sarson-ka-saag-light` · sheet: `research/zainab/recipes/kam-tel.
 
 ## Added fat
 
-Derived from the home sheet `sarson-ka-saag`. Home added fat: 74.5 g per pot (Tarka: Food Fusion ¼ cup oil (54.5 g) per 1.2 kg greens; TfT ¼ cup oil + 3 tbsp ghee (≈ 93 g) per ~3 bunches. Standard 54.5 g oil + 20 g ghee per 1.2 kg greens; the makhan (butter) served on top is not included). Kam-tel rule (RULES.kamTel, rules 1.7.0, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 74.5 g × 0.5 = 37.3 g per pot (37.2 g less). Tarka: 15.5 g on top (cap 1 g per 100 g × 1554.7 g served), the rest of the fat softens the onion and masala in the pot. Saag: half the oil and ghee; a small ghee tarka, the makhan on top still logged apart.
+Derived from the home sheet `sarson-ka-saag`. Home added fat: 74.5 g per pot (Tarka: Food Fusion ¼ cup oil (54.5 g) per 1.2 kg greens; TfT ¼ cup oil + 3 tbsp ghee (≈ 93 g) per ~3 bunches. Standard 54.5 g oil + 20 g ghee per 1.2 kg greens; the makhan (butter) served on top is not included). Kam-tel rule (RULES.kamTel, rules 1.7.2, NUTRITION.md §6.1): every added-fat line (oil and ghee, bhunai and tarka) × 0.5; same ingredients, water and yield; tarka at most 1 g per 100 g served; added fat at least 2 g per 100 g. Here: 74.5 g × 0.5 = 37.3 g per pot (37.2 g less). Tarka: 15.5 g on top (cap 1 g per 100 g × 1554.7 g served), the rest of the fat softens the onion and masala in the pot. Saag: half the oil and ghee; a small ghee tarka, the makhan on top still logged apart.
 
 Added fat in the served dish: **2.4 g per 100 g** (oil-cooking, ghee-desi).
 
