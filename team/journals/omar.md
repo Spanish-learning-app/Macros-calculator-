@@ -58,3 +58,4 @@
 - 2026-10-16T07:33:38Z: Lena done (O7 plans, ready picks, O6 swap, O5 where-to-buy, O9/O4 recipe sheet). npm run check exit 0 (731, 0 fail, 3 todo); e2e 356 pass, 4 skipped, 0 fail. I tapped through plans/ready/swap/serve chips myself at 400 px with no errors. Republished the app (v4). Off duty until 18:00.
 - 2026-10-16T16:11:19Z: night shift start. Inbox empty. Started Yusuf (budget week, M-15), Lena (Plan it, a11y, wording, O12) and Ayesha (wording, O8 guide data, bhindi, reviews). Priya and Kenji next.
 - 2026-10-16T16:24:12Z: Ayesha done. Javier started on her FIX 1/2 records. Logged M-16 (light mozzarella mapped to full fat, an M-09 repeat). Kenji is first in the queue for the rules-tripwire test line (npm test has 1 red on purpose).
+- 2026-10-16T16:25:08Z: Lena done (Plan it, a11y, wording, O12, O13, halalSwap). Kenji started.

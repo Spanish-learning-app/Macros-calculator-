@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T16:24:12Z",
+  "updatedAt": "2026-10-16T16:25:08Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -26,8 +26,8 @@
     },
     "lena": {
       "location": "office",
-      "status": "working",
-      "task": "Plan it fix, step-mode a11y, editor wording, Ramadan table"
+      "status": "idle",
+      "task": "Done: Plan it, step a11y, editor wording, Ramadan table, Urdu labels"
     },
     "ayesha": {
       "location": "office",
@@ -51,8 +51,8 @@
     },
     "kenji": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: Sprint 3 unit + e2e (356 e2e pass)"
+      "status": "working",
+      "task": "Tests: rules tripwire, plans, picks, swap, chips, Ramadan table"
     },
     "zainab": {
       "location": "office",
@@ -87,14 +87,14 @@
       "output": "research/yusuf/**, app/data/*mealprep.js, docs/MEALPREP.md"
     },
     {
-      "member": "lena",
-      "task": "Plan it today=planned; step-mode aria-live; recipe-editor wording; O12 Ramadan table + time edit; drop HALAL_SWAPS when field lands; O13 if time",
-      "output": "app/** (not data), tests/unit/dev/**"
-    },
-    {
       "member": "javier",
       "task": "intl-soy-sauce-halal, es-mozzarella-light (Ayesha FIX 1/2), medallones if quick, rebuild for review stamps",
       "output": "research/javier/**, his app/data files"
+    },
+    {
+      "member": "kenji",
+      "task": "Rules 1.7.2 tripwire, M0-M2 plain, e2e for plans/picks/swap/chips/Lena's changes",
+      "output": "tests/** (not dev)"
     }
   ],
   "checkIn": {
@@ -213,10 +213,6 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
-    {
-      "member": "kenji",
-      "task": "Add 'blended-smoothie': 1 to FRIDGE_DAYS in tests/unit/qa/mealprep.test.js:572 (rules 1.7.2 tripwire, npm test red until then); BUG-M0/M1/M2 todo tests -> plain; e2e plans, ready picks, swap, serve chips; Lena's Plan it change"
-    },
     {
       "member": "priya",
       "task": "O8 halal guide UI on About (after Ayesha), lazy-load recipe data, plural fix"

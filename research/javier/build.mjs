@@ -1763,6 +1763,18 @@ const s3Basics = [
     tags: ['international', 'vegetarian', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Mercadona fresh mozzarella (Hacendado) lists microbial coagulant (coagulante microbiano). Other brands may use animal rennet: read the label.' },
   },
+  // Ayesha, s3-backlog FIX 2 (2026-10-16): the light mozzarella in Yusuf's preps was linked to the full-fat record (M-09).
+  {
+    id: 'es-mozzarella-light', name: 'Mozzarella light, fresh ball (Hacendado)', shortName: 'Light mozzarella',
+    aliases: ['mozzarella light', 'light mozzarella', 'mozzarella ligera', 'mozzarella fresca light', 'mozzarella baja en grasa', 'low-fat mozzarella', 'mozzarella lleugera'],
+    group: 'dairy', state: 'fresh, drained',
+    per100g: { kcal: 153, protein: 17, carbs: 1, fat: 9, fiber: 0, sugars: 0.8, satFat: 6, sodium: salt2na(1.5) },
+    source: merc3('Mozzarella fresca light de vaca Hacendado', 51230, '8480000512307', '250 g pack (125 g drained)', 'Label per 100 g: 639 kJ (152.8 kcal, rounded to 153: 4P + 4C + 9F = 153), P 17, C 1 (sugars 0.8), F 9, sat 6, salt 1.5 g; fibre not on the label, 0 (fresh cheese: milk, salt, citric acid, microbial coagulant only). Ingredients: pasteurised cow milk, pasteurised skimmed cow milk, salt, acidity corrector (citric acid), microbial coagulant. Packaging: 250 g with whey, 125 g drained = 1 ball (Mercadona drained_weight 0.125 kg; OFF serving 125 g). Lighter than intl-mozzarella-fresh (USDA 170845, 299 kcal): Yusuf\'s recipes use this one.'),
+    servings: [sv('half-ball', '½ ball (63 g)', 63, true), sv('ball', '1 ball, drained (125 g)', 125), sv('oz', '1 oz (28 g)', 28.35)],
+    pack: { grams: 125, label: '1 ball (125 g drained, 250 g with whey)' },
+    tags: ['international', 'spanish', 'vegetarian', 'packaged', 'eat-cold'], slots: ['lunch', 'dinner'],
+    halal: { status: 'halal', reason: 'Mercadona fresh mozzarella light (Hacendado) lists microbial coagulant (coagulante microbiano). Other brands may use animal rennet: read the label.' },
+  },
   {
     id: 'intl-mozzarella-grated', name: 'Mozzarella, grated (pizza-Roma, Hacendado)', shortName: 'Grated mozzarella',
     aliases: ['grated mozzarella', 'shredded mozzarella', 'mozzarella rallada', 'queso rallado mozzarella', 'mozzarella pizza', 'pizza cheese', 'queso para pizza', 'queso rallat mozzarella'],
@@ -1906,6 +1918,16 @@ const s3Intl = [
       halal: check('Brewed soy sauce can contain a trace of alcohol from fermentation, and the label does not say. Swap: a soy sauce with a halal certificate (check the seal), or coconut aminos.'),
     };
   })(),
+  // Ayesha, s3-backlog FIX 1 (2026-10-16): Yusuf's preps say soy-sauce-halal; the worst-status rule needs a halal-status soy sauce record.
+  {
+    id: 'intl-soy-sauce-halal', name: 'Soy sauce, halal-logo (shoyu)', shortName: 'Soy sauce, halal',
+    aliases: ['halal soy sauce', 'soy sauce halal', 'salsa de soja halal', 'halal shoyu', 'halal certified soy sauce', 'soya sauce halal'],
+    group: 'condiment', state: 'bottle, as sold (soy and wheat shoyu)',
+    ...fromUsda3(174277, 'A', 'Serving: 1 tbsp = 16 g (USDA SR 174277 portion). Carbohydrate by difference 4.93 minus fibre 0.8. Same food as intl-soy-sauce (Hacendado label, status check), but taken from USDA and assumed to carry a halal logo, so Yusuf\'s preps that say halal link here (worst-status rule). Per Ayesha, research/review/s3-backlog.md FIX 1.'),
+    servings: [sv('tbsp', '1 tablespoon', 16, true, 'بڑا چمچ'), sv('two-tbsp', '2 tablespoons (32 g)', 32)],
+    tags: ['international', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner'],
+    halal: { status: 'halal', reason: 'Assumes a soy sauce with a halal logo (Asian or Pakistani grocery). Without a halal seal, use the other soy sauce record (check).' },
+  },
   (() => {
     const per = perMlToPerG({ kcal: 188, protein: 4.5, carbs: 41.8, fat: 0.1, fiber: 0, sugars: 36.5, satFat: 0.1 }, 1.22);
     return {

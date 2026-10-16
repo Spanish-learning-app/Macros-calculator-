@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 16:24 UTC by Omar._
+_Last updated: 2026-10-16 16:25 UTC by Omar._
 
 ## Links
 
@@ -34,9 +34,9 @@ _Last updated: 2026-10-16 16:24 UTC by Omar._
 ## Working now (night shift from 18:10 Madrid)
 
 - **Yusuf:** budget week at 60 € or less, with every number generated (M-15); the `halalSwap` field; prices for the 6 recipes that have no cost yet.
-- **Lena:** "Plan it" fix; step-mode screen-reader support; recipe-editor wording; Ramadan day-by-day table and time edit (O12).
+- **Kenji:** rules tripwire test, e2e for plans, picks, swap, chips and Lena's changes.
 - **Javier:** halal soy sauce and light mozzarella records (Ayesha's review fixes), then a rebuild so her stamps reach the app.
-- Done tonight: **Ayesha**: rules 1.7.2 in plain words; halal guide as data (`RULES.halalGuide`), which still needs Priya's About card; 111 records reviewed, 11 left after the rebuilds; bhindi numbers ruled correct.
+- Done tonight: **Lena**: "Plan it" now plans, step mode reads each step aloud, plainer recipe-editor wording, Ramadan offsets and the day table (O12), Urdu serving labels (O13), the halalSwap field in use. **Ayesha**: rules 1.7.2 in plain words; halal guide as data (`RULES.halalGuide`), which still needs Priya's About card; 111 records reviewed, 11 left after the rebuilds; bhindi numbers ruled correct.
 - Queued: Priya (halal guide UI, faster first load), Kenji (tests for plans, picks and chips), then Review 3.
 
 ## Next, in order (from 18:09 Madrid)
@@ -66,8 +66,8 @@ out (DECISIONS 2026-10-16). When an item reaches the app, move it to "Done" with
 | O9 | Recipe references, 2–5 links per prep | Listed in the prep's Source panel | Yusuf (data), Lena (UI) | **done, published v4** (2026-10-16) |
 | O10 | Saved-meal row shows no kcal or protein (Bilal, Nasreen) | Show kcal · protein on the row | Priya | **done in code** (Priya, 2026-10-16; published in v4) |
 | O11 | Nasreen's wording carry-overs; kam-tel "half the oil" line | Copy fixes | Priya with Ayesha | **done in code** (Priya, 2026-10-16; published in v4) |
-| O12 | Ramadan: full day-by-day table, ±30 min time edit (`RULES.ramadan`) | Part of the Ramadan UI | Lena | queued |
-| O13 | Urdu serving labels (`labelUr`, 454 foods) | Shown when "Pakistani meal names" is chosen | Lena | low priority |
+| O12 | Ramadan: full day-by-day table, ±30 min time edit (`RULES.ramadan`) | Part of the Ramadan UI | Lena | **done in code** (2026-10-16; not yet published) |
+| O13 | Urdu serving labels (`labelUr`, 454 foods) | Shown when "Pakistani meal names" is chosen | Lena | **done in code** (2026-10-16; not yet published) |
 | O14 | E2E tests for Sprint 3 features (weight, spare box, meal names, cuisine chips, tips, Ramadan, methods) | E2E suite | Kenji | **mostly done**: e2e for weight, spare box, meal names, cuisine chips, methods (2026-10-16); plans, picks and chips are next |
 | O15 | Two possible bugs from Mariam (Fill Mon–Thu after Monday; "30 g – 30 g" on picos) | Verify, then fix | Kenji, Lena | queued |
 | O16 | Accessibility and speed pass (Meeting 005) | As planned | Priya | queued |
