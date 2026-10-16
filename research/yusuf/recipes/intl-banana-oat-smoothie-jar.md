@@ -62,7 +62,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Done when:** No lumps of banana or whole oats are left when you tilt the jug.
 
-**Box it up:** Straight into the fridge. Make it the night before, one jar at a time, and drink it within 24 hours. Do not freeze.
+**Box it up:** Straight into the fridge. Make it the night before, one jar at a time, and drink it within 1 day (24 hours). Do not freeze.
 
 **Reheat:** Not reheated: drink it cold.
 
@@ -78,7 +78,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 | Component | Raw g | Cooked g | Per jar g | Storage |
 |---|---|---|---|---|
-| Smoothie | 506 | 506 | **506** | `overnight-oats` |
+| Smoothie | 506 | 506 | **506** | `blended-smoothie` |
 | **Batch** | 506 | 506 | **506** (½ jar 253) | |
 
 Overall yield 1 (cooked ÷ raw, absorbed water included). Yield factors used:
@@ -104,9 +104,9 @@ kcal = round(4P + 4C + 9F + 2·fibre) = **102** per 100 g. The sum of the tables
 
 | Component | Per jar | Class | Fridge (≤ 5 °C) | Freezer |
 |---|---|---|---|---|
-| Smoothie | 506 g | `overnight-oats` | 3 days | do not freeze |
+| Smoothie | 506 g | `blended-smoothie` | 1 day | do not freeze |
 
-Use-by of a packed jar = cooked date + the shortest fridge life in it = **3 days**. A frozen jar has no use-by until it is moved to the fridge (then 1 day).
+Use-by of a packed jar = cooked date + the shortest fridge life in it = **1 day**. A frozen jar has no use-by until it is moved to the fridge (then 1 day).
 
 Make it the night before, one jar at a time: the references keep a blended smoothie 1 day. The oats thicken it overnight; add a splash of milk if you like it thinner.
 

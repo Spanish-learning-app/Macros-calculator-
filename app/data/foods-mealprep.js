@@ -2108,7 +2108,7 @@ export default [
       confidence: 'B',
       reviewer: 'yusuf',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (no-cook, 5 min hands-on for 1; cuisine international). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 jar = 506 g = 516 kcal, 34.9 g protein, 8.1 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (no-cook, 5 min hands-on for 1; cuisine international). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 jar = 506 g = 516 kcal, 34.9 g protein, 8.1 g fibre. Eat cold (no microwave needed); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {

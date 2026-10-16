@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 16:11 UTC by Omar._
+_Last updated: 2026-10-16 16:24 UTC by Omar._
 
 ## Links
 
@@ -35,7 +35,8 @@ _Last updated: 2026-10-16 16:11 UTC by Omar._
 
 - **Yusuf:** budget week at 60 € or less, with every number generated (M-15); the `halalSwap` field; prices for the 6 recipes that have no cost yet.
 - **Lena:** "Plan it" fix; step-mode screen-reader support; recipe-editor wording; Ramadan day-by-day table and time edit (O12).
-- **Ayesha:** rules wording; smoothie fridge life; halal shopping guide as app data (O8); bhindi fix; review backlog.
+- **Javier:** halal soy sauce and light mozzarella records (Ayesha's review fixes), then a rebuild so her stamps reach the app.
+- Done tonight: **Ayesha**: rules 1.7.2 in plain words; halal guide as data (`RULES.halalGuide`), which still needs Priya's About card; 111 records reviewed, 11 left after the rebuilds; bhindi numbers ruled correct.
 - Queued: Priya (halal guide UI, faster first load), Kenji (tests for plans, picks and chips), then Review 3.
 
 ## Next, in order (from 18:09 Madrid)

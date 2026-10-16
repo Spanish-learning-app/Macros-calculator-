@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T16:11:19Z",
+  "updatedAt": "2026-10-16T16:24:12Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -31,8 +31,8 @@
     },
     "ayesha": {
       "location": "office",
-      "status": "working",
-      "task": "Rules wording, halal shopping guide (O8), bhindi fix, review backlog"
+      "status": "idle",
+      "task": "Done: rules 1.7.2, halal guide data, 111 reviewed, bhindi ruled"
     },
     "bilal": {
       "location": "office",
@@ -61,8 +61,8 @@
     },
     "javier": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: quinoa pouch split, corn tortilla check"
+      "status": "working",
+      "task": "Two records for Ayesha fixes: halal soy sauce, light mozzarella; rebuild for stamps"
     },
     "nasreen": {
       "location": "office",
@@ -92,9 +92,9 @@
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
-      "member": "ayesha",
-      "task": "Priya's rules wording; smoothie fridge life; O8 halal guide as RULES data; bhindi fix; G19 review backlog",
-      "output": "app/data/rules.js, docs/NUTRITION.md, research/check-foods.mjs, research/review/**"
+      "member": "javier",
+      "task": "intl-soy-sauce-halal, es-mozzarella-light (Ayesha FIX 1/2), medallones if quick, rebuild for review stamps",
+      "output": "research/javier/**, his app/data files"
     }
   ],
   "checkIn": {
@@ -214,12 +214,16 @@
   },
   "queued": [
     {
+      "member": "kenji",
+      "task": "Add 'blended-smoothie': 1 to FRIDGE_DAYS in tests/unit/qa/mealprep.test.js:572 (rules 1.7.2 tripwire, npm test red until then); BUG-M0/M1/M2 todo tests -> plain; e2e plans, ready picks, swap, serve chips; Lena's Plan it change"
+    },
+    {
       "member": "priya",
       "task": "O8 halal guide UI on About (after Ayesha), lazy-load recipe data, plural fix"
     },
     {
-      "member": "kenji",
-      "task": "Turn BUG-M0/M1/M2 todo tests into plain tests (Yusuf fixed all three at 07:05 UTC); e2e for Lena's plans UI and Priya's chips"
+      "member": "zainab",
+      "task": "Ayesha's bhindi notes/source edits (journal ayesha.md) + rebuild for review stamps; cola duplicate (330 vs 250 ml) decision"
     },
     {
       "member": "customer panel",

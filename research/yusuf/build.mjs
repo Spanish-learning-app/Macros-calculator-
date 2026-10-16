@@ -965,7 +965,7 @@ function budgetWeekMd(rows) {
   const halal = ['chicken from the halal butcher', uses('mozzarella-light') ? 'mozzarella with microbial coagulant' : null, uses('burgos-0') ? 'queso de Burgos with *cuajo microbiano*' : null, 'no cheese with unstated rennet'].filter(Boolean);
   L.push('## A budget low-cook week', '');
   L.push(`The same idea for less: **${eur(P.till)} at the till** for Monday to Friday, ${ok ? `under the ${BUDGET_EUR} € target` : `**over** the ${BUDGET_EUR} € target`} and ${vsLow >= 0 ? `${eur(vsLow)} less than` : `${eur(-vsLow)} more than`} the low-cook week (both priced at Mercadona on ${WEEK_SNAP}). One Sunday cook (${P.mins.Sunday} minutes hands-on), short jobs on weekday evenings (${P.mins.other} minutes in all), and the same cheap staples in every prep: halal chicken breast, eggs, protein yogurt, oats, bananas, jarred lentils and chickpeas, wholewheat pasta and tomato. The days come to ${spanText(P, 'kcal')} kcal and ${spanText(P, 'protein')} g protein. All halal: ${andList(halal)}.`, '');
-  L.push(`**Version 3** (2026-10-16). Version 2 came to ${eur(old.till)} at the till${old.till > low.till ? ', more than the low-cook week,' : ''} while this page said "${BUDGET_EUR} € or less" (MISTAKES M-15). Version 3 buys ${P.groups.mercadona.length} different Mercadona packs instead of ${old.groups.mercadona.length} because the preps share their staples; ${small.length} packs are still bought for less than a quarter of their contents (${eur(small.reduce((a, x) => a + x.cost, 0))} of the till: ${andList(small.map((x) => lc(shortLabel(x.ingId).replace(/\s*\(.*\)/, '').replace(/,.*$/, ''))))}), and most of what is left keeps for next week. Lunches: ${slotText(P, 1)}: ${lunchRules(P)}. Dinners: ${slotText(P, 2)}. Breakfasts: ${slotText(P, 0)}.`, '');
+  L.push(`**Version 3** (2026-10-16). Version 2 came to ${eur(old.till)} at the till${old.till > low.till ? ', more than the low-cook week,' : ''} while this page said "${BUDGET_EUR} € or less" (MISTAKES M-15). Version 3 buys ${P.groups.mercadona.length} different Mercadona packs instead of ${old.groups.mercadona.length} because the preps share their staples; ${small.length} packs are still bought for less than a quarter of their contents (${eur(small.reduce((a, x) => a + x.cost, 0))} of the till: ${andList(small.map((x) => lc(shortLabel(x.ingId).replace(/\s*\(.*\)/, '').replace(/,.*$/, ''))))}): that is the price of buying for one week only. Lunches: ${slotText(P, 1)}: ${lunchRules(P)}. Dinners: ${slotText(P, 2)}. Breakfasts: ${slotText(P, 0)}.`, '');
   weekDaysMd(L, P);
   L.push(`**Variety:** lunches ${mix(P, 1)}; dinners ${mix(P, 2)}.`, '');
   weekShopMd(L, P);
@@ -1042,6 +1042,7 @@ export const PLANS = [
 }
 
 // ------------------------------------------------------------------ library page
+const NOPRICE_NAME = { 'chicken-thigh': 'boneless halal chicken thigh', 'pan-barra': 'a bakery (forn) barra' };
 const DESI_DATES = [...new Set(Object.values(DESI.items).map((x) => x.date).filter(Boolean))].sort().join(' and ');
 function libraryMd(rows) {
   const L = [];
@@ -1085,10 +1086,11 @@ function libraryMd(rows) {
   L.push('## Lunch boxes', '');
   const lunchCook = by('lunch');
   const nEat = (e) => lunchCook.filter(({ s }) => s.eat === e).length;
-  const boxSizes = [...new Set(lunchCook.map(({ r }) => r.boxes))].sort((a, b) => b - a);
-  L.push(`Each one makes **${andList(boxSizes.map(String)).replace(' and ', ' or ')} boxes** with ${TBk('lunch')}. ${nEat('hot')} are hot boxes for the microwave, ${nEat('either')} work hot or cold, and ${nEat('cold')} are cold-only for days when the microwave queue is long.`, '');
+  const nBox = (n) => lunchCook.filter(({ r }) => r.boxes === n).length;
+  const other = lunchCook.length - nBox(4);
+  L.push(`${lunchCook.length} batches, each box with ${TBk('lunch')}. ${other ? `${nBox(4)} make **4 boxes** and ${other} make ${andList([...new Set(lunchCook.filter(({ r }) => r.boxes !== 4).map(({ r }) => r.boxes))].map(String))}` : 'Each one makes **4 boxes**'}. Of the ${lunchCook.length}, ${nEat('hot')} are hot boxes for the microwave, ${nEat('either')} work hot or cold, and ${nEat('cold')} are cold-only for days when the microwave queue is long.`, '');
   table(by('lunch'));
-  const noPrice = [...new Set(rows.filter(({ r }) => r.cost.partialMajor).flatMap(({ r }) => r.cost.unpriced.filter((u) => u.grams / r.boxes >= 20).map((u) => lc(REG[u.ingId].label.replace(/\s*\(.*$/, '').replace(/,.*$/, '')))))];
+  const noPrice = [...new Set(rows.filter(({ r }) => r.cost.partialMajor).flatMap(({ r }) => r.cost.unpriced.filter((u) => u.grams / r.boxes >= 20).map((u) => NOPRICE_NAME[u.ingId] ?? lc(REG[u.ingId].label.replace(/\s*\(.*$/, '').replace(/:.*$/, '').replace(/, raw$/, '')))))];
   L.push(`"Cost per box" is the pro-rata cost at Mercadona Barcelona, an online halal butcher and, for the dals and bulgur, an online desi or Turkish grocery; "not available" means we could not find a current price for a main ingredient (${noPrice.length ? andList(noPrice) : 'none today'}), and the sheet shows the part we could price.`, '');
 
   L.push('## Freezer dinners', '');

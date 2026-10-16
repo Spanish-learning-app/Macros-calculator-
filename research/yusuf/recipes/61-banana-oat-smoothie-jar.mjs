@@ -25,7 +25,7 @@ export default {
   ],
   components: [
     {
-      id: 'smoothie', label: 'Smoothie', storage: 'overnight-oats', yield: 'none', eat: 'cold',
+      id: 'smoothie', label: 'Smoothie', storage: 'blended-smoothie', yield: 'none', eat: 'cold',
       lines: [
         ['protein-yogurt', 200, 'Mercadona +Proteínas natural'],
         ['milk-semi', 150, ''],
@@ -46,7 +46,7 @@ export default {
       { text: 'In the morning: shake the jar well and drink. Add a splash of milk if it has got too thick.', heat: 'none' },
     ],
     doneWhen: 'No lumps of banana or whole oats are left when you tilt the jug.',
-    boxUp: 'Straight into the fridge. Make it the night before, one jar at a time, and drink it within 24 hours. Do not freeze.',
+    boxUp: 'Straight into the fridge. Make it the night before, one jar at a time, and drink it within 1 day (24 hours). Do not freeze.',
     reheat: 'Not reheated: drink it cold.',
     tips: ['Peanut allergy or none in the cupboard? Use 15 g almonds.'],
   },
