@@ -57,12 +57,44 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Mix the mince, breadcrumbs, egg, garlic, parsley, salt and pepper; shape 20 meatballs (about 33 g).
-2. Sofregit: cook the onion slowly in the olive oil 20 min until golden and soft; add the paprika, then the crushed tomato and bay leaf, and cook 10 min to a thick sauce.
-3. Add the water, potatoes and the raw meatballs; cover and simmer 20 min. Add the peas and simmer 10 min more, lid ajar, until the potatoes are soft and the meatballs 75 °C inside.
-4. Cool fast; pack 4 portions (5 meatballs, potatoes, peas and sauce); freeze.
+**Equipment**
+
+- Large deep pan or casserole (28 cm) with a lid
+- Large bowl for the meat mix
+- Wooden spoon
+- Chopping board and knife
+- 4 boxes (1 for the fridge, 3 for the freezer)
+
+**Before you start**
+
+- Peel and chop the onions (240 g, 2 medium) finely (3–5 mm).
+- Peel the potatoes (600 g) and cut them into 3 cm chunks. Keep them in a bowl of cold water.
+- Peel and chop 2 garlic cloves (6 g) very finely. Chop the parsley (8 g).
+
+**Steps**
+
+1. In the bowl mix the beef mince (560 g), breadcrumbs (40 g, about 4 tbsp), 1 egg, the garlic, parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands. *(no heat)*
+2. Shape 20 meatballs of about 33 g (a little bigger than a walnut). Put them on a plate in the fridge. Wash your hands. *(no heat)*
+3. Sofregit: heat 2 tbsp + 1 tsp olive oil (32 g) in the casserole. Add the onions and cook slowly, stirring every few minutes, until soft and golden. *(low heat · 20 min)*
+4. Stir in 1 tsp paprika (2 g) for a few seconds, then add the crushed tomato (400 g) and 1 bay leaf. Cook until thick. *(medium heat · 10 min)*
+5. Add 300 ml water, the drained potatoes, ⅔ tsp salt (4 g) and the raw meatballs. Bring to a bubble. *(medium-high heat · 3 min)*
+6. Put the lid on, turn down and simmer 20 minutes. Do not stir hard: shake the pan so the meatballs keep their shape. *(low heat · 20 min)*
+7. Add the frozen peas (400 g). Simmer 10 minutes more with the lid a little open. *(low heat · 10 min)*
+8. Check (see "Done when"). Take out the bay leaf and let it cool 30 minutes. *(no heat · 30 min)*
+9. Fill 4 boxes: 5 meatballs, a quarter of the potatoes, peas and sauce each. *(no heat)*
+
+**Done when:** A potato chunk breaks easily with a spoon and a meatball cut in half has no pink inside (75 °C).
+
+**Box it up:** Cool fast, in the fridge or freezer within 1 hour. Portion 1 in the fridge (3 days); portions 2–4 in the freezer (3 months). Move one to the fridge the night before.
+
+**Reheat:** Microwave covered 3–4 minutes, stirring halfway, until steaming hot all through (from frozen, defrost first). Or warm gently in a pan until it bubbles.
+
+**Tips**
+
+- Water, not stock: most shop stocks are chicken and not halal unless certified.
+- Check the breadcrumbs label for manteca (lard).
 
 ## Added fat
 

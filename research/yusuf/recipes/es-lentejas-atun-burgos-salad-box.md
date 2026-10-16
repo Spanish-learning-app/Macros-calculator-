@@ -54,12 +54,37 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Drain the lentils into a sieve and rinse them well under cold water (the jar liquid is salty); drain the tuna.
-2. Dice the pepper and cucumber, halve the tomatoes, chop the onion and parsley.
-3. Mix everything with the olive oil, lemon, cumin and pepper. A pinch of salt only if you like: the Burgos is milder than feta.
-4. Divide between 2 boxes and put 1 sealed Burgos tub in each. At lunch, crumble the Burgos over and mix. Keep cold (insulated bag and ice pack).
+**Equipment**
+
+- Sieve
+- Can opener
+- Large bowl
+- Chopping board and knife
+- 2 lunch boxes
+
+**Before you start**
+
+- Dice the red pepper (120 g) and cucumber (100 g) into 1 cm pieces. Halve the cherry tomatoes (160 g).
+- Chop the red onion (40 g) small (3 mm) and the parsley (10 g).
+
+**Steps**
+
+1. No cooking. Tip 1½ jars of lentils (600 g drained) into the sieve and rinse them well under cold water (the jar liquid is salty). Let them drain. *(no heat)*
+2. Open and drain 2 cans of tuna (120 g). *(no heat)*
+3. In the bowl mix the lentils, tuna and all the vegetables and parsley. *(no heat)*
+4. Add 2½ tbsp olive oil (34 g), 2 tbsp lemon juice (30 g), ½ tsp ground cumin (1 g) and black pepper (1 g). Stir. Add a pinch of salt only if you like. *(no heat)*
+5. Divide between the 2 boxes and put 1 sealed Burgos tub (62.5 g) in each. *(no heat)*
+6. At lunch: crumble the Burgos over and mix. *(no heat)*
+
+**Box it up:** Straight into the fridge. The dressed salad keeps 2 days: make it Sunday night for Monday and Tuesday (or Tuesday night for Wednesday and Thursday). Do not freeze. The Burgos tubs stay sealed to their date; jars and cans wait in the cupboard. Carry in an insulated bag with an ice pack.
+
+**Reheat:** Not reheated (fish and fresh cheese): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).
+
+**Tips**
+
+- Halal: queso de Burgos 0% with microbial rennet (cuajo microbiano), so this salad is fully halal.
 
 ## Added fat
 

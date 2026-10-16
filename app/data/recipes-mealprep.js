@@ -834,7 +834,6 @@ export default [
         {
           text: 'Leave at least 6 hours (overnight). Before the first jar, stir once more if it set unevenly.',
           heat: 'none',
-          minutes: 360,
         },
         { text: 'In the morning slice half a banana (60 g) on top and eat cold.', heat: 'none' },
       ],
@@ -1349,6 +1348,58 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'spanish',
+    method: {
+      equipment: ['Large deep pan or casserole (28 cm) with a lid', 'Large bowl for the meat mix', 'Wooden spoon', 'Chopping board and knife', '4 boxes (1 for the fridge, 3 for the freezer)'],
+      prep: ['Peel and chop the onions (240 g, 2 medium) finely (3–5 mm).', 'Peel the potatoes (600 g) and cut them into 3 cm chunks. Keep them in a bowl of cold water.', 'Peel and chop 2 garlic cloves (6 g) very finely. Chop the parsley (8 g).'],
+      steps: [
+        {
+          text: 'In the bowl mix the beef mince (560 g), breadcrumbs (40 g, about 4 tbsp), 1 egg, the garlic, parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands.',
+          heat: 'none',
+        },
+        {
+          text: 'Shape 20 meatballs of about 33 g (a little bigger than a walnut). Put them on a plate in the fridge. Wash your hands.',
+          heat: 'none',
+        },
+        {
+          text: 'Sofregit: heat 2 tbsp + 1 tsp olive oil (32 g) in the casserole. Add the onions and cook slowly, stirring every few minutes, until soft and golden.',
+          heat: 'low',
+          minutes: 20,
+        },
+        {
+          text: 'Stir in 1 tsp paprika (2 g) for a few seconds, then add the crushed tomato (400 g) and 1 bay leaf. Cook until thick.',
+          heat: 'medium',
+          minutes: 10,
+        },
+        {
+          text: 'Add 300 ml water, the drained potatoes, ⅔ tsp salt (4 g) and the raw meatballs. Bring to a bubble.',
+          heat: 'medium-high',
+          minutes: 3,
+        },
+        {
+          text: 'Put the lid on, turn down and simmer 20 minutes. Do not stir hard: shake the pan so the meatballs keep their shape.',
+          heat: 'low',
+          minutes: 20,
+        },
+        {
+          text: 'Add the frozen peas (400 g). Simmer 10 minutes more with the lid a little open.',
+          heat: 'low',
+          minutes: 10,
+        },
+        {
+          text: 'Check (see "Done when"). Take out the bay leaf and let it cool 30 minutes.',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Fill 4 boxes: 5 meatballs, a quarter of the potatoes, peas and sauce each.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'A potato chunk breaks easily with a spoon and a meatball cut in half has no pink inside (75 °C).',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Portion 1 in the fridge (3 days); portions 2–4 in the freezer (3 months). Move one to the fridge the night before.',
+      reheat: 'Microwave covered 3–4 minutes, stirring halfway, until steaming hot all through (from frozen, defrost first). Or warm gently in a pan until it bubbles.',
+      tips: ['Water, not stock: most shop stocks are chicken and not halal unless certified.', 'Check the breadcrumbs label for manteca (lard).'],
+    },
   },
   {
     foodId: 'es-queso-batido-parfait-jar',
@@ -1366,6 +1417,29 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'spanish',
+    method: {
+      equipment: ['3 jars with lids (400–500 ml)', 'Spoon', 'Knife and board'],
+      prep: ['Chop the walnuts (24 g) roughly.'],
+      steps: [
+        {
+          text: 'No cooking. In each jar put 40 g oats (4 tbsp), 10 g chia seeds (1 tbsp) and 1 g cinnamon (a good pinch).',
+          heat: 'none',
+        },
+        {
+          text: 'Spoon 220 g queso fresco batido into each jar (one 500 g tub fills 2 jars and a bit).',
+          heat: 'none',
+        },
+        { text: 'Stir well, scraping the bottom so no dry oats or chia are left.', heat: 'none' },
+        {
+          text: 'Sprinkle 8 g chopped walnuts on top, close the lids and put the jars in the fridge for at least 4 hours.',
+          heat: 'none',
+        },
+        { text: 'In the morning peel 1 kiwi (69 g), slice it on top and eat cold.', heat: 'none' },
+      ],
+      doneWhen: 'The oats are soft and the jar is thick and spoonable.',
+      boxUp: 'All 3 jars go in the fridge on Sunday night for Monday to Wednesday (3 days). Do not freeze. Kiwis stay in the fruit bowl.',
+      reheat: 'Not reheated: eat cold from the jar.',
+    },
   },
   {
     foodId: 'es-pa-amb-tomaquet-burgos-ous-portion',
@@ -1384,6 +1458,38 @@ export default [
     minutes: 12,
     serve: 'either',
     cuisine: 'spanish',
+    method: {
+      equipment: ['Pot for 6 eggs', 'Toaster, grill or dry frying pan', 'Box grater and a small bowl', 'Bread knife'],
+      prep: ['Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
+      steps: [
+        {
+          text: 'Morning: cut 80 g of barra (a third of a barra) and split it lengthways.',
+          heat: 'none',
+        },
+        {
+          text: 'Toast it in the toaster or a dry pan until golden, about 2–3 minutes.',
+          heat: 'medium',
+          minutes: 3,
+        },
+        {
+          text: 'Cut a ripe tomato (60 g, ½ medium) in half and grate the cut side into the bowl; throw away the skin. Or rub the cut tomato straight onto the toast.',
+          heat: 'none',
+        },
+        {
+          text: 'Spread the tomato on the toast. Add a pinch of salt and 1 tsp olive oil (5 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Open a Burgos tub (62.5 g) and slice it over the toast or eat it on the side. Peel 2 boiled eggs.',
+          heat: 'none',
+        },
+        { text: 'Finish with an orange.', heat: 'none' },
+      ],
+      doneWhen: 'The toast is crisp at the edges and the tomato soaks in a little.',
+      boxUp: 'Only the eggs are made ahead (Sunday, for Monday to Wednesday; 3 days in the fridge, in their shells; do not freeze). The Burgos tubs stay sealed in the fridge until their date. Buy the barra every other day, or freeze it in 80 g pieces and toast from frozen.',
+      reheat: 'Nothing is reheated: the toast is made fresh; eggs and cheese are eaten cold.',
+      tips: ['Halal: a bakery barra of flour, water, salt and yeast. A supermarket barra may list E-472e without its origin.'],
+    },
   },
   {
     foodId: 'pk-fruit-chaat-protein-dahi-portion',
@@ -1436,6 +1542,30 @@ export default [
     minutes: 12,
     serve: 'cold',
     cuisine: 'spanish',
+    method: {
+      equipment: ['Sieve', 'Can opener', 'Large bowl', 'Chopping board and knife', '2 lunch boxes'],
+      prep: ['Dice the red pepper (120 g) and cucumber (160 g) into 1 cm pieces. Halve the cherry tomatoes (160 g).', 'Chop the red onion (40 g) small (3 mm) and the parsley (10 g).'],
+      steps: [
+        {
+          text: 'No cooking. Tip 1½ jars of lentils (600 g drained) into the sieve and rinse them well under cold water (the jar liquid is salty). Let them drain.',
+          heat: 'none',
+        },
+        { text: 'Open and drain 2 cans of tuna (120 g).', heat: 'none' },
+        {
+          text: 'In the bowl mix the lentils, tuna and all the vegetables and parsley.',
+          heat: 'none',
+        },
+        {
+          text: 'Add 1½ tbsp olive oil (20 g), 2 tbsp lemon juice (30 g), ½ tsp ground cumin (1 g) and black pepper (1 g). Stir. No salt: the lentils, tuna and feta bring enough.',
+          heat: 'none',
+        },
+        { text: 'Drain the feta cubes (80 g) and fold them in gently, last.', heat: 'none' },
+        { text: 'Divide between the 2 boxes.', heat: 'none' },
+      ],
+      boxUp: 'Straight into the fridge. The dressed salad keeps 2 days: make it Sunday night for Monday and Tuesday (or Tuesday night for Wednesday and Thursday). Do not freeze. Jars and cans wait in the cupboard. Carry in an insulated bag with an ice pack.',
+      reheat: 'Not reheated (fish and cheese): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+      tips: ['Halal: this feta uses rennet (cuajo) of unstated origin, so the record is "check". For a fully halal box use the Burgos version (R-MP-40), which uses microbial rennet.'],
+    },
   },
   {
     foodId: 'intl-salmon-brown-rice-bowl-box',
@@ -1462,6 +1592,35 @@ export default [
     minutes: 12,
     serve: 'either',
     cuisine: 'international',
+    method: {
+      equipment: ['Pot for 4 eggs (if you have none boiled)', 'Grater', 'Bowl and fork', 'Can opener', '2 lunch boxes'],
+      prep: ['Dice the cucumber (160 g) into 1 cm cubes. Peel and grate the carrot (120 g). Chop the red onion (20 g) small and the coriander (6 g).', 'If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
+      steps: [
+        {
+          text: 'No cooking for the salad. Open the 3 cans of salmon (240 g), drain them and flake the fish into the bowl with the fork.',
+          heat: 'none',
+        },
+        {
+          text: 'Halve the avocado (you need ½, 100 g). Dice the flesh into 1 cm cubes and add it straight away with 2 tbsp lemon juice (30 g), which stops it browning.',
+          heat: 'none',
+        },
+        {
+          text: 'Add the cucumber, carrot, onion, coriander and black pepper (1 g). Mix gently.',
+          heat: 'none',
+        },
+        {
+          text: 'Put half the salad in each box with 2 halved eggs. Put 1 sealed rice cup (125 g) next to each box.',
+          heat: 'none',
+        },
+        {
+          text: 'At lunch: pierce the film of the rice cup and microwave it 40 seconds (800 W). Tip it into the box and mix, or eat the rice cold.',
+          heat: 'microwave',
+          minutes: 1,
+        },
+      ],
+      boxUp: 'Straight into the fridge. The salmon salad keeps 2 days and the eggs 3 days; make 2 boxes on Sunday or Tuesday night. Do not freeze. The rice cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked rice does not apply.',
+      reheat: 'Only the sealed rice cup goes in the microwave (40 seconds, pierced). The fish and eggs are eaten cold.',
+    },
   },
   {
     foodId: 'med-tuna-egg-pita-hummus-box',
@@ -1493,6 +1652,34 @@ export default [
     minutes: 12,
     serve: 'cold',
     cuisine: 'mediterranean',
+    method: {
+      equipment: ['Pot for 2 eggs (if you have none boiled)', 'Can opener and sieve', 'Bowl', 'Chopping board and knife', '2 lunch boxes and 2 small lidded pots (about 75 ml)'],
+      prep: ['Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).', 'If you have no boiled eggs from Sunday: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
+      steps: [
+        {
+          text: 'No cooking for the filling. Open and drain 4 cans of tuna (240 g) and put the tuna in the bowl.',
+          heat: 'none',
+        },
+        {
+          text: 'Add the pepper, cucumber, onion, 2 tsp olive oil (10 g), 1½ tbsp lemon juice (20 g) and black pepper (1 g). Mix.',
+          heat: 'none',
+        },
+        {
+          text: 'Put half the tuna salad in each box. Put the lettuce on top and 1 sliced egg.',
+          heat: 'none',
+        },
+        {
+          text: 'Spoon 50 g hummus (about 2½ tbsp) into each small pot. The pitas stay in their bag.',
+          heat: 'none',
+        },
+        {
+          text: 'At lunch: open each pita, spread the hummus inside, then fill with the tuna salad and egg. Building it at lunch keeps the bread dry.',
+          heat: 'none',
+        },
+      ],
+      boxUp: 'Straight into the fridge: tuna salad and hummus keep 2 days, eggs 3 days. Do not freeze. Make 2 boxes at a time. Pitas keep in their bag to the pack date (freeze them if not used in 3 days). Carry in an insulated bag with an ice pack.',
+      reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+    },
   },
   {
     foodId: 'med-cuscus-caballa-garbanzos-box',
@@ -1515,6 +1702,38 @@ export default [
     minutes: 10,
     serve: 'either',
     cuisine: 'mediterranean',
+    method: {
+      equipment: ['Kettle', 'Lunch box (about 1 l) with a lid, or a plate to cover it', 'Fork', 'Sieve', 'Chopping board and knife'],
+      prep: ['Dice the red pepper (60 g) and cucumber (60 g) into 1 cm pieces. Halve the cherry tomatoes (60 g). Chop the parsley or mint (5 g).', 'Drain and rinse 130 g chickpeas (about ⅓ of a jar). Keep the rest in a closed box in the fridge (2 days).'],
+      steps: [
+        { text: 'No cooking: only water from the kettle. Boil the kettle.', heat: 'none' },
+        {
+          text: 'Put the couscous (60 g, about 4 tbsp) and a pinch of salt in the lunch box. Pour over 84 ml boiling water. Cover for 5 minutes.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Fluff the couscous with a fork, stir in 1 tbsp lemon juice (15 g) and let it cool for 10 minutes.',
+          heat: 'none',
+          minutes: 10,
+        },
+        {
+          text: 'Open the can of mackerel in olive oil (85 g drained). Break the fish into flakes over the couscous; its oil is the dressing.',
+          heat: 'none',
+        },
+        {
+          text: 'Add the chickpeas, vegetables, herbs and a pinch of ground cumin (0.5 g). Mix.',
+          heat: 'none',
+        },
+        {
+          text: 'Put 1 sealed Burgos tub (62.5 g) on top or beside the box, to crumble over at lunch.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'The couscous has soaked up all the water and the grains are soft and separate.',
+      boxUp: 'Make it the night before, one box at a time, and put it in the fridge as soon as it is cool (within 1 hour). Soaked couscous keeps 1 day in the fridge. Do not freeze.',
+      reheat: 'Good cold (eat within 2 hours of leaving the fridge). If you want it warm: microwave with the lid loose 1½–2 minutes until steaming hot all through, once only (the Burgos goes on after).',
+    },
   },
   {
     foodId: 'med-lentil-rice-burgos-bowl-box',
@@ -1542,6 +1761,30 @@ export default [
     minutes: 10,
     serve: 'either',
     cuisine: 'mediterranean',
+    method: {
+      equipment: ['Sieve', 'Bowl', 'Chopping board and knife', '2 lunch boxes'],
+      prep: ['Dice the tomato (200 g) and cucumber (120 g) into 1 cm pieces. Chop the red onion (30 g) small and the mint (4 g).'],
+      steps: [
+        {
+          text: 'No cooking for the salad. Tip the jar of lentils (400 g drained) into the sieve and rinse well under cold water. Let them drain.',
+          heat: 'none',
+        },
+        { text: 'In the bowl mix the lentils, tomato, cucumber, onion and mint.', heat: 'none' },
+        {
+          text: 'Add 1½ tbsp olive oil (20 g), 2 tbsp lemon juice (30 g) and 1 tsp ground cumin (2 g). Stir.',
+          heat: 'none',
+        },
+        { text: 'Put half in each box. Put a handful of rocket (20 g) on top.', heat: 'none' },
+        { text: 'Add 2 sealed Burgos tubs and 1 sealed rice cup to each box.', heat: 'none' },
+        {
+          text: 'At lunch: pierce the rice cup film and microwave 40 seconds. Tip it in, crumble the 2 Burgos tubs over and mix. Good cold too.',
+          heat: 'microwave',
+          minutes: 1,
+        },
+      ],
+      boxUp: 'Straight into the fridge: the dressed lentils keep 2 days, so make 2 boxes at a time. Do not freeze. The Burgos tubs and rice cups stay sealed to their pack dates.',
+      reheat: 'Only the sealed rice cup is microwaved (40 seconds, pierced). The cheese and lentils stay cold.',
+    },
   },
   {
     foodId: 'es-salmorejo-huevo-atun-portion',
@@ -1559,6 +1802,25 @@ export default [
     minutes: 8,
     serve: 'cold',
     cuisine: 'spanish',
+    method: {
+      equipment: ['Pot for the Sunday eggs', 'Soup bowl', 'Can opener', 'Knife and board'],
+      prep: ['Sunday: boil the eggs (2 per dinner) 10 minutes, cool 5 minutes in cold water and keep them in the fridge (3 days).', 'Keep the salmorejo brik in the fridge so it is very cold.'],
+      steps: [
+        {
+          text: 'No cooking. Shake the brik and pour 250 g (about 245 ml) of cold salmorejo into the bowl.',
+          heat: 'none',
+        },
+        { text: 'Peel and chop 2 boiled eggs and put them on top.', heat: 'none' },
+        { text: 'Open 1 can of tuna, drain it (60 g) and add it on top.', heat: 'none' },
+        {
+          text: 'Add a few drops of olive oil (3 g, about ½ tsp). Eat with 30 g picos and an orange for dessert.',
+          heat: 'none',
+        },
+      ],
+      boxUp: 'Close the opened brik and keep it in the fridge: it covers 2 dinners in a row (2 days once opened). Keep a second, unopened brik in the cupboard. Boiled eggs keep 3 days; do not freeze anything here.',
+      reheat: 'Not reheated: salmorejo is eaten very cold.',
+      tips: ['Halal: the Hacendado salmorejo is tomato, bread, olive oil, pepper, garlic, salt and vinegar. No ham: add the egg and tuna instead of jamón.'],
+    },
   },
   {
     foodId: 'pk-microwave-chana-masala-portion',
@@ -1622,6 +1884,25 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'spanish',
+    method: {
+      equipment: ['Pot for the Sunday eggs', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)', 'A plate to serve'],
+      prep: ['Sunday: boil the eggs (2 per portion) 10 minutes, cool 5 minutes in cold water and keep them in the fridge (3 days).'],
+      steps: [
+        {
+          text: 'No cooking. Peel the carrots (160 g) and cut them into sticks 1 cm thick. Cut the red pepper (140 g) into strips and the cucumber (160 g) into sticks.',
+          heat: 'none',
+        },
+        { text: 'Split the sticks and cherry tomatoes (120 g) between the 2 boxes.', heat: 'none' },
+        { text: 'Spoon 70 g hummus (about 3½ tbsp) into each small pot.', heat: 'none' },
+        { text: 'Add 2 peeled boiled eggs and 2 sealed Burgos tubs to each box.', heat: 'none' },
+        {
+          text: 'To eat: tip the 2 Burgos tubs onto a plate, drizzle ½ tsp olive oil (3 g) and a pinch of oregano. Dip the vegetables and 30 g picos in the hummus.',
+          heat: 'none',
+        },
+      ],
+      boxUp: 'Straight into the fridge. Cut vegetables and opened hummus keep 2 days: make 2 boxes at a time. Do not freeze. Picos stay in their bag; Burgos tubs stay sealed until you eat.',
+      reheat: 'Not reheated: everything is eaten cold.',
+    },
   },
   {
     foodId: 'med-protein-hummus-veg-sticks-box',
@@ -1641,6 +1922,30 @@ export default [
     minutes: 8,
     serve: 'cold',
     cuisine: 'middle-eastern',
+    method: {
+      equipment: ['Bowl and whisk or fork', '2 small boxes and 2 lidded pots (about 200 ml)', 'Chopping board and knife'],
+      prep: [],
+      steps: [
+        {
+          text: 'No cooking. In the bowl whisk the hummus (80 g), queso fresco batido (260 g) and 2 tsp lemon juice (10 g) until smooth.',
+          heat: 'none',
+        },
+        {
+          text: 'Split the dip between the 2 pots and dust each with a pinch of paprika (0.5 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Peel the carrots (120 g) and cut them into sticks. Cut half a cucumber (60 g) into sticks and the red pepper (100 g) into strips.',
+          heat: 'none',
+        },
+        {
+          text: 'Pack the sticks in the boxes next to the pots. Put 10 g picos per box in a small bag.',
+          heat: 'none',
+        },
+      ],
+      boxUp: 'Straight into the fridge. The dip and cut vegetables keep 2 days: make 2 boxes at a time. Do not freeze.',
+      reheat: 'Not reheated: eat cold.',
+    },
   },
   {
     foodId: 'intl-protein-chia-pudding-pomegranate-jar',
@@ -1657,6 +1962,30 @@ export default [
     minutes: 8,
     serve: 'cold',
     cuisine: 'international',
+    method: {
+      equipment: ['Jug and whisk or fork', '3 jars with lids (about 300 ml)', 'Small closed box for the pomegranate'],
+      prep: ['Open the pomegranate and take out 150 g of seeds (arils): cut it in half and tap the back with a spoon over a bowl.'],
+      steps: [
+        {
+          text: 'No cooking. In the jug whisk the protein yogurt (450 g), milk (180 ml, 180 g) and a pinch of cinnamon (1 g) until smooth.',
+          heat: 'none',
+        },
+        { text: 'Stir in the chia seeds (45 g, 3 tbsp).', heat: 'none' },
+        {
+          text: 'Wait 5 minutes, then stir again well so the chia does not form clumps.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Pour into the 3 jars, close and put them in the fridge for at least 4 hours.',
+          heat: 'none',
+        },
+        { text: 'Just before eating, add 50 g pomegranate seeds on top.', heat: 'none' },
+      ],
+      doneWhen: 'The pudding is thick and set: it no longer pours when you tilt the jar.',
+      boxUp: 'The 3 jars keep 3 days in the fridge. Keep the pomegranate seeds in a closed box in the fridge (up to 3 days). Do not freeze.',
+      reheat: 'Not reheated: eat cold.',
+    },
   },
   {
     foodId: 'pk-chana-chaat-dahi-snack-box',
@@ -1718,6 +2047,33 @@ export default [
     minutes: 12,
     serve: 'cold',
     cuisine: 'spanish',
+    method: {
+      equipment: ['Sieve', 'Can opener', 'Large bowl', 'Chopping board and knife', '2 lunch boxes'],
+      prep: ['Dice the red pepper (120 g) and cucumber (100 g) into 1 cm pieces. Halve the cherry tomatoes (160 g).', 'Chop the red onion (40 g) small (3 mm) and the parsley (10 g).'],
+      steps: [
+        {
+          text: 'No cooking. Tip 1½ jars of lentils (600 g drained) into the sieve and rinse them well under cold water (the jar liquid is salty). Let them drain.',
+          heat: 'none',
+        },
+        { text: 'Open and drain 2 cans of tuna (120 g).', heat: 'none' },
+        {
+          text: 'In the bowl mix the lentils, tuna and all the vegetables and parsley.',
+          heat: 'none',
+        },
+        {
+          text: 'Add 2½ tbsp olive oil (34 g), 2 tbsp lemon juice (30 g), ½ tsp ground cumin (1 g) and black pepper (1 g). Stir. Add a pinch of salt only if you like.',
+          heat: 'none',
+        },
+        {
+          text: 'Divide between the 2 boxes and put 1 sealed Burgos tub (62.5 g) in each.',
+          heat: 'none',
+        },
+        { text: 'At lunch: crumble the Burgos over and mix.', heat: 'none' },
+      ],
+      boxUp: 'Straight into the fridge. The dressed salad keeps 2 days: make it Sunday night for Monday and Tuesday (or Tuesday night for Wednesday and Thursday). Do not freeze. The Burgos tubs stay sealed to their date; jars and cans wait in the cupboard. Carry in an insulated bag with an ice pack.',
+      reheat: 'Not reheated (fish and fresh cheese): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+      tips: ['Halal: queso de Burgos 0% with microbial rennet (cuajo microbiano), so this salad is fully halal.'],
+    },
   },
   {
     foodId: 'es-bocadillo-pollo-piquillo-box',

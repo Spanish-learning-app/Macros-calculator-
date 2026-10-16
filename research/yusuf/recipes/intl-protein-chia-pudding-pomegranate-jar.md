@@ -46,11 +46,31 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Whisk the protein yogurt, milk and cinnamon in a jug; stir in the chia; wait 5 minutes and stir again so it does not clump.
-2. Pour into 3 jars and refrigerate at least 4 hours.
-3. Top with pomegranate arils just before eating.
+**Equipment**
+
+- Jug and whisk or fork
+- 3 jars with lids (about 300 ml)
+- Small closed box for the pomegranate
+
+**Before you start**
+
+- Open the pomegranate and take out 150 g of seeds (arils): cut it in half and tap the back with a spoon over a bowl.
+
+**Steps**
+
+1. No cooking. In the jug whisk the protein yogurt (450 g), milk (180 ml, 180 g) and a pinch of cinnamon (1 g) until smooth. *(no heat)*
+2. Stir in the chia seeds (45 g, 3 tbsp). *(no heat)*
+3. Wait 5 minutes, then stir again well so the chia does not form clumps. *(no heat · 5 min)*
+4. Pour into the 3 jars, close and put them in the fridge for at least 4 hours. *(no heat)*
+5. Just before eating, add 50 g pomegranate seeds on top. *(no heat)*
+
+**Done when:** The pudding is thick and set: it no longer pours when you tilt the jar.
+
+**Box it up:** The 3 jars keep 3 days in the fridge. Keep the pomegranate seeds in a closed box in the fridge (up to 3 days). Do not freeze.
+
+**Reheat:** Not reheated: eat cold.
 
 ## Added fat
 

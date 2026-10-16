@@ -58,11 +58,35 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Pour 84 g (84 ml) boiling water over 60 g couscous with the salt; cover 5 min, fluff with a fork, add the lemon and let it cool.
-2. Meanwhile drain and rinse the chickpeas, dice the vegetables, and break the mackerel into flakes.
-3. Mix everything in the box and add 1 sealed Burgos tub to crumble over at lunch. Make it the night before and keep it in the fridge.
+**Equipment**
+
+- Kettle
+- Lunch box (about 1 l) with a lid, or a plate to cover it
+- Fork
+- Sieve
+- Chopping board and knife
+
+**Before you start**
+
+- Dice the red pepper (60 g) and cucumber (60 g) into 1 cm pieces. Halve the cherry tomatoes (60 g). Chop the parsley or mint (5 g).
+- Drain and rinse 130 g chickpeas (about ⅓ of a jar). Keep the rest in a closed box in the fridge (2 days).
+
+**Steps**
+
+1. No cooking: only water from the kettle. Boil the kettle. *(no heat)*
+2. Put the couscous (60 g, about 4 tbsp) and a pinch of salt in the lunch box. Pour over 84 ml boiling water. Cover for 5 minutes. *(no heat · 5 min)*
+3. Fluff the couscous with a fork, stir in 1 tbsp lemon juice (15 g) and let it cool for 10 minutes. *(no heat · 10 min)*
+4. Open the can of mackerel in olive oil (85 g drained). Break the fish into flakes over the couscous; its oil is the dressing. *(no heat)*
+5. Add the chickpeas, vegetables, herbs and a pinch of ground cumin (0.5 g). Mix. *(no heat)*
+6. Put 1 sealed Burgos tub (62.5 g) on top or beside the box, to crumble over at lunch. *(no heat)*
+
+**Done when:** The couscous has soaked up all the water and the grains are soft and separate.
+
+**Box it up:** Make it the night before, one box at a time, and put it in the fridge as soon as it is cool (within 1 hour). Soaked couscous keeps 1 day in the fridge. Do not freeze.
+
+**Reheat:** Good cold (eat within 2 hours of leaving the fridge). If you want it warm: microwave with the lid loose 1½–2 minutes until steaming hot all through, once only (the Burgos goes on after).
 
 ## Added fat
 

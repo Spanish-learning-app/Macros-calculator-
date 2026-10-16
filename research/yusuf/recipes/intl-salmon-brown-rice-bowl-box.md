@@ -56,12 +56,32 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Boil 4 eggs 10 min, cool and peel (or use 4 from the Sunday batch).
-2. Drain and flake the salmon; mix with cucumber, carrot, avocado, onion, coriander, lemon and pepper.
-3. Each box: half the salmon salad, 2 halved eggs, and 1 sealed rice cup on the side.
-4. At lunch: microwave the rice cup 40 s (pierce the film), tip it into the box, mix. Or eat the rice cold.
+**Equipment**
+
+- Pot for 4 eggs (if you have none boiled)
+- Grater
+- Bowl and fork
+- Can opener
+- 2 lunch boxes
+
+**Before you start**
+
+- Dice the cucumber (160 g) into 1 cm cubes. Peel and grate the carrot (120 g). Chop the red onion (20 g) small and the coriander (6 g).
+- If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.
+
+**Steps**
+
+1. No cooking for the salad. Open the 3 cans of salmon (240 g), drain them and flake the fish into the bowl with the fork. *(no heat)*
+2. Halve the avocado (you need ½, 100 g). Dice the flesh into 1 cm cubes and add it straight away with 2 tbsp lemon juice (30 g), which stops it browning. *(no heat)*
+3. Add the cucumber, carrot, onion, coriander and black pepper (1 g). Mix gently. *(no heat)*
+4. Put half the salad in each box with 2 halved eggs. Put 1 sealed rice cup (125 g) next to each box. *(no heat)*
+5. At lunch: pierce the film of the rice cup and microwave it 40 seconds (800 W). Tip it into the box and mix, or eat the rice cold. *(microwave · 1 min)*
+
+**Box it up:** Straight into the fridge. The salmon salad keeps 2 days and the eggs 3 days; make 2 boxes on Sunday or Tuesday night. Do not freeze. The rice cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked rice does not apply.
+
+**Reheat:** Only the sealed rice cup goes in the microwave (40 seconds, pierced). The fish and eggs are eaten cold.
 
 ## Added fat
 

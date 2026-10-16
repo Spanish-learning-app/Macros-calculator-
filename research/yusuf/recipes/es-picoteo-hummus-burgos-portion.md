@@ -61,11 +61,30 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Cut the carrot, pepper and cucumber into sticks; split between 2 boxes with the tomatoes and a 70 g pot of hummus each.
-2. Add 2 peeled boiled eggs per box (Sunday batch) and 2 sealed Burgos tubs.
-3. To eat: tip the Burgos onto a plate with a drizzle of olive oil and oregano; dip the vegetables and picos in the hummus.
+**Equipment**
+
+- Pot for the Sunday eggs
+- Chopping board and knife
+- 2 boxes and 2 small lidded pots (about 100 ml)
+- A plate to serve
+
+**Before you start**
+
+- Sunday: boil the eggs (2 per portion) 10 minutes, cool 5 minutes in cold water and keep them in the fridge (3 days).
+
+**Steps**
+
+1. No cooking. Peel the carrots (160 g) and cut them into sticks 1 cm thick. Cut the red pepper (140 g) into strips and the cucumber (160 g) into sticks. *(no heat)*
+2. Split the sticks and cherry tomatoes (120 g) between the 2 boxes. *(no heat)*
+3. Spoon 70 g hummus (about 3½ tbsp) into each small pot. *(no heat)*
+4. Add 2 peeled boiled eggs and 2 sealed Burgos tubs to each box. *(no heat)*
+5. To eat: tip the 2 Burgos tubs onto a plate, drizzle ½ tsp olive oil (3 g) and a pinch of oregano. Dip the vegetables and 30 g picos in the hummus. *(no heat)*
+
+**Box it up:** Straight into the fridge. Cut vegetables and opened hummus keep 2 days: make 2 boxes at a time. Do not freeze. Picos stay in their bag; Burgos tubs stay sealed until you eat.
+
+**Reheat:** Not reheated: everything is eaten cold.
 
 ## Added fat
 

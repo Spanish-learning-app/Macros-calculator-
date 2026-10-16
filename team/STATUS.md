@@ -49,7 +49,7 @@ _Max 3 agents at once._
 
 ## Not in the app yet (orphan check, MISTAKES M-01)
 
-Full audit on 2026-10-16 at 02:00 UTC. Each item gets an owner and a plan, or a written decision to leave it
+Full audit on 2026-10-16 at about 01:55 UTC. Each item gets an owner and a plan, or a written decision to leave it
 out (DECISIONS 2026-10-16). When an item reaches the app, move it to "Done" with the commit.
 
 | # | Item (where it lives now) | Plan | Owner | State |

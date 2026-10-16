@@ -50,12 +50,22 @@ export default {
       lines: [['pita', 240, '2 Mission pitas (60 g each) per box']],
     },
   ],
-  method: [
-    'Boil 2 eggs 10 min, cool and peel (or take 2 from the Sunday batch).',
-    'Drain the tuna; mix with pepper, cucumber, onion, olive oil, lemon and pepper. Put half in each box, with the lettuce on top and a sliced egg.',
-    'Spoon 50 g hummus into a small pot per box. Pitas stay in their bag.',
-    'At lunch: open each pita, spread the hummus inside, fill with the tuna salad and egg. Building it at lunch keeps the bread dry.',
-  ],
+  method: {
+    equipment: ['Pot for 2 eggs (if you have none boiled)', 'Can opener and sieve', 'Bowl', 'Chopping board and knife', '2 lunch boxes and 2 small lidded pots (about 75 ml)'],
+    prep: [
+      'Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).',
+      'If you have no boiled eggs from Sunday: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.',
+    ],
+    steps: [
+      { text: 'No cooking for the filling. Open and drain 4 cans of tuna (240 g) and put the tuna in the bowl.', heat: 'none' },
+      { text: 'Add the pepper, cucumber, onion, 2 tsp olive oil (10 g), 1½ tbsp lemon juice (20 g) and black pepper (1 g). Mix.', heat: 'none' },
+      { text: 'Put half the tuna salad in each box. Put the lettuce on top and 1 sliced egg.', heat: 'none' },
+      { text: 'Spoon 50 g hummus (about 2½ tbsp) into each small pot. The pitas stay in their bag.', heat: 'none' },
+      { text: 'At lunch: open each pita, spread the hummus inside, then fill with the tuna salad and egg. Building it at lunch keeps the bread dry.', heat: 'none' },
+    ],
+    boxUp: 'Straight into the fridge: tuna salad and hummus keep 2 days, eggs 3 days. Do not freeze. Make 2 boxes at a time. Pitas keep in their bag to the pack date (freeze them if not used in 3 days). Carry in an insulated bag with an ice pack.',
+    reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+  },
   keeps: '2 days in the fridge; do not freeze',
   storagePlan: 'Tuna salad and hummus keep 2 days, eggs 3 days; the pitas keep in their bag to the pack date (freeze if not used in 3 days). Make 2 boxes at a time.',
   reheat: 'Not reheated. Eat within 2 h of leaving the fridge (1 h above 32 °C).',

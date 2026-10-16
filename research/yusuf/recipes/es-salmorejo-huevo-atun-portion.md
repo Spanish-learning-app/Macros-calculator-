@@ -57,11 +57,34 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Use 2 eggs per portion from the Sunday boiled-egg batch; peel and chop.
-2. Pour 250 g very cold salmorejo into a bowl, top with the egg and the drained tuna and a few drops of olive oil.
-3. Eat with 30 g of picos; an orange for dessert.
+**Equipment**
+
+- Pot for the Sunday eggs
+- Soup bowl
+- Can opener
+- Knife and board
+
+**Before you start**
+
+- Sunday: boil the eggs (2 per dinner) 10 minutes, cool 5 minutes in cold water and keep them in the fridge (3 days).
+- Keep the salmorejo brik in the fridge so it is very cold.
+
+**Steps**
+
+1. No cooking. Shake the brik and pour 250 g (about 245 ml) of cold salmorejo into the bowl. *(no heat)*
+2. Peel and chop 2 boiled eggs and put them on top. *(no heat)*
+3. Open 1 can of tuna, drain it (60 g) and add it on top. *(no heat)*
+4. Add a few drops of olive oil (3 g, about ½ tsp). Eat with 30 g picos and an orange for dessert. *(no heat)*
+
+**Box it up:** Close the opened brik and keep it in the fridge: it covers 2 dinners in a row (2 days once opened). Keep a second, unopened brik in the cupboard. Boiled eggs keep 3 days; do not freeze anything here.
+
+**Reheat:** Not reheated: salmorejo is eaten very cold.
+
+**Tips**
+
+- Halal: the Hacendado salmorejo is tomato, bread, olive oil, pepper, garlic, salt and vinegar. No ham: add the egg and tuna instead of jamón.
 
 ## Added fat
 

@@ -63,12 +63,32 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Boil 2 eggs 10 min, cool and peel (or take 2 from the Sunday batch).
-2. Drain the tuna; mix with pepper, cucumber, onion, olive oil, lemon and pepper. Put half in each box, with the lettuce on top and a sliced egg.
-3. Spoon 50 g hummus into a small pot per box. Pitas stay in their bag.
-4. At lunch: open each pita, spread the hummus inside, fill with the tuna salad and egg. Building it at lunch keeps the bread dry.
+**Equipment**
+
+- Pot for 2 eggs (if you have none boiled)
+- Can opener and sieve
+- Bowl
+- Chopping board and knife
+- 2 lunch boxes and 2 small lidded pots (about 75 ml)
+
+**Before you start**
+
+- Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).
+- If you have no boiled eggs from Sunday: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.
+
+**Steps**
+
+1. No cooking for the filling. Open and drain 4 cans of tuna (240 g) and put the tuna in the bowl. *(no heat)*
+2. Add the pepper, cucumber, onion, 2 tsp olive oil (10 g), 1½ tbsp lemon juice (20 g) and black pepper (1 g). Mix. *(no heat)*
+3. Put half the tuna salad in each box. Put the lettuce on top and 1 sliced egg. *(no heat)*
+4. Spoon 50 g hummus (about 2½ tbsp) into each small pot. The pitas stay in their bag. *(no heat)*
+5. At lunch: open each pita, spread the hummus inside, then fill with the tuna salad and egg. Building it at lunch keeps the bread dry. *(no heat)*
+
+**Box it up:** Straight into the fridge: tuna salad and hummus keep 2 days, eggs 3 days. Do not freeze. Make 2 boxes at a time. Pitas keep in their bag to the pack date (freeze them if not used in 3 days). Carry in an insulated bag with an ice pack.
+
+**Reheat:** Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).
 
 ## Added fat
 

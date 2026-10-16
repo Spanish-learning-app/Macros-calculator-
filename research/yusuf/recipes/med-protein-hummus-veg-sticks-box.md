@@ -54,10 +54,24 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Whisk the hummus, queso fresco batido and lemon until smooth; split into 2 pots and dust with paprika.
-2. Cut the vegetables into sticks and pack them next to the pots; picos in a bag.
+**Equipment**
+
+- Bowl and whisk or fork
+- 2 small boxes and 2 lidded pots (about 200 ml)
+- Chopping board and knife
+
+**Steps**
+
+1. No cooking. In the bowl whisk the hummus (80 g), queso fresco batido (260 g) and 2 tsp lemon juice (10 g) until smooth. *(no heat)*
+2. Split the dip between the 2 pots and dust each with a pinch of paprika (0.5 g). *(no heat)*
+3. Peel the carrots (120 g) and cut them into sticks. Cut half a cucumber (60 g) into sticks and the red pepper (100 g) into strips. *(no heat)*
+4. Pack the sticks in the boxes next to the pots. Put 10 g picos per box in a small bag. *(no heat)*
+
+**Box it up:** Straight into the fridge. The dip and cut vegetables keep 2 days: make 2 boxes at a time. Do not freeze.
+
+**Reheat:** Not reheated: eat cold.
 
 ## Added fat
 

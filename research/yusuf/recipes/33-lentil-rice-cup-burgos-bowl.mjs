@@ -47,11 +47,22 @@ export default {
       lines: [['rice-cup-brown', 250, '1 cup (125 g) per box']],
     },
   ],
-  method: [
-    'Drain and rinse the lentils. Mix with tomato, cucumber, onion, mint, olive oil, lemon and cumin; put half in each box with the rocket on top.',
-    'Add 2 sealed Burgos tubs and 1 sealed rice cup to each box.',
-    'At lunch: microwave the rice cup 40 s, tip it in, crumble the Burgos over and mix. Good cold too.',
-  ],
+  method: {
+    equipment: ['Sieve', 'Bowl', 'Chopping board and knife', '2 lunch boxes'],
+    prep: [
+      'Dice the tomato (200 g) and cucumber (120 g) into 1 cm pieces. Chop the red onion (30 g) small and the mint (4 g).',
+    ],
+    steps: [
+      { text: 'No cooking for the salad. Tip the jar of lentils (400 g drained) into the sieve and rinse well under cold water. Let them drain.', heat: 'none' },
+      { text: 'In the bowl mix the lentils, tomato, cucumber, onion and mint.', heat: 'none' },
+      { text: 'Add 1½ tbsp olive oil (20 g), 2 tbsp lemon juice (30 g) and 1 tsp ground cumin (2 g). Stir.', heat: 'none' },
+      { text: 'Put half in each box. Put a handful of rocket (20 g) on top.', heat: 'none' },
+      { text: 'Add 2 sealed Burgos tubs and 1 sealed rice cup to each box.', heat: 'none' },
+      { text: 'At lunch: pierce the rice cup film and microwave 40 seconds. Tip it in, crumble the 2 Burgos tubs over and mix. Good cold too.', heat: 'microwave', minutes: 1 },
+    ],
+    boxUp: 'Straight into the fridge: the dressed lentils keep 2 days, so make 2 boxes at a time. Do not freeze. The Burgos tubs and rice cups stay sealed to their pack dates.',
+    reheat: 'Only the sealed rice cup is microwaved (40 seconds, pierced). The cheese and lentils stay cold.',
+  },
   keeps: '2 days in the fridge; do not freeze',
   storagePlan: 'The dressed lentils keep 2 days; the Burgos tubs and rice cups stay sealed to their pack dates. Make 2 boxes at a time.',
   reheat: 'Only the sealed rice cup is microwaved (40 s). The cheese stays cold.',

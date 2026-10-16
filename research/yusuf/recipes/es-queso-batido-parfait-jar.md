@@ -47,11 +47,31 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. In each of 3 jars put 40 g oats, 10 g chia and a pinch of cinnamon; spoon in 220 g queso fresco batido and stir well.
-2. Top with the walnuts, close and refrigerate (at least 4 hours: the oats and chia soften in the cheese).
-3. In the morning peel and slice a kiwi on top. Eat cold.
+**Equipment**
+
+- 3 jars with lids (400–500 ml)
+- Spoon
+- Knife and board
+
+**Before you start**
+
+- Chop the walnuts (24 g) roughly.
+
+**Steps**
+
+1. No cooking. In each jar put 40 g oats (4 tbsp), 10 g chia seeds (1 tbsp) and 1 g cinnamon (a good pinch). *(no heat)*
+2. Spoon 220 g queso fresco batido into each jar (one 500 g tub fills 2 jars and a bit). *(no heat)*
+3. Stir well, scraping the bottom so no dry oats or chia are left. *(no heat)*
+4. Sprinkle 8 g chopped walnuts on top, close the lids and put the jars in the fridge for at least 4 hours. *(no heat)*
+5. In the morning peel 1 kiwi (69 g), slice it on top and eat cold. *(no heat)*
+
+**Done when:** The oats are soft and the jar is thick and spoonable.
+
+**Box it up:** All 3 jars go in the fridge on Sunday night for Monday to Wednesday (3 days). Do not freeze. Kiwis stay in the fruit bowl.
+
+**Reheat:** Not reheated: eat cold from the jar.
 
 ## Added fat
 

@@ -58,11 +58,31 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Drain and rinse the lentils. Mix with tomato, cucumber, onion, mint, olive oil, lemon and cumin; put half in each box with the rocket on top.
-2. Add 2 sealed Burgos tubs and 1 sealed rice cup to each box.
-3. At lunch: microwave the rice cup 40 s, tip it in, crumble the Burgos over and mix. Good cold too.
+**Equipment**
+
+- Sieve
+- Bowl
+- Chopping board and knife
+- 2 lunch boxes
+
+**Before you start**
+
+- Dice the tomato (200 g) and cucumber (120 g) into 1 cm pieces. Chop the red onion (30 g) small and the mint (4 g).
+
+**Steps**
+
+1. No cooking for the salad. Tip the jar of lentils (400 g drained) into the sieve and rinse well under cold water. Let them drain. *(no heat)*
+2. In the bowl mix the lentils, tomato, cucumber, onion and mint. *(no heat)*
+3. Add 1½ tbsp olive oil (20 g), 2 tbsp lemon juice (30 g) and 1 tsp ground cumin (2 g). Stir. *(no heat)*
+4. Put half in each box. Put a handful of rocket (20 g) on top. *(no heat)*
+5. Add 2 sealed Burgos tubs and 1 sealed rice cup to each box. *(no heat)*
+6. At lunch: pierce the rice cup film and microwave 40 seconds. Tip it in, crumble the 2 Burgos tubs over and mix. Good cold too. *(microwave · 1 min)*
+
+**Box it up:** Straight into the fridge: the dressed lentils keep 2 days, so make 2 boxes at a time. Do not freeze. The Burgos tubs and rice cups stay sealed to their pack dates.
+
+**Reheat:** Only the sealed rice cup is microwaved (40 seconds, pierced). The cheese and lentils stay cold.
 
 ## Added fat
 

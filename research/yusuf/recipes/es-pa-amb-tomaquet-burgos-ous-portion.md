@@ -59,11 +59,37 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Sunday: boil 6 eggs 10 min, cool in cold water and keep them in their shells in the fridge (3 days).
-2. Each morning: toast 80 g of barra (split lengthways), rub or spread 60 g grated tomato, add a pinch of salt and 5 g olive oil.
-3. Open a Burgos tub and slice it over the toast or eat alongside; peel 2 eggs; an orange to finish.
+**Equipment**
+
+- Pot for 6 eggs
+- Toaster, grill or dry frying pan
+- Box grater and a small bowl
+- Bread knife
+
+**Before you start**
+
+- Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).
+
+**Steps**
+
+1. Morning: cut 80 g of barra (a third of a barra) and split it lengthways. *(no heat)*
+2. Toast it in the toaster or a dry pan until golden, about 2–3 minutes. *(medium heat · 3 min)*
+3. Cut a ripe tomato (60 g, ½ medium) in half and grate the cut side into the bowl; throw away the skin. Or rub the cut tomato straight onto the toast. *(no heat)*
+4. Spread the tomato on the toast. Add a pinch of salt and 1 tsp olive oil (5 g). *(no heat)*
+5. Open a Burgos tub (62.5 g) and slice it over the toast or eat it on the side. Peel 2 boiled eggs. *(no heat)*
+6. Finish with an orange. *(no heat)*
+
+**Done when:** The toast is crisp at the edges and the tomato soaks in a little.
+
+**Box it up:** Only the eggs are made ahead (Sunday, for Monday to Wednesday; 3 days in the fridge, in their shells; do not freeze). The Burgos tubs stay sealed in the fridge until their date. Buy the barra every other day, or freeze it in 80 g pieces and toast from frozen.
+
+**Reheat:** Nothing is reheated: the toast is made fresh; eggs and cheese are eaten cold.
+
+**Tips**
+
+- Halal: a bakery barra of flour, water, salt and yeast. A supermarket barra may list E-472e without its origin.
 
 ## Added fat
 
