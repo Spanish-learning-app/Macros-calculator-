@@ -52,3 +52,4 @@
 - 2026-10-16T02:01:45Z: Lena done (How to make it). I tapped through it at 400 px with real data: 45 method links, the sheet and step mode work, no page errors. Yusuf restarted on the orphan data (O4, O7, O9).
 - 2026-10-16T02:04:59Z: Zainab done (19 desi methods; her notes on minutes, the paratha water and #35 went to Yusuf). Priya started on O3/O10/O11/O16.
 - 2026-10-16T07:00:18Z: back after the session limit (02:06–06:59 UTC, 5 check-ins queued). Inbox empty. Restarted Yusuf, Kenji and Priya fresh from their journals, with a hard stop at 07:50 UTC. Kenji's BUG-M1/M2 went to Yusuf.
+- 2026-10-16T07:06:29Z: Yusuf done (all 64 recipes: method, pitch, references; cost on 58; BUG-M1/M2; plans data). Lena started on the plans UI and the halal swap, with a hard stop at 07:50. Logged M-15 (budget-week claim of 60 € when the week is 77 €).

@@ -32,6 +32,14 @@ The Manager (Omar) checks this file at every review meeting and before every rep
 
 ## Log
 
+### M-15 · 2026-10-16 (found by Yusuf) · Yusuf, Omar · The meal-prep guide claims "60 € or less" for a 77 € week
+- **What happened:**
+  - The budget week was redone for variety, and its till total rose from 54.98 € to 77.17 €.
+  - The guide's sentence "60 € or less at the till" was hand-written and was not updated.
+- **Root cause:** a number in prose was typed by hand instead of being generated from the data.
+- **Fix:** queued. Either bring the week back under 60 € or change the sentence, and generate the figure from the build.
+- **Rule:** any number shown to the Boss (in the app, the docs or a report) is generated from the data or checked against it at the time of writing.
+
 ### M-14 · 2026-10-15 (found 2026-10-16 by the orphan audit) · Omar · Report #2 claimed a feature the app doesn't have
 - **What happened:**
   - Report #2 told the Boss "the feta salad box has a one-tap halal swap (Burgos 0%)".
