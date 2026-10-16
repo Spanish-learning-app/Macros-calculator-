@@ -67,7 +67,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 163 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- Khan et al. 2019 Table 2/3 "Haleem" "Haleem, analysed (Khan 2019)": 128.34 kcal, P 5.38, C 14.6, F 5.38, fibre 0 per 100 g → our value is +27% kcal. **Over 25%: see note.** Analysed household haleem from Peshawar (moisture 73 g, fat 5.4 g). Why: the restaurant record deliberately uses the Shan pack fat (1 cup oil per 400 g meat, 8.9 g added fat per 100 g) which is nearly twice the fat of the household cook (10.3 vs 5.4 g per 100 g); the home record (pk-haleem-home) is the comparable one and sits within 10 % of the analysis. Protein is 7.3 vs 5.4 g and carbs 9.1 (+2.1 fibre) vs 14.6 g: the Peshawar mix has less meat and more grain.
 
 ## Assumptions and confidence
 

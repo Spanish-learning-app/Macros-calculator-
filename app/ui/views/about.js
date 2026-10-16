@@ -1,7 +1,8 @@
 // About the data (route `about`). Owner: Priya. Credits every source the Lab uses (kickoff
 // decision 9). The main text is docs/NUTRITION.md §7.4 "as written" (Ayesha); the grades and the
-// reference-values source below it come from RULES.
+// reference-values source below it come from RULES, and so does the halal shopping guide (O8).
 import { h, mountChildren } from '../dom.js';
+import { halalGuideBody } from '../components/halal-guide.js';
 
 const SOURCES = [
   [
@@ -82,6 +83,19 @@ export function mount(container, ctx) {
           'Katori is not medical advice. If you are pregnant or breastfeeding, under 18, have kidney disease, diabetes on medication, or an eating disorder, please ask a doctor or dietitian.',
         ),
       ),
+      // STATUS O8: Ayesha's halal shopping guide, after the first card (rules 1.7.2).
+      rules?.halalGuide
+        ? h(
+            'section',
+            {
+              class: 'card halal-guide',
+              'aria-labelledby': 'halal-guide-h',
+              'data-testid': 'halal-guide',
+            },
+            h('h3', { class: 'card-title', id: 'halal-guide-h' }, rules.halalGuide.title),
+            halalGuideBody(rules.halalGuide),
+          )
+        : null,
       grades.length
         ? h(
             'section',

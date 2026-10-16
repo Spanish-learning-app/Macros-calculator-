@@ -262,7 +262,10 @@ export function createStore({
     }
     return out;
   });
-  const libraryById = new Map((Array.isArray(library) ? library : []).map((r) => [r.foodId, r]));
+  // The Lab's library recipes and weekly plans can arrive after start (STATUS O16: main.js loads
+  // them when Prep opens or a batch exists); setLabData swaps them in and re-renders.
+  const byFoodId = (list) => new Map((Array.isArray(list) ? list : []).map((r) => [r.foodId, r]));
+  let libraryById = byFoodId(library);
   const searchIndexOf = memoLast((index) => buildSearchIndex([...index.values()]));
   const slotHintsOf = memoLast((index, slot) => {
     const ids = [];
@@ -862,6 +865,15 @@ export function createStore({
     },
     chai: () => recipesList().find((r) => r.kind === 'chai') ?? null,
     savedMeals: () => data().savedMeals ?? [],
+    /**
+     * Swap in the Lab's library recipes and weekly plans once they have loaded (STATUS O16), and
+     * tell the views. @param {{ library?: object[], plans?: object|null }} lab
+     */
+    setLabData({ library: nextLibrary = [], plans: nextPlans = null } = {}) {
+      libraryById = byFoodId(nextLibrary);
+      plans = nextPlans;
+      setState({ labData: 'ok' });
+    },
     /** Lab weekly plans (STATUS O7, §13.1 "Weekly plans"); [] when the file is missing. */
     weeklyPlans: () => (Array.isArray(plans?.plans) ? plans.plans : []),
     /** Lab ready-to-eat picks for a slot, keeping only picks whose foods all exist. */

@@ -64,7 +64,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 149 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- Khan et al. 2019 Table 2/3 "Yogurt curry with pakoras" "Yogurt curry with pakoras, analysed (Khan 2019)": 177.49 kcal, P 2.92, C 10.3, F 13.85, fibre 0 per 100 g → our value is -16% kcal. Analysed "yogurt curry with pakoras" (Peshawar household recipes, AOAC, moisture 71.5 g). Water agrees with ours; the gap is fat (analysed 13.9 g vs our 11.7 g), so the Peshawar cooks probably used more oil. Carbohydrate there is by difference and includes fibre (ours 7.0 + 1.5 fibre = 8.5 g vs 10.3 g). We stay at the lower oil of the F&S and TfT recipes; extra tari or tarka oil can be logged as an add-on.
 
 ## Assumptions and confidence
 

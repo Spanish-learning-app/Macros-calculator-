@@ -161,3 +161,15 @@ Timestamps are UTC.
   on About (closed details per section, lang="es" on Spanish), maybe a "What does Check mean?" link from food details;
   (2) lazy-load recipes-mealprep.js / plans-mealprep.js (note: Day use-by and add-sheet box rows read the library recipe
   when batches exist, so load when batches exist or Prep opens); (3) "2 biscuit" plural only if contained.
+- 16:31 UTC O8 DONE. New `app/ui/components/halal-guide.js` renders RULES.halalGuide: intro, one closed `details.guide-section`
+  per section (id `halal-<section id>`, testid `halal-guide-section`, `data-section`), items as a list, note as field-help.
+  About: `section.card.halal-guide` (testid `halal-guide`, aria-labelledby `halal-guide-h`) after the first card, before
+  the grades card. Spanish: quoted phrases get `lang="es"`; 44 label words get `<i lang="es">` (llard, saïm, Ciutat Vella
+  `lang="ca"`), so they stand out and a screen reader says them in Spanish. "How to ask" items show the phrase large on one
+  line, the English small under it. CSS in views.css ("Halal shopping guide (O8)"): 44 px summaries, chevron, reduced motion.
+  Decision on the Check link: a route link from food details would leave the portion picker and add sheet dialogs stacked
+  over the About page (food details only opens from the picker), so instead a quiet button "What does Check mean?"
+  (testid `check-guide`, only for status check) opens the same guide in a dialog (testid `halal-guide-dialog`) at the
+  "What Check means" section; Escape returns to the food details. Small, local (food-details.js + the new file).
+  Verified 400×860 light/dark, real data: 4 sections closed, order first card → guide → grades → reference values,
+  57 lang-marked spans, no overflow, no console errors; soy sauce (check) → details → button → dialog opens katori-check.

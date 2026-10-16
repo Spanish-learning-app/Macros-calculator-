@@ -648,7 +648,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Cooked yield 0.859; added fat 0.8 g/100 g.',
+      notes: 'Cooked yield 0.859; added fat 0.8 g/100 g. Cross-check: Open Food Facts 5060601190123 (Haldiram\'s Kesar Rasmalai, UK label, 500 g) 152 kcal (+2%); Open Food Facts 0182757000608 (rasmalai, Canadian retail label, 850 g) 257.14 kcal (-40%).',
     },
   },
   {

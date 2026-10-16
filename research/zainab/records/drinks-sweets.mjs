@@ -254,6 +254,10 @@ export default [
     ],
     tags: ['pakistani', 'vegetarian', 'contains-egg'],
     slots: ['dinner', 'snacks'],
+    crossCheck: [
+      { src: 'ref', code: 'off-5060601190123', note: 'Retail Kesar Rasmalai label (UK), pieces with their milk. Closest label to a home pot of balls in thin sweet milk. Its kJ (728 = 174 kcal) disagrees with its own kcal, so the true gap is +2 % to -11 %.' },
+      { src: 'ref', code: 'off-0182757000608', note: 'Canadian retail rasmalai label (and Haldiram\'s US 277 kcal, OFF 8904063281494): 250-280 kcal per 100 g. Why: retail trays hold far more ball per gram and a heavier syrup than a home pot (ours: 100 g milk powder balls in about 1 kg of milk, 65 g sugar). Not comparable per 100 g. Our piece with its milk is 100 g = 155 kcal.' },
+    ],
     assumptions: ['Piece = 1/11 of the batch (F&S: 10–12 balls per 100 g milk powder).', 'Milk loses 20% of its water while the balls simmer (assumption).'],
     source: { confidence: 'C' },
   },

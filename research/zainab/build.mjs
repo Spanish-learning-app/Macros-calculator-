@@ -19,6 +19,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { compute, loadSheets } from './calc.mjs';
 import { stampReview } from '../review/reviewed.mjs';
 import { KAM_TEL } from './kam-tel-rule.mjs';
+import { REFS } from './refs.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(here, '..', '..');
@@ -33,6 +34,10 @@ const FILES = {
 
 // ---------------------------------------------------------------- lookups
 function lookup(src, code) {
+  if (src === 'ref') {
+    if (!REFS[code]) throw new Error(`no reference ${code} in refs.mjs`);
+    return REFS[code];
+  }
   if (src === 'fdc' || src === 'ifct' || src === 'label') {
     const hit = Object.values(ING).find((v) => v.src === src && String(v.code) === String(code));
     if (hit) return hit;
@@ -181,7 +186,7 @@ for (const key of Object.keys(FILES)) {
           const hd = Math.round(((home.per100g.kcal - v.kcal) / v.kcal) * 100);
           note = `${note} The home record ${home.id} (${home.per100g.kcal} kcal) is ${hd > 0 ? '+' : ''}${hd}% against it; the change from there is the oil taken out on purpose (fat ${home.per100g.fat} → ${per100g.fat} g per 100 g).`;
         }
-        return { ...v, citation: c.src === 'cofid' ? `CoFID 2021 ${c.code}` : c.src === 'fndds' ? `USDA FDC FNDDS ${c.code}` : `USDA FDC ${c.code}`, diff: Math.round(((per100g.kcal - v.kcal) / v.kcal) * 100), note };
+        return { ...v, citation: c.src === 'ref' ? v.citation : c.src === 'cofid' ? `CoFID 2021 ${c.code}` : c.src === 'fndds' ? `USDA FDC FNDDS ${c.code}` : `USDA FDC ${c.code}`, diff: Math.round(((per100g.kcal - v.kcal) / v.kcal) * 100), note };
       });
       fs.writeFileSync(path.join(recDir, `${spec.id}.md`), recipeMd(spec, sheet, res, cross));
       const cc = cross.map((c) => `${c.citation} ${c.kcal} kcal (${c.diff > 0 ? '+' : ''}${c.diff}%)`).join('; ');

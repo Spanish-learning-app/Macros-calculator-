@@ -1555,7 +1555,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Cooked yield 0.852; added fat 5.6 g/100 g.',
+      notes: 'Cooked yield 0.852; added fat 5.6 g/100 g. Cross-check: Khan et al. 2019 Table 2/3 "Haleem" 128.34 kcal (+7%).',
     },
   },
   {
@@ -1732,7 +1732,7 @@ export default [
       confidence: 'C',
       reviewer: 'zainab',
       date: '2026-10-14',
-      notes: 'Cooked yield 0.732; added fat 10.2 g/100 g.',
+      notes: 'Cooked yield 0.732; added fat 10.2 g/100 g. Cross-check: Khan et al. 2019 Table 2/3 "Yogurt curry with pakoras" 177.49 kcal (-16%).',
     },
   },
   {

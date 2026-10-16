@@ -11,6 +11,7 @@ import {
   isEdibleLabel,
 } from './format.js';
 import { urduName, kamTelText } from './food-bits.js';
+import { openHalalGuide } from './halal-guide.js';
 
 // Internal pointers that mean nothing to a customer (Review 1 item 9): file paths, doc sections,
 // recipe and record ids, and the Lab's working figures (yield, added fat, cross-check deltas).
@@ -140,6 +141,20 @@ export function openFoodDetails({ food, rules, onClose = null }) {
       h('strong', null, halalMeta?.label ?? food.halal?.status ?? 'Not given'),
       food.halal?.reason ? `: ${food.halal.reason}` : '',
     ),
+    // STATUS O8: the halal shopping guide, opened at "What Check means" (no route change, so an
+    // add in progress under this dialog stays as it was).
+    food.halal?.status === 'check' && rules?.halalGuide
+      ? h(
+          'button',
+          {
+            type: 'button',
+            class: 'btn btn-quiet details-guide-btn',
+            'data-testid': 'check-guide',
+            onclick: () => openHalalGuide(rules),
+          },
+          'What does Check mean?',
+        )
+      : null,
 
     h('h3', { class: 'details-h' }, 'Per 100 g, as eaten'),
     h(

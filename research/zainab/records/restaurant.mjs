@@ -226,6 +226,7 @@ export default [
     servings: ({ katoriSet }) => katoriSet(D.curry),
     tags: PK,
     slots: ['lunch', 'dinner', 'iftar'],
+    crossCheck: [{ src: 'ref', code: 'khan2019-haleem', note: 'Analysed household haleem from Peshawar (moisture 73 g, fat 5.4 g). Why: the restaurant record deliberately uses the Shan pack fat (1 cup oil per 400 g meat, 8.9 g added fat per 100 g) which is nearly twice the fat of the household cook (10.3 vs 5.4 g per 100 g); the home record (pk-haleem-home) is the comparable one and sits within 10 % of the analysis. Protein is 7.3 vs 5.4 g and carbs 9.1 (+2.1 fibre) vs 14.6 g: the Peshawar mix has less meat and more grain.' }],
     assumptions: ['Shan haleem pack fat (1 cup per 400 g meat); grains and pulses mixed from TfT and Shan.'],
     source: { confidence: 'C', notes: 'Crispy fried onions (birista) on top add fat: log them separately.' },
   },

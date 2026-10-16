@@ -2208,3 +2208,97 @@
   gap: var(--space-2);
   margin-top: var(--space-2);
 }
+
+/* ------------------------------------------------------------------ Halal shopping guide (O8) */
+
+.guide-intro {
+  margin: 0;
+}
+
+.guide-list {
+  display: grid;
+  margin-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.guide-section {
+  border-bottom: 1px solid var(--border);
+}
+
+.guide-section > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: var(--space-2) 0;
+  color: var(--accent);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  list-style: none;
+}
+
+.guide-section > summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide-section > summary::after {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  margin-right: var(--space-2);
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--dur) var(--ease);
+}
+
+.guide-section[open] > summary::after {
+  transform: rotate(-135deg);
+}
+
+.guide-items {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+  padding-left: var(--space-5);
+  overflow-wrap: anywhere;
+}
+
+.guide-term {
+  font-style: italic;
+}
+
+.guide-es {
+  font-weight: var(--weight-medium);
+}
+
+.guide-phrase,
+.guide-en {
+  display: block;
+}
+
+.guide-phrase {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+}
+
+.guide-en {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.guide-note {
+  margin-top: var(--space-3);
+}
+
+.details-guide-btn {
+  margin-left: calc(-1 * var(--space-3));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-section > summary::after {
+    transition: none;
+  }
+}

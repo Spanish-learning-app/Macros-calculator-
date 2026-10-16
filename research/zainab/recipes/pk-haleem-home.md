@@ -67,7 +67,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 137 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- Khan et al. 2019 Table 2/3 "Haleem" "Haleem, analysed (Khan 2019)": 128.34 kcal, P 5.38, C 14.6, F 5.38, fibre 0 per 100 g → our value is +7% kcal. Only analysed Pakistani haleem found: Peshawar household recipes (meat, mash, masoor, chana, moong, wheat), AOAC proximate analysis, moisture 73 g, fat 5.4 g. Carbohydrate there is by difference and includes fibre, so our available carbs plus fibre (11.6 g) is the fair comparison with its 14.6 g. Ours has more protein and fat: we count a tarka and beef at 112 g fat per lb, the paper averaged five housewives' recipes. Within 10 %.
 
 ## Assumptions and confidence
 

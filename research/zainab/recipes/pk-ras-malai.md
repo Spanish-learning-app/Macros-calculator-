@@ -51,7 +51,8 @@ kcal = round(4P + 4C + 9F + 2·fibre) = 155 (NUTRITION.md §6 step 7). Sum of th
 
 ## Cross-check
 
-No independent reference found for this dish.
+- Open Food Facts 5060601190123 (Haldiram's Kesar Rasmalai, UK label, 500 g) "Haldiram's Kesar Rasmalai, retail (UK label: 152 kcal, but its own kJ 728 = 174 kcal)": 152 kcal, P 5.48, C 21, F 7.5, fibre 0.1 per 100 g → our value is +2% kcal. Retail Kesar Rasmalai label (UK), pieces with their milk. Closest label to a home pot of balls in thin sweet milk. Its kJ (728 = 174 kcal) disagrees with its own kcal, so the true gap is +2 % to -11 %.
+- Open Food Facts 0182757000608 (rasmalai, Canadian retail label, 850 g) "Rasmalai, retail (Canadian label)": 257.14 kcal, P 7.14, C 27.1, F 14.29, fibre 0 per 100 g → our value is -40% kcal. **Over 25%: see note.** Canadian retail rasmalai label (and Haldiram's US 277 kcal, OFF 8904063281494): 250-280 kcal per 100 g. Why: retail trays hold far more ball per gram and a heavier syrup than a home pot (ours: 100 g milk powder balls in about 1 kg of milk, 65 g sugar). Not comparable per 100 g. Our piece with its milk is 100 g = 155 kcal.
 
 ## Assumptions and confidence
 
