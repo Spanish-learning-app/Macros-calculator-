@@ -561,6 +561,7 @@ const FRIDGE_DAYS = {
   'egg-muffin': 3,
   'overnight-oats': 3,
   'cooked-flatbread': 2,
+  'blended-smoothie': 1, // rules 1.7.2: not overnight oats (the jar thickens, banana browns), 1 day, no freezing
 };
 
 test('RULES.mealPrep matches NUTRITION §5.4 (fridge days per component, 1 day after thawing)', () => {
@@ -570,6 +571,10 @@ test('RULES.mealPrep matches NUTRITION §5.4 (fridge days per component, 1 day a
     assert.equal(row.fridgeDays, days, id);
   }
   assert.equal(RULES.mealPrep.storage.length, Object.keys(FRIDGE_DAYS).length);
+  assert.equal(RULES.mealPrep.storage.length, 9);
+  const smoothie = RULES.mealPrep.storage.find((s) => s.id === 'blended-smoothie');
+  assert.equal(smoothie.freezable, false, 'a blended smoothie jar is not frozen');
+  assert.equal(smoothie.freezerMonths, null);
   assert.equal(RULES.mealPrep.thawedFridgeDays, 1);
 });
 

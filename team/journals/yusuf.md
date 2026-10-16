@@ -285,3 +285,30 @@
   B 58.22 € (4 tuna lunches of 5), C 58.17 € (pasta bake replaces the tuna pasta: 2 fish lunches), D = C + picos on
   the three low-kcal days: **58.97 €**, 1889–2000 kcal, 128–141 g P.
 - 16:23 UTC Task 3: priced chana dal (Indian Flavours, Barcelona online warehouse, 2.95 €/kg), masoor dal (same, 2.49 €/kg) and fine bulgur (El Turco, 3.25 €/kg), all read 2026-10-16; DESI items now carry shop/url/date and the sheets name the shop. #4, #8, #24 now have a cost (61/64). Still none: #1 and #5 (boneless halal thigh: Carne Halal Online still sells only bone-in muslos 2.05 €/0.5 kg; Atacho lists boneless thighs at 8.14 €/kg but halal not stated, not used) and #27 (forn barra: no bakery publishes a price).
+- 16:25 UTC Task 1 done in build.mjs: WEEKS.budget is v3 (Sunday: pancakes ×4, tray bake ×4, half pasta bake; weekday
+  nights: half tuna-egg bocadillo, half lentil-rice bowl, half crema, half lentil-Burgos-tuna salad, smoothie, half
+  chana masala; banana + protein pot daily, picos on Mon/Wed/Thu; loose 0.20 € Banana via W.buy). **58.97 € at the till**
+  (16.67 € under the low-cook week), 32.44 € eaten, 1889–2000 kcal, 127–141 g P, 36 Mercadona packs (v2: 43).
+  Lunches: pasta bake ×2, bocadillo, bowl, salad; 0 desi, 2 fish, 1 lentil-tuna. Old v2 kept as WEEKS.budgetV2 only
+  so the page can say what changed (77.17 €, computed).
+- 16:25 UTC Prose generated (M-15): both week sections (ranges, minutes, weekday job span, lunch list per day, lunch-rule
+  counts, freezer leftovers, packs with money left, butcher names/dates, "under/over the 60 € target" and the gap to
+  the low-cook week), the budget pitch in plans-mealprep.js ("Under 60 € …" only when true). Also found and fixed
+  stale typed figures elsewhere on the page: lunch paragraph said "4 boxes; five hot, three either, four cold"
+  (true: 22 batches, 19×4 + 3×2; 7/7/8); merienda "12–25 g protein" (true: 8–14 g); "six desi dinners" and the
+  not-available list are now computed; the low-cook week said "targets 2,000–2,200 kcal" while its days are
+  1841–1981 (now states the days' real range). Mistake for Omar to log (M-15 family).
+- 16:25 UTC Task 2: sheet #29 `halalSwap: { id: #40, reason }` → recipes-mealprep.js `halalSwap` + `halalSwapNote`; the
+  build checks source not halal, target halal and same slot, one-line reason. ARCHITECTURE §13.1 Lab additions
+  updated (and cost "absent" count 6 → 3). Lena can drop HALAL_SWAPS (halalSwapOf already reads recipe.halalSwap).
+- 16:25 UTC Omar relay (Ayesha s3-backlog): FIX 3 done (#61 storage blended-smoothie, boxUp "within 1 day", changes
+  line). FIX 1/2: DB map now links intl-soy-sauce-halal / es-mozzarella-light automatically once Javier's records
+  exist (HAS_FOOD), else the old links (TODO in code). Not in app/data yet at 16:25.
+- 16:25 UTC Checks: check-foods 348/348, 0 warn; npm test 732 pass, **1 fail not mine**: tests/unit/qa/mealprep.test.js
+  "RULES.mealPrep matches NUTRITION §5.4" expects 8 storage classes, Ayesha's rules 1.7.2 (commit 9448f01) added
+  blended-smoothie = 9 (Kenji: add 'blended-smoothie': 1 to FRIDGE_DAYS). prettier OK.
+- 16:25 UTC Javier's es-mozzarella-light and intl-soy-sauce-halal (both halal) landed: DB map now links them directly
+  (fallback and TODO removed). #49, #51 (soy) and #57, #60, #64 (mozzarella) unchanged in numbers. Rebuilt:
+  check-foods 351/351, 0 warnings; npm test 0 fail (the storage-count test passes now); prettier OK. STOP POINT
+  (clean). Open: #1, #5 (boneless halal thigh) and #27 (forn barra) still have no cost; Lena drops HALAL_SWAPS;
+  nobody has tapped the budget plan in the running app yet (M-14).

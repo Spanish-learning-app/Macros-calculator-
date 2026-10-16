@@ -214,7 +214,7 @@ export default [
     tags: ['mediterranean', 'spanish', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'BEDCA 2543 Aceite de oliva', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 3696.3 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Servings: USDA SR 171413 olive oil 1 tsp = 4.5 g, 1 tbsp = 13.5 g.' },
+    source: { citation: 'BEDCA 2543 Aceite de oliva', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'BEDCA energy 3696.3 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Servings: USDA SR 171413 olive oil 1 tsp = 4.5 g, 1 tbsp = 13.5 g.' },
   },
   {
     id: 'med-hummus',
@@ -287,7 +287,7 @@ export default [
     tags: ['spanish', 'catalan', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'BEDCA 2160 Pan blanco, de barra', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 999.3 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Servings: UCM (Carbajal Azcona 2015) panecillo/barrita 80 g, rebanada 30 g, rebanada grande 40 g, rebanada de pan payés 60 g.' },
+    source: { citation: 'BEDCA 2160 Pan blanco, de barra', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'BEDCA energy 999.3 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Servings: UCM (Carbajal Azcona 2015) panecillo/barrita 80 g, rebanada 30 g, rebanada grande 40 g, rebanada de pan payés 60 g.' },
   },
   {
     id: 'es-pan-integral',
@@ -305,7 +305,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'check', reason: 'Sliced bread can contain E471/E472e emulsifiers of unstated origin; check the label.' },
-    source: { citation: 'BEDCA 2163 Pan integral', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 1044.3 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. BEDCA "Pan integral" used for sliced wholemeal bread (close match). Slice: Mercadona Pan de molde 100% integral label serving 30 g (OFF 8480000093691, read 2026-10-13); UCM pan de molde rebanada mediana 20 g, grande 40 g.' },
+    source: { citation: 'BEDCA 2163 Pan integral', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'BEDCA energy 1044.3 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. BEDCA "Pan integral" used for sliced wholemeal bread (close match). Slice: Mercadona Pan de molde 100% integral label serving 30 g (OFF 8480000093691, read 2026-10-13); UCM pan de molde rebanada mediana 20 g, grande 40 g.' },
   },
   {
     id: 'es-croissant',
@@ -357,7 +357,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'contains-egg'],
     slots: ['breakfast', 'evening'],
     halal: { status: 'check', reason: 'Bakery and packaged pastries may contain lard (manteca de cerdo) or E471 of animal origin; check the label or ask the bakery.' },
-    source: { citation: 'BEDCA 2678 Magdalena', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'BEDCA energy 1610.8 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Servings: Mercadona Magdalenas label serving 34.4 g (OFF 8402001018824, read 2026-10-13; made with sunflower oil); UCM magdalena pequeña 27 g, grande 42 g.' },
+    source: { citation: 'BEDCA 2678 Magdalena', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'BEDCA energy 1610.8 kJ ÷ 4.184; BEDCA carbohydrate is available carbohydrate. Data: BEDCA (AESAN), www.bedca.net. Servings: Mercadona Magdalenas label serving 34.4 g (OFF 8402001018824, read 2026-10-13; made with sunflower oil); UCM magdalena pequeña 27 g, grande 42 g.' },
   },
   {
     id: 'es-ensaimada',
@@ -421,7 +421,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'lunch', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171891', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 1.67 g (no fibre), used as available carbs. Serving: UCM café, infusión, taza pequeña = 50 g.' },
+    source: { citation: 'USDA FDC SR Legacy 171891', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 1.67 g (no fibre), used as available carbs. Serving: UCM café, infusión, taza pequeña = 50 g.' },
   },
   {
     id: 'es-cola-cao-con-leche',
@@ -454,7 +454,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan'],
     slots: ['breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169098', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 10.4 − fibre 0.2 = 10.2 g available. Cross-check BEDCA 2468 Zumo de naranja 41 kcal. Servings: UCM zumos vaso 200 g; glass 250 ml × 1.048 g/ml (USDA 169098: 1 fl oz = 31 g) = 262 g.' },
+    source: { citation: 'USDA FDC SR Legacy 169098', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 10.4 − fibre 0.2 = 10.2 g available. Cross-check BEDCA 2468 Zumo de naranja 41 kcal. Servings: UCM zumos vaso 200 g; glass 250 ml × 1.048 g/ml (USDA 169098: 1 fl oz = 31 g) = 262 g.' },
   },
   {
     id: 'es-yogur-griego',
@@ -595,7 +595,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'packaged', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Salmorejo al estilo cordobés Hacendado, 1 l carton, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 39902 (tienda.mercadona.es/product/39902, EAN 8480000399021); per-100 g values from Open Food Facts 8480000399021. Label per 100 g: 85 kcal, P 1.1, C 5.1 (sugars 2.7), F 6.4, sat 0.9, fibre 1.3 g (OFF salt value 0.002 g is implausible: sodium left out). Ingredients: tomato, water, extra virgin olive oil 6 %, breadcrumbs, pepper, salt, sherry vinegar, garlic. Topped with boiled egg it stays halal; bars often add jamón, which this record excludes. 1.03 g/ml (RULES water-like).' },
+    source: { citation: 'Label: Mercadona Salmorejo al estilo cordobés Hacendado, 1 l carton, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 39902 (tienda.mercadona.es/product/39902, EAN 8480000399021); per-100 g values from Open Food Facts 8480000399021. Label per 100 g: 85 kcal, P 1.1, C 5.1 (sugars 2.7), F 6.4, sat 0.9, fibre 1.3 g (OFF salt value 0.002 g is implausible: sodium left out). Ingredients: tomato, water, extra virgin olive oil 6 %, breadcrumbs, pepper, salt, sherry vinegar, garlic. Topped with boiled egg it stays halal; bars often add jamón, which this record excludes. 1.03 g/ml (RULES water-like).' },
   },
   {
     id: 'med-guacamole',
@@ -651,7 +651,7 @@ export default [
     tags: ['middle-eastern', 'mediterranean', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Pan de pita Mission, 300 g (5 × 60 g), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 14378 (tienda.mercadona.es/product/14378, EAN 5036034406834); per-100 g values from Open Food Facts 5036034406834. Label per 100 g: 254 kcal, P 9.3, C 50.8 (sugars 3.9), F 1, sat 0.2, fibre 2.6, salt 0.7 g. Ingredients: fortified wheat flour, water, yeast, salt, gluten, rapeseed oil, calcium propionate (no E-471, no lard). 1 pitta = 60 g (label).' },
+    source: { citation: 'Label: Mercadona Pan de pita Mission, 300 g (5 × 60 g), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 14378 (tienda.mercadona.es/product/14378, EAN 5036034406834); per-100 g values from Open Food Facts 5036034406834. Label per 100 g: 254 kcal, P 9.3, C 50.8 (sugars 3.9), F 1, sat 0.2, fibre 2.6, salt 0.7 g. Ingredients: fortified wheat flour, water, yeast, salt, gluten, rapeseed oil, calcium propionate (no E-471, no lard). 1 pitta = 60 g (label).' },
   },
   {
     id: 'med-couscous-dry',
@@ -668,7 +668,7 @@ export default [
     tags: ['mediterranean', 'middle-eastern', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Cous cous mediano Hacendado (Bia SpA), 1 kg box, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 9395 (tienda.mercadona.es/product/9395, EAN 8011033012108); per-100 g values from Open Food Facts 8011033012108. Label per 100 g: 346 kcal, P 12, C 69 (sugars 2.5), F 1.6, sat 0.4, fibre 3.9 g. Ingredients: durum wheat semolina, water. Label serving 50 g dry.' },
+    source: { citation: 'Label: Mercadona Cous cous mediano Hacendado (Bia SpA), 1 kg box, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 9395 (tienda.mercadona.es/product/9395, EAN 8011033012108); per-100 g values from Open Food Facts 8011033012108. Label per 100 g: 346 kcal, P 12, C 69 (sugars 2.5), F 1.6, sat 0.4, fibre 3.9 g. Ingredients: durum wheat semolina, water. Label serving 50 g dry.' },
   },
   {
     id: 'med-bulgur-dry',
@@ -684,7 +684,7 @@ export default [
     tags: ['mediterranean', 'middle-eastern', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC Foundation 2710820', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 75.88175 − fibre 11.72 = 64.2 g available. Gram servings.' },
+    source: { citation: 'USDA FDC Foundation 2710820', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 75.88175 − fibre 11.72 = 64.2 g available. Gram servings.' },
   },
   {
     id: 'es-tomate-triturado',
@@ -702,7 +702,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Tomate triturado Hacendado, 800 g jar, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 16043 (tienda.mercadona.es/product/16043, EAN 8402001001543); per-100 g values from Open Food Facts 8402001001543. Label per 100 g: 21 kcal, P 1, C 3.5 (sugars 3.5), F 0.1, sat 0, salt 0.5 g; fibre not on the label: 1.9 g from USDA SR 170501 (crushed canned tomatoes). Ingredients: tomato, salt, sugar, citric acid. Small jar 400 g = Mercadona product 16044.' },
+    source: { citation: 'Label: Mercadona Tomate triturado Hacendado, 800 g jar, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 16043 (tienda.mercadona.es/product/16043, EAN 8402001001543); per-100 g values from Open Food Facts 8402001001543. Label per 100 g: 21 kcal, P 1, C 3.5 (sugars 3.5), F 0.1, sat 0, salt 0.5 g; fibre not on the label: 1.9 g from USDA SR 170501 (crushed canned tomatoes). Ingredients: tomato, salt, sugar, citric acid. Small jar 400 g = Mercadona product 16044.' },
   },
   {
     id: 'es-pan-rallado',
@@ -720,7 +720,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Pan rallado Hacendado, 750 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 82219 (tienda.mercadona.es/product/82219, EAN 8480000822192); per-100 g values from Open Food Facts 8480000822192. Label per 100 g: 369 kcal, P 9.58, C 78.12 (sugars 3.4), F 1.26, sat 0.3, salt 1 g; fibre not on the label: 4.5 g from USDA SR 174928 (dry breadcrumbs). Ingredients: wheat flour, water, salt, yeast (no lard). tbsp = USDA 174928 1 cup 108 g ÷ 16.' },
+    source: { citation: 'Label: Mercadona Pan rallado Hacendado, 750 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 82219 (tienda.mercadona.es/product/82219, EAN 8480000822192); per-100 g values from Open Food Facts 8480000822192. Label per 100 g: 369 kcal, P 9.58, C 78.12 (sugars 3.4), F 1.26, sat 0.3, salt 1 g; fibre not on the label: 4.5 g from USDA SR 174928 (dry breadcrumbs). Ingredients: wheat flour, water, salt, yeast (no lard). tbsp = USDA 174928 1 cup 108 g ÷ 16.' },
   },
   {
     id: 'es-gambas-al-ajillo',

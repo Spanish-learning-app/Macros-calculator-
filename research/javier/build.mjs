@@ -2021,6 +2021,18 @@ basics.push(...s3Basics);
 intl.push(...s3Intl);
 esmed.push(...s3Esmed);
 
+// Ayesha, s3-backlog nice-to-have (2026-10-16): Yusuf's salmon medallion line was name-only, so the app had no record to show.
+intl.push({
+  id: 'intl-salmon-medallions', name: 'Salmon medallions, frozen (Hacendado)', shortName: 'Salmon medallions',
+  aliases: ['salmon medallions', 'medallones de salmón', 'medallones de salmon', 'medallón de salmón', 'medallon de salmon', 'medallons de salmó', 'frozen salmon medallion', 'salmon medallion'],
+  group: 'meat-fish', state: 'frozen, raw, as sold (cook from frozen)',
+  per100g: { kcal: 221, protein: 20, carbs: 0, fat: 16, fiber: 0, sugars: 0, satFat: 2.3, sodium: salt2na(0.885) },
+  source: merc3('Medallones de salmón Hacendado cocinar congelados', 26749, '8480000267498', '4 medallions, 250 g', 'Label per 100 g: 932 kJ (221 kcal; 4P + 4C + 9F = 224, within 2 %), P 20, C 0, F 16, sat 2.3, salt 0.885 g; fibre 0. Ingredients: 99.2 % salmon (Salmo salar, farmed in Norway) and salt; may contain traces of crustaceans and molluscs. Values are for the raw frozen medallion as sold. 4 medallions in 250 g, so 1 medallion = 62.5 g (OFF serving 62.5 g). Cooked weight is lower, so weigh raw.'),
+  servings: [sv('medallion', '1 medallion (62.5 g)', 62.5, true), sv('two', '2 medallions (125 g)', 125), sv('pack', '4 medallions (250 g)', 250)],
+  pack: { grams: 250, label: '4 medallions (250 g)' },
+  tags: ['international', 'packaged', 'gym', 'seafood-fish', 'meal-prep'], slots: ['lunch', 'dinner'], halal: HALAL,
+});
+
 // Existing records touched by this wave: aliases for grilled chicken, a swap note on the E-471 wrap, and a reason on falafel.
 {
   const find = (id) => [...basics, ...intl, ...esmed].find((r) => r.id === id);

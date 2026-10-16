@@ -6,7 +6,6 @@
 // words promise (M-01: what the Lab writes has to reach the Boss, and be right when it gets there).
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { knownBug } from './_helpers.js';
 import { FOODS, RULES } from '../../../app/data/index.js';
 import LIBRARY from '../../../app/data/recipes-mealprep.js';
 import { buildFoodIndex } from '../../../app/core/foods.js';
@@ -167,8 +166,8 @@ test('method: a cooked prep says how hot at some step; a step with an oven heat 
 
 // ------------------------------------------------------------------ no-cook preps
 
-// BUG-M2 (Yusuf): these two are 'assemble' ("no cooking" on the card) but open with "Morning:" and toast bread.
-const M2 = ['es-pa-amb-tomaquet-burgos-ous-portion', 'es-tostada-tomate-atun-aguacate-portion'];
+// BUG-M2 (Yusuf, fixed 2026-10-16): the two toast preps used to be "assemble" but opened with "Morning: ... toast".
+// Now every assemble/ready prep opens with a "No cooking" step with heat none, with no exceptions.
 const noCookProblem = (r) => {
   const first = r.method.steps[0];
   if (!/^No cooking\b/.test(first.text)) return `first step starts "${first.text.slice(0, 25)}"`;
@@ -179,20 +178,18 @@ const noCookProblem = (r) => {
 test('no-cook preps (effort assemble or ready): the first step says "No cooking" with heat none', () => {
   const noCook = withMethod.filter(isNoCook);
   assert.ok(noCook.length >= 15, `${noCook.length} no-cook preps with a method`);
-  const bad = noCook.filter((r) => !M2.includes(r.foodId)).filter(noCookProblem);
+  const bad = noCook.filter(noCookProblem);
   assert.deepEqual(
     bad.map((r) => `${r.foodId}: ${noCookProblem(r)}`),
     [],
   );
 });
 
-knownBug('BUG-M2', 'Yusuf', 'two "no-cook" toast preps do not start with "No cooking"', [], () => {
-  const bad = withMethod.filter((r) => M2.includes(r.foodId)).filter(noCookProblem);
-  assert.deepEqual(
-    bad.map((r) => r.foodId),
-    [],
-    'The card says "no cooking" (effort assemble) but step 1 is "Morning: ... toast it". Say "No cooking, only toasting." first, or mark them cook.',
-  );
+test('BUG-M2 stays fixed: the two toast preps open with "No cooking" and heat none', () => {
+  const ids = ['es-pa-amb-tomaquet-burgos-ous-portion', 'es-tostada-tomate-atun-aguacate-portion'];
+  const toast = withMethod.filter((r) => ids.includes(r.foodId));
+  assert.equal(toast.length, 2);
+  for (const r of toast) assert.equal(noCookProblem(r), null, r.foodId);
 });
 
 test('cook preps never open with "No cooking" (the words would lie)', () => {
@@ -229,83 +226,41 @@ test('a plan with freezer boxes is explained in boxUp ("freezer")', () => {
   }
 });
 
-// BUG-M1 (Yusuf): boxUp sends boxes to the freezer but the recipe's `storage` list contains a component that
-// cannot freeze (a fresh cold-salad), so the app's default plan keeps every box in the fridge (use-by in 1-2 days).
+// BUG-M1 (Yusuf, fixed 2026-10-16): boxUp that sends numbered boxes to the freezer must match a `storage`
+// record that can freeze (a fresh cold-salad as a box component made the app keep every box in the fridge).
 const M1 = ['intl-chicken-broccoli-pesto-pasta-box', 'med-chicken-shawarma-pita-box'];
 const sendsToFreezer = (r) => /boxes? \d[^.]{0,40}\bfreezer/i.test(r.method.boxUp);
 
 test('boxUp that sends numbered boxes to the freezer matches a freezable storage record', () => {
-  for (const r of withMethod.filter((x) => !M1.includes(x.foodId)))
-    if (sendsToFreezer(r))
+  let n = 0;
+  for (const r of withMethod)
+    if (sendsToFreezer(r)) {
+      n++;
       assert.ok(
         plan(r).freezable,
         `${r.foodId}: boxUp freezes boxes but storage ${storageIds(r)} cannot freeze`,
       );
+    }
+  assert.ok(n >= 2, `${n} recipes send numbered boxes to the freezer`);
 });
 
-knownBug(
-  'BUG-M1',
-  'Yusuf',
-  'boxUp freezes boxes that the storage record says cannot freeze',
-  [],
-  () => {
-    const bad = withMethod
-      .filter((r) => M1.includes(r.foodId))
-      .filter((r) => sendsToFreezer(r) && !plan(r).freezable);
-    assert.deepEqual(
-      bad.map((r) => `${r.foodId} storage ${storageIds(r)} plan ${plan(r).storage}`),
-      [],
-      'Fix the storage list (the salad or tomatoes are added fresh, so they are not a stored component or are a pot) or the boxUp text.',
-    );
-  },
-);
+test('BUG-M1 stays fixed: pesto pasta and shawarma pita plan freezer boxes as boxUp says', () => {
+  for (const id of M1) {
+    const r = withMethod.find((x) => x.foodId === id);
+    assert.ok(r, id);
+    assert.ok(sendsToFreezer(r), `${id}: boxUp no longer mentions the freezer`);
+    assert.ok(plan(r).freezable, `${id}: storage ${storageIds(r)} cannot freeze`);
+    assert.ok(plan(r).storage.includes('freezer'), `${id}: plan ${plan(r).storage}`);
+  }
+});
 
 // ------------------------------------------------------------------ every recipe has one
 
-// Zainab is still converting the desi sheets (Sprint 3, 2026-10-16): these 19 of 64 had no method when this
-// was written. A recipe NOT on this list must have a method (so a new recipe, or a converted one that loses
-// its method, fails with its id). When the last one lands, empty this list: then every recipe is required.
-const PENDING = [
-  'pk-chicken-tikka-rice-box',
-  'pk-keema-matar-rice-box',
-  'pk-yakhni-chicken-pulao-box',
-  'pk-shami-kebab-pita-box',
-  'pk-chicken-seekh-tabbouleh-box',
-  'pk-chicken-chana-chaat-box',
-  'intl-egg-muffins-roti-portion',
-  'pk-aloo-paratha-raita-portion',
-  'pk-anda-paratha-roll-portion',
-  'pk-chicken-egg-roti-wrap-portion',
-  'pk-chicken-karahi-roti-portion',
-  'pk-keema-matar-roti-portion',
-  'pk-chicken-jalfrezi-roti-portion',
-  'pk-aloo-gosht-roti-portion',
-  'pk-seekh-kebab-roti-portion',
-  'pk-daal-palak-roti-portion',
-  'pk-fruit-chaat-protein-dahi-portion',
-  'pk-microwave-chana-masala-portion',
-  'pk-chana-chaat-dahi-snack-box',
-];
+// BUG-M0 (Zainab and Yusuf, fixed 2026-10-16): all 64 library recipes have a method. A recipe, new or
+// converted, that has none fails here with its id.
 const missing = LIBRARY.filter((r) => r.method === undefined).map((r) => r.foodId);
 
-test(`method: only the ${PENDING.length} recipes still being converted may lack a method (the count only goes down)`, () => {
+test('method: every library recipe has a "How to make it" (BUG-M0 stays fixed)', () => {
   assert.ok(LIBRARY.length >= 64, `${LIBRARY.length} library recipes`);
-  const unexpected = missing.filter((id) => !PENDING.includes(id));
-  assert.deepEqual(
-    unexpected,
-    [],
-    `no method, and not on the pending list: ${unexpected.join(', ')}`,
-  );
-  assert.ok(
-    missing.length <= PENDING.length,
-    `${missing.length} missing, ${PENDING.length} allowed`,
-  );
+  assert.deepEqual(missing, [], `no method for: ${missing.join(', ')}`);
 });
-
-knownBug(
-  'BUG-M0',
-  'Zainab and Yusuf',
-  `${missing.length} of ${LIBRARY.length} library recipes still have no method (target 0; this turns green by itself)`,
-  [],
-  () => assert.deepEqual(missing, [], `no "How to make it" for: ${missing.join(', ')}`),
-);

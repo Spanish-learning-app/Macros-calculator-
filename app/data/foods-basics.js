@@ -21,7 +21,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'gym'],
     slots: ['breakfast', 'snacks', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173944', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 22.84 − fibre 2.6 = 20.2 g available. Servings: USDA SR 173944 portions (edible part).' },
+    source: { citation: 'USDA FDC SR Legacy 173944', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 22.84 − fibre 2.6 = 20.2 g available. Servings: USDA SR 173944 portions (edible part).' },
   },
   {
     id: 'intl-apple',
@@ -40,7 +40,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['evening', 'snacks', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171688', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 13.81 − fibre 2.4 = 11.4 g available. Servings: USDA SR 171688 portions.' },
+    source: { citation: 'USDA FDC SR Legacy 171688', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 13.81 − fibre 2.4 = 11.4 g available. Servings: USDA SR 171688 portions.' },
   },
   {
     id: 'intl-dates',
@@ -94,7 +94,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169910', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 14.98 − fibre 1.6 = 13.4 g available. Servings: USDA 1 cup pieces = 165 g (0.697 g/ml) → katori 200 ml = 139.5 g; 1 fruit without refuse = 336 g.' },
+    source: { citation: 'USDA FDC SR Legacy 169910', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 14.98 − fibre 1.6 = 13.4 g available. Servings: USDA 1 cup pieces = 165 g (0.697 g/ml) → katori 200 ml = 139.5 g; 1 fruit without refuse = 336 g.' },
   },
   {
     id: 'intl-kinnow',
@@ -149,7 +149,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169097', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 11.75 − fibre 2.4 = 9.4 g available. Servings: USDA portions.' },
+    source: { citation: 'USDA FDC SR Legacy 169097', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 11.75 − fibre 2.4 = 9.4 g available. Servings: USDA portions.' },
   },
   {
     id: 'intl-watermelon',
@@ -167,7 +167,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'iftar'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 167765', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 7.55 − fibre 0.4 = 7.2 g available. Servings: USDA 1 cup diced = 152 g (0.642 g/ml) → katori 200 ml = 128.5 g; 1 wedge (1/16 melon) = 286 g.' },
+    source: { citation: 'USDA FDC SR Legacy 167765', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 7.55 − fibre 0.4 = 7.2 g available. Servings: USDA 1 cup diced = 152 g (0.642 g/ml) → katori 200 ml = 128.5 g; 1 wedge (1/16 melon) = 286 g.' },
   },
   {
     id: 'intl-grapes',
@@ -185,7 +185,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 174683', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 18.1 − fibre 0.9 = 17.2 g available. Servings: USDA 10 grapes = 49 g; 1 cup = 151 g (0.638 g/ml) → katori 200 ml = 127.6 g.' },
+    source: { citation: 'USDA FDC SR Legacy 174683', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 18.1 − fibre 0.9 = 17.2 g available. Servings: USDA 10 grapes = 49 g; 1 cup = 151 g (0.638 g/ml) → katori 200 ml = 127.6 g.' },
   },
   {
     id: 'intl-cucumber',
@@ -222,7 +222,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170457', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 3.89 − fibre 1.2 = 2.7 g available. Servings: USDA portions.' },
+    source: { citation: 'USDA FDC SR Legacy 170457', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 3.89 − fibre 1.2 = 2.7 g available. Servings: USDA portions.' },
   },
   {
     id: 'intl-onion',
@@ -260,7 +260,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170393', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 9.58 − fibre 2.8 = 6.8 g available. Servings: USDA portions.' },
+    source: { citation: 'USDA FDC SR Legacy 170393', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 9.58 − fibre 2.8 = 6.8 g available. Servings: USDA portions.' },
   },
   {
     id: 'intl-potato-boiled',
@@ -318,7 +318,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169247', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 3.29 − fibre 2.1 = 1.2 g available. Servings: USDA portions.' },
+    source: { citation: 'USDA FDC SR Legacy 169247', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 3.29 − fibre 2.1 = 1.2 g available. Servings: USDA portions.' },
   },
   {
     id: 'intl-salad-kachumber',
@@ -358,7 +358,7 @@ export default [
     tags: ['international', 'vegetarian', 'contains-egg', 'gym', 'meal-prep', 'eat-cold'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173424', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 1.12 g (no fibre), used as available carbs. Serving: RULES.referenceWeightsG egg-boiled 50 g (USDA large egg).' },
+    source: { citation: 'USDA FDC SR Legacy 173424', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 1.12 g (no fibre), used as available carbs. Serving: RULES.referenceWeightsG egg-boiled 50 g (USDA large egg).' },
   },
   {
     id: 'intl-egg-fried',
@@ -394,7 +394,7 @@ export default [
     tags: ['international', 'vegetarian', 'contains-egg'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171287', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0.72 g (no fibre), used as available carbs. Servings: USDA large egg 50 g, medium 44 g (edible part).' },
+    source: { citation: 'USDA FDC SR Legacy 171287', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0.72 g (no fibre), used as available carbs. Servings: USDA large egg 50 g, medium 44 g (edible part).' },
   },
   {
     id: 'intl-milk-whole',
@@ -413,7 +413,7 @@ export default [
     tags: ['international', 'pakistani', 'vegetarian'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171265', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 4.8 g (no fibre), used as available carbs. Servings: RULES glass 250 ml and cup 200 ml × 1.03 g/ml (USDA 1 cup = 244 g).' },
+    source: { citation: 'USDA FDC SR Legacy 171265', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 4.8 g (no fibre), used as available carbs. Servings: RULES glass 250 ml and cup 200 ml × 1.03 g/ml (USDA 1 cup = 244 g).' },
   },
   {
     id: 'intl-milk-buffalo',
@@ -432,7 +432,7 @@ export default [
     tags: ['pakistani', 'vegetarian'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171280', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 5.18 g (no fibre), used as available carbs. Loose milk in Pakistan is often buffalo or mixed milk. Servings: RULES glass/cup × 1.03 g/ml (USDA 1 cup = 244 g).' },
+    source: { citation: 'USDA FDC SR Legacy 171280', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 5.18 g (no fibre), used as available carbs. Loose milk in Pakistan is often buffalo or mixed milk. Servings: RULES glass/cup × 1.03 g/ml (USDA 1 cup = 244 g).' },
   },
   {
     id: 'intl-dahi',
@@ -455,7 +455,7 @@ export default [
     tags: ['pakistani', 'international', 'vegetarian', 'meal-prep'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171284', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 4.66 g (no fibre), used as available carbs. Buffalo-milk dahi is richer. Katori servings × 1.03 g/ml (RULES yogurt; USDA 1 cup = 245 g). Spanish tub 120 g: Danone Yogur natural label (OFF 8410500001360, read 2026-10-13: 60 kcal, P 3.3, C 4.3, F 3.3 per 100 g, agrees with USDA).' },
+    source: { citation: 'USDA FDC SR Legacy 171284', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 4.66 g (no fibre), used as available carbs. Buffalo-milk dahi is richer. Katori servings × 1.03 g/ml (RULES yogurt; USDA 1 cup = 245 g). Spanish tub 120 g: Danone Yogur natural label (OFF 8410500001360, read 2026-10-13: 60 kcal, P 3.3, C 4.3, F 3.3 per 100 g, agrees with USDA).' },
   },
   {
     id: 'intl-raita',
@@ -496,7 +496,7 @@ export default [
     tags: ['international', 'gym', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
-    source: { citation: 'USDA FDC SR Legacy 171477', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Serving: FNDDS 2705956 chicken breast, skin not eaten, 1 medium breast = 120 g.' },
+    source: { citation: 'USDA FDC SR Legacy 171477', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Serving: FNDDS 2705956 chicken breast, skin not eaten, 1 medium breast = 120 g.' },
   },
   {
     id: 'intl-chicken-breast-raw',
@@ -515,7 +515,7 @@ export default [
     tags: ['international', 'gym'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
-    source: { citation: 'USDA FDC Foundation 2646170', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Fibre not reported by USDA; 0 for this animal food. Serving: USDA SR 171077 4 oz = 113 g.' },
+    source: { citation: 'USDA FDC Foundation 2646170', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Fibre not reported by USDA; 0 for this animal food. Serving: USDA SR 171077 4 oz = 113 g.' },
   },
   {
     id: 'intl-chicken-thigh-roasted',
@@ -534,7 +534,7 @@ export default [
     tags: ['international', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Assumes halal meat (from a halal butcher in Spain).' },
-    source: { citation: 'USDA FDC SR Legacy 172388', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Serving: USDA 1 thigh without skin = 116 g (cooked, edible).' },
+    source: { citation: 'USDA FDC SR Legacy 172388', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Serving: USDA 1 thigh without skin = 116 g (cooked, edible).' },
   },
   {
     id: 'intl-beef-mince-cooked',
@@ -689,7 +689,7 @@ export default [
     tags: ['international', 'pakistani', 'seafood-fish'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 174185', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Analogue: rohu (Labeo rohita) is a carp; USDA common carp values. Servings: USDA 1 fillet = 170 g, 3 oz = 85 g.' },
+    source: { citation: 'USDA FDC SR Legacy 174185', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Analogue: rohu (Labeo rohita) is a carp; USDA common carp values. Servings: USDA 1 fillet = 170 g, 3 oz = 85 g.' },
   },
   {
     id: 'intl-tuna-canned-water',
@@ -708,7 +708,7 @@ export default [
     tags: ['international', 'gym', 'seafood-fish', 'eat-cold', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC Foundation 334194', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0.08 g (no fibre), used as available carbs. Fibre not reported by USDA; 0 for this animal food. Serving: USDA 1 can drained solids = 107 g.' },
+    source: { citation: 'USDA FDC Foundation 334194', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0.08 g (no fibre), used as available carbs. Fibre not reported by USDA; 0 for this animal food. Serving: USDA 1 can drained solids = 107 g.' },
   },
   {
     id: 'intl-tuna-canned-oil',
@@ -765,7 +765,7 @@ export default [
     tags: ['international', 'pakistani', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171411', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Servings: RULES.referenceWeightsG oil-tsp 4.5 g, oil-tbsp 13.6 g (USDA 171411).' },
+    source: { citation: 'USDA FDC SR Legacy 171411', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Servings: RULES.referenceWeightsG oil-tsp 4.5 g, oil-tbsp 13.6 g (USDA 171411).' },
   },
   {
     id: 'intl-desi-ghee',
@@ -784,7 +784,7 @@ export default [
     tags: ['pakistani', 'vegetarian'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171314', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Servings: RULES density oil and ghee 0.91 g/ml → tsp 4.5 g, tbsp 13.6 g.' },
+    source: { citation: 'USDA FDC SR Legacy 171314', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0 g (no fibre), used as available carbs. Servings: RULES density oil and ghee 0.91 g/ml → tsp 4.5 g, tbsp 13.6 g.' },
   },
   {
     id: 'intl-butter',
@@ -820,7 +820,7 @@ export default [
     tags: ['international', 'pakistani', 'vegetarian', 'vegan'],
     slots: ['breakfast', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169655', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 99.98 g (no fibre), used as available carbs. Servings: RULES sugar-tsp 4.2 g (USDA 169655); tbsp = 3 tsp = 12.6 g.' },
+    source: { citation: 'USDA FDC SR Legacy 169655', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 99.98 g (no fibre), used as available carbs. Servings: RULES sugar-tsp 4.2 g (USDA 169655); tbsp = 3 tsp = 12.6 g.' },
   },
   {
     id: 'intl-honey',
@@ -838,7 +838,7 @@ export default [
     tags: ['international', 'vegetarian'],
     slots: ['breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169640', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 82.4 − fibre 0.2 = 82.2 g available. Servings: USDA 1 tbsp = 21 g; tsp = 7 g (⅓ tbsp).' },
+    source: { citation: 'USDA FDC SR Legacy 169640', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 82.4 − fibre 0.2 = 82.2 g available. Servings: USDA 1 tbsp = 21 g; tsp = 7 g (⅓ tbsp).' },
   },
   {
     id: 'intl-ketchup',
@@ -874,7 +874,7 @@ export default [
     tags: ['international', 'vegetarian', 'contains-egg'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171009', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 0.57 g (no fibre), used as available carbs. Servings: USDA 1 tbsp = 13.8 g; 1 packet = 10 g.' },
+    source: { citation: 'USDA FDC SR Legacy 171009', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 0.57 g (no fibre), used as available carbs. Servings: USDA 1 tbsp = 13.8 g; 1 packet = 10 g.' },
   },
   {
     id: 'pk-achaar-mixed',
@@ -894,7 +894,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: National Mix Pickle, 400 g jar, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 0620514009728 (last modified 2026-03-08), per 100 g as printed. Spoon weights: 1 g/ml (USDA SR 168561 pickle relish, 1 tbsp = 15 g). Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
+    source: { citation: 'Label: National Mix Pickle, 400 g jar, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Open Food Facts 0620514009728 (last modified 2026-03-08), per 100 g as printed. Spoon weights: 1 g/ml (USDA SR 168561 pickle relish, 1 tbsp = 15 g). Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
   },
   {
     id: 'intl-pear',
@@ -913,7 +913,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['evening', 'snacks', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169118', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 15.23 − fibre 3.1 = 12.1 g available. Servings: USDA SR 169118 portions.' },
+    source: { citation: 'USDA FDC SR Legacy 169118', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 15.23 − fibre 3.1 = 12.1 g available. Servings: USDA SR 169118 portions.' },
   },
   {
     id: 'intl-kiwi',
@@ -931,7 +931,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['breakfast', 'evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 168153', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 14.66 − fibre 3 = 11.7 g available. Serving: USDA SR 168153, 1 fruit (2 in dia) = 69 g edible.' },
+    source: { citation: 'USDA FDC SR Legacy 168153', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 14.66 − fibre 3 = 11.7 g available. Serving: USDA SR 168153, 1 fruit (2 in dia) = 69 g edible.' },
   },
   {
     id: 'intl-persimmon',
@@ -948,7 +948,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['evening', 'snacks', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169941', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 18.59 − fibre 3.6 = 15 g available. Serving: USDA SR 169941, 1 fruit (2½ in dia) = 168 g.' },
+    source: { citation: 'USDA FDC SR Legacy 169941', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 18.59 − fibre 3.6 = 15 g available. Serving: USDA SR 169941, 1 fruit (2½ in dia) = 168 g.' },
   },
   {
     id: 'intl-pomegranate',
@@ -966,7 +966,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['breakfast', 'evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169134', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 18.7 − fibre 4 = 14.7 g available. Servings: USDA SR 169134, ½ cup arils = 87 g; 1 pomegranate (4 in dia) = 282 g edible.' },
+    source: { citation: 'USDA FDC SR Legacy 169134', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 18.7 − fibre 4 = 14.7 g available. Servings: USDA SR 169134, ½ cup arils = 87 g; 1 pomegranate (4 in dia) = 282 g edible.' },
   },
   {
     id: 'intl-blueberries',
@@ -984,7 +984,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['breakfast', 'evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171711', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 14.49 − fibre 2.4 = 12.1 g available. Servings: USDA SR 171711, 50 berries = 68 g; Mercadona "Arándanos" vaso = 225 g (product 5501, read 2026-10-14).' },
+    source: { citation: 'USDA FDC SR Legacy 171711', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 14.49 − fibre 2.4 = 12.1 g available. Servings: USDA SR 171711, 50 berries = 68 g; Mercadona "Arándanos" vaso = 225 g (product 5501, read 2026-10-14).' },
   },
   {
     id: 'intl-melon',
@@ -1001,7 +1001,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['evening', 'snacks', 'lunch'],
     halal: { status: 'halal' },
-    source: { citation: 'Analogue of USDA FDC SR Legacy 169911 (piel de sapo is a green-fleshed inodorus melon like honeydew)', method: 'analogue', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 9.09 − fibre 0.8 = 8.3 g available. Servings: USDA SR 169911, 1 wedge (⅛ of a 6–7 in melon) = 160 g; 1 cup diced = 170 g.' },
+    source: { citation: 'Analogue of USDA FDC SR Legacy 169911 (piel de sapo is a green-fleshed inodorus melon like honeydew)', method: 'analogue', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 9.09 − fibre 0.8 = 8.3 g available. Servings: USDA SR 169911, 1 wedge (⅛ of a 6–7 in melon) = 160 g; 1 cup diced = 170 g.' },
   },
   {
     id: 'intl-pineapple',
@@ -1019,7 +1019,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['evening', 'snacks', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169124', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 13.12 − fibre 1.4 = 11.7 g available. Servings: USDA SR 169124, 1 cup chunks = 165 g; 1 slice (3½ in dia × ¾ in) = 84 g. Mercadona ready-cut tub (product 3024, 600 g) lists pineapple only.' },
+    source: { citation: 'USDA FDC SR Legacy 169124', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 13.12 − fibre 1.4 = 11.7 g available. Servings: USDA SR 169124, 1 cup chunks = 165 g; 1 slice (3½ in dia × ¾ in) = 84 g. Mercadona ready-cut tub (product 3024, 600 g) lists pineapple only.' },
   },
   {
     id: 'intl-figs',
@@ -1037,7 +1037,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['evening', 'snacks', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173021', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 19.18 − fibre 2.9 = 16.3 g available. Servings: USDA SR 173021, 1 medium (2¼ in) = 50 g; 1 large = 64 g.' },
+    source: { citation: 'USDA FDC SR Legacy 173021', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 19.18 − fibre 2.9 = 16.3 g available. Servings: USDA SR 173021, 1 medium (2¼ in) = 50 g; 1 large = 64 g.' },
   },
   {
     id: 'intl-avocado',
@@ -1054,7 +1054,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['breakfast', 'lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 171705', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 8.53 − fibre 6.7 = 1.8 g available. Servings: USDA SR 171705, 1 avocado (no skin or seed) = 201 g; half = 100.5 g.' },
+    source: { citation: 'USDA FDC SR Legacy 171705', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 8.53 − fibre 6.7 = 1.8 g available. Servings: USDA SR 171705, 1 avocado (no skin or seed) = 201 g; half = 100.5 g.' },
   },
   {
     id: 'intl-spinach-raw',
@@ -1074,7 +1074,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 168462', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 3.63 − fibre 2.2 = 1.4 g available. Servings: USDA SR 168462, 1 cup = 30 g; Mercadona "Espinacas baby lavadas" bag = 100 g (product 69984).' },
+    source: { citation: 'USDA FDC SR Legacy 168462', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 3.63 − fibre 2.2 = 1.4 g available. Servings: USDA SR 168462, 1 cup = 30 g; Mercadona "Espinacas baby lavadas" bag = 100 g (product 69984).' },
   },
   {
     id: 'intl-rocket',
@@ -1090,7 +1090,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169387', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 3.65 − fibre 1.6 = 2.1 g available. Servings: USDA SR 169387, ½ cup = 10 g; Mercadona "Rúcula lavada" bag = 50 g (product 69753).' },
+    source: { citation: 'USDA FDC SR Legacy 169387', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 3.65 − fibre 1.6 = 2.1 g available. Servings: USDA SR 169387, ½ cup = 10 g; Mercadona "Rúcula lavada" bag = 50 g (product 69753).' },
   },
   {
     id: 'intl-salad-leaves-mixed',
@@ -1108,7 +1108,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Analogue of USDA FDC SR Legacy 169249 (bagged mixes are mostly leaf lettuces)', method: 'analogue', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 2.87 − fibre 1.3 = 1.6 g available. Servings: USDA SR 169249, 1 cup shredded = 36 g; Mercadona "Ensalada mezcla 4 estaciones lavada" = 250 g bag (product 69706).' },
+    source: { citation: 'Analogue of USDA FDC SR Legacy 169249 (bagged mixes are mostly leaf lettuces)', method: 'analogue', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 2.87 − fibre 1.3 = 1.6 g available. Servings: USDA SR 169249, 1 cup shredded = 36 g; Mercadona "Ensalada mezcla 4 estaciones lavada" = 250 g bag (product 69706).' },
   },
   {
     id: 'intl-pepper-red',
@@ -1128,7 +1128,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170108', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 6.03 − fibre 2.1 = 3.9 g available. Servings: USDA SR 170108, 1 medium = 119 g; 1 cup chopped = 149 g; 10 strips ≈ 27 g (green pepper portions).' },
+    source: { citation: 'USDA FDC SR Legacy 170108', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 6.03 − fibre 2.1 = 3.9 g available. Servings: USDA SR 170108, 1 medium = 119 g; 1 cup chopped = 149 g; 10 strips ≈ 27 g (green pepper portions).' },
   },
   {
     id: 'intl-pepper-green',
@@ -1148,7 +1148,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170427', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 4.64 − fibre 1.7 = 2.9 g available. Servings: USDA SR 170427, 1 medium = 119 g; 1 cup chopped = 149 g.' },
+    source: { citation: 'USDA FDC SR Legacy 170427', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 4.64 − fibre 1.7 = 2.9 g available. Servings: USDA SR 170427, 1 medium = 119 g; 1 cup chopped = 149 g.' },
   },
   {
     id: 'intl-courgette',
@@ -1205,7 +1205,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169962', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'USDA carbs by difference 7.54 − fibre 2.6 = 4.9 g available. Servings: USDA SR 169962, 1 cup = 121 g. Mercadona "Judía verde redonda ultracongelada" (product 61282).' },
+    source: { citation: 'USDA FDC SR Legacy 169962', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 7.54 − fibre 2.6 = 4.9 g available. Servings: USDA SR 169962, 1 cup = 121 g. Mercadona "Judía verde redonda ultracongelada" (product 61282).' },
   },
   {
     id: 'intl-garlic',
@@ -1375,7 +1375,7 @@ export default [
     tags: ['international', 'spanish', 'vegetarian', 'packaged', 'gym'],
     slots: ['breakfast', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Leche semidesnatada Hacendado, 1 l brik, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 10382 (tienda.mercadona.es/product/10382, EAN 8402001002106); per-100 g values from Open Food Facts 8402001002106. Label per 100 ml: 49 kcal, P 3.2, C 4.7 (sugars 4.7), F 1.6, salt 0.0975 g; ÷ 1.03 g/ml (RULES water-like) for per 100 g. Ingredient: semi-skimmed cow milk only.' },
+    source: { citation: 'Label: Mercadona Leche semidesnatada Hacendado, 1 l brik, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 10382 (tienda.mercadona.es/product/10382, EAN 8402001002106); per-100 g values from Open Food Facts 8402001002106. Label per 100 ml: 49 kcal, P 3.2, C 4.7 (sugars 4.7), F 1.6, salt 0.0975 g; ÷ 1.03 g/ml (RULES water-like) for per 100 g. Ingredient: semi-skimmed cow milk only.' },
   },
   {
     id: 'intl-egg-whites-liquid',
@@ -1394,7 +1394,7 @@ export default [
     tags: ['international', 'spanish', 'vegetarian', 'contains-egg', 'packaged', 'gym'],
     slots: ['breakfast', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Claras de huevo líquidas pasteurizadas (Huevos Güilén), 1 l bottle, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 31312 (tienda.mercadona.es/product/31312, EAN 8411384100941); per-100 g values from Open Food Facts 8411384100941. Label per 100 g: 42 kcal, P 11, C 0.5, F 0.5, sat 0.1, salt 0.44 g. Ingredients: pasteurised hen egg white, E-202. Serving: USDA SR 172183, 1 large egg white = 33 g; 100 ml × 1.03 g/ml.' },
+    source: { citation: 'Label: Mercadona Claras de huevo líquidas pasteurizadas (Huevos Güilén), 1 l bottle, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 31312 (tienda.mercadona.es/product/31312, EAN 8411384100941); per-100 g values from Open Food Facts 8411384100941. Label per 100 g: 42 kcal, P 11, C 0.5, F 0.5, sat 0.1, salt 0.44 g. Ingredients: pasteurised hen egg white, E-202. Serving: USDA SR 172183, 1 large egg white = 33 g; 100 ml × 1.03 g/ml.' },
   },
   {
     id: 'es-queso-fresco-batido',
@@ -1413,7 +1413,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'],
     slots: ['breakfast', 'evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Queso fresco batido desnatado 0% MG Hacendado, 500 g tub, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 51071 (tienda.mercadona.es/product/51071, EAN 8480000510716); per-100 g values from Open Food Facts 8480000510716. Label per 100 g: 46 kcal, P 8, C 3.5 (sugars 3.5), F 0.5, sat 0.1, salt 0.1 g. Ingredients: skimmed pasteurised cow milk, lactic cultures (no rennet, no gelatine). Label serving 100 g; tbsp at 1.03 g/ml.' },
+    source: { citation: 'Label: Mercadona Queso fresco batido desnatado 0% MG Hacendado, 500 g tub, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 51071 (tienda.mercadona.es/product/51071, EAN 8480000510716); per-100 g values from Open Food Facts 8480000510716. Label per 100 g: 46 kcal, P 8, C 3.5 (sugars 3.5), F 0.5, sat 0.1, salt 0.1 g. Ingredients: skimmed pasteurised cow milk, lactic cultures (no rennet, no gelatine). Label serving 100 g; tbsp at 1.03 g/ml.' },
   },
   {
     id: 'es-queso-burgos-0',
@@ -1431,7 +1431,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'],
     slots: ['breakfast', 'evening', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Queso fresco Burgos desnatado 0% MG Hacendado, 250 g (4 × 62.5 g), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 52409 (tienda.mercadona.es/product/52409, EAN 8480000524096); per-100 g values from Open Food Facts 8480000524096. Label per 100 g: 67 kcal, P 12, C 3.9 (sugars 3.9), F 0.4, sat 0.1, salt 0.91 g; fibre not declared (0). Ingredients: skimmed pasteurised milk, salt, flavouring, rennet (cuajo microbiano: not animal).' },
+    source: { citation: 'Label: Mercadona Queso fresco Burgos desnatado 0% MG Hacendado, 250 g (4 × 62.5 g), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 52409 (tienda.mercadona.es/product/52409, EAN 8480000524096); per-100 g values from Open Food Facts 8480000524096. Label per 100 g: 67 kcal, P 12, C 3.9 (sugars 3.9), F 0.4, sat 0.1, salt 0.91 g; fibre not declared (0). Ingredients: skimmed pasteurised milk, salt, flavouring, rennet (cuajo microbiano: not animal).' },
   },
   {
     id: 'intl-feta',
@@ -1467,7 +1467,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'],
     slots: ['breakfast', 'evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Postre lácteo natural +Proteínas 10 g 0% MG, 500 g tub, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 21256 (tienda.mercadona.es/product/21256, EAN 8480000212566); per-100 g values from Open Food Facts 8480000212566. Label per 100 g: 52 kcal, P 10, C 3.1 (sugars 3.1), F 0.5, sat 0.1 g. Ingredients: skimmed pasteurised milk, lactic cultures (no gelatine). Label portion 120 g. Same product as Yusuf\'s ingredient "protein-yogurt".' },
+    source: { citation: 'Label: Mercadona Postre lácteo natural +Proteínas 10 g 0% MG, 500 g tub, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 21256 (tienda.mercadona.es/product/21256, EAN 8480000212566); per-100 g values from Open Food Facts 8480000212566. Label per 100 g: 52 kcal, P 10, C 3.1 (sugars 3.1), F 0.5, sat 0.1 g. Ingredients: skimmed pasteurised milk, lactic cultures (no gelatine). Label portion 120 g. Same product as Yusuf\'s ingredient "protein-yogurt".' },
   },
   {
     id: 'es-yogur-griego-ligero',
@@ -1485,7 +1485,7 @@ export default [
     tags: ['spanish', 'vegetarian', 'packaged', 'gym', 'eat-cold'],
     slots: ['breakfast', 'evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Yogur griego natural ligero Hacendado 2% MG, 1 kg tub, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 21358 (tienda.mercadona.es/product/21358, EAN 8480000213587); per-100 g values from Open Food Facts 8480000213587. Label per 100 g: 254 kJ (60 kcal; 4P + 4C + 9F = 60), P 5.8, C 4.7 (sugars 4.7), F 2.0, sat 1.4, salt 0.16 g; fibre not declared (0). Ingredients: pasteurised partly skimmed milk (origin Spain), skimmed milk powder, milk proteins, lactic cultures: no gelatina, no rennet. Pot serving 125 g = the 125 g Hacendado griego ligero pot (Mercadona 52421, EAN 8402001012051, OFF serving 125 g; same values); tbsp at 1.03 g/ml. Same product as Yusuf\'s ingredient "yogurt-greek-light".' },
+    source: { citation: 'Label: Mercadona Yogur griego natural ligero Hacendado 2% MG, 1 kg tub, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 21358 (tienda.mercadona.es/product/21358, EAN 8480000213587); per-100 g values from Open Food Facts 8480000213587. Label per 100 g: 254 kJ (60 kcal; 4P + 4C + 9F = 60), P 5.8, C 4.7 (sugars 4.7), F 2.0, sat 1.4, salt 0.16 g; fibre not declared (0). Ingredients: pasteurised partly skimmed milk (origin Spain), skimmed milk powder, milk proteins, lactic cultures: no gelatina, no rennet. Pot serving 125 g = the 125 g Hacendado griego ligero pot (Mercadona 52421, EAN 8402001012051, OFF serving 125 g; same values); tbsp at 1.03 g/ml. Same product as Yusuf\'s ingredient "yogurt-greek-light".' },
   },
   {
     id: 'intl-salmon-canned',
@@ -1502,7 +1502,7 @@ export default [
     tags: ['international', 'packaged', 'gym', 'seafood-fish', 'eat-cold', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Salmón al natural Hacendado, pack of 3 × 80 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 18817 (tienda.mercadona.es/product/18817, EAN 8480000188175); per-100 g values from Open Food Facts 8480000188175. Label per 100 g: 597 kJ (143 kcal), P 17, C 1.8 (sugars 0.5), F 7.5, sat 1.4, salt 1.2 g. Can = 80 g (pack label 3 × 80 g).' },
+    source: { citation: 'Label: Mercadona Salmón al natural Hacendado, pack of 3 × 80 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 18817 (tienda.mercadona.es/product/18817, EAN 8480000188175); per-100 g values from Open Food Facts 8480000188175. Label per 100 g: 597 kJ (143 kcal), P 17, C 1.8 (sugars 0.5), F 7.5, sat 1.4, salt 1.2 g. Can = 80 g (pack label 3 × 80 g).' },
   },
   {
     id: 'intl-sardines-olive-oil',
@@ -1519,7 +1519,7 @@ export default [
     tags: ['spanish', 'packaged', 'gym', 'seafood-fish', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Sardinas en aceite de oliva Hacendado, pack of 2 × 117 g (84 g drained), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 18225 (tienda.mercadona.es/product/18225, EAN 8480000182258); per-100 g values from Open Food Facts 8480000182258. Label per 100 g: 289 kcal, P 20, C 0.7 (sugars 0.5), F 23, sat 4.2, salt 0.78 g. Ingredients: sardine 72 %, olive oil 27 %, salt. Cross-check USDA SR 175139 (drained, with bone) 208 kcal, F 11.5: the label keeps more oil, so this record is on the high side if you drain well.' },
+    source: { citation: 'Label: Mercadona Sardinas en aceite de oliva Hacendado, pack of 2 × 117 g (84 g drained), read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 18225 (tienda.mercadona.es/product/18225, EAN 8480000182258); per-100 g values from Open Food Facts 8480000182258. Label per 100 g: 289 kcal, P 20, C 0.7 (sugars 0.5), F 23, sat 4.2, salt 0.78 g. Ingredients: sardine 72 %, olive oil 27 %, salt. Cross-check USDA SR 175139 (drained, with bone) 208 kcal, F 11.5: the label keeps more oil, so this record is on the high side if you drain well.' },
   },
   {
     id: 'intl-mackerel-olive-oil',
@@ -1730,6 +1730,25 @@ export default [
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Mercadona fresh mozzarella (Hacendado) lists microbial coagulant (coagulante microbiano). Other brands may use animal rennet: read the label.' },
     source: { citation: 'USDA FDC SR Legacy 170845', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-15', notes: 'USDA carbs by difference 2.4 g (no fibre), used as available carbs. Servings: Mercadona Mozzarella fresca de vaca Hacendado (product 51050): 250 g pack, 125 g drained = 1 ball; USDA 1 oz = 28.35 g, 1 cup shredded = 112 g.' },
+  },
+  {
+    id: 'es-mozzarella-light',
+    name: 'Mozzarella light, fresh ball (Hacendado)',
+    shortName: 'Light mozzarella',
+    aliases: ['mozzarella light', 'light mozzarella', 'mozzarella ligera', 'mozzarella fresca light', 'mozzarella baja en grasa', 'low-fat mozzarella', 'mozzarella lleugera'],
+    group: 'dairy',
+    state: 'fresh, drained',
+    per100g: { kcal: 153, protein: 17, carbs: 1, fat: 9, fiber: 0, sugars: 0.8, satFat: 6, sodium: 600 },
+    servings: [
+      { id: 'half-ball', label: '½ ball (63 g)', grams: 63, default: true },
+      { id: 'ball', label: '1 ball, drained (125 g)', grams: 125 },
+      { id: 'oz', label: '1 oz (28 g)', grams: 28.35 },
+    ],
+    pack: { grams: 125, label: '1 ball (125 g drained, 250 g with whey)' },
+    tags: ['international', 'spanish', 'vegetarian', 'packaged', 'eat-cold'],
+    slots: ['lunch', 'dinner'],
+    halal: { status: 'halal', reason: 'Mercadona fresh mozzarella light (Hacendado) lists microbial coagulant (coagulante microbiano). Other brands may use animal rennet: read the label.' },
+    source: { citation: 'Label: Mercadona Mozzarella fresca light de vaca Hacendado, 250 g pack (125 g drained), read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 51230 (tienda.mercadona.es/product/51230, EAN 8480000512307); per-100 g values from Open Food Facts 8480000512307. Label per 100 g: 639 kJ (152.8 kcal, rounded to 153: 4P + 4C + 9F = 153), P 17, C 1 (sugars 0.8), F 9, sat 6, salt 1.5 g; fibre not on the label, 0 (fresh cheese: milk, salt, citric acid, microbial coagulant only). Ingredients: pasteurised cow milk, pasteurised skimmed cow milk, salt, acidity corrector (citric acid), microbial coagulant. Packaging: 250 g with whey, 125 g drained = 1 ball (Mercadona drained_weight 0.125 kg; OFF serving 125 g). Lighter than intl-mozzarella-fresh (USDA 170845, 299 kcal): Yusuf\'s recipes use this one.' },
   },
   {
     id: 'intl-mozzarella-grated',

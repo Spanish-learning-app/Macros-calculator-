@@ -110,7 +110,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'vegan', 'packaged', 'fried'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Salva Nimko Mix (Family Food Products), 55 g pack, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8964002429165 (last modified 2025-11-01): 496.71 kcal, P 18.22, C 48.02, F 25.75 per 100 g; no fibre on this label, so fibre 4.3 g is taken from the Delight Punjabi Mix Nimco label (OFF 0321545480813). Cross-check UK Bombay mix labels: Cofresh 507 kcal, Tesco 526 kcal. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
+    source: { citation: 'Label: Salva Nimko Mix (Family Food Products), 55 g pack, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Open Food Facts 8964002429165 (last modified 2025-11-01): 496.71 kcal, P 18.22, C 48.02, F 25.75 per 100 g; no fibre on this label, so fibre 4.3 g is taken from the Delight Punjabi Mix Nimco label (OFF 0321545480813). Cross-check UK Bombay mix labels: Cofresh 507 kcal, Tesco 526 kcal. Label carbohydrate treated as total carbohydrate (the Peek Freans Rio label only sums to 100 g that way), so available carbs = label carbs − label fibre; kcal as printed.' },
   },
   {
     id: 'pk-uht-milk-full-cream',
@@ -150,7 +150,7 @@ export default [
     tags: ['pakistani', 'international', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Coca-Cola Original Taste, 1.5 l, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 5449000051981 (sold in Pakistan among other countries): per 100 ml 44 kcal, carbs and sugars 10.9 g. Per 100 g with 1.038 g/ml (USDA SR 174852 cola: 1 fl oz = 30.7 g). Pakistani colas agree: Cola Next 43 kcal / 10.7 g (OFF 8964001179030), Gourmet Cola 41.2 kcal / 10.3 g (OFF 0046876380001). Some Pakistani Pepsi listings show reduced sugar (5.35–7 g per 100 ml, OFF 0012000801754, 0012000004070), so this record may overstate those.' },
+    source: { citation: 'Label: Coca-Cola Original Taste, 1.5 l, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Open Food Facts 5449000051981 (sold in Pakistan among other countries): per 100 ml 44 kcal, carbs and sugars 10.9 g. Per 100 g with 1.038 g/ml (USDA SR 174852 cola: 1 fl oz = 30.7 g). Pakistani colas agree: Cola Next 43 kcal / 10.7 g (OFF 8964001179030), Gourmet Cola 41.2 kcal / 10.3 g (OFF 0046876380001). Some Pakistani Pepsi listings show reduced sugar (5.35–7 g per 100 ml, OFF 0012000801754, 0012000004070), so this record may overstate those.' },
   },
   {
     id: 'pk-juice-mango',
@@ -169,7 +169,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'vegan', 'packaged'],
     slots: ['breakfast', 'snacks', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Nestlé Fruita Vitals Chaunsa Mango Juice, 200 ml, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8961008223513 (last modified 2026-04-27): per 100 ml 44 kcal, C 11, sugars 11, P 0.05, F 0.05; no fibre declared (0). Per 100 g with 1.03 g/ml (RULES water-like).' },
+    source: { citation: 'Label: Nestlé Fruita Vitals Chaunsa Mango Juice, 200 ml, read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Open Food Facts 8961008223513 (last modified 2026-04-27): per 100 ml 44 kcal, C 11, sugars 11, P 0.05, F 0.05; no fibre declared (0). Per 100 g with 1.03 g/ml (RULES water-like).' },
   },
   {
     id: 'pk-juice-apple',
@@ -206,6 +206,6 @@ export default [
     tags: ['pakistani', 'vegetarian', 'vegan', 'packaged', 'iftar'],
     slots: ['evening', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Hamdard Rooh Afza (Pakistan), read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'Open Food Facts 8964000122051 (Hamdard Pakistan, per 100 g: 300 kcal, P 0.1, C 77, sugars 77) and 8964000122075 (307 kcal, C 77). Density 1.344 g/ml = Hamdard India label 103.5 g carbs per 100 ml (OFF 8901453000024) ÷ 77 g per 100 g. A glass of sharbat uses about 2 tablespoons (US label serving 30 ml, OFF 8964000122037).' },
+    source: { citation: 'Label: Hamdard Rooh Afza (Pakistan), read 2026-10-13', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Open Food Facts 8964000122051 (Hamdard Pakistan, per 100 g: 300 kcal, P 0.1, C 77, sugars 77) and 8964000122075 (307 kcal, C 77). Density 1.344 g/ml = Hamdard India label 103.5 g carbs per 100 ml (OFF 8901453000024) ÷ 77 g per 100 g. A glass of sharbat uses about 2 tablespoons (US label serving 30 ml, OFF 8964000122037).' },
   },
 ];

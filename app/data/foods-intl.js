@@ -38,7 +38,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'gym'],
     slots: ['breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173904', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 67.7 − fibre 10.1 = 57.6 g available. Servings: USDA 1 cup = 81 g → ½ cup = 40.5 g; ⅓ cup = 27 g.' },
+    source: { citation: 'USDA FDC SR Legacy 173904', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 67.7 − fibre 10.1 = 57.6 g available. Servings: USDA 1 cup = 81 g → ½ cup = 40.5 g; ⅓ cup = 27 g.' },
   },
   {
     id: 'intl-oats-porridge',
@@ -76,7 +76,7 @@ export default [
     tags: ['international', 'vegetarian', 'gym'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC Foundation 330137', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 3.64 g (no fibre), used as available carbs. Fibre not reported by USDA; 0 for this animal food. Serving: USDA Foundation 330137 1 container = 156 g; katori × 1.03 g/ml. Full-fat versions: intl-greek-yogurt-whole (strained) and es-yogur-griego (Spanish style).' },
+    source: { citation: 'USDA FDC Foundation 330137', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 3.64 g (no fibre), used as available carbs. Fibre not reported by USDA; 0 for this animal food. Serving: USDA Foundation 330137 1 container = 156 g; katori × 1.03 g/ml. Full-fat versions: intl-greek-yogurt-whole (strained) and es-yogur-griego (Spanish style).' },
   },
   {
     id: 'intl-greek-yogurt-whole',
@@ -131,7 +131,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'gym'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC Foundation 324860', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 22.3 − fibre 4.8 = 17.5 g available. Serving: USDA 2 tbsp = 32 g → 1 tbsp = 16 g.' },
+    source: { citation: 'USDA FDC Foundation 324860', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 22.3 − fibre 4.8 = 17.5 g available. Serving: USDA 2 tbsp = 32 g → 1 tbsp = 16 g.' },
   },
   {
     id: 'intl-almonds',
@@ -149,7 +149,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'gym'],
     slots: ['snacks', 'breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170567', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 21.55 − fibre 12.5 = 9.1 g available. Servings: USDA 1 almond = 1.2 g; 1 oz (23 kernels) = 28.35 g.' },
+    source: { citation: 'USDA FDC SR Legacy 170567', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 21.55 − fibre 12.5 = 9.1 g available. Servings: USDA 1 almond = 1.2 g; 1 oz (23 kernels) = 28.35 g.' },
   },
   {
     id: 'intl-walnuts',
@@ -167,7 +167,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170187', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 13.71 − fibre 6.7 = 7 g available. Servings: USDA 1 oz (14 halves) = 28.35 g → 4 halves = 8.1 g.' },
+    source: { citation: 'USDA FDC SR Legacy 170187', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 13.71 − fibre 6.7 = 7 g available. Servings: USDA 1 oz (14 halves) = 28.35 g → 4 halves = 8.1 g.' },
   },
   {
     id: 'intl-cashews',
@@ -184,7 +184,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 170162', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 30.19 − fibre 3.3 = 26.9 g available. Serving: USDA 1 oz = 28.35 g.' },
+    source: { citation: 'USDA FDC SR Legacy 170162', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 30.19 − fibre 3.3 = 26.9 g available. Serving: USDA 1 oz = 28.35 g.' },
   },
   {
     id: 'intl-pistachios',
@@ -219,7 +219,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['snacks', 'evening'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 173806', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 21.26 − fibre 8.4 = 12.9 g available. Servings: USDA 1 oz = 28.35 g; 1 peanut = 1 g.' },
+    source: { citation: 'USDA FDC SR Legacy 173806', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 21.26 − fibre 8.4 = 12.9 g available. Servings: USDA 1 oz = 28.35 g; 1 peanut = 1 g.' },
   },
   {
     id: 'intl-pasta-cooked',
@@ -239,7 +239,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'gym'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 169737', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 30.86 − fibre 1.8 = 29.1 g available. Katori servings use 0.524 g/ml (USDA 169737: 1 cup spaghetti, not packed = 124 g).' },
+    source: { citation: 'USDA FDC SR Legacy 169737', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 30.86 − fibre 1.8 = 29.1 g available. Katori servings use 0.524 g/ml (USDA 169737: 1 cup spaghetti, not packed = 124 g).' },
   },
   {
     id: 'intl-pizza-cheese',
@@ -258,7 +258,7 @@ export default [
     tags: ['international', 'vegetarian'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'Pizza chains in Spain rarely use halal-certified cheese or toppings; Pakistani chains are halal. Ask.' },
-    source: { citation: 'USDA FDC SR Legacy 173292', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 33.33 − fibre 2.3 = 31 g available. Chicken-tikka pizzas carry more protein and fat. Serving: USDA 1 slice = 107 g; UCM pizza ración = 160 g.' },
+    source: { citation: 'USDA FDC SR Legacy 173292', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 33.33 − fibre 2.3 = 31 g available. Chicken-tikka pizzas carry more protein and fat. Serving: USDA 1 slice = 107 g; UCM pizza ración = 160 g.' },
   },
   {
     id: 'intl-burger-beef',
@@ -334,7 +334,7 @@ export default [
     tags: ['international', 'fried'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'check', reason: 'Halal at Pakistani chains; in Spain most burger and pizza chains do not use halal meat. Ask.' },
-    source: { citation: 'USDA FDC FNDDS 2706093', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 14.93 − fibre 0.9 = 14 g available. FNDDS calculated values. Serving: FNDDS 1 nugget = 16 g.' },
+    source: { citation: 'USDA FDC FNDDS 2706093', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 14.93 − fibre 0.9 = 14 g available. FNDDS calculated values. Serving: FNDDS 1 nugget = 16 g.' },
   },
   {
     id: 'intl-chicken-sandwich',
@@ -370,7 +370,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan'],
     slots: ['breakfast'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC FNDDS 2708453', method: 'direct', confidence: 'B', reviewer: 'javier', date: '2026-10-13', notes: 'USDA carbs by difference 79.52 − fibre 3.5 = 76 g available. FNDDS calculated values. Serving: FNDDS 1 cup = 30 g.' },
+    source: { citation: 'USDA FDC FNDDS 2708453', method: 'direct', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 79.52 − fibre 3.5 = 76 g available. FNDDS calculated values. Serving: FNDDS 1 cup = 30 g.' },
   },
   {
     id: 'intl-bread-white',
@@ -429,7 +429,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Arroz cocido basmati Sabroz, 2 × 125 g cups, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 22280 (tienda.mercadona.es/product/22280, EAN 8410184040730); per-100 g values from Open Food Facts 8410184040730. Label per 100 g: 164 kcal, P 3.9, C 31 (sugars 0), F 2.2, sat 0.3, fibre 1.6, salt 0.875 g. Ingredients: cooked basmati 98 %, sunflower oil, salt, sunflower lecithin. Katori servings × 0.67 g/ml (RULES plain cooked rice).' },
+    source: { citation: 'Label: Mercadona Arroz cocido basmati Sabroz, 2 × 125 g cups, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 22280 (tienda.mercadona.es/product/22280, EAN 8410184040730); per-100 g values from Open Food Facts 8410184040730. Label per 100 g: 164 kcal, P 3.9, C 31 (sugars 0), F 2.2, sat 0.3, fibre 1.6, salt 0.875 g. Ingredients: cooked basmati 98 %, sunflower oil, salt, sunflower lecithin. Katori servings × 0.67 g/ml (RULES plain cooked rice).' },
   },
   {
     id: 'intl-rice-cup-brown',
@@ -451,7 +451,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Arroz cocido integral Sabroz, 2 × 125 g cups, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 22281 (tienda.mercadona.es/product/22281, EAN 8410184040747); per-100 g values from Open Food Facts 8410184040747. Label per 100 g: 164 kcal, P 3.8, C 31 (sugars 0.5), F 2.2, sat 0.4, fibre 2.8, salt 0.295 g. Ingredients: cooked brown rice 98 %, sunflower oil, salt, sunflower lecithin. Label portion 1 cup (125 g); katori × 0.67 g/ml.' },
+    source: { citation: 'Label: Mercadona Arroz cocido integral Sabroz, 2 × 125 g cups, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 22281 (tienda.mercadona.es/product/22281, EAN 8410184040747); per-100 g values from Open Food Facts 8410184040747. Label per 100 g: 164 kcal, P 3.8, C 31 (sugars 0.5), F 2.2, sat 0.4, fibre 2.8, salt 0.295 g. Ingredients: cooked brown rice 98 %, sunflower oil, salt, sunflower lecithin. Label portion 1 cup (125 g); katori × 0.67 g/ml.' },
   },
   {
     id: 'intl-rice-basmati-dry',
@@ -470,7 +470,7 @@ export default [
     tags: ['international', 'pakistani', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Arroz basmati aromático Hacendado, 1 kg, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 5002 (tienda.mercadona.es/product/5002, EAN 8480000050021); per-100 g values from Open Food Facts 8480000050021. Label per 100 g: 355 kcal, P 9, C 78 (sugars 0.5), F 0.6, sat 0.2, fibre 0 g as printed. Label serving 70 g dry. Ingredient: rice.' },
+    source: { citation: 'Label: Mercadona Arroz basmati aromático Hacendado, 1 kg, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 5002 (tienda.mercadona.es/product/5002, EAN 8480000050021); per-100 g values from Open Food Facts 8480000050021. Label per 100 g: 355 kcal, P 9, C 78 (sugars 0.5), F 0.6, sat 0.2, fibre 0 g as printed. Label serving 70 g dry. Ingredient: rice.' },
   },
   {
     id: 'intl-rice-brown-dry',
@@ -489,7 +489,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Arroz integral largo Hacendado, 1 kg, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 5184 (tienda.mercadona.es/product/5184, EAN 8480000051844); per-100 g values from Open Food Facts 8480000051844. Label per 100 g: 350 kcal, P 7.6, C 72 (sugars 0.5), F 2.8, sat 0.7, fibre 3.3, salt 0.01 g. Portion 70 g dry as on the basmati label.' },
+    source: { citation: 'Label: Mercadona Arroz integral largo Hacendado, 1 kg, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 5184 (tienda.mercadona.es/product/5184, EAN 8480000051844); per-100 g values from Open Food Facts 8480000051844. Label per 100 g: 350 kcal, P 7.6, C 72 (sugars 0.5), F 2.8, sat 0.7, fibre 3.3, salt 0.01 g. Portion 70 g dry as on the basmati label.' },
   },
   {
     id: 'intl-pasta-wholewheat-dry',
@@ -524,7 +524,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'gym'],
     slots: ['breakfast', 'snacks'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Semillas de chía Hacendado, 150 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-14', notes: 'Mercadona online shop product 5464 (tienda.mercadona.es/product/5464, EAN 8402001034695); per-100 g values from Open Food Facts 8402001034695. Label per 100 g: 464 kcal, P 22, C 2.6 (sugars 0.4), F 34, sat 4, fibre 30, salt 0.01 g. Gram servings (USDA SR 170554 gives only 1 oz = 28.35 g).' },
+    source: { citation: 'Label: Mercadona Semillas de chía Hacendado, 150 g, read 2026-10-14', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 5464 (tienda.mercadona.es/product/5464, EAN 8402001034695); per-100 g values from Open Food Facts 8402001034695. Label per 100 g: 464 kcal, P 22, C 2.6 (sugars 0.4), F 34, sat 4, fibre 30, salt 0.01 g. Gram servings (USDA SR 170554 gives only 1 oz = 28.35 g).' },
   },
   {
     id: 'intl-bread-wholemeal-sliced',
@@ -579,7 +579,7 @@ export default [
     tags: ['pakistani', 'international', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'IFCT 2017 A019', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'IFCT 2017 Table 1 "Wheat flour, atta (Triticum aestivum)" (via research/zainab/ifct-table1.json); IFCT carbohydrate is available carbohydrate. Mercadona "Harina integral de trigo Hacendado" (product 29134, EAN 8402001018176, OFF read 2026-10-14) agrees: 328 kcal, P 12, C 60, F 2, fibre 11 per 100 g.' },
+    source: { citation: 'IFCT 2017 A019', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'IFCT 2017 Table 1 "Wheat flour, atta (Triticum aestivum)" (via research/zainab/ifct-table1.json); IFCT carbohydrate is available carbohydrate. Mercadona "Harina integral de trigo Hacendado" (product 29134, EAN 8402001018176, OFF read 2026-10-14) agrees: 328 kcal, P 12, C 60, F 2, fibre 11 per 100 g.' },
   },
   {
     id: 'intl-chana-dal-dry',
@@ -598,7 +598,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'IFCT 2017 B001', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'IFCT 2017 Table 1 "Bengal gram, dal (Cicer arietinum)" (via research/zainab/ifct-table1.json); IFCT carbohydrate is available carbohydrate. Bought at the Pakistani or Indian shop (Raval); not stocked by Mercadona.' },
+    source: { citation: 'IFCT 2017 B001', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'IFCT 2017 Table 1 "Bengal gram, dal (Cicer arietinum)" (via research/zainab/ifct-table1.json); IFCT carbohydrate is available carbohydrate. Bought at the Pakistani or Indian shop (Raval); not stocked by Mercadona.' },
   },
   {
     id: 'intl-masoor-dal-dry',
@@ -617,7 +617,7 @@ export default [
     tags: ['pakistani', 'vegetarian', 'vegan'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'IFCT 2017 B013', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-14', notes: 'IFCT 2017 Table 1 "Lentil dal (Lens culinaris)" (via research/zainab/ifct-table1.json); IFCT carbohydrate is available carbohydrate. IFCT "Lentil dal" is the split, husked lentil (masoor dal). Desi shop; some Lidl and Carrefour stores sell lentejas rojas.' },
+    source: { citation: 'IFCT 2017 B013', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'IFCT 2017 Table 1 "Lentil dal (Lens culinaris)" (via research/zainab/ifct-table1.json); IFCT carbohydrate is available carbohydrate. IFCT "Lentil dal" is the split, husked lentil (masoor dal). Desi shop; some Lidl and Carrefour stores sell lentejas rojas.' },
   },
   {
     id: 'intl-quinoa-dry',
@@ -654,7 +654,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'gym', 'meal-prep', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'USDA FDC SR Legacy 168917', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 21.3 − fibre 2.8 = 18.5 g available. Katori servings × 0.782 g/ml (USDA SR 168917: 1 cup = 185 g). This is plain home-boiled quinoa. The Sabroz pouch is a different product (olive oil, less water, about 187 kcal per 100 g) and has its own record, intl-quinoa-pouch.' },
+    source: { citation: 'USDA FDC SR Legacy 168917', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 21.3 − fibre 2.8 = 18.5 g available. Katori servings × 0.782 g/ml (USDA SR 168917: 1 cup = 185 g). This is plain home-boiled quinoa. The Sabroz pouch is a different product (olive oil, less water, about 187 kcal per 100 g) and has its own record, intl-quinoa-pouch.' },
   },
   {
     id: 'intl-quinoa-pouch',
@@ -675,7 +675,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged', 'gym', 'meal-prep', 'eat-cold'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Quinoa blanca y roja cocida Sabroz, 2 × 125 g pouches, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 22278 (tienda.mercadona.es/product/22278, EAN 8410184040754); per-100 g values from Open Food Facts 8410184040754. Label per 100 g: 784 kJ = 187 kcal (kJ ÷ 4.184; the printed 147 kcal is a typo, the macros agree with 187: 4P + 4C + 9F + 2 fibre = 186), P 5.9, C 30 (sugars 0.8), F 3.9 (sat 0.6), fibre 3.8, salt 0.51 g. Ingredients: cooked white quinoa 92 %, cooked red quinoa 7 %, virgin olive oil, salt, sunflower lecithin. Label serving 1 pouch = 125 g. Katori servings × 0.782 g/ml (USDA SR 168917 cup weight, the pouch is a little wetter than plain, so this is slightly generous).' },
+    source: { citation: 'Label: Mercadona Quinoa blanca y roja cocida Sabroz, 2 × 125 g pouches, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 22278 (tienda.mercadona.es/product/22278, EAN 8410184040754); per-100 g values from Open Food Facts 8410184040754. Label per 100 g: 784 kJ = 187 kcal (kJ ÷ 4.184; the printed 147 kcal is a typo, the macros agree with 187: 4P + 4C + 9F + 2 fibre = 186), P 5.9, C 30 (sugars 0.8), F 3.9 (sat 0.6), fibre 3.8, salt 0.51 g. Ingredients: cooked white quinoa 92 %, cooked red quinoa 7 %, virgin olive oil, salt, sunflower lecithin. Label serving 1 pouch = 125 g. Katori servings × 0.782 g/ml (USDA SR 168917 cup weight, the pouch is a little wetter than plain, so this is slightly generous).' },
   },
   {
     id: 'intl-noodles-egg-dry',
@@ -731,7 +731,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'The label lists glycerine (E-422) of unstated origin, which can be made from animal fat. Swap: Pitta bread (no glycerine, no E-471), halal on the Mercadona label.' },
-    source: { citation: 'Label: Mercadona Tortillas de maíz Hacendado, 8 tortillas (208 g), read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 86328 (tienda.mercadona.es/product/86328, EAN 8402001019623); per-100 g values from Open Food Facts 8402001019623. Label per 100 g: 986.7 kJ = 236 kcal (kJ ÷ 4.184), P 3.5, C 44 (sugars 9.5), F 3.2 (sat 0.4), fibre 7.6, salt 2.16 g. The label energy agrees with its macros (4P + 4C + 9F + 2 fibre = 234); only the printed 204 kcal on OFF is a typo. The flour is wholegrain maize (fibre 7.6 against USDA 6.3). Cross-check: USDA SR 175036 corn tortilla, 218 kcal. Ingredients: precooked wholegrain maize flour 52 %, water, stabilisers (glycerine, guar gum, xanthan gum, cellulose gum), salt, high-oleic sunflower oil, preservatives, acidity regulator. Serving: 26 g per tortilla (label; 8 per 208 g pack).' },
+    source: { citation: 'Label: Mercadona Tortillas de maíz Hacendado, 8 tortillas (208 g), read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 86328 (tienda.mercadona.es/product/86328, EAN 8402001019623); per-100 g values from Open Food Facts 8402001019623. Label per 100 g: 986.7 kJ = 236 kcal (kJ ÷ 4.184), P 3.5, C 44 (sugars 9.5), F 3.2 (sat 0.4), fibre 7.6, salt 2.16 g. The label energy agrees with its macros (4P + 4C + 9F + 2 fibre = 234); only the printed 204 kcal on OFF is a typo. The flour is wholegrain maize (fibre 7.6 against USDA 6.3). Cross-check: USDA SR 175036 corn tortilla, 218 kcal. Ingredients: precooked wholegrain maize flour 52 %, water, stabilisers (glycerine, guar gum, xanthan gum, cellulose gum), salt, high-oleic sunflower oil, preservatives, acidity regulator. Serving: 26 g per tortilla (label; 8 per 208 g pack).' },
   },
   {
     id: 'intl-kidney-beans-tinned',
@@ -816,6 +816,23 @@ export default [
     source: { citation: 'Label: Mercadona Salsa de Soja Hacendado, 250 ml bottle, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 17360 (tienda.mercadona.es/product/17360, EAN 4006824005715); per-100 g values from Open Food Facts 4006824005715. OFF 4006824005715 (Aiko, the supplier of the Hacendado bottle): 272.3 kJ = 65 kcal per 100 ml (OFF also shows 74 kcal, which contradicts its kJ), P 7.5, C 8.3 (sugars 4.3), F 0.1, salt 15.45 g, taken as per 100 ml because it is a liquid sold by volume, and divided by 1.08 g/ml (USDA SR 174277 shoyu: 1 tbsp = 16 g). Ingredients: water, salt, soybeans, wheat, sugar, lactic acid, guar gum. Fibre 0.' },
   },
   {
+    id: 'intl-soy-sauce-halal',
+    name: 'Soy sauce, halal-logo (shoyu)',
+    shortName: 'Soy sauce, halal',
+    aliases: ['halal soy sauce', 'soy sauce halal', 'salsa de soja halal', 'halal shoyu', 'halal certified soy sauce', 'soya sauce halal'],
+    group: 'condiment',
+    state: 'bottle, as sold (soy and wheat shoyu)',
+    per100g: { kcal: 53, protein: 8.1, carbs: 4.1, fat: 0.6, fiber: 0.8, sugars: 0.4, satFat: 0.1, sodium: 5493 },
+    servings: [
+      { id: 'tbsp', label: '1 tablespoon', labelUr: 'بڑا چمچ', grams: 16, default: true },
+      { id: 'two-tbsp', label: '2 tablespoons (32 g)', grams: 32 },
+    ],
+    tags: ['international', 'vegetarian', 'vegan', 'packaged'],
+    slots: ['lunch', 'dinner'],
+    halal: { status: 'halal', reason: 'Assumes a soy sauce with a halal logo (Asian or Pakistani grocery). Without a halal seal, use the other soy sauce record (check).' },
+    source: { citation: 'USDA FDC SR Legacy 174277', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 4.93 − fibre 0.8 = 4.1 g available. Serving: 1 tbsp = 16 g (USDA SR 174277 portion). Carbohydrate by difference 4.93 minus fibre 0.8. Same food as intl-soy-sauce (Hacendado label, status check), but taken from USDA and assumed to carry a halal logo, so Yusuf\'s preps that say halal link here (worst-status rule). Per Ayesha, research/review/s3-backlog.md FIX 1.' },
+  },
+  {
     id: 'intl-teriyaki-sauce',
     name: 'Teriyaki sauce (Hacendado)',
     shortName: 'Teriyaki sauce',
@@ -849,5 +866,24 @@ export default [
     slots: ['lunch', 'dinner'],
     halal: { status: 'check', reason: 'The Mercadona dressing contains cheese powder. Rennet (cuajo) of unstated origin; some people avoid animal rennet. Swap: a home dressing of Greek yogurt, lemon, garlic, mustard and a little olive oil, or a microbial-coagulant cheese. The label shows no wine or alcohol, only alcohol vinegar; other brands add Worcestershire sauce or wine, so read those.' },
     source: { citation: 'Label: Mercadona Salsa César Hacendado, 310 ml bottle, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-15', notes: 'Mercadona online shop product 17366 (tienda.mercadona.es/product/17366, EAN 8402001024467); per-100 g values from Open Food Facts 8402001024467. Label per 100 g (OFF nutrition_data_per 100g, serving 100 g): 1415.6 kJ (342 kcal), P 2.3, C 13.5 (sugars 7), F 31, sat 4.2. The OFF salt value (0.01 g) is not credible for a dressing with cheese and anchovy powder, so sodium is left out; fibre 0. Ingredients: water, sunflower oil, sugar, cheese powder (milk), alcohol vinegar, starch, pasteurised egg yolk, mustard, milk powder, cream powder, pickled onion, salt, anchovy powder (fish), spices, lemon juice, garlic. Servings: USDA SR 169055 caesar dressing, 1 tbsp = 14.7 g, 2 tbsp = 30 g.' },
+  },
+  {
+    id: 'intl-salmon-medallions',
+    name: 'Salmon medallions, frozen (Hacendado)',
+    shortName: 'Salmon medallions',
+    aliases: ['salmon medallions', 'medallones de salmón', 'medallones de salmon', 'medallón de salmón', 'medallon de salmon', 'medallons de salmó', 'frozen salmon medallion', 'salmon medallion'],
+    group: 'meat-fish',
+    state: 'frozen, raw, as sold (cook from frozen)',
+    per100g: { kcal: 221, protein: 20, carbs: 0, fat: 16, fiber: 0, sugars: 0, satFat: 2.3, sodium: 354 },
+    servings: [
+      { id: 'medallion', label: '1 medallion (62.5 g)', grams: 62.5, default: true },
+      { id: 'two', label: '2 medallions (125 g)', grams: 125 },
+      { id: 'pack', label: '4 medallions (250 g)', grams: 250 },
+    ],
+    pack: { grams: 250, label: '4 medallions (250 g)' },
+    tags: ['international', 'packaged', 'gym', 'seafood-fish', 'meal-prep'],
+    slots: ['lunch', 'dinner'],
+    halal: { status: 'halal' },
+    source: { citation: 'Label: Mercadona Medallones de salmón Hacendado cocinar congelados, 4 medallions, 250 g, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 26749 (tienda.mercadona.es/product/26749, EAN 8480000267498); per-100 g values from Open Food Facts 8480000267498. Label per 100 g: 932 kJ (221 kcal; 4P + 4C + 9F = 224, within 2 %), P 20, C 0, F 16, sat 2.3, salt 0.885 g; fibre 0. Ingredients: 99.2 % salmon (Salmo salar, farmed in Norway) and salt; may contain traces of crustaceans and molluscs. Values are for the raw frozen medallion as sold. 4 medallions in 250 g, so 1 medallion = 62.5 g (OFF serving 62.5 g). Cooked weight is lower, so weigh raw.' },
   },
 ];

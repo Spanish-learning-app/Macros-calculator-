@@ -371,7 +371,6 @@ function serialize(recs) {
 // A research ingredient maps to a food-database id only when that food is the same thing you buy, in the
 // same raw state. `name` overrides the shown name when the database food is a close variant (other fat
 // level); research ingredients with no database food go in by `name` only (never an invented id).
-const HAS_FOOD = (id) => FOODS.some((f) => f.id === id);
 const DB = {
   'chicken-breast': { foodId: 'intl-chicken-breast-raw' },
   // Ayesha's review (14 Oct): link the records that match what the sheets calculate with.
@@ -433,14 +432,11 @@ const DB = {
   // Sprint 3 (2026-10-15): Javier Morales's base foods for the variety preps.
   'bocadillo-bread': { foodId: 'es-pan-bocadillo' },
   'tomate-frito': { foodId: 'es-tomate-frito' },
-  // Ayesha s3-backlog FIX 2 (M-09): the light cheese links Javier's es-mozzarella-light (label 153 kcal) once it is in
-  // app/data; until then the full-fat intl-mozzarella-fresh with the light product's name (the box numbers already
-  // use the light label values). TODO(Yusuf): drop the fallback when Javier's record has landed.
-  'mozzarella-light': HAS_FOOD('es-mozzarella-light') ? { foodId: 'es-mozzarella-light' } : { foodId: 'intl-mozzarella-fresh', name: 'Mozzarella fresca light (125 g ball)' },
+  // Ayesha s3-backlog FIX 2 (M-09, 2026-10-16): the light cheese links Javier's light record, not full-fat mozzarella.
+  'mozzarella-light': { foodId: 'es-mozzarella-light' },
   'rice-noodles': { foodId: 'intl-noodles-rice-dry' },
-  // Ayesha s3-backlog FIX 1: the halal-logo soy sauce links Javier's intl-soy-sauce-halal once it is in app/data;
-  // until then intl-soy-sauce (check). TODO(Yusuf): drop the fallback when Javier's record has landed.
-  'soy-sauce-halal': HAS_FOOD('intl-soy-sauce-halal') ? { foodId: 'intl-soy-sauce-halal' } : { foodId: 'intl-soy-sauce', name: 'Soy sauce with a halal logo' },
+  // Ayesha s3-backlog FIX 1 (2026-10-16): Javier's halal-logo soy sauce record, not the `check` intl-soy-sauce.
+  'soy-sauce-halal': { foodId: 'intl-soy-sauce-halal' },
   'kidney-beans': { foodId: 'intl-kidney-beans-tinned' },
   sweetcorn: { foodId: 'intl-sweetcorn-tinned' },
   'broccoli-frozen': { foodId: 'intl-broccoli', name: 'Frozen broccoli (brócoli ultracongelado)' },
