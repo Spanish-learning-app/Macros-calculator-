@@ -207,3 +207,10 @@
   39) still have the string-array method. When she is done, set `LEGACY_OK = false` in build.mjs (one line) so a
   string-array method fails the build. Smoothie (#61): storage class overnight-oats says 3 days, the method says drink
   within 24 h (the sheet's own sources) — conservative, flagged for Ayesha.
+
+## 2026-10-16 — Orphans O4/O9/O7 + ingredient notes: pitch, cost, references, weekly plans as app data
+
+- 02:01 UTC Start (fresh agent). Read _common, MISTAKES (M-01, M-14, standing rule 1), STATUS O2/O4/O7/O9,
+  DECISIONS 2026-10-16, ARCHITECTURE §13.1. Publish list (scripts/publish-files.mjs) walks app/ — a new
+  app/data/plans-mealprep.js is picked up with no tools change. Zainab is converting the method of the 19 desi
+  sheets now: I do not touch the `method` key of 01–04, 08, 09, 14, 16–24, 28, 35, 39.
