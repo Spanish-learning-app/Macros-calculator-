@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 02:04 UTC by Omar._
+_Last updated: 2026-10-16 07:00 UTC by Omar._
 
 ## Links
 
@@ -31,6 +31,8 @@ _Last updated: 2026-10-16 02:04 UTC by Omar._
 | Sprint 3 wave 1 tests | partial; restarts after Yusuf lands (Kenji) |
 
 ## Working now
+
+_Paused 02:06–06:59 UTC (session limit). Restarted at 06:59 UTC with a hard stop at 07:50 UTC; the team is off duty 10:00–18:00 Madrid._
 
 _Max 3 agents at once._
 

@@ -51,3 +51,4 @@
 - 2026-10-16T01:59Z: Yusuf done (348/348 data, 45 methods, variety table). Kenji started (Sonnet). Ayesha queued for the smoothie fridge-life question.
 - 2026-10-16T02:01:45Z: Lena done (How to make it). I tapped through it at 400 px with real data: 45 method links, the sheet and step mode work, no page errors. Yusuf restarted on the orphan data (O4, O7, O9).
 - 2026-10-16T02:04:59Z: Zainab done (19 desi methods; her notes on minutes, the paratha water and #35 went to Yusuf). Priya started on O3/O10/O11/O16.
+- 2026-10-16T07:00:18Z: back after the session limit (02:06–06:59 UTC, 5 check-ins queued). Inbox empty. Restarted Yusuf, Kenji and Priya fresh from their journals, with a hard stop at 07:50 UTC. Kenji's BUG-M1/M2 went to Yusuf.

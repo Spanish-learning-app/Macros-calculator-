@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T02:04:59Z",
+  "updatedAt": "2026-10-16T07:00:18Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -135,6 +135,10 @@
     {
       "at": "2026-10-16T01:44:00Z",
       "result": "5 check-ins (21:09-01:10 UTC) delivered at reset. Boss message on methods gap answered: MISTAKES.md, STATUS.md, definition of done, orphan audit. Yusuf and Lena restarted fresh; Zainab and Kenji queued."
+    },
+    {
+      "at": "2026-10-16T07:00:18Z",
+      "result": "5 check-ins (02:09-06:10 UTC) delivered at reset. Inbox empty. Committed WIP; restarted Yusuf, Kenji (sonnet), Priya fresh with a hard stop at 07:50 UTC (off duty 10:00 Madrid)."
     }
   ],
   "pauses": [
@@ -185,6 +189,12 @@
       "to": "2026-10-16T01:44:00Z",
       "reason": "Session usage limit",
       "resumedBy": "check-in backlog read at 01:44"
+    },
+    {
+      "from": "2026-10-16T02:06:00Z",
+      "to": "2026-10-16T07:00:18Z",
+      "reason": "Session usage limit (reset 06:40 UTC)",
+      "resumedBy": "check-in backlog read at 06:59"
     }
   ],
   "workingHours": {
