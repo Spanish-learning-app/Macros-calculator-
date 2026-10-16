@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Review 3",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T19:26:07Z",
+  "updatedAt": "2026-10-16T19:27:22Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -66,13 +66,13 @@
     },
     "nasreen": {
       "location": "office",
-      "status": "working",
-      "task": "Review 3: cooking as a beginner from How to make it"
+      "status": "idle",
+      "task": "Review 3 done: 7/10"
     },
     "yusuf": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: budget week 58.97 EUR, generated figures, halalSwap, review fixes"
+      "status": "working",
+      "task": "Review 3 fix wave B: one storage truth, Done-when before packing, roti timing, honest minutes, shopping names"
     },
     "mariam": {
       "location": "office",
@@ -82,11 +82,6 @@
   },
   "inFlight": [
     {
-      "member": "nasreen",
-      "task": "Review 3: beginner cooking from methods, Urdu labels, editor, shopping list (snapshot 7434367)",
-      "output": "team/feedback/nasreen-review3.md"
-    },
-    {
       "member": "bilal",
       "task": "Review 3 lifter week on snapshot 4a702b5 (scratchpad/review3b)",
       "output": "team/feedback/bilal-review3.md"
@@ -95,6 +90,11 @@
       "member": "lena",
       "task": "Fix wave R3-A from mariam-review3.md must-fix 1-6 (+ step-mode should-fix)",
       "output": "app/** (not data), tests/unit/dev/**"
+    },
+    {
+      "member": "yusuf",
+      "task": "Fix wave R3-B (recipe/plan data) from mariam/nasreen Review 3",
+      "output": "research/yusuf/**, app/data/*mealprep.js, docs/MEALPREP.md"
     }
   ],
   "checkIn": {
@@ -223,6 +223,10 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
+    {
+      "member": "ayesha",
+      "task": "Nasreen R3: 'Keep my weight' still preselected (defaultGoal in rules.js)"
+    },
     {
       "member": "lena",
       "task": "Proposal from Priya: <link rel=modulepreload> for data files in index.html (~300 ms sooner); only if low-risk"
