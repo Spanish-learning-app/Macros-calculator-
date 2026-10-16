@@ -1,17 +1,17 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "working",
+  "status": "off-duty",
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T07:17:04Z",
+  "updatedAt": "2026-10-16T07:33:38Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
   "app": {
     "url": "https://claude.ai/artifact/GusJdyjFkPK4yftNRPzFrY",
-    "version": "Sprint 2 (v3)",
-    "publishedAt": "2026-10-15T16:17:00Z",
+    "version": "Sprint 3 preview (v4)",
+    "publishedAt": "2026-10-16T07:33:38Z",
     "page": "tools/artifact-page.html",
     "files": "npm run publish:files"
   },
@@ -21,13 +21,13 @@
   "members": {
     "omar": {
       "location": "office",
-      "status": "working",
-      "task": "Mistakes log, status file, orphan audit (Boss request)"
+      "status": "idle",
+      "task": "Off duty until 18:00 Madrid"
     },
     "lena": {
       "location": "office",
-      "status": "working",
-      "task": "Weekly plans + ready picks in Prep; halal swap button"
+      "status": "idle",
+      "task": "Done: weekly plans, ready picks, halal swap, where-to-buy, recipe cost/pitch/sources"
     },
     "ayesha": {
       "location": "office",
@@ -41,7 +41,7 @@
     },
     "hamza": {
       "location": "office",
-      "status": "working",
+      "status": "idle",
       "task": "app/core per team/briefs/hamza-sprint1.md"
     },
     "priya": {
@@ -80,13 +80,7 @@
       "task": "Review 2 done: 8/10"
     }
   },
-  "inFlight": [
-    {
-      "member": "lena",
-      "task": "O7 weekly plans + ready picks UI, O6 halal swap, then O5/O9 (cost, pitch, references, where-to-buy)",
-      "output": "app/** (not data), tests/unit/dev/**"
-    }
-  ],
+  "inFlight": [],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
