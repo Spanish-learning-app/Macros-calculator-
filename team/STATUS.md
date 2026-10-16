@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 19:09 UTC by Omar._
+_Last updated: 2026-10-16 19:15 UTC by Omar._
 
 ## Links
 
@@ -37,7 +37,8 @@ _Paused 16:40–18:56 UTC (session limit); restarted fresh at 18:56 UTC._
 
 - **Nasreen:** Review 3, cooking as a first-time cook from the methods.
 - Done: **Kenji**: everything green, 735 unit tests and 524 e2e (incl. plans, picks, swap, chips, Ramadan table, halal guide).
-- **Priya:** faster first load (O16), plural fix. (The halal guide card on About and the 'What does Check mean?' button are **done in code**.)
+- **Bilal:** Review 3, a lifter's week (numbers, speed, tap counts) on snapshot 4a702b5.
+- Done: **Priya**: first load 10–17 % faster (recipes load later), "2 biscuits" plurals, a11y re-check of the new dialogs; the halal guide card and Check button.
 - **Mariam:** Review 3, a full week on a fixed snapshot (commit 7434367), including cooking from the methods.
 - Done: **Lab rebuild**: G19 = **0** (every record reviewed), 351/351 pass, no numbers moved, cola names split.
 - Done: **Ayesha**: all 14 remaining records pass; new R4 check on meal-prep ingredient links (M-16); cola kept as two clearly named records (saved logs stay valid).
@@ -80,7 +81,7 @@ out (DECISIONS 2026-10-16). When an item reaches the app, move it to "Done" with
 | O13 | Urdu serving labels (`labelUr`, 454 foods) | Shown when "Pakistani meal names" is chosen | Lena | **done in code** (2026-10-16; not yet published) |
 | O14 | E2E tests for Sprint 3 features (weight, spare box, meal names, cuisine chips, tips, Ramadan, methods) | E2E suite | Kenji | **done** (2026-10-16: 524 e2e incl. all Sprint 3 features) |
 | O15 | Two possible bugs from Mariam (Fill Mon–Thu after Monday; "30 g – 30 g" on picos) | Verify, then fix | Kenji, Lena | queued |
-| O16 | Accessibility and speed pass (Meeting 005) | As planned | Priya | queued |
+| O16 | Accessibility and speed pass (Meeting 005) | As planned | Priya | **done in code** (2026-10-16: lazy-load, a11y re-check; not yet published) |
 
 **Left out on purpose (DECISIONS 2026-10-16):**
 - Per-ingredient Mercadona product and price lines: prices change weekly, so the app shows cost per box with its price date instead.
