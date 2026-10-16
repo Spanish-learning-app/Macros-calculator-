@@ -19,4 +19,3 @@ export const ROTI_REFS = [
   { title: 'Tea for Turmeric, Roti / chapati', url: 'https://www.teaforturmeric.com/roti-chapati/', used: '2 cups atta, ¼–½ tsp salt, 1 cup water, rolled 8–9 inch, cooked on a dry tawa', read: "via Zainab Rauf's roti sheet research/zainab/recipes/pk-roti.md (read 2026-10-13/14)" },
 ];
 
-export const ROTI_METHOD = 'Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 50 g dough each), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.';

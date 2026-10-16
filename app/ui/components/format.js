@@ -107,6 +107,26 @@ export function parseQty(text) {
 
 // ------------------------------------------------------------------ portions
 
+/** The Lab's ", edible part" / "(edible part)" / "(edible)" tail (Nasreen, Review 1 and 2). */
+const EDIBLE_TAIL = /,?\s*\(?\bedible(?: part)?\)?(?=\s*(?:\(|$))/gi;
+
+/**
+ * A serving label in plain words for chips and rows: "1 katori (medium, 200 ml), edible part" →
+ * "1 katori (medium, 200 ml)". The weight still means the part you eat; the food details say so.
+ * @param {string} label @returns {string}
+ */
+export function plainServingLabel(label) {
+  return String(label ?? '')
+    .replace(EDIBLE_TAIL, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+/** True when a serving label carries the Lab's "edible part" note. */
+export function isEdibleLabel(label) {
+  return /\bedible\b/i.test(String(label ?? ''));
+}
+
 /**
  * The household unit of a serving, for "1½ katori": the Lab label without its leading "1 " and
  * without the parenthesis ("1 small katori (155 ml)" → "small katori"; "1 box (350 g)" → "box").
@@ -115,7 +135,7 @@ export function parseQty(text) {
 export function unitName(serving) {
   if (!serving) return '';
   if (serving.id === 'g') return 'g';
-  return String(serving.label)
+  return plainServingLabel(serving.label)
     .replace(/\s*\([^)]*\)/g, '')
     .replace(/^1\s+/, '')
     .replace(/^per\s+/i, '')
@@ -129,7 +149,7 @@ function countable(serving) {
 
 /** The parenthesis of a serving label, if any ("1 cup (200 ml)" → "200 ml"). */
 export function servingNote(serving) {
-  const m = String(serving?.label ?? '').match(/\(([^)]*)\)\s*$/);
+  const m = plainServingLabel(serving?.label).match(/\(([^)]*)\)\s*$/);
   return m ? m[1] : '';
 }
 

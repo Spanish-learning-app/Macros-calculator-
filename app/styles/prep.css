@@ -1038,3 +1038,17 @@ details[open] > .cook-method-summary::before {
 .stepper-btn:disabled {
   opacity: 0.45;
 }
+
+/* ------------------------------------------------------------------ Sprint 3 orphans (Priya) */
+
+/* O3: time and the quiet "Good cold" / "Microwave" / "Hot or cold" chip share one line. */
+.prep-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+}
+
+.tag-serve {
+  border: 1px solid var(--border);
+}

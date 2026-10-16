@@ -3,6 +3,7 @@ export default {
   n: 3,
   effort: 'cook',
   minutes: 45,
+  timeNote: 'About 1 h 15 min start to finish: the rice soaks 30 min while the chicken simmers. Plus 30 min cooling.', // minutes = hands-on; this is the waiting a beginner must plan for
   cuisine: 'desi',
   shortName: 'Yakhni chicken pulao',
   id: 'pk-yakhni-chicken-pulao-box',

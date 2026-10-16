@@ -1,6 +1,6 @@
 // R-MP-14 · Desi egg muffins (3) with a wholemeal roti (breakfast portion). Standard batch: 12 muffins +
 // 4 roti = 4 portions.
-import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+import { rotiComponent, ROTI_REFS } from '../shared.mjs';
 
 export default {
   n: 14,

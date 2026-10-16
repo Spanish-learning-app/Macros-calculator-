@@ -11,7 +11,7 @@ Record `intl-beef-bolognese-pasta-box` in `app/data/foods-mealprep.js` · librar
 
 **Eat:** hot (microwave). **Halal:** halal: Beef mince from a halal butcher; no wine, no stock cubes. **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 30 min hands-on for the batch of 4.
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 30 min hands-on for the batch of 4. About 1 h 15 min start to finish: the sauce simmers 30–40 min, hands off, then cools 30 min.
 
 ## One box at a glance
 

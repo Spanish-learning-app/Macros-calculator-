@@ -1,6 +1,6 @@
 // R-MP-19 · Chicken karahi (boneless, lighter oil) with 2 wholemeal roti (freezer dinner portion).
 // Standard batch: 4 portions + 8 roti.
-import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+import { rotiComponent, ROTI_REFS } from '../shared.mjs';
 
 export default {
   n: 19,

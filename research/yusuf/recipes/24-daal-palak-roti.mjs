@@ -1,5 +1,5 @@
 // R-MP-24 · Masoor daal palak (red lentils with spinach), protein raita and 2 wholemeal roti (dinner).
-import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+import { rotiComponent, ROTI_REFS } from '../shared.mjs';
 
 export default {
   n: 24,

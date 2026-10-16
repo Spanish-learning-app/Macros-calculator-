@@ -7,6 +7,7 @@ export default {
   dinnerOnly: true, // cooked on the night or a soup: not a lunch box
   effort: 'cook',
   minutes: 30,
+  timeNote: 'About 1 h 45 min start to finish: the beef simmers 50 min, hands off, then the soup cools 30 min.', // minutes = hands-on; this is the waiting a beginner must plan for
   cuisine: 'middle-eastern',
   shortName: 'Harira with beef',
   id: 'med-harira-beef-portion',

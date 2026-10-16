@@ -6,6 +6,7 @@ export default {
   boxes: 4,
   effort: 'cook',
   minutes: 25,
+  timeNote: 'About 1 h 30 min start to finish: the rice and the chili simmer 30 min each, hands off, then cool 20–30 min.', // minutes = hands-on; this is the waiting a beginner must plan for
   cuisine: 'mexican',
   shortName: 'Chili con carne, rice',
   id: 'intl-chili-con-carne-rice-portion',

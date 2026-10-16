@@ -3,6 +3,7 @@ export default {
   n: 8,
   effort: 'cook',
   minutes: 45,
+  timeNote: 'About 1 h 15 min start to finish: the kebab mix chills 30 min and the bulgur soaks while they bake. Plus 20 min cooling.', // minutes = hands-on; this is the waiting a beginner must plan for
   cuisine: 'desi',
   shortName: 'Seekh and tabbouleh',
   id: 'pk-chicken-seekh-tabbouleh-box',

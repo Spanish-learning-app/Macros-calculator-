@@ -16,6 +16,7 @@ import {
   urduName,
   rowName,
   fullNameLine,
+  serveChip,
 } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
 import { boxWord } from './prep-bits.js';
@@ -30,6 +31,7 @@ import {
   fmtDateShort,
   fmtMinutes,
   relativeDay,
+  plainServingLabel,
 } from './format.js';
 
 const SUGGESTIONS = ['chai', 'roti', 'anda', 'daal', 'café con leche', 'croissant'];
@@ -65,9 +67,29 @@ export function plusPortionText(food, servingId, qty) {
   const n = portionNutrients(food, servingId, qty);
   const what =
     serving && serving.id !== 'g' && qty === 1
-      ? serving.label
+      ? plainServingLabel(serving.label)
       : `${portionText(serving, qty)}${serving?.id === 'g' ? '' : ` (${fmtGrams(n.grams)} g)`}`;
   return `${what} · ${fmtKcal(n.kcal)} kcal`;
+}
+
+/**
+ * What a saved meal adds, from its items' live foods (items whose food or serving is gone are
+ * skipped, as store.addSavedMeal skips them).
+ * @param {{ items: { foodId: string, servingId: string, qty: number }[] }} meal
+ * @param {(id: string) => object|null} foodOf
+ * @returns {{ foods: number, kcal: number, protein: number }} unrounded
+ */
+export function savedMealTotals(meal, foodOf) {
+  const out = { foods: 0, kcal: 0, protein: 0 };
+  for (const item of meal?.items ?? []) {
+    const food = foodOf(item.foodId);
+    if (!food || !servingOf(food, item.servingId)) continue;
+    const n = portionNutrients(food, item.servingId, item.qty);
+    out.foods += 1;
+    out.kcal += n.kcal;
+    out.protein += n.protein;
+  }
+  return out;
 }
 
 /**
@@ -241,6 +263,7 @@ export function createAddSheet(props) {
     const halal = halalChip(food, rules);
     const style = styleLabel(food, rules);
     const kind = kindTag(food);
+    const serve = foodKind(food) === 'prep' ? serveChip(food) : null;
     const plus = h(
       'button',
       {
@@ -273,11 +296,12 @@ export function createAddSheet(props) {
         h('span', { class: 'food-name' }, rowName(food)),
         fullNameLine(food),
         urduName(food),
-        style || kind || estimateBadge(food, rules)
+        style || kind || serve || estimateBadge(food, rules)
           ? h(
               'span',
               { class: 'entry-tags' },
               kind,
+              serve,
               style ? h('span', { class: 'tag-style' }, style) : null,
               estimateBadge(food, rules),
             )
@@ -424,7 +448,7 @@ export function createAddSheet(props) {
       .filter((b) => b.left > 0);
     const meals = store.savedMeals();
     if (!boxes.length && !meals.length) return null;
-    const row = ({ testid, id, name, line, label, onAdd }) => {
+    const row = ({ testid, id, name, line, label, onAdd, tags = null }) => {
       const plus = h(
         'button',
         {
@@ -445,6 +469,7 @@ export function createAddSheet(props) {
           'div',
           { class: 'food-main food-main--static' },
           h('span', { class: 'food-name' }, name),
+          tags ? h('span', { class: 'entry-tags' }, tags) : null,
           h('span', { class: 'food-portion' }, line),
         ),
         plus,
@@ -471,6 +496,7 @@ export function createAddSheet(props) {
             name,
             line: `1 ${word} · ${left} left · meal prep`,
             label: `Add a ${word} of ${name}`,
+            tags: serveChip(food, store.library().find((l) => l.food.id === batch.recipeId)?.recipe),
             onAdd: () => {
               store.placeBox({ batchId: batch.id, date, slot });
               addedCount += 1;
@@ -486,7 +512,7 @@ export function createAddSheet(props) {
             testid: 'saved-meal-row',
             id: meal.id,
             name: meal.name,
-            line: `Saved meal · ${meal.items.length} ${meal.items.length === 1 ? 'food' : 'foods'}`,
+            line: savedMealLine(meal),
             label: `Add ${meal.name}`,
             onAdd: () => {
               const n = store.addSavedMeal({ mealId: meal.id, date, slot });
@@ -498,6 +524,17 @@ export function createAddSheet(props) {
         ),
       ),
     );
+  }
+
+  /** "3 foods · 640 kcal · 42 g protein" for a saved meal row (STATUS O10, Bilal and Nasreen). */
+  function savedMealLine(meal) {
+    const t = savedMealTotals(meal, (id) => store.food(id));
+    const count = `${t.foods} ${t.foods === 1 ? 'food' : 'foods'}`;
+    if (!t.foods) return count;
+    const protein = `${fmtGrams(Math.round(t.protein))} g protein`;
+    return store.settings().hideCalories
+      ? `${count} · ${protein}`
+      : `${count} · ${fmtKcal(t.kcal)} kcal · ${protein}`;
   }
 
   function hiddenNote(hidden) {

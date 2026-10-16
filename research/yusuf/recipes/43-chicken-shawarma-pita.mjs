@@ -5,6 +5,7 @@ export default {
   boxes: 4,
   effort: 'cook',
   minutes: 25,
+  timeNote: 'The chicken marinates 30 min (or overnight). About 1 h 15 min start to finish, plus 20 min cooling.', // minutes = hands-on; this is the waiting a beginner must plan for
   cuisine: 'middle-eastern',
   shortName: 'Chicken shawarma pitas',
   id: 'med-chicken-shawarma-pita-box',

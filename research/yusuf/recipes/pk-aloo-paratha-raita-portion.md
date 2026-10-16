@@ -36,8 +36,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 | Ingredient | Raw g (4 portions) | Per portion | Notes |
 |---|---|---|---|
-| Wholemeal wheat flour, atta (harina integral de trigo; chakki atta from the desi shop works the same) | 200 | 50 | 50 g per paratha (a 100 g dough ball) |
-| Water (absorbed) | 200 | 50 | dough water |
+| Wholemeal wheat flour, atta (harina integral de trigo; chakki atta from the desi shop works the same) | 200 | 50 | 50 g per paratha (an 85 g dough ball) |
+| Water (absorbed) | 140 | 35 | dough water: 0.7 g per g atta, the roti standard |
 | Potato, raw (USDA white, flesh and skin; used peeled) | 520 | 130 | boiled in the skin, peeled and mashed (130 g raw per paratha) |
 | Red onion, raw (cebolla morada) | 40 | 10 | very finely chopped |
 | Green chilli, raw | 8 | 2 | finely chopped |
@@ -84,9 +84,9 @@ This is the method the app shows under "How to make it" (generated from the same
 2. Simmer until a knife slides in easily. *(medium heat · 20 min)*
 3. Drain and let them cool until you can hold them. Peel and mash them smooth: lumps tear the paratha. Let the mash cool completely. *(no heat · 20 min)*
 4. Filling: mix the mash with the onion, chilli, coriander, 1 tsp roasted crushed cumin (2 g), ¾ tsp red chilli powder (2 g) and ½ tsp salt (3 g). Shape into 4 balls. *(no heat · 3 min)*
-5. Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ½ tsp salt (3 g). Add the water (200 ml) a little at a time, mixing with your fingers, until you have a soft dough that only just sticks; you may not need every drop. *(no heat · 3 min)*
+5. Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ½ tsp salt (3 g). Add the water (140 ml) a little at a time, mixing with your fingers, until you have a soft dough that only just sticks; you may not need every drop. *(no heat · 3 min)*
 6. Knead 5 minutes until smooth, cover with a damp cloth and rest 20 minutes. *(no heat · 25 min)*
-7. Divide the dough into 4 balls (about 100 g each). Dust one with atta and roll it to a 10 cm circle. *(no heat)*
+7. Divide the dough into 4 balls (about 85 g each). Dust one with atta and roll it to a 10 cm circle. *(no heat)*
 8. Put a filling ball in the middle. Bring the edges up around it like a pouch, pinch them together and twist off any extra dough. Press it flat with your palm, sealed side down. *(no heat)*
 9. Dust well with atta and roll gently from the centre out to 18–20 cm. If filling pokes through, pat dry atta on the spot and carry on. *(no heat)*
 10. Heat the dry tawa or pan 2 minutes. *(medium-high heat · 2 min)*
@@ -119,13 +119,13 @@ This is the method the app shows under "How to make it" (generated from the same
 
 | Component | Raw g | Cooked g | Per portion g | Storage |
 |---|---|---|---|---|
-| Aloo parathas (4) | 1010 | 658 | **164** | `cooked-flatbread` |
+| Aloo parathas (4) | 950 | 657 | **164** | `cooked-flatbread` |
 | Protein raita pots (4) | 970 | 970 | **243** | `cold-salad` |
-| **Batch** | 1980 | 1628 | **407** (½ portion 204) | |
+| **Batch** | 1920 | 1627 | **407** (½ portion 204) | |
 
-Overall yield 0.822 (cooked ÷ raw, absorbed water included). Yield factors used:
+Overall yield 0.848 (cooked ÷ raw, absorbed water included). Yield factors used:
 
-- ×0.651 (`alooParatha`): Zainab Rauf's aloo paratha sheet (research/zainab/recipes/pk-aloo-paratha.md): dough, potato filling and fat cooked to 46.7 g water per 100 g (CoFID 2021 11-912 stuffed paratha, analysed) gives yield 0.651 of the raw total.
+- ×0.692 (`alooParatha07`): Zainab Rauf's moisture-based aloo paratha yield (cooked to 46.7 g water/100 g, CoFID 2021 11-912 stuffed paratha) re-derived for a 0.7 water:atta dough (140 g water per 200 g atta): the target moisture, not the dough water, sets the cooked weight, so 0.651 × 1010 g = 0.692 × 950 g = 658 g.
 - ×1 (`none`): Not cooked, or weight kept (oil, spices, salt): weight unchanged.
 
 ## Per 100 g as eaten (the food record)
@@ -134,7 +134,7 @@ Overall yield 0.822 (cooked ÷ raw, absorbed water included). Yield factors used
 |---|---|---|---|---|---|---|---|---|
 | 108 | 6.9 g | 14.3 g | 2.0 g | 2.4 g | 2.5 g | 0.2 g | — | 1.5 g |
 
-Per 100 g = batch totals ÷ 1628 g × 100, with every part of the portion included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
+Per 100 g = batch totals ÷ 1627 g × 100, with every part of the portion included (NUTRITION.md §6). Sugars, saturated fat and sodium are given only when the ingredients that lack them carry under 10% of the total; spice-blend sodium (black salt in chaat masala) is not counted.
 
 ## Energy check
 
@@ -142,7 +142,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = **108** per 100 g. The sum of the tables
 
 ## Cross-check
 
-- Zainab Rauf's Aloo paratha (potato-stuffed), home, desi ghee (research/zainab, sheet id aloo-paratha-home): 247 kcal, P 4.5, C 31.1, F 10.5 per 100 g. Our aloo parathas (4): 192 kcal, P 4.7, C 30.8, F 4.3. Difference -22.1% in energy. Zainab's home aloo paratha uses 1 tbsp desi ghee per paratha; this one uses 6 g oil, so it should be lower in energy and fat.
+- Zainab Rauf's Aloo paratha (potato-stuffed), home, desi ghee (research/zainab, sheet id aloo-paratha-home): 247 kcal, P 4.5, C 31.1, F 10.5 per 100 g. Our aloo parathas (4): 193 kcal, P 4.7, C 30.8, F 4.3. Difference -22.0% in energy. Zainab's home aloo paratha uses 1 tbsp desi ghee per paratha; this one uses 6 g oil, so it should be lower in energy and fat.
 
 ## Storage (per component, `RULES.mealPrep.storage`)
 
@@ -202,6 +202,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 - Fat cut from Food Fusion's 1 tbsp ghee (12.8 g) + 3.6 g filling oil per paratha to 6 g oil on the tawa: the paratha alone drops from about 415 to about 330 kcal.
 - A paratha alone has about 8 g protein, so the portion comes with a 200 g protein-yogurt raita (20 g protein) to reach the 25 g breakfast target.
 - Yield: Zainab's measured-moisture yield (0.651) is applied to the whole raw paratha, oil included; with less fat than her version this slightly overstates the cooked weight (about 2%).
+- Dough water 140 g for 200 g atta (0.7, the roti standard) instead of 1:1 (Zainab, 2026-10-16: 1:1 is too wet to roll a stuffed paratha). The cooked weight is set by the target moisture, so the yield factor becomes 0.692 of the smaller raw total and the portion numbers do not change.
 
 ## Ingredient values (per 100 g, carbs = available carbohydrate)
 

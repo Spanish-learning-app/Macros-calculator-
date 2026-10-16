@@ -78,6 +78,10 @@ export const YIELDS = {
   roti: { f: 0.799, src: "Zainab Rauf's roti sheet (research/zainab/recipes/pk-roti.md): dough of 100 g atta + 70 g water + 0.5 g salt cooked on the tawa to 34.4 g water per 100 g (Rasool et al. 2006, Pakistani chapattis 32.5–36.3%; FNDDS 2707713 roti 35.4%) weighs 136.3 g: yield 0.799 of the dough" },
   parathaPlain: { f: 0.731, src: "Zainab Rauf's paratha sheet (research/zainab/recipes/pk-paratha-home.md): dough + fat cooked to 30.6 g water per 100 g (CoFID 2021 11-1104 homemade paratha) gives yield 0.731 of the raw total" },
   alooParatha: { f: 0.651, src: "Zainab Rauf's aloo paratha sheet (research/zainab/recipes/pk-aloo-paratha.md): dough, potato filling and fat cooked to 46.7 g water per 100 g (CoFID 2021 11-912 stuffed paratha, analysed) gives yield 0.651 of the raw total" },
+  // R-MP-16 dough at the 0.7 water:atta house standard (Zainab's roti sheet; her note 2026-10-16) instead of 1:1. The
+  // cooked weight is set by the target moisture (46.7 g water/100 g), not by the dough water, so the factor is re-derived
+  // to keep the same cooked batch: 0.651 × 1010 g raw (200 g water) = 0.692 × 950 g raw (140 g water) = 658 g.
+  alooParatha07: { f: 0.692, src: "Zainab Rauf's moisture-based aloo paratha yield (cooked to 46.7 g water/100 g, CoFID 2021 11-912 stuffed paratha) re-derived for a 0.7 water:atta dough (140 g water per 200 g atta): the target moisture, not the dough water, sets the cooked weight, so 0.651 × 1010 g = 0.692 × 950 g = 658 g" },
   // Sprint 3 variety preps (2026-10-15)
   salmonBaked: proteinRatio(175167, 175168),
   riceNoodles: proteinRatio(169742, 168914),

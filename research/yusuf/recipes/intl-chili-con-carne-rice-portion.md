@@ -10,7 +10,7 @@ Record `intl-chili-con-carne-rice-portion` in `app/data/foods-mealprep.js` · li
 
 **Eat:** hot (microwave). **Halal:** halal: Beef mince from a halal butcher; no stock cubes, no beer or wine. **Confidence:** B.
 
-**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 25 min hands-on for the batch of 4.
+**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 25 min hands-on for the batch of 4. About 1 h 30 min start to finish: the rice and the chili simmer 30 min each, hands off, then cool 20–30 min.
 
 ## One portion at a glance
 

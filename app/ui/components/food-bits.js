@@ -98,3 +98,54 @@ export function fullNameLine(food) {
     food.name,
   );
 }
+
+/** Words for the optional `serve` note on a lunchbox prep (Meeting 004 C, STATUS O3). */
+export const SERVE_TEXT = Object.freeze({
+  cold: 'Good cold',
+  hot: 'Microwave',
+  either: 'Hot or cold',
+});
+
+/**
+ * A quiet "Good cold" / "Microwave" / "Hot or cold" chip for a meal-prep food or its library
+ * recipe (Mariam #7: the 13:30 microwave queue), else null. The food's own `serve` wins.
+ * @param {...object|null} sources the food record, then the library recipe
+ */
+export function serveChip(...sources) {
+  const serve = sources.map((s) => s?.serve).find((v) => typeof v === 'string' && SERVE_TEXT[v]);
+  if (!serve) return null;
+  return h(
+    'span',
+    { class: 'tag-style tag-serve', 'data-testid': 'serve-chip', 'data-serve': serve },
+    SERVE_TEXT[serve],
+  );
+}
+
+/** "half", "a third"… for RULES.kamTel.addedFatFraction; else "{n} %". */
+function fractionWords(f) {
+  const words = [
+    [0.5, 'half'],
+    [1 / 3, 'a third of'],
+    [0.25, 'a quarter of'],
+    [2 / 3, 'two thirds of'],
+    [0.75, 'three quarters of'],
+  ];
+  const hit = words.find(([v]) => Math.abs(v - f) < 0.02);
+  return hit ? hit[1] : `${Math.round(f * 100)} % of`;
+}
+
+/** The kam-tel sentence for a 'home-light' food (STATUS O11), else ''. */
+export function kamTelText(food, rules) {
+  const kt = rules?.kamTel;
+  const style = kt?.style ?? 'home-light';
+  if (food?.style !== style) return '';
+  const f = Number(kt?.addedFatFraction);
+  const amount = Number.isFinite(f) && f > 0 && f < 1 ? fractionWords(f) : 'less of';
+  return `Kam tel: made with about ${amount} the oil`.replace('half of the', 'half the');
+}
+
+/** One plain line under a kam-tel food's name, or null. */
+export function kamTelLine(food, rules) {
+  const text = kamTelText(food, rules);
+  return text ? h('span', { class: 'kamtel-line', 'data-testid': 'kamtel-line' }, text) : null;
+}

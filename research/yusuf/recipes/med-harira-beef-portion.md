@@ -10,7 +10,7 @@ Record `med-harira-beef-portion` in `app/data/foods-mealprep.js` · library page
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; no stock cubes, no smen. **Confidence:** C.
 
-**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 30 min hands-on for the batch of 4.
+**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 30 min hands-on for the batch of 4. About 1 h 45 min start to finish: the beef simmers 50 min, hands off, then the soup cools 30 min.
 
 ## One portion at a glance
 

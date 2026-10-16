@@ -5,6 +5,7 @@ export default {
   boxes: 4,
   effort: 'cook',
   minutes: 30,
+  timeNote: 'About 1 h 15 min start to finish: the sauce simmers 30–40 min, hands off, then cools 30 min.', // minutes = hands-on; this is the waiting a beginner must plan for
   cuisine: 'italian',
   shortName: 'Beef bolognese pasta',
   id: 'intl-beef-bolognese-pasta-box',

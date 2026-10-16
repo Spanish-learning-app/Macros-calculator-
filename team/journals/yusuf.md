@@ -220,3 +220,14 @@
   bulgur, masoor dal or a forn barra). priceDate = the OLDEST read date among the priced lines (honest "prices from").
   Ingredient `note` (where to buy) now on every desi-shop line, with or without a foodId (bulgur, chana dal, masoor dal,
   green chilli, halal soy sauce were mapped to foods and lost it), plus the forn barra: 27 → 47 lines.
+- 02:07 UTC Omar relayed Zainab's hand-off (19 desi methods done). Rebuilt: 64/64 library recipes carry the
+  method object; `LEGACY_OK = false` (a string-array or missing method now fails the build). Her notes:
+  - minutes: kept as HANDS-ON on every sheet (the §13.1 contract and every card says "hands-on"); her figures are
+    start-to-finish. New optional `timeNote` (sheet → library recipe and the sheet's Effort line) on the 10 preps where
+    waiting changes the plan: 01 (4 h marinade), 03, 04 (1 h soak), 08, 22 (~2 h), 23, 43, 45, 54, 56.
+  - #16 dough water 200 → 140 g (0.7, the roti standard). The cooked weight is moisture-based (46.7 %), so the yield
+    becomes alooParatha07 = 0.692 of the smaller raw total (0.651 × 1010 = 0.692 × 950 = 658 g): portion numbers
+    unchanged (407 g, 440 kcal). Method text (140 ml, 85 g balls) and a changes line updated.
+  - #35 stays effort 'assemble': the no-cook tier allows microwave-only heat ≤ 15 min; reason written in its changes.
+  - fmtMin: sub-minute steps render "30 s" (was "0½ min"). ROTI_METHOD import removed from 14, 18–24 and the unused
+    export from shared.mjs.

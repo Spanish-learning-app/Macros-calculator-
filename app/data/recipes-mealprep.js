@@ -19,7 +19,8 @@
 // it"; cost = { perBoxEur, totalEur, priceDate, shop }, pro-rata cost of what goes in the boxes (absent when a main
 // ingredient has no current price; priceDate is the oldest price read date in the number); references = [{ title,
 // url }], the published recipes the prep starts from; ingredient note = where to buy it when it is not at the
-// supermarket.
+// supermarket. minutes is always HANDS-ON time; timeNote (optional) is the waiting a beginner must plan for
+// (marinade, soak, chill, long simmer) and the rough start-to-finish time.
 
 export default [
   {
@@ -73,6 +74,7 @@ export default [
     effort: 'cook',
     minutes: 40,
     cuisine: 'desi',
+    timeNote: 'Start the night before: the chicken marinates 4 hours or overnight. On the day about 1 h 10 min, mostly oven, plus 30 min cooling.',
     pitch: 'Oven-grilled thigh tikka with peppers over matar rice; cool raita in its own pot.',
     references: [
       { title: 'SOS Cuisine, Chicken tikka', url: 'https://www.soscuisine.com/recipe/1068' },
@@ -369,6 +371,7 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'desi',
+    timeNote: 'About 1 h 15 min start to finish: the rice soaks 30 min while the chicken simmers. Plus 30 min cooling.',
     pitch: 'Rice cooked in its own spiced chicken stock, with chana: one pot, one fork, mild smell.',
     cost: {
       perBoxEur: 1.99,
@@ -514,6 +517,7 @@ export default [
     effort: 'cook',
     minutes: 60,
     cuisine: 'desi',
+    timeNote: 'Soak the chana dal 1 hour first. Then about 1 h 10 min (the dal simmers 35 min, hands off), plus 35 min cooling.',
     pitch: 'Three beef-and-chana shami kebabs, pita, crunchy salad and a mint-yogurt pot: build it at your desk, cold or warm.',
     references: [
       {
@@ -958,6 +962,7 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'desi',
+    timeNote: 'About 1 h 15 min start to finish: the kebab mix chills 30 min and the bulgur soaks while they bake. Plus 20 min cooling.',
     pitch: 'Spiced chicken seekh kebabs with a lemony parsley-and-bulgur tabbouleh: made for eating cold.',
     references: [
       {
@@ -1791,7 +1796,7 @@ export default [
           minutes: 3,
         },
         {
-          text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ½ tsp salt (3 g). Add the water (200 ml) a little at a time, mixing with your fingers, until you have a soft dough that only just sticks; you may not need every drop.',
+          text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ½ tsp salt (3 g). Add the water (140 ml) a little at a time, mixing with your fingers, until you have a soft dough that only just sticks; you may not need every drop.',
           heat: 'none',
           minutes: 3,
         },
@@ -1801,7 +1806,7 @@ export default [
           minutes: 25,
         },
         {
-          text: 'Divide the dough into 4 balls (about 100 g each). Dust one with atta and roll it to a 10 cm circle.',
+          text: 'Divide the dough into 4 balls (about 85 g each). Dust one with atta and roll it to a 10 cm circle.',
           heat: 'none',
         },
         {
@@ -2614,6 +2619,7 @@ export default [
     effort: 'cook',
     minutes: 55,
     cuisine: 'desi',
+    timeNote: 'About 2 hours start to finish: the beef simmers 70 min, hands off, while you make the roti.',
     pitch: 'Sunday-slow beef with potatoes in a light shorba; it tastes better after the freezer.',
     cost: {
       perBoxEur: 3.15,
@@ -2779,6 +2785,7 @@ export default [
     effort: 'cook',
     minutes: 60,
     cuisine: 'desi',
+    timeNote: 'About 1 h 45 min start to finish with the roti: the kebab mix chills 30 min first.',
     pitch: 'Oven-baked seekh kebabs from the freezer, a hot roti, crunchy kachumber and cool raita.',
     cost: {
       perBoxEur: 2.86,
@@ -4334,6 +4341,7 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'middle-eastern',
+    timeNote: 'The chicken marinates 30 min (or overnight). About 1 h 15 min start to finish, plus 20 min cooling.',
     pitch: 'Oven shawarma chicken with cumin, paprika and cinnamon, a garlic-yogurt pot, hummus and a crunchy salad: you fill the warm or cold pitas at lunch.',
     cost: {
       perBoxEur: 2.68,
@@ -4530,6 +4538,7 @@ export default [
     effort: 'cook',
     minutes: 30,
     cuisine: 'italian',
+    timeNote: 'About 1 h 15 min start to finish: the sauce simmers 30–40 min, hands off, then cools 30 min.',
     pitch: 'A slow-simmered beef, mushroom and carrot ragù with no wine, frozen in portions; cook the penne fresh or the night before and lunch is done.',
     cost: {
       perBoxEur: 2.35,
@@ -5384,6 +5393,7 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'mexican',
+    timeNote: 'About 1 h 30 min start to finish: the rice and the chili simmer 30 min each, hands off, then cool 20–30 min.',
     pitch: 'Lean halal beef, kidney beans, peppers and tomato with cumin and chilli, simmered thick and frozen in portions, with brown rice and a spoon of yogurt.',
     cost: {
       perBoxEur: 2.56,
@@ -5579,6 +5589,7 @@ export default [
     effort: 'cook',
     minutes: 30,
     cuisine: 'middle-eastern',
+    timeNote: 'About 1 h 45 min start to finish: the beef simmers 50 min, hands off, then the soup cools 30 min.',
     pitch: 'The Moroccan iftar soup: beef, lentils, chickpeas, tomato, ginger, cinnamon, coriander and parsley, finished with lemon. It freezes well and fills you up.',
     cost: {
       perBoxEur: 3.02,

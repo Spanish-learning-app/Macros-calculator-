@@ -12,7 +12,7 @@ Record `pk-seekh-kebab-roti-portion` in `app/data/foods-mealprep.js` · library 
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; yogurt label checked (no gelatine), 2026-10-13. **Confidence:** C.
 
-**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 60 min hands-on for the batch of 4.
+**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 60 min hands-on for the batch of 4. About 1 h 45 min start to finish with the roti: the kebab mix chills 30 min first.
 
 ## One portion at a glance
 

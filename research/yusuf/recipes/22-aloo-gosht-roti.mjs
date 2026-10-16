@@ -1,10 +1,11 @@
 // R-MP-22 · Aloo gosht (halal beef and potato curry) with 2 wholemeal roti (freezer dinner portion).
-import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+import { rotiComponent, ROTI_REFS } from '../shared.mjs';
 
 export default {
   n: 22,
   effort: 'cook',
   minutes: 55,
+  timeNote: 'About 2 hours start to finish: the beef simmers 70 min, hands off, while you make the roti.', // minutes = hands-on; this is the waiting a beginner must plan for
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,

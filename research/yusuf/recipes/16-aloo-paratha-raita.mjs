@@ -29,10 +29,10 @@ export default {
   ],
   components: [
     {
-      id: 'paratha', label: 'Aloo parathas (4)', storage: 'cooked-flatbread', yield: 'alooParatha', yieldAll: true, eat: 'hot',
+      id: 'paratha', label: 'Aloo parathas (4)', storage: 'cooked-flatbread', yield: 'alooParatha07', yieldAll: true, eat: 'hot',
       lines: [
-        ['atta', 200, '50 g per paratha (a 100 g dough ball)'],
-        ['water', 200, 'dough water'],
+        ['atta', 200, '50 g per paratha (an 85 g dough ball)'],
+        ['water', 140, 'dough water: 0.7 g per g atta, the roti standard'],
         ['potato', 520, 'boiled in the skin, peeled and mashed (130 g raw per paratha)'],
         ['onion-red', 40, 'very finely chopped'],
         ['green-chilli', 8, 'finely chopped'],
@@ -65,9 +65,9 @@ export default {
       { text: 'Simmer until a knife slides in easily.', heat: 'medium', minutes: 20 },
       { text: 'Drain and let them cool until you can hold them. Peel and mash them smooth: lumps tear the paratha. Let the mash cool completely.', heat: 'none', minutes: 20 },
       { text: 'Filling: mix the mash with the onion, chilli, coriander, 1 tsp roasted crushed cumin (2 g), ¾ tsp red chilli powder (2 g) and ½ tsp salt (3 g). Shape into 4 balls.', heat: 'none', minutes: 3 },
-      { text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ½ tsp salt (3 g). Add the water (200 ml) a little at a time, mixing with your fingers, until you have a soft dough that only just sticks; you may not need every drop.', heat: 'none', minutes: 3 },
+      { text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ½ tsp salt (3 g). Add the water (140 ml) a little at a time, mixing with your fingers, until you have a soft dough that only just sticks; you may not need every drop.', heat: 'none', minutes: 3 },
       { text: 'Knead 5 minutes until smooth, cover with a damp cloth and rest 20 minutes.', heat: 'none', minutes: 25 },
-      { text: 'Divide the dough into 4 balls (about 100 g each). Dust one with atta and roll it to a 10 cm circle.', heat: 'none' },
+      { text: 'Divide the dough into 4 balls (about 85 g each). Dust one with atta and roll it to a 10 cm circle.', heat: 'none' },
       { text: 'Put a filling ball in the middle. Bring the edges up around it like a pouch, pinch them together and twist off any extra dough. Press it flat with your palm, sealed side down.', heat: 'none' },
       { text: 'Dust well with atta and roll gently from the centre out to 18–20 cm. If filling pokes through, pat dry atta on the spot and carry on.', heat: 'none' },
       { text: 'Heat the dry tawa or pan 2 minutes.', heat: 'medium-high', minutes: 2 },
@@ -98,6 +98,7 @@ export default {
     "Fat cut from Food Fusion's 1 tbsp ghee (12.8 g) + 3.6 g filling oil per paratha to 6 g oil on the tawa: the paratha alone drops from about 415 to about 330 kcal.",
     'A paratha alone has about 8 g protein, so the portion comes with a 200 g protein-yogurt raita (20 g protein) to reach the 25 g breakfast target.',
     "Yield: Zainab's measured-moisture yield (0.651) is applied to the whole raw paratha, oil included; with less fat than her version this slightly overstates the cooked weight (about 2%).",
+    'Dough water 140 g for 200 g atta (0.7, the roti standard) instead of 1:1 (Zainab, 2026-10-16: 1:1 is too wet to roll a stuffed paratha). The cooked weight is set by the target moisture, so the yield factor becomes 0.692 of the smaller raw total and the portion numbers do not change.',
   ],
   confidence: 'C',
   confidenceWhy: "The paratha yield comes from another recipe's cooked moisture (CoFID stuffed paratha) applied to this one.",

@@ -7,7 +7,7 @@ import { h, mountChildren, setText } from '../dom.js';
 import { iconEl } from '../components/icons.js';
 import { openDialog } from '../components/dialog.js';
 import { createUndoToast } from '../components/toast.js';
-import { halalChip } from '../components/food-bits.js';
+import { halalChip, serveChip } from '../components/food-bits.js';
 import { openRecipeEditor } from '../components/recipe-editor.js';
 import { openChaiDialog } from '../components/chai-dialog.js';
 import {
@@ -810,6 +810,7 @@ export function mount(container, ctx) {
     const per = portionNutrients(food, defaultServingOf(food).id, 1);
     const halal = halalChip(food, rules);
     const time = effortText(recipe);
+    const serve = serveChip(food, recipe); // STATUS O3: "Good cold" / "Microwave" / "Hot or cold"
     const verb = effortOf(recipe) === 'cook' ? 'Cook' : 'Make';
     return h(
       'li',
@@ -828,7 +829,14 @@ export function mount(container, ctx) {
           { class: 'prep-line' },
           `1 ${boxWord(food, rules)}: ${macroLine(per).split(' · ').slice(0, 2).join(' · ')}`,
         ),
-        time ? h('span', { class: 'prep-time', 'data-testid': 'prep-time' }, time) : null,
+        time || serve
+          ? h(
+              'span',
+              { class: 'prep-meta' },
+              time ? h('span', { class: 'prep-time', 'data-testid': 'prep-time' }, time) : null,
+              serve,
+            )
+          : null,
       ),
       h(
         'button',

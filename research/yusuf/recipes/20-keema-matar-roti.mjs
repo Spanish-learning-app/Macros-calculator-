@@ -1,5 +1,5 @@
 // R-MP-20 · Keema matar (lean halal beef mince with peas) and 2 wholemeal roti (freezer dinner portion).
-import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+import { rotiComponent, ROTI_REFS } from '../shared.mjs';
 
 export default {
   n: 20,

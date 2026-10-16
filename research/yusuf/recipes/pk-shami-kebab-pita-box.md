@@ -12,7 +12,7 @@ Record `pk-shami-kebab-pita-box` in `app/data/foods-mealprep.js` · library page
 
 **Eat:** hot or cold. **Halal:** halal: Beef from a halal butcher; pita has no E471, yogurt is milk only (labels checked 2026-10-13). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 60 min hands-on for the batch of 4.
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 60 min hands-on for the batch of 4. Soak the chana dal 1 hour first. Then about 1 h 10 min (the dal simmers 35 min, hands off), plus 35 min cooling.
 
 ## One box at a glance
 

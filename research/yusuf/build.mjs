@@ -174,7 +174,8 @@ function checkMethod(s) {
   for (const k of METHOD_KEYS) if (m[k] !== undefined) out[k] = k === 'steps' ? m.steps.map((st) => ({ text: st.text, ...(st.heat ? { heat: st.heat } : {}), ...(st.minutes ? { minutes: st.minutes } : {}) })) : m[k];
   return out;
 }
-const fmtMin = (x) => `${String(x).replace(/\.5$/, '½')} min`;
+// Sub-minute steps read in seconds ("30 s"), never "0½ min" (Zainab's note, 2026-10-16).
+const fmtMin = (x) => (x < 1 ? `${Math.round(x * 60)} s` : `${String(x).replace(/\.5$/, '½')} min`);
 function methodMd(s) {
   const m = s.methodObj;
   const L = ['## Method', ''];
@@ -212,7 +213,7 @@ function sheetMd(s, r) {
   if (s.names.ur) L.push(`| اردو | ${s.names.ur} |`);
   if (s.names.roman) L.push(`| Roman Urdu | ${s.names.roman} |`);
   L.push('', `**Eat:** ${EAT[s.eat]}. **Halal:** ${s.halal.status}${s.halal.reason ? `: ${s.halal.reason}` : ''} **Confidence:** ${s.confidence}.`, '');
-  L.push(`**Meal:** ${SLOT_WORD[r.slot]} prep, logged as "1 ${u.one}". **Effort:** ${EFFORT_WORD[r.effort]} (\`effort: '${r.effort}'\`), ${timeText(r)} for the batch of ${r.boxes}.`, '');
+  L.push(`**Meal:** ${SLOT_WORD[r.slot]} prep, logged as "1 ${u.one}". **Effort:** ${EFFORT_WORD[r.effort]} (\`effort: '${r.effort}'\`), ${timeText(r)} for the batch of ${r.boxes}.${s.timeNote ? ` ${s.timeNote}` : ''}`, '');
   L.push(`## One ${u.one} at a glance`, '', `| ${u.one[0].toUpperCase() + u.one.slice(1)} weight | kcal | Protein | Carbs | Fat | Fibre |`, '|---|---|---|---|---|---|');
   L.push(`| ${b.grams} g (½ ${u.one} ${r.halfBoxG} g) | ${b.kcal} | ${r1(b.protein)} g | ${r1(b.carbs)} g | ${r1(b.fat)} g | ${r1(b.fiber)} g |`, '');
   L.push(`Targets (\`RULES.mealPrep.targetsBySlot.${r.slot}\`): ${T.kcal.min}–${T.kcal.max} kcal ${ok(r.targets.kcal)}; ${T.proteinG.min}–${T.proteinG.max} g protein ${ok(r.targets.protein)}; at least ${T.minFiberG} g fibre ${ok(r.targets.fiber)}.`, '');
@@ -485,6 +486,7 @@ function libraryRecipe(s, r) {
     minutes: r.minutes,
     ...(r.effort === 'assemble' ? { serve: s.eat } : {}),
     ...(s.cuisine ? { cuisine: s.cuisine } : {}),
+    ...(s.timeNote ? { timeNote: s.timeNote } : {}),
     ...(s.pitch ? { pitch: s.pitch } : {}),
     ...(cost ? { cost } : {}),
     ...(references.length ? { references } : {}),
@@ -526,7 +528,8 @@ function recipesFile(rows) {
 // it"; cost = { perBoxEur, totalEur, priceDate, shop }, pro-rata cost of what goes in the boxes (absent when a main
 // ingredient has no current price; priceDate is the oldest price read date in the number); references = [{ title,
 // url }], the published recipes the prep starts from; ingredient note = where to buy it when it is not at the
-// supermarket.
+// supermarket. minutes is always HANDS-ON time; timeNote (optional) is the waiting a beginner must plan for
+// (marinade, soak, chill, long simmer) and the rough start-to-finish time.
 
 export default [
 `;
@@ -703,6 +706,12 @@ function planWeek(rows, W) {
     if (b.when === 'Sunday') res.mins.Sunday += m;
     else res.mins.other += m;
   }
+  // Every jar, box or portion eaten in the week is made (or moved from the freezer) by a batch line.
+  const made = new Map();
+  for (const b of W.batches) made.set(b.id, (made.get(b.id) ?? 0) + b.make);
+  const eatenN = new Map();
+  for (const d of W.days) for (const k of ['breakfast', 'lunch', 'dinner']) eatenN.set(d[k], (eatenN.get(d[k]) ?? 0) + 1);
+  for (const [id, n] of eatenN) if (n > (made.get(id) ?? 0)) throw new Error(`week: ${id} is eaten ${n} times but only ${made.get(id) ?? 0} are made`);
   for (const d of W.days) {
     const meals = ['breakfast', 'lunch', 'dinner'].map((k) => prep(d[k]));
     const ready = d.ready.map((x) => readyLine(x.r));

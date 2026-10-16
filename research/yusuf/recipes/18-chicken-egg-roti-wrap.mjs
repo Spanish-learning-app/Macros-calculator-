@@ -1,6 +1,6 @@
 // R-MP-18 · Halal breakfast wrap: spiced chicken, egg and peppers in a large wholemeal roti (breakfast
 // portion). Standard batch: 4 wraps.
-import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+import { rotiComponent, ROTI_REFS } from '../shared.mjs';
 
 export default {
   n: 18,

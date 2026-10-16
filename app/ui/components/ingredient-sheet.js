@@ -7,7 +7,14 @@ import { iconEl } from './icons.js';
 import { halalChip, estimateBadge, rowName, fullNameLine } from './food-bits.js';
 import { openPortionPicker } from './portion-picker.js';
 import { searchNoteText } from './search-notes.js';
-import { fmtKcal, fmtGrams, portionText, defaultServingOf, portionNutrients } from './format.js';
+import {
+  fmtKcal,
+  fmtGrams,
+  portionText,
+  defaultServingOf,
+  portionNutrients,
+  plainServingLabel,
+} from './format.js';
 import { pluralLabel } from '../../core/mealprep.js';
 
 const NO_PLURAL = /^(g|kg|ml|l|oz|tbsp|tsp|katori|pao)\b/i;
@@ -262,7 +269,7 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
           { class: 'food-portion' },
           portion.servingId === 'g'
             ? `${fmtGrams(n.grams)} g · ${fmtKcal(n.kcal)} kcal`
-            : `${portion.qty === 1 ? serving.label : amountText(serving, portion.qty)} (${fmtGrams(n.grams)} g) · ${fmtKcal(n.kcal)} kcal`,
+            : `${portion.qty === 1 ? plainServingLabel(serving.label) : amountText(serving, portion.qty)} (${fmtGrams(n.grams)} g) · ${fmtKcal(n.kcal)} kcal`,
         ),
       ),
       h(

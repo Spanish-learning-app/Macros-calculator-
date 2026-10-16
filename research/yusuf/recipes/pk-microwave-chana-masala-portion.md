@@ -204,6 +204,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 ## Changes made to meet the dinner targets
 
+- Effort stays 'assemble' (no-cook tier) on purpose: the library's no-cook tier allows a kettle or a microwave as the only heat and 15 minutes or less hands-on (docs/MEALPREP.md, No-cook preps). The onion and masala are cooked, but in one bowl in the microwave, and the method's chips show each microwave step (Zainab Rauf's beginner method, 2026-10-16).
 - The stovetop recipes are moved to the microwave (onion softened covered, then the masala, then the chickpeas): one bowl, no pan.
 - Less oil (5 g per portion) and a protein-yogurt raita, so the plate reaches 30 g protein without meat.
 - Yield not measured: the weight after microwaving is counted as the raw weight (yield 1.0), which slightly underestimates nutrients per 100 g; per portion the numbers are unchanged.

@@ -3,6 +3,7 @@ export default {
   n: 4,
   effort: 'cook',
   minutes: 60,
+  timeNote: 'Soak the chana dal 1 hour first. Then about 1 h 10 min (the dal simmers 35 min, hands off), plus 35 min cooling.', // minutes = hands-on; this is the waiting a beginner must plan for
   cuisine: 'desi',
   shortName: 'Shami kebab pita box',
   id: 'pk-shami-kebab-pita-box',

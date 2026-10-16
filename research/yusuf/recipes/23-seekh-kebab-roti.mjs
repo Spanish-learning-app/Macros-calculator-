@@ -1,10 +1,11 @@
 // R-MP-23 · Beef seekh kebabs (frozen cooked) with 2 wholemeal roti, kachumber and raita (dinner portion).
-import { rotiComponent, ROTI_REFS, ROTI_METHOD } from '../shared.mjs';
+import { rotiComponent, ROTI_REFS } from '../shared.mjs';
 
 export default {
   n: 23,
   effort: 'cook',
   minutes: 60,
+  timeNote: 'About 1 h 45 min start to finish with the roti: the kebab mix chills 30 min first.', // minutes = hands-on; this is the waiting a beginner must plan for
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,

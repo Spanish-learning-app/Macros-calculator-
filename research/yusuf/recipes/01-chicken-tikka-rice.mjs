@@ -3,6 +3,7 @@ export default {
   n: 1,
   effort: 'cook',
   minutes: 40,
+  timeNote: 'Start the night before: the chicken marinates 4 hours or overnight. On the day about 1 h 10 min, mostly oven, plus 30 min cooling.', // minutes = hands-on; this is the waiting a beginner must plan for
   cuisine: 'desi',
   shortName: 'Chicken tikka rice box',
   id: 'pk-chicken-tikka-rice-box',
