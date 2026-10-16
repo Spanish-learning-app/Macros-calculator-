@@ -781,7 +781,7 @@ Lab adds it, else "Halal butcher" and "Supermarket".
 | `boxesLeft(batch)` | count of `available` boxes |
 | `placeBox(batch, boxId, { date, entryId })` | new batch with that box `placed`; `RangeError` when the box is not `available` |
 | `syncBatches(batches, days)` | the store runs it after every change: a box whose entry (found by `boxRef`, any date) is `eaten` becomes `eaten`, `planned` becomes `placed` (with the entry's current date), and a placed or eaten box with no entry is `available` again. `discarded` stays. Returns the same array when nothing changed |
-| `shoppingList(plans, foodIndex, rules = null)` | `plans = [{ recipe, boxes }]` (user or library recipe); every ingredient scaled by `boxes / recipe.boxes`, merged by `foodId` (else by name); `{ sections: [{ id, label, items: [{ key, foodId, name, grams, count: { qty, label } \| null }] }] }` with empty sections left out, `butcher` first |
+| `shoppingList(plans, foodIndex, rules = null)` | `plans = [{ recipe, boxes }]` (user or library recipe); every ingredient scaled by `boxes / recipe.boxes`, merged by `foodId` (else by name); `{ sections: [{ id, label, items: [{ key, foodId, name, grams, count: { qty, label } \| null, note? }] }] }` with empty sections left out, `butcher` first; `note` (where to buy, O5) is the first ingredient line's `note` for that item, present only when one says |
 
 The store (§7.3) adds: `recipes()`, `recipe(id)`, `recipeTotals(id)`, `saveRecipe(r)`, `deleteRecipe(id)`,
 `library()`, `batches()`, `cookBatch({ recipeId, boxes, cookedOn?, storage? })`, `setBoxStorage(batchId,

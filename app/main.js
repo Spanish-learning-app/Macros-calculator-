@@ -50,6 +50,7 @@ async function loadFoodData() {
       rules: mod.RULES ?? null,
       foods: Array.isArray(mod.FOODS) ? mod.FOODS : [],
       library: await loadLibrary(),
+      plans: await loadPlans(),
     };
   } catch (error) {
     console.error('Katori: food data could not be loaded.', error);
@@ -65,6 +66,16 @@ async function loadLibrary() {
     return Array.isArray(list) ? list : [];
   } catch {
     return [];
+  }
+}
+
+/** Lab weekly plans and ready picks (STATUS O7); optional, so a missing file is not an error. */
+async function loadPlans() {
+  try {
+    const mod = await import('./data/plans-mealprep.js');
+    return { plans: mod.PLANS ?? [], readyPicks: mod.READY_PICKS ?? {} };
+  } catch {
+    return null;
   }
 }
 
@@ -229,6 +240,7 @@ async function boot() {
       rules: data.rules,
       foods: data.foods,
       library: data.library ?? [],
+      plans: data.plans ?? null,
       foodsStatus: data.status,
       makeId: idMaker(),
       timeZone: deviceTimeZone(),

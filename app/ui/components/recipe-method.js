@@ -263,13 +263,21 @@ export function renderMethod(method, { heading = true, onSteps = null, note = nu
  * @param {{ title: string, method: ReturnType<typeof methodOf>, ingredients?: string[],
  *   note?: string|null, action?: { label: string, onSelect: () => void } | null }} props
  */
-export function openMethodDialog({ title, method, ingredients = [], note = null, action = null }) {
+export function openMethodDialog({
+  title,
+  method,
+  ingredients = [],
+  note = null,
+  action = null,
+  about = null,
+}) {
   if (!method) return null;
   const handle = openDialog({
     title,
     testid: 'method-dialog',
     className: 'dlg--sheet method-dialog',
     content: [
+      about,
       ingredients.length
         ? h(
             'details',
@@ -501,4 +509,72 @@ export function openStepMode({ title, method }) {
   dialog.showModal();
   next.focus();
   return { dialog, close };
+}
+
+/** "13 Oct" from an ISO date (no Intl dependency; the sheet is English). */
+function shortDate(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso ?? ''));
+  if (!m) return null;
+  const months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
+  return `${Number(m[3])} ${months[Number(m[2]) - 1]}`;
+}
+
+/** "€2.35 a box · €9.40 for the batch · prices from 13 Oct (Mercadona …)", or null. */
+export function costText(cost) {
+  if (!cost || !Number.isFinite(cost.perBoxEur)) return null;
+  const parts = [`€${cost.perBoxEur.toFixed(2)} a box`];
+  if (Number.isFinite(cost.totalEur)) parts.push(`€${cost.totalEur.toFixed(2)} for the batch`);
+  const when = shortDate(cost.priceDate);
+  if (when) parts.push(`prices from ${when}${cost.shop ? ` (${cost.shop})` : ''}`);
+  return parts.join(' · ');
+}
+
+/** Only https links are shown (the Lab contract says https). */
+export function referencesOf(recipe) {
+  const list = Array.isArray(recipe?.references) ? recipe.references : [];
+  return list.filter(
+    (r) =>
+      r && typeof r.url === 'string' && /^https:\/\//.test(r.url) && typeof r.title === 'string',
+  );
+}
+
+/**
+ * The top of a library recipe's sheet (STATUS O4, O9): the Lab's pitch, cost per box with its
+ * price date, and the published recipes it starts from. Null when the recipe has none of them.
+ */
+export function recipeAbout(recipe) {
+  if (!recipe) return null;
+  const pitch =
+    typeof recipe.pitch === 'string' && recipe.pitch.trim() ? recipe.pitch.trim() : null;
+  const cost = costText(recipe.cost);
+  const refs = referencesOf(recipe);
+  if (!pitch && !cost && !refs.length) return null;
+  return h(
+    'div',
+    { class: 'recipe-about', 'data-testid': 'recipe-about' },
+    pitch ? h('p', { class: 'recipe-pitch', 'data-testid': 'recipe-pitch' }, pitch) : null,
+    cost ? h('p', { class: 'recipe-cost', 'data-testid': 'recipe-cost' }, cost) : null,
+    refs.length
+      ? h(
+          'details',
+          { class: 'recipe-refs', 'data-testid': 'recipe-references' },
+          h(
+            'summary',
+            { class: 'cook-method-summary' },
+            `Based on · ${refs.length} published ${refs.length === 1 ? 'recipe' : 'recipes'}`,
+          ),
+          h(
+            'ul',
+            { class: 'method-list' },
+            refs.map((r) =>
+              h(
+                'li',
+                null,
+                h('a', { href: r.url, target: '_blank', rel: 'noopener noreferrer' }, r.title),
+              ),
+            ),
+          ),
+        )
+      : null,
+  );
 }

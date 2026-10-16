@@ -464,8 +464,12 @@ export function shoppingList(plans, foodIndex, rules = null) {
           grams: grams * factor,
           count,
           section,
+          note: typeof ing.note === 'string' && ing.note.trim() ? ing.note.trim() : null,
         });
       } else {
+        // Where to buy (O5): the first line that says.
+        if (!prev.note && typeof ing.note === 'string' && ing.note.trim())
+          prev.note = ing.note.trim();
         prev.grams += grams * factor;
         prev.count =
           prev.count && count && prev.count.servingId === count.servingId
@@ -485,8 +489,9 @@ export function shoppingList(plans, foodIndex, rules = null) {
     sections.push({
       id,
       label: labels.find((s) => s.id === id)?.label ?? id,
-      items: list.map(({ section: _section, count, ...rest }) => ({
+      items: list.map(({ section: _section, count, note, ...rest }) => ({
         ...rest,
+        ...(note ? { note } : {}),
         count: count ? { qty: count.qty, label: count.label } : null,
       })),
     });

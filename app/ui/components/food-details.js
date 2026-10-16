@@ -2,7 +2,14 @@
 // per-100 g values, portions and the halal reason. An overlay, not a route. Owner: Priya.
 import { h } from '../dom.js';
 import { openDialog } from './dialog.js';
-import { fmtKcal, fmtGrams, servingNote, fmtDateLong } from './format.js';
+import {
+  fmtKcal,
+  fmtGrams,
+  servingNote,
+  fmtDateLong,
+  plainServingLabel,
+  isEdibleLabel,
+} from './format.js';
 import { urduName, kamTelText } from './food-bits.js';
 
 // Internal pointers that mean nothing to a customer (Review 1 item 9): file paths, doc sections,
@@ -11,6 +18,8 @@ const PATH_IN_BRACKETS = /\s*\([^()]*(?:\/|\.md\b|RULES\.)[^()]*\)/g;
 const INTERNAL_SENTENCE =
   /\.md\b|§|research\/|\bR-[A-Za-z0-9-]+|\b(?:pk|es|med|intl|my)-[a-z0-9]+-[a-z0-9-]+|\balways [ABC]\b|cooked yield|added fat [\d.]+ ?g\/100 ?g|cross-check/i;
 const RECIPE_CITATION = /^Recipe R-[A-Za-z0-9-]+(?::\s*(.+))?$/;
+// Kam-tel records: "Recipe: Chicken karahi (home-made) home sheet, added fat 100 g → 50 g (×0.5, …)".
+const KAMTEL_CITATION = /^Recipe:\s*(.+?)\s+home sheet,?\s*added fat ([\d.]+) ?g\s*→\s*([\d.]+) ?g/;
 
 /** Why a home pot differs from the library dish (Review 2, Nasreen #1). */
 export const OWN_RECIPE_NOTE =
@@ -27,6 +36,10 @@ export function displayCitation(citation) {
     .replace(PATH_IN_BRACKETS, '')
     .trim();
   if (!text) return 'Not given';
+  const kamTel = text.match(KAMTEL_CITATION);
+  if (kamTel) {
+    return `The ${kamTel[1]} recipe with less oil: ${kamTel[3]} g in the whole pot instead of ${kamTel[2]} g`;
+  }
   const recipe = text.match(RECIPE_CITATION);
   if (recipe) {
     return recipe[1]
@@ -136,6 +149,14 @@ export function openFoodDetails({ food, rules, onClose = null }) {
     ),
 
     h('h3', { class: 'details-h' }, 'Portions'),
+    // Nasreen Review 2 #5: "edible part" leaves the chips and rows and is said once, here.
+    (food.servings ?? []).some((s) => isEdibleLabel(s.label))
+      ? h(
+          'p',
+          { class: 'details-sub', 'data-testid': 'edible-note' },
+          'Weights are the part you eat: no bones, peel or stones.',
+        )
+      : null,
     h(
       'ul',
       { class: 'details-portions', role: 'list' },
@@ -143,7 +164,7 @@ export function openFoodDetails({ food, rules, onClose = null }) {
         h(
           'li',
           null,
-          h('span', null, s.label.replace(/\s*\([^)]*\)\s*$/, '')),
+          h('span', null, plainServingLabel(s.label).replace(/\s*\([^)]*\)\s*$/, '')),
           h(
             'span',
             { class: 'details-sub' },

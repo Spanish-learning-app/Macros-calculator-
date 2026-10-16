@@ -38,6 +38,7 @@ import {
   cuisineChips,
   cuisineLabel,
   matchesCuisine,
+  halalSwapOf,
 } from '../components/prep-bits.js';
 import { amountText } from '../components/ingredient-sheet.js';
 import { savedMealLine } from '../components/add-sheet.js';
@@ -46,7 +47,9 @@ import {
   renderMethod,
   openMethodDialog,
   openStepMode,
+  recipeAbout,
 } from '../components/recipe-method.js';
+import { plansSection, readySection } from '../components/prep-plans.js';
 
 const SLOT_ORDER = ['breakfast', 'lunch', 'dinner', 'snacks', 'evening'];
 
@@ -62,6 +65,11 @@ export function mount(container, ctx) {
   const recipesBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-recipes' });
   const libraryBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-library' });
   const mealsBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-meals' });
+  // Weekly plans and ready picks (STATUS O7): components/prep-plans.js.
+  const plansBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-plans' });
+  const readyBox = h('section', { class: 'prep-section', 'aria-labelledby': 'prep-ready' });
+  /** The result line under each plan card after "Use this week". */
+  const planNotes = new Map();
   /** Inline notes per batch (A17: "no boxes left" shows in place, not as a pop-up). */
   const batchNotes = new Map();
   /** The meal each batch card places into. */
@@ -82,8 +90,10 @@ export function mount(container, ctx) {
     ),
     notices,
     batchesBox,
+    plansBox,
     recipesBox,
     mealsBox,
+    readyBox,
     libraryBox,
     toast.el,
   );
@@ -134,6 +144,7 @@ export function mount(container, ctx) {
       ingredients: ingredientLines(recipeId),
       note: amountsNote(recipeId),
       action: cook ? { label: `${verb} a batch`, onSelect: () => openCook(recipeId) } : null,
+      about: store.recipe(recipeId) ? null : recipeAbout(recipeOf(recipeId)),
     });
   }
 
@@ -852,12 +863,33 @@ export function mount(container, ctx) {
       ),
       halal ? h('div', { class: 'entry-halal' }, halal.chip) : null,
       methodLink(food.id, 'library-method'),
+      swapLink(food, recipe),
       halal ? halal.reason : null,
+    );
+  }
+
+  /** "Halal swap" (STATUS O6): opens the halal alternative's Cook / Make dialog. */
+  function swapLink(food, recipe) {
+    const altId = halalSwapOf(food, recipe, (id) => store.food(id));
+    if (!altId) return null;
+    const alt = store.food(altId);
+    return h(
+      'button',
+      {
+        type: 'button',
+        class: 'link-btn method-link halal-swap',
+        'data-testid': 'halal-swap',
+        'data-swap-to': altId,
+        'aria-haspopup': 'dialog',
+        onclick: () => openCook(altId),
+      },
+      `Halal swap: ${alt.shortName ?? displayName(alt)}`,
     );
   }
 
   function render() {
     const today = store.today();
+    renderPlans();
     // Tonight's freezer moves (A18): one tap each.
     const move = store.prepNotices(today).moveTonight;
     mountChildren(
@@ -1137,6 +1169,14 @@ export function mount(container, ctx) {
     );
   }
 
+  /** Weekly plans and ready picks (O7); a missing Lab file leaves both sections empty and hidden. */
+  function renderPlans() {
+    mountChildren(plansBox, plansSection({ store, notes: planNotes, onChange: render }));
+    plansBox.hidden = !plansBox.childElementCount;
+    mountChildren(readyBox, readySection({ store }));
+    readyBox.hidden = !readyBox.childElementCount;
+  }
+
   const unsubscribe = store.subscribe(() => render());
 
   return {
@@ -1193,9 +1233,14 @@ export function listText(title, list) {
   const lines = [title];
   for (const s of list.sections) {
     lines.push('', s.label);
-    for (const item of s.items) lines.push(`- ${itemText(item)}`);
+    for (const item of s.items) lines.push(`- ${itemText(item)}${item.note ? ` · ${item.note}` : ''}`);
   }
   return lines.join('\n');
+}
+
+/** Where to buy (STATUS O5), from the Lab's ingredient `note`. */
+function shopNote(item) {
+  return item.note ? h('span', { class: 'shop-note', 'data-testid': 'shop-note' }, item.note) : null;
 }
 
 function shopSections(list) {
@@ -1207,7 +1252,7 @@ function shopSections(list) {
       h(
         'ul',
         { class: 'shop-items', role: 'list' },
-        s.items.map((i) => h('li', null, itemText(i))),
+        s.items.map((i) => h('li', null, itemText(i), shopNote(i))),
       ),
     ),
   );

@@ -1052,3 +1052,155 @@ details[open] > .cook-method-summary::before {
 .tag-serve {
   border: 1px solid var(--border);
 }
+
+/* ------------------------------------------------------------------ Weekly plans and ready picks (O7) */
+
+.plan-lead {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.plan-list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-card {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.plan-name {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+}
+
+.plan-pitch {
+  margin: 0;
+}
+
+.plan-facts {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.plan-more summary {
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: var(--weight-medium);
+  color: var(--accent);
+}
+
+.plan-batches {
+  margin: 0 0 var(--space-2);
+  padding-left: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.plan-batches li + li {
+  margin-top: var(--space-1);
+}
+
+.ready-slot + .ready-slot {
+  margin-top: var(--space-3);
+}
+
+.ready-slot-title {
+  margin: 0 0 var(--space-1);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+}
+
+/* One row per meal that scrolls sideways inside itself, like the cuisine chips. */
+.ready-picks {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0 calc(-1 * var(--space-4));
+  padding: 2px var(--space-4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.ready-picks::-webkit-scrollbar {
+  display: none;
+}
+
+.ready-pick {
+  flex: none;
+  display: grid;
+  gap: 2px;
+  align-content: start;
+  width: 13.5rem;
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.ready-pick:hover {
+  background: var(--surface-2);
+}
+
+.ready-pick-name {
+  font-weight: var(--weight-medium);
+}
+
+.ready-pick-macros,
+.ready-pick-note {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* "Halal swap" (O6): its own line under the halal reason, left-aligned. */
+.prep-row > .halal-swap {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  justify-self: start;
+  min-height: var(--tap);
+  padding-left: var(--space-2);
+  text-align: left;
+}
+
+/* Where to buy (O5): a quiet second line under the item. */
+.shop-note {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Library recipe sheet (O4, O9): pitch, cost per box and the published recipes it starts from. */
+.recipe-about {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.recipe-pitch,
+.recipe-cost {
+  margin: 0;
+}
+
+.recipe-cost {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.recipe-refs a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}

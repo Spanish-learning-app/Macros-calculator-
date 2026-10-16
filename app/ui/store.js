@@ -105,6 +105,7 @@ export function createStore({
   rules,
   foods = [],
   library = [],
+  plans = null,
   foodsStatus = 'ok',
   now = () => new Date(),
   makeId,
@@ -837,6 +838,19 @@ export function createStore({
     },
     chai: () => recipesList().find((r) => r.kind === 'chai') ?? null,
     savedMeals: () => data().savedMeals ?? [],
+    /** Lab weekly plans (STATUS O7, §13.1 "Weekly plans"); [] when the file is missing. */
+    weeklyPlans: () => (Array.isArray(plans?.plans) ? plans.plans : []),
+    /** Lab ready-to-eat picks for a slot, keeping only picks whose foods all exist. */
+    readyPicks(slot) {
+      const list = plans?.readyPicks?.[slot];
+      if (!Array.isArray(list)) return [];
+      return list.filter(
+        (p) =>
+          Array.isArray(p.items) &&
+          p.items.length &&
+          p.items.every((i) => food(i.foodId) && findServing(food(i.foodId), i.servingId)),
+      );
+    },
 
     // weight log (Sprint 3, §14): { date, kg }[] oldest first; the trend reads RULES.weightTrend
     weights: () => weightEntries(data().weightLog),
@@ -1224,6 +1238,120 @@ export function createStore({
       }
       if (placed) commit(next, `Placed ${placed} ${placed === 1 ? 'box' : 'boxes'}`);
       return placed;
+    },
+
+    /**
+     * "Use this week" (STATUS O7): cooks the plan's Sunday batches (on `sunday`) and fills Mon–Fri
+     * from `monday`. A Sunday-batch food takes a box (as Fill Mon–Thu does), anything else is a
+     * plain entry. A slot that already has entries is left alone and counted in `skipped`.
+     * One undo puts everything back. @returns {{ batches, entries, skipped, dates }}
+     */
+    usePlan({ planId, monday }) {
+      const plan = api.weeklyPlans().find((p) => p.id === planId);
+      if (!plan) throw new Error(`No plan ${planId}`);
+      const sunday = addDays(monday, -1);
+      const next = { ...data(), days: { ...(data().days ?? {}) }, batches: [...batchesList()] };
+      const cooked = new Map();
+      for (const b of plan.batches ?? []) {
+        if (b.when !== 'Sunday' || b.from || cooked.has(b.foodId) || !food(b.foodId)) continue;
+        const n = Math.max(1, Math.round(b.boxes));
+        const recipeId = b.foodId;
+        const pl = storagePlan(recipeFor(recipeId), n, index(), rules);
+        const id = makeId();
+        next.batches.push({
+          id,
+          recipeId,
+          name: food(recipeId).name,
+          cookedOn: sunday < today() ? today() : sunday,
+          boxes: Array.from({ length: n }, (_, i) => ({
+            id: `${id}-${i + 1}`,
+            storage: boxStorage(null, pl, i),
+            movedToFridgeOn: null,
+            placed: null,
+            status: 'available',
+          })),
+        });
+        cooked.set(recipeId, id);
+      }
+      let entries = 0;
+      let skipped = 0;
+      const dates = [];
+      for (const d of plan.days ?? []) {
+        const date = addDays(monday, (d.weekday ?? 1) - 1);
+        dates.push(date);
+        const taken = new Set((next.days[date]?.entries ?? []).map((e) => e.slot));
+        const slots = [...new Set(d.items.map((i) => i.slot))];
+        for (const slot of slots) {
+          if (taken.has(slot)) {
+            skipped += 1;
+            continue;
+          }
+          for (const item of d.items.filter((i) => i.slot === slot)) {
+            const f = food(item.foodId);
+            if (!f) continue;
+            const batchId = cooked.get(item.foodId);
+            const left = batchId && boxesLeft(next.batches.find((b) => b.id === batchId)) > 0;
+            if (left) {
+              placeInto(next, batchId, date, slot);
+              entries += 1;
+              continue;
+            }
+            const servingId = findServing(f, item.servingId)
+              ? item.servingId
+              : defaultServing(f).id;
+            const entry = createEntry({
+              id: makeId(),
+              slot,
+              food: f,
+              servingId,
+              qty: item.qty ?? 1,
+              status: statusForAdd(date),
+            });
+            next.days[date] = addEntry(next.days[date] ?? emptyDay(date), entry);
+            next.recents = recordUse(next.recents ?? {}, {
+              foodId: f.id,
+              servingId,
+              qty: entry.qty,
+              slot,
+              date,
+            });
+            entries += 1;
+          }
+        }
+      }
+      // A Sunday batch none of whose boxes found a free slot is not cooked at all.
+      const unused = new Set(
+        [...cooked.values()].filter((id) =>
+          next.batches.find((x) => x.id === id).boxes.every((box) => box.status === 'available'),
+        ),
+      );
+      next.batches = next.batches.filter((x) => !unused.has(x.id));
+      const batches = cooked.size - unused.size;
+      if (!entries) return { batches: 0, entries: 0, skipped, dates };
+      commit(next, `Planned ${plan.name}`);
+      return { batches, entries, skipped, dates };
+    },
+    /** One tap on a ready-to-eat pick: its items into `slot` on `date`. Undoable. @returns {number} */
+    addReadyPick({ slot, index: i, date }) {
+      const pick = api.readyPicks(slot)[i];
+      if (!pick) return 0;
+      let d = day(date);
+      let recents = data().recents ?? {};
+      for (const item of pick.items) {
+        const f = food(item.foodId);
+        const entry = createEntry({
+          id: makeId(),
+          slot,
+          food: f,
+          servingId: item.servingId,
+          qty: item.qty ?? 1,
+          status: statusForAdd(date),
+        });
+        d = addEntry(d, entry);
+        recents = recordUse(recents, { ...item, slot, date });
+      }
+      commit({ ...withDays({ [date]: d }), recents }, `Added ${pick.name}`);
+      return pick.items.length;
     },
 
     // actions: "set my chai once"
