@@ -64,7 +64,7 @@ out (DECISIONS 2026-10-16). When an item reaches the app, move it to "Done" with
 | O11 | Nasreen's wording carry-overs; kam-tel "half the oil" line | Copy fixes | Priya with Ayesha | **done in code** (Priya, 2026-10-16; published in v4) |
 | O12 | Ramadan: full day-by-day table, ±30 min time edit (`RULES.ramadan`) | Part of the Ramadan UI | Lena | queued |
 | O13 | Urdu serving labels (`labelUr`, 454 foods) | Shown when "Pakistani meal names" is chosen | Lena | low priority |
-| O14 | E2E tests for Sprint 3 features (weight, spare box, meal names, cuisine chips, tips, Ramadan, methods) | E2E suite | Kenji | queued |
+| O14 | E2E tests for Sprint 3 features (weight, spare box, meal names, cuisine chips, tips, Ramadan, methods) | E2E suite | Kenji | **mostly done**: e2e for weight, spare box, meal names, cuisine chips, methods (2026-10-16); plans, picks and chips are next |
 | O15 | Two possible bugs from Mariam (Fill Mon–Thu after Monday; "30 g – 30 g" on picos) | Verify, then fix | Kenji, Lena | queued |
 | O16 | Accessibility and speed pass (Meeting 005) | As planned | Priya | queued |
 
