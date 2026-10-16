@@ -440,6 +440,12 @@ const FOOD_IDS = new Set(FOODS.map((f) => f.id));
 for (const [k, m] of Object.entries(DB)) if (!FOOD_IDS.has(m.foodId)) throw new Error(`DB map ${k} → unknown food ${m.foodId}`);
 const shortLabel = (ingId) => REG[ingId].label.replace(/\s*\((?![^)]*\b(?:contramuslo|pechuga|harina|masoor|lenteja|copos|espinaca|judía|guisante|leche|cebolla|pimiento|claras)\b)[^)]*\)/g, '').trim();
 const NAME = {};
+// Where to buy, on the library recipe's ingredient line (`note`), for lines not bought at the supermarket.
+const WHERE_DESI = 'Pakistani or Moroccan grocery (next to the halal butcher)';
+const WHERE = {
+  'soy-sauce-halal': 'Asian or Pakistani grocery: pick one with a halal logo (Mercadona has none)',
+  'pan-barra': 'Bakery (forn): a barra made with flour, water, salt and yeast',
+};
 const MISSING = new Map(); // ingId → { label, recipes: Set }
 function libraryRecipe(s, r) {
   const items = new Map();
@@ -451,7 +457,8 @@ function libraryRecipe(s, r) {
       const section = buy?.shop === 'butcher' ? 'butcher' : 'supermarket';
       const key = m ? `${m.foodId}|${m.name ?? ''}` : `name|${l.ingId}`;
       const it = items.get(key) ?? (m ? { foodId: m.foodId, ...(m.name ? { name: m.name } : {}), grams: 0, section } : { name: NAME[l.ingId] ?? shortLabel(l.ingId), grams: 0, section });
-      if (!m && buy?.shop === 'desi') it.note = 'Pakistani or Moroccan grocery (next to the halal butcher)';
+      // Where to buy (STATUS O5): every line bought outside the supermarket keeps its shop note, with or without a foodId.
+      if (WHERE[l.ingId] || buy?.shop === 'desi') it.note = WHERE[l.ingId] ?? WHERE_DESI;
       it.grams += l.grams;
       items.set(key, it);
       if (!m) {
@@ -467,7 +474,34 @@ function libraryRecipe(s, r) {
     const e = c.pot ? { id: c.storage, pot: true } : c.storage;
     if (!storage.some((x) => JSON.stringify(x) === JSON.stringify(e))) storage.push(e);
   }
-  return { foodId: s.id, boxes: r.boxes, storage, ingredients, effort: r.effort, minutes: r.minutes, ...(r.effort === 'assemble' ? { serve: s.eat } : {}), ...(s.cuisine ? { cuisine: s.cuisine } : {}), ...(s.methodObj ? { method: s.methodObj } : {}) };
+  const cost = costOf(r);
+  const references = (s.references ?? []).map((x) => ({ title: x.title, url: x.url }));
+  return {
+    foodId: s.id,
+    boxes: r.boxes,
+    storage,
+    ingredients,
+    effort: r.effort,
+    minutes: r.minutes,
+    ...(r.effort === 'assemble' ? { serve: s.eat } : {}),
+    ...(s.cuisine ? { cuisine: s.cuisine } : {}),
+    ...(s.pitch ? { pitch: s.pitch } : {}),
+    ...(cost ? { cost } : {}),
+    ...(references.length ? { references } : {}),
+    ...(s.methodObj ? { method: s.methodObj } : {}),
+  };
+}
+// LibraryRecipe.cost (STATUS O4): the sheet's "Cost per box" as data. Absent when a main ingredient has no current
+// price (the sheet says "not available"). priceDate = the OLDEST read date among the priced lines, so "prices from
+// <date>" never makes a number look fresher than it is. shop names where the priced lines were read.
+function costOf(r) {
+  if (r.cost.partialMajor) return null;
+  const priced = r.shopping.filter((l) => l.price.eurPerG != null);
+  const dates = [...new Set(priced.map((l) => l.price.date).filter(Boolean))].sort();
+  const shops = [...new Set(priced.map((l) => l.shop))];
+  const shop = [shops.includes('mercadona') ? 'Mercadona Barcelona' : null, shops.includes('butcher') ? 'halal butcher (Carne Halal Online)' : null].filter(Boolean).join(' + ');
+  if (!dates.length || !shop) throw new Error(`${r.id}: cost has no dated, priced line`);
+  return { perBoxEur: r.cost.perBox, totalEur: r.cost.batch, priceDate: dates[0], shop };
 }
 function recipesFile(rows) {
   const recs = rows.map(({ s, r }) => libraryRecipe(s, r));
@@ -488,6 +522,11 @@ function recipesFile(rows) {
 // method (brief s3-method): { equipment, prep, steps: [{ text, heat?, minutes? }], doneWhen?, boxUp, reheat, tips? },
 // heat one of none | low | medium | medium-high | high | oven-180 | oven-200 | oven-220 | microwave. Written for a
 // beginner on the recipe sheet (research/yusuf/recipes/NN-*.mjs) and copied here unchanged.
+// Lab additions 2026-10-16 (ARCHITECTURE §13.1, STATUS O4, O5, O9): pitch = the sheet's one-line "why you will like
+// it"; cost = { perBoxEur, totalEur, priceDate, shop }, pro-rata cost of what goes in the boxes (absent when a main
+// ingredient has no current price; priceDate is the oldest price read date in the number); references = [{ title,
+// url }], the published recipes the prep starts from; ingredient note = where to buy it when it is not at the
+// supermarket.
 
 export default [
 `;

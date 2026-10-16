@@ -214,3 +214,9 @@
   DECISIONS 2026-10-16, ARCHITECTURE §13.1. Publish list (scripts/publish-files.mjs) walks app/ — a new
   app/data/plans-mealprep.js is picked up with no tools change. Zainab is converting the method of the 19 desi
   sheets now: I do not touch the `method` key of 01–04, 08, 09, 14, 16–24, 28, 35, 39.
+- 02:03 UTC Step 1 done in build.mjs → recipes-mealprep.js (all optional, additive): `pitch` 64/64,
+  `references` [{ title, url }] 64/64 (159 links), `cost` { perBoxEur, totalEur, priceDate, shop } 58/64 — absent on
+  the 6 sheets whose cost says "not available" (1, 4, 5, 8, 24, 27: no current price for boneless halal thigh, chana dal,
+  bulgur, masoor dal or a forn barra). priceDate = the OLDEST read date among the priced lines (honest "prices from").
+  Ingredient `note` (where to buy) now on every desi-shop line, with or without a foodId (bulgur, chana dal, masoor dal,
+  green chilli, halal soy sauce were mapped to foods and lost it), plus the forn barra: 27 → 47 lines.

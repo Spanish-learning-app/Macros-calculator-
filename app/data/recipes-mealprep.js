@@ -15,6 +15,11 @@
 // method (brief s3-method): { equipment, prep, steps: [{ text, heat?, minutes? }], doneWhen?, boxUp, reheat, tips? },
 // heat one of none | low | medium | medium-high | high | oven-180 | oven-200 | oven-220 | microwave. Written for a
 // beginner on the recipe sheet (research/yusuf/recipes/NN-*.mjs) and copied here unchanged.
+// Lab additions 2026-10-16 (ARCHITECTURE §13.1, STATUS O4, O5, O9): pitch = the sheet's one-line "why you will like
+// it"; cost = { perBoxEur, totalEur, priceDate, shop }, pro-rata cost of what goes in the boxes (absent when a main
+// ingredient has no current price; priceDate is the oldest price read date in the number); references = [{ title,
+// url }], the published recipes the prep starts from; ingredient note = where to buy it when it is not at the
+// supermarket.
 
 export default [
   {
@@ -68,6 +73,26 @@ export default [
     effort: 'cook',
     minutes: 40,
     cuisine: 'desi',
+    pitch: 'Oven-grilled thigh tikka with peppers over matar rice; cool raita in its own pot.',
+    references: [
+      { title: 'SOS Cuisine, Chicken tikka', url: 'https://www.soscuisine.com/recipe/1068' },
+      {
+        title: 'Pankaj Bhadouria, Tandoori chicken tikka',
+        url: 'https://www.pankajbhadouria.com/tandoori-chicken-tikka',
+      },
+      {
+        title: 'Ireland AM (Virgin Media), Marinated chicken tikka masala',
+        url: 'https://www.virginmediatelevision.ie/shows/irelandam/article/1.65.1482.1484/298392/Marinated-Chicken-Tikka-Masala',
+      },
+      {
+        title: 'Sneaky Veg, Cucumber and mint raita',
+        url: 'https://www.sneakyveg.com/wprm_print/cucumber-and-mint-raita',
+      },
+      {
+        title: 'Cook With Manali, Cucumber raita',
+        url: 'https://www.cookwithmanali.com/wprm_print/cucumber-raita',
+      },
+    ],
   },
   {
     foodId: 'pk-keema-matar-rice-box',
@@ -86,7 +111,12 @@ export default [
       { foodId: 'intl-ginger', grams: 15, section: 'supermarket' },
       { foodId: 'intl-beef-mince-lean-raw', grams: 600, section: 'butcher' },
       { foodId: 'intl-tomato', grams: 250, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 10, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 10,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       {
         foodId: 'intl-dahi',
         name: 'Plain whole-milk yogurt (yogur natural)',
@@ -117,6 +147,20 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'desi',
+    pitch: 'Dry beef keema with lots of peas over basmati: the classic that freezes best.',
+    cost: {
+      perBoxEur: 2.66,
+      totalEur: 10.63,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Tea for Turmeric, Keema matar (ground beef curry with peas)',
+        url: 'https://www.teaforturmeric.com/keema-matar',
+      },
+      { title: 'Masala TV (Tahir Chaudhary), Keema aloo matar', url: 'https://masala.tv/?p=7648' },
+    ],
   },
   {
     foodId: 'pk-yakhni-chicken-pulao-box',
@@ -151,7 +195,12 @@ export default [
       },
       { foodId: 'intl-garlic', grams: 15, section: 'supermarket' },
       { foodId: 'intl-ginger', grams: 10, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 10, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 10,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-tomato', grams: 100, section: 'supermarket' },
       {
         foodId: 'intl-dahi',
@@ -173,6 +222,23 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'desi',
+    pitch: 'Rice cooked in its own spiced chicken stock, with chana: one pot, one fork, mild smell.',
+    cost: {
+      perBoxEur: 1.99,
+      totalEur: 7.96,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Tea for Turmeric, Pakistani chicken pulao (yakhni pulao)',
+        url: 'https://www.teaforturmeric.com/chicken-pulao/',
+      },
+      {
+        title: 'Food.com, Pakistani Punjabi/Karachi style yakhni pulao',
+        url: 'https://www.food.com/recipe/pakistani-punjabi-karachi-style-yakhni-pulao-chicken-stock-pila-331517',
+      },
+    ],
   },
   {
     foodId: 'pk-shami-kebab-pita-box',
@@ -184,7 +250,12 @@ export default [
     ],
     ingredients: [
       { foodId: 'intl-beef-mince-lean-raw', grams: 500, section: 'butcher' },
-      { foodId: 'intl-chana-dal-dry', grams: 150, section: 'supermarket' },
+      {
+        foodId: 'intl-chana-dal-dry',
+        grams: 150,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-onion', grams: 100, section: 'supermarket' },
       { foodId: 'intl-garlic', grams: 15, section: 'supermarket' },
       { foodId: 'intl-ginger', grams: 10, section: 'supermarket' },
@@ -206,7 +277,12 @@ export default [
         grams: 100,
         section: 'supermarket',
       },
-      { foodId: 'intl-green-chilli', grams: 10, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 10,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 15, section: 'supermarket' },
       { foodId: 'intl-mint-fresh', grams: 16, section: 'supermarket' },
       { foodId: 'intl-egg-raw', grams: 100, section: 'supermarket' },
@@ -226,6 +302,17 @@ export default [
     effort: 'cook',
     minutes: 60,
     cuisine: 'desi',
+    pitch: 'Three beef-and-chana shami kebabs, pita, crunchy salad and a mint-yogurt pot: build it at your desk, cold or warm.',
+    references: [
+      {
+        title: 'Tea for Turmeric, Easy shami kebab',
+        url: 'https://www.teaforturmeric.com/shami-kebab/',
+      },
+      {
+        title: 'But First Chai, Beef shami kabab (Instant Pot)',
+        url: 'https://butfirstchai.com/beef-shami-kabab-recipe-instant-pot/',
+      },
+    ],
   },
   {
     foodId: 'es-pollo-ajillo-limon-rice-box',
@@ -248,6 +335,21 @@ export default [
     effort: 'cook',
     minutes: 40,
     cuisine: 'spanish',
+    pitch: 'Spain\'s garlic chicken with lemon and parsley instead of wine, over brown rice with peas and green beans.',
+    references: [
+      {
+        title: 'Diez Minutos (Miguel Torres, MasterChef Celebrity), Pollo al ajillo',
+        url: 'https://www.diezminutos.es/cocina/recetas/a71115551/miguel-torres-finalista-masterchef-celebrity-receta-pollo-ajillo/',
+      },
+      {
+        title: 'Diet Doctor (ES), Pollo al ajillo bajo en carbohidratos',
+        url: 'https://www.dietdoctor.com/es/recetas/low-carb-pollo-al-ajillo',
+      },
+      {
+        title: '¡Hola! Cocina, Pollo al ajillo, receta tradicional',
+        url: 'https://www.hola.com/cocina/recetas/20260224885542/como-hacer-pollo-al-ajillo-receta-tradicional/',
+      },
+    ],
     method: {
       equipment: ['Wide frying pan or sauté pan (28 cm) with a lid', 'Medium pot with a lid (rice)', 'Second pot (green beans) and a colander', 'Oven tray for cooling', '4 lunch boxes (1 for the fridge, 3 for the freezer)'],
       prep: ['Cut the boneless, skinless chicken thighs (720 g) into 4 cm pieces. Sprinkle with 1 tsp salt (6 g) and black pepper (2 g).', 'Peel 12–14 garlic cloves (40 g) and slice them thin (2 mm).', 'Squeeze about 1¼ lemons: you need 60 g (4 tbsp) of juice. Chop the parsley (15 g, a big handful).', 'Rinse the brown rice (240 g) in a sieve.'],
@@ -339,6 +441,27 @@ export default [
     effort: 'cook',
     minutes: 50,
     cuisine: 'spanish',
+    pitch: 'Spanish home-style beef meatballs in a thick tomato, pepper and carrot sauce on couscous.',
+    cost: {
+      perBoxEur: 2.7,
+      totalEur: 10.8,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'IslamWeb (Spanish edition), Albóndigas en salsa',
+        url: 'https://islamweb.net/es/hajj/article/153126/Alboacutendigas-en-salsa',
+      },
+      {
+        title: 'MDZ Online, Albóndigas de ternera en salsa de tomate',
+        url: 'https://www.mdzol.com/tendencias/albondigas-ternera-salsa-tomate-una-receta-pocos-pasos-n1037418',
+      },
+      {
+        title: 'Kookmutsjes, Couscous with chicken and vegetables',
+        url: 'https://kookmutsjes.com/en/recipe/couscous-with-chicken-and-vegetables/',
+      },
+    ],
     method: {
       equipment: ['Large deep frying pan or casserole (28 cm)', 'Large bowl for the meat mix', 'Heatproof bowl with a plate or lid (couscous)', 'Kettle', 'Grater', 'Oven tray for cooling', '4 lunch boxes with tight lids'],
       prep: ['Peel 6 garlic cloves: chop 3 very finely (8 g) for the meatballs and chop 3 (10 g) for the sauce.', 'Chop the parsley (10 g). Chop the onion (150 g) and green pepper (120 g) small (5 mm). Peel and grate the carrot (100 g).', 'Open the crushed tomato (800 g).'],
@@ -429,6 +552,27 @@ export default [
     effort: 'cook',
     minutes: 35,
     cuisine: 'middle-eastern',
+    pitch: 'Ras el hanout chicken and tray-roast courgette, carrot, pepper and onion on couscous; good hot or at room temperature.',
+    cost: {
+      perBoxEur: 2.16,
+      totalEur: 8.66,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Kookmutsjes, Couscous with chicken and vegetables',
+        url: 'https://kookmutsjes.com/en/recipe/couscous-with-chicken-and-vegetables/',
+      },
+      {
+        title: 'Monix, Cuscús con pollo y verduras',
+        url: 'https://monix.es/en/blogs/blog/cuscus-con-pollo-y-verduras',
+      },
+      {
+        title: 'The Mediterranean Dish, Roasted vegetable couscous',
+        url: 'https://www.themediterraneandish.com/roasted-vegetable-couscous',
+      },
+    ],
     method: {
       equipment: ['2 oven trays lined with baking paper', 'Large bowl', 'Heatproof bowl with a plate or lid (couscous)', 'Kettle', '4 lunch boxes'],
       prep: ['Cut the courgettes (400 g) into 2 cm chunks, the carrots (300 g) into thick 1 cm slices, the red pepper (300 g) into chunks and the red onion (200 g) into wedges.', 'Cut the chicken breast (680 g) into strips about 1.5 cm thick. Peel and grate 3 garlic cloves (10 g).', 'Chop the parsley (15 g).'],
@@ -479,7 +623,12 @@ export default [
       { foodId: 'intl-onion', grams: 150, section: 'supermarket' },
       { foodId: 'intl-ginger', grams: 10, section: 'supermarket' },
       { foodId: 'intl-garlic', grams: 10, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 10, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 10,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 15, section: 'supermarket' },
       { foodId: 'intl-mint-fresh', grams: 25, section: 'supermarket' },
       { name: 'Cumin', grams: 4, section: 'supermarket' },
@@ -504,7 +653,12 @@ export default [
         grams: 10,
         section: 'supermarket',
       },
-      { foodId: 'med-bulgur-dry', grams: 200, section: 'supermarket' },
+      {
+        foodId: 'med-bulgur-dry',
+        grams: 200,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-parsley-fresh', grams: 120, section: 'supermarket' },
       { foodId: 'intl-tomato', grams: 300, section: 'supermarket' },
       { foodId: 'intl-cucumber', grams: 200, section: 'supermarket' },
@@ -520,6 +674,25 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'desi',
+    pitch: 'Spiced chicken seekh kebabs with a lemony parsley-and-bulgur tabbouleh: made for eating cold.',
+    references: [
+      {
+        title: 'SBS Food, Chicken seekh kebabs',
+        url: 'https://www.sbs.com.au/food/recipe/chicken-seekh-kebabs/ut25rqqze',
+      },
+      {
+        title: 'Masala TV (Mehboob Khan), Baked chicken seekh',
+        url: 'https://www.masala.tv/?p=18875',
+      },
+      {
+        title: 'Observatory wiki, Tabbouleh',
+        url: 'https://observatory.wiki/wiki/Recipe:Middle_Eastern/Tabbouleh',
+      },
+      {
+        title: 'Tangerine Zest, Lebanese tabbouleh with parsley',
+        url: 'https://tangerinezest.com/en/homepage/wprm_print/lebanese-tabbouleh-recipe-with-parsley',
+      },
+    ],
   },
   {
     foodId: 'pk-chicken-chana-chaat-box',
@@ -560,7 +733,12 @@ export default [
       },
       { foodId: 'intl-tomato', grams: 200, section: 'supermarket' },
       { foodId: 'intl-cucumber', grams: 120, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 10, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 10,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 20, section: 'supermarket' },
       {
         name: 'Chaat masala',
@@ -579,6 +757,24 @@ export default [
     effort: 'cook',
     minutes: 35,
     cuisine: 'desi',
+    pitch: 'Tangy chickpeas, potato and spiced chicken with chaat masala and lemon; mint yogurt on the side. No microwave needed.',
+    cost: {
+      perBoxEur: 2.46,
+      totalEur: 9.83,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Hebbar\'s Kitchen, Chana chaat',
+        url: 'https://hebbarskitchen.com/chana-chaat-recipe-chole-chaat-recipe/',
+      },
+      { title: 'Glebe Kitchen, Chicken chaat salad', url: 'https://glebekitchen.com/?p=676' },
+      {
+        title: 'The Big Sweet Tooth, Pakistani chana chaat with yogurt',
+        url: 'https://www.thebigsweettooth.com/?p=29053',
+      },
+    ],
   },
   {
     foodId: 'es-garbanzos-atun-salad-box',
@@ -608,6 +804,22 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'spanish',
+    pitch: 'The Spanish summer classic as a filling lunch: chickpeas, tuna, egg, peppers and tomato in olive oil and lemon.',
+    cost: { perBoxEur: 2.73, totalEur: 10.92, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Directo al Paladar, Ensalada de garbanzos y atún con vinagreta de mostaza',
+        url: 'https://www.directoalpaladar.com/recetas-de-ensaladas/ensalada-de-garbanzos-y-atun-con-vinagreta-de-mostaza-receta',
+      },
+      {
+        title: 'Directo al Paladar, Ensalada de garbanzos con tomate y ventresca de atún',
+        url: 'https://directoalpaladar.com/recetas-de-ensaladas/ensalada-primaveral-de-garbanzos-con-tomates-y-ventresca-de-atun',
+      },
+      {
+        title: 'Tienda.com, Chickpea salad with tuna and eggs (ensalada de garbanzos)',
+        url: 'https://www.tienda.com/recipes/chickpea-salad-with-tuna-and-eggs',
+      },
+    ],
     method: {
       equipment: ['Pot for 4 eggs', 'Sieve and can opener', 'Large bowl', 'Chopping board and knife', '4 lunch boxes (filled 2 at a time)'],
       prep: ['Dice the red pepper (200 g) and green pepper (100 g) into 1 cm pieces. Chop the red onion (100 g) small (3–5 mm).', 'Halve the cherry tomatoes (320 g). Dice the cucumber (160 g) into 1 cm cubes. Chop the parsley (15 g).'],
@@ -672,6 +884,27 @@ export default [
     effort: 'cook',
     minutes: 30,
     cuisine: 'mediterranean',
+    pitch: 'Wholewheat penne coated in hummus with paprika chicken, spinach, cherry tomatoes, cucumber and pepper.',
+    cost: {
+      perBoxEur: 2.39,
+      totalEur: 9.55,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Taste of Home, Chicken and spinach pasta salad',
+        url: 'https://www.tasteofhome.com/recipes/chicken-and-spinach-pasta-salad/',
+      },
+      {
+        title: 'The BakerMama, Hummus pasta salad',
+        url: 'https://thebakermama.com/recipes/hummus-pasta-salad/',
+      },
+      {
+        title: 'DeLallo, Whole wheat pasta salad with chicken',
+        url: 'https://www.delallo.com/recipe/whole-wheat-pasta-salad-with-chicken/',
+      },
+    ],
     method: {
       equipment: ['Frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Small bowl and whisk or fork', 'Chopping board and knife', '4 lunch boxes and 3 freezer bags'],
       prep: ['Cut the chicken breast (600 g) into strips about 1 cm thick. Peel and grate 2 garlic cloves (6 g).', 'Halve the cherry tomatoes (320 g). Dice the cucumber (200 g) and red pepper (160 g) into 1 cm pieces. Wash the baby spinach (100 g) if it is not pre-washed.'],
@@ -743,6 +976,19 @@ export default [
     effort: 'cook',
     minutes: 40,
     cuisine: 'spanish',
+    pitch: 'A thick wedge of light tortilla de patatas made with whole eggs and egg whites, a skyr-style protein yogurt with walnuts, and a banana.',
+    cost: { perBoxEur: 2.04, totalEur: 8.15, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Spain.info (Turespaña), Tortilla de patata',
+        url: 'https://www.spain.info/es/receta/tortilla-patata/',
+      },
+      { title: 'EcuRed, Tortilla de patatas', url: 'https://www.ecured.cu/Tortilla' },
+      {
+        title: 'Vitónica, Tortilla de patatas fitness',
+        url: 'https://www.vitonica.com/recetas-saludables/tortilla-de-patatas-fitness-receta-saludable',
+      },
+    ],
     method: {
       equipment: ['Non-stick frying pan 24–26 cm with sloped sides', 'Large flat plate (wider than the pan) to flip the tortilla', 'Large microwave-safe bowl with a plate as a lid (or a steamer)', 'Large mixing bowl and fork', 'Cooling rack', '4 boxes and 4 small pots'],
       prep: ['Peel the potatoes (700 g) and slice them thin (3 mm). Slice the onion (150 g) thin.', 'Crack 6 eggs into the large bowl and add the liquid egg whites (400 g) and 1 tsp salt (6 g). Beat with the fork.'],
@@ -814,6 +1060,22 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'international',
+    pitch: 'Five minutes on Sunday night, three breakfasts ready; eat cold from the jar.',
+    cost: { perBoxEur: 1.09, totalEur: 3.28, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Bake and Bacon, Quick & creamy high protein overnight oats',
+        url: 'https://www.bakeandbacon.com/high-protein-overnight-oats-3-ways/',
+      },
+      {
+        title: 'Joy to the Food, Amped-up protein overnight oats',
+        url: 'https://joytothefood.com/amped-up-protein-overnight-oats/',
+      },
+      {
+        title: 'My Everyday Table, High-protein overnight oats',
+        url: 'https://myeverydaytable.com/high-protein-overnight-oats/',
+      },
+    ],
     method: {
       equipment: ['3 jars with lids (400–500 ml)', 'Spoon', 'Knife and board for the walnuts'],
       prep: ['Chop the walnuts (24 g) roughly.'],
@@ -858,7 +1120,12 @@ export default [
         grams: 80,
         section: 'supermarket',
       },
-      { foodId: 'intl-green-chilli', grams: 10, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 10,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 8, section: 'supermarket' },
       { name: 'Cumin', grams: 2, section: 'supermarket' },
       { name: 'Red chilli powder', grams: 2, section: 'supermarket' },
@@ -876,6 +1143,22 @@ export default [
     effort: 'cook',
     minutes: 35,
     cuisine: 'international',
+    pitch: 'Masala egg muffins from the freezer, 1 min in the microwave, with a warm roti.',
+    cost: { perBoxEur: 1.52, totalEur: 6.09, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'American Diabetes Association Food Hub, Easy egg muffins',
+        url: 'https://prod-foodhub.diabetes.org/recipes/easy-egg-muffins',
+      },
+      {
+        title: 'Boston Medical Center, Egg muffins',
+        url: 'https://www.bmc.org/recipes/egg-muffins',
+      },
+      {
+        title: 'Tea for Turmeric, Roti / chapati',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+    ],
   },
   {
     foodId: 'intl-protein-pancakes-portion',
@@ -898,6 +1181,22 @@ export default [
     effort: 'cook',
     minutes: 35,
     cuisine: 'international',
+    pitch: 'Blender batter, sixteen pancakes, toast them from frozen on weekday mornings.',
+    cost: { perBoxEur: 1.13, totalEur: 4.54, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Lauren Fit Foodie, Blender oatmeal pancakes',
+        url: 'https://laurenfitfoodie.com/wprm_print/26611',
+      },
+      {
+        title: 'BBC Good Food Middle East, Protein pancakes with banana',
+        url: 'https://www.bbcgoodfoodme.com/recipes/protein-pancakes-with-banana/',
+      },
+      {
+        title: 'Oatmeal with a Fork, Greek yogurt oat pancakes',
+        url: 'https://www.oatmealwithafork.com/wprm_print/107206',
+      },
+    ],
     method: {
       equipment: ['Blender or stick blender with its jug', 'Non-stick frying pan (24 cm)', 'Kitchen paper (to wipe on the oil)', 'Ladle or ¼-cup measure', 'Spatula', 'Cooling rack', 'Baking paper and 3 freezer bags'],
       prep: ['Peel 2 small ripe bananas (200 g).'],
@@ -960,7 +1259,12 @@ export default [
         grams: 40,
         section: 'supermarket',
       },
-      { foodId: 'intl-green-chilli', grams: 8, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 8,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 8, section: 'supermarket' },
       { name: 'Cumin', grams: 4, section: 'supermarket' },
       { name: 'Red chilli powder', grams: 2, section: 'supermarket' },
@@ -978,6 +1282,22 @@ export default [
     effort: 'cook',
     minutes: 50,
     cuisine: 'desi',
+    pitch: 'The Sunday-morning paratha, made light and frozen; a thick mint raita brings the protein.',
+    cost: { perBoxEur: 1.12, totalEur: 4.47, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Food Fusion, Sarson ka saag te aloo paratha',
+        url: 'https://foodfusion.com/recipe/sarson-ka-saag-te-aloo-paratha/',
+      },
+      {
+        title: 'Tea for Turmeric, Roti / chapati (dough)',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+      {
+        title: 'Cook With Manali, Cucumber raita',
+        url: 'https://www.cookwithmanali.com/wprm_print/cucumber-raita',
+      },
+    ],
   },
   {
     foodId: 'pk-anda-paratha-roll-portion',
@@ -1001,7 +1321,12 @@ export default [
         section: 'supermarket',
       },
       { foodId: 'intl-tomato', grams: 80, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 8, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 8,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 8, section: 'supermarket' },
       { name: 'Red chilli powder', grams: 2, section: 'supermarket' },
       { name: 'Black pepper', grams: 1, section: 'supermarket' },
@@ -1009,6 +1334,19 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'desi',
+    pitch: 'A dhaba-style egg roll that lives in the freezer; eat it with chai on the way out.',
+    cost: { perBoxEur: 1.02, totalEur: 4.07, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Masala TV (Shireen Anwar), Anda paratha',
+        url: 'https://www.masala.tv/anda-paratha-recipe/',
+      },
+      { title: 'SuperChef, Anda paratha', url: 'https://superchef.pk/anda-paratha-recipe' },
+      {
+        title: 'Tea for Turmeric, Lachha paratha',
+        url: 'https://www.teaforturmeric.com/lachha-paratha/',
+      },
+    ],
   },
   {
     foodId: 'pk-chicken-egg-roti-wrap-portion',
@@ -1043,6 +1381,27 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'desi',
+    pitch: 'A freezer breakfast burrito made the desi way: a big roti instead of a shop wrap.',
+    cost: {
+      perBoxEur: 1.11,
+      totalEur: 4.43,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'The Toasty Kitchen, High-protein freezer breakfast burritos',
+        url: 'https://thetoastykitchen.com/high-protein-freezer-breakfast-burritos/',
+      },
+      {
+        title: 'Our Best Bites, Freezer breakfast burritos',
+        url: 'https://ourbestbites.com/freezer-breakfast-burritos/',
+      },
+      {
+        title: 'Tea for Turmeric, Roti / chapati',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+    ],
   },
   {
     foodId: 'pk-chicken-karahi-roti-portion',
@@ -1060,7 +1419,12 @@ export default [
       },
       { foodId: 'intl-garlic', grams: 20, section: 'supermarket' },
       { foodId: 'intl-ginger', grams: 20, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 20, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 20,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 8, section: 'supermarket' },
       { name: 'Red chilli powder', grams: 5, section: 'supermarket' },
       {
@@ -1089,6 +1453,31 @@ export default [
     effort: 'cook',
     minutes: 60,
     cuisine: 'desi',
+    pitch: 'Tomato-ginger karahi from Zainab\'s base, boneless and lighter, frozen flat with its rotis.',
+    cost: {
+      perBoxEur: 1.93,
+      totalEur: 7.73,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Tea for Turmeric, Chicken karahi',
+        url: 'https://www.teaforturmeric.com/chicken-karahi/',
+      },
+      {
+        title: 'SuperChef, Chicken karahi',
+        url: 'https://superchef.pk/chicken-karahi-recipe-urdu',
+      },
+      {
+        title: 'SBS Food (Jillani), Chicken karahi',
+        url: 'https://www.sbs.com.au/food/recipe/chicken-karahi/vndjbwzjv',
+      },
+      {
+        title: 'Tea for Turmeric, Roti / chapati',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+    ],
   },
   {
     foodId: 'pk-keema-matar-roti-portion',
@@ -1107,7 +1496,12 @@ export default [
       },
       { foodId: 'intl-garlic', grams: 15, section: 'supermarket' },
       { foodId: 'intl-ginger', grams: 15, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 10, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 10,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 8, section: 'supermarket' },
       { name: 'Red chilli powder', grams: 4, section: 'supermarket' },
       {
@@ -1136,6 +1530,27 @@ export default [
     effort: 'cook',
     minutes: 55,
     cuisine: 'desi',
+    pitch: 'The freezer classic: dry keema with lots of peas, scooped up with a hot roti.',
+    cost: {
+      perBoxEur: 2.18,
+      totalEur: 8.72,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Tea for Turmeric, Keema matar',
+        url: 'https://www.teaforturmeric.com/keema-matar/',
+      },
+      {
+        title: 'Flour & Spice, Aaloo qeema',
+        url: 'https://www.flourandspiceblog.com/aaloo-qeema-ground-beef-and-potatoes/',
+      },
+      {
+        title: 'Tea for Turmeric, Roti / chapati',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+    ],
   },
   {
     foodId: 'pk-chicken-jalfrezi-roti-portion',
@@ -1149,7 +1564,12 @@ export default [
       { foodId: 'intl-tomato', grams: 320, section: 'supermarket' },
       { foodId: 'intl-garlic', grams: 15, section: 'supermarket' },
       { foodId: 'intl-ginger', grams: 10, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 10, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 10,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { name: 'Cumin', grams: 3, section: 'supermarket' },
       {
         name: 'Coriander seed',
@@ -1178,6 +1598,28 @@ export default [
     effort: 'cook',
     minutes: 55,
     cuisine: 'desi',
+    pitch: 'A quick stir-fried curry, half chicken and half peppers and onion, bright and not heavy.',
+    cost: {
+      perBoxEur: 1.84,
+      totalEur: 7.35,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Tea for Turmeric, Chicken jalfrezi',
+        url: 'https://www.teaforturmeric.com/chicken-jalfrezi/',
+      },
+      {
+        title: 'NHS Healthier Families, Chicken jalfrezi',
+        url: 'https://www.nhs.uk/healthier-families/recipes/chicken-jalfrezi/',
+      },
+      { title: 'Chetna Makan, Chicken jalfrezi', url: 'https://chetnamakan.co.uk/?p=569536' },
+      {
+        title: 'Tea for Turmeric, Roti / chapati',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+    ],
   },
   {
     foodId: 'pk-aloo-gosht-roti-portion',
@@ -1224,6 +1666,24 @@ export default [
     effort: 'cook',
     minutes: 55,
     cuisine: 'desi',
+    pitch: 'Sunday-slow beef with potatoes in a light shorba; it tastes better after the freezer.',
+    cost: {
+      perBoxEur: 3.15,
+      totalEur: 12.61,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Tea for Turmeric, Aloo gosht',
+        url: 'https://www.teaforturmeric.com/mutton-and-potato-curry-aloo-gosht/',
+      },
+      { title: 'Flour & Spice, Aalu gosht', url: 'https://www.flourandspiceblog.com/aalu-gosht/' },
+      {
+        title: 'Tea for Turmeric, Roti / chapati',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+    ],
   },
   {
     foodId: 'pk-seekh-kebab-roti-portion',
@@ -1236,7 +1696,12 @@ export default [
     ingredients: [
       { foodId: 'intl-beef-mince-lean-raw', grams: 640, section: 'butcher' },
       { foodId: 'intl-onion', grams: 80, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 12, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 12,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-coriander-fresh', grams: 12, section: 'supermarket' },
       { foodId: 'intl-mint-fresh', grams: 10, section: 'supermarket' },
       { foodId: 'intl-garlic', grams: 12, section: 'supermarket' },
@@ -1282,6 +1747,27 @@ export default [
     effort: 'cook',
     minutes: 60,
     cuisine: 'desi',
+    pitch: 'Oven-baked seekh kebabs from the freezer, a hot roti, crunchy kachumber and cool raita.',
+    cost: {
+      perBoxEur: 2.86,
+      totalEur: 11.44,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Tea for Turmeric, Baked Pakistani seekh kabob',
+        url: 'https://www.teaforturmeric.com/baked-pakistani-seekh-kabob/',
+      },
+      {
+        title: 'Shan Foods, Tikka seekh kabab mix (pack recipe)',
+        url: 'https://www.shanfoods.com/product/recipe-mixes/bbq/tikka-seekh-kabab/',
+      },
+      {
+        title: 'Tea for Turmeric, Roti / chapati',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+    ],
   },
   {
     foodId: 'pk-daal-palak-roti-portion',
@@ -1292,13 +1778,23 @@ export default [
       'cooked-flatbread',
     ],
     ingredients: [
-      { foodId: 'intl-masoor-dal-dry', grams: 280, section: 'supermarket' },
+      {
+        foodId: 'intl-masoor-dal-dry',
+        grams: 280,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'intl-spinach-frozen', grams: 400, section: 'supermarket' },
       { foodId: 'intl-onion', grams: 160, section: 'supermarket' },
       { foodId: 'intl-tomato', grams: 200, section: 'supermarket' },
       { foodId: 'intl-garlic', grams: 15, section: 'supermarket' },
       { foodId: 'intl-ginger', grams: 10, section: 'supermarket' },
-      { foodId: 'intl-green-chilli', grams: 8, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 8,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { name: 'Cumin', grams: 5, section: 'supermarket' },
       { name: 'Turmeric, ground', grams: 2, section: 'supermarket' },
       { name: 'Red chilli powder', grams: 3, section: 'supermarket' },
@@ -1324,6 +1820,18 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'desi',
+    pitch: 'The cheapest dinner in the library and the highest in fibre; Greek-yogurt raita adds the protein.',
+    references: [
+      { title: 'Tea for Turmeric, Masoor dal', url: 'https://www.teaforturmeric.com/masoor-dal/' },
+      {
+        title: 'Flour & Spice, Masoor daal',
+        url: 'https://www.flourandspiceblog.com/masoor-daal/',
+      },
+      {
+        title: 'Tea for Turmeric, Roti / chapati',
+        url: 'https://www.teaforturmeric.com/roti-chapati/',
+      },
+    ],
   },
   {
     foodId: 'es-mandonguilles-pesols-portion',
@@ -1348,6 +1856,23 @@ export default [
     effort: 'cook',
     minutes: 45,
     cuisine: 'spanish',
+    pitch: 'The Catalan grandmother\'s Sunday pot, made all-beef from the halal butcher.',
+    cost: {
+      perBoxEur: 2.47,
+      totalEur: 9.9,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Surt de Casa (Ebre), Mandonguilles amb salsa',
+        url: 'https://surtdecasa.cat/ebre/blogs/el-rebost-de-bajoqueta-i-sa-mare/mandonguilles-amb-salsa',
+      },
+      {
+        title: 'TV3 Cuines, Mandonguilles amb pèsols',
+        url: 'https://www.3cat.cat/tv3/cuines/recepta/mandonguilles-amb-pesols/20695/',
+      },
+    ],
     method: {
       equipment: ['Large deep pan or casserole (28 cm) with a lid', 'Large bowl for the meat mix', 'Wooden spoon', 'Chopping board and knife', '4 boxes (1 for the fridge, 3 for the freezer)'],
       prep: ['Peel and chop the onions (240 g, 2 medium) finely (3–5 mm).', 'Peel the potatoes (600 g) and cut them into 3 cm chunks. Keep them in a bowl of cold water.', 'Peel and chop 2 garlic cloves (6 g) very finely. Chop the parsley (8 g).'],
@@ -1417,6 +1942,18 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'spanish',
+    pitch: 'The Mercadona classic of the gym crowd: whipped fresh cheese, oats and chia in a jar, kiwi on top in the morning.',
+    cost: { perBoxEur: 1.08, totalEur: 3.24, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Vitónica, Smoothie bowl de fresas, plátano y queso fresco con avena',
+        url: 'https://www.vitonica.com/recetas-saludables/smoothie-bowl-fresas-platano-queso-fresco-avena-receta-saludable',
+      },
+      {
+        title: 'El Imparcial, Cómo combinar el queso cottage en el desayuno',
+        url: 'https://www.elimparcial.com/estilos/2026/06/09/como-combinar-el-queso-cottage-en-el-desayuno-para-sumar-proteina-y-sentirte-satisfecho-por-mas-tiempo/',
+      },
+    ],
     method: {
       equipment: ['3 jars with lids (400–500 ml)', 'Spoon', 'Knife and board'],
       prep: ['Chop the walnuts (24 g) roughly.'],
@@ -1448,7 +1985,12 @@ export default [
     ingredients: [
       { foodId: 'intl-egg-boiled', grams: 300, section: 'supermarket' },
       { foodId: 'es-queso-burgos-0', grams: 187.5, section: 'supermarket' },
-      { foodId: 'es-pan-barra', grams: 240, section: 'supermarket' },
+      {
+        foodId: 'es-pan-barra',
+        grams: 240,
+        section: 'supermarket',
+        note: 'Bakery (forn): a barra made with flour, water, salt and yeast',
+      },
       { foodId: 'intl-tomato', grams: 180, section: 'supermarket' },
       { foodId: 'med-olive-oil', grams: 15, section: 'supermarket' },
       { name: 'Salt', grams: 1, section: 'supermarket' },
@@ -1458,6 +2000,21 @@ export default [
     minutes: 12,
     serve: 'either',
     cuisine: 'spanish',
+    pitch: 'The Barcelona breakfast: toasted barra rubbed with tomato and olive oil, with fresh cheese, two eggs boiled on Sunday and an orange.',
+    references: [
+      {
+        title: 'Cooklang recipes, Pa amb tomàquet',
+        url: 'https://recipes.cooklang.org/recipes/6945',
+      },
+      {
+        title: 'Tara\'s Multicultural Table, Pa amb tomàquet (Catalan bread with tomato)',
+        url: 'https://tarasmulticulturaltable.com/pa-amb-tomaquet-catalan-bread-with-tomato/',
+      },
+      {
+        title: 'Mallorca.com, Pa amb oli',
+        url: 'https://www.mallorca.com/ca/revista/mallorca-comida-bebida/pa-amb-oli-el-berenar-mes-sincer-de-mallorca',
+      },
+    ],
     method: {
       equipment: ['Pot for 6 eggs', 'Toaster, grill or dry frying pan', 'Box grater and a small bowl', 'Bread knife'],
       prep: ['Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
@@ -1514,6 +2071,18 @@ export default [
     minutes: 12,
     serve: 'cold',
     cuisine: 'desi',
+    pitch: 'The iftar favourite as a breakfast: apple, banana, mandarin and pomegranate with chaat masala and lemon, on a thick protein yogurt.',
+    cost: { perBoxEur: 1.87, totalEur: 3.75, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Tea for Turmeric, Pakistani fruit chaat',
+        url: 'https://www.teaforturmeric.com/wprm_print/pakistani-fruit-chaat-with-essential-tips',
+      },
+      {
+        title: 'Sumayya Usmani, Fruit chaat: sweet savoury fruit salad',
+        url: 'https://sumayyausmani.com/blog-old/a-sweet-spicy-colourful-fruit-chaat-street-food-1',
+      },
+    ],
   },
   {
     foodId: 'es-lentejas-atun-feta-salad-box',
@@ -1542,6 +2111,18 @@ export default [
     minutes: 12,
     serve: 'cold',
     cuisine: 'spanish',
+    pitch: 'Open a jar of lentils and a can of tuna, chop a pepper, and lunch is done for two days.',
+    cost: { perBoxEur: 2.97, totalEur: 5.94, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Universidad Pablo de Olavide, Recetas para una cuarentena: Ensalada de lentejas',
+        url: 'https://www.upo.es/recetasparaunacuarentena/?p=10347',
+      },
+      {
+        title: 'Directo al Paladar, Ensalada de lentejas: la receta más fácil',
+        url: 'https://www.directoalpaladar.com/recetas-de-legumbres-y-verduras/ensalada-de-lentejas-receta',
+      },
+    ],
     method: {
       equipment: ['Sieve', 'Can opener', 'Large bowl', 'Chopping board and knife', '2 lunch boxes'],
       prep: ['Dice the red pepper (120 g) and cucumber (160 g) into 1 cm pieces. Halve the cherry tomatoes (160 g).', 'Chop the red onion (40 g) small (3 mm) and the parsley (10 g).'],
@@ -1592,6 +2173,18 @@ export default [
     minutes: 12,
     serve: 'either',
     cuisine: 'international',
+    pitch: 'A poke-style bowl from the cupboard: canned salmon with lemon, a sealed brown-rice cup you microwave at uni, avocado and a boiled egg.',
+    cost: { perBoxEur: 3.71, totalEur: 7.41, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Skinnytaste, Spicy canned salmon rice bowl',
+        url: 'https://www.skinnytaste.com/spicy-canned-salmon-rice-bowl/',
+      },
+      {
+        title: 'Laura Fuentes, Avocado salmon bowls',
+        url: 'https://www.laurafuentes.com/avocado-salmon-bowls',
+      },
+    ],
     method: {
       equipment: ['Pot for 4 eggs (if you have none boiled)', 'Grater', 'Bowl and fork', 'Can opener', '2 lunch boxes'],
       prep: ['Dice the cucumber (160 g) into 1 cm cubes. Peel and grate the carrot (120 g). Chop the red onion (20 g) small and the coriander (6 g).', 'If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
@@ -1652,6 +2245,22 @@ export default [
     minutes: 12,
     serve: 'cold',
     cuisine: 'mediterranean',
+    pitch: 'A Tunisian-style sandwich you build at lunch: hummus in the pita, then tuna, egg and crunchy salad from the box.',
+    cost: { perBoxEur: 3.17, totalEur: 6.35, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Ocado blog, Stuffed pitta pockets',
+        url: 'https://blog.ocado.com/food/stuffed-pitta-pockets/',
+      },
+      {
+        title: 'Ainsley Harriott, Tuna and egg salad pitta pocket with herby yoghurt dressing',
+        url: 'https://www.ainsley-harriott.com/?p=2545',
+      },
+      {
+        title: 'Restaurant Business, Tunisian tuna sandwich',
+        url: 'https://restaurantbusinessonline.com/recipedia/tunisian-tuna-sandwich',
+      },
+    ],
     method: {
       equipment: ['Pot for 2 eggs (if you have none boiled)', 'Can opener and sieve', 'Bowl', 'Chopping board and knife', '2 lunch boxes and 2 small lidded pots (about 75 ml)'],
       prep: ['Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).', 'If you have no boiled eggs from Sunday: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
@@ -1702,6 +2311,18 @@ export default [
     minutes: 10,
     serve: 'either',
     cuisine: 'mediterranean',
+    pitch: 'Kettle-only lunch: couscous soaks while you open a can of mackerel and a jar of chickpeas.',
+    cost: { perBoxEur: 2.88, totalEur: 2.88, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'El Comidista via Diari de Tarragona, Ensalada de cuscús',
+        url: 'https://www.diaridetarragona.com/gastronomia/recetas/266470/ensalada-perfecta-te-salvara-ocasion-verano.html',
+      },
+      {
+        title: 'Público, Receta de ensalada de cuscús',
+        url: 'https://www.publico.es/culturas/recetas/receta-ensalada-cuscus.html',
+      },
+    ],
     method: {
       equipment: ['Kettle', 'Lunch box (about 1 l) with a lid, or a plate to cover it', 'Fork', 'Sieve', 'Chopping board and knife'],
       prep: ['Dice the red pepper (60 g) and cucumber (60 g) into 1 cm pieces. Halve the cherry tomatoes (60 g). Chop the parsley or mint (5 g).', 'Drain and rinse 130 g chickpeas (about ⅓ of a jar). Keep the rest in a closed box in the fridge (2 days).'],
@@ -1761,6 +2382,18 @@ export default [
     minutes: 10,
     serve: 'either',
     cuisine: 'mediterranean',
+    pitch: 'A no-cook mujaddara: cumin-lemon lentils over a brown-rice cup, with cool fresh cheese and tomato on the side.',
+    cost: { perBoxEur: 2.43, totalEur: 4.87, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Gulf News, Ramadan recipe: Mjdara msfaieh salad',
+        url: 'https://gulfnews.com/uae/ramadan-recipe-mjdara-msfaieh-salad-1.2032433',
+      },
+      {
+        title: 'Saveur, Mujaddara (rice with lentils, frizzled onions and lemony yogurt sauce)',
+        url: 'https://www.saveur.com/recipes/mujaddara-recipe',
+      },
+    ],
     method: {
       equipment: ['Sieve', 'Bowl', 'Chopping board and knife', '2 lunch boxes'],
       prep: ['Dice the tomato (200 g) and cucumber (120 g) into 1 cm pieces. Chop the red onion (30 g) small and the mint (4 g).'],
@@ -1802,6 +2435,15 @@ export default [
     minutes: 8,
     serve: 'cold',
     cuisine: 'spanish',
+    pitch: 'A cold Córdoba-style dinner from a carton: salmorejo topped with chopped egg and tuna instead of the usual cured ham, picos to dip.',
+    cost: { perBoxEur: 2.18, totalEur: 4.36, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      { title: 'Spain.info, Salmorejo', url: 'https://www.spain.info/es/receta/salmorejo/' },
+      {
+        title: 'Vorwerk Thermomix, Salmorejo con pipirrana y caballa',
+        url: 'https://www.vorwerk.com/es/es/comunidad/noticias/inspiracion-thermomix/recetas/preparar-salmorejo-pipirrana-caballa-thermomix',
+      },
+    ],
     method: {
       equipment: ['Pot for the Sunday eggs', 'Soup bowl', 'Can opener', 'Knife and board'],
       prep: ['Sunday: boil the eggs (2 per dinner) 10 minutes, cool 5 minutes in cold water and keep them in the fridge (3 days).', 'Keep the salmorejo brik in the fridge so it is very cold.'],
@@ -1863,6 +2505,18 @@ export default [
     minutes: 15,
     serve: 'hot',
     cuisine: 'desi',
+    pitch: 'Desi comfort in 15 minutes and one bowl: jarred chickpeas in a spiced tomato masala, a basmati cup and a protein raita.',
+    cost: { perBoxEur: 1.88, totalEur: 3.76, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Kitchen Stories, Quick and easy chana masala',
+        url: 'https://kitchenstories.com/en/recipes/chana-masala-en',
+      },
+      {
+        title: 'Slender Kitchen, Quick and easy chana masala',
+        url: 'https://www.slenderkitchen.com/recipe/chana-masala',
+      },
+    ],
   },
   {
     foodId: 'es-picoteo-hummus-burgos-portion',
@@ -1884,6 +2538,18 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'spanish',
+    pitch: 'The Spanish "picoteo" dinner for tired evenings: dip, cheese, eggs and crunchy vegetables, nothing to cook.',
+    cost: { perBoxEur: 2.2, totalEur: 4.41, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'The Forked Spoon, Protein snack pack (lunch meal prep)',
+        url: 'https://theforkedspoon.com/protein-snack-pack-lunch-meal-prep/',
+      },
+      {
+        title: 'This Healthy Table, Adult lunchables',
+        url: 'https://thishealthytable.com/blog/adult-lunchables/',
+      },
+    ],
     method: {
       equipment: ['Pot for the Sunday eggs', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)', 'A plate to serve'],
       prep: ['Sunday: boil the eggs (2 per portion) 10 minutes, cool 5 minutes in cold water and keep them in the fridge (3 days).'],
@@ -1922,6 +2588,18 @@ export default [
     minutes: 8,
     serve: 'cold',
     cuisine: 'middle-eastern',
+    pitch: 'Hummus whipped with queso fresco batido doubles the protein; carrot, cucumber and pepper sticks to dip.',
+    cost: { perBoxEur: 0.78, totalEur: 1.57, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Real Life Nutritionist, High-protein hummus',
+        url: 'https://reallifenutritionist.com/wprm_print/high-protein-hummus',
+      },
+      {
+        title: 'Hungry Healthy Happy, High-protein cottage cheese hummus',
+        url: 'https://hungryhealthyhappy.com/high-protein-cottage-cheese-hummus/',
+      },
+    ],
     method: {
       equipment: ['Bowl and whisk or fork', '2 small boxes and 2 lidded pots (about 200 ml)', 'Chopping board and knife'],
       prep: [],
@@ -1962,6 +2640,18 @@ export default [
     minutes: 8,
     serve: 'cold',
     cuisine: 'international',
+    pitch: 'Stir, wait overnight, done: chia set in protein yogurt and milk, pomegranate on top.',
+    cost: { perBoxEur: 0.9, totalEur: 2.69, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Daisy Beet, Chia seed pudding with Greek yogurt (high protein)',
+        url: 'https://daisybeet.com/high-protein-greek-yogurt-chia-seed-pudding/',
+      },
+      {
+        title: 'Country Life Foods, High-protein chia seed pudding with Greek yogurt',
+        url: 'https://countrylifefoods.com/blogs/nuts-seeds/high-protein-chia-seed-pudding-with-greek-yogurt-guide',
+      },
+    ],
     method: {
       equipment: ['Jug and whisk or fork', '3 jars with lids (about 300 ml)', 'Small closed box for the pomegranate'],
       prep: ['Open the pomegranate and take out 150 g of seeds (arils): cut it in half and tap the back with a spoon over a bowl.'],
@@ -2011,7 +2701,12 @@ export default [
         section: 'supermarket',
         note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
-      { foodId: 'intl-green-chilli', grams: 3, section: 'supermarket' },
+      {
+        foodId: 'intl-green-chilli',
+        grams: 3,
+        section: 'supermarket',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
+      },
       { foodId: 'es-yogur-proteinas-natural', grams: 240, section: 'supermarket' },
       { name: 'Cumin', grams: 1, section: 'supermarket' },
     ],
@@ -2019,6 +2714,18 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'desi',
+    pitch: 'Street-food chaat from a jar of chickpeas: onion, tomato, coriander, chaat masala and lemon, with a cool protein dahi on top.',
+    cost: { perBoxEur: 0.94, totalEur: 1.89, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Spice Up The Curry, Chana chaat',
+        url: 'https://www.spiceupthecurry.com/chana-chaat-recipe/',
+      },
+      {
+        title: 'Swasthi\'s Recipes (Indian Healthy Recipes), Chana chaat',
+        url: 'https://www.indianhealthyrecipes.com/wprm_print/chana-chaat-recipe-chickpea-chaat',
+      },
+    ],
   },
   {
     foodId: 'es-lentejas-atun-burgos-salad-box',
@@ -2047,6 +2754,18 @@ export default [
     minutes: 12,
     serve: 'cold',
     cuisine: 'spanish',
+    pitch: 'The lentil and tuna salad made with queso de Burgos 0% instead of feta: same 12 minutes, halal, a little lighter.',
+    cost: { perBoxEur: 2.59, totalEur: 5.19, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Universidad Pablo de Olavide, Recetas para una cuarentena: Ensalada de lentejas',
+        url: 'https://www.upo.es/recetasparaunacuarentena/?p=10347',
+      },
+      {
+        title: 'Directo al Paladar, Ensalada de lentejas: la receta más fácil',
+        url: 'https://www.directoalpaladar.com/recetas-de-legumbres-y-verduras/ensalada-de-lentejas-receta',
+      },
+    ],
     method: {
       equipment: ['Sieve', 'Can opener', 'Large bowl', 'Chopping board and knife', '2 lunch boxes'],
       prep: ['Dice the red pepper (120 g) and cucumber (100 g) into 1 cm pieces. Halve the cherry tomatoes (160 g).', 'Chop the red onion (40 g) small (3 mm) and the parsley (10 g).'],
@@ -2101,6 +2820,27 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'spanish',
+    pitch: 'A proper Spanish bocadillo: paprika chicken, sweet piquillo peppers and a cheese-free almond pesto in a crusty roll you fill at lunch.',
+    cost: {
+      perBoxEur: 3.25,
+      totalEur: 6.5,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Directo al Paladar, Bocadillos de pollo con chimichurri',
+        url: 'https://www.directoalpaladar.com/tapas-y-pinchos/bocadillos-de-pollo-con-chimichurri-receta-facil-para-la-primavera/amp',
+      },
+      {
+        title: 'Mayo Clinic, Roasted red pepper and chicken wrap',
+        url: 'https://mayoclinic.org/es/healthy-lifestyle/recipes/roasted-red-pepper-and-chicken-wrap/rcp-20049703',
+      },
+      {
+        title: 'Occasionally Eggs, Dairy-free pesto',
+        url: 'https://www.occasionallyeggs.com/wprm_print/dairy-free-pesto',
+      },
+    ],
     method: {
       equipment: ['Frying pan (24–28 cm)', 'Stick blender and its tall jug (or a small food processor)', 'Small dry pan for the almonds', '2 lunch boxes and 2 small lidded pots (about 50 ml)', 'Chopping board and sharp knife'],
       prep: ['Take the chicken (300 g) out of the fridge. If the fillets are thicker than 1.5 cm, cut each one through the middle to make 2 thin fillets.', 'Peel 3 garlic cloves. Grate 2 of them (6 g) for the chicken; keep 1 whole (3 g) for the pesto.', 'Pick the leaves off the basil tray (20 g). Throw away the thick stalks.', 'Drain the piquillo peppers (½ jar, 160 g) and cut them into strips 1 cm wide.', 'Slice the tomatoes (160 g) 5 mm thick. Wash and dry the lettuce leaves (60 g).'],
@@ -2192,6 +2932,18 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'spanish',
+    pitch: 'The classic bocadillo de atún with a boiled egg, tomato and a pot of mashed avocado instead of mayonnaise. Ten minutes, no cooking.',
+    cost: { perBoxEur: 2.85, totalEur: 5.7, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Guía Infantil, Bocadillo de atún',
+        url: 'https://www.guiainfantil.com/recetas/sandwiches-y-bocadillos/bocadillo-de-atun-merienda-sana-para-ninos/',
+      },
+      {
+        title: 'Directo al Paladar, Mini de atún, huevo, tomate y espárragos',
+        url: 'https://www.directoalpaladar.com/tapas-y-pinchos/mini-de-atun-huevo-tomate-y-esparragos-receta',
+      },
+    ],
     method: {
       equipment: ['Small pot (for 2 eggs)', 'Bowl and fork', 'Can opener and a sieve', '2 lunch boxes and 2 small lidded pots (about 50 ml)', 'Chopping board and knife'],
       prep: ['Finely chop the red onion (20 g, about ¼ of a small onion) into pieces of about 3 mm.', 'Slice the tomatoes (200 g) 5 mm thick. Wash and dry the lettuce (60 g).', 'Open the 4 cans of tuna and tip them into the sieve to drain (240 g drained).'],
@@ -2273,6 +3025,23 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'middle-eastern',
+    pitch: 'Oven shawarma chicken with cumin, paprika and cinnamon, a garlic-yogurt pot, hummus and a crunchy salad: you fill the warm or cold pitas at lunch.',
+    cost: {
+      perBoxEur: 2.68,
+      totalEur: 10.73,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Budget Bytes, Chicken shawarma',
+        url: 'https://www.budgetbytes.com/chicken-shawarma/',
+      },
+      {
+        title: 'MealPractice, Chicken shawarma with garlic yogurt sauce and pita bread',
+        url: 'https://mealpractice.com/recipes/chicken-shawarma-with-garlic-yogurt-sauce-and-pita-bread-6IQRguLQOW',
+      },
+    ],
     method: {
       equipment: ['Large oven tray lined with baking paper', 'Mixing bowl', 'Small bowl for the sauce', 'Chopping board and knife', '4 lunch boxes and 8 small lidded pots (about 50 ml)'],
       prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick and 5 cm long.', 'Peel 4 garlic cloves. Grate 3 of them (9 g) for the marinade and 1 (3 g) for the sauce.', 'Shred the lettuce (160 g). Dice the tomatoes (240 g) and cucumber (200 g) into 1 cm cubes. Slice the red onion (60 g) thin.', 'Chop the mint leaves (4 g, a small handful) finely.'],
@@ -2358,6 +3127,23 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'international',
+    pitch: 'Crisp romaine, seared chicken, a boiled egg and crunchy wholemeal picos, with a creamy yogurt-Dijon dressing in its own pot: no anchovy, no Parmesan.',
+    cost: {
+      perBoxEur: 3.23,
+      totalEur: 6.46,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Dinners, Dishes and Desserts, Chicken caesar salad',
+        url: 'https://dinnersdishesanddesserts.com/chicken-caesar-salad/',
+      },
+      {
+        title: 'Haute and Healthy Living, Healthy chicken caesar salad',
+        url: 'https://www.hauteandhealthyliving.com/healthy-chicken-caesar-salad/',
+      },
+    ],
     method: {
       equipment: ['Frying pan (24–28 cm)', 'Small pot (for 2 eggs)', 'Salad spinner or a clean tea towel', 'Jar or bowl for the dressing', '2 lunch boxes and 2 small lidded pots (about 100 ml)'],
       prep: ['If the chicken breast (260 g) is thicker than 1.5 cm, cut it through the middle into 2 thin fillets.', 'Peel 2 garlic cloves. Grate 1 (3 g) for the chicken and a small piece (2 g) for the dressing.', 'Cut the 2 romaine hearts (400 g) into strips 2 cm wide. Halve the cherry tomatoes (200 g).'],
@@ -2435,6 +3221,27 @@ export default [
     effort: 'cook',
     minutes: 30,
     cuisine: 'italian',
+    pitch: 'A slow-simmered beef, mushroom and carrot ragù with no wine, frozen in portions; cook the penne fresh or the night before and lunch is done.',
+    cost: {
+      perBoxEur: 2.35,
+      totalEur: 9.4,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Jamie Oliver, Bolognese',
+        url: 'https://www.jamieoliver.com/recipes/beef/5050-bolognese',
+      },
+      {
+        title: 'Myfoodbook, How to freeze Bolognese sauce',
+        url: 'https://myfoodbook.com.au/node/53799',
+      },
+      {
+        title: 'COOK, The guide to batch cooking',
+        url: 'https://cookfood.net/blog/batch-cooking-guide',
+      },
+    ],
     method: {
       equipment: ['Wide deep frying pan or casserole (28 cm) with a lid', 'Wooden spoon', 'Large pot for 3 l of water and a colander', 'Grater', 'Oven tray or wide dish for cooling', '4 lunch boxes and 2 freezer bags'],
       prep: ['Peel the onion (150 g, 1 medium) and chop it small (5 mm).', 'Peel and grate the carrot (120 g, 1 large) on the big holes of the grater.', 'Wipe the mushrooms (200 g) and chop them into 1 cm pieces.', 'Peel 3 garlic cloves (9 g) and chop them finely.', 'Open 1½ tins of crushed tomato (800 g).'],
@@ -2514,6 +3321,27 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'italian',
+    pitch: 'Wholewheat penne, seared chicken and broccoli tossed in a fresh almond-basil pesto with cherry tomatoes. Good hot from the microwave or cold as a pasta salad.',
+    cost: {
+      perBoxEur: 2.64,
+      totalEur: 10.57,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'One Clever Chef, Pesto chicken broccoli pasta meal prep',
+        url: 'https://www.onecleverchef.com/pesto-chicken-broccoli-pasta-meal-prep/',
+      },
+      {
+        title: 'Damn Delicious, Chicken pesto pasta meal prep',
+        url: 'https://damndelicious.net/2017/08/14/chicken-pesto-pasta-meal-prep',
+      },
+      {
+        title: 'Occasionally Eggs, Dairy-free pesto',
+        url: 'https://www.occasionallyeggs.com/wprm_print/dairy-free-pesto',
+      },
+    ],
     method: {
       equipment: ['Large frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Mug (to keep pasta water)', 'Stick blender and its jug (or small food processor)', 'Small dry pan for the almonds', 'Oven tray for cooling', '4 lunch boxes'],
       prep: ['Cut the chicken breast (540 g) into bite-size pieces of about 2.5 cm.', 'Peel 4 garlic cloves: chop 2 (6 g) for the chicken and keep 2 (6 g) whole for the pesto.', 'Pick the basil leaves off 2 trays (40 g). Halve the cherry tomatoes (240 g) and keep them in the fridge.'],
@@ -2594,6 +3422,18 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'italian',
+    pitch: 'The student classic done properly: wholewheat penne in a garlicky tomato sauce with tuna, peas and green olives. Twenty minutes, one pan and one pot.',
+    cost: { perBoxEur: 1.87, totalEur: 7.47, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Directo al Paladar, Pasta con atún y tomate',
+        url: 'https://www.directoalpaladar.com/recetas-de-pasta/pasta-con-atun-y-tomate',
+      },
+      {
+        title: 'Vitónica, Pasta con atún salteado en salsa de tomate picante',
+        url: 'https://www.vitonica.com/recetas-saludables/pasta-con-atun-salteado-en-salsa-de-tomate-picante-receta-saludable',
+      },
+    ],
     method: {
       equipment: ['Wide deep frying pan or casserole (28 cm)', 'Wooden spoon', 'Large pot for 3 l of water and a colander', 'Can opener and sieve', 'Oven tray for cooling', '4 lunch boxes'],
       prep: ['Peel the onion (150 g, 1 medium) and chop it small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.', 'Open and drain 6 cans of tuna in the sieve (360 g drained).', 'Slice the pitted green olives (60 g) into rings.', 'Open the crushed tomato (800 g).'],
@@ -2678,6 +3518,23 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'mediterranean',
+    pitch: 'Oregano-lemon chicken, penne, cucumber, tomatoes, green pepper, red onion and olives in a cool tzatziki dressing. A cold lunch that tastes like summer.',
+    cost: {
+      perBoxEur: 2.26,
+      totalEur: 9.06,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Crunch, Greek chicken pasta salad',
+        url: 'https://crunch.com/thehub/greek-chicken-pasta-salad/',
+      },
+      {
+        title: 'The Girl on Bloor, Mediterranean pasta salad',
+        url: 'https://thegirlonbloor.com/wprm_print/mediterranean-pasta-salad',
+      },
+    ],
     method: {
       equipment: ['Frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Bowl for the dressing', 'Chopping board and knife', '4 lunch boxes, 4 small lidded pots (about 100 ml) and 3 freezer bags'],
       prep: ['If the chicken breasts (540 g) are thicker than 1.5 cm, cut them through the middle into thin fillets.', 'Peel 4 garlic cloves: grate 2 (6 g) for the chicken and 2 (6 g) for the dressing.', 'Dice the cucumber (300 g) and green pepper (160 g) into 1 cm pieces. Halve the cherry tomatoes (320 g). Slice the red onion (60 g) thin. Halve the olives (80 g).', 'Chop the mint leaves (6 g) finely.'],
@@ -2760,6 +3617,7 @@ export default [
         name: 'Soy sauce with a halal logo',
         grams: 20,
         section: 'supermarket',
+        note: 'Asian or Pakistani grocery: pick one with a halal logo (Mercadona has none)',
       },
       { foodId: 'intl-lemon-juice', grams: 30, section: 'supermarket' },
       { foodId: 'intl-sugar', grams: 6, section: 'supermarket' },
@@ -2768,6 +3626,23 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'asian',
+    pitch: 'Ginger chicken, quinoa, crunchy carrot, cucumber and red pepper with roasted peanuts and a sweet-sour ginger dressing. No cooking for the grain: the quinoa comes in a cup.',
+    cost: {
+      perBoxEur: 2.79,
+      totalEur: 5.57,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Bread A DA, Crunchy Asian quinoa salad with peanut butter dressing',
+        url: 'https://breada.org/recipe/crunchy-asian-quinoa-salad-with-peanut-butter-dressing',
+      },
+      {
+        title: 'Real Life Nutritionist, Quinoa edamame salad',
+        url: 'https://reallifenutritionist.com/wprm_print/quinoa-edamame-salad',
+      },
+    ],
     method: {
       equipment: ['Frying pan (24–28 cm)', 'Small jar with a lid (for the dressing)', 'Grater', 'Chopping board and knife', '2 lunch boxes and 2 small lidded pots (about 50 ml)'],
       prep: ['Cut the chicken breast (280 g) into strips about 1 cm thick.', 'Peel the ginger and grate it: 6 g (a 3 cm piece) for the chicken and 6 g for the dressing. Peel and grate 1–2 garlic cloves (4 g).', 'Cut the carrot (160 g) and cucumber (160 g) into thin matchsticks (or grate the carrot). Slice the red pepper (160 g) thin. Chop the coriander (10 g, a handful).'],
@@ -2847,6 +3722,23 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'mexican',
+    pitch: 'Smoky cumin-paprika chicken with kidney beans and sweetcorn over a brown-rice cup, with pico de gallo and a cool yogurt pot. Microwave the hot half, keep the salsa cold.',
+    cost: {
+      perBoxEur: 2.72,
+      totalEur: 10.89,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Weight Watchers, Chicken burrito bowl',
+        url: 'https://www.weightwatchers.com/au/recipe/chicken-burrito-bowl/58d1a20996d1988e115d07bc',
+      },
+      {
+        title: 'Brookshire Brothers, Chicken burrito bowls',
+        url: 'https://brookshirebrothers.com/blog-entry/chicken-burrito-bowls',
+      },
+    ],
     method: {
       equipment: ['Large frying pan (28 cm)', 'Sieve', 'Can opener', '4 lunch boxes and 4 small boxes or pots (about 150 ml) for the cold side'],
       prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick.', 'Peel and chop 2 garlic cloves (6 g).', 'Drain and rinse the kidney beans (1 jar, 400 g). Drain the 3 small tins of sweetcorn (210 g).', 'Shred the lettuce (120 g).'],
@@ -2922,6 +3814,7 @@ export default [
         name: 'Soy sauce with a halal logo',
         grams: 60,
         section: 'supermarket',
+        note: 'Asian or Pakistani grocery: pick one with a halal logo (Mercadona has none)',
       },
       { foodId: 'intl-lemon-juice', grams: 20, section: 'supermarket' },
       { foodId: 'intl-sugar', grams: 8, section: 'supermarket' },
@@ -2930,6 +3823,23 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'asian',
+    pitch: 'A wok of ginger-garlic chicken, broccoli, peppers, carrot, mushrooms and peas with rice noodles in a soy, lemon and chilli sauce. Microwave and eat.',
+    cost: {
+      perBoxEur: 2.42,
+      totalEur: 9.67,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Crohn\'s & Colitis Australia, Chicken stir fry with rice noodles',
+        url: 'https://crohnsandcolitis.org.au/recipes/chicken-stir-fry-with-rice-noodles/',
+      },
+      {
+        title: 'Barefeet in the Kitchen, Stir fry noodles',
+        url: 'https://barefeetinthekitchen.com/stir-fry-noodles-recipe/',
+      },
+    ],
     method: {
       equipment: ['Wok or the largest frying pan you have (30 cm)', 'Large heatproof bowl and a kettle', 'Colander', 'Small bowl for the sauce', 'Oven tray for cooling', '4 lunch boxes'],
       prep: ['Take the frozen broccoli (300 g) out to thaw in a colander 1 hour before, or rinse it under the warm tap.', 'Cut the chicken breast (560 g) into thin strips (5 mm).', 'Peel and chop 3 garlic cloves (9 g). Peel and grate the ginger (10 g, a 5 cm piece).', 'Slice the onion (100 g) thin. Cut the red pepper (200 g) into strips and the carrot (160 g) into thin matchsticks. Slice the mushrooms (200 g).', 'Sauce: in the small bowl mix 4 tbsp halal-certified soy sauce (60 g), 1½ tbsp lemon or lime juice (20 g), 2 tsp sugar (8 g) and a pinch of chilli powder (1 g).'],
@@ -3007,6 +3917,23 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'spanish',
+    pitch: 'One tray in the oven: lemon-paprika chicken on potatoes, red and green peppers, red onion and crispy chickpeas. Twenty minutes of chopping, the oven does the rest.',
+    cost: {
+      perBoxEur: 2.25,
+      totalEur: 9,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'Cookpad (Valentina), Pollo al horno con patatas y pimientos',
+        url: 'https://cookpad.com/mx/recetas/5408141',
+      },
+      {
+        title: 'HelloFresh España, recipe card (boneless thighs, potato, onion, pepper, smoked paprika)',
+        url: 'https://hellofresh.es/recipecards/card/666c26ed9b60063b8d2018e2-es-ES.pdf',
+      },
+    ],
     method: {
       equipment: ['1 very large oven tray or 2 normal trays, lined with baking paper', 'Large bowl', 'Chopping board and knife', 'Kitchen paper', '4 boxes (3 for the fridge, 1 for the freezer)'],
       prep: ['Wash the potatoes (900 g), peel them and cut them into wedges about 2 cm thick.', 'Cut the red pepper (300 g) and green pepper (200 g) into strips 1.5 cm wide. Cut the red onion (200 g) into 8 wedges.', 'Drain the chickpeas (1 jar, 400 g), rinse them and pat them dry with kitchen paper so they crisp.', 'Cut each chicken fillet (600 g, 4 fillets) in half. Peel and grate 3 garlic cloves (9 g).'],
@@ -3075,6 +4002,18 @@ export default [
     effort: 'cook',
     minutes: 15,
     cuisine: 'mediterranean',
+    pitch: 'Lemony salmon medallions roasted on the same tray as paprika potatoes and green beans, with a cool lemon-yogurt sauce. Fifteen minutes of work.',
+    cost: { perBoxEur: 2.86, totalEur: 5.71, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'The Dizzy Cook, Sheet pan salmon and green beans with potatoes',
+        url: 'https://thedizzycook.com/sheet-pan-salmon-and-green-beans-with-potatoes/',
+      },
+      {
+        title: 'Family Food on the Table, Sheet pan salmon and potatoes with green beans',
+        url: 'https://www.familyfoodonthetable.com/wprm_print/sheet-pan-salmon-and-potatoes-with-green-beans',
+      },
+    ],
     method: {
       equipment: ['Large oven tray lined with baking paper', 'Small bowl for the sauce', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)'],
       prep: ['The night before: move 4 frozen salmon medallions (250 g) from the freezer to the fridge to thaw on a plate.', 'Peel the potatoes (400 g) and cut them into wedges about 2 cm thick.', 'Cut the red onion (80 g, ½ onion) into wedges. Peel and slice 2 garlic cloves (6 g). Keep the green beans (300 g) frozen until step 4.', 'Chop the parsley (4 g, a small handful) and grate a small piece of garlic (2 g) for the sauce.'],
@@ -3136,6 +4075,23 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'mexican',
+    pitch: 'Lean halal beef, kidney beans, peppers and tomato with cumin and chilli, simmered thick and frozen in portions, with brown rice and a spoon of yogurt.',
+    cost: {
+      perBoxEur: 2.56,
+      totalEur: 10.24,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'The Seasoned Mom, Chili con carne',
+        url: 'https://www.theseasonedmom.com/wprm_print/chili-con-carne',
+      },
+      {
+        title: 'Myprotein, Bulk meal prep on a budget: chilli con carne',
+        url: 'https://www.myprotein.com.my/blog/recipe/bulk-meal-prep-on-a-budget-chilli-con-carne/',
+      },
+    ],
     method: {
       equipment: ['Wide deep frying pan or casserole (28 cm) with a lid', 'Medium pot with a lid for the rice', 'Wooden spoon', 'Sieve', 'Oven tray or wide dish for cooling', '4 boxes and 4 small lidded pots'],
       prep: ['Peel and chop the onion (200 g, 1 large) into 5 mm pieces. Dice the red pepper (200 g) into 1 cm pieces.', 'Peel and chop 3 garlic cloves (9 g).', 'Drain and rinse the kidney beans (1 jar, 400 g). Open the crushed tomato (800 g).', 'Rinse the brown rice (240 g) in the sieve under cold water.'],
@@ -3217,6 +4173,18 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'middle-eastern',
+    pitch: 'A spiced pepper, tomato and chickpea sauce from the freezer; crack two eggs into it on the night and dip bread. Eight minutes at dinner.',
+    cost: { perBoxEur: 1.64, totalEur: 6.57, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Food Network Kitchen, Shakshuka with chickpeas',
+        url: 'https://www.foodnetwork.com/recipes/food-network-kitchen/shakshuka-with-chickpeas-3363804.amp',
+      },
+      {
+        title: 'Pulses.org, Shakshuka with chickpeas',
+        url: 'https://www.pulses.org/recipes/recipe/234-shakshuka-with-chickpeas',
+      },
+    ],
     method: {
       equipment: ['Wide deep frying pan (28 cm)', 'Small frying pan (20 cm) with a lid, for the night', 'Wooden spoon', '4 freezer boxes or bags and 4 small lidded pots'],
       prep: ['Slice the onion (200 g, 1 large) thin. Cut the red peppers (300 g) into strips 1 cm wide.', 'Peel and chop 3 garlic cloves (9 g).', 'Drain the chickpeas (1 jar, 400 g). Open the crushed tomato (800 g).'],
@@ -3302,6 +4270,23 @@ export default [
     effort: 'cook',
     minutes: 30,
     cuisine: 'middle-eastern',
+    pitch: 'The Moroccan iftar soup: beef, lentils, chickpeas, tomato, ginger, cinnamon, coriander and parsley, finished with lemon. It freezes well and fills you up.',
+    cost: {
+      perBoxEur: 3.02,
+      totalEur: 12.09,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'The Daring Gourmet, Harira (Moroccan chickpea lentil soup)',
+        url: 'https://www.daringgourmet.com/wprm_print/harira-moroccan-chickpea-lentil-soup',
+      },
+      {
+        title: 'Grantourismo, Moroccan harira soup',
+        url: 'https://grantourismotravels.com/wprm_print/moroccan-harira-soup-recipe-for-a-hearty-comforting-chickpea-lentil-soup',
+      },
+    ],
     method: {
       equipment: ['Large pot (at least 4 l) with a lid', 'Wooden spoon', 'Sieve', 'Wide dish or 2 trays for cooling', '4 boxes (2 for the fridge, 2 for the freezer) and bags for the bread'],
       prep: ['Cut the beef (400 g) into small cubes of 1–2 cm.', 'Peel and chop the onion (200 g, 1 large) into 5 mm pieces. Peel and grate the ginger (6 g, a 3 cm piece).', 'Drain and rinse the lentils (1 jar, 400 g drained) and the chickpeas (1 jar, 400 g).', 'Rinse the rice (60 g). Chop the coriander (20 g) and parsley (20 g).'],
@@ -3377,6 +4362,23 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'italian',
+    pitch: 'Wholewheat penne in a garlicky tomato and spinach sauce with chicken, under melted mozzarella. Comfort food from the freezer.',
+    cost: {
+      perBoxEur: 1.8,
+      totalEur: 7.2,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    },
+    references: [
+      {
+        title: 'SparkPeople, Chicken spinach pasta bake',
+        url: 'https://recipes.sparkpeople.com/recipe-detail.asp?recipe=146316',
+      },
+      {
+        title: 'An Affair from the Heart, Chicken spinach pasta bake',
+        url: 'https://anaffairfromtheheart.com/wprm_print/chicken-spinach-pasta-bake',
+      },
+    ],
     method: {
       equipment: ['Wide deep frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Oven dish about 20 × 30 cm', 'Wooden spoon', '4 boxes (1 for the fridge, 3 for the freezer)'],
       prep: ['Take the frozen spinach (300 g) out 1 hour before, or thaw it in the microwave 3 minutes; squeeze out the water.', 'Cut the chicken breast (400 g) into bite-size pieces of about 2.5 cm.', 'Peel and chop the onion (150 g, 1 medium) into 5 mm pieces. Peel and chop 2 garlic cloves (6 g).', 'Drain the 2 mozzarella balls (250 g) and tear them into small pieces.'],
@@ -3444,6 +4446,18 @@ export default [
     minutes: 8,
     serve: 'hot',
     cuisine: 'spanish',
+    pitch: 'Half a brik of crema de verduras heated with chickpeas, topped with chopped boiled egg and a drizzle of olive oil, with bread to dip. A warm dinner in 8 minutes.',
+    cost: { perBoxEur: 1.61, totalEur: 3.22, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Que.es, Crema de verduras con proteína: el huevo o queso que evita que parezca poca cena',
+        url: 'https://www.que.es/2026/06/30/crema-verduras-proteina-huevo-queso-cena/',
+      },
+      {
+        title: 'Vitónica, Crema de calabacín y garbanzos',
+        url: 'https://www.vitonica.com/recetas-saludables/crema-calabacin-garbanzos-receta-saludable-reconfortante-que-sienta-bien-a-toda-familia',
+      },
+    ],
     method: {
       equipment: ['Small pot with a lid for 2 eggs', 'Medium pan, or a large microwave-safe bowl with a plate as a lid', 'Sieve', 'A soup bowl'],
       prep: ['Sunday: boil 4 eggs (10 minutes in bubbling water, then 5 minutes in cold water), peel them and keep them in the fridge (3 days).', 'Drain and rinse the chickpeas (1 jar, 400 g).'],
@@ -3487,6 +4501,18 @@ export default [
     minutes: 8,
     serve: 'cold',
     cuisine: 'spanish',
+    pitch: 'A Spanish café breakfast at home: toasted roll with grated tomato and olive oil, topped with tuna, avocado and a sliced egg.',
+    cost: { perBoxEur: 1.76, totalEur: 3.52, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'UnoTV, Desayunos fáciles con una lata de atún',
+        url: 'https://www.unotv.com/estilo-de-vida/gastronomia/desayunos-faciles-rapidos-y-baratos-con-una-lata-de-atun-recetas/',
+      },
+      {
+        title: 'Directo al Paladar, Tosta de aguacate fácil y rápida',
+        url: 'https://www.directoalpaladar.com/recetas-vegetarianas/esta-tosta-aguacate-facil-rapida-te-resuelte-cena-que-desayuno',
+      },
+    ],
     method: {
       equipment: ['Box grater', 'Small lidded pot (about 250 ml)', 'Small pot for the eggs (if you have no boiled eggs)', 'Toaster or a dry frying pan', 'Sieve'],
       prep: ['The night before: cut the tomatoes (200 g, 2 medium) in half. Grate the cut side on the big holes of the grater until only the skin is left in your hand. Throw away the skin.', 'Stir ⅓ tsp salt (1 g) into the tomato pulp and keep it in the small pot in the fridge (enough for 2 mornings).', 'If you have no boiled eggs from Sunday, boil 2 eggs (10 minutes in bubbling water, 5 in cold water) and peel them.'],
@@ -3530,6 +4556,18 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'international',
+    pitch: 'A tray of baked egg with spinach and red pepper, cut into squares and sandwiched with mozzarella in a roll, then frozen. Two minutes in the microwave in the morning.',
+    cost: { perBoxEur: 1.33, totalEur: 5.31, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Natasha\'s Kitchen, Freezer breakfast sandwiches',
+        url: 'https://natashaskitchen.com/wprm_print/freezer-breakfast-sandwiches',
+      },
+      {
+        title: 'Simply Delicious, Make-ahead freezer breakfast sandwiches',
+        url: 'https://simply-delicious-food.com/make-ahead-freezer-breakfast-sandwiches/',
+      },
+    ],
     method: {
       equipment: ['Square oven tin, about 20 × 20 cm, lined with baking paper', 'Large bowl and a whisk or fork', 'Chopping board and knife', 'Baking paper and foil (or freezer bags) for 4 rolls'],
       prep: ['Chop the baby spinach (60 g, 2 handfuls) roughly. Dice the red pepper (80 g, ½ pepper) into 1 cm pieces.', 'Drain the mozzarella ball (125 g) and cut it into 8 slices.', 'Cut the 4 rolls (130 g each) open along one side.'],
@@ -3570,6 +4608,18 @@ export default [
     minutes: 5,
     serve: 'cold',
     cuisine: 'international',
+    pitch: 'Blend it the night before, drink it on the way out: protein yogurt, milk, oats, a banana and a few peanuts. No protein powder.',
+    cost: { perBoxEur: 1.3, totalEur: 1.3, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Well Plated, Greek yogurt smoothie',
+        url: 'https://www.wellplated.com/greek-yogurt-smoothie/',
+      },
+      {
+        title: 'Grateful Grazer, High-protein strawberry banana smoothie with Greek yogurt',
+        url: 'https://gratefulgrazer.com/wprm_print/high-protein-strawberry-banana-smoothie-with-greek-yogurt',
+      },
+    ],
     method: {
       equipment: ['Stick blender and its tall jug (or a blender)', 'Jar with a lid, 500 ml'],
       prep: ['Peel the small banana (about 100 g) and break it into 3–4 pieces.'],
@@ -3619,6 +4669,18 @@ export default [
     effort: 'cook',
     minutes: 15,
     cuisine: 'middle-eastern',
+    pitch: 'Soft eggs stirred into green peppers and tomato with a pinch of chilli, the Turkish breakfast, with bread to scoop. Cook two, reheat one tomorrow.',
+    cost: { perBoxEur: 1.6, totalEur: 3.2, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'The Mediterranean Dish, Menemen (Turkish scrambled eggs with tomatoes)',
+        url: 'https://www.themediterraneandish.com/wprm_print/menemen-recipe-turkish-scrambled-eggs-with-tomatoes',
+      },
+      {
+        title: 'Unicorns in the Kitchen, Menemen Turkish eggs and tomatoes',
+        url: 'https://www.unicornsinthekitchen.com/wprm_print/menemen-turkish-eggs-and-tomatoes-recipe',
+      },
+    ],
     method: {
       equipment: ['Frying pan (24–28 cm)', 'Bowl and fork for the eggs', 'Grater', 'Wooden spoon', '1 box for tomorrow'],
       prep: ['Chop the onion (80 g, ½ small onion) into 5 mm pieces. Dice the green peppers (200 g) into 1 cm pieces.', 'Grate the tomatoes (300 g, 3 medium) on the big holes of the grater and throw away the skins (or chop them small).', 'Crack 6 eggs into the bowl. Add a pinch of chilli powder or pul biber (1 g) and ⅓ tsp salt (2 g). Beat with the fork.'],
@@ -3675,6 +4737,18 @@ export default [
     effort: 'cook',
     minutes: 15,
     cuisine: 'mexican',
+    pitch: 'Scrambled eggs with cumin and kidney beans in warm corn tortillas, topped with pico de gallo. The filling reheats in a minute; warm the tortillas in a dry pan.',
+    cost: { perBoxEur: 1.91, totalEur: 3.81, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Weight Watchers, Chicken burrito bowl (beans, corn and tortilla)',
+        url: 'https://www.weightwatchers.com/au/recipe/chicken-burrito-bowl/58d1a20996d1988e115d07bc',
+      },
+      {
+        title: 'The Mediterranean Dish, Menemen',
+        url: 'https://www.themediterraneandish.com/wprm_print/menemen-recipe-turkish-scrambled-eggs-with-tomatoes',
+      },
+    ],
     method: {
       equipment: ['Frying pan (24 cm)', 'Bowl and fork', 'Sieve', '2 boxes and 2 small lidded pots (about 75 ml)'],
       prep: ['Drain and rinse half a jar of kidney beans (200 g). Keep the other half in a closed box in the fridge for a salad or the burrito bowls (use within 2 days).', 'Crack 4 eggs into the bowl, add the liquid egg whites (100 g) and a pinch of salt (1 g), and beat with the fork.'],
@@ -3732,6 +4806,18 @@ export default [
     minutes: 5,
     serve: 'cold',
     cuisine: 'italian',
+    pitch: 'Torn mozzarella light with cherry tomatoes and basil, and a few wholemeal picos for crunch: 20 g protein for the afternoon.',
+    cost: { perBoxEur: 1.67, totalEur: 3.34, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    references: [
+      {
+        title: 'Diet Doctor, Caprese snack',
+        url: 'https://www.dietdoctor.com/recipes/caprese-snack',
+      },
+      {
+        title: 'Baked Bree, Caprese skewers',
+        url: 'https://bakedbree.com/wprm_print/caprese-skewers',
+      },
+    ],
     method: {
       equipment: ['Sieve', 'Chopping board and knife', '2 small boxes'],
       prep: ['Halve the cherry tomatoes (300 g).'],
