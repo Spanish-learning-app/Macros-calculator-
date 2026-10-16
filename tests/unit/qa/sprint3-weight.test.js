@@ -41,7 +41,7 @@ const near = (actual, expected, eps = 0.006, msg = '') =>
     Math.abs(actual - expected) <= eps,
     `${msg} expected ${expected} (+-${eps}), got ${actual}`,
   );
-const last = (entries) => entries.at(-1).date;
+const last = (entries) => entries.at(-1)?.date ?? D0; // no entries: any day will do
 
 /** A person with a normal goal and room on both sides of the rails. */
 const CTX = (entries, over = {}) => ({
@@ -269,7 +269,7 @@ test('suggest: size is a multiple of 50, never more than 200, and the sign follo
     const r = run(line(range(0, 22, 2), 100, perWeek / 7), { kcal: 2400 });
     if (!r.suggestion) continue;
     const c = r.suggestion.kcalPerDay;
-    assert.equal(c % 50, 0, `rate ${perWeek}: ${c} is a multiple of 50`);
+    assert.equal(Math.abs(c) % 50, 0, `rate ${perWeek}: ${c} is a multiple of 50`);
     assert.ok(Math.abs(c) <= 200, `rate ${perWeek}: ${c} within 200`);
     assert.ok(c !== 0);
     // Maintain goal: gaining means eat less, losing means eat more.

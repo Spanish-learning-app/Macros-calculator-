@@ -142,3 +142,10 @@
   Asia/Karachi (lint, prettier, unit in Madrid, Karachi, LA): 597 tests per zone, 594/593/593 pass, 0 fail, 3 todo (BUG-S1, BUG-SH1 x2), 1 skip
   outside Madrid (DST case). `npm run test:e2e`: 228 passed, 4 skipped (one tsp-default taste-chip case per project: no such food), 0 failed.
   The speed test passed in all six unit runs (machine quiet).
+
+## Sprint 3 wave 1 (resumed after a usage-limit stop)
+
+- 2026-10-16 01:59 UTC: Resumed. sprint3-weight.test.js on disk (34 tests, 531 lines, store section included). Two failures, BOTH TEST BUGS (mine, M-06):
+  (1) trend "reading 'date'": `run([])` -> CTX -> `last([])` = `[].at(-1).date`. Fixed: `last` returns D0 for an empty list.
+  (2) "-0 vs 0": `-200 % 50` is -0 in JS; the app returns -200 (a plain integer, no -0 anywhere). Fixed: `Math.abs(c) % 50`. No app bug, nothing to display.
+  34/34 pass in Madrid.
