@@ -6,6 +6,8 @@
 
 Every number comes from a standard recipe calculation (NUTRITION.md §6). Each recipe sheet shows the ingredients in grams, the published recipes it starts from, the yields, storage per component, a shopping list and a dated cost.
 
+**How to make it:** 45 of the 64 recipe sheets have a step-by-step method for a beginner (equipment, what to cut first, each step with its heat and time, how to tell it is done, how to box it, how to reheat). The app shows the same method under "How to make it" on the recipe card. The others still have a short cook's method on their sheet and are being rewritten.
+
 **Contents:** [Breakfast](#breakfast-preps) · [Lunch boxes](#lunch-boxes) · [Dinner](#freezer-dinners) · [No-cook preps](#no-cook-preps) · [Ready to eat](#ready-to-eat-picks) · [Low-cook week](#a-low-cook-week) · [Budget week](#a-budget-low-cook-week) · [Roti and paratha stock](#roti-and-paratha-stock) · [Storage](#storage-at-a-glance) · [A Sunday that works](#a-sunday-that-works) · [How to batch in the app](#how-to-batch-in-the-app) · [Halal shopping in Barcelona](#halal-shopping-in-barcelona) · [Where the numbers come from](#where-the-numbers-come-from)
 
 ## Breakfast preps

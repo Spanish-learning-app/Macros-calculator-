@@ -196,3 +196,14 @@
 - 01:52 UTC Beginner methods written for 41–48 (build checked; a bad heat value fails the build as intended).
 - 01:55 UTC Beginner methods 49–64 written; all of 41–64 now carry the method object (build OK). Relaxed the no-cook check: an assemble prep with no heated step must start "No cooking." (58 heats a carton soup, 59 toasts bread, 42 boils eggs).
 - 01:56 UTC Beginner methods 05–07, 10–13, 15 written.
+- 01:57 UTC Beginner methods 25–27, 29–34, 36–38, 40 written. All 45 of my sheets now have the method object; amounts cross-checked against the sheet lines by script (only container sizes and rounded box portions differ).
+- 01:58 UTC docs/MEALPREP.md intro now says how many sheets have the beginner method (generated: "45 of the 64").
+  Checks: build OK (warns for the 19 desi sheets only); recipes-mealprep.js: 64 recipes, 45 with `method`;
+  check-foods 348/348 pass, 0 warnings; prettier OK on both data files; npm test 683/685 — the 2 failures are in
+  tests/unit/qa/sprint3-weight.test.js (trend "reading 'date'" of undefined; suggest() returns -0 vs 0), weight code,
+  not meal-prep data → for Kenji/Hamza. Weeks not touched (queued task); note: budget week till is 77.17 €, over its
+  60 € aim in the build comment.
+- STOP POINT (clean): steps 1–4 done for my 45 sheets. Left: Zainab's 19 desi sheets (01–04, 08, 09, 14, 16–24, 28, 35,
+  39) still have the string-array method. When she is done, set `LEGACY_OK = false` in build.mjs (one line) so a
+  string-array method fails the build. Smoothie (#61): storage class overnight-oats says 3 days, the method says drink
+  within 24 h (the sheet's own sources) — conservative, flagged for Ayesha.
