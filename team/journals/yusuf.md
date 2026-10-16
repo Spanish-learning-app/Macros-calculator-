@@ -169,3 +169,21 @@
   Rebuild works (only the build date moves). check-foods: 14 FAIL, all G1: the new ids use prefixes `me-`, `it-`, `as-`,
   `mx-`, but NUTRITION §3 allows only pk-/es-/med-/intl-. The ids were never published (artifact published 10-15 16:17,
   ids first committed 10-16 01:45 as WIP), so renaming is allowed: me- → med-, it-/as-/mx- → intl-. No collisions.
+- 01:49 UTC Renamed 14 ids (sheets 43, 45–51, 54–57, 62–64; build.mjs weeks), deleted their stale .md sheets, rebuilt.
+  check-foods: 348/348 pass, 0 warnings. Every sheet 01–64 has `cuisine` and `shortName` (carried to record and
+  library recipe); effort/minutes/serve present on all 64 library recipes. Halal: 2 `check` (40-feta salad #29 keeps
+  check with Burgos swap #40; tacos #63 corn tortilla E-422), soy-sauce sheets 49 and 51 are `halal` only with the
+  halal-certified soy sauce named in the recipe (reason says so); mozzarella 51230 microbial coagulant.
+- Library count (64 preps; "primary" = slots[0]; "eligible" adds dinner preps also offered at lunch):
+
+  | Slot | Total | desi | spanish | mediterranean | middle-eastern | italian | mexican | asian | international | Styles |
+  |---|---|---|---|---|---|---|---|---|---|---|
+  | breakfast | 14 | 4 | 3 | 0 | 1 | 0 | 1 | 0 | 5 | 5 |
+  | lunch (primary) | 29 | 6 | 8 | 5 | 2 | 3 | 1 | 2 | 2 | 8 |
+  | lunch (eligible) | 37 | 7 | 12 | 6 | 2 | 4 | 2 | 2 | 2 | 8 |
+  | dinner | 17 | 7 | 5 | 1 | 2 | 1 | 1 | 0 | 0 | 6 |
+  | snacks | 4 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 4 |
+
+  Rules met: ≥4 styles in every slot; desi lunches 6/29 = 21 % (7/37 = 19 % eligible), all rice-based (tikka, keema,
+  pulao, chana masala with rice) or pita/salad boxes; no roti at lunch (roti dinners are dinner-only via slotsOf).
+  Step 1 (variety) done.
