@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 01:58 UTC (03:58 Madrid) by Omar._
+_Last updated: 2026-10-16 01:59 UTC by Omar._
 
 ## Links
 
@@ -25,8 +25,8 @@ _Last updated: 2026-10-16 01:58 UTC (03:58 Madrid) by Omar._
 | Kam-tel variants (17), short names | done (Zainab, Javier) |
 | Base foods for variety (24), packs, seafood | done (Javier) |
 | Weight log and trend, spare-box line, meal-name choice, short names in rows, cuisine chips | done in code, **not yet published** (Lena) |
-| Variety preps 41–64 (sandwiches, pastas, bowls, tray bakes, soups, breakfasts) | sheets written, build and checks in progress (Yusuf) |
-| **"How to make it": beginner methods in the app** | in progress: data (Yusuf for the international sheets, Zainab for the desi ones), UI (Lena) |
+| Variety preps 41–64 (sandwiches, pastas, bowls, tray bakes, soups, breakfasts) | **done in data** (64 preps; lunch 29, 6 desi; ≥4 styles every slot). Not yet published |
+| **"How to make it": beginner methods in the app** | data: 45/64 done (Yusuf), 19 desi in progress (Zainab); UI in progress (Lena) |
 | Protein tips and Ramadan mode | core done; the UI is after "How to make it" (Lena) |
 | Sprint 3 wave 1 tests | partial; restarts after Yusuf lands (Kenji) |
 
@@ -34,13 +34,13 @@ _Last updated: 2026-10-16 01:58 UTC (03:58 Madrid) by Omar._
 
 _Max 3 agents at once._
 
-- **Yusuf:** finishing variety preps 41–64, the method pipeline in `build.mjs`, and beginner methods for the non-desi sheets.
+- **Kenji:** Sprint 3 tests (weight, kam-tel, short names, method contract, e2e).
 - **Lena:** stabilising the protein-tip UI, then "How to make it" (recipe cards, Cook dialog, step-by-step mode, "My method").
 - **Zainab:** beginner methods for the 20 desi sheets.
 
 ## Next, in order
 
-1. Kenji: tests for wave 1, the method contract, and an e2e step walkthrough.
+1. When Zainab finishes: set `LEGACY_OK = false` in build.mjs so any recipe without a method stops the build. Kenji adds the e2e step walkthrough after Lena.
 2. Yusuf: weekly plans redo (low-cook and budget weeks) as one-tap plans in the app.
 3. Lena: Ramadan-mode UI. Priya: accessibility and speed pass.
 4. Ayesha: review backlog (129 records awaiting review), and the open bhindi fix.
