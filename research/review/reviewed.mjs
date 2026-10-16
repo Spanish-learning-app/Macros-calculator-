@@ -357,6 +357,23 @@ export const REVIEWS = {
   'med-bulgur-dry': '2026-10-16',
   'es-tomate-triturado': '2026-10-16',
   'es-pan-rallado': '2026-10-16',
+  // Final backlog pass, 2026-10-16 evening (research/review/s3-backlog.md §5): the 6 held preps after
+  // Yusuf's relinks, Javier's 3 new records, med-falafel (Sprint 1 FIX closed by ruling) and Zainab's
+  // 4 Sprint 1 FIXes with their new cross-checks (Khan et al. 2019; OFF labels).
+  'intl-chicken-quinoa-peanut-salad-box': '2026-10-16',
+  'intl-chicken-rice-noodle-stir-fry-box': '2026-10-16',
+  'intl-chicken-spinach-pasta-bake-portion': '2026-10-16',
+  'intl-egg-mozzarella-breakfast-roll-portion': '2026-10-16',
+  'intl-caprese-snack-box': '2026-10-16',
+  'intl-banana-oat-smoothie-jar': '2026-10-16',
+  'es-mozzarella-light': '2026-10-16',
+  'intl-soy-sauce-halal': '2026-10-16',
+  'intl-salmon-medallions': '2026-10-16',
+  'med-falafel': '2026-10-16',
+  'pk-haleem-home': '2026-10-16',
+  'pk-haleem-restaurant': '2026-10-16',
+  'pk-kadhi-pakora': '2026-10-16',
+  'pk-ras-malai': '2026-10-16',
 };
 
 export function stampReview(rec) {

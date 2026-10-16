@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Nutrition Lab self-check: applies every data gate in docs/NUTRITION.md §8 (G1-G25) to food records,
-// plus the rules self-checks (protein-tip foods, Ramadan timetable; rules 1.7.0).
+// plus the rules self-checks R1-R4 (protein-tip foods, Ramadan timetable, halal guide, meal-prep links).
 // Researchers run it before every hand-off. Owner: Dr. Ayesha Siddiqui (Nutrition Lab).
 //
 //   node research/check-foods.mjs                       # all app/data/foods-*.js
@@ -526,7 +526,44 @@ for (const [name, t] of Object.entries(RULES.ramadan?.timetables ?? {})) {
     }
   }
 }
-console.log(`\nRules self-checks: ${ruleFails.length ? `${ruleFails.length} FAIL` : 'PASS'} (protein tips, Ramadan timetable, halal guide)`);
+// R4 (MISTAKES M-09/M-16, 2026-10-16) meal-prep ingredient links (app/data/recipes-mealprep.js): every
+// foodId resolves; the prep's halal status is no better than its worst linked ingredient (§4.6); each
+// seafood tag of a linked ingredient is on the prep; and the prep's default serving is within ±10 %
+// kcal of (sum of linked lines) ÷ boxes. A link to a different product (full-fat for light, a `check`
+// soy sauce in a halal prep) fails here instead of shipping silently. Name-only lines (spices, olives)
+// are not counted, so the recompute reads a little low; every prep was within ±7 % on 2026-10-16.
+{
+  const RP = path.join(DATA_DIR, 'recipes-mealprep.js');
+  if (fs.existsSync(RP)) {
+    const RECIPES = (await import(pathToFileURL(RP).href)).default ?? [];
+    const rank = { halal: 0, check: 1, 'not-halal': 2 };
+    for (const lib of RECIPES) {
+      const rec = byId.get(lib.foodId);
+      if (!rec) { ruleFails.push(`R4 recipe for "${lib.foodId}": no such food record`); continue; }
+      let kcal = 0;
+      let worst = 'halal';
+      const sea = new Set();
+      for (const ing of lib.ingredients ?? []) {
+        if (!ing.foodId) continue;
+        const x = byId.get(ing.foodId);
+        if (!x) { ruleFails.push(`R4 ${lib.foodId}: ingredient "${ing.foodId}" not found`); continue; }
+        kcal += (x.per100g.kcal * ing.grams) / 100;
+        const st = x.halal?.status ?? 'halal';
+        if (rank[st] > rank[worst]) worst = st;
+        for (const t of x.tags ?? []) if (t.startsWith('seafood-')) sea.add(t);
+      }
+      if (rank[rec.halal?.status] < rank[worst]) ruleFails.push(`R4 ${lib.foodId}: halal "${rec.halal.status}" but a linked ingredient is "${worst}" (worst-status rule, §4.6)`);
+      for (const t of sea) if (!rec.tags?.includes(t)) ruleFails.push(`R4 ${lib.foodId}: a linked ingredient is ${t}, the prep lacks that tag`);
+      const def = rec.servings?.find((s) => s.default);
+      if (def && lib.boxes > 0 && kcal > 0) {
+        const shown = (rec.per100g.kcal * def.grams) / 100;
+        const gap = (shown / (kcal / lib.boxes) - 1) * 100;
+        if (Math.abs(gap) > 10) ruleFails.push(`R4 ${lib.foodId}: 1 ${def.id} = ${fmt(shown, 0)} kcal, but its linked ingredients give ${fmt(kcal / lib.boxes, 0)} (${fmt(gap)} %): is a line linked to the wrong product (M-16)?`);
+      }
+    }
+  }
+}
+console.log(`\nRules self-checks: ${ruleFails.length ? `${ruleFails.length} FAIL` : 'PASS'} (protein tips, Ramadan timetable, halal guide, meal-prep links)`);
 for (const m of ruleFails) console.log(`  ✗ ${m}`);
 if (ruleFails.length) failed++;
 

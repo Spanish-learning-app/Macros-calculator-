@@ -174,3 +174,52 @@
   - Base foods: all 91 remaining non-recipe records checked one by one against cached sources (55 USDA, 25 OFF, 4 CoFID, 3 IFCT, 4 BEDCA); 3 differences, all explained (2 OFF kcal typos, so the kJ value is used, and per-ml cola). All PASS. med-falafel stays FIX. Note: pk-cola-regular and pk-cold-drink-cola are duplicates.
   - check-foods G19 summary now shows the split: **138 = 127 passed (waiting for the owners' rebuilds: Javier, Zainab, Yusuf) + 11 not reviewed** (6 held preps, falafel, haleem ×2, kadhi pakora, ras malai). After the rebuilds, G19 = 11.
 - 2026-10-16 16:23 UTC — CHECKS: check-foods 348/348 PASS, R1–R3 PASS. npm test 732 pass, 1 fail, 3 todo: the fail is tests/unit/qa/mealprep.test.js:572 (Kenji's FRIDGE_DAYS tripwire, which should now list 'blended-smoothie': 1). eslint app/data/rules.js is clean. Not committed.
+- 2026-10-16 18:56 UTC — RESUMED after the usage-limit stop. Nothing from the stopped run had landed: reviewed.mjs and this journal were unchanged since 16:23. Since then the owners had done their part: Javier added 3 records (d022b0d), Yusuf relinked the preps (45e63c5), and Zainab added cross-checks (15769cd). G19 was 14 at the start: 6 held preps, 3 new Javier records, med-falafel, and Zainab's 4.
+- 2026-10-16 19:02 UTC — **FINAL BACKLOG PASS → research/review/s3-backlog.md §5. 14 more stamps in reviewed.mjs. G19 = 14, all of them passed and waiting for rebuilds; 0 not reviewed.**
+  - 6 held preps: I recomputed them from the links in recipes-mealprep.js.
+    - #49 and #51 link intl-soy-sauce-halal: +1.6 % and −0.8 %. Halal = worst line. PASS.
+    - #57, #60 and #64 link es-mozzarella-light: +1.4 %, −0.5 % and +1.1 %. PASS.
+    - #61 uses storage blended-smoothie with "within 1 day", +2.1 %. PASS.
+    - #53 links intl-salmon-medallions: 611 vs 620 (−1.3 %), with the seafood-fish tag. It stays stamped.
+  - Javier's 3 new records are exact against their sources. PASS.
+    - es-mozzarella-light vs OFF 8480000512307.
+    - intl-soy-sauce-halal vs USDA 174277.
+    - intl-salmon-medallions vs OFF 8480000267498.
+  - med-falafel: the Sprint 1 FIX is closed by ruling and the numbers stay. I compared 20 plain chickpea falafel labels on the Spanish market (OFF, read 2026-10-16): median 217.5 kcal, middle half 198–222. Ours (183) is −16 %, inside 25 %, and the record is C. Stamped.
+  - Zainab's 4: her typed values match the Khan 2019 PDF Tables 2/3 and the cached OFF JSON. All PASS.
+    - haleem home +7 %.
+    - haleem restaurant +27 %, with the Why on file (Shan-pack fat).
+    - ras malai +2 % to −11 % vs Haldiram's.
+    - kadhi pakora −16 %. It passes, but its note is wrong (see the edit below).
+  - New gate in check-foods: **R4, meal-prep links (M-16)**. It checks that every foodId resolves, the halal status is no better than the worst linked line, linked seafood tags are on the prep, and the default serving is within ±10 % kcal of the linked lines ÷ boxes.
+    - Scratch test with the old links: 4 fails (2 soy halal, pasta bake −13 %, caprese −37 %).
+    - Real data: 64/64 pass, max +6.9 %.
+    - NUTRITION.md §8 is updated, with a line under 1.7.2. rules.js is unchanged.
+  - **Exact edit, @Zainab, research/zainab/records/home.mjs, pk-kadhi-pakora crossCheck[0].note** (no number changes). Replace the note with:
+    `'Analysed "yogurt curry with pakoras" (Peshawar household recipes, AOAC, moisture 71.5 g). Why the gap: the analysed kadhi was thicker (71.5 g water vs our 75.3 g). Per gram of dry matter the fat is the same (ours 47 %, analysed 49 %): at the same water ours would be about 172 kcal and 13.5 g fat, within 3 %. Carbohydrate there is by difference and includes fibre (ours 7.0 + 1.5 fibre = 8.5 g vs 10.3 g). Kadhi thickness depends on simmer time; we keep the 35 % simmer loss. Reviewed by Ayesha, 2026-10-16.'`
+  - **Exact edit, @Javier, research/javier/build.mjs line ~779, med-falafel** (no number changes). Replace the fromCofid extraNotes with:
+    `'Values differ widely between sources (USDA SR 172455 home-prepared 333 kcal at 35 % water; FNDDS 2707408 514 kcal at 19 % water). Spanish shop packs: 20 plain chickpea falafel labels on Open Food Facts (Spain, read 2026-10-16; e.g. Lidl Vemondo 198 and 216, Carrefour 185, Eroski 205, La Sirena 217.5, YGriega 219, SoriaNatural 222) have a median of 217.5 kcal per 100 g (middle half 198–222), so this home-fried value is about 16 % lower. Reviewed by Ayesha, 2026-10-16. Serving: USDA 1 patty = 17 g; shop falafel about 25 g (La Sirena 400 g = 14–16 pieces; Taifun 6 × 21 g).'`
+    Optional and pre-approved (the stamp stays): add a non-default serving after the piece, `sv('shop-piece', '1 shop falafel (about 25 g)', 25)`.
+  - **COLA DUPLICATE: ruling.** Keep both ids. Saved days store foodId + servingId (app/core/days.js), the app has no id alias and no hidden flag (search hides only not-halal), and nothing in app/, tests/, templates or plans names either id. So: no id is deleted, and no serving id is removed. I split the two records by where you buy the drink: the Spanish can and the Pakistani "cold drink" bottle. Per-100 g values are unchanged, so the stamps stay.
+    - **@Javier, research/javier/build.mjs, pk-cola-regular (line ~980):**
+      - Change: `name: 'Cola, regular (330 ml can, Spain)', nameUr: 'کولا', nameRoman: 'cola'`
+      - Aliases → `['cola', 'coke', 'coca cola', 'coca-cola', 'cocacola', 'pepsi', 'soft drink', 'refresco de cola', 'refresc de cola', 'lata de cola', 'cola can', 'can of coke']` (drops 'cold drink', 'botal', 'next cola', 'gourmet cola').
+      - Servings: keep all 4 ids, move the default to the can: `sv('bottle-345', '1 bottle (345 ml)', r1(345 * COLA_DENSITY), false, '1 بوتل'), sv('can', '1 can (330 ml)', r1(330 * COLA_DENSITY), true), …`.
+      - SHORT map (line ~2161): `'pk-cola-regular': 'Cola, 330 ml can'`.
+      - Append to the notes: ` Spanish shop can (330 ml). The Pakistani 345 ml "cold drink" bottle is pk-cold-drink-cola (same values); both ids are kept because saved days refer to them.`
+      - Then rebuild.
+    - **@Zainab, research/zainab/records/drinks-sweets.mjs, pk-cold-drink-cola:**
+      - `name: 'Cold drink, cola (345 ml bottle, Pakistan)'`
+      - `shortName: 'Cold drink, bottle'`
+      - aliases → `uniq(['cold drink', 'botal', 'bottle', 'coke', 'pepsi', 'cola', 'soft drink', 'soda', 'fizzy drink', 'regular cola', 'next cola', 'gourmet cola', 'کولڈ ڈرنک', 'بوتل'])` (drops 'coca cola', adds botal / next cola / gourmet cola from Javier's).
+      - tags → `['pakistani', 'international']`.
+      - Servings and default (bottle-345) are unchanged, so Bilal's D2 "cold drink 345 ml bottle" still lands here.
+      - Then rebuild.
+    - Result: "cola" and "coke" show two rows with different names (can vs bottle). "cold drink" and "botal" find only the bottle. "coca cola" and "refresco" find only the can.
+  - **Rebuilds needed to carry the stamps (G19 14 → 0):**
+    - **Javier** (es-mozzarella-light, intl-soy-sauce-halal, intl-salmon-medallions, med-falafel, plus the falafel and cola edits).
+    - **Yusuf** (the 6 preps).
+    - **Zainab** (pk-haleem-home, pk-haleem-restaurant, pk-kadhi-pakora, pk-ras-malai, plus the kadhi and cola edits).
+    - Expected G19 after all three = **0**. If any per-100 g number moves in a rebuild, tell me and I'll unstamp.
+  - Checks: check-foods 351/351 PASS, R1–R4 PASS. npm test, 3 time zones: 735/735, then 734 + 1 skipped twice, 0 fail. Prettier clean. Not committed.
+  - Not changed: M-16 also says "the build must fail" on a wrong link. Yusuf's build.mjs has no such guard (grep). R4 in check-foods now catches it at the gate. A build-time guard is still Yusuf's to add if Omar wants it.

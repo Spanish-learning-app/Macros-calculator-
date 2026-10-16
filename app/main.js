@@ -84,17 +84,39 @@ async function loadPlans() {
  */
 function createLabLoader(store) {
   let pending = null;
+  let done = false;
   return {
     load() {
       pending ??= Promise.all([loadLibrary(), loadPlans()]).then(([library, plans]) => {
         store.setLabData({ library, plans });
+        done = true;
       });
       return pending;
     },
     get started() {
       return pending !== null;
     },
+    get ready() {
+      return done;
+    },
   };
+}
+
+/**
+ * Fetch and parse the Lab modules once the first screen is up and the page is idle, without
+ * handing them to the store (no re-render under the person's fingers), so Prep opens at once.
+ */
+function warmLabWhenIdle() {
+  const warm = () => {
+    import('./data/recipes-mealprep.js').catch(() => {});
+    import('./data/plans-mealprep.js').catch(() => {});
+  };
+  // A second after the first screen, then at the next idle moment (Safari has no idle callback).
+  setTimeout(() => {
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(warm, { timeout: 3000 });
+    } else warm();
+  }, 1000);
 }
 
 const needsLab = (store, route) =>
@@ -137,6 +159,12 @@ function renderShell(root, router) {
   const banner = el('div', { class: 'storage-banner', role: 'status', hidden: '' });
   // Food-data status for tests and debugging (Kenji's smoke spec); not shown to users.
   const dataStatus = el('p', { 'data-testid': 'data-status', hidden: '' }, 'Loading foods…');
+  // Shown only when the Lab recipes take a moment to arrive (STATUS O16, slow phones).
+  const labStatus = el(
+    'p',
+    { class: 'shell-status', role: 'status', 'data-testid': 'lab-loading', hidden: '' },
+    '',
+  );
   const view = el('section', { class: 'shell-view', id: 'view' });
   const nav = el(
     'nav',
@@ -159,11 +187,11 @@ function renderShell(root, router) {
       el('p', { class: 'shell-tagline' }, 'Your daily meal & macro planner that knows desi food.'),
     ),
     banner,
-    el('main', { class: 'shell-main', id: 'main' }, view),
+    el('main', { class: 'shell-main', id: 'main' }, labStatus, view),
     nav,
     dataStatus,
   );
-  return { root, banner, view, nav, dataStatus };
+  return { root, banner, view, nav, dataStatus, labStatus };
 }
 
 function markActiveTab(shell, routeName) {
@@ -249,6 +277,10 @@ async function boot() {
   router.start();
   markActiveTab(shell, router.current().name);
 
+  // Fetch the first screen's view modules while the food data loads, not after it.
+  const firstView = VIEW_FOR_ROUTE[router.current().name];
+  if (firstView) import(`./ui/views/${firstView}.js`).catch(() => {});
+
   const data = await loadFoodData();
   shell.dataStatus.textContent =
     data.status === 'ok' ? `${data.foods.length} foods loaded.` : 'Food data is not available yet.';
@@ -290,11 +322,18 @@ async function boot() {
       router.go({ name: 'welcome', params: {} }, { replace: true });
       return;
     }
-    if (needsLab(store, r)) {
+    if (needsLab(store, r) && !lab.ready) {
+      const slow = setTimeout(() => {
+        shell.labStatus.textContent = 'Loading recipes…';
+        shell.labStatus.hidden = false;
+      }, 200);
       await lab.load();
+      clearTimeout(slow);
+      shell.labStatus.hidden = true;
+      shell.labStatus.textContent = '';
       if (router.current().name !== r.name) return; // the person moved on while it loaded
     }
-    views.show(r);
+    await views.show(r);
   }
 
   const syncChrome = (state) => {
@@ -305,7 +344,8 @@ async function boot() {
   syncChrome(store.getState());
 
   router.subscribe(route);
-  route(router.current());
+  await route(router.current());
+  if (!lab.started) warmLabWhenIdle();
 }
 
 boot();

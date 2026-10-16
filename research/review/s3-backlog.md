@@ -130,3 +130,99 @@ with "drink within 24 hours".
 
 - `node research/check-foods.mjs`: 348/348 PASS, and the rules self-checks R1–R3 PASS.
 - `npm test`: see my journal for tonight's entry.
+
+## 5. Final backlog pass (2026-10-16 evening): 14 stamped, G19 → 0 after the rebuilds
+
+**Result:** 14 PASS stamped in `reviewed.mjs`, 0 FIX, 0 REJECT. `check-foods` now says G19 14 =
+**14 passed, waiting for the owners' rebuilds; 0 not reviewed.**
+
+### 5.1 The 6 held preps, after Yusuf's relinks
+
+Recomputed from the linked records in `app/data/recipes-mealprep.js` (sum of the lines ÷ boxes;
+name-only spices not counted):
+
+| Prep | Linked lines | kcal record vs links | Verdict |
+|---|---|---|---|
+| intl-chicken-quinoa-peanut-salad-box (#49) | intl-soy-sauce-halal 20 g | 655 vs 644 (+1.6 %) | PASS, halal = worst line |
+| intl-chicken-rice-noodle-stir-fry-box (#51) | intl-soy-sauce-halal 60 g | 615 vs 620 (−0.8 %) | PASS, halal = worst line |
+| intl-chicken-spinach-pasta-bake-portion (#57) | es-mozzarella-light 250 g | 549 vs 542 (+1.4 %) | PASS |
+| intl-egg-mozzarella-breakfast-roll-portion (#60) | es-mozzarella-light 125 g | 519 vs 521 (−0.5 %) | PASS |
+| intl-caprese-snack-box (#64) | es-mozzarella-light 200 g | 239 vs 237 (+1.1 %) | PASS |
+| intl-banana-oat-smoothie-jar (#61) | storage `blended-smoothie`, boxUp "within 1 day" | 516 vs 506 (+2.1 %) | PASS |
+| med-salmon-patatas-judias-portion (#53, already stamped) | intl-salmon-medallions 250 g | 611 vs 620 (−1.3 %) | stays PASS; seafood-fish tag present |
+
+The soy preps' reasons say "with a halal-certified soy sauce, as the recipe says" and name the
+`check` case. Correct.
+
+### 5.2 Javier's new records and med-falafel
+
+- **es-mozzarella-light:** matches OFF 8480000512307 (cached in research/cache/yusuf/off): 639 kJ =
+  152.8 kcal, P 17, C 1, F 9, sat 6, salt 1.5 g (sodium 600 mg). The coagulante microbiano reason
+  is right. PASS.
+- **intl-soy-sauce-halal:** matches USDA SR 174277 exactly (53 kcal, P 8.14, F 0.57, carbs
+  4.93 − fibre 0.8 = 4.1, sodium 5493). The "assumes a halal logo" reason follows the
+  assumed-halal-meat pattern. PASS.
+- **intl-salmon-medallions:** matches OFF 8480000267498: 932 kJ = 221 kcal, P 20, F 16, sat 2.3,
+  salt 0.885 g (354 mg sodium); raw frozen basis is stated; seafood-fish tag. PASS.
+- **med-falafel (Sprint 1 FIX): closed by ruling, numbers stay (183 kcal, C).** OFF was reachable
+  today. I took 20 plain chickpea falafel labels sold in Spain and nearby markets (Lidl, Carrefour,
+  Eroski, Aldi, La Sirena, YGriega, SoriaNatural, Garden Gourmet and others; OFF search "falafels",
+  country Spain, read 2026-10-16). I left out the dry mixes, the packs with a sauce, and the
+  sweet-potato, beetroot, spinach and corn versions.
+  - Median 217.5 kcal per 100 g, middle half 198–222. Ours is −16 %, which is inside 25 %.
+  - CoFID 15-795 (a recipe calculation, 60 % water) is home deep-fried. The packs are pre-fried, and
+    one brand (Taifun, 338) is far above the rest.
+  - USDA 172455 (333 kcal, 35 % water) and FNDDS 2707408 (514 kcal, 19 % water) are much drier
+    products. They are not what a Barcelona shopper buys.
+  - Confidence C already tells the user the number is an estimate. Javier gets a note edit (below).
+
+### 5.3 Zainab's 4 Sprint 1 FIXes
+
+I checked her new references against the cached PDF (research/cache/zainab-s3/khan2019.pdf,
+Table 2 and Table 3) and the cached OFF JSON. All the typed values are exact.
+
+- **pk-haleem-home:** 137 kcal vs Khan "Haleem" 128.34 (+7 %). Water 72.4 g vs 73 g agrees. Our
+  available carbs plus fibre (11.6 g) is the fair comparison with the paper's carbs by difference
+  (14.6 g). PASS.
+- **pk-haleem-restaurant:** +27 % against the same household analysis. The "Why" is in the recipe
+  file: the Shan-pack fat (10.3 vs 5.4 g fat) with water 69.9 g. This is the restaurant style, at
+  confidence C, and the comparable home record sits within 10 %. PASS.
+- **pk-kadhi-pakora:** 149 vs 177.49 (−16 %). PASS, but the explanation is wrong and needs a note
+  fix (below). The water does **not** agree: ours is 75.3 g, Khan's is 71.5 g. Per gram of dry
+  matter the fat is the same (ours 11.7 / 24.7 = 47 %, Khan 13.85 / 28.5 = 49 %). At Khan's water
+  ours would be 172 kcal and 13.5 g fat, which is −3 %. So the Peshawar kadhi was simply thicker.
+  Their oil was not higher.
+- **pk-ras-malai:** 155 vs Haldiram's UK 152 kcal on the label (174 from its own kJ), so +2 % to
+  −11 %. The Canadian tray (257) is explained in the recipe file: more ball and a heavier syrup per
+  gram. The sugar (65 g per ~1 kg milk) sits between F&S 70 g and TfT 63 g. The `contains-egg` tag
+  is right (an egg in the balls). PASS.
+
+### 5.4 Cola duplicate: keep both ids, make them distinct
+
+The app has no id alias and no hidden flag. Search only hides `not-halal` foods
+(app/core/search.js). Saved entries store `foodId` and `servingId` (app/core/days.js), so:
+- **no id is deleted;**
+- **no serving id is removed** from either record. Labels and the default may change.
+
+Nothing in app/, tests/, templates or plans references either id.
+
+The split is by **where you buy it**:
+- `pk-cola-regular` becomes the Spanish shop can.
+- `pk-cold-drink-cola` stays the Pakistani "cold drink" bottle. This keeps Bilal's D2 ("cold drink",
+  345 ml bottle) on Zainab's record.
+
+The exact edits are in Ayesha's journal (2026-10-16 evening entry). Both owners rebuild.
+Per-100 g values are unchanged on both records, so the stamps stay.
+
+### 5.5 New gate: check-foods R4 (meal-prep links, M-09/M-16)
+
+`node research/check-foods.mjs` now checks every recipe in `app/data/recipes-mealprep.js`:
+- each `foodId` resolves;
+- the prep's halal status is no better than its worst linked line;
+- linked seafood tags are carried onto the prep;
+- the default serving is within ±10 % kcal of the linked lines ÷ boxes.
+
+I tested it on a scratch copy with the old links (full-fat mozzarella and the `check` soy sauce).
+It fails 4 preps: the 2 soy preps on halal, the pasta bake at −13 % and the caprese at −37 %. The
+egg roll (−9 %) is under the 10 % line. All 64 current preps pass, and the largest gap is +6.9 %.
+NUTRITION.md §8 is updated.

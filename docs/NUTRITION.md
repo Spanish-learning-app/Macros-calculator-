@@ -2,7 +2,7 @@
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
 **Status:** Sprint 3, version 1.7.2 (2026-10-16).
-- Version 1.7.2 (night shift 2026-10-16): plain-words wording for the user: the `moderate` activity description (§2.3), the source methods and confidence grades (§4.4; the researchers' meaning moves to a `rule` field that is never shown); the halal shopping guide for Barcelona as app data, `RULES.halalGuide` (§4.8, STATUS O8).
+- Version 1.7.2 (night shift 2026-10-16): plain-words wording for the user: the `moderate` activity description (§2.3), the source methods and confidence grades (§4.4; the researchers' meaning moves to a `rule` field that is never shown); the halal shopping guide for Barcelona as app data, `RULES.halalGuide` (§4.8, STATUS O8). Later the same night: rules self-check R4, meal-prep ingredient links (§8); no rules.js change.
 - Version 1.7.1 (Sprint 3 variety add-on): alcohol as an ingredient. A product whose label lists wine, mirin, sake, beer or spirits is `not-halal` with the reason naming it; fermentation traces (brewed soy sauce) stay `check`; wine vinegar stays `halal` (§4.6, gate G21). Glycerine (E-422) of unstated origin joins the label `check` list.
 - Version 1.7.0 (Meeting 005, Sprint 3 wave 1): Ramadan mode for Barcelona (§12), protein tips (§13), weight trend (§14), kam tel `home-light` variants (§6.1, gate G25), the optional `shortName` field (§3, gate G24), and `serve`/`pack` rules moved into `RULES.vocab.fieldRules`.
 - Version 1.6.1 (Sprint 2 market add-on): label rule for `check` (rennet and E-471/E-472 of unstated origin, §4.6).
@@ -1017,6 +1017,7 @@ Show this text as written:
 - **R1:** every protein-tip food (`RULES.proteinNudges.suggestions`) exists, has the named serving, is not `not-halal`, and its stated protein (±0.6 g) and kcal (±1) match FOODS.
 - **R2:** each Ramadan timetable has consecutive dates, `HH:MM` times, and fajr before maghrib.
 - **R3:** `RULES.halalGuide` has a title, intro and note, and sections with a unique `id`, a `title` and non-empty string `items` (§4.8).
+- **R4** (2026-10-16, MISTAKES M-09/M-16): meal-prep ingredient links in `app/data/recipes-mealprep.js`. Every `foodId` resolves; the prep's halal status is no better than its worst linked ingredient (§4.6); every seafood tag of a linked ingredient is on the prep; and the prep's default serving is within ±10% kcal of (sum of the linked lines) ÷ `boxes`. A line linked to a different product (full-fat cheese for light, a `check` soy sauce in a `halal` prep) fails here instead of shipping. Name-only lines (spices, olives) are not counted; every prep was within ±7% when the check was added.
 
 Kenji's official data gate (`tests/data/`) implements the same rules from this table.
 

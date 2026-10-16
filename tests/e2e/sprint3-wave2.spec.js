@@ -167,6 +167,15 @@ test.describe('weekly plans (Prep)', () => {
       servingId: 'medium',
       qty: 1,
       status: 'planned',
+      snapshot: {
+        name: 'Banana',
+        grams: 118,
+        kcal: 105,
+        protein: 1.3,
+        carbs: 24,
+        fat: 0.4,
+        fiber: 3,
+      },
     };
     const lunchItems = plan.days[0].items.filter((i) => i.slot === 'lunch').length;
     expect(lunchItems, 'test data: the plan has a Monday lunch').toBeGreaterThan(0);
@@ -207,6 +216,15 @@ test.describe('weekly plans (Prep)', () => {
       servingId: 'medium',
       qty: 1,
       status: 'planned',
+      snapshot: {
+        name: 'Banana',
+        grams: 118,
+        kcal: 105,
+        protein: 1.3,
+        carbs: 24,
+        fat: 0.4,
+        fiber: 3,
+      },
     };
     await openPrep(
       page,
@@ -303,7 +321,7 @@ test.describe('halal swap (Prep library)', () => {
   test('the Lab names a halal version for the feta salad, and it is a real halal prep', async () => {
     expect(feta, 'test data: a feta recipe with halalSwap').toBeTruthy();
     const alt = foodById(feta.halalSwap);
-    expect(alt.halal, `${alt.id} halal`).toBe('halal');
+    expect(alt.halal.status, `${alt.id} halal`).toBe('halal');
     expect(RECIPES.some((r) => r.foodId === alt.id)).toBe(true);
   });
 
@@ -475,6 +493,94 @@ test.describe('kam tel line', () => {
   });
 });
 
+// ===================================================================== halal shopping guide (STATUS O8)
+
+test.describe('halal shopping guide', () => {
+  const guide = RULES.halalGuide;
+  const check = foodById('intl-feta');
+  const halal = foodById('intl-banana');
+
+  const detailsOf = async (page, food, query) => {
+    await seed(page, userDoc({ settings: { slotPreset: 'spain' } }));
+    await setClock(page, NOON);
+    await page.goto('/#/day');
+    await ui.addFood(page).click();
+    await ui.search(page).fill(query);
+    await ui.row(ui.results(page), food.id).click();
+    await ui
+      .picker(page)
+      .getByRole('button', { name: /details/i })
+      .first()
+      .click();
+    await expect(ui.details(page)).toBeVisible();
+  };
+
+  test('the Lab has the guide: four sections, "What Check means" first', async () => {
+    expect(guide.sections.map((x) => x.id)).toEqual([
+      'katori-check',
+      'label-words',
+      'how-to-ask',
+      'barcelona-shops',
+    ]);
+    expect(check.halal.status).toBe('check');
+    expect(halal.halal.status).toBe('halal');
+  });
+
+  test('About has the guide as a card: every section folded, and a section opens to its lines', async ({
+    page,
+  }) => {
+    await seed(page, userDoc({ settings: { slotPreset: 'spain' } }));
+    await setClock(page, NOON);
+    await page.goto('/#/about');
+    const card = page.getByTestId('halal-guide');
+    await expect(card).toBeVisible();
+    await expect(card.getByRole('heading', { name: guide.title })).toBeVisible();
+    const sections = card.getByTestId('halal-guide-section');
+    await expect(sections).toHaveCount(guide.sections.length);
+    for (const [i, sec] of guide.sections.entries()) {
+      const el = sections.nth(i);
+      await expect(el).toHaveAttribute('data-section', sec.id);
+      await expect(el.locator('summary')).toHaveText(sec.title);
+      await expect(el).not.toHaveAttribute('open', /.*/);
+    }
+    const how = card.locator('[data-section="how-to-ask"]');
+    await how.locator('summary').click();
+    await expect(how.locator('li')).toHaveCount(guide.sections[2].items.length);
+    // A Spanish question is its own span, in Spanish, followed by its English line.
+    await expect(how.locator('li').first().locator('span[lang="es"]')).toContainText('¿Lleva');
+  });
+
+  test('a Check food shows "What does Check mean?" and it opens the guide at "What Check means"', async ({
+    page,
+  }) => {
+    await detailsOf(page, check, 'feta');
+    const btn = ui.details(page).getByTestId('check-guide');
+    await expect(btn).toBeVisible();
+    await expect(btn).toHaveText('What does Check mean?');
+    await btn.click();
+    const dlg = page.getByTestId('halal-guide-dialog');
+    await expect(dlg).toBeVisible();
+    await expect(dlg).toContainText(guide.title);
+    const sections = dlg.getByTestId('halal-guide-section');
+    await expect(sections).toHaveCount(guide.sections.length);
+    await expect(dlg.locator('[data-section="katori-check"]')).toHaveAttribute('open', '');
+    for (const id of ['label-words', 'how-to-ask', 'barcelona-shops'])
+      await expect(dlg.locator(`[data-section="${id}"]`)).not.toHaveAttribute('open', /.*/);
+    await expect(dlg.locator('[data-section="katori-check"] li').first()).toContainText(
+      'Check means: read the label or ask',
+    );
+    // Closing it returns to the food's details (the add in progress is untouched).
+    await page.keyboard.press('Escape');
+    await expect(dlg).toBeHidden();
+    await expect(ui.details(page)).toBeVisible();
+  });
+
+  test('a halal food has no guide button in its details', async ({ page }) => {
+    await detailsOf(page, halal, 'banana');
+    await expect(ui.details(page).getByTestId('check-guide')).toHaveCount(0);
+  });
+});
+
 // ===================================================================== shopping list: where to buy
 
 test.describe('shopping list (where to buy)', () => {
@@ -558,6 +664,7 @@ test.describe("method sheet: the Lab's pitch, cost and references", () => {
     await expect(refs.locator('summary')).toContainText(
       `Based on · ${n} published ${n === 1 ? 'recipe' : 'recipes'}`,
     );
+    await refs.locator('summary').click(); // the list is folded until opened
     const links = refs.getByRole('link');
     await expect(links).toHaveCount(n);
     await expect(links.first()).toHaveText(full.references[0].title);
@@ -629,8 +736,11 @@ test.describe('spare-box "Plan it" (Day)', () => {
       },
     ],
   };
-  const open = async (page) => {
-    await seed(page, userDoc({ settings: { slotPreset: 'spain' }, batches: [batch] }));
+  const open = async (page, cookedOn = batch.cookedOn) => {
+    await seed(
+      page,
+      userDoc({ settings: { slotPreset: 'spain' }, batches: [{ ...batch, cookedOn }] }),
+    );
     await setClock(page, NOON);
     await page.goto('/#/day');
     await expect(ui.dayTitle(page)).toBeVisible();
@@ -678,7 +788,8 @@ test.describe('spare-box "Plan it" (Day)', () => {
   });
 
   test("tomorrow: also a planned entry, on tomorrow's page", async ({ page }) => {
-    await open(page);
+    // Cooked today, cooked rice keeps 1 day: the last day is tomorrow, so the sheet offers both days.
+    await open(page, TODAY);
     await page.getByTestId('spare-plan').click();
     await page.getByTestId('spare-plan-tomorrow-dinner').click();
     const doc = await saved(
