@@ -9,6 +9,8 @@ export default {
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Chicken egg roti wrap',
   id: 'pk-chicken-egg-roti-wrap-portion',
   name: 'Halal breakfast wrap: spiced chicken, egg and peppers in a wholemeal roti (breakfast portion)',
   names: {

@@ -8,6 +8,8 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Daal palak, roti',
   id: 'pk-daal-palak-roti-portion',
   name: 'Masoor daal palak with a Greek-yogurt raita and 2 wholemeal roti (freezer dinner portion)',
   names: {

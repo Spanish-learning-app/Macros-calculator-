@@ -3,6 +3,8 @@ export default {
   n: 3,
   effort: 'cook',
   minutes: 45,
+  cuisine: 'desi',
+  shortName: 'Yakhni chicken pulao',
   id: 'pk-yakhni-chicken-pulao-box',
   name: 'Yakhni chicken pulao with chana (lunch box)',
   names: {

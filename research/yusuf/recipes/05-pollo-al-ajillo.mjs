@@ -3,6 +3,8 @@ export default {
   n: 5,
   effort: 'cook',
   minutes: 40,
+  cuisine: 'spanish',
+  shortName: 'Pollo al ajillo rice',
   id: 'es-pollo-ajillo-limon-rice-box',
   name: 'Pollo al ajillo with lemon, rice and green beans (lunch box)',
   names: {

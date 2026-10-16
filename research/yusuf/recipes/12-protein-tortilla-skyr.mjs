@@ -3,6 +3,8 @@ export default {
   n: 12,
   effort: 'cook',
   minutes: 40,
+  cuisine: 'spanish',
+  shortName: 'Protein tortilla box',
   id: 'es-tortilla-proteica-skyr-box',
   name: 'Protein tortilla wedge with skyr-style yogurt (cold lunch box)',
   names: {

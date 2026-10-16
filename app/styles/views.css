@@ -2081,8 +2081,15 @@
   padding: var(--space-3) var(--space-4);
 }
 .ramadan-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-1);
   margin: 0;
   font-size: var(--text-sm);
+}
+.ramadan-line .link-btn {
+  margin-left: auto;
 }
 .ramadan-notes {
   margin-top: var(--space-2);

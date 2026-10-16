@@ -5,6 +5,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 12,
+  cuisine: 'international',
+  shortName: 'Salmon brown rice bowl',
   id: 'intl-salmon-brown-rice-bowl-box',
   name: 'Salmon and brown-rice bowl with avocado, cucumber and egg (lunch box)',
   names: {

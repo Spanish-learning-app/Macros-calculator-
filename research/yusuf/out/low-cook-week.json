@@ -1,81 +1,135 @@
 {
- "v2": {
+ "v3": {
+  "snap": "2026-10-15",
   "totals": [
    {
     "day": "Monday",
-    "kcal": 2133.62,
-    "protein": 138.114,
-    "fiber": 45.87
+    "kcal": 1872.54,
+    "protein": 136.946,
+    "fiber": 46.152,
+    "breakfast": "es-queso-batido-parfait-jar",
+    "lunch": "mx-chicken-burrito-bowl-box",
+    "dinner": "es-pollo-patatas-pimientos-horno-portion",
+    "lunchCuisine": "mexican",
+    "dinnerCuisine": "spanish"
    },
    {
     "day": "Tuesday",
-    "kcal": 2098.2365,
-    "protein": 132.9562,
-    "fiber": 43.61175
+    "kcal": 1908.695,
+    "protein": 135.19,
+    "fiber": 49.168,
+    "breakfast": "es-queso-batido-parfait-jar",
+    "lunch": "mx-chicken-burrito-bowl-box",
+    "dinner": "es-pollo-patatas-pimientos-horno-portion",
+    "lunchCuisine": "mexican",
+    "dinnerCuisine": "spanish"
    },
    {
     "day": "Wednesday",
-    "kcal": 2039,
-    "protein": 130.142,
-    "fiber": 43.968
+    "kcal": 1841.34,
+    "protein": 128.256,
+    "fiber": 48.318000000000005,
+    "breakfast": "es-queso-batido-parfait-jar",
+    "lunch": "it-beef-bolognese-pasta-box",
+    "dinner": "es-pollo-patatas-pimientos-horno-portion",
+    "lunchCuisine": "italian",
+    "dinnerCuisine": "spanish"
    },
    {
     "day": "Thursday",
-    "kcal": 2048.3,
-    "protein": 124.658,
-    "fiber": 51.269999999999996
+    "kcal": 1980.515,
+    "protein": 120.60399999999998,
+    "fiber": 35.884,
+    "breakfast": "intl-banana-oat-smoothie-jar",
+    "lunch": "es-bocadillo-atun-huevo-box",
+    "dinner": "es-crema-verduras-huevo-garbanzos-portion",
+    "lunchCuisine": "spanish",
+    "dinnerCuisine": "spanish"
    },
    {
     "day": "Friday",
-    "kcal": 2086.565,
-    "protein": 134.40099999999998,
-    "fiber": 52.538
+    "kcal": 1881.52,
+    "protein": 144.49,
+    "fiber": 34.768,
+    "breakfast": "intl-banana-oat-smoothie-jar",
+    "lunch": "intl-chicken-caesar-salad-box",
+    "dinner": "pk-chicken-karahi-roti-portion",
+    "lunchCuisine": "international",
+    "dinnerCuisine": "desi"
    }
   ],
-  "till": 75.9644,
-  "eaten": 47.874002654706246,
+  "sundayMinutes": 75,
+  "weekdayMinutes": 43,
+  "till": 75.64009999999999,
+  "eaten": 43.96661900277803,
   "freezer": 1.9324516777188325,
   "unpriced": []
  },
  "budget": {
+  "snap": "2026-10-15",
   "totals": [
    {
     "day": "Monday",
-    "kcal": 2012.38,
-    "protein": 124.442,
-    "fiber": 48.20400000000001
+    "kcal": 1812.66,
+    "protein": 115.94399999999999,
+    "fiber": 49.436,
+    "breakfast": "intl-overnight-oats-protein-jar",
+    "lunch": "it-tuna-tomato-pasta-box",
+    "dinner": "it-chicken-spinach-pasta-bake-portion",
+    "lunchCuisine": "italian",
+    "dinnerCuisine": "italian"
    },
    {
     "day": "Tuesday",
-    "kcal": 2012.38,
-    "protein": 124.442,
-    "fiber": 48.20400000000001
+    "kcal": 1997.66,
+    "protein": 112.34400000000001,
+    "fiber": 43.336,
+    "breakfast": "intl-overnight-oats-protein-jar",
+    "lunch": "es-bocadillo-pollo-piquillo-box",
+    "dinner": "me-shakshuka-garbanzos-portion",
+    "lunchCuisine": "spanish",
+    "dinnerCuisine": "middle-eastern"
    },
    {
     "day": "Wednesday",
-    "kcal": 1978,
-    "protein": 128.84799999999998,
-    "fiber": 51.92
+    "kcal": 1888.66,
+    "protein": 127.402,
+    "fiber": 38.052,
+    "breakfast": "intl-overnight-oats-protein-jar",
+    "lunch": "es-bocadillo-pollo-piquillo-box",
+    "dinner": "it-chicken-spinach-pasta-bake-portion",
+    "lunchCuisine": "spanish",
+    "dinnerCuisine": "italian"
    },
    {
     "day": "Thursday",
-    "kcal": 1985.12,
-    "protein": 126.898,
-    "fiber": 54.868
+    "kcal": 1868.42,
+    "protein": 110.498,
+    "fiber": 40.467999999999996,
+    "breakfast": "me-menemen-portion",
+    "lunch": "med-lentil-rice-burgos-bowl-box",
+    "dinner": "me-shakshuka-garbanzos-portion",
+    "lunchCuisine": "mediterranean",
+    "dinnerCuisine": "middle-eastern"
    },
    {
     "day": "Friday",
-    "kcal": 1988.3600000000001,
-    "protein": 114.444,
-    "fiber": 51.43600000000001
+    "kcal": 1909.66,
+    "protein": 110.24399999999999,
+    "fiber": 43.535999999999994,
+    "breakfast": "me-menemen-portion",
+    "lunch": "intl-chicken-caesar-salad-box",
+    "dinner": "pk-microwave-chana-masala-portion",
+    "lunchCuisine": "international",
+    "dinnerCuisine": "desi"
    }
   ],
-  "till": 54.98359999999999,
-  "eaten": 33.845996960040566,
-  "tillPerDay": 10.996719999999998,
-  "eatenPerDay": 6.7691993920081135,
-  "unpriced": [
-   "green-chilli"
-  ]
+  "sundayMinutes": 65,
+  "weekdayMinutes": 75,
+  "till": 77.16669999999998,
+  "eaten": 41.36215356112327,
+  "tillPerDay": 15.433339999999996,
+  "eatenPerDay": 8.272430712224654,
+  "unpriced": []
  }
 }

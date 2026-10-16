@@ -6,6 +6,8 @@ export default {
   boxes: 3,
   effort: 'assemble',
   minutes: 10,
+  cuisine: 'spanish',
+  shortName: 'Queso batido parfait',
   id: 'es-queso-batido-parfait-jar',
   name: 'Queso fresco batido parfait with oats, chia, kiwi and walnuts (breakfast jar)',
   names: {

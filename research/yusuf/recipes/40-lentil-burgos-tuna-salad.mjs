@@ -7,6 +7,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 12,
+  cuisine: 'spanish',
+  shortName: 'Lentil Burgos salad',
   id: 'es-lentejas-atun-burgos-salad-box',
   name: 'Lentil salad with tuna, queso de Burgos and peppers (cold lunch box)',
   names: {

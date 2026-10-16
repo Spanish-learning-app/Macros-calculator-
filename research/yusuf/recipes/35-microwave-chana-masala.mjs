@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 15,
+  cuisine: 'desi',
+  shortName: 'Microwave chana masala',
   id: 'pk-microwave-chana-masala-portion',
   name: 'Microwave chana masala with a basmati cup and raita (dinner portion)',
   names: {

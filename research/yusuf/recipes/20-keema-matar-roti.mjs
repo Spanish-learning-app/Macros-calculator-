@@ -8,6 +8,8 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Keema matar, roti',
   id: 'pk-keema-matar-roti-portion',
   name: 'Keema matar (lean beef mince and peas) with 2 wholemeal roti (freezer dinner portion)',
   names: {

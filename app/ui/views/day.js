@@ -65,6 +65,7 @@ export function mount(container, ctx) {
   );
   const totals = createTotalsBar({ store, router, rules });
   const slotsBox = h('div', { class: 'slots' });
+  const tipBox = h('div', { class: 'day-tips' }); // the Ramadan line and today's protein tip
   const prepBox = h('div', { class: 'day-prep' });
   const copyYesterdayBtn = h(
     'button',
@@ -578,7 +579,6 @@ export function mount(container, ctx) {
 
   // ------------------------------------------------------------------ tips and Ramadan (Sprint 3)
 
-  const tipBox = h('div', { class: 'day-tips' });
   let shownKey = null;
 
   /** The Ramadan line and health notes, and today's protein tip (not the sehri one: its slot). */

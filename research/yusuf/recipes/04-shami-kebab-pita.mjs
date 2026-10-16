@@ -3,6 +3,8 @@ export default {
   n: 4,
   effort: 'cook',
   minutes: 60,
+  cuisine: 'desi',
+  shortName: 'Shami kebab pita box',
   id: 'pk-shami-kebab-pita-box',
   name: 'Shami kebab pita box with mint yogurt (lunch box)',
   names: {

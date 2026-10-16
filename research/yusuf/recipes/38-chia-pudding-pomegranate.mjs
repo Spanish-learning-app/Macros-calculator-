@@ -6,6 +6,8 @@ export default {
   boxes: 3,
   effort: 'assemble',
   minutes: 8,
+  cuisine: 'international',
+  shortName: 'Chia pudding jar',
   id: 'intl-protein-chia-pudding-pomegranate-jar',
   name: 'Protein chia pudding with pomegranate (snack jar)',
   names: {

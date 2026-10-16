@@ -5,6 +5,8 @@ export default {
   boxes: 1,
   effort: 'assemble',
   minutes: 10,
+  cuisine: 'mediterranean',
+  shortName: 'Couscous mackerel box',
   id: 'med-cuscus-caballa-garbanzos-box',
   name: 'Couscous with mackerel, chickpeas and peppers (lunch box)',
   names: {

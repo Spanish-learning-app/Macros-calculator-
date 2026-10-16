@@ -3,6 +3,8 @@ export default {
   n: 10,
   effort: 'cook',
   minutes: 25,
+  cuisine: 'spanish',
+  shortName: 'Chickpea tuna salad',
   id: 'es-garbanzos-atun-salad-box',
   name: 'Chickpea and tuna salad (cold lunch box)',
   names: {

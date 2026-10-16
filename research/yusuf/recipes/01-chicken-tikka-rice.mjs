@@ -3,6 +3,8 @@ export default {
   n: 1,
   effort: 'cook',
   minutes: 40,
+  cuisine: 'desi',
+  shortName: 'Chicken tikka rice box',
   id: 'pk-chicken-tikka-rice-box',
   name: 'Chicken tikka rice bowl with raita (lunch box)',
   names: {

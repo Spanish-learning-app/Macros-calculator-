@@ -5,6 +5,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 12,
+  cuisine: 'spanish',
+  shortName: 'Lentil feta tuna salad',
   id: 'es-lentejas-atun-feta-salad-box',
   name: 'Lentil salad with tuna, feta and peppers (cold lunch box)',
   names: {

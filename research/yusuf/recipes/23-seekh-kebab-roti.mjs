@@ -8,6 +8,8 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Seekh kebab, roti',
   id: 'pk-seekh-kebab-roti-portion',
   name: 'Beef seekh kebabs with 2 wholemeal roti, kachumber and raita (freezer dinner portion)',
   names: {

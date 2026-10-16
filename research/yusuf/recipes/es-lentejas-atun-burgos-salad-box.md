@@ -123,7 +123,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Atún claro al natural Hacendado, drained: 120 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 480 g (360 g drained) | 1 × pack | 4.20 € |
 | Red bell pepper, raw: 120 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Cucumber, with peel, raw: 100 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
-| Cherry tomatoes, raw: 160 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g | 1 × pack | 2.20 € |
+| Cherry tomatoes, raw: 160 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g tray (Tomates cherry) | 1 × pack | 2.20 € |
 | Red onion, raw: 40 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
 | Fresh parsley: 10 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 40 g | 1 × pack | 0.95 € |
 | Olive oil: 34 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |

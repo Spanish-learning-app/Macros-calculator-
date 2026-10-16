@@ -6,6 +6,8 @@ export default {
   boxes: 3,
   effort: 'assemble',
   minutes: 12,
+  cuisine: 'spanish',
+  shortName: 'Pa amb tomàquet, eggs',
   id: 'es-pa-amb-tomaquet-burgos-ous-portion',
   name: 'Pa amb tomàquet with queso de Burgos, boiled eggs and an orange (breakfast portion)',
   names: {

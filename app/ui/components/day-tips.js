@@ -2,7 +2,8 @@
 // Calm and plain: they inform, never judge; no red, no warning icons, no rulings.
 import { h } from '../dom.js';
 import { iconEl } from './icons.js';
-import { fmtGrams, fmtKcal, portionText, servingOf } from './format.js';
+import { fmtGrams, fmtKcal, servingOf } from './format.js';
+import { amountText } from './ingredient-sheet.js';
 import { rowName } from './food-bits.js';
 import { timeText } from '../../core/ramadan.js';
 
@@ -40,7 +41,7 @@ export function renderTipCard({ tip, rules, hideKcal = false, onIdea, onNotToday
           'ul',
           { class: 'tip-ideas', role: 'list' },
           tip.ideas.map((idea) => {
-            const serving = portionText(servingOf(idea.food, idea.servingId), idea.qty);
+            const serving = amountText(servingOf(idea.food, idea.servingId), idea.qty);
             const line = fill(text.item ?? '{name} · {serving} · {protein} g protein', {
               name: rowName(idea.food),
               serving,
@@ -128,15 +129,14 @@ export function renderRamadanBar({ info, router }) {
       'p',
       { class: 'ramadan-line' },
       h('strong', null, 'Ramadan mode'),
-      ` · ${times}`,
-      from ? h('span', { class: 'muted' }, ` (${from})`) : null,
-      ' ',
+      h('span', null, `· ${times}`),
+      from ? h('span', { class: 'muted' }, `(${from})`) : null,
       h(
         'a',
         {
           class: 'link-btn',
           'data-testid': 'ramadan-times-link',
-          href: `${router.href({ name: 'profile', params: {} })}`,
+          href: router.href({ name: 'profile', params: {} }),
         },
         'Change',
       ),

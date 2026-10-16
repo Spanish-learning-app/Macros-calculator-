@@ -7,6 +7,8 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'spanish',
+  shortName: 'Mandonguilles, pèsols',
   id: 'es-mandonguilles-pesols-portion',
   name: 'Mandonguilles amb pèsols: halal beef meatballs with peas and potatoes (freezer dinner portion)',
   names: {

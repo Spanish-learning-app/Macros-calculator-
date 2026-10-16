@@ -127,7 +127,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Red bell pepper, raw: 200 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Green bell pepper, raw: 100 g | [Pimiento verde freír](https://tienda.mercadona.es/product/69320/) | 90 g | 2 × pack | 0.23 € |
 | Red onion, raw: 100 g | [Cebollas morada](https://tienda.mercadona.es/product/69153/) | 1000 g | 1 × pack | 2.00 € |
-| Cherry tomatoes, raw: 320 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g | 1 × pack | 2.20 € |
+| Cherry tomatoes, raw: 320 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g tray (Tomates cherry) | 1 × pack | 2.20 € |
 | Cucumber, with peel, raw: 160 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Fresh parsley: 15 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 40 g | 1 × pack | 0.95 € |
 | Olive oil: 60 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |

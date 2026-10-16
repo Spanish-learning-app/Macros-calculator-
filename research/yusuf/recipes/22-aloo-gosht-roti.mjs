@@ -8,6 +8,8 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Aloo gosht, roti',
   id: 'pk-aloo-gosht-roti-portion',
   name: 'Aloo gosht (beef and potato curry) with 2 wholemeal roti (freezer dinner portion)',
   names: {

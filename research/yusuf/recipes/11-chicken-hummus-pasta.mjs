@@ -3,6 +3,8 @@ export default {
   n: 11,
   effort: 'cook',
   minutes: 30,
+  cuisine: 'mediterranean',
+  shortName: 'Hummus chicken pasta',
   id: 'med-chicken-hummus-pasta-salad-box',
   name: 'Chicken and hummus pasta salad (cold lunch box)',
   names: {

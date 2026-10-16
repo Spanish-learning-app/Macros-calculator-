@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 10,
+  cuisine: 'spanish',
+  shortName: 'Picoteo plate',
   id: 'es-picoteo-hummus-burgos-portion',
   name: 'Picoteo plate: hummus, queso de Burgos, boiled eggs, crudités and picos (dinner portion)',
   names: {

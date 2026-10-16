@@ -9,6 +9,8 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Chicken karahi, roti',
   id: 'pk-chicken-karahi-roti-portion',
   name: 'Chicken karahi with 2 wholemeal roti (freezer dinner portion)',
   names: {

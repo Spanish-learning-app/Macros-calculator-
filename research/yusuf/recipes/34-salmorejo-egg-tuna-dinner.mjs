@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 8,
+  cuisine: 'spanish',
+  shortName: 'Salmorejo, egg, tuna',
   id: 'es-salmorejo-huevo-atun-portion',
   name: 'Salmorejo with boiled eggs and tuna, picos and an orange (dinner portion)',
   names: {

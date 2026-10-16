@@ -5,6 +5,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 12,
+  cuisine: 'mediterranean',
+  shortName: 'Tuna egg pita pockets',
   id: 'med-tuna-egg-pita-hummus-box',
   name: 'Tuna and egg pita pockets with hummus and salad (lunch box)',
   names: {

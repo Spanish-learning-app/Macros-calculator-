@@ -8,6 +8,8 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Chicken jalfrezi, roti',
   id: 'pk-chicken-jalfrezi-roti-portion',
   name: 'Chicken jalfrezi with peppers and 2 wholemeal roti (freezer dinner portion)',
   names: {

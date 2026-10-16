@@ -7,6 +7,8 @@ export default {
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'international',
+  shortName: 'Protein pancakes',
   id: 'intl-protein-pancakes-portion',
   name: 'Oat, protein yogurt and banana pancakes, 4 pancakes (breakfast portion)',
   names: {

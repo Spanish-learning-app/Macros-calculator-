@@ -4,6 +4,7 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 2,
+  dinnerOnly: true, // cooked on the night or a soup: not a lunch box
   effort: 'assemble',
   minutes: 8,
   cuisine: 'spanish',

@@ -134,7 +134,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Carrot, raw: 160 g | [Zanahorias](https://tienda.mercadona.es/product/69586/) | 1000 g | 1 × pack | 1.00 € |
 | Red bell pepper, raw: 140 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Cucumber, with peel, raw: 160 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
-| Cherry tomatoes, raw: 120 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g | 1 × pack | 2.20 € |
+| Cherry tomatoes, raw: 120 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g tray (Tomates cherry) | 1 × pack | 2.20 € |
 | Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 pieces | 3.05 € |
 | Queso fresco de Burgos desnatado 0% Hacendado: 250 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g (4 tubs) | 1 × pack | 1.15 € |
 | Olive oil: 6 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |

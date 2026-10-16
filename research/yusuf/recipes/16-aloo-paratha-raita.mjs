@@ -7,6 +7,8 @@ export default {
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Aloo paratha and raita',
   id: 'pk-aloo-paratha-raita-portion',
   name: 'Aloo paratha (wholemeal, light oil) with a protein raita (breakfast portion)',
   names: {

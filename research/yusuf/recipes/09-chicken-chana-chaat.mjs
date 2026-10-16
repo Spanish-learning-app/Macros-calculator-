@@ -3,6 +3,8 @@ export default {
   n: 9,
   effort: 'cook',
   minutes: 35,
+  cuisine: 'desi',
+  shortName: 'Chicken chana chaat',
   id: 'pk-chicken-chana-chaat-box',
   name: 'Chicken chana chaat (cold lunch box)',
   names: {

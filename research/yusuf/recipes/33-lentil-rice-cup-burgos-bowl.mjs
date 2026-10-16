@@ -5,6 +5,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 10,
+  cuisine: 'mediterranean',
+  shortName: 'Lentil rice bowl',
   id: 'med-lentil-rice-burgos-bowl-box',
   name: 'Lentil and brown-rice bowl with queso de Burgos and tomato salad (lunch box)',
   names: {

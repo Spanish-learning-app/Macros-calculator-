@@ -3,6 +3,8 @@ export default {
   n: 8,
   effort: 'cook',
   minutes: 45,
+  cuisine: 'desi',
+  shortName: 'Seekh and tabbouleh',
   id: 'pk-chicken-seekh-tabbouleh-box',
   name: 'Chicken seekh kebabs with tabbouleh (lunch box)',
   names: {

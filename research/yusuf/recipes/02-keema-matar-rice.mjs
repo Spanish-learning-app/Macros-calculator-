@@ -3,6 +3,8 @@ export default {
   n: 2,
   effort: 'cook',
   minutes: 45,
+  cuisine: 'desi',
+  shortName: 'Keema matar rice box',
   id: 'pk-keema-matar-rice-box',
   name: 'Keema matar with rice (lunch box)',
   names: {

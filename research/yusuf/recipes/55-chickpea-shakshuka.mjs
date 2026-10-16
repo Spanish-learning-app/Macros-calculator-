@@ -4,6 +4,7 @@ export default {
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
+  dinnerOnly: true, // cooked on the night or a soup: not a lunch box
   effort: 'cook',
   minutes: 20,
   cuisine: 'middle-eastern',

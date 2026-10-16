@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 8,
+  cuisine: 'middle-eastern',
+  shortName: 'Hummus and veg sticks',
   id: 'med-protein-hummus-veg-sticks-box',
   name: 'Protein hummus with veg sticks and picos (snack box)',
   names: {

@@ -6,6 +6,8 @@ export default {
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'desi',
+  shortName: 'Anda paratha roll',
   id: 'pk-anda-paratha-roll-portion',
   name: 'Anda paratha roll, wholemeal paratha with a masala omelette (breakfast portion)',
   names: {

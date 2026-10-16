@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 12,
+  cuisine: 'desi',
+  shortName: 'Fruit chaat, dahi',
   id: 'pk-fruit-chaat-protein-dahi-portion',
   name: 'Fruit chaat with protein yogurt and almonds (breakfast portion)',
   names: {

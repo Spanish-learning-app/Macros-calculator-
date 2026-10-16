@@ -149,7 +149,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Hummus de garbanzos Hacendado receta clásica: 160 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g tub | 1 × pack | 1.05 € |
 | Lemon juice: 30 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Baby spinach, raw: 100 g | [Espinacas baby lavadas](https://tienda.mercadona.es/product/69984/) | 100 g | 1 × pack | 1.15 € |
-| Cherry tomatoes, raw: 320 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g | 1 × pack | 2.20 € |
+| Cherry tomatoes, raw: 320 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g tray (Tomates cherry) | 1 × pack | 2.20 € |
 | Cucumber, with peel, raw: 200 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Red bell pepper, raw: 160 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 

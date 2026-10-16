@@ -7,6 +7,8 @@ export default {
   slot: 'breakfast',
   serving: 'jar',
   boxes: 3,
+  cuisine: 'international',
+  shortName: 'Protein overnight oats',
   id: 'intl-overnight-oats-protein-jar',
   name: 'Overnight oats with protein yogurt, chia and walnuts (breakfast jar)',
   names: {

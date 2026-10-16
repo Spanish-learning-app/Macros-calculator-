@@ -132,7 +132,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Chickpeas, canned/jarred, drained and rinsed: 130 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g jar (400 g drained) | 1 × pack | 0.80 € |
 | Red bell pepper, raw: 60 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Cucumber, with peel, raw: 60 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
-| Cherry tomatoes, raw: 60 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g | 1 × pack | 2.20 € |
+| Cherry tomatoes, raw: 60 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g tray (Tomates cherry) | 1 × pack | 2.20 € |
 | Fresh parsley: 5 g | [Perejil troceado lavado](https://tienda.mercadona.es/product/69701/) | 40 g | 1 × pack | 0.95 € |
 | Cumin: 0.5 g | [Comino molido Hacendado](https://tienda.mercadona.es/product/34120/) | 58 g | 1 × pack | 1.15 € |
 | Queso fresco de Burgos desnatado 0% Hacendado: 63 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g (4 tubs) | 1 × pack | 1.15 € |

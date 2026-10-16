@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 10,
+  cuisine: 'desi',
+  shortName: 'Chana chaat snack',
   id: 'pk-chana-chaat-dahi-snack-box',
   name: 'Chana chaat with protein dahi (snack box)',
   names: {

@@ -9,6 +9,8 @@ export default {
   slot: 'breakfast',
   serving: 'portion',
   boxes: 4,
+  cuisine: 'international',
+  shortName: 'Egg muffins and roti',
   id: 'intl-egg-muffins-roti-portion',
   name: 'Desi egg muffins with spinach, peppers and peas, with a roti (breakfast portion)',
   names: {

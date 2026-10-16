@@ -3,6 +3,8 @@ export default {
   n: 7,
   effort: 'cook',
   minutes: 35,
+  cuisine: 'middle-eastern',
+  shortName: 'Moroccan chicken box',
   id: 'med-moroccan-chicken-couscous-box',
   name: 'Moroccan chicken couscous with roast vegetables (lunch box)',
   names: {
