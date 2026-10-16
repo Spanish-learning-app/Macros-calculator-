@@ -187,7 +187,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 - Green chillies (hari mirch): 10 g. Price: not available.
 - Garam masala: 4 g. Price: not available.
 - Chaat masala: 2 g. Price: not available.
-- Bulgur (burghul), fine or medium: 200 g (not sold by Mercadona Barcelona on 2026-10-13; no Spanish online price found). Price: not available.
+- Bulgur (sémola de trigo) blanco fino, 1000 g: 200 g (not sold by Mercadona Barcelona on 2026-10-13; Turkish grocery (Madrid and Barcelona, online), in stock on the read date). Price: 3.25 €/kg at [El Turco](https://elturco.es/product/bulgur-semola-de-trigo-blanco-fino-1000gr/) on 2026-10-16.
 
 **Mercadona** (online shop, Barcelona warehouse `bcn1`, prices read 2026-10-13)
 
@@ -216,7 +216,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 ## Cost per box
 
-**Indicative cost per box: not available.** No current price was found for green chilli, raw (10 g), garam masala (4 g), chaat masala (2 g), bulgur, dry (200 g). The priced part comes to 3.26 € per box (13.04 € for the batch). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g.
+**Indicative cost per box: 3.42 €** (13.69 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13; El Turco read 2026-10-16. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g. Not included (no price found, small amounts): green chilli, raw (10 g), garam masala (4 g), chaat masala (2 g).
 
 ## Changes made to meet the lunch targets
 

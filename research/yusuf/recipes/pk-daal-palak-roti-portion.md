@@ -192,7 +192,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 **Pakistani or Moroccan grocery shelf (usually at or next to the halal butcher)**
 
-- Masoor dal (red lentils): 280 g (not sold by Mercadona Barcelona on 2026-10-14 (only lentil pasta and pardina lentils)). Price: not available.
+- Schani Red Lentils (Masoor Dal) 1 kg: 280 g (not sold by Mercadona Barcelona on 2026-10-14; online Indian supermarket, Barcelona warehouse). Price: 2.49 €/kg at [Indian Flavours](https://www.indianflavours.es/en_US/shop/everyday-essentials-lentils-beans-57/schani-lentils-red-masoor-dall-1-kg-3166) on 2026-10-16.
 - Green chillies (hari mirch): 8 g. Price: not available.
 - Coriander seeds or ground coriander (dhania): 4 g. Price: not available.
 
@@ -223,7 +223,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 ## Cost per portion
 
-**Indicative cost per portion: not available.** No current price was found for red lentils (280 g), green chilli, raw (8 g), coriander seed (4 g). The priced part comes to 0.98 € per portion (3.93 € for the batch). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14. Pro-rata: the cost of what goes in the portions, not of whole packs.
+**Indicative cost per portion: 1.16 €** (4.63 € for 4 portions). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13 and 2026-10-14; Indian Flavours read 2026-10-16. Pro-rata: the cost of what goes in the portions, not of whole packs. Not included (no price found, small amounts): green chilli, raw (8 g), coriander seed (4 g).
 
 ## Changes made to meet the dinner targets
 

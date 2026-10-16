@@ -785,8 +785,9 @@ Lab adds it, else "Halal butcher" and "Supermarket".
 
 The store (§7.3) adds: `recipes()`, `recipe(id)`, `recipeTotals(id)`, `saveRecipe(r)`, `deleteRecipe(id)`,
 `library()`, `batches()`, `cookBatch({ recipeId, boxes, cookedOn?, storage? })`, `setBoxStorage(batchId,
-boxId, storage)`, `discardBox`, `deleteBatch`, `placeBox({ batchId, date, slot })` (returns `{ entryId,
-boxId, noneLeft }`; with no box left it still adds a plain entry, A17), `fillDays`, `boxInfo(entry)`,
+boxId, storage)`, `discardBox`, `deleteBatch`, `placeBox({ batchId, date, slot, status? })` (returns `{ entryId,
+boxId, noneLeft }`; with no box left it still adds a plain entry, A17; `status: 'planned'` plans the box
+even for today, used by the Day view's "Plan it", otherwise today is eaten and later days planned), `fillDays`, `boxInfo(entry)`,
 `prepNotices(date)`, `shopping(batchId, boxes)`, `chai()`, `saveChai(opts)`, `savedMeals()`, `saveMeal`,
 `addSavedMeal`, `deleteSavedMeal`. The food index also applies `settings.seafood`: a food whose
 seafood tag is outside the choice shows `check` with `RULES.vocab.halalRules.seafoodNote`.
@@ -808,3 +809,26 @@ seafood tag is outside the choice shows `check` with `RULES.vocab.halalRules.sea
   stay; Undo) and `dismissWeightSuggestion()`.
 - **UI:** Profile's weight card (entry, list, chart, trend, rate, suggestion with "Use N kcal" / "Not
   now"); Week's weight section (chart, trend, rate; no suggestion).
+
+## 15. Sprint 3: Ramadan mode (owner: Lena)
+
+- **Data:** optional `settings.ramadanMode = { on, startDate, fajr?, maghrib?, fajrOffsetMin?,
+  maghribOffsetMin?, days?, fluidsHiddenOn? }` (DECISIONS 2026-10-15; no schema bump). `fajr`/`maghrib`
+  ('HH:MM') apply to every Ramadan day. STATUS O12 adds the edits `RULES.ramadan.userEdit` allows:
+  `fajrOffsetMin`/`maghribOffsetMin` (whole minutes, clamped to `offsetMinRange`) move the built-in
+  table's times, and `days = { 'YYYY-MM-DD': { fajr?, maghrib? } }` (only read when `perDayOverride`)
+  changes one day. Order for a time: that day's own, then the every-day time, then table + offset.
+  `migrate` uses `cleanRamadanMode`: a broken optional part is dropped, the mode is dropped only when
+  `on` or `startDate` is broken; never 'corrupt'.
+- **Core `app/core/ramadan.js`:** `parseTime`, `timeText`, `ramadanModeProblems`, `cleanRamadanMode`,
+  `ramadanEditRules(rules)` → `{ offset: { min, max } | null, perDay }`, `ramadanOffset(mode, key, rules)`,
+  `defaultStartDate`, `ramadanRange`, `isRamadanDay`, `ramadanTimes(date, mode, rules)` → `{ fajr,
+  maghrib, source: { fajr, maghrib } ('day' | 'user' | 'table' | null), table, offset, place }`,
+  `ramadanDayStart`, `loggingDate`, `ramadanSlots`, `sehriProteinGoal`, `ramadanFlagNotes`.
+- **Store:** `ramadan(date?)` (adds `edit`, `offsets` and `days`: every Ramadan day with its times),
+  `setRamadanMode(patch)` (offsets 0 or null clear), `setRamadanDay(date, { fajr?, maghrib? })` (null
+  goes back to the usual time), `hideFluidsToday()`. A day's own maghrib moves that day's slot windows.
+- **UI:** Profile's Ramadan card: switch, first day, the every-day fajr/maghrib, "Your mosque's times
+  are a little different?" (two offset selects, shown while no every-day time is typed), and the folded
+  "Day-by-day times" table (today marked, own times in the accent colour, a pencil per row opens a
+  one-day editor with Save, "Use the usual times" and Cancel).

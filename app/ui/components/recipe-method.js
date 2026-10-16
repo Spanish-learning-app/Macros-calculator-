@@ -331,13 +331,19 @@ export function openStepMode({ title, method }) {
   ];
   let at = 0;
   const titleId = uid('steps');
-  const count = h('p', {
-    class: 'stepper-count',
-    'data-testid': 'stepper-count',
-    'aria-live': 'polite',
-  });
+  const bodyId = uid('step-body');
+  // The step body is the live region (Priya's O16 audit): a screen reader hears "Step 2 of 6." and
+  // the step itself on every Next or Back, while focus stays on the button that was pressed. The
+  // visible count is not live too, so nothing is read twice.
+  const count = h('p', { class: 'stepper-count', 'data-testid': 'stepper-count' });
   const bar = h('span', { class: 'stepper-bar-fill' });
-  const body = h('div', { class: 'stepper-body', 'data-testid': 'stepper-text' });
+  const body = h('div', {
+    class: 'stepper-body',
+    id: bodyId,
+    'data-testid': 'stepper-text',
+    'aria-live': 'polite',
+    'aria-atomic': 'true',
+  });
   const back = h(
     'button',
     {
@@ -368,6 +374,8 @@ export function openStepMode({ title, method }) {
       class: 'dlg step-mode',
       'data-testid': 'method-stepper',
       'aria-labelledby': titleId,
+      // Read once on open: the live region only speaks on changes.
+      'aria-describedby': bodyId,
     },
     h(
       'div',
@@ -399,17 +407,22 @@ export function openStepMode({ title, method }) {
     ),
   );
 
+  /** Spoken first inside the live body; the visible count says the same. */
+  const said = (text) => h('span', { class: 'sr-only' }, `${text}. `);
+
   function render() {
     const s = screens[at];
     const last = at === screens.length - 1;
     back.disabled = at === 0;
     setText(nextLabel, last ? 'Done' : 'Next');
+    next.setAttribute('aria-label', last ? 'Done, close step by step' : 'Next step');
     const stepNo = s.kind === 'step' ? s.i + 1 : s.kind === 'prep' ? 0 : n;
     bar.style.width = `${Math.round(((s.kind === 'finish' ? n : stepNo) / n) * 100)}%`;
     if (s.kind === 'prep') {
       setText(count, 'Before you start');
       mountChildren(
         body,
+        said('Before you start'),
         h(
           'ul',
           { class: 'stepper-list', role: 'list' },
@@ -425,12 +438,19 @@ export function openStepMode({ title, method }) {
           : null,
       );
     } else if (s.kind === 'step') {
-      setText(count, `Step ${s.i + 1} of ${n}`);
-      mountChildren(body, h('p', { class: 'stepper-step' }, s.step.text), stepChips(s.step, true));
+      const label = `Step ${s.i + 1} of ${n}`;
+      setText(count, label);
+      mountChildren(
+        body,
+        said(label),
+        h('p', { class: 'stepper-step' }, s.step.text),
+        stepChips(s.step, true),
+      );
     } else {
       setText(count, 'Finish');
       mountChildren(
         body,
+        said('Finish'),
         method.doneWhen
           ? h(
               'div',
@@ -465,9 +485,17 @@ export function openStepMode({ title, method }) {
       close();
       return;
     }
-    at = Math.min(screens.length - 1, Math.max(0, at + dir));
+    const to = Math.min(screens.length - 1, Math.max(0, at + dir));
+    // Focus stays on the button that was pressed; Back turns off on the first screen, so focus
+    // moves to Next there (never lost to the page behind the dialog).
+    const target = dir > 0 || to === 0 ? next : back;
+    if (to === at) {
+      target.focus();
+      return; // nothing changed: say nothing again
+    }
+    at = to;
     render();
-    (dir > 0 ? next : at === 0 ? next : back).focus();
+    target.focus();
   }
 
   // Keep the screen on while cooking, where the browser allows it (never required).

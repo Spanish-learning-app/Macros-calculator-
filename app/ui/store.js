@@ -2,7 +2,14 @@
 // Owner: Lena. Contract: docs/ARCHITECTURE.md §7.3.
 // No DOM access: persistence, clock, ids and timers are injected, so it runs in Node tests.
 // Every action builds a new document with the pure core functions and then notifies subscribers.
-import { todayISO, minutesOfDay, weekDates, localDateTime, addDays } from '../core/dates.js';
+import {
+  todayISO,
+  minutesOfDay,
+  weekDates,
+  localDateTime,
+  addDays,
+  isISODate,
+} from '../core/dates.js';
 import { fmtDateShort } from './components/format.js';
 import { buildFoodIndex, defaultServing, findServing, variantsOf } from '../core/foods.js';
 import {
@@ -66,6 +73,9 @@ import {
   ramadanSlots,
   sehriProteinGoal,
   ramadanFlagNotes,
+  ramadanEditRules,
+  ramadanOffset,
+  parseTime,
   defaultStartDate,
 } from '../core/ramadan.js';
 import { proteinTip, sehriTip, tipIdeas, tipsOn } from '../core/nudges.js';
@@ -297,6 +307,16 @@ export function createStore({
 
   // ------------------------------------------------------------------ Ramadan mode (§12)
   const ramadanMode = () => settings().ramadanMode ?? null;
+  /** Every Ramadan day with its times (STATUS O12 table): [] while the mode is off. */
+  function ramadanDays(mode) {
+    const range = ramadanRange(mode);
+    if (!range) return [];
+    const out = [];
+    for (let date = range.start, n = 1; date <= range.end; date = addDays(date, 1), n += 1) {
+      out.push({ date, n, ...ramadanTimes(date, mode, rules) });
+    }
+    return out;
+  }
   /** The preset a date uses now: 'ramadan' on a Ramadan day, else the person's meal times. */
   const presetFor = (date) =>
     rules?.mealSlots?.ramadan && isRamadanDay(date, ramadanMode()) ? 'ramadan' : preset();
@@ -924,6 +944,13 @@ export function createStore({
         isDay,
         typed: { fajr: mode?.fajr ?? null, maghrib: mode?.maghrib ?? null },
         times: timesFor(d),
+        // STATUS O12: what RULES lets the person edit, their offsets, and the day-by-day list.
+        edit: ramadanEditRules(rules),
+        offsets: {
+          fajr: ramadanOffset(mode, 'fajr', rules),
+          maghrib: ramadanOffset(mode, 'maghrib', rules),
+        },
+        days: ramadanDays(mode),
         dayStart: dayStartOf(d),
         notes: ramadanFlagNotes(activeFlags(), rules),
         fluids:
@@ -993,6 +1020,34 @@ export function createStore({
         ...patch,
       };
       for (const key of ['fajr', 'maghrib']) if (next[key] == null) delete next[key];
+      // Offsets (RULES.ramadan.userEdit.offsetMinRange): whole minutes, clamped; 0 or null = none.
+      const range = ramadanEditRules(rules).offset;
+      for (const key of ['fajrOffsetMin', 'maghribOffsetMin']) {
+        const v = next[key];
+        if (v == null || !range || !Number.isFinite(v) || Math.round(v) === 0) delete next[key];
+        else next[key] = Math.min(range.max, Math.max(range.min, Math.round(v)));
+      }
+      commit({ ...data(), settings: { ...(data().settings ?? {}), ramadanMode: next } });
+    },
+    /**
+     * One day's own fajr/maghrib (RULES.ramadan.userEdit.perDayOverride). `patch` values are
+     * 'HH:MM', or null to go back to the every-day time or the table. A no-op when RULES has no
+     * per-day edit or the mode was never set.
+     */
+    setRamadanDay(date, patch) {
+      const current = ramadanMode();
+      if (!current || !ramadanEditRules(rules).perDay || !isISODate(date)) return;
+      const days = { ...(current.days ?? {}) };
+      const day = { ...(days[date] ?? {}) };
+      for (const key of ['fajr', 'maghrib']) {
+        if (!(key in patch)) continue;
+        if (patch[key] == null || parseTime(patch[key]) === null) delete day[key];
+        else day[key] = patch[key];
+      }
+      if (Object.keys(day).length) days[date] = day;
+      else delete days[date];
+      const next = { ...current, days };
+      if (!Object.keys(days).length) delete next.days;
       commit({ ...data(), settings: { ...(data().settings ?? {}), ramadanMode: next } });
     },
     /** The fluids line, hidden for the rest of the day (nothing is tracked). */

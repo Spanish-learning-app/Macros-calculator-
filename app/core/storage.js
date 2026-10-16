@@ -6,7 +6,7 @@ import { isISODate } from './dates.js';
 import { NUTRIENT_KEYS } from './foods.js';
 import { ENTRY_SLOT_IDS } from './days.js';
 import { weightLogProblems, mergeWeightLogs, weightEntries } from './weight.js';
-import { ramadanModeProblems } from './ramadan.js';
+import { ramadanModeProblems, cleanRamadanMode } from './ramadan.js';
 import { nudgeSettingsProblems } from './nudges.js';
 import { MY_METHOD_MAX } from './mealprep.js';
 
@@ -292,7 +292,9 @@ export function migrate(raw) {
   // Sprint 3 (§15): a broken Ramadan or tips setting falls back to its default, never 'corrupt'.
   if (isObject(data.settings)) {
     const settings = { ...data.settings };
-    if (ramadanModeProblems(settings.ramadanMode).length) delete settings.ramadanMode;
+    const ramadan = cleanRamadanMode(settings.ramadanMode);
+    if (ramadan === null) delete settings.ramadanMode;
+    else if (ramadan !== undefined) settings.ramadanMode = ramadan;
     if (nudgeSettingsProblems(settings.nudges).length) delete settings.nudges;
     data.settings = settings;
   }

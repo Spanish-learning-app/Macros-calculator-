@@ -18,6 +18,8 @@ export default {
   aliases: ['ensalada de lentejas', 'lentil salad', 'lentil tuna salad', 'amanida de llenties', 'lentejas con atun', 'lentil feta salad', 'ensalada de lentejas con feta'],
   pitch: 'Open a jar of lentils and a can of tuna, chop a pepper, and lunch is done for two days.',
   eat: 'cold',
+  // The halal version (STATUS O6, ARCHITECTURE §13.1): the app's "Halal swap" button opens it.
+  halalSwap: { id: 'es-lentejas-atun-burgos-salad-box', reason: 'Same salad with queso de Burgos 0% (cuajo microbiano) instead of feta, whose rennet origin is not stated.' },
   tags: ['spanish', 'mediterranean', 'meal-prep', 'eat-cold', 'seafood-fish'],
   references: [
     { title: 'Universidad Pablo de Olavide, Recetas para una cuarentena: Ensalada de lentejas', url: 'https://www.upo.es/recetasparaunacuarentena/?p=10347', used: '1 cup cooked lentils, a handful of lamb\'s lettuce, 1 small tomato, 75 g feta, 2 tbsp olive oil, lemon or vinegar; 10 minutes', read: 'search-engine page extract, 2026-10-14' },

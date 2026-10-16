@@ -1,7 +1,8 @@
 # Katori nutrition contract
 
 **Owner:** Dr. Ayesha Siddiqui, Lead Nutritionist (Nutrition Lab)
-**Status:** Sprint 3, version 1.7.1 (2026-10-15).
+**Status:** Sprint 3, version 1.7.2 (2026-10-16).
+- Version 1.7.2 (night shift 2026-10-16): plain-words wording for the user: the `moderate` activity description (§2.3), the source methods and confidence grades (§4.4; the researchers' meaning moves to a `rule` field that is never shown); the halal shopping guide for Barcelona as app data, `RULES.halalGuide` (§4.8, STATUS O8).
 - Version 1.7.1 (Sprint 3 variety add-on): alcohol as an ingredient. A product whose label lists wine, mirin, sake, beer or spirits is `not-halal` with the reason naming it; fermentation traces (brewed soy sauce) stay `check`; wine vinegar stays `halal` (§4.6, gate G21). Glycerine (E-422) of unstated origin joins the label `check` list.
 - Version 1.7.0 (Meeting 005, Sprint 3 wave 1): Ramadan mode for Barcelona (§12), protein tips (§13), weight trend (§14), kam tel `home-light` variants (§6.1, gate G25), the optional `shortName` field (§3, gate G24), and `serve`/`pack` rules moved into `RULES.vocab.fieldRules`.
 - Version 1.6.1 (Sprint 2 market add-on): label rule for `check` (rennet and E-471/E-472 of unstated origin, §4.6).
@@ -245,7 +246,7 @@ feature that sets kcal by hand. Kenji: test the function with these inputs direc
 |---|---|---|---|
 | `sedentary` | 1.2 | Mostly sitting | Desk job, studying or driving. Little walking and no exercise. |
 | `light` | 1.375 | Lightly active | Housework or walking every day, or exercise 1 to 3 days a week. |
-| `moderate` | 1.55 | Active | On your feet most of the day (busy housework, shop or ward work), or exercise 3 to 5 days a week. |
+| `moderate` | 1.55 | Active | On your feet most of the day, for example busy housework with children or work in a shop, even with no exercise. Or exercise 3 to 5 days a week. |
 | `very_active` | 1.725 | Very active | Hard training 6 to 7 days a week, or a physical job. |
 | `extra_active` | 1.9 | Extremely active | A physical job plus daily training, or training twice a day. |
 
@@ -522,20 +523,24 @@ The order of this table is the order the app lists variants in (`STYLES` in `app
 
 **Methods:**
 
-| Method | Meaning |
-|---|---|
-| `direct` | A table entry for the same food in the same state |
-| `recipe` | Standard recipe calculation (§6) |
-| `label` | A dated product label |
-| `analogue` | A named close food |
+| Method | Meaning (`rule`, for researchers) | Shown to the user after "Worked out by" (`label`) |
+|---|---|---|
+| `direct` | A table entry for the same food in the same state | looking it up in a national food table, for this same food |
+| `recipe` | Standard recipe calculation (§6) | adding up a typical recipe: its ingredients, oil and cooked weight |
+| `label` | A dated product label | reading the packet label |
+| `analogue` | A named close food | using a very similar food (named in the source) |
 
 **Confidence grades:**
 
-| Grade | Meaning | Allowed methods | Shown to the user |
+| Grade | Meaning (`rule`, for researchers) | Allowed methods | Shown to the user (`label`: `description`) |
 |---|---|---|---|
-| A | Direct analytical match | `direct` only | — |
-| B | Close analogue, label, or recipe with a published yield for that dish and consistent references | any | — |
-| C | Recipe with assumed oil or yield, or a dish that varies a lot between cooks | any | "estimate" badge |
+| A | Direct analytical match | `direct` only | **Very sure:** A lab measured this same food. The numbers should be very close. |
+| B | Close analogue, label, or recipe with a published yield for that dish and consistent references | any | **Fairly sure:** From the packet label, a very similar food, or a recipe whose cooked weight is known. Close enough to count on. |
+| C | Recipe with assumed oil or yield, or a dish that varies a lot between cooks | any | **Estimate:** Worked out from a typical recipe. Cooking varies, mostly in the oil, so yours may have more or less. Plus the "estimate" badge. |
+
+The user sees only `label` and `description` (food details "How sure", About page "How sure we are
+about each food"). The grading rule a researcher applies is the `rule` field and this table; it is
+never shown, because Nasreen (Review 2) read "Direct match to an analysed table entry" as jargon.
 
 Restaurant, dhaba and street variants are always C.
 
@@ -639,6 +644,37 @@ how people actually type, for example on WhatsApp.
 
 Add the Urdu word **and** the English word. Spanish foods also get their Spanish name.
 
+### 4.8 Halal shopping guide for Barcelona (`RULES.halalGuide`, rules 1.7.2, STATUS O8)
+
+**Where it shows:** the About page, as its own card after the "Halal:" paragraph (Priya renders it;
+see my journal 2026-10-16). The text is data in `rules.js`, not in the UI code, so the Lab can correct
+it without touching `app/ui`. Shape: `{ title, intro, sections: [{ id, title, items: [string] }],
+note }`; check-foods **R3** checks it.
+
+**Sections:** (1) what Katori's `check` means ("read the label or ask"), (2) words to look for on a
+Spanish label, (3) how to ask, in Spanish with English, (4) halal butchers and desi groceries in
+Barcelona. Tone: facts about words and ingredients, never a ruling; differences between schools are
+named (E-120, prawns) and left to the user. No shop is named or recommended.
+
+**Facts and sources:**
+
+| Item | What the guide says | Source |
+|---|---|---|
+| Ingredient list and additives | Spanish labels list every ingredient; additives appear by category plus name or E-number; the origin (plant or animal) of an additive is not required | Regulation (EU) 1169/2011 on food information to consumers, Art. 9 and 18, Annex VII Part C |
+| Manteca, sebo | *Manteca*: animal fat, above all pork (lard); *sebo*: hard animal fat (suet, tallow) | Real Academia Española, *Diccionario de la lengua española* (DLE), "manteca", "sebo" |
+| Llard, saïm (Catalan) | Pork lard; ensaïmada is made with saïm | Institut d'Estudis Catalans, DIEC2 "llard", "saïm"; Lab §4.6 (ensaïmada record) |
+| Gelatina, E-441 | Gelatine can come from pig skin, ruminant hides and bones, poultry or fish. It is a food ingredient, not an additive, in today's EU list, so a few older or imported labels still use the old number E-441 | Regulation (EC) 853/2004 Annex III Section XIV (raw materials for gelatine); Regulation (EC) 1333/2008 Annex II (gelatine not listed) |
+| E-120 | Cochineal, carminic acid, carmines: colour from the insect *Dactylopius coccus* | Regulation (EU) 231/2012 (specifications), E 120 |
+| E-471, E-472a–f | Mono- and diglycerides of fatty acids and their esters, made from edible fats and oils, which may be plant or animal | Regulation (EU) 231/2012, E 471, E 472a–f; Lab §4.6 `check` (labels) |
+| E-422 | Glycerol, plant or animal | Regulation (EU) 231/2012, E 422; Lab §4.6 |
+| Cuajo | Animal rennet comes from calf stomachs; microbial and plant coagulants exist; a plain "cuajo" does not say which | Lab §4.6 `check` (labels); Spanish cheese labels reviewed in s2-market (OFF cache) |
+| Alcohol, mirin, sake, soy sauce, wine vinegar | As §4.6 (alcohol as an ingredient → `not-halal`; fermentation trace → `check`; vinegar → `halal`) | Lab rule §4.6 (rules 1.7.1) |
+| Halal seal in Spain | The Garantía Halal trademark of the Junta Islámica, managed by the Instituto Halal (Córdoba), is the best-known Spanish seal; other certifiers exist | Consumer (Fundación Eroski), "Las leyes de la alimentación halal", consumer.es; Instituto Halal, institutohalal.com |
+| Raval | The Raval (Ciutat Vella) is the centre of Barcelona's Pakistani community, with its mosques (oratorios) and shops | Moreras J. "¿Ravalistán? Islam y configuración comunitaria entre los paquistaníes en Barcelona". *Revista CIDOB d'Afers Internacionals* 68 (2005) |
+
+Butchers and groceries are described in general terms only: we have no source that lets us vouch for
+one shop over another.
+
 ---
 
 ## 5. Servings and household measures
@@ -723,6 +759,7 @@ Use the food's own density when its source gives one.
 | `egg-muffin`: baked egg muffins and egg bites | 3 days | 2 months | USDA FSIS cold-storage chart (quiche or egg casserole) |
 | `overnight-oats`: overnight oats, chia pudding (uncooked, soaked in milk or yogurt) | 3 days | do not freeze | Lab rule |
 | `cooked-flatbread`: cooked parathas and rotis | 2 days | 2 months | Lab rule (quality); reheat on the tawa |
+| `blended-smoothie`: smoothies with milk or yogurt made ahead in a jar (rules 1.7.2) | **1 day** | do not freeze | Colorado State University *Eating Smart Being Active*, "Fruit Smoothie" (WSU Extension reprint, 2024): "Refrigerate leftovers within 2 hours. Drink within 2 days." Lab uses 1 day for quality (oats thicken, banana browns). Not `overnight-oats` (3 days): blended fruit is a different food. |
 
 **Use-by**
 - Use-by = cooked date + the **shortest** `fridgeDays` among the box's components.
@@ -937,6 +974,8 @@ Show this text as written:
 > share slicers, grills or fryers with pork; Katori does not track this per food, so ask if it matters
 > to you.
 >
+> *(Then the card "Halal shopping in Barcelona", rendered from `RULES.halalGuide`, §4.8.)*
+>
 > Katori is not medical advice. If you are pregnant or breastfeeding, under 18, have kidney
 > disease, diabetes on medication, or an eating disorder, please ask a doctor or dietitian.
 
@@ -977,6 +1016,7 @@ Show this text as written:
 **Rules self-checks** (also run by check-foods, rules 1.7.0):
 - **R1:** every protein-tip food (`RULES.proteinNudges.suggestions`) exists, has the named serving, is not `not-halal`, and its stated protein (±0.6 g) and kcal (±1) match FOODS.
 - **R2:** each Ramadan timetable has consecutive dates, `HH:MM` times, and fajr before maghrib.
+- **R3:** `RULES.halalGuide` has a title, intro and note, and sections with a unique `id`, a `title` and non-empty string `items` (§4.8).
 
 Kenji's official data gate (`tests/data/`) implements the same rules from this table.
 

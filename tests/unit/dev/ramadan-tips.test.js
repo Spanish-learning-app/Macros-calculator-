@@ -19,6 +19,9 @@ import {
   ramadanFlagNotes,
   defaultStartDate,
   ramadanModeProblems,
+  cleanRamadanMode,
+  ramadanEditRules,
+  ramadanOffset,
 } from '../../../app/core/ramadan.js';
 import { proteinTip, sehriTip, tipIdeas, tipsOn, dueCheckpoint } from '../../../app/core/nudges.js';
 import {
@@ -490,4 +493,102 @@ test('store: markTipShown keeps the undo window', () => {
   assert.ok(store.getState().undo);
   store.markTipShown('spain:lunch');
   assert.ok(store.getState().undo);
+});
+
+// ------------------------------------------------------------------ O12: offsets, one day, table
+
+test('O12 core: RULES userEdit read defensively; offsets move only the table, clamped', () => {
+  assert.deepEqual(ramadanEditRules(RULES), { offset: { min: -30, max: 30 }, perDay: true });
+  assert.deepEqual(ramadanEditRules({}), { offset: null, perDay: false });
+  const noEdit = { ...RULES, ramadan: { ...RULES.ramadan, userEdit: undefined } };
+  const mode = { ...MODE, fajrOffsetMin: -10, maghribOffsetMin: 45 };
+  assert.equal(ramadanOffset(mode, 'fajr', RULES), -10);
+  assert.equal(ramadanOffset(mode, 'maghrib', RULES), 30, 'clamped to the RULES range');
+  assert.equal(ramadanOffset(mode, 'fajr', noEdit), 0, 'no userEdit, no offset');
+  // 10 Feb 2027 in the table: fajr 06:20, maghrib 18:18.
+  const t = ramadanTimes('2027-02-10', mode, RULES);
+  assert.equal(timeText(t.fajr), '06:10');
+  assert.equal(timeText(t.maghrib), '18:48');
+  assert.deepEqual(t.source, { fajr: 'table', maghrib: 'table' });
+  assert.deepEqual(t.table, { fajr: 380, maghrib: 1098 });
+  assert.deepEqual(t.offset, { fajr: -10, maghrib: 30 });
+  // An every-day typed time ignores the offset.
+  assert.equal(
+    timeText(ramadanTimes('2027-02-10', { ...mode, fajr: '06:00' }, RULES).fajr),
+    '06:00',
+  );
+});
+
+test("O12 core: one day's own time wins over the every-day time and the table", () => {
+  const mode = {
+    ...MODE,
+    maghrib: '18:30',
+    fajrOffsetMin: 5,
+    days: { '2027-02-10': { maghrib: '18:40' }, '2027-02-11': { fajr: '06:00' } },
+  };
+  const a = ramadanTimes('2027-02-10', mode, RULES);
+  assert.deepEqual([timeText(a.fajr), timeText(a.maghrib)], ['06:25', '18:40']);
+  assert.deepEqual(a.source, { fajr: 'table', maghrib: 'day' });
+  const b = ramadanTimes('2027-02-11', mode, RULES);
+  assert.deepEqual([timeText(b.fajr), timeText(b.maghrib)], ['06:00', '18:30']);
+  assert.deepEqual(b.source, { fajr: 'day', maghrib: 'user' });
+  // Without perDayOverride in RULES the stored day is ignored.
+  const off = { ...RULES, ramadan: { ...RULES.ramadan, userEdit: { perDayOverride: false } } };
+  assert.equal(ramadanTimes('2027-02-10', mode, off).source.maghrib, 'user');
+  // The day's own maghrib moves that day's slots (iftar from maghrib − 30 min).
+  const slots = ramadanSlots(RULES, { maghrib: a.maghrib, dayStart: 240 });
+  assert.equal(slots.find((s) => s.id === 'iftar').hours[0], 1120 - 30); // minutes
+});
+
+test('O12 storage: offsets and days validate; migrate drops only the broken parts', () => {
+  assert.deepEqual(
+    ramadanModeProblems({ ...MODE, fajrOffsetMin: 10, days: { '2027-02-10': { fajr: '06:00' } } }),
+    [],
+  );
+  assert.equal(ramadanModeProblems({ ...MODE, fajrOffsetMin: 2.5 }).length, 1);
+  assert.equal(ramadanModeProblems({ ...MODE, days: { '10 Feb': { fajr: '06:00' } } }).length, 1);
+  assert.deepEqual(
+    cleanRamadanMode({
+      ...MODE,
+      fajr: '25:00',
+      maghribOffsetMin: 'ten',
+      fajrOffsetMin: -12,
+      days: { '2027-02-10': { fajr: '6am', maghrib: '18:40' }, nope: { fajr: '06:00' } },
+    }),
+    { ...MODE, fajrOffsetMin: -12, days: { '2027-02-10': { maghrib: '18:40' } } },
+  );
+  assert.equal(cleanRamadanMode({ on: 'yes', startDate: '2027-02-08' }), null);
+  assert.equal(cleanRamadanMode(undefined), undefined);
+  const data = defaultData();
+  data.settings.ramadanMode = { ...MODE, maghribOffsetMin: 999, days: 'x' };
+  const out = migrate(data);
+  assert.deepEqual(out.settings.ramadanMode, MODE, 'the mode itself survives');
+  assert.deepEqual(validateUserData(out), []);
+});
+
+test('O12 store: day-by-day list, offsets (clamped, 0 clears) and one day changed then reset', () => {
+  const clock = { now: at(2027, 2, 10, 12, 0) };
+  const store = makeStore(clock);
+  assert.deepEqual(store.ramadan().days, [], 'nothing while the mode is off');
+  store.setRamadanMode({ on: true, startDate: '2027-02-08' });
+  const days = store.ramadan().days;
+  assert.equal(days.length, 30);
+  assert.deepEqual([days[0].date, days[0].n, timeText(days[0].fajr)], ['2027-02-08', 1, '06:22']);
+  assert.equal(days[29].date, '2027-03-09');
+  store.setRamadanMode({ fajrOffsetMin: -45, maghribOffsetMin: 4 });
+  assert.deepEqual(store.ramadan().offsets, { fajr: -30, maghrib: 4 });
+  assert.equal(store.settings().ramadanMode.fajrOffsetMin, -30);
+  assert.equal(timeText(store.ramadan().times.maghrib), '18:22');
+  store.setRamadanMode({ fajrOffsetMin: 0 });
+  assert.equal(store.settings().ramadanMode.fajrOffsetMin, undefined);
+  store.setRamadanDay('2027-02-10', { maghrib: '18:45' });
+  assert.equal(timeText(store.ramadan().times.maghrib), '18:45');
+  assert.equal(store.ramadan().times.source.maghrib, 'day');
+  // The day's slots follow its own maghrib: iftar opens 30 minutes before (18:15, not 17:52).
+  clock.now = at(2027, 2, 10, 18, 10);
+  assert.equal(store.defaultSlot(), 'sehri');
+  store.setRamadanDay('2027-02-10', { maghrib: null });
+  assert.equal(store.settings().ramadanMode.days, undefined);
+  assert.equal(timeText(store.ramadan().times.maghrib), '18:22');
+  assert.equal(store.defaultSlot(), 'iftar');
 });

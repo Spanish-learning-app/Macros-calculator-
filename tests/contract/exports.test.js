@@ -164,6 +164,10 @@ const CONTRACT = {
       ramadanSlots: 1,
       sehriProteinGoal: 3,
       ramadanFlagNotes: 2,
+      // STATUS O12 (Lena): RULES.ramadan.userEdit offsets and one day's own times.
+      cleanRamadanMode: 1,
+      ramadanEditRules: 1,
+      ramadanOffset: 3,
     },
     constants: ['RAMADAN_DAYS', 'RAMADAN_SLOT_IDS'],
   },

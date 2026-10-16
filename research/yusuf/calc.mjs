@@ -169,7 +169,7 @@ export function priceOf(ingId, opts = {}) {
   }
   if (buy.shop === 'desi') {
     const it = DESI.items[buy.item];
-    return { shop: 'desi', name: it.name, eurPerG: it.eurPerKg == null ? null : it.eurPerKg / 1000, note: it.note, date: PRICE_DATE };
+    return { shop: 'desi', name: it.name, eurPerG: it.eurPerKg == null ? null : it.eurPerKg / 1000, eurPerKg: it.eurPerKg, note: it.note, date: it.date ?? PRICE_DATE, url: it.url, shopName: it.shop };
   }
   throw new Error(`${ingId}: unknown shop`);
 }

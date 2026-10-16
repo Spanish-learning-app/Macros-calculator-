@@ -21,6 +21,8 @@
 // url }], the published recipes the prep starts from; ingredient note = where to buy it when it is not at the
 // supermarket. minutes is always HANDS-ON time; timeNote (optional) is the waiting a beginner must plan for
 // (marinade, soak, chill, long simmer) and the rough start-to-finish time.
+// halalSwap (2026-10-16, STATUS O6) = the foodId of the halal version of a prep that is not halal (#29 feta → #40
+// Burgos), with halalSwapNote = one line on why; the app's "Halal swap" button opens it.
 
 export default [
   {
@@ -519,6 +521,12 @@ export default [
     cuisine: 'desi',
     timeNote: 'Soak the chana dal 1 hour first. Then about 1 h 10 min (the dal simmers 35 min, hands off), plus 35 min cooling.',
     pitch: 'Three beef-and-chana shami kebabs, pita, crunchy salad and a mint-yogurt pot: build it at your desk, cold or warm.',
+    cost: {
+      perBoxEur: 3.25,
+      totalEur: 13,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online) + Indian Flavours (online)',
+    },
     references: [
       {
         title: 'Tea for Turmeric, Easy shami kebab',
@@ -964,6 +972,12 @@ export default [
     cuisine: 'desi',
     timeNote: 'About 1 h 15 min start to finish: the kebab mix chills 30 min and the bulgur soaks while they bake. Plus 20 min cooling.',
     pitch: 'Spiced chicken seekh kebabs with a lemony parsley-and-bulgur tabbouleh: made for eating cold.',
+    cost: {
+      perBoxEur: 3.42,
+      totalEur: 13.69,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online) + El Turco (online)',
+    },
     references: [
       {
         title: 'SBS Food, Chicken seekh kebabs',
@@ -2944,6 +2958,12 @@ export default [
     minutes: 45,
     cuisine: 'desi',
     pitch: 'The cheapest dinner in the library and the highest in fibre; Greek-yogurt raita adds the protein.',
+    cost: {
+      perBoxEur: 1.16,
+      totalEur: 4.63,
+      priceDate: '2026-10-13',
+      shop: 'Mercadona Barcelona + Indian Flavours (online)',
+    },
     references: [
       { title: 'Tea for Turmeric, Masoor dal', url: 'https://www.teaforturmeric.com/masoor-dal/' },
       {
@@ -3392,6 +3412,8 @@ export default [
       reheat: 'Not reheated (fish and cheese): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['Halal: this feta uses rennet (cuajo) of unstated origin, so the record is "check". For a fully halal box use the Burgos version (R-MP-40), which uses microbial rennet.'],
     },
+    halalSwap: 'es-lentejas-atun-burgos-salad-box',
+    halalSwapNote: 'Same salad with queso de Burgos 0% (cuajo microbiano) instead of feta, whose rennet origin is not stated.',
   },
   {
     foodId: 'intl-salmon-brown-rice-bowl-box',

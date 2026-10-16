@@ -924,6 +924,14 @@
   color: var(--text-faint);
 }
 
+/* O13: the Urdu name of a serving (Pakistani meal names). Nastaliq-friendly line height. */
+.serving-ur {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', serif;
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
 .serving-chip--grams .serving-grams {
   font-size: var(--text-xs);
 }
@@ -2136,4 +2144,67 @@
 .ramadan-times .field {
   flex: 1 1 8rem;
   margin: 0;
+}
+
+/* Ramadan: "match your mosque" offsets and the day-by-day table (STATUS O12, Lena). */
+.ramadan-offsets {
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  border: 0;
+}
+.ramadan-offsets legend {
+  padding: 0;
+}
+.ramadan-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.ramadan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+.ramadan-table th,
+.ramadan-table td {
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+.ramadan-table thead th {
+  color: var(--text-muted);
+  font-weight: var(--weight-medium);
+}
+.ramadan-table .ram-date {
+  font-weight: normal;
+}
+.ramadan-table .ram-n {
+  width: 2.5em;
+  color: var(--text-muted);
+}
+.ramadan-table .ram-edit {
+  width: var(--tap);
+  padding: 0;
+  text-align: right;
+}
+.ramadan-table tr.is-today {
+  background: var(--selected-soft);
+}
+.ramadan-table tr.is-today .ram-date {
+  font-weight: var(--weight-bold);
+}
+.ramadan-table td.is-own {
+  color: var(--accent);
+  font-weight: var(--weight-medium);
+}
+.ramadan-table .ramadan-day-editor td {
+  padding: var(--space-2) 0 var(--space-3);
+  white-space: normal;
+}
+.ramadan-day-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
 }

@@ -286,3 +286,21 @@ test('seafood setting: foods outside the choice show check, never a ruling', () 
   store.updateSettings({ seafood: 'fish-prawns' });
   assert.equal(store.food('t-prawns').halal.status, 'halal');
 });
+
+test('"Plan it" (status planned) plans a box for today; a plain placeBox today is eaten', () => {
+  const clock = { now: at(2026, 11, 2, 12) }; // Monday noon
+  const store = makeStore(clock);
+  const batchId = store.cookBatch({ recipeId: 't-tikka-box', boxes: 2 });
+  store.placeBox({ batchId, date: '2026-11-02', slot: 'lunch', status: 'planned' });
+  const planned = store.day('2026-11-02').entries[0];
+  assert.equal(planned.status, 'planned');
+  const box = store
+    .batches()
+    .find((b) => b.id === batchId)
+    .boxes.find((b) => b.placed);
+  assert.equal(box.status, 'placed', 'a planned box waits for its tick');
+  assert.match(store.getState().undo?.label ?? '', /^Planned /);
+  store.placeBox({ batchId, date: '2026-11-02', slot: 'dinner' });
+  const dinner = store.day('2026-11-02').entries.find((e) => e.slot === 'dinner');
+  assert.equal(dinner.status, 'eaten');
+});

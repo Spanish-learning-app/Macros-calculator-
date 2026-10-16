@@ -197,22 +197,15 @@ export function effortText(recipe) {
 }
 
 /**
- * Halal alternatives for a "check" prep (STATUS O6). The Lab has no data field for this yet, so
- * the one known pair lives here. TODO(Lab): add `halalSwap: '<foodId>'` to the LibraryRecipe (or
- * the food) and delete this map; halalSwapOf already reads that field first.
- */
-export const HALAL_SWAPS = Object.freeze({
-  'es-lentejas-atun-feta-salad-box': 'es-lentejas-atun-burgos-salad-box',
-});
-
-/**
- * The halal alternative's food id for a prep whose halal status is not 'halal', or null.
+ * The halal alternative's food id for a prep whose halal status is not 'halal', or null
+ * (STATUS O6). Reads the Lab's `halalSwap` on the library recipe (or the food); the alternative
+ * must itself be halal.
  * @param {object} food @param {object|null} recipe @param {(id: string) => object|undefined} lookup
  */
 export function halalSwapOf(food, recipe, lookup) {
   const status = food?.halal?.status;
   if (!food || !status || status === 'halal') return null;
-  const id = recipe?.halalSwap ?? food.halalSwap ?? HALAL_SWAPS[food.id] ?? null;
+  const id = recipe?.halalSwap ?? food.halalSwap ?? null;
   const alt = id ? lookup(id) : null;
   return alt && alt.halal?.status === 'halal' ? id : null;
 }

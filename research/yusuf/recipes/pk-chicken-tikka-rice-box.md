@@ -187,7 +187,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Halal butcher (carnicería halal)**
 
-- Contramuslo de pollo halal, deshuesado y sin piel: **720 g**. not available: neither online halal shop lists boneless thigh (Carne Halal Online sells bone-in "muslos" at 2.05 € per 0.5 kg). For scale only, Mercadona's non-halal boneless thighs (product 2789) are 6.80 €/kg: that is not a halal price.
+- Contramuslo de pollo halal, deshuesado y sin piel: **720 g**. not available: neither online halal shop lists boneless thigh (Carne Halal Online sells bone-in "muslos" at 2.05 € per 0.5 kg; checked again 2026-10-16: still one 0.5 kg option, bone not stated). For scale only, Mercadona's non-halal boneless thighs (product 2789) are 6.80 €/kg: that is not a halal price.
 
 **Pakistani or Moroccan grocery shelf (usually at or next to the halal butcher)**
 

@@ -322,6 +322,8 @@ export function openPortionPicker(props) {
     if (!food) return;
     const name = uid('serving');
     const options = [...food.servings, { id: 'g', label: 'grams', grams: 1 }];
+    // STATUS O13 (Lena): with Pakistani meal names, the Lab's Urdu name under the chip's own.
+    const urdu = store.mealNameSet?.() === 'default';
     servingBox.replaceChildren(
       h(
         'fieldset',
@@ -340,6 +342,13 @@ export function openPortionPicker(props) {
             }),
             s.id === 'g' ? null : measureDrawing(s, food),
             h('span', { class: 'serving-name' }, s.id === 'g' ? 'Grams' : unitName(s)),
+            urdu && s.labelUr
+              ? h(
+                  'span',
+                  { class: 'serving-ur', lang: 'ur', dir: 'rtl', 'data-testid': 'serving-ur' },
+                  s.labelUr,
+                )
+              : null,
             h(
               'span',
               { class: 'serving-grams' },

@@ -46,6 +46,7 @@ const PATHS = {
   ],
   clock: ['M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z', 'M12 7.5V12l3 2'],
   next: ['M5 12h14', 'M13 6l6 6-6 6'],
+  edit: ['M4 20h4L19 9l-4-4L4 16v4z', 'M13.5 6.5l4 4'], // Ramadan day-by-day table (Lena)
 };
 
 /**

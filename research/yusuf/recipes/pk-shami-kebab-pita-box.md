@@ -196,7 +196,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 **Pakistani or Moroccan grocery shelf (usually at or next to the halal butcher)**
 
-- Chana dal: 150 g. Price: not available.
+- Schani Chana Dal 1 kg (split Bengal gram): 150 g (online Indian supermarket, Barcelona warehouse, GLS delivery). Price: 2.95 €/kg at [Indian Flavours](https://www.indianflavours.es/en_US/shop/everyday-essentials-lentils-beans-57/schani-chana-dal-1-kg-3101) on 2026-10-16.
 - Coriander seeds or ground coriander (dhania): 6 g. Price: not available.
 - Green chillies (hari mirch): 10 g. Price: not available.
 
@@ -233,7 +233,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 ## Cost per box
 
-**Indicative cost per box: not available.** No current price was found for chana dal (150 g), coriander seed (6 g), green chilli, raw (10 g). The priced part comes to 3.14 € per box (12.56 € for the batch). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g.
+**Indicative cost per box: 3.25 €** (13.00 € for 4 boxes). Mercadona Barcelona online prices (warehouse bcn1) read 2026-10-13; halal-butcher prices from Carne Halal Online read 2026-10-13; Indian Flavours read 2026-10-16. Pro-rata: the cost of what goes in the boxes, not of whole packs. Halal-meat price cross-check: Halal Empordà (halalemporda.com, Girona), read 2026-10-13: pechuga de pollo 8.95 €/kg (4 × 250 g), carne picada de vacuno 6.65 € per 0.5 kg = 13.30 €/kg, muslos de pollo 4.90 € per 600 g. Not included (no price found, small amounts): coriander seed (6 g), green chilli, raw (10 g).
 
 ## Changes made to meet the lunch targets
 

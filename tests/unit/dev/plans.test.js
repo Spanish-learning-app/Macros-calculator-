@@ -116,9 +116,17 @@ test('halalSwapOf: the feta box points at the Burgos box; a halal food has no sw
   const s = makeStore();
   const lookup = (id) => s.food(id);
   const feta = s.food('es-lentejas-atun-feta-salad-box');
-  assert.equal(halalSwapOf(feta, null, lookup), 'es-lentejas-atun-burgos-salad-box');
+  // The Lab's field on the library recipe (Yusuf, 2026-10-16); the app has no map of its own now.
+  const recipe = LIBRARY.find((r) => r.foodId === feta.id);
+  assert.equal(recipe.halalSwap, 'es-lentejas-atun-burgos-salad-box');
+  assert.equal(halalSwapOf(feta, recipe, lookup), 'es-lentejas-atun-burgos-salad-box');
+  assert.equal(halalSwapOf(feta, null, lookup), null, 'no field, no swap');
   assert.equal(halalSwapOf(s.food('es-lentejas-atun-burgos-salad-box'), null, lookup), null);
   assert.equal(halalSwapOf(feta, { halalSwap: 'nope' }, lookup), null);
+  // Every swap the Lab names points at a halal food in the app.
+  for (const r of LIBRARY.filter((x) => x.halalSwap)) {
+    assert.equal(lookup(r.halalSwap)?.halal?.status, 'halal', r.foodId);
+  }
 });
 
 test('O5: shoppingList keeps the where-to-buy note; shopNotes groups it per place', async () => {

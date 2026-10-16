@@ -127,19 +127,21 @@ export function openRecipeEditor({
   const boxesField = h(
     'div',
     { class: 'field' },
-    h('span', { class: 'field-label' }, 'Boxes or portions it makes'),
+    h('span', { class: 'field-label' }, 'How many boxes?'),
     h('div', { class: 'stepper' }, stepBtn(-1, 'Fewer boxes'), boxesOut, stepBtn(1, 'More boxes')),
+    // Nasreen, Review 2: nothing said what a box is.
+    h('p', { class: 'field-help' }, 'One box is one meal for one person.'),
   );
   const weightField = h(
     'div',
     { class: 'field' },
-    h('label', { class: 'field-label', for: weightId }, 'Cooked pot (g)'),
+    h('label', { class: 'field-label', for: weightId }, 'Weight after cooking (g)'),
     weightIn,
   );
   const weightHelp = h(
     'p',
     { class: 'field-help' },
-    'If you have a scale, weigh the food after cooking (not the pan) for the best numbers. Empty means the ingredients’ weight.',
+    'Only if you have a kitchen scale: weigh the cooked food, not the pan. No scale? Leave it empty and we use the weight of what you put in.',
   );
   const katoriField = h(
     'div',
@@ -394,7 +396,7 @@ export function openRecipeEditor({
     if (!food) {
       mountChildren(
         summary,
-        h('p', { class: 'muted' }, 'Add ingredients to see the numbers for the pot and per box.'),
+        h('p', { class: 'muted' }, 'Add ingredients to see the kcal and protein in each box.'),
       );
       return;
     }

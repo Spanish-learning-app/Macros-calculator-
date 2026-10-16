@@ -7,8 +7,8 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.7.1',
-  updated: '2026-10-15',
+  version: '1.7.2',
+  updated: '2026-10-16',
 
   // ---------------------------------------------------------------- energy
   energy: {
@@ -83,8 +83,9 @@ export default {
       id: 'moderate',
       factor: 1.55,
       label: 'Active',
+      // Nasreen Review 1 and 2: no "ward work", no gym example (rules 1.7.2).
       description:
-        'On your feet most of the day (busy housework, shop or ward work), or exercise 3 to 5 days a week, for example the gym 4 days.',
+        'On your feet most of the day, for example busy housework with children or work in a shop, even with no exercise. Or exercise 3 to 5 days a week.',
     },
     {
       id: 'very_active',
@@ -531,6 +532,9 @@ export default {
       { id: 'egg-muffin', label: 'Baked egg muffins and egg bites', fridgeDays: 3, freezerMonths: 2, freezable: true, source: 'USDA FSIS cold storage chart: quiche/egg casseroles 3-5 days refrigerated, 2-3 months frozen (lower bounds used)' },
       { id: 'overnight-oats', label: 'Overnight oats and chia pudding (soaked in milk, yogurt or plant milk; not cooked)', fridgeDays: 3, freezerMonths: null, freezable: false, source: 'Nutrition Lab conservative rule (dairy-based, uncooked; opened milk is used within 3 days)' },
       { id: 'cooked-flatbread', label: 'Cooked parathas and rotis', fridgeDays: 2, freezerMonths: 2, freezable: true, source: 'Nutrition Lab rule (quality and staling); freeze between sheets of baking paper, reheat on the tawa until hot' },
+      // rules 1.7.2 (prep #61): a blended smoothie is not overnight oats. Banana and oats are cut fine and
+      // the jar thickens and browns overnight, so it gets 1 day, inside the 2-day safety limit below.
+      { id: 'blended-smoothie', label: 'Blended smoothies with milk or yogurt (made ahead in a jar)', fridgeDays: 1, freezerMonths: null, freezable: false, source: 'Colorado State Univ. Eating Smart Being Active "Fruit Smoothie" (reprinted by WSU Extension, 2024): refrigerate leftovers within 2 hours, drink within 2 days; Nutrition Lab uses 1 day (quality: the oats thicken it and banana browns)' },
     ],
     thawedFridgeDays: 1,
     chillWithinMinutes: 60,
@@ -548,6 +552,71 @@ export default {
     },
     // Container serving ids for prepared portions (label "1 box", "1 jar", "1 portion").
     prepServingIds: ['box', 'jar', 'portion'],
+  },
+
+  // ---------------------------------------------------------------- halal shopping guide (STATUS O8)
+  // Shown as written on the About page (Priya renders it). Plain data: a title, an intro, sections of
+  // { id, title, items[] } and a closing note. Facts and sources: NUTRITION.md §4.8. Calm and
+  // factual: it says what a word on the label means and how to ask, never what is allowed.
+  // Gate R3 in research/check-foods.mjs checks the shape (rules 1.7.2).
+  halalGuide: {
+    title: 'Halal shopping in Barcelona',
+    intro:
+      'Most food in Spanish shops is fine. A few ingredients can come from pork or contain alcohol, and the label does not always say where they come from. This guide shows what to look for on a Spanish label and how to ask. It helps you shop; it is not a religious ruling.',
+    sections: [
+      {
+        id: 'katori-check',
+        title: 'What “Check” means in Katori',
+        items: [
+          'Check means: read the label or ask. The food may contain one of the ingredients below, and Katori could not confirm where it comes from.',
+          'Halal means plant foods, dairy, eggs, fish, and meat from a halal butcher or with a halal seal.',
+          'Not halal is used only when the recipe or the label has lard or alcohol. Katori never suggests these foods. Pork meat is not in Katori at all.',
+          'Katori does not track shared grills, slicers or fryers. In cafés and restaurants, ask if it matters to you.',
+        ],
+      },
+      {
+        id: 'label-words',
+        title: 'Words to look for on a Spanish label',
+        items: [
+          'Manteca or manteca de cerdo: pork lard. Found in pastries, polvorones, mantecados and ensaïmadas. In Catalan: llard or saïm. Manteca de cacao (cocoa butter) and manteca de cacahuete (peanut butter) are fine, and mantequilla is butter.',
+          'Cerdo, porcino, grasa de cerdo, panceta, tocino, jamón, chorizo, lomo, sobrasada: pork.',
+          'Sebo: suet or tallow, a hard animal fat. Ask which animal it comes from.',
+          'Gelatina: gelatine. It can be made from pork, beef or fish. Gelatina porcina or de cerdo is pork; if the label does not say, it may be pork. Look for it in sweets (gominolas), some yogurts, mousses and cake fillings.',
+          'E-441: an old number for gelatine that still appears on some imported labels. Treat it as gelatina.',
+          'E-120 (cochinilla, carmín, ácido carmínico): a red colour made from an insect, not from pork. Some Muslims avoid it and others do not.',
+          'E-471 and E-472 (mono- y diglicéridos de ácidos grasos and their esters): emulsifiers in bread, wraps, cakes, ice cream and margarine. They can be made from plant or animal fat. “De origen vegetal” on the label means plant fat; if the label does not say, it is a check.',
+          'E-422 (glicerina, glycerine): same as E-471. Plant or animal; check if the origin is not given.',
+          'Cuajo (rennet) in cheese: cuajo animal comes from calves. Cuajo microbiano or cuajo vegetal is not animal. A label that only says “cuajo” does not tell you which.',
+          'Vino, vino blanco, jerez, coñac, brandy, licor, ron, cerveza or alcohol in sauces, stews, desserts and ready meals: alcohol is an ingredient, and Katori marks the food not halal. Vinagre de vino (wine vinegar) is vinegar, not alcohol.',
+          'Mirin and sake: Japanese rice wines, used in teriyaki and other sauces. A bottle sold as a mirin-style seasoning may or may not contain alcohol: read its label.',
+          'Salsa de soja (brewed soy sauce) can carry a small trace of alcohol from fermentation. Katori marks it check; a halal seal settles it.',
+        ],
+      },
+      {
+        id: 'how-to-ask',
+        title: 'How to ask',
+        items: [
+          '“¿Lleva manteca de cerdo?”: Does it have pork lard?',
+          '“¿Lleva alcohol o vino?”: Does it have alcohol or wine?',
+          '“¿Lleva gelatina de cerdo?”: Does it have pork gelatine?',
+          '“¿La carne es halal?”: Is the meat halal?',
+          '“¿Lo fríen en el mismo aceite que el cerdo?”: Do you fry it in the same oil as pork?',
+          'Bakery pastries often have no label. Ask at the counter: bakers usually know whether they use manteca or mantequilla.',
+        ],
+      },
+      {
+        id: 'barcelona-shops',
+        title: 'Halal meat and desi groceries in Barcelona',
+        items: [
+          'Halal butchers (carnicería halal) are easy to find where Pakistani, Bangladeshi and Moroccan families live, above all in the Raval (Ciutat Vella), and in many other neighbourhoods and nearby towns.',
+          'Many show a halal certificate or seal at the door, for example the Garantía Halal mark of the Junta Islámica (Instituto Halal). If you see none, it is fine to ask who certifies the meat.',
+          'Desi grocery shops in the same streets sell atta, daal, basmati, spices, frozen parathas and halal kebabs and sausages. A packaged product still needs a look at its label: a halal shop does not make every product on its shelves halal.',
+          'Supermarket meat is not halal unless the pack has a halal seal. Fish and eggs from any shop are fine.',
+          'Katori does not recommend particular shops.',
+        ],
+      },
+    ],
+    note: 'Schools of thought differ on a few items, such as E-120 and prawns (see your seafood setting). If you are unsure, ask someone whose knowledge you trust.',
   },
 
   // ---------------------------------------------------------------- vocabularies (RULES.vocab)
@@ -988,39 +1057,56 @@ export default {
       { id: 'street', label: 'Street stall', labelRoman: 'Thela' },
     ],
 
+    // `label` is shown to the user after "Worked out by" (food details), so it is plain words.
+    // `rule` is the researchers' meaning (NUTRITION.md §4.4); it is never shown (rules 1.7.2).
     sourceMethods: [
       {
         id: 'direct',
-        label:
-          'Taken directly from a food composition table entry for the same food in the same state',
+        label: 'looking it up in a national food table, for this same food',
+        rule: 'A food composition table entry for the same food in the same state.',
       },
       {
         id: 'recipe',
-        label: 'Calculated from a standard recipe (ingredients, yield, added fat stated)',
+        label: 'adding up a typical recipe: its ingredients, oil and cooked weight',
+        rule: 'Calculated from a standard recipe (ingredients, yield and added fat stated, §6).',
       },
-      { id: 'label', label: 'From a dated product label' },
-      { id: 'analogue', label: 'Borrowed from a close, named analogue food' },
+      {
+        id: 'label',
+        label: 'reading the packet label',
+        rule: 'From a dated product label.',
+      },
+      {
+        id: 'analogue',
+        label: 'using a very similar food (named in the source)',
+        rule: 'Borrowed from a close, named analogue food.',
+      },
     ],
 
     confidenceGrades: [
+      // `label` and `description` are shown to the user (food details, About page): plain words.
+      // `rule` is the grading rule for researchers (NUTRITION.md §4.4), never shown (rules 1.7.2).
       {
         id: 'A',
-        label: 'Measured',
+        label: 'Very sure',
         badge: null,
-        description: 'Direct match to an analysed table entry (method must be direct).',
+        description: 'A lab measured this same food. The numbers should be very close.',
+        rule: 'Direct match to an analysed table entry (method must be direct).',
       },
       {
         id: 'B',
-        label: 'Good match',
+        label: 'Fairly sure',
         badge: null,
-        description: 'Close analogue, product label, or recipe with a known cooked yield.',
+        description:
+          'From the packet label, a very similar food, or a recipe whose cooked weight is known. Close enough to count on.',
+        rule: 'Close analogue, product label, or recipe with a known cooked yield.',
       },
       {
         id: 'C',
         label: 'Estimate',
         badge: 'estimate',
         description:
-          'Recipe with assumed oil and yield, or a dish that varies a lot between cooks.',
+          'Worked out from a typical recipe. Cooking varies, mostly in the oil, so yours may have more or less.',
+        rule: 'Recipe with assumed oil and yield, or a dish that varies a lot between cooks.',
       },
     ],
   },

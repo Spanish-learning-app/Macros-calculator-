@@ -14,6 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { REVIEWS } from './review/reviewed.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(here, '..');
@@ -267,7 +268,10 @@ function checkRecord(f, ctx) {
     }
     if (RESTAURANT_STYLES.has(f.style) && src.confidence !== 'C') F('G16', `style "${f.style}" must be confidence C`);
     // G19 review status (counted, reported in the summary)
-    if (src.reviewer !== 'ayesha') ctx.pendingReview++;
+    if (src.reviewer !== 'ayesha') {
+      ctx.pendingReview++;
+      if (REVIEWS[f.id]) ctx.stampedNotBuilt++;
+    }
   }
   if (f.addedFatPer100g !== undefined && (!isNum(f.addedFatPer100g) || f.addedFatPer100g < 0)) F('G16', 'addedFatPer100g must be a number >= 0');
 
@@ -449,7 +453,7 @@ let total = 0;
 let failed = 0;
 let warned = 0;
 let loadErrors = 0;
-const ctx = { idFiles, familyGroups, familyStyles, pendingReview: 0, file: '' };
+const ctx = { idFiles, familyGroups, familyStyles, pendingReview: 0, stampedNotBuilt: 0, file: '' };
 
 for (const file of targets) {
   const recs = loaded.get(file);
@@ -476,6 +480,7 @@ for (const file of targets) {
 // ------------------------------------------------------------------ rules self-checks (rules 1.7.0)
 // R1 protein-tip foods resolve, are halal or check (never not-halal), and their stated protein/kcal match FOODS.
 // R2 the Ramadan timetable rows are consecutive dates with HH:MM times, fajr before maghrib.
+// R3 the halal shopping guide's shape (below).
 const ruleFails = [];
 const PN = RULES.proteinNudges;
 for (const [slot, items] of Object.entries(PN?.suggestions ?? {})) {
@@ -502,13 +507,33 @@ for (const [name, t] of Object.entries(RULES.ramadan?.timetables ?? {})) {
     prev = d;
   }
 }
-console.log(`\nRules self-checks: ${ruleFails.length ? `${ruleFails.length} FAIL` : 'PASS'} (protein tips, Ramadan timetable)`);
+// R3 (rules 1.7.2) the halal shopping guide (RULES.halalGuide, STATUS O8) has the shape the About
+// page renders: title, intro, note and sections of { id (unique), title, items: non-empty strings }.
+{
+  const HG = RULES.halalGuide;
+  const str = (v) => typeof v === 'string' && v.trim().length > 0;
+  if (!HG) ruleFails.push('R3 RULES.halalGuide is missing');
+  else {
+    for (const k of ['title', 'intro', 'note']) if (!str(HG[k])) ruleFails.push(`R3 halalGuide.${k} must be a non-empty string`);
+    const secIds = new Set();
+    if (!Array.isArray(HG.sections) || !HG.sections.length) ruleFails.push('R3 halalGuide.sections must be a non-empty list');
+    for (const [i, sec] of (HG.sections ?? []).entries()) {
+      if (!str(sec?.id) || secIds.has(sec.id)) ruleFails.push(`R3 halalGuide.sections[${i}] needs a unique id`);
+      secIds.add(sec?.id);
+      if (!str(sec?.title)) ruleFails.push(`R3 halalGuide.sections[${i}] needs a title`);
+      if (!Array.isArray(sec?.items) || !sec.items.length || !sec.items.every(str))
+        ruleFails.push(`R3 halalGuide.sections[${i}] items must be non-empty strings`);
+    }
+  }
+}
+console.log(`\nRules self-checks: ${ruleFails.length ? `${ruleFails.length} FAIL` : 'PASS'} (protein tips, Ramadan timetable, halal guide)`);
 for (const m of ruleFails) console.log(`  ✗ ${m}`);
 if (ruleFails.length) failed++;
 
 console.log(
   `\nSummary: ${total} records, ${total - failed} pass, ${failed} fail, ${warned} with warnings` +
     `${loadErrors ? `, ${loadErrors} file(s) failed to load` : ''}. ` +
-    `G19: ${ctx.pendingReview} awaiting Ayesha's review.`,
+    `G19: ${ctx.pendingReview} awaiting Ayesha's review` +
+    (ctx.stampedNotBuilt ? ` (${ctx.stampedNotBuilt} already passed in research/review/reviewed.mjs, waiting for the owner's rebuild; ${ctx.pendingReview - ctx.stampedNotBuilt} not reviewed yet).` : '.'),
 );
 process.exit(failed || loadErrors ? 1 : 0);
