@@ -154,3 +154,10 @@ Timestamps are UTC.
   Left for O16: lazy-load recipes-mealprep.js (methods) until Prep opens; step mode announces only "Step x of n", not the step
   text (Lena's recipe-method.js: aria-live on the body); "2 biscuit" plural in portionText (needs a plural map, touches many e2e
   strings); Source panel grade descriptions are internal (rules.js, proposed to Ayesha). Stopping here, clean.
+
+## O8 halal guide UI, O16 speed (lazy Lab data), plural fix, 2026-10-16 evening
+
+- 16:27 UTC Read _common, MISTAKES, STATUS (O8, O16), my journal tail, Ayesha's 16:16 spec. Plan: (1) halal guide card
+  on About (closed details per section, lang="es" on Spanish), maybe a "What does Check mean?" link from food details;
+  (2) lazy-load recipes-mealprep.js / plans-mealprep.js (note: Day use-by and add-sheet box rows read the library recipe
+  when batches exist, so load when batches exist or Prep opens); (3) "2 biscuit" plural only if contained.
