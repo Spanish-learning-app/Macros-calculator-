@@ -52,10 +52,32 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Drain and rinse the chickpeas; mix with tomato, onion, coriander, chilli, lemon and chaat masala.
-2. Split between 2 boxes. Spoon 120 g protein yogurt into a small pot each and dust with roasted cumin; pour it over just before eating.
+**Equipment**
+
+- Sieve
+- Chopping board and knife
+- Mixing bowl
+- 2 snack boxes and 2 small lidded pots (about 150 ml)
+
+**Steps**
+
+1. No cooking. Drain and rinse 260 g chickpeas (about ⅔ of a 400 g-drained jar) in the sieve and shake them dry. *(no heat · 1 min)*
+2. Dice 1 small tomato (80 g) into 1 cm cubes. Chop ¼ small red onion very fine (30 g), a few sprigs of coriander (6 g) and, if you like heat, ½ green chilli (3 g). *(no heat · 4 min)*
+3. In the bowl mix the chickpeas, tomato, onion, coriander and chilli with 1 tbsp lemon juice (15 g) and 1 tsp chaat masala (3 g). Split between the 2 boxes. *(no heat · 1 min)*
+4. Spoon 120 g protein yogurt into each pot and dust with a pinch of roasted ground cumin (½ g). Pour it over the chaat just before you eat it. *(no heat · 1 min)*
+
+**Box it up:** Into the fridge straight away; eat within 2 days. Do not freeze. Keep the last third of the chickpea jar in its liquid in the fridge and use it within 2 days.
+
+**Reheat:** Not reheated: eat it cold.
+
+**Tips**
+
+- Chaat masala (Pakistani grocery) is what makes it chaat. No chaat masala? Use a pinch of salt, roasted cumin and a little more lemon.
+- Too spicy? Leave out the green chilli.
+- Halal: chickpeas, vegetables, spices and a protein yogurt of milk and cultures only.
+- Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.
 
 ## Added fat
 

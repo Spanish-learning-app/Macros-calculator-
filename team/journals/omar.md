@@ -50,3 +50,4 @@
 - 2026-10-16 01:56 UTC: the orphan audit is back. Triaged into STATUS O1–O16 plus a DECISIONS row; I logged M-14 (Report #2 claimed a one-tap feta swap that doesn't exist). Started Zainab on the desi methods.
 - 2026-10-16T01:59Z: Yusuf done (348/348 data, 45 methods, variety table). Kenji started (Sonnet). Ayesha queued for the smoothie fridge-life question.
 - 2026-10-16T02:01:45Z: Lena done (How to make it). I tapped through it at 400 px with real data: 45 method links, the sheet and step mode work, no page errors. Yusuf restarted on the orphan data (O4, O7, O9).
+- 2026-10-16T02:04:59Z: Zainab done (19 desi methods; her notes on minutes, the paratha water and #35 went to Yusuf). Priya started on O3/O10/O11/O16.

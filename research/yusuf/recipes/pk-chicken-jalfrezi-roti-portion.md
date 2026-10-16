@@ -64,13 +64,61 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Heat the oil, crackle the cumin seeds, soften the chopped onion 5 min; add garlic and ginger, then the puréed tomatoes, salt and ground spices; cook to a thick masala (8 min).
-2. Add the chicken on high heat, stir-fry 6–8 min until cooked through (75 °C).
-3. Add the peppers, onion petals and green chilli; toss 3–4 min so they stay crisp. Finish with garam masala and lemon.
-4. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 50 g dough each), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.
-5. Cool on a tray; pack 4 portions with 2 roti each; freeze flat.
+**Equipment**
+
+- Wide frying pan, wok or karahi (28 cm)
+- Wooden spoon
+- Grater or stick blender (for the tomatoes)
+- Big mixing bowl
+- Rolling pin (belan) and a clean worktop for rolling
+- Tawa or a dry non-stick frying pan (26–28 cm)
+- Clean tea towel
+- Tray for cooling
+- 4 flat freezer bags or boxes
+
+**Before you start**
+
+- Cut the chicken breast (600 g) into 3 cm pieces.
+- Peel 2 medium onions (240 g). Chop one half fine (120 g) for the masala; cut the other half into quarters and pull the layers apart into "petals" (120 g).
+- Cut 1–2 red peppers (200 g) and 1–2 green peppers (200 g) into 3 cm squares.
+- Purée the tomatoes (320 g, about 3 small): blend them, or cut them in half and grate the cut side on the big holes of a grater; throw away the skins.
+- Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste. Slice 2 green chillies (10 g).
+
+**Steps**
+
+1. Heat 3 tbsp sunflower oil (40 g) in the pan for 1 minute. *(medium heat · 1 min)*
+2. Add 1½ tsp zeera (whole cumin seeds, 3 g) and let them sizzle 20–30 seconds. *(medium heat · 1 min)*
+3. Add the chopped onion and stir until soft and see-through. *(medium heat · 5 min)*
+4. Add the ginger-garlic paste and stir 1 minute. *(medium heat · 1 min)*
+5. Add the puréed tomatoes, then 1 heaped tsp salt (7 g), 2 tsp ground coriander (4 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 tsp red chilli powder (3 g). Cook, stirring, until it is a thick paste and the oil shows at the edges. *(medium heat · 8 min)*
+6. Add the chicken. Stir-fry until it is white all through. *(medium-high heat · 7 min)*
+7. Add the peppers, onion petals and green chillies. Toss 3–4 minutes only, so they stay a bit crisp. *(high heat · 4 min)*
+8. Turn off the heat. Stir in 1 tsp garam masala (2 g) and 2 tsp lemon juice (10 g). Spread on the tray to cool while you make the roti. *(no heat)*
+9. Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball. *(no heat · 3 min)*
+10. Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe. *(no heat · 5 min)*
+11. Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing). *(no heat · 20 min)*
+12. Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth. *(no heat)*
+13. Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes. *(medium-high heat · 2 min)*
+14. Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks. *(no heat)*
+15. Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8). *(medium-high heat · 12 min)*
+16. Stack the cooked roti inside a clean tea towel so they stay soft while they cool. *(no heat)*
+17. Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them). *(no heat)*
+
+**Done when:** Jalfrezi: the biggest chicken piece is white all through with no pink, the sauce coats it thickly, and the peppers are bright and still a little crunchy. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.
+
+**Box it up:** Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months.
+
+**Reheat:** Move a frozen portion to the fridge the night before. Microwave covered 2½–3 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first). Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.
+
+**Tips**
+
+- Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).
+- No soy sauce, ketchup or vinegar: the lemon gives the tang (some vinegars are made from wine).
+- Sticking while the tomato cooks down? Add 2 tbsp water and scrape.
+- Too spicy? Leave out the green chillies.
+- Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.
 
 ## Added fat
 

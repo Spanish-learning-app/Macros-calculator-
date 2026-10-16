@@ -59,13 +59,57 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Boil the potatoes in their skins until tender (20 min), peel, mash and cool. Mix in onion, chilli, coriander, cumin, chilli powder and half the salt.
-2. Knead the atta, the rest of the salt and the water to a soft dough; rest 20 min; make 4 balls of 100 g.
-3. Roll a ball to 10 cm, put a quarter of the filling in the middle, close it into a pouch, flatten and roll gently to 18–20 cm.
-4. Cook on a hot tawa 1 min a side dry, then brush each side with 3 g oil (weighed: 6 g per paratha) and cook until golden spots form.
-5. Cool on a rack, stack between sheets of baking paper and freeze. Raita: mix the yogurt, squeezed cucumber, mint, cumin and salt; keep in 4 small pots.
+**Equipment**
+
+- Pot (2 l) for the potatoes
+- Potato masher or fork
+- Big mixing bowl
+- Rolling pin (belan) and a clean worktop
+- Tawa or a dry non-stick frying pan (26–28 cm)
+- Flat spatula and a pastry brush (or a teaspoon)
+- Wire rack
+- Grater
+- Baking paper, a freezer bag and 4 small lidded pots (about 250 ml)
+
+**Before you start**
+
+- Chop ¼ red onion very fine (40 g), 1–2 green chillies (8 g) and a small handful of coriander (8 g).
+- Measure the oil for frying into a small cup: 24 g (about 1¾ tbsp), 6 g for each paratha.
+
+**Steps**
+
+1. Put the potatoes (520 g raw, about 3 medium) in their skins in the pot, cover with cold water and bring to the boil. *(high heat · 5 min)*
+2. Simmer until a knife slides in easily. *(medium heat · 20 min)*
+3. Drain and let them cool until you can hold them. Peel and mash them smooth: lumps tear the paratha. Let the mash cool completely. *(no heat · 20 min)*
+4. Filling: mix the mash with the onion, chilli, coriander, 1 tsp roasted crushed cumin (2 g), ¾ tsp red chilli powder (2 g) and ½ tsp salt (3 g). Shape into 4 balls. *(no heat · 3 min)*
+5. Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ½ tsp salt (3 g). Add the water (200 ml) a little at a time, mixing with your fingers, until you have a soft dough that only just sticks; you may not need every drop. *(no heat · 3 min)*
+6. Knead 5 minutes until smooth, cover with a damp cloth and rest 20 minutes. *(no heat · 25 min)*
+7. Divide the dough into 4 balls (about 100 g each). Dust one with atta and roll it to a 10 cm circle. *(no heat)*
+8. Put a filling ball in the middle. Bring the edges up around it like a pouch, pinch them together and twist off any extra dough. Press it flat with your palm, sealed side down. *(no heat)*
+9. Dust well with atta and roll gently from the centre out to 18–20 cm. If filling pokes through, pat dry atta on the spot and carry on. *(no heat)*
+10. Heat the dry tawa or pan 2 minutes. *(medium-high heat · 2 min)*
+11. Cook the paratha dry 1 minute on each side, until it has pale spots. *(medium-high heat · 2 min)*
+12. Brush the top with ¾ tsp oil (3 g), flip, and press it down with the spatula for 1 minute. Brush the other side with ¾ tsp oil (3 g), flip, and cook 1 minute more until both sides have golden-brown spots. *(medium heat · 2 min)*
+13. Fill, roll and cook the other 3 parathas the same way (about 4 minutes each on the pan; roll the next one while one cooks). *(medium-high heat · 12 min)*
+14. Cool the parathas on the rack, not in a stack (stacked hot, they go soggy). *(no heat · 20 min)*
+15. Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Whisk 400 g protein yogurt smooth and stir in the cucumber, half the chopped mint (3 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g). Split into 2 pots (200 g of yogurt each). Mix the other 2 on Tuesday night. *(no heat · 3 min)*
+
+**Done when:** Golden-brown spots on both sides, crisp edges and no white, raw-looking dough anywhere.
+
+**Box it up:** Cool and put away within 1 hour. Stack the parathas with baking paper between them in a freezer bag: freezer (2 months), or 1 in the fridge for the next day (2 days). Raita cannot be frozen and keeps 2 days: 2 pots on Sunday, 2 on Tuesday night (or mix one the night before, 2 minutes).
+
+**Reheat:** Paratha from frozen: straight onto a dry pan on medium heat, 2–3 minutes a side, until hot and crisp. Or microwave 1 minute, then 1 minute on the pan. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.
+
+**Tips**
+
+- Paratha tearing when you roll? The filling was still warm or lumpy, or the dough did not rest. Cool the mash fully and roll gently from the middle out.
+- Weigh the frying oil: it is most of the calories, and the app counts 6 g per paratha.
+- Too spicy? Leave out the green chilli and the chilli powder in the filling.
+- Protein yogurt is the high-protein plain yogurt on the shopping list (milk and cultures only, no gelatine).
+- Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona's harina integral de trigo also works; the roti come out a little firmer.
+- Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.
 
 ## Added fat
 

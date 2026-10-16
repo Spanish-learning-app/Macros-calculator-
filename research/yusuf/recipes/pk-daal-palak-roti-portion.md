@@ -71,13 +71,61 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Simmer the lentils with turmeric, chilli, coriander, ginger, tomato and salt in about 1 litre of water, lid ajar, 25 min until soft and thick, stirring now and then (the lentil yield counts only the water the lentils hold, about 2.7 × their dry weight).
-2. Stir in the frozen spinach and simmer 10 min more.
-3. Tarka: fry the cumin seeds, onion, garlic and green chilli in the oil until golden; pour over the daal; finish with lemon.
-4. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 50 g dough each), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.
-5. Cool fast, pack 4 portions with 2 roti each and freeze. Raita: make on the day or the night before.
+**Equipment**
+
+- Large pot (3 l)
+- Small frying pan for the tarka
+- Wooden spoon
+- Sieve
+- Grater
+- Big mixing bowl
+- Rolling pin (belan) and a clean worktop for rolling
+- Tawa or a dry non-stick frying pan (26–28 cm)
+- Clean tea towel
+- Wide tray for cooling
+- 4 freezer boxes and 4 small lidded pots (about 250 ml)
+
+**Before you start**
+
+- Rinse the red lentils (masoor, 280 g, about 1⅓ cups) in the sieve 3 times, until the water is almost clear.
+- Chop 2 medium tomatoes (200 g). Peel and grate a 3 cm piece of ginger (10 g).
+- For the tarka: slice 1 medium onion thin (160 g), peel and slice 5 garlic cloves thin (15 g), and slit 1–2 green chillies (8 g).
+
+**Steps**
+
+1. Put the lentils in the large pot with 1 litre water, the tomatoes, the ginger, ⅔ tsp haldi (turmeric powder, 2 g), 1 tsp red chilli powder (3 g), 2 tsp ground coriander (4 g) and 1⅓ tsp salt (8 g). Bring to the boil. *(high heat · 5 min)*
+2. Spoon off the foam. Lid half on, simmer, stirring every 5 minutes so it does not stick, until the lentils have melted and the daal is thick. *(low heat · 25 min)*
+3. Stir in the frozen spinach (400 g) and simmer until it has melted in. *(low heat · 10 min)*
+4. Tarka: in the small pan heat 2⅓ tbsp oil (32 g) for 1 minute. Add 2 tsp zeera (whole cumin seeds, 4 g) and let them sizzle 20–30 seconds. *(medium heat · 1 min)*
+5. Add the sliced onion and stir until golden brown. *(medium heat · 8 min)*
+6. Add the garlic and green chillies and stir until the garlic is light golden (not dark: dark garlic is bitter). *(medium heat · 1 min)*
+7. Pour the hot tarka over the daal (stand back, it sizzles), stir in 1⅓ tbsp lemon juice (20 g) and turn off the heat. Spread on the tray to cool while you make the roti. *(no heat)*
+8. Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball. *(no heat · 3 min)*
+9. Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe. *(no heat · 5 min)*
+10. Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing). *(no heat · 20 min)*
+11. Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth. *(no heat)*
+12. Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes. *(medium-high heat · 2 min)*
+13. Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks. *(no heat)*
+14. Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8). *(medium-high heat · 12 min)*
+15. Stack the cooked roti inside a clean tea towel so they stay soft while they cool. *(no heat)*
+16. Pack 4 portions: ¼ of the daal in a box, 2 roti in a small bag. *(no heat)*
+17. Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt, a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week. *(no heat · 3 min)*
+
+**Done when:** The lentils have broken down completely, a spoon dragged through leaves a trail, and the tarka onions are golden. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.
+
+**Box it up:** Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer with their roti; eat within 2 months (the daal alone keeps 3 months). The raita keeps 2 days and does not freeze.
+
+**Reheat:** Move a frozen portion to the fridge the night before. Daal thickens in the freezer: add 3–4 tbsp water, then microwave covered 3 minutes, stirring halfway, or warm it in a pan, until bubbling hot all through. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.
+
+**Tips**
+
+- Halal: lentils, vegetables, flour and yogurt only. Check the yogurt label (no gelatine).
+- Masoor is split red lentils: "lentejas rojas" or "lentejas coral" at Mercadona, or at the Pakistani grocery. Frozen spinach comes as portions (espinacas en porciones).
+- Daal sticking or too thick? Stir the bottom more often and add 100 ml hot water.
+- Too spicy? Leave out the chilli powder; the green chillies in the tarka are mild when slit.
+- Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.
 
 ## Added fat
 

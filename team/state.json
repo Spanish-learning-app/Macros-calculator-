@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T02:01:45Z",
+  "updatedAt": "2026-10-16T02:04:59Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -46,8 +46,8 @@
     },
     "priya": {
       "location": "office",
-      "status": "idle",
-      "task": "Design refinements done (Meeting 004 B)"
+      "status": "working",
+      "task": "Orphan UI (serve chips, saved-meal kcal, wording, kam-tel line) + accessibility and speed pass"
     },
     "kenji": {
       "location": "office",
@@ -56,8 +56,8 @@
     },
     "zainab": {
       "location": "office",
-      "status": "working",
-      "task": "Beginner methods for the desi preps"
+      "status": "idle",
+      "task": "Done: beginner methods for 19 desi preps"
     },
     "javier": {
       "location": "office",
@@ -82,11 +82,6 @@
   },
   "inFlight": [
     {
-      "member": "zainab",
-      "task": "Beginner methods for desi sheets 01-04, 08, 09, 14, 16-24, 28, 35, 39 (s3-method Addendum)",
-      "output": "research/yusuf/recipes/<those>.mjs method key only"
-    },
-    {
       "member": "kenji",
       "task": "Sprint 3 wave 1 QA (sprint3-weight 2 failures: test or app bug), method contract test, e2e weight/spare-box/meal names/cuisine chips",
       "output": "tests/** (not tests/unit/dev)"
@@ -95,6 +90,11 @@
       "member": "yusuf",
       "task": "Emit pitch, cost, references to library recipes; weekly plans + ready picks into app/data/plans-mealprep.js (O4, O7, O9 data)",
       "output": "research/yusuf/**, app/data/*mealprep.js, docs/MEALPREP.md"
+    },
+    {
+      "member": "priya",
+      "task": "O3 serve chips, O10 saved-meal kcal/protein, O11 wording + kam-tel line, O16 a11y + perf pass",
+      "output": "app/ui/** small local edits, app/styles/**"
     }
   ],
   "checkIn": {
@@ -202,14 +202,6 @@
     {
       "member": "ayesha",
       "task": "Confirm smoothie #61 fridge 24 h vs storage class 3 days; review 138 awaiting (G19); bhindi fix; halal shopping guide text (O8)"
-    },
-    {
-      "member": "priya",
-      "task": "Orphan UI items O3, O4 (UI), O8 (UI), O10, O11 (team/STATUS.md)"
-    },
-    {
-      "member": "priya",
-      "task": "Wave 2: accessibility, performance, Week view polish"
     },
     {
       "member": "customer panel",

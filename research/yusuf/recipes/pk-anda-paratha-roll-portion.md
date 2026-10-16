@@ -58,12 +58,51 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Paratha: knead atta, salt and water; rest 20 min; make 4 balls. Roll each thin, brush with 2 g oil, fold in half twice and roll again to 20 cm (light layers).
-2. Cook each paratha on a hot tawa, 1 min a side, then with 2 g oil a side until golden.
-3. Omelette: whisk the eggs, whites, onion, tomato, chilli, coriander, spices and salt. For each roll, pour a quarter into a pan wiped with 2 g oil, swirl to the size of the paratha, put the paratha on top while the egg is still soft, flip after 1 min and cook 1 min more.
-4. Roll up tightly with the egg inside. Cool, wrap each roll in baking paper and foil, and freeze.
+**Equipment**
+
+- Big mixing bowl
+- Rolling pin (belan) and a clean worktop
+- Tawa or a dry non-stick frying pan the size of the paratha (24–26 cm)
+- Jug and a fork or whisk
+- Flat spatula and a big plate for flipping
+- Pastry brush or a teaspoon
+- Baking paper, foil and a freezer bag
+
+**Before you start**
+
+- Chop the red onion fine (80 g, ½ medium). Cut 1 tomato in half, scoop out the seeds and chop it small (80 g). Chop 1–2 green chillies (8 g) and a small handful of coriander (8 g).
+- Measure the oil into a small cup: 32 g (about 2⅓ tbsp) in all: 2 g per paratha for folding, 4 g per paratha for the pan, 2 g per omelette.
+
+**Steps**
+
+1. Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ⅓ tsp salt (2 g). Add 140 ml water a little at a time, mixing with your fingers, until it is one soft ball. *(no heat · 3 min)*
+2. Knead 5 minutes until smooth, cover with a damp cloth and rest 20 minutes. *(no heat · 25 min)*
+3. Divide into 4 balls. Roll one to a thin 15 cm circle, brush it with ½ tsp oil (2 g), fold it in half, then in half again (a triangle), dust with atta and roll it out to about 20 cm. The folds make light layers. Shape all 4 and keep them apart on a floured plate. *(no heat · 8 min)*
+4. Heat the dry tawa or pan 2 minutes. *(medium-high heat · 2 min)*
+5. Cook one paratha 1 minute on each side with no oil. *(medium-high heat · 2 min)*
+6. Spread ½ tsp oil (2 g) on top, flip, then ½ tsp (2 g) on the other side and flip again: 30–60 seconds a side until golden spots show. Put it on a plate. *(medium heat · 2 min)*
+7. Cook the other 3 parathas the same way (about 3½ minutes each). *(medium-high heat · 10 min)*
+8. Omelette mix: in the jug whisk 8 eggs and 320 g liquid egg whites with the onion, tomato, chilli, coriander, ¾ tsp red chilli powder (2 g), ½ tsp black pepper (1 g) and ½ tsp salt (3 g). *(no heat · 2 min)*
+9. Wipe the pan with ½ tsp oil (2 g). Pour in a quarter of the egg mix (about 1 cup) and swirl it to the size of the paratha. Cook until the bottom is set but the top is still soft. *(medium heat · 2 min)*
+10. Lay a paratha on top of the soft egg and press it down so they stick. Flip the whole thing (slide it onto the plate, then turn it back into the pan) and cook 1 minute more, until the egg is set all through. *(medium heat · 1 min)*
+11. Slide it out egg side up and roll it up tightly. Make the other 3 rolls the same way. *(no heat · 9 min)*
+12. Let the rolls cool 20–30 minutes, then wrap each in baking paper and then foil. *(no heat · 25 min)*
+
+**Done when:** The egg is set all through, with no runny egg when you cut a roll; the paratha has golden spots on both sides.
+
+**Box it up:** Cool and put away within 1 hour. All 4 rolls go in the freezer (2 months). Move one to the fridge the night before, or reheat from frozen. A roll in the fridge keeps 2 days.
+
+**Reheat:** From the fridge: dry pan 2 minutes a side, or microwave 60 seconds. From frozen: take off the foil (never microwave foil), keep the paper on and microwave 90 seconds, then 1 minute in a hot dry pan to crisp, until hot all through.
+
+**Tips**
+
+- Halal: eggs, flour and vegetables only. Liquid egg whites are "claras de huevo pasteurizadas" at Mercadona.
+- Egg too thick to set? Put a lid on the pan for 1 minute before you lay the paratha on.
+- Too spicy? Leave out the green chillies.
+- Short on time? Frozen plain parathas from the Pakistani grocery work, but they have much more fat than these (often 10–15 g each), so the app's numbers would be too low.
+- Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona's harina integral de trigo also works; the roti come out a little firmer.
 
 ## Added fat
 

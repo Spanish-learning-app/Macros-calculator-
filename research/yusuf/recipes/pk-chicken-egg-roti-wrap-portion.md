@@ -66,12 +66,56 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 75 g dough each, rolled to 25 cm), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.
-2. Chicken: fry the strips in the oil on high heat 4–5 min until cooked through (75 °C); add pepper, onion, garlic, ginger, spices and salt for 3 min more; finish with lemon.
-3. Egg: in the same pan, softly scramble the eggs and whites with salt, 2 min (no extra oil). Cool the chicken and egg on a tray (wrapping hot egg makes the wrap soggy).
-4. Fill each roti with a quarter of the chicken and egg, fold in the sides and roll tightly. Wrap in baking paper, then foil; freeze.
+**Equipment**
+
+- Big mixing bowl
+- Rolling pin (belan) and a clean worktop
+- Your biggest dry non-stick frying pan (28 cm) or a large tawa
+- Clean tea towel
+- Grater
+- Bowl and fork for the eggs
+- Tray for cooling
+- Baking paper, foil and a freezer bag
+
+**Before you start**
+
+- Cut the chicken breast (280 g) into thin strips (1 cm).
+- Cut 1 red pepper (120 g) into strips. Slice ½ red onion (80 g) thin.
+- Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.
+
+**Steps**
+
+1. Roti dough (no cooking yet): in a big bowl mix 176 g atta (wholemeal chapati flour, about 1½ cups) with a pinch of salt (1 g). Pour in 123 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball. *(no heat · 3 min)*
+2. Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe. *(no heat · 5 min)*
+3. Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing). *(no heat · 20 min)*
+4. Divide the dough into 4 equal balls of about 75 g. Keep them under the cloth. *(no heat)*
+5. Put your biggest frying pan or tawa on the hob with no oil and heat it 2 minutes. *(medium-high heat · 2 min)*
+6. Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 25 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks. *(no heat)*
+7. Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 2 minutes each, 8 minutes for 4). *(medium-high heat · 8 min)*
+8. Stack the cooked roti inside a clean tea towel so they stay soft while they cool. *(no heat)*
+9. Chicken: wipe the pan, add a scant 1 tbsp oil (12 g) and heat 1 minute. *(high heat · 1 min)*
+10. Add the chicken strips and stir-fry until white all through. *(high heat · 5 min)*
+11. Add the pepper, onion, ginger-garlic paste and the powders: 1 tsp ground cumin (2 g), 1¼ tsp paprika (3 g), ¾ tsp red chilli powder (2 g) and ½ tsp salt (3 g). Stir-fry 3 minutes until the pepper softens. Turn off the heat and squeeze in 2 tsp lemon juice (10 g). *(medium-high heat · 3 min)*
+12. Spread the chicken on the tray to cool. *(no heat)*
+13. Egg: whisk 4 eggs with 120 g liquid egg whites and a pinch of salt (1 g). Pour into the same pan (no extra oil) and stir slowly with the spatula until just set: soft, but no runny egg. *(medium heat · 2 min)*
+14. Spread the egg on the tray next to the chicken and let both cool 20 minutes (hot filling makes the wrap soggy). *(no heat · 20 min)*
+15. Lay a roti flat. Put ¼ of the chicken and ¼ of the egg in a line across the lower third. Fold the sides in, then roll it up tightly from the bottom. Wrap in baking paper, then foil. Make all 4. *(no heat · 5 min)*
+
+**Done when:** Chicken: cut the thickest strip, white all through, no pink. Egg: set, with no runny parts. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.
+
+**Box it up:** Cool and put away within 1 hour. 1 wrap in the fridge (eat within 2 days), 3 in the freezer (2 months). Move one down to the fridge the night before.
+
+**Reheat:** From the fridge: dry pan 2 minutes a side, or microwave 60–75 seconds. From frozen: take off the foil (never microwave foil), wrap in a damp paper towel and microwave 2 minutes, turning once, until hot all through.
+
+**Tips**
+
+- Halal: chicken from the halal butcher. The big home roti replaces shop wraps, which list E471 without saying it is from plants.
+- A 25 cm roti is hard to roll at first. If it tears, make 2 smaller roti per wrap from the same dough instead.
+- Too spicy? Use ¼ tsp chilli powder.
+- Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).
+- Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona's harina integral de trigo also works; the roti come out a little firmer.
 
 ## Added fat
 

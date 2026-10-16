@@ -60,13 +60,55 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Yakhni: put the chicken, the rough-chopped onion, whole spices and salt in a pot with about 700 ml water; simmer 15–20 min until the chicken is just cooked. Lift out the chicken; strain and keep the stock.
-2. In a wide pot fry the sliced onion in the oil until golden (10–12 min). Add garlic, ginger and chilli for 1 min, then tomato and yogurt; cook until the oil separates.
-3. Add the drained rice and chickpeas, then the stock topped up with water to about 1.5 times the rice volume. Boil uncovered until the water drops below the rice surface.
-4. Return the chicken, sprinkle garam masala, cover tightly (foil under the lid) and steam on the lowest heat 12–15 min. Fold in coriander and mint.
-5. Spread on a tray to cool within 1 h, then divide into 4 boxes.
+**Equipment**
+
+- Medium pot (3 l) for the yakhni (stock)
+- Wide heavy pot (24–26 cm) with a tight lid, plus a sheet of foil
+- Sieve and a measuring jug
+- Slotted spoon
+- Grater
+- Tray for cooling
+- 4 lunch boxes
+
+**Before you start**
+
+- Cut the chicken breast (640 g) into 4 cm pieces.
+- Roughly chop ½ small onion (60 g) for the stock. Slice 1 large onion (175 g) thin, in half-moons.
+- Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste.
+- Slit 2 green chillies (10 g) lengthwise. Chop 1 tomato (100 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup.
+- Rinse the basmati (280 g, about 1½ cups) until the water runs almost clear, then soak it in cold water for 30 minutes.
+- Drain and rinse the chickpeas (320 g drained, most of a 570 g jar).
+- Whole spices for the stock: 2 tsp zeera (cumin seeds, 4 g), 2 tsp whole coriander seeds (4 g), 1 tsp black peppercorns (3 g), 1 cinnamon stick (5 cm, 2 g), 3–4 cloves (1 g), 3–4 green cardamom pods pressed open (1 g) and ½ bay leaf.
+
+**Steps**
+
+1. Yakhni (stock): put the chicken, the rough onion, all the whole spices and 1⅔ tsp salt (10 g) in the 3 l pot with 700 ml water. Bring to the boil. *(high heat · 5 min)*
+2. Spoon off the grey foam, then turn down so it bubbles gently. Lid half on, simmer until the chicken is white all through. *(low heat · 18 min)*
+3. Lift the chicken out with the slotted spoon into a bowl. Pour the stock through the sieve into the jug and throw away the spices. You need 520 ml stock: top up with water if you have less. *(no heat)*
+4. In the wide pot heat 2 tbsp oil (30 g), add the sliced onion and stir every minute or two until golden brown (not dark brown: dark tastes bitter). *(medium heat · 11 min)*
+5. Add the ginger-garlic paste and the slit chillies. Stir 1 minute. *(medium heat · 1 min)*
+6. Add the chopped tomato and cook until soft. *(medium heat · 3 min)*
+7. Turn the heat down, stir in the whisked yogurt (whisking first stops it splitting) and cook, stirring, until the oil separates at the edges. *(low heat · 4 min)*
+8. Drain the rice. Add the rice and the chickpeas and stir gently for 1 minute, so the grains do not break. *(medium heat · 1 min)*
+9. Pour in the 520 ml stock. Boil without the lid until the liquid drops below the top of the rice and small holes appear. *(high heat · 6 min)*
+10. Lay the chicken back on top and sprinkle 1 tsp garam masala (2 g). Cover the pot with foil, then the lid ("dum"). Lowest heat, 14 minutes, without lifting the lid. *(low heat · 14 min)*
+11. Turn off the heat and leave 5 minutes. Fold in the chopped coriander (10 g) and mint (6 g) gently with a flat spoon. *(no heat · 5 min)*
+12. Spread the pulao on the tray to cool fast (30 minutes, no longer than 1 hour), then split it into 4 boxes. *(no heat · 30 min)*
+
+**Done when:** The rice grains are long, soft and separate, and a spoon pushed to the bottom finds no water. The chicken is white all through.
+
+**Box it up:** Rice dish: cool fast and put away within 1 hour. Box 1 in the fridge; boxes 2–4 in the freezer (eat within 1 month).
+
+**Reheat:** Move the next box to the fridge the night before. Sprinkle 1 tbsp water over it, microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot all through. Reheat once only.
+
+**Tips**
+
+- Halal: chicken from the halal butcher; no stock cubes needed, the yakhni is the stock.
+- If the bottom catches during the dum, put a flat tawa or an empty frying pan under the pot next time.
+- Rice still hard after the dum? Sprinkle 3 tbsp hot water over it, cover again and leave 5 minutes on the lowest heat.
+- Whole spices are cheapest at the Pakistani grocery. If you have no cardamom or cloves, the pulao still works with cumin, coriander, pepper and cinnamon.
 
 ## Added fat
 

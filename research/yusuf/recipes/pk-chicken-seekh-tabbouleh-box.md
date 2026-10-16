@@ -74,14 +74,52 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Mix the chicken mince with the squeezed onion, ginger, garlic, chilli, herbs, spices and salt; chill 30 min (firmer kebabs).
-2. With wet hands shape 16 sausage-shaped kebabs (about 50 g each), on skewers or straight on a lined tray. Brush with oil.
-3. Bake at 240 °C (grill on) for 12–15 min, turning once, until 75 °C inside and browned at the edges.
-4. Bulgur: pour 300 g boiling water over the bulgur, cover 20 min until absorbed, fluff and cool.
-5. Tabbouleh: chop the herbs and vegetables; dress with lemon, olive oil and salt; fold in the cooled bulgur.
-6. Each box: 4 kebabs and ¼ of the tabbouleh.
+**Equipment**
+
+- Big mixing bowl
+- Grater
+- Clean tea towel or kitchen paper for squeezing
+- Oven tray lined with baking paper (skewers optional)
+- Heatproof bowl with a plate as a lid
+- Kettle
+- Sharp knife and chopping board
+- Wire rack or plate for cooling
+- 4 lunch boxes and 3 freezer bags
+
+**Before you start**
+
+- Grate 1 medium onion (150 g) and squeeze it hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.
+- Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.
+- Chop 2 green chillies (10 g), a handful of coriander (15 g) and a few mint leaves (5 g) very fine.
+
+**Steps**
+
+1. In the bowl mix the chicken mince (640 g) with the squeezed onion, ginger-garlic paste, chillies, coriander and mint, and the powders: 2 tsp roasted ground cumin (4 g), 2 tsp garam masala (4 g), ¾ tsp red chilli powder (2 g), ¾ tsp chaat masala (2 g), ½ tsp black pepper (1 g) and 1 tsp salt (6 g). Knead with your hand until sticky. *(no heat · 3 min)*
+2. Cover and chill 30 minutes: it makes the kebabs firmer. *(no heat · 30 min)*
+3. Heat the oven to 220 °C with the grill on (or fan). Brush the lined tray with half the oil (5 g, 1 tsp). *(oven 220 °C · 10 min)*
+4. With wet hands shape 16 sausages of about 50 g (12 cm long, 2.5 cm thick) on the tray, or press them around flat skewers. Brush them with the other 1 tsp oil (5 g). *(no heat)*
+5. Bake 8 minutes, turn them, then 7–10 minutes more until browned at the edges. *(oven 220 °C · 17 min)*
+6. Let the kebabs cool on the rack. *(no heat · 20 min)*
+7. Bulgur (no cooking on the hob): pour 300 ml boiling water from the kettle over the bulgur (200 g, about 1 cup) in the heatproof bowl. Stir, cover with the plate and leave 20 minutes until the water is soaked up. Fluff with a fork and spread it out to cool. *(no heat · 20 min)*
+8. Split the cooled bulgur into 4 portions (about 125 g each). Keep 1 in the fridge for Monday; press the other 3 flat in freezer bags and freeze. *(no heat)*
+9. Tabbouleh, first half (no cooking): wash and dry the parsley (60 g, about 1½ bunches) and mint (10 g); pick the leaves off the thick stalks and chop them very fine. Dice 150 g tomato, 100 g cucumber (5 mm) and 20 g red onion (very fine). *(no heat · 10 min)*
+10. Whisk 2 tbsp lemon juice (30 g), 1½ tbsp extra virgin olive oil (20 g) and ⅓ tsp salt (2 g). Toss with the chopped herbs and vegetables. Fold Monday's bulgur portion into half of this salad; keep the other half in a box for Tuesday. *(no heat · 3 min)*
+11. Each box: ¼ of the tabbouleh with its bulgur, and 4 kebabs on the side. Make the second half of the salad the same way on Tuesday night. *(no heat)*
+
+**Done when:** Break the thickest kebab open: white all through, no pink, juices clear (75 °C if you have a thermometer); browned at the edges.
+
+**Box it up:** Cool and put away within 1 hour. Kebabs: 3 days in the fridge (Mon–Wed boxes), Thursday's 4 kebabs in the freezer (3 months). Soaked bulgur counts as cooked grain (1 day in the fridge), so it lives in the freezer: each evening move one bulgur portion to the fridge and mix it into the salad the next morning. The dressed salad keeps 2 days and does not freeze: half on Sunday, half on Tuesday night.
+
+**Reheat:** Made to eat cold: carry it in an insulated bag with an ice pack and eat within 2 hours of leaving the fridge. To eat the kebabs warm, microwave them alone, covered, 60–90 seconds until hot all through. Never microwave the tabbouleh.
+
+**Tips**
+
+- Halal: chicken mince from the halal butcher. Ask them to mince some thigh with the breast: it stays juicier.
+- Kebabs falling apart? Squeeze the onion harder, chill the mix longer, and shape them flat on the tray instead of on skewers.
+- Bulgur is at Turkish and Pakistani grocers ("bulgur" or "dalia"); fine or medium both work. Flat-leaf parsley is perejil at Mercadona.
+- Chaat masala (Pakistani grocery) gives the tang. No chaat masala? Use a squeeze of lemon and a pinch of salt.
 
 ## Added fat
 

@@ -73,13 +73,53 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Toss the chicken with garlic, ginger, spices and salt. Sear in the oil in a hot pan 6–8 min until cooked through (75 °C); squeeze lemon over and cool.
-2. Boil the peeled, cubed potato 10–12 min until just tender; drain and cool.
-3. Mix chickpeas, potato, onion, tomato, cucumber, chilli and coriander with lemon, chaat masala, cumin and salt.
-4. Mix the yogurt with mint and salt for the pot.
-5. Each box: ¼ of the chaat topped with ¼ of the chicken; yogurt in its own pot. Keep cold (insulated bag and ice pack).
+**Equipment**
+
+- Medium pot (2 l) for the potatoes
+- Large frying pan (28 cm)
+- Big mixing bowl
+- Sieve
+- Grater
+- Plates or a tray for cooling
+- 4 lunch boxes and 4 small lidded pots (about 100 ml)
+- Insulated bag and ice pack for carrying
+
+**Before you start**
+
+- Peel the potatoes (600 g, about 4 medium) and cut them into 2 cm cubes.
+- Cut the chicken breast (600 g) into bite-sized pieces (2–3 cm).
+- Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.
+- For the chaat: chop the red onion very fine (120 g, 1 small), dice the tomato (200 g, 2 small) and cucumber (120 g) into 1 cm cubes, chop 2 green chillies (10 g) and a big handful of coriander (20 g).
+- Drain and rinse the chickpeas (440 g drained: 1 jar of 400 g plus 40 g from a second jar).
+
+**Steps**
+
+1. Put the potato cubes in the pot, cover with cold water and bring to the boil. *(high heat · 5 min)*
+2. Simmer until a knife slides in easily but the cubes still hold their shape. Drain and spread on a plate to cool. *(medium heat · 11 min)*
+3. In a bowl toss the chicken with the ginger-garlic paste, 1½ tsp ground cumin (3 g), 1½ tsp ground coriander (3 g), 1¼ tsp paprika (3 g), ⅓ tsp red chilli powder (1 g) and ⅔ tsp salt (4 g). *(no heat · 2 min)*
+4. Heat 1½ tbsp oil (20 g) in the frying pan for 1 minute. *(medium-high heat · 1 min)*
+5. Add the chicken in one layer (in 2 batches if the pan is crowded). Leave it 3 minutes without moving, then turn and cook 3–5 minutes more. *(medium-high heat · 7 min)*
+6. Turn off the heat, squeeze 1 tbsp lemon juice (15 g) over the chicken and spread it on a plate to cool. *(no heat · 20 min)*
+7. Chaat (no cooking), half now for Monday and Tuesday: in the bowl gently mix half the chickpeas (220 g), half the potato cubes, half the onion, tomato, cucumber, chilli and coriander with 1⅓ tbsp lemon juice (20 g), 1½ tsp chaat masala (4 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g). *(no heat · 5 min)*
+8. Yogurt pots (no cooking), 2 now: mix 160 g yogurt with half the chopped mint (5 g) and a pinch of salt; split into 2 pots. *(no heat · 2 min)*
+9. Boxes 1 and 2: half each of today's chaat, topped with ¼ of the chicken; a yogurt pot on the side. Put the other half of the chicken in a freezer bag in the freezer and the other half of the potatoes and chopped vegetables in a box in the fridge. *(no heat)*
+10. Monday night: move the frozen chicken to the fridge. Tuesday night: mix the second half of the chaat and 2 more yogurt pots the same way and pack boxes 3 and 4 (10 minutes). *(no heat · 10 min)*
+
+**Done when:** Chicken: cut the biggest piece, white all through, no pink. Potato: a knife slides in easily but the cube does not fall apart.
+
+**Box it up:** Cold-only box. Cool the chicken and potato and put them away within 1 hour. A dressed chaat box keeps 2 days and cannot be frozen; cooked chicken keeps 3 days in the fridge or 3 months frozen, so half of it goes in the freezer on Sunday.
+
+**Reheat:** Not reheated: eat it cold, within 2 hours of leaving the fridge (1 hour on a day above 32 °C). Carry it in an insulated bag with an ice pack.
+
+**Tips**
+
+- Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).
+- Chaat masala is the tangy spice mix (Pakistani grocery). No chaat masala? Use 1 tbsp extra lemon juice and a pinch more roasted cumin.
+- Too spicy? Leave out the green chillies.
+- The chickpeas are Mercadona garbanzo cocido in a glass jar (400 g drained). Use the rest of the second jar within 2 days, kept in its liquid in the fridge.
+- Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.
 
 ## Added fat
 

@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 02:01 UTC by Omar._
+_Last updated: 2026-10-16 02:04 UTC by Omar._
 
 ## Links
 
@@ -26,7 +26,7 @@ _Last updated: 2026-10-16 02:01 UTC by Omar._
 | Base foods for variety (24), packs, seafood | done (Javier) |
 | Weight log and trend, spare-box line, meal-name choice, short names in rows, cuisine chips | done in code, **not yet published** (Lena) |
 | Variety preps 41–64 (sandwiches, pastas, bowls, tray bakes, soups, breakfasts) | **done in data** (64 preps; lunch 29, 6 desi; ≥4 styles every slot). Not yet published |
-| **"How to make it": beginner methods in the app** | **UI done** (Lena; Omar tapped through it at 400 px: 45 links, method sheet, step mode, no errors). Data 45/64; 19 desi in progress (Zainab). Not yet published |
+| **"How to make it": beginner methods in the app** | **UI done** (Lena; Omar tapped through it at 400 px: 45 links, method sheet, step mode, no errors). Data: 64/64 written (Zainab finished the 19 desi); Yusuf's rebuild carries them into the app. Not yet published |
 | Protein tips and Ramadan mode | done in code, checked in Chromium (Lena). Not yet published |
 | Sprint 3 wave 1 tests | partial; restarts after Yusuf lands (Kenji) |
 
@@ -36,7 +36,7 @@ _Max 3 agents at once._
 
 - **Kenji:** Sprint 3 tests (weight, kam-tel, short names, method contract, e2e).
 - **Yusuf:** pitch, cost per box and references into app data; weekly plans and ready picks as app data.
-- **Zainab:** beginner methods for the 20 desi sheets.
+- **Priya:** serve chips, saved-meal kcal/protein, wording fixes, kam-tel line, accessibility and speed pass.
 
 ## Next, in order
 

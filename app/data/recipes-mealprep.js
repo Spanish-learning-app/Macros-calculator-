@@ -93,6 +93,74 @@ export default [
         url: 'https://www.cookwithmanali.com/wprm_print/cucumber-raita',
       },
     ],
+    method: {
+      equipment: ['Mixing bowl with a lid (or a big freezer bag) for the marinade', 'Large oven tray lined with baking paper', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', 'Kitchen scale', 'A second tray or wide dish for cooling the rice', '4 lunch boxes and 4 small lidded pots (about 150 ml) for the raita'],
+      prep: ['Cut the chicken thighs (720 g, boneless and skinless) into 4 cm pieces. Trim off any big lumps of fat.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.', 'Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).', 'Cut 2 red peppers (240 g) into 3 cm squares. Peel 1 large red onion (200 g), cut it into quarters and pull the layers apart into "petals".', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.'],
+      steps: [
+        {
+          text: 'Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), ⅔ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Add the chicken and turn it until every piece is coated. Cover and put it in the fridge for 4 hours or overnight.',
+          heat: 'none',
+          minutes: 240,
+        },
+        {
+          text: 'Heat the oven to 220 °C (fan, or fan with grill if your oven has it).',
+          heat: 'oven-220',
+          minutes: 10,
+        },
+        {
+          text: 'Spread the chicken on the lined tray in one layer, letting extra marinade drip back into the bowl. Put the pepper and onion petals around it and drizzle everything with the other 2 tsp oil (10 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Roast 25 minutes, turning the pieces halfway, until the chicken has dark, slightly charred edges.',
+          heat: 'oven-220',
+          minutes: 25,
+        },
+        {
+          text: 'Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and ⅔ tsp salt (4 g).',
+          heat: 'high',
+          minutes: 3,
+        },
+        {
+          text: 'Add the rice and stir once. Boil without the lid until the water has dropped just below the top of the rice and small holes appear on the surface.',
+          heat: 'medium-high',
+          minutes: 5,
+        },
+        {
+          text: 'Put the lid on tightly and turn the heat to the lowest. Leave 7 minutes; do not lift the lid.',
+          heat: 'low',
+          minutes: 7,
+        },
+        {
+          text: 'Scatter the frozen peas (240 g) on top of the rice, put the lid back on and steam 5 minutes more. Then turn off the heat, leave it 5 minutes and fluff the rice with a fork.',
+          heat: 'low',
+          minutes: 10,
+        },
+        {
+          text: 'Spread the rice on the second tray and leave the chicken and veg on their tray to cool fast (30 minutes, no longer than 1 hour).',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Raita (no cooking), first 2 pots: grate half the cucumber (100 g) and squeeze it hard in your hands over the sink. Whisk 150 g yogurt smooth, then stir in the cucumber, half the chopped mint (4 g, a small handful), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Mix the other 2 pots the same way on Tuesday night.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Pack each lunch box with ¼ of the rice and ¼ of the chicken, peppers and onion.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Cut the biggest chicken piece: white all through, no pink, juices clear (75 °C if you have a thermometer), with browned edges. Rice: grains soft and separate, no water left in the bottom of the pot.',
+      boxUp: 'Cool on the trays and put the boxes away within 1 hour (rice must be cooled fast). Box 1 to the fridge (Monday). Boxes 2–4 straight into the freezer. The raita cannot be frozen and keeps 2 days: 2 pots on Sunday (Mon, Tue), 2 pots on Tuesday night (Wed, Thu).',
+      reheat: 'Move the next box from the freezer to the fridge the night before. Sprinkle 1 tbsp water over the rice, then microwave with the lid loose 2½–3 minutes at full power, stirring halfway, until steaming hot all through. Reheat once only. Eat the raita cold, never microwaved.',
+      tips: ['Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'No food colouring needed: the paprika gives the red. Kashmiri chilli powder (Pakistani grocery) gives more colour with less heat.', 'Too spicy? Use 1 tsp chilli powder instead of 2 next time, and eat more raita with it.', 'If the marinade sticks or burns on the tray, the baking paper was missing or the oven runs hot: roast at 200 °C for 30 minutes instead.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.', 'Garam masala, chaat masala, red chilli powder and haldi are cheapest at the Pakistani grocery (Shan or National packs). Mercadona has comino molido (ground cumin), cúrcuma (haldi), pimentón (paprika) and cilantro (fresh coriander).'],
+    },
   },
   {
     foodId: 'pk-keema-matar-rice-box',
@@ -161,6 +229,85 @@ export default [
       },
       { title: 'Masala TV (Tahir Chaudhary), Keema aloo matar', url: 'https://masala.tv/?p=7648' },
     ],
+    method: {
+      equipment: ['Wide deep frying pan or karahi (28 cm) with a lid', 'Wooden spoon', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', 'Kitchen scale', '2 trays or wide dishes for cooling', '4 lunch boxes'],
+      prep: ['Peel 1 large onion (200 g) and dice it small (5 mm).', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Chop 2 medium tomatoes (250 g) small. Chop 2 green chillies (10 g).', 'Whisk 1 tbsp yogurt (15 g) smooth in a cup. Chop a handful of fresh coriander leaves (15 g).', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve until the water runs almost clear, then soak it in cold water for 20 minutes.'],
+      steps: [
+        {
+          text: 'Put the pan on the hob. Add 2 tbsp sunflower oil (28 g) and heat 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add 1½ tsp zeera (whole cumin seeds, 3 g). Let them sizzle 20–30 seconds, until they darken one shade and smell toasty.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add the onion. Stir every minute until it is soft and light golden.',
+          heat: 'medium',
+          minutes: 9,
+        },
+        {
+          text: 'Add the ginger-garlic paste and stir 1 minute, until the raw smell has gone.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add the mince (600 g). Break it up with the wooden spoon. Cook, stirring, until it has let out its water, the water has dried off and no pink is left.',
+          heat: 'high',
+          minutes: 9,
+        },
+        {
+          text: 'Add the tomatoes, green chillies and the whisked yogurt, then the powders: 2 tsp ground coriander (dhania powder, 4 g), 1 tsp red chilli powder (3 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 heaped tsp salt (7 g). Stir well.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Put the lid on and cook gently 15 minutes, stirring every 5 minutes. If it sticks, add 2 tbsp water and scrape the bottom.',
+          heat: 'low',
+          minutes: 15,
+        },
+        {
+          text: 'Take the lid off and stir until the watery juice has gone and the oil shines at the edges of the pan (this is "bhunna").',
+          heat: 'medium-high',
+          minutes: 5,
+        },
+        {
+          text: 'Add the frozen peas (400 g) and 3 tbsp water. Lid on, 5 minutes.',
+          heat: 'medium',
+          minutes: 5,
+        },
+        {
+          text: 'Lid off. Stir until the keema is dry with no loose gravy (a box keema should not slosh).',
+          heat: 'medium-high',
+          minutes: 3,
+        },
+        {
+          text: 'Turn off the heat. Stir in ¾ tsp ground black pepper (2 g), 1 tsp garam masala (2 g), the coriander leaves and 1 tsp lemon juice (5 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Rice: drain it. Bring 450 ml water to the boil in the pot with ½ tsp salt (3 g), add the rice and boil without the lid until the water drops just below the top of the rice.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Lid on tightly, lowest heat, 10 minutes without lifting the lid. Then turn off the heat, rest 5 minutes and fluff with a fork.',
+          heat: 'low',
+          minutes: 15,
+        },
+        {
+          text: 'Spread the keema and the rice on separate trays to cool fast (30 minutes, no longer than 1 hour). Then pack each box with ¼ of the rice and ¼ of the keema.',
+          heat: 'none',
+          minutes: 30,
+        },
+      ],
+      doneWhen: 'Push the keema to one side: no liquid runs into the gap, the oil glistens, no pink meat is left and the peas are soft and bright green.',
+      boxUp: 'Rice must be cooled fast: boxes into the fridge or freezer within 1 hour. Box 1 in the fridge. Boxes 2–4 in the freezer; eat them within 1 month (the rice limit; keema alone keeps 3 months).',
+      reheat: 'Move the next box to the fridge the night before. Sprinkle 1 tbsp water over the rice, microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot all through. Reheat once only.',
+      tips: ['Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Ask the butcher for "carne picada magra de ternera", about 10 % fat. Fattier mince gives a greasy box and more calories than the app shows.', 'Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).', 'Too spicy? Leave out the green chillies; the chilli powder alone is mild.', 'If the keema catches on the bottom, add 2 tbsp water, scrape and lower the heat a little.'],
+    },
   },
   {
     foodId: 'pk-yakhni-chicken-pulao-box',
@@ -239,6 +386,71 @@ export default [
         url: 'https://www.food.com/recipe/pakistani-punjabi-karachi-style-yakhni-pulao-chicken-stock-pila-331517',
       },
     ],
+    method: {
+      equipment: ['Medium pot (3 l) for the yakhni (stock)', 'Wide heavy pot (24–26 cm) with a tight lid, plus a sheet of foil', 'Sieve and a measuring jug', 'Slotted spoon', 'Grater', 'Tray for cooling', '4 lunch boxes'],
+      prep: ['Cut the chicken breast (640 g) into 4 cm pieces.', 'Roughly chop ½ small onion (60 g) for the stock. Slice 1 large onion (175 g) thin, in half-moons.', 'Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste.', 'Slit 2 green chillies (10 g) lengthwise. Chop 1 tomato (100 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup.', 'Rinse the basmati (280 g, about 1½ cups) until the water runs almost clear, then soak it in cold water for 30 minutes.', 'Drain and rinse the chickpeas (320 g drained, most of a 570 g jar).', 'Whole spices for the stock: 2 tsp zeera (cumin seeds, 4 g), 2 tsp whole coriander seeds (4 g), 1 tsp black peppercorns (3 g), 1 cinnamon stick (5 cm, 2 g), 3–4 cloves (1 g), 3–4 green cardamom pods pressed open (1 g) and ½ bay leaf.'],
+      steps: [
+        {
+          text: 'Yakhni (stock): put the chicken, the rough onion, all the whole spices and 1⅔ tsp salt (10 g) in the 3 l pot with 700 ml water. Bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Spoon off the grey foam, then turn down so it bubbles gently. Lid half on, simmer until the chicken is white all through.',
+          heat: 'low',
+          minutes: 18,
+        },
+        {
+          text: 'Lift the chicken out with the slotted spoon into a bowl. Pour the stock through the sieve into the jug and throw away the spices. You need 520 ml stock: top up with water if you have less.',
+          heat: 'none',
+        },
+        {
+          text: 'In the wide pot heat 2 tbsp oil (30 g), add the sliced onion and stir every minute or two until golden brown (not dark brown: dark tastes bitter).',
+          heat: 'medium',
+          minutes: 11,
+        },
+        {
+          text: 'Add the ginger-garlic paste and the slit chillies. Stir 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        { text: 'Add the chopped tomato and cook until soft.', heat: 'medium', minutes: 3 },
+        {
+          text: 'Turn the heat down, stir in the whisked yogurt (whisking first stops it splitting) and cook, stirring, until the oil separates at the edges.',
+          heat: 'low',
+          minutes: 4,
+        },
+        {
+          text: 'Drain the rice. Add the rice and the chickpeas and stir gently for 1 minute, so the grains do not break.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Pour in the 520 ml stock. Boil without the lid until the liquid drops below the top of the rice and small holes appear.',
+          heat: 'high',
+          minutes: 6,
+        },
+        {
+          text: 'Lay the chicken back on top and sprinkle 1 tsp garam masala (2 g). Cover the pot with foil, then the lid ("dum"). Lowest heat, 14 minutes, without lifting the lid.',
+          heat: 'low',
+          minutes: 14,
+        },
+        {
+          text: 'Turn off the heat and leave 5 minutes. Fold in the chopped coriander (10 g) and mint (6 g) gently with a flat spoon.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Spread the pulao on the tray to cool fast (30 minutes, no longer than 1 hour), then split it into 4 boxes.',
+          heat: 'none',
+          minutes: 30,
+        },
+      ],
+      doneWhen: 'The rice grains are long, soft and separate, and a spoon pushed to the bottom finds no water. The chicken is white all through.',
+      boxUp: 'Rice dish: cool fast and put away within 1 hour. Box 1 in the fridge; boxes 2–4 in the freezer (eat within 1 month).',
+      reheat: 'Move the next box to the fridge the night before. Sprinkle 1 tbsp water over it, microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot all through. Reheat once only.',
+      tips: ['Halal: chicken from the halal butcher; no stock cubes needed, the yakhni is the stock.', 'If the bottom catches during the dum, put a flat tawa or an empty frying pan under the pot next time.', 'Rice still hard after the dum? Sprinkle 3 tbsp hot water over it, cover again and leave 5 minutes on the lowest heat.', 'Whole spices are cheapest at the Pakistani grocery. If you have no cardamom or cloves, the pulao still works with cumin, coriander, pepper and cinnamon.'],
+    },
   },
   {
     foodId: 'pk-shami-kebab-pita-box',
@@ -313,6 +525,78 @@ export default [
         url: 'https://butfirstchai.com/beef-shami-kabab-recipe-instant-pot/',
       },
     ],
+    method: {
+      equipment: ['Medium pot (3 l) with a lid', 'Food processor (or a stick blender with a tall jug)', 'Large non-stick frying pan', 'Grater', 'Plate with kitchen paper', '4 lunch boxes and 4 small lidded pots (about 150 ml)'],
+      prep: ['Soak the chana dal (150 g, about ¾ cup) in cold water for 1 hour, then drain it.', 'Roughly chop 1 small onion (100 g). Peel 5 garlic cloves (15 g, keep them whole) and a 3 cm piece of ginger (10 g).', 'Whole spices: 1 tbsp coriander seeds (6 g), 1½ tsp zeera (cumin seeds, 3 g), 1 tsp black peppercorns (3 g), a small piece of cinnamon stick (1 g) and 2 cloves (½ g).', 'For the mix: chop ½ small red onion very fine (60 g), 2 green chillies (10 g), a handful of coriander leaves (15 g) and of mint leaves (8 g).'],
+      steps: [
+        {
+          text: 'Put the mince (500 g), drained chana dal, onion chunks, whole garlic, ginger, whole spices, 1½ tsp red chilli powder or chilli flakes (4 g) and 1 heaped tsp salt (7 g) in the pot with 600 ml water. Bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Lid on, simmer until the dal squashes easily between your fingers.',
+          heat: 'low',
+          minutes: 35,
+        },
+        {
+          text: 'Lid off. Cook, stirring often, until it is completely dry: when you tilt the pot, no liquid runs and the mix starts to stick a little. This matters: a wet mix makes kebabs that break.',
+          heat: 'medium-high',
+          minutes: 10,
+        },
+        {
+          text: 'Spread the mix on a plate to cool 15 minutes. Pick out the cinnamon stick and the cloves.',
+          heat: 'none',
+          minutes: 15,
+        },
+        {
+          text: 'Blend it in the food processor (in 2 batches) into a smooth, dough-like paste.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Mix in the raw red onion, green chillies, coriander, mint and 1 egg with your hand.',
+          heat: 'none',
+        },
+        {
+          text: 'With wet hands shape 12 flat round patties (about 75 g each, 1 cm thick). Smooth any cracks on the edges.',
+          heat: 'none',
+        },
+        {
+          text: 'Beat the second egg on a plate. Heat half the oil (12 g, a scant tbsp) in the frying pan for 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Dip 6 patties in the egg, let the extra drip off, and fry 2 minutes a side until golden. Turn them once only, gently, with a flat spatula. Add the other 12 g oil and fry the other 6.',
+          heat: 'medium',
+          minutes: 8,
+        },
+        {
+          text: 'Let the kebabs cool on the plate with kitchen paper (20 minutes).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Salad (no cooking), half now: shred half the romaine (60 g), slice 1 tomato (100 g) and a few thin rings of red onion (20 g). Put the tomato and onion in the bottom of 2 boxes with 2 tsp lemon juice (10 g), lettuce on top. Make the other half on Tuesday night.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Mint-yogurt pots (no cooking), half now: grate 60 g cucumber and squeeze it hard. Mix with 160 g light Greek yogurt, half the chopped mint (4 g), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Make 2 more on Tuesday night.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Each box: 3 kebabs next to the salad and 1 yogurt pot. The pita stays in its own bag; you fill it at lunch so it does not go soggy.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Kebabs are golden brown on both sides, hold their shape when lifted and are hot in the middle.',
+      boxUp: 'Cool and put away within 1 hour. Kebabs keep 3 days in the fridge: kebabs for boxes 1–3 in the fridge (Mon–Wed) and box 4\'s kebabs in the freezer (or freeze them all and move one portion to the fridge each night). Salad and yogurt keep 2 days and cannot be frozen. Pitas: keep the pack closed at room temperature, or freeze them.',
+      reheat: 'Good cold. To eat warm: microwave the 3 kebabs alone, covered, 60–90 seconds until hot all through, then build the pita. Never microwave the salad or the yogurt. Frozen kebabs: move them to the fridge the night before.',
+      tips: ['Halal: beef from the halal butcher. The Mission pita has no E471; if you buy wraps instead, pick ones labelled "E471 de origen vegetal".', 'Chana dal is split yellow chickpeas (Pakistani grocery). Do not swap in red lentils: they turn to mush and the kebabs fall apart.', 'Kebabs breaking in the pan? The mix was too wet. Chill the shaped patties 30 minutes in the fridge before frying, and turn them only once.', 'You can freeze the raw shaped patties between baking paper and fry them from frozen, 3 minutes a side.'],
+    },
   },
   {
     foodId: 'es-pollo-ajillo-limon-rice-box',
@@ -693,6 +977,64 @@ export default [
         url: 'https://tangerinezest.com/en/homepage/wprm_print/lebanese-tabbouleh-recipe-with-parsley',
       },
     ],
+    method: {
+      equipment: ['Big mixing bowl', 'Grater', 'Clean tea towel or kitchen paper for squeezing', 'Oven tray lined with baking paper (skewers optional)', 'Heatproof bowl with a plate as a lid', 'Kettle', 'Sharp knife and chopping board', 'Wire rack or plate for cooling', '4 lunch boxes and 3 freezer bags'],
+      prep: ['Grate 1 medium onion (150 g) and squeeze it hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.', 'Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.', 'Chop 2 green chillies (10 g), a handful of coriander (15 g) and a few mint leaves (5 g) very fine.'],
+      steps: [
+        {
+          text: 'In the bowl mix the chicken mince (640 g) with the squeezed onion, ginger-garlic paste, chillies, coriander and mint, and the powders: 2 tsp roasted ground cumin (4 g), 2 tsp garam masala (4 g), ¾ tsp red chilli powder (2 g), ¾ tsp chaat masala (2 g), ½ tsp black pepper (1 g) and 1 tsp salt (6 g). Knead with your hand until sticky.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Cover and chill 30 minutes: it makes the kebabs firmer.',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Heat the oven to 220 °C with the grill on (or fan). Brush the lined tray with half the oil (5 g, 1 tsp).',
+          heat: 'oven-220',
+          minutes: 10,
+        },
+        {
+          text: 'With wet hands shape 16 sausages of about 50 g (12 cm long, 2.5 cm thick) on the tray, or press them around flat skewers. Brush them with the other 1 tsp oil (5 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Bake 8 minutes, turn them, then 7–10 minutes more until browned at the edges.',
+          heat: 'oven-220',
+          minutes: 17,
+        },
+        { text: 'Let the kebabs cool on the rack.', heat: 'none', minutes: 20 },
+        {
+          text: 'Bulgur (no cooking on the hob): pour 300 ml boiling water from the kettle over the bulgur (200 g, about 1 cup) in the heatproof bowl. Stir, cover with the plate and leave 20 minutes until the water is soaked up. Fluff with a fork and spread it out to cool.',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Split the cooled bulgur into 4 portions (about 125 g each). Keep 1 in the fridge for Monday; press the other 3 flat in freezer bags and freeze.',
+          heat: 'none',
+        },
+        {
+          text: 'Tabbouleh, first half (no cooking): wash and dry the parsley (60 g, about 1½ bunches) and mint (10 g); pick the leaves off the thick stalks and chop them very fine. Dice 150 g tomato, 100 g cucumber (5 mm) and 20 g red onion (very fine).',
+          heat: 'none',
+          minutes: 10,
+        },
+        {
+          text: 'Whisk 2 tbsp lemon juice (30 g), 1½ tbsp extra virgin olive oil (20 g) and ⅓ tsp salt (2 g). Toss with the chopped herbs and vegetables. Fold Monday\'s bulgur portion into half of this salad; keep the other half in a box for Tuesday.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Each box: ¼ of the tabbouleh with its bulgur, and 4 kebabs on the side. Make the second half of the salad the same way on Tuesday night.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Break the thickest kebab open: white all through, no pink, juices clear (75 °C if you have a thermometer); browned at the edges.',
+      boxUp: 'Cool and put away within 1 hour. Kebabs: 3 days in the fridge (Mon–Wed boxes), Thursday\'s 4 kebabs in the freezer (3 months). Soaked bulgur counts as cooked grain (1 day in the fridge), so it lives in the freezer: each evening move one bulgur portion to the fridge and mix it into the salad the next morning. The dressed salad keeps 2 days and does not freeze: half on Sunday, half on Tuesday night.',
+      reheat: 'Made to eat cold: carry it in an insulated bag with an ice pack and eat within 2 hours of leaving the fridge. To eat the kebabs warm, microwave them alone, covered, 60–90 seconds until hot all through. Never microwave the tabbouleh.',
+      tips: ['Halal: chicken mince from the halal butcher. Ask them to mince some thigh with the breast: it stays juicier.', 'Kebabs falling apart? Squeeze the onion harder, chill the mix longer, and shape them flat on the tray instead of on skewers.', 'Bulgur is at Turkish and Pakistani grocers ("bulgur" or "dalia"); fine or medium both work. Flat-leaf parsley is perejil at Mercadona.', 'Chaat masala (Pakistani grocery) gives the tang. No chaat masala? Use a squeeze of lemon and a pinch of salt.'],
+    },
   },
   {
     foodId: 'pk-chicken-chana-chaat-box',
@@ -775,6 +1117,65 @@ export default [
         url: 'https://www.thebigsweettooth.com/?p=29053',
       },
     ],
+    method: {
+      equipment: ['Medium pot (2 l) for the potatoes', 'Large frying pan (28 cm)', 'Big mixing bowl', 'Sieve', 'Grater', 'Plates or a tray for cooling', '4 lunch boxes and 4 small lidded pots (about 100 ml)', 'Insulated bag and ice pack for carrying'],
+      prep: ['Peel the potatoes (600 g, about 4 medium) and cut them into 2 cm cubes.', 'Cut the chicken breast (600 g) into bite-sized pieces (2–3 cm).', 'Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.', 'For the chaat: chop the red onion very fine (120 g, 1 small), dice the tomato (200 g, 2 small) and cucumber (120 g) into 1 cm cubes, chop 2 green chillies (10 g) and a big handful of coriander (20 g).', 'Drain and rinse the chickpeas (440 g drained: 1 jar of 400 g plus 40 g from a second jar).'],
+      steps: [
+        {
+          text: 'Put the potato cubes in the pot, cover with cold water and bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Simmer until a knife slides in easily but the cubes still hold their shape. Drain and spread on a plate to cool.',
+          heat: 'medium',
+          minutes: 11,
+        },
+        {
+          text: 'In a bowl toss the chicken with the ginger-garlic paste, 1½ tsp ground cumin (3 g), 1½ tsp ground coriander (3 g), 1¼ tsp paprika (3 g), ⅓ tsp red chilli powder (1 g) and ⅔ tsp salt (4 g).',
+          heat: 'none',
+          minutes: 2,
+        },
+        {
+          text: 'Heat 1½ tbsp oil (20 g) in the frying pan for 1 minute.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chicken in one layer (in 2 batches if the pan is crowded). Leave it 3 minutes without moving, then turn and cook 3–5 minutes more.',
+          heat: 'medium-high',
+          minutes: 7,
+        },
+        {
+          text: 'Turn off the heat, squeeze 1 tbsp lemon juice (15 g) over the chicken and spread it on a plate to cool.',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Chaat (no cooking), half now for Monday and Tuesday: in the bowl gently mix half the chickpeas (220 g), half the potato cubes, half the onion, tomato, cucumber, chilli and coriander with 1⅓ tbsp lemon juice (20 g), 1½ tsp chaat masala (4 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g).',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Yogurt pots (no cooking), 2 now: mix 160 g yogurt with half the chopped mint (5 g) and a pinch of salt; split into 2 pots.',
+          heat: 'none',
+          minutes: 2,
+        },
+        {
+          text: 'Boxes 1 and 2: half each of today\'s chaat, topped with ¼ of the chicken; a yogurt pot on the side. Put the other half of the chicken in a freezer bag in the freezer and the other half of the potatoes and chopped vegetables in a box in the fridge.',
+          heat: 'none',
+        },
+        {
+          text: 'Monday night: move the frozen chicken to the fridge. Tuesday night: mix the second half of the chaat and 2 more yogurt pots the same way and pack boxes 3 and 4 (10 minutes).',
+          heat: 'none',
+          minutes: 10,
+        },
+      ],
+      doneWhen: 'Chicken: cut the biggest piece, white all through, no pink. Potato: a knife slides in easily but the cube does not fall apart.',
+      boxUp: 'Cold-only box. Cool the chicken and potato and put them away within 1 hour. A dressed chaat box keeps 2 days and cannot be frozen; cooked chicken keeps 3 days in the fridge or 3 months frozen, so half of it goes in the freezer on Sunday.',
+      reheat: 'Not reheated: eat it cold, within 2 hours of leaving the fridge (1 hour on a day above 32 °C). Carry it in an insulated bag with an ice pack.',
+      tips: ['Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Chaat masala is the tangy spice mix (Pakistani grocery). No chaat masala? Use 1 tbsp extra lemon juice and a pinch more roasted cumin.', 'Too spicy? Leave out the green chillies.', 'The chickpeas are Mercadona garbanzo cocido in a glass jar (400 g drained). Use the rest of the second jar within 2 days, kept in its liquid in the fridge.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.'],
+    },
   },
   {
     foodId: 'es-garbanzos-atun-salad-box',
@@ -1159,6 +1560,77 @@ export default [
         url: 'https://www.teaforturmeric.com/roti-chapati/',
       },
     ],
+    method: {
+      equipment: ['12-hole muffin tin (or 12 silicone muffin moulds)', 'Pastry brush or kitchen paper', 'Jug or bowl and a whisk or fork', 'Wire rack', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Baking paper', 'Freezer bags and 1–2 boxes for the fridge'],
+      prep: ['Chop the baby spinach (120 g). Dice the red pepper small (160 g, 5 mm). Chop the red onion fine (80 g, ½ medium), 2 green chillies (10 g) and a small handful of coriander (8 g).', 'Take the frozen peas (120 g) out of the bag; they go in frozen.'],
+      steps: [
+        {
+          text: 'Heat the oven to 180 °C. Brush the 12 holes of the tin with 2 tsp oil (8 g), right up the sides.',
+          heat: 'oven-180',
+          minutes: 10,
+        },
+        {
+          text: 'Divide the spinach, pepper, peas, onion, chilli and coriander between the 12 holes.',
+          heat: 'none',
+        },
+        {
+          text: 'In the jug whisk 8 eggs, 390 ml liquid egg whites (400 g), 1 tsp ground cumin (2 g), ¾ tsp red chilli powder (2 g), ⅓ tsp haldi (turmeric powder, 1 g), ½ tsp black pepper (1 g) and ⅔ tsp salt (4 g) until no streaks of white are left.',
+          heat: 'none',
+          minutes: 2,
+        },
+        {
+          text: 'Pour the egg over the vegetables until each hole is about ¾ full (they rise).',
+          heat: 'none',
+        },
+        { text: 'Bake until puffed and set in the middle.', heat: 'oven-180', minutes: 22 },
+        {
+          text: 'Leave them 10 minutes in the tin, run a knife around each one and lift them onto the rack to cool.',
+          heat: 'none',
+          minutes: 10,
+        },
+        {
+          text: 'Roti dough (no cooking yet): in a big bowl mix 117 g atta (wholemeal chapati flour, about 1 cup) with a pinch of salt (1 g). Pour in 82 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Divide the dough into 4 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          heat: 'none',
+        },
+        {
+          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 6 minutes for 4).',
+          heat: 'medium-high',
+          minutes: 6,
+        },
+        {
+          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Muffins: puffed and firm on top; a knife pushed into the middle comes out clean, with no runny egg. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
+      boxUp: 'Cool and put away within 1 hour. Each portion is 3 muffins and 1 roti. Portion 1 (and 2 if you eat it within 2 days) in the fridge. Freeze the other muffins flat on a tray for 1 hour, then put them in a bag (2 months). Freeze the roti in a stack with baking paper between them (2 months; 2 days in the fridge).',
+      reheat: 'Muffins from the fridge: microwave 30–40 seconds; from frozen: 60–90 seconds, turning once, until hot all through. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
+      tips: ['Liquid egg whites are "claras de huevo pasteurizadas" in a carton at Mercadona, in the egg aisle.', 'Muffins sticking to the tin? Use silicone moulds or paper cases next time rather than more oil.', 'They sink a little as they cool. That is normal.', 'Too spicy? Leave out the green chillies.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.'],
+    },
   },
   {
     foodId: 'intl-protein-pancakes-portion',
@@ -1298,6 +1770,80 @@ export default [
         url: 'https://www.cookwithmanali.com/wprm_print/cucumber-raita',
       },
     ],
+    method: {
+      equipment: ['Pot (2 l) for the potatoes', 'Potato masher or fork', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Flat spatula and a pastry brush (or a teaspoon)', 'Wire rack', 'Grater', 'Baking paper, a freezer bag and 4 small lidded pots (about 250 ml)'],
+      prep: ['Chop ¼ red onion very fine (40 g), 1–2 green chillies (8 g) and a small handful of coriander (8 g).', 'Measure the oil for frying into a small cup: 24 g (about 1¾ tbsp), 6 g for each paratha.'],
+      steps: [
+        {
+          text: 'Put the potatoes (520 g raw, about 3 medium) in their skins in the pot, cover with cold water and bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        { text: 'Simmer until a knife slides in easily.', heat: 'medium', minutes: 20 },
+        {
+          text: 'Drain and let them cool until you can hold them. Peel and mash them smooth: lumps tear the paratha. Let the mash cool completely.',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Filling: mix the mash with the onion, chilli, coriander, 1 tsp roasted crushed cumin (2 g), ¾ tsp red chilli powder (2 g) and ½ tsp salt (3 g). Shape into 4 balls.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ½ tsp salt (3 g). Add the water (200 ml) a little at a time, mixing with your fingers, until you have a soft dough that only just sticks; you may not need every drop.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes until smooth, cover with a damp cloth and rest 20 minutes.',
+          heat: 'none',
+          minutes: 25,
+        },
+        {
+          text: 'Divide the dough into 4 balls (about 100 g each). Dust one with atta and roll it to a 10 cm circle.',
+          heat: 'none',
+        },
+        {
+          text: 'Put a filling ball in the middle. Bring the edges up around it like a pouch, pinch them together and twist off any extra dough. Press it flat with your palm, sealed side down.',
+          heat: 'none',
+        },
+        {
+          text: 'Dust well with atta and roll gently from the centre out to 18–20 cm. If filling pokes through, pat dry atta on the spot and carry on.',
+          heat: 'none',
+        },
+        { text: 'Heat the dry tawa or pan 2 minutes.', heat: 'medium-high', minutes: 2 },
+        {
+          text: 'Cook the paratha dry 1 minute on each side, until it has pale spots.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Brush the top with ¾ tsp oil (3 g), flip, and press it down with the spatula for 1 minute. Brush the other side with ¾ tsp oil (3 g), flip, and cook 1 minute more until both sides have golden-brown spots.',
+          heat: 'medium',
+          minutes: 2,
+        },
+        {
+          text: 'Fill, roll and cook the other 3 parathas the same way (about 4 minutes each on the pan; roll the next one while one cooks).',
+          heat: 'medium-high',
+          minutes: 12,
+        },
+        {
+          text: 'Cool the parathas on the rack, not in a stack (stacked hot, they go soggy).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Whisk 400 g protein yogurt smooth and stir in the cucumber, half the chopped mint (3 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g). Split into 2 pots (200 g of yogurt each). Mix the other 2 on Tuesday night.',
+          heat: 'none',
+          minutes: 3,
+        },
+      ],
+      doneWhen: 'Golden-brown spots on both sides, crisp edges and no white, raw-looking dough anywhere.',
+      boxUp: 'Cool and put away within 1 hour. Stack the parathas with baking paper between them in a freezer bag: freezer (2 months), or 1 in the fridge for the next day (2 days). Raita cannot be frozen and keeps 2 days: 2 pots on Sunday, 2 on Tuesday night (or mix one the night before, 2 minutes).',
+      reheat: 'Paratha from frozen: straight onto a dry pan on medium heat, 2–3 minutes a side, until hot and crisp. Or microwave 1 minute, then 1 minute on the pan. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
+      tips: ['Paratha tearing when you roll? The filling was still warm or lumpy, or the dough did not rest. Cool the mash fully and roll gently from the middle out.', 'Weigh the frying oil: it is most of the calories, and the app counts 6 g per paratha.', 'Too spicy? Leave out the green chilli and the chilli powder in the filling.', 'Protein yogurt is the high-protein plain yogurt on the shopping list (milk and cultures only, no gelatine).', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.'],
+    },
   },
   {
     foodId: 'pk-anda-paratha-roll-portion',
@@ -1347,6 +1893,72 @@ export default [
         url: 'https://www.teaforturmeric.com/lachha-paratha/',
       },
     ],
+    method: {
+      equipment: ['Big mixing bowl', 'Rolling pin (belan) and a clean worktop', 'Tawa or a dry non-stick frying pan the size of the paratha (24–26 cm)', 'Jug and a fork or whisk', 'Flat spatula and a big plate for flipping', 'Pastry brush or a teaspoon', 'Baking paper, foil and a freezer bag'],
+      prep: ['Chop the red onion fine (80 g, ½ medium). Cut 1 tomato in half, scoop out the seeds and chop it small (80 g). Chop 1–2 green chillies (8 g) and a small handful of coriander (8 g).', 'Measure the oil into a small cup: 32 g (about 2⅓ tbsp) in all: 2 g per paratha for folding, 4 g per paratha for the pan, 2 g per omelette.'],
+      steps: [
+        {
+          text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ⅓ tsp salt (2 g). Add 140 ml water a little at a time, mixing with your fingers, until it is one soft ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes until smooth, cover with a damp cloth and rest 20 minutes.',
+          heat: 'none',
+          minutes: 25,
+        },
+        {
+          text: 'Divide into 4 balls. Roll one to a thin 15 cm circle, brush it with ½ tsp oil (2 g), fold it in half, then in half again (a triangle), dust with atta and roll it out to about 20 cm. The folds make light layers. Shape all 4 and keep them apart on a floured plate.',
+          heat: 'none',
+          minutes: 8,
+        },
+        { text: 'Heat the dry tawa or pan 2 minutes.', heat: 'medium-high', minutes: 2 },
+        {
+          text: 'Cook one paratha 1 minute on each side with no oil.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Spread ½ tsp oil (2 g) on top, flip, then ½ tsp (2 g) on the other side and flip again: 30–60 seconds a side until golden spots show. Put it on a plate.',
+          heat: 'medium',
+          minutes: 2,
+        },
+        {
+          text: 'Cook the other 3 parathas the same way (about 3½ minutes each).',
+          heat: 'medium-high',
+          minutes: 10,
+        },
+        {
+          text: 'Omelette mix: in the jug whisk 8 eggs and 320 g liquid egg whites with the onion, tomato, chilli, coriander, ¾ tsp red chilli powder (2 g), ½ tsp black pepper (1 g) and ½ tsp salt (3 g).',
+          heat: 'none',
+          minutes: 2,
+        },
+        {
+          text: 'Wipe the pan with ½ tsp oil (2 g). Pour in a quarter of the egg mix (about 1 cup) and swirl it to the size of the paratha. Cook until the bottom is set but the top is still soft.',
+          heat: 'medium',
+          minutes: 2,
+        },
+        {
+          text: 'Lay a paratha on top of the soft egg and press it down so they stick. Flip the whole thing (slide it onto the plate, then turn it back into the pan) and cook 1 minute more, until the egg is set all through.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Slide it out egg side up and roll it up tightly. Make the other 3 rolls the same way.',
+          heat: 'none',
+          minutes: 9,
+        },
+        {
+          text: 'Let the rolls cool 20–30 minutes, then wrap each in baking paper and then foil.',
+          heat: 'none',
+          minutes: 25,
+        },
+      ],
+      doneWhen: 'The egg is set all through, with no runny egg when you cut a roll; the paratha has golden spots on both sides.',
+      boxUp: 'Cool and put away within 1 hour. All 4 rolls go in the freezer (2 months). Move one to the fridge the night before, or reheat from frozen. A roll in the fridge keeps 2 days.',
+      reheat: 'From the fridge: dry pan 2 minutes a side, or microwave 60 seconds. From frozen: take off the foil (never microwave foil), keep the paper on and microwave 90 seconds, then 1 minute in a hot dry pan to crisp, until hot all through.',
+      tips: ['Halal: eggs, flour and vegetables only. Liquid egg whites are "claras de huevo pasteurizadas" at Mercadona.', 'Egg too thick to set? Put a lid on the pan for 1 minute before you lay the paratha on.', 'Too spicy? Leave out the green chillies.', 'Short on time? Frozen plain parathas from the Pakistani grocery work, but they have much more fat than these (often 10–15 g each), so the app\'s numbers would be too low.', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.'],
+    },
   },
   {
     foodId: 'pk-chicken-egg-roti-wrap-portion',
@@ -1402,6 +2014,84 @@ export default [
         url: 'https://www.teaforturmeric.com/roti-chapati/',
       },
     ],
+    method: {
+      equipment: ['Big mixing bowl', 'Rolling pin (belan) and a clean worktop', 'Your biggest dry non-stick frying pan (28 cm) or a large tawa', 'Clean tea towel', 'Grater', 'Bowl and fork for the eggs', 'Tray for cooling', 'Baking paper, foil and a freezer bag'],
+      prep: ['Cut the chicken breast (280 g) into thin strips (1 cm).', 'Cut 1 red pepper (120 g) into strips. Slice ½ red onion (80 g) thin.', 'Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.'],
+      steps: [
+        {
+          text: 'Roti dough (no cooking yet): in a big bowl mix 176 g atta (wholemeal chapati flour, about 1½ cups) with a pinch of salt (1 g). Pour in 123 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Divide the dough into 4 equal balls of about 75 g. Keep them under the cloth.',
+          heat: 'none',
+        },
+        {
+          text: 'Put your biggest frying pan or tawa on the hob with no oil and heat it 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 25 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          heat: 'none',
+        },
+        {
+          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 2 minutes each, 8 minutes for 4).',
+          heat: 'medium-high',
+          minutes: 8,
+        },
+        {
+          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          heat: 'none',
+        },
+        {
+          text: 'Chicken: wipe the pan, add a scant 1 tbsp oil (12 g) and heat 1 minute.',
+          heat: 'high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chicken strips and stir-fry until white all through.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Add the pepper, onion, ginger-garlic paste and the powders: 1 tsp ground cumin (2 g), 1¼ tsp paprika (3 g), ¾ tsp red chilli powder (2 g) and ½ tsp salt (3 g). Stir-fry 3 minutes until the pepper softens. Turn off the heat and squeeze in 2 tsp lemon juice (10 g).',
+          heat: 'medium-high',
+          minutes: 3,
+        },
+        { text: 'Spread the chicken on the tray to cool.', heat: 'none' },
+        {
+          text: 'Egg: whisk 4 eggs with 120 g liquid egg whites and a pinch of salt (1 g). Pour into the same pan (no extra oil) and stir slowly with the spatula until just set: soft, but no runny egg.',
+          heat: 'medium',
+          minutes: 2,
+        },
+        {
+          text: 'Spread the egg on the tray next to the chicken and let both cool 20 minutes (hot filling makes the wrap soggy).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Lay a roti flat. Put ¼ of the chicken and ¼ of the egg in a line across the lower third. Fold the sides in, then roll it up tightly from the bottom. Wrap in baking paper, then foil. Make all 4.',
+          heat: 'none',
+          minutes: 5,
+        },
+      ],
+      doneWhen: 'Chicken: cut the thickest strip, white all through, no pink. Egg: set, with no runny parts. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
+      boxUp: 'Cool and put away within 1 hour. 1 wrap in the fridge (eat within 2 days), 3 in the freezer (2 months). Move one down to the fridge the night before.',
+      reheat: 'From the fridge: dry pan 2 minutes a side, or microwave 60–75 seconds. From frozen: take off the foil (never microwave foil), wrap in a damp paper towel and microwave 2 minutes, turning once, until hot all through.',
+      tips: ['Halal: chicken from the halal butcher. The big home roti replaces shop wraps, which list E471 without saying it is from plants.', 'A 25 cm roti is hard to roll at first. If it tears, make 2 smaller roti per wrap from the same dough instead.', 'Too spicy? Use ¼ tsp chilli powder.', 'Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.'],
+    },
   },
   {
     foodId: 'pk-chicken-karahi-roti-portion',
@@ -1478,6 +2168,92 @@ export default [
         url: 'https://www.teaforturmeric.com/roti-chapati/',
       },
     ],
+    method: {
+      equipment: ['Karahi, wok or wide frying pan (28 cm) with a lid', 'Wooden spoon', 'Grater', 'Bowl and fork for the yogurt', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Tray for cooling', '4 flat freezer bags or boxes'],
+      prep: ['Cut the chicken breast (640 g) into 4 cm pieces.', 'Chop 1 small onion fine (120 g, 5 mm). Chop 5 medium tomatoes (600 g) into small pieces.', 'Peel 7 garlic cloves (20 g) and grate them. Peel a 5 cm piece of ginger (20 g): grate half (10 g) and cut the other half into thin matchsticks for the end.', 'Slit 4 green chillies (20 g) lengthwise. Whisk the yogurt (120 g, ½ cup) with a fork until smooth. Chop a small handful of coriander (8 g).'],
+      steps: [
+        {
+          text: 'Heat 3 tbsp sunflower oil (40 g) in the karahi for 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        { text: 'Add the onion and stir every minute until golden.', heat: 'medium', minutes: 7 },
+        {
+          text: 'Add the garlic and the grated ginger. Stir 1 minute until the raw smell goes.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chicken. Turn the heat up and stir until every piece is white on the outside.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Add the tomatoes, then 1⅓ tsp salt (8 g), 2 tsp red chilli powder (5 g), 2 tsp ground coriander (dhania powder, 4 g) and 1 tsp ground cumin (2 g). Stir, put the lid on and cook until the tomatoes collapse.',
+          heat: 'medium',
+          minutes: 10,
+        },
+        {
+          text: 'Lid off. Cook on high, stirring every minute and pressing the tomato pieces, until the sauce is a thick paste that clings to the chicken and the oil shows at the edges ("bhunna"). Do not add water.',
+          heat: 'high',
+          minutes: 9,
+        },
+        {
+          text: 'Turn the heat to low. Stir in the whisked yogurt a spoon at a time (whisked and added slowly so it does not split), then the slit chillies and ¾ tsp crushed black pepper (2 g). Cook 3 minutes.',
+          heat: 'low',
+          minutes: 3,
+        },
+        {
+          text: 'Turn off the heat. Scatter over the ginger matchsticks, 1 tsp garam masala (2 g) and the coriander. Spread on the tray to cool while you make the roti.',
+          heat: 'none',
+        },
+        {
+          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          heat: 'none',
+        },
+        {
+          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          heat: 'medium-high',
+          minutes: 12,
+        },
+        {
+          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          heat: 'none',
+        },
+        {
+          text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Karahi: thick masala coats the chicken, there is almost no liquid, oil shines at the edges, and the biggest piece is white all through with no pink. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months. (The curry alone keeps 3 days in the fridge and 3 months frozen.)',
+      reheat: 'Move a frozen portion to the fridge the night before. Curry: microwave covered 3 minutes, stirring halfway, until steaming hot all through (from frozen, use the defrost setting first, then 3–4 minutes), or warm it in a pan with 2 tbsp water. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
+      tips: ['Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Too spicy? The slit chillies are easy to pick out before you pack it. Eat it with a spoon of yogurt.', 'Sticking during the bhunna? Add 2 tbsp water, scrape the bottom and turn the heat down a little.', 'Spanish "tomate pera" (plum tomatoes) give the best masala. Pale winter tomatoes need 2–3 minutes more on high.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.'],
+    },
   },
   {
     foodId: 'pk-keema-matar-roti-portion',
@@ -1551,6 +2327,92 @@ export default [
         url: 'https://www.teaforturmeric.com/roti-chapati/',
       },
     ],
+    method: {
+      equipment: ['Wide deep frying pan or karahi (28 cm) with a lid', 'Wooden spoon', 'Grater', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Tray for cooling', '4 flat freezer bags or boxes'],
+      prep: ['Chop 1 medium onion fine (160 g, 5 mm). Chop 2 medium tomatoes (240 g) small.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Chop 2 green chillies (10 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup. Chop a small handful of coriander (8 g).'],
+      steps: [
+        {
+          text: 'Heat 2⅓ tbsp sunflower oil (32 g) in the pan for 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add the onion and stir every minute or two until golden brown (not dark).',
+          heat: 'medium',
+          minutes: 9,
+        },
+        { text: 'Add the ginger-garlic paste and stir 1 minute.', heat: 'medium', minutes: 1 },
+        {
+          text: 'Add the mince (520 g). Break it up with the spoon and cook on high, stirring, until the water it lets out has dried off and no pink is left.',
+          heat: 'high',
+          minutes: 10,
+        },
+        {
+          text: 'Add the tomatoes and the whisked yogurt, then 1 heaped tsp salt (7 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), 1 tsp ground cumin (2 g) and ⅔ tsp haldi (turmeric powder, 2 g). Stir, lid on, cook 10 minutes.',
+          heat: 'low',
+          minutes: 10,
+        },
+        {
+          text: 'Add the frozen peas (320 g) and the green chillies. Lid on, 8 minutes.',
+          heat: 'medium',
+          minutes: 8,
+        },
+        {
+          text: 'Lid off. Stir until there is no watery juice left and the oil separates at the edges.',
+          heat: 'medium-high',
+          minutes: 4,
+        },
+        {
+          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander. Spread on the tray to cool while you make the roti.',
+          heat: 'none',
+        },
+        {
+          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          heat: 'none',
+        },
+        {
+          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          heat: 'medium-high',
+          minutes: 12,
+        },
+        {
+          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          heat: 'none',
+        },
+        {
+          text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Keema: no pink meat, no loose liquid when you push it aside, oil glistening at the edges, peas soft. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months.',
+      reheat: 'Move a frozen portion to the fridge the night before. Keema: microwave covered 2½–3 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first, then 4–5 minutes), or in a pan with a splash of water. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
+      tips: ['Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Ask the butcher for "carne picada magra de ternera", about 10 % fat.', 'Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).', 'Too spicy? Leave out the green chillies.', 'If it catches on the bottom, add 2 tbsp water and scrape.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
+    },
   },
   {
     foodId: 'pk-chicken-jalfrezi-roti-portion',
@@ -1620,6 +2482,92 @@ export default [
         url: 'https://www.teaforturmeric.com/roti-chapati/',
       },
     ],
+    method: {
+      equipment: ['Wide frying pan, wok or karahi (28 cm)', 'Wooden spoon', 'Grater or stick blender (for the tomatoes)', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Tray for cooling', '4 flat freezer bags or boxes'],
+      prep: ['Cut the chicken breast (600 g) into 3 cm pieces.', 'Peel 2 medium onions (240 g). Chop one half fine (120 g) for the masala; cut the other half into quarters and pull the layers apart into "petals" (120 g).', 'Cut 1–2 red peppers (200 g) and 1–2 green peppers (200 g) into 3 cm squares.', 'Purée the tomatoes (320 g, about 3 small): blend them, or cut them in half and grate the cut side on the big holes of a grater; throw away the skins.', 'Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste. Slice 2 green chillies (10 g).'],
+      steps: [
+        {
+          text: 'Heat 3 tbsp sunflower oil (40 g) in the pan for 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add 1½ tsp zeera (whole cumin seeds, 3 g) and let them sizzle 20–30 seconds.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chopped onion and stir until soft and see-through.',
+          heat: 'medium',
+          minutes: 5,
+        },
+        { text: 'Add the ginger-garlic paste and stir 1 minute.', heat: 'medium', minutes: 1 },
+        {
+          text: 'Add the puréed tomatoes, then 1 heaped tsp salt (7 g), 2 tsp ground coriander (4 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 tsp red chilli powder (3 g). Cook, stirring, until it is a thick paste and the oil shows at the edges.',
+          heat: 'medium',
+          minutes: 8,
+        },
+        {
+          text: 'Add the chicken. Stir-fry until it is white all through.',
+          heat: 'medium-high',
+          minutes: 7,
+        },
+        {
+          text: 'Add the peppers, onion petals and green chillies. Toss 3–4 minutes only, so they stay a bit crisp.',
+          heat: 'high',
+          minutes: 4,
+        },
+        {
+          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and 2 tsp lemon juice (10 g). Spread on the tray to cool while you make the roti.',
+          heat: 'none',
+        },
+        {
+          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          heat: 'none',
+        },
+        {
+          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          heat: 'medium-high',
+          minutes: 12,
+        },
+        {
+          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          heat: 'none',
+        },
+        {
+          text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Jalfrezi: the biggest chicken piece is white all through with no pink, the sauce coats it thickly, and the peppers are bright and still a little crunchy. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months.',
+      reheat: 'Move a frozen portion to the fridge the night before. Microwave covered 2½–3 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first). Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
+      tips: ['Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'No soy sauce, ketchup or vinegar: the lemon gives the tang (some vinegars are made from wine).', 'Sticking while the tomato cooks down? Add 2 tbsp water and scrape.', 'Too spicy? Leave out the green chillies.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
+    },
   },
   {
     foodId: 'pk-aloo-gosht-roti-portion',
@@ -1684,6 +2632,90 @@ export default [
         url: 'https://www.teaforturmeric.com/roti-chapati/',
       },
     ],
+    method: {
+      equipment: ['Heavy pot or casserole (3–4 l) with a lid (or a pressure cooker)', 'Wooden spoon', 'Grater', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Wide tray for cooling', '4 freezer boxes'],
+      prep: ['Cut the beef (600 g, boneless) into 3 cm cubes if the butcher has not.', 'Slice 1 large onion thin (200 g). Chop 2 medium tomatoes (240 g).', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Peel 4 medium potatoes (600 g) and cut each in half. Keep them in a bowl of cold water.', 'Whisk the yogurt (60 g, 4 tbsp) smooth. Chop a small handful of coriander (8 g).'],
+      steps: [
+        {
+          text: 'Heat 2½ tbsp sunflower oil (36 g) in the pot for 1 minute. Add the onion and stir every minute or two until golden brown (not dark).',
+          heat: 'medium',
+          minutes: 10,
+        },
+        {
+          text: 'Add the ginger-garlic paste and the beef. Turn the heat up and stir until the meat is browned on the outside.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Add the tomatoes and the whisked yogurt, then 1⅓ tsp salt (8 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 tsp ground cumin (2 g).',
+          heat: 'medium',
+        },
+        {
+          text: 'Stir and cook until the tomato has melted into a thick paste and the oil separates at the edges ("bhunai"). If it sticks, add 2 tbsp of the measured water.',
+          heat: 'medium',
+          minutes: 9,
+        },
+        {
+          text: 'Add 400 ml water. Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry.',
+          heat: 'low',
+          minutes: 70,
+        },
+        {
+          text: 'Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny.',
+          heat: 'low',
+          minutes: 22,
+        },
+        {
+          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander. Spread on the wide tray to cool; make the roti meanwhile.',
+          heat: 'none',
+        },
+        {
+          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          heat: 'none',
+        },
+        {
+          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          heat: 'medium-high',
+          minutes: 12,
+        },
+        {
+          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          heat: 'none',
+        },
+        {
+          text: 'Pack 4 portions: 2 potato halves, ¼ of the beef and shorba in each box, and 2 roti in a small bag.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'The beef breaks apart easily with a spoon, the potatoes are soft right through, and the shorba is thin. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months. Potatoes go a little softer after freezing; that is normal.',
+      reheat: 'Move a frozen portion to the fridge the night before. Microwave covered 3–4 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first, then 4 minutes). Add a splash of water if the shorba has thickened. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
+      tips: ['Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Ask for stewing beef ("ternera para guisar", for example morcillo or aguja). Lean steak goes dry and tough here.', 'This takes about 2 hours, mostly simmering: start it on a Sunday afternoon, or use a pressure cooker.', 'Beef still tough? It needs more time, not more heat: 15 minutes more with the lid on.', 'Too spicy? Use 1 tsp chilli powder instead of 1½.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
+    },
   },
   {
     foodId: 'pk-seekh-kebab-roti-portion',
@@ -1768,6 +2800,90 @@ export default [
         url: 'https://www.teaforturmeric.com/roti-chapati/',
       },
     ],
+    method: {
+      equipment: ['Food processor or chopper (or a grater and a sharp knife)', 'Clean tea towel for squeezing', 'Big mixing bowl', 'Oven tray lined with baking paper (skewers optional)', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Wire rack', '4 freezer bags, 1 lunch box and 1 small lidded pot for each day'],
+      prep: ['Peel ½ medium onion (80 g), 4 garlic cloves (12 g) and a 3 cm piece of ginger (10 g).'],
+      steps: [
+        {
+          text: 'Blitz the onion, 2–3 green chillies (12 g), a handful of coriander (12 g), a few mint leaves (6 g), the garlic and the ginger until finely chopped (or grate the onion, garlic and ginger and chop the rest very fine). Squeeze the mix hard in the tea towel to get the onion juice out.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'In the bowl add the mince (640 g), 1½ tsp roasted ground cumin (3 g), 2 tsp crushed coriander seeds (4 g), 1 tsp red chilli powder (3 g), 1½ tsp garam masala (3 g) and 1½ tsp salt (9 g). Knead with your hand 3–4 minutes until sticky.',
+          heat: 'none',
+          minutes: 4,
+        },
+        {
+          text: 'Cover and chill 30 minutes so the kebabs hold together.',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Heat the oven to 220 °C. Brush the lined tray with the oil (16 g, about 1 tbsp + 1 tsp).',
+          heat: 'oven-220',
+          minutes: 10,
+        },
+        {
+          text: 'With wet hands shape 16 long kebabs of about 50 g (12 cm long), on skewers or straight on the tray. Roll them in the oil on the tray.',
+          heat: 'none',
+          minutes: 8,
+        },
+        {
+          text: 'Bake 9 minutes, turn them, then 6–9 minutes more until browned.',
+          heat: 'oven-220',
+          minutes: 17,
+        },
+        { text: 'Cool the kebabs on the rack while you make the roti.', heat: 'none' },
+        {
+          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          heat: 'none',
+        },
+        {
+          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          heat: 'medium-high',
+          minutes: 12,
+        },
+        {
+          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          heat: 'none',
+        },
+        { text: 'Pack 4 kebabs and 2 roti per freezer bag.', heat: 'none' },
+        {
+          text: 'Kachumber and raita (no cooking), on the day or the night before, for 1 portion: dice 80 g tomato, 80 g cucumber and 30 g red onion (1 cm); toss with 1½ tsp lemon juice (7 g), a pinch of roasted cumin and a pinch of salt. Raita: 60 g yogurt (4 tbsp) whisked with a few chopped mint leaves, a pinch of cumin and a pinch of salt, in its own pot.',
+          heat: 'none',
+          minutes: 5,
+        },
+      ],
+      doneWhen: 'Break the thickest kebab open: browned outside, no pink inside, juices clear (75 °C if you have a thermometer). Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
+      boxUp: 'Cool and put away within 1 hour. Kebabs and roti go in the freezer (kebabs 3 months, roti 2 months); one bag can stay in the fridge if you eat it within 2 days. Kachumber and raita keep 2 days and cannot be frozen, so mix them fresh for each dinner (5 minutes).',
+      reheat: 'Kebabs from frozen: oven or air fryer at 200 °C for 10–12 minutes, or microwave 2 minutes then 2 minutes in a hot pan, until hot all through. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel. Kachumber cold. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
+      tips: ['Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Ask the butcher for "carne picada magra de ternera", about 10 % fat. Lean mince needs the 30 minutes in the fridge to hold its shape.', 'Kebabs falling off the skewers? Squeeze the onion harder and shape them flat on the tray instead.', 'Too spicy? Use 1 green chilli instead of 2–3.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
+    },
   },
   {
     foodId: 'pk-daal-palak-roti-portion',
@@ -1832,6 +2948,89 @@ export default [
         url: 'https://www.teaforturmeric.com/roti-chapati/',
       },
     ],
+    method: {
+      equipment: ['Large pot (3 l)', 'Small frying pan for the tarka', 'Wooden spoon', 'Sieve', 'Grater', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Wide tray for cooling', '4 freezer boxes and 4 small lidded pots (about 250 ml)'],
+      prep: ['Rinse the red lentils (masoor, 280 g, about 1⅓ cups) in the sieve 3 times, until the water is almost clear.', 'Chop 2 medium tomatoes (200 g). Peel and grate a 3 cm piece of ginger (10 g).', 'For the tarka: slice 1 medium onion thin (160 g), peel and slice 5 garlic cloves thin (15 g), and slit 1–2 green chillies (8 g).'],
+      steps: [
+        {
+          text: 'Put the lentils in the large pot with 1 litre water, the tomatoes, the ginger, ⅔ tsp haldi (turmeric powder, 2 g), 1 tsp red chilli powder (3 g), 2 tsp ground coriander (4 g) and 1⅓ tsp salt (8 g). Bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Spoon off the foam. Lid half on, simmer, stirring every 5 minutes so it does not stick, until the lentils have melted and the daal is thick.',
+          heat: 'low',
+          minutes: 25,
+        },
+        {
+          text: 'Stir in the frozen spinach (400 g) and simmer until it has melted in.',
+          heat: 'low',
+          minutes: 10,
+        },
+        {
+          text: 'Tarka: in the small pan heat 2⅓ tbsp oil (32 g) for 1 minute. Add 2 tsp zeera (whole cumin seeds, 4 g) and let them sizzle 20–30 seconds.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        { text: 'Add the sliced onion and stir until golden brown.', heat: 'medium', minutes: 8 },
+        {
+          text: 'Add the garlic and green chillies and stir until the garlic is light golden (not dark: dark garlic is bitter).',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Pour the hot tarka over the daal (stand back, it sizzles), stir in 1⅓ tbsp lemon juice (20 g) and turn off the heat. Spread on the tray to cool while you make the roti.',
+          heat: 'none',
+        },
+        {
+          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          heat: 'none',
+        },
+        {
+          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          heat: 'medium-high',
+          minutes: 12,
+        },
+        {
+          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          heat: 'none',
+        },
+        { text: 'Pack 4 portions: ¼ of the daal in a box, 2 roti in a small bag.', heat: 'none' },
+        {
+          text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt, a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week.',
+          heat: 'none',
+          minutes: 3,
+        },
+      ],
+      doneWhen: 'The lentils have broken down completely, a spoon dragged through leaves a trail, and the tarka onions are golden. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer with their roti; eat within 2 months (the daal alone keeps 3 months). The raita keeps 2 days and does not freeze.',
+      reheat: 'Move a frozen portion to the fridge the night before. Daal thickens in the freezer: add 3–4 tbsp water, then microwave covered 3 minutes, stirring halfway, or warm it in a pan, until bubbling hot all through. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
+      tips: ['Halal: lentils, vegetables, flour and yogurt only. Check the yogurt label (no gelatine).', 'Masoor is split red lentils: "lentejas rojas" or "lentejas coral" at Mercadona, or at the Pakistani grocery. Frozen spinach comes as portions (espinacas en porciones).', 'Daal sticking or too thick? Stir the bottom more often and add 100 ml hot water.', 'Too spicy? Leave out the chilli powder; the green chillies in the tarka are mild when slit.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
+    },
   },
   {
     foodId: 'es-mandonguilles-pesols-portion',
@@ -2083,6 +3282,45 @@ export default [
         url: 'https://sumayyausmani.com/blog-old/a-sweet-spicy-colourful-fruit-chaat-street-food-1',
       },
     ],
+    method: {
+      equipment: ['Chopping board and knife', 'Mixing bowl', 'Wooden spoon (for the pomegranate)', '2 breakfast boxes with lids'],
+      prep: [],
+      steps: [
+        {
+          text: 'No cooking. Squeeze ½ lemon into the bowl: about 1⅓ tbsp juice (20 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Dice 1 apple (180 g) into 1.5 cm cubes with the skin on and drop them straight into the lemon juice. Stir so every cube is coated: it stops them going brown.',
+          heat: 'none',
+          minutes: 2,
+        },
+        {
+          text: 'Peel 2 mandarins (176 g), pull them into segments and add them (halve the big ones).',
+          heat: 'none',
+          minutes: 2,
+        },
+        {
+          text: 'Pomegranate: cut it in half across the middle. Hold one half cut side down over the bowl and tap the back hard with the wooden spoon so the seeds (arils) fall out. You need 100 g, about ⅓ of a fruit. Pick out any white pith.',
+          heat: 'none',
+          minutes: 3,
+        },
+        { text: 'Sprinkle 1 tsp chaat masala (3 g) over the fruit and toss.', heat: 'none' },
+        {
+          text: 'Spoon 240 g protein yogurt into each box and put half the fruit chaat on top. Close and refrigerate.',
+          heat: 'none',
+          minutes: 2,
+        },
+        {
+          text: 'In the morning: slice ½ small banana (50 g) on top and add 20 g almonds (about 16), roughly chopped.',
+          heat: 'none',
+          minutes: 1,
+        },
+      ],
+      boxUp: 'Into the fridge straight away. Cut fruit keeps 2 days: make 2 portions at a time (Sunday night for Monday and Tuesday). Do not freeze. Banana and almonds go on in the morning so they stay fresh and crunchy.',
+      reheat: 'Not reheated: eat it cold.',
+      tips: ['Chaat masala (Pakistani grocery) gives the sweet-sour-salty taste. No chaat masala? A pinch of salt, roasted cumin and black pepper is close.', 'Mercadona sells ready pomegranate seeds (granada desgranada) in season. The rest of a whole fruit keeps 5 days in a box in the fridge.', 'Swap the mandarins for an orange, or the apple for a pear; the numbers change only a little.', 'Halal: the protein yogurt is milk and cultures only (no gelatine).'],
+    },
   },
   {
     foodId: 'es-lentejas-atun-feta-salad-box',
@@ -2517,6 +3755,48 @@ export default [
         url: 'https://www.slenderkitchen.com/recipe/chana-masala',
       },
     ],
+    method: {
+      equipment: ['Large microwave-safe bowl (about 2 l) with a microwave lid or a plate to cover it', 'Microwave (times are for 800 W; add 30 seconds a step at 700 W)', 'Oven glove (the bowl gets very hot)', 'Sieve', 'Grater', '2 boxes and 2 small lidded pots (about 150 ml)'],
+      prep: ['Chop ½ medium onion very fine (80 g).', 'Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.', 'Drain and rinse the chickpeas (1 jar, 400 g drained).', 'Chop a few sprigs of coriander (6 g).'],
+      steps: [
+        {
+          text: 'No cooking on the hob: everything is done in the microwave. In the bowl mix the onion, 2 tsp olive oil (10 g) and the ginger-garlic paste. Cover loosely and microwave until the onion is soft.',
+          heat: 'microwave',
+          minutes: 3,
+        },
+        {
+          text: 'Stir in the powders: 1½ tsp garam masala (3 g), 1 tsp ground cumin (2 g), 1 tsp ground coriander (2 g), ⅓ tsp red chilli powder (1 g), ⅓ tsp haldi (turmeric powder, 1 g) and ⅓ tsp salt (2 g). Microwave uncovered for only 30 seconds so the spices toast in the oil without burning.',
+          heat: 'microwave',
+        },
+        {
+          text: 'Add the crushed tomato (200 g, half a 400 g tin). Stir, cover and microwave 4 minutes, stirring halfway.',
+          heat: 'microwave',
+          minutes: 4,
+        },
+        {
+          text: 'Add the chickpeas, stir, cover and microwave until bubbling.',
+          heat: 'microwave',
+          minutes: 3,
+        },
+        {
+          text: 'Stir in 2 tsp lemon juice (10 g) and the chopped coriander. Split between the 2 boxes.',
+          heat: 'none',
+        },
+        {
+          text: 'Raita (no cooking): grate 60 g cucumber and squeeze it hard. Mix with 240 g protein yogurt and a few chopped mint leaves (2 g). Split into 2 pots.',
+          heat: 'none',
+          minutes: 2,
+        },
+        {
+          text: 'To eat now: open the basmati cup a little at one corner (or as the pack says) and microwave 40 seconds.',
+          heat: 'microwave',
+        },
+      ],
+      doneWhen: 'The sauce bubbles and is thick enough to coat the chickpeas; the onion is soft, not crunchy.',
+      boxUp: 'Tonight\'s portion: eat it. The second box: cool on the counter (no longer than 1 hour), then fridge (3 days) or freezer (3 months). The raita keeps 2 days and does not freeze; it takes 2 minutes to mix fresh. The rice cup stays sealed in the cupboard.',
+      reheat: 'Chana from the fridge: microwave covered 2–3 minutes, stirring halfway, until steaming hot all through. Once only. From frozen: move it to the fridge the night before. Rice cup: 40 seconds. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
+      tips: ['Halal: chickpeas, tomato, spices and a protein yogurt of milk and cultures only.', 'Spitting in the microwave? Keep the lid or plate on and stir with a long spoon.', 'Too spicy? Leave out the chilli powder and eat it with more raita.', 'Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).'],
+    },
   },
   {
     foodId: 'es-picoteo-hummus-burgos-portion',
@@ -2726,6 +4006,35 @@ export default [
         url: 'https://www.indianhealthyrecipes.com/wprm_print/chana-chaat-recipe-chickpea-chaat',
       },
     ],
+    method: {
+      equipment: ['Sieve', 'Chopping board and knife', 'Mixing bowl', '2 snack boxes and 2 small lidded pots (about 150 ml)'],
+      prep: [],
+      steps: [
+        {
+          text: 'No cooking. Drain and rinse 260 g chickpeas (about ⅔ of a 400 g-drained jar) in the sieve and shake them dry.',
+          heat: 'none',
+          minutes: 1,
+        },
+        {
+          text: 'Dice 1 small tomato (80 g) into 1 cm cubes. Chop ¼ small red onion very fine (30 g), a few sprigs of coriander (6 g) and, if you like heat, ½ green chilli (3 g).',
+          heat: 'none',
+          minutes: 4,
+        },
+        {
+          text: 'In the bowl mix the chickpeas, tomato, onion, coriander and chilli with 1 tbsp lemon juice (15 g) and 1 tsp chaat masala (3 g). Split between the 2 boxes.',
+          heat: 'none',
+          minutes: 1,
+        },
+        {
+          text: 'Spoon 120 g protein yogurt into each pot and dust with a pinch of roasted ground cumin (½ g). Pour it over the chaat just before you eat it.',
+          heat: 'none',
+          minutes: 1,
+        },
+      ],
+      boxUp: 'Into the fridge straight away; eat within 2 days. Do not freeze. Keep the last third of the chickpea jar in its liquid in the fridge and use it within 2 days.',
+      reheat: 'Not reheated: eat it cold.',
+      tips: ['Chaat masala (Pakistani grocery) is what makes it chaat. No chaat masala? Use a pinch of salt, roasted cumin and a little more lemon.', 'Too spicy? Leave out the green chilli.', 'Halal: chickpeas, vegetables, spices and a protein yogurt of milk and cultures only.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.'],
+    },
   },
   {
     foodId: 'es-lentejas-atun-burgos-salad-box',

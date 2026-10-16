@@ -63,13 +63,61 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Brown the onion in the oil (10 min). Add garlic, ginger and the beef; sear on high 5 min. Add tomatoes, yogurt, salt and spices; cook until the oil separates (bhunai, 8–10 min).
-2. Add 400 g of the water, cover and simmer 60–75 min until the beef is tender (pressure cooker: 25 min).
-3. Add the potatoes and the rest of the water; simmer lid ajar 20–25 min until the potatoes are soft and the shorba is light. Finish with garam masala and coriander.
-4. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 50 g dough each), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.
-5. Cool fast in a wide tray; pack 4 portions with 2 roti each; freeze.
+**Equipment**
+
+- Heavy pot or casserole (3–4 l) with a lid (or a pressure cooker)
+- Wooden spoon
+- Grater
+- Big mixing bowl
+- Rolling pin (belan) and a clean worktop for rolling
+- Tawa or a dry non-stick frying pan (26–28 cm)
+- Clean tea towel
+- Wide tray for cooling
+- 4 freezer boxes
+
+**Before you start**
+
+- Cut the beef (600 g, boneless) into 3 cm cubes if the butcher has not.
+- Slice 1 large onion thin (200 g). Chop 2 medium tomatoes (240 g).
+- Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.
+- Peel 4 medium potatoes (600 g) and cut each in half. Keep them in a bowl of cold water.
+- Whisk the yogurt (60 g, 4 tbsp) smooth. Chop a small handful of coriander (8 g).
+
+**Steps**
+
+1. Heat 2½ tbsp sunflower oil (36 g) in the pot for 1 minute. Add the onion and stir every minute or two until golden brown (not dark). *(medium heat · 10 min)*
+2. Add the ginger-garlic paste and the beef. Turn the heat up and stir until the meat is browned on the outside. *(high heat · 5 min)*
+3. Add the tomatoes and the whisked yogurt, then 1⅓ tsp salt (8 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 tsp ground cumin (2 g). *(medium heat)*
+4. Stir and cook until the tomato has melted into a thick paste and the oil separates at the edges ("bhunai"). If it sticks, add 2 tbsp of the measured water. *(medium heat · 9 min)*
+5. Add 400 ml water. Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry. *(low heat · 70 min)*
+6. Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny. *(low heat · 22 min)*
+7. Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander. Spread on the wide tray to cool; make the roti meanwhile. *(no heat)*
+8. Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball. *(no heat · 3 min)*
+9. Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe. *(no heat · 5 min)*
+10. Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing). *(no heat · 20 min)*
+11. Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth. *(no heat)*
+12. Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes. *(medium-high heat · 2 min)*
+13. Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks. *(no heat)*
+14. Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8). *(medium-high heat · 12 min)*
+15. Stack the cooked roti inside a clean tea towel so they stay soft while they cool. *(no heat)*
+16. Pack 4 portions: 2 potato halves, ¼ of the beef and shorba in each box, and 2 roti in a small bag. *(no heat)*
+
+**Done when:** The beef breaks apart easily with a spoon, the potatoes are soft right through, and the shorba is thin. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.
+
+**Box it up:** Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months. Potatoes go a little softer after freezing; that is normal.
+
+**Reheat:** Move a frozen portion to the fridge the night before. Microwave covered 3–4 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first, then 4 minutes). Add a splash of water if the shorba has thickened. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.
+
+**Tips**
+
+- Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).
+- Ask for stewing beef ("ternera para guisar", for example morcillo or aguja). Lean steak goes dry and tough here.
+- This takes about 2 hours, mostly simmering: start it on a Sunday afternoon, or use a pressure cooker.
+- Beef still tough? It needs more time, not more heat: 15 minutes more with the lid on.
+- Too spicy? Use 1 tsp chilli powder instead of 1½.
+- Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.
 
 ## Added fat
 

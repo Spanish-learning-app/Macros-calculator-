@@ -63,13 +63,62 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Heat the oil in a karahi or wide pan; cook the onion 6–8 min until golden. Add garlic and grated ginger for 1 min.
-2. Add the chicken on high heat until it turns white (4–5 min). Add the tomatoes, salt and the ground spices; cover 10 min until the tomatoes collapse.
-3. Uncover and cook on high, stirring, until the tomatoes are a thick masala and the oil shows at the edges (8–10 min; no water). Lower the heat, stir in the yogurt, green chillies and black pepper, 3 min more; finish with ginger strips, garam masala and coriander.
-4. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 50 g dough each), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.
-5. Cool fast on a tray. Pack 4 portions of karahi in flat freezer bags or boxes; freeze 2 roti with each portion.
+**Equipment**
+
+- Karahi, wok or wide frying pan (28 cm) with a lid
+- Wooden spoon
+- Grater
+- Bowl and fork for the yogurt
+- Big mixing bowl
+- Rolling pin (belan) and a clean worktop for rolling
+- Tawa or a dry non-stick frying pan (26–28 cm)
+- Clean tea towel
+- Tray for cooling
+- 4 flat freezer bags or boxes
+
+**Before you start**
+
+- Cut the chicken breast (640 g) into 4 cm pieces.
+- Chop 1 small onion fine (120 g, 5 mm). Chop 5 medium tomatoes (600 g) into small pieces.
+- Peel 7 garlic cloves (20 g) and grate them. Peel a 5 cm piece of ginger (20 g): grate half (10 g) and cut the other half into thin matchsticks for the end.
+- Slit 4 green chillies (20 g) lengthwise. Whisk the yogurt (120 g, ½ cup) with a fork until smooth. Chop a small handful of coriander (8 g).
+
+**Steps**
+
+1. Heat 3 tbsp sunflower oil (40 g) in the karahi for 1 minute. *(medium heat · 1 min)*
+2. Add the onion and stir every minute until golden. *(medium heat · 7 min)*
+3. Add the garlic and the grated ginger. Stir 1 minute until the raw smell goes. *(medium heat · 1 min)*
+4. Add the chicken. Turn the heat up and stir until every piece is white on the outside. *(high heat · 5 min)*
+5. Add the tomatoes, then 1⅓ tsp salt (8 g), 2 tsp red chilli powder (5 g), 2 tsp ground coriander (dhania powder, 4 g) and 1 tsp ground cumin (2 g). Stir, put the lid on and cook until the tomatoes collapse. *(medium heat · 10 min)*
+6. Lid off. Cook on high, stirring every minute and pressing the tomato pieces, until the sauce is a thick paste that clings to the chicken and the oil shows at the edges ("bhunna"). Do not add water. *(high heat · 9 min)*
+7. Turn the heat to low. Stir in the whisked yogurt a spoon at a time (whisked and added slowly so it does not split), then the slit chillies and ¾ tsp crushed black pepper (2 g). Cook 3 minutes. *(low heat · 3 min)*
+8. Turn off the heat. Scatter over the ginger matchsticks, 1 tsp garam masala (2 g) and the coriander. Spread on the tray to cool while you make the roti. *(no heat)*
+9. Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball. *(no heat · 3 min)*
+10. Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe. *(no heat · 5 min)*
+11. Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing). *(no heat · 20 min)*
+12. Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth. *(no heat)*
+13. Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes. *(medium-high heat · 2 min)*
+14. Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks. *(no heat)*
+15. Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8). *(medium-high heat · 12 min)*
+16. Stack the cooked roti inside a clean tea towel so they stay soft while they cool. *(no heat)*
+17. Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them). *(no heat)*
+
+**Done when:** Karahi: thick masala coats the chicken, there is almost no liquid, oil shines at the edges, and the biggest piece is white all through with no pink. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.
+
+**Box it up:** Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months. (The curry alone keeps 3 days in the fridge and 3 months frozen.)
+
+**Reheat:** Move a frozen portion to the fridge the night before. Curry: microwave covered 3 minutes, stirring halfway, until steaming hot all through (from frozen, use the defrost setting first, then 3–4 minutes), or warm it in a pan with 2 tbsp water. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.
+
+**Tips**
+
+- Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).
+- Too spicy? The slit chillies are easy to pick out before you pack it. Eat it with a spoon of yogurt.
+- Sticking during the bhunna? Add 2 tbsp water, scrape the bottom and turn the heat down a little.
+- Spanish "tomate pera" (plum tomatoes) give the best masala. Pale winter tomatoes need 2–3 minutes more on high.
+- Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.
+- Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona's harina integral de trigo also works; the roti come out a little firmer.
 
 ## Added fat
 

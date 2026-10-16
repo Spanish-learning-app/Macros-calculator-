@@ -56,11 +56,35 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Dice the apple into the lemon juice straight away; add the mandarin segments and pomegranate arils; sprinkle the chaat masala and toss.
-2. Spoon 240 g protein yogurt into each of 2 boxes and top with half the fruit chaat. Close and refrigerate.
-3. In the morning add half a sliced banana and the chopped almonds. Eat cold.
+**Equipment**
+
+- Chopping board and knife
+- Mixing bowl
+- Wooden spoon (for the pomegranate)
+- 2 breakfast boxes with lids
+
+**Steps**
+
+1. No cooking. Squeeze ½ lemon into the bowl: about 1⅓ tbsp juice (20 g). *(no heat)*
+2. Dice 1 apple (180 g) into 1.5 cm cubes with the skin on and drop them straight into the lemon juice. Stir so every cube is coated: it stops them going brown. *(no heat · 2 min)*
+3. Peel 2 mandarins (176 g), pull them into segments and add them (halve the big ones). *(no heat · 2 min)*
+4. Pomegranate: cut it in half across the middle. Hold one half cut side down over the bowl and tap the back hard with the wooden spoon so the seeds (arils) fall out. You need 100 g, about ⅓ of a fruit. Pick out any white pith. *(no heat · 3 min)*
+5. Sprinkle 1 tsp chaat masala (3 g) over the fruit and toss. *(no heat)*
+6. Spoon 240 g protein yogurt into each box and put half the fruit chaat on top. Close and refrigerate. *(no heat · 2 min)*
+7. In the morning: slice ½ small banana (50 g) on top and add 20 g almonds (about 16), roughly chopped. *(no heat · 1 min)*
+
+**Box it up:** Into the fridge straight away. Cut fruit keeps 2 days: make 2 portions at a time (Sunday night for Monday and Tuesday). Do not freeze. Banana and almonds go on in the morning so they stay fresh and crunchy.
+
+**Reheat:** Not reheated: eat it cold.
+
+**Tips**
+
+- Chaat masala (Pakistani grocery) gives the sweet-sour-salty taste. No chaat masala? A pinch of salt, roasted cumin and black pepper is close.
+- Mercadona sells ready pomegranate seeds (granada desgranada) in season. The rest of a whole fruit keeps 5 days in a box in the fridge.
+- Swap the mandarins for an orange, or the apple for a pear; the numbers change only a little.
+- Halal: the protein yogurt is milk and cultures only (no gelatine).
 
 ## Added fat
 

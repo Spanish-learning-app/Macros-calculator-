@@ -63,14 +63,57 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Heat the oil, crackle the cumin seeds, then soften the onion 8–10 min. Add garlic and ginger for 1 min.
-2. Add the mince and break it up; brown on high heat 8–10 min until the liquid has gone.
-3. Add tomato, green chilli, yogurt, ground spices and salt. Cover and cook 15 min on low (add a splash of water only if it sticks), then uncover and dry it out.
-4. Add the frozen peas with a splash of water, cover 5 min, then cook uncovered until dry: a box keema should have no loose gravy. Finish with black pepper, garam masala, coriander and lemon.
-5. Cook the basmati by absorption (about 1 : 1.5 rice to water by volume, 12 min + 5 min rest).
-6. Cool within 1 h, then pack ¼ of the rice and ¼ of the keema per box.
+**Equipment**
+
+- Wide deep frying pan or karahi (28 cm) with a lid
+- Wooden spoon
+- Medium pot (2 l) with a tight lid
+- Sieve
+- Grater
+- Kitchen scale
+- 2 trays or wide dishes for cooling
+- 4 lunch boxes
+
+**Before you start**
+
+- Peel 1 large onion (200 g) and dice it small (5 mm).
+- Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.
+- Chop 2 medium tomatoes (250 g) small. Chop 2 green chillies (10 g).
+- Whisk 1 tbsp yogurt (15 g) smooth in a cup. Chop a handful of fresh coriander leaves (15 g).
+- Rinse the basmati (240 g, about 1⅓ cups) in the sieve until the water runs almost clear, then soak it in cold water for 20 minutes.
+
+**Steps**
+
+1. Put the pan on the hob. Add 2 tbsp sunflower oil (28 g) and heat 1 minute. *(medium heat · 1 min)*
+2. Add 1½ tsp zeera (whole cumin seeds, 3 g). Let them sizzle 20–30 seconds, until they darken one shade and smell toasty. *(medium heat · 1 min)*
+3. Add the onion. Stir every minute until it is soft and light golden. *(medium heat · 9 min)*
+4. Add the ginger-garlic paste and stir 1 minute, until the raw smell has gone. *(medium heat · 1 min)*
+5. Add the mince (600 g). Break it up with the wooden spoon. Cook, stirring, until it has let out its water, the water has dried off and no pink is left. *(high heat · 9 min)*
+6. Add the tomatoes, green chillies and the whisked yogurt, then the powders: 2 tsp ground coriander (dhania powder, 4 g), 1 tsp red chilli powder (3 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 heaped tsp salt (7 g). Stir well. *(medium heat · 1 min)*
+7. Put the lid on and cook gently 15 minutes, stirring every 5 minutes. If it sticks, add 2 tbsp water and scrape the bottom. *(low heat · 15 min)*
+8. Take the lid off and stir until the watery juice has gone and the oil shines at the edges of the pan (this is "bhunna"). *(medium-high heat · 5 min)*
+9. Add the frozen peas (400 g) and 3 tbsp water. Lid on, 5 minutes. *(medium heat · 5 min)*
+10. Lid off. Stir until the keema is dry with no loose gravy (a box keema should not slosh). *(medium-high heat · 3 min)*
+11. Turn off the heat. Stir in ¾ tsp ground black pepper (2 g), 1 tsp garam masala (2 g), the coriander leaves and 1 tsp lemon juice (5 g). *(no heat)*
+12. Rice: drain it. Bring 450 ml water to the boil in the pot with ½ tsp salt (3 g), add the rice and boil without the lid until the water drops just below the top of the rice. *(high heat · 5 min)*
+13. Lid on tightly, lowest heat, 10 minutes without lifting the lid. Then turn off the heat, rest 5 minutes and fluff with a fork. *(low heat · 15 min)*
+14. Spread the keema and the rice on separate trays to cool fast (30 minutes, no longer than 1 hour). Then pack each box with ¼ of the rice and ¼ of the keema. *(no heat · 30 min)*
+
+**Done when:** Push the keema to one side: no liquid runs into the gap, the oil glistens, no pink meat is left and the peas are soft and bright green.
+
+**Box it up:** Rice must be cooled fast: boxes into the fridge or freezer within 1 hour. Box 1 in the fridge. Boxes 2–4 in the freezer; eat them within 1 month (the rice limit; keema alone keeps 3 months).
+
+**Reheat:** Move the next box to the fridge the night before. Sprinkle 1 tbsp water over the rice, microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot all through. Reheat once only.
+
+**Tips**
+
+- Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).
+- Ask the butcher for "carne picada magra de ternera", about 10 % fat. Fattier mince gives a greasy box and more calories than the app shows.
+- Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).
+- Too spicy? Leave out the green chillies; the chilli powder alone is mild.
+- If the keema catches on the bottom, add 2 tbsp water, scrape and lower the heat a little.
 
 ## Added fat
 

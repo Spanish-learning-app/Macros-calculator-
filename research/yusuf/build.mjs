@@ -138,7 +138,7 @@ const HEAT_WORD = { none: 'no heat', low: 'low heat', medium: 'medium heat', 'me
 const METHOD_KEYS = ['equipment', 'prep', 'steps', 'doneWhen', 'boxUp', 'reheat', 'tips'];
 // TODO(s3-method): sheets that still carry the old string-array method only warn. When every sheet has the object
 // (Yusuf's and Zainab's), delete LEGACY_OK so a string-array method fails the build too.
-const LEGACY_OK = true;
+const LEGACY_OK = false;
 const LEGACY = [];
 const isStrList = (a) => Array.isArray(a) && a.every((x) => typeof x === 'string' && x.trim());
 function checkMethod(s) {
@@ -967,6 +967,16 @@ function libraryMd(rows) {
 const sheets = await loadSheets();
 for (const s of sheets) s.methodObj = checkMethod(s);
 const rows = sheets.map((s) => ({ s, r: compute(s) }));
+// Trying a week without writing anything: KATORI_WEEK_TRY=<file exporting { default: week }> node build.mjs
+if (process.env.KATORI_WEEK_TRY) {
+  const W = (await import(pathToFileURL(path.resolve(process.env.KATORI_WEEK_TRY)).href)).default;
+  const P = planWeek(rows, W);
+  for (const t of P.totals) console.log(`${t.day}: ${r0(t.kcal)} kcal, ${r1(t.protein)} g P, ${r0(t.fiber)} g fibre | ${t.meals.map((m) => `${m.s.cuisine}`).join(' / ')}`);
+  for (const x of P.groups.mercadona) console.log(`  ${eur(x.cost)}  ${x.packs} × ${x.pr.name} (${fmtG(Math.round(x.g))} g)`);
+  for (const x of P.groups.butcher) console.log(`  ${eur(x.pro)}  butcher ${x.pr.name} (${Math.round(x.g)} g)`);
+  console.log(`till ${eur(P.till)}, eaten ${eur(P.eaten)}, Sunday ${P.mins.Sunday} min, weekdays ${P.mins.other} min, unpriced ${P.unpriced.join(', ') || 'none'}`);
+  process.exit(0);
+}
 for (const { s, r } of rows) fs.writeFileSync(path.join(here, 'recipes', `${s.id}.md`), sheetMd(s, r));
 const header = `// Halal lunch-box library: each box as an ordinary food record with a "1 box" serving (Meeting 002).
 // Owner: Yusuf Benali (Nutrition Lab). Reviewed by Dr. Ayesha Siddiqui (Sprint 1 review: research/review/sprint1.md).

@@ -80,12 +80,59 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Blitz the onion, chillies, herbs, garlic and ginger; squeeze out the onion juice. Mix with the mince, spices and salt and knead 3–4 min until sticky; chill 30 min.
-2. Shape 16 kebabs (50 g each) around skewers or into long logs. Brush a lined tray with the oil, bake at 220 °C for 15–18 min, turning once, until browned and 75 °C inside (or sear in a pan and finish in the oven, as TfT does).
-3. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 50 g dough each), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.
-4. Cool. Freeze 4 kebabs + 2 roti per bag. Kachumber and raita are made fresh: they keep 2 days and cannot be frozen.
+**Equipment**
+
+- Food processor or chopper (or a grater and a sharp knife)
+- Clean tea towel for squeezing
+- Big mixing bowl
+- Oven tray lined with baking paper (skewers optional)
+- Big mixing bowl
+- Rolling pin (belan) and a clean worktop for rolling
+- Tawa or a dry non-stick frying pan (26–28 cm)
+- Clean tea towel
+- Wire rack
+- 4 freezer bags, 1 lunch box and 1 small lidded pot for each day
+
+**Before you start**
+
+- Peel ½ medium onion (80 g), 4 garlic cloves (12 g) and a 3 cm piece of ginger (10 g).
+
+**Steps**
+
+1. Blitz the onion, 2–3 green chillies (12 g), a handful of coriander (12 g), a few mint leaves (6 g), the garlic and the ginger until finely chopped (or grate the onion, garlic and ginger and chop the rest very fine). Squeeze the mix hard in the tea towel to get the onion juice out. *(no heat · 5 min)*
+2. In the bowl add the mince (640 g), 1½ tsp roasted ground cumin (3 g), 2 tsp crushed coriander seeds (4 g), 1 tsp red chilli powder (3 g), 1½ tsp garam masala (3 g) and 1½ tsp salt (9 g). Knead with your hand 3–4 minutes until sticky. *(no heat · 4 min)*
+3. Cover and chill 30 minutes so the kebabs hold together. *(no heat · 30 min)*
+4. Heat the oven to 220 °C. Brush the lined tray with the oil (16 g, about 1 tbsp + 1 tsp). *(oven 220 °C · 10 min)*
+5. With wet hands shape 16 long kebabs of about 50 g (12 cm long), on skewers or straight on the tray. Roll them in the oil on the tray. *(no heat · 8 min)*
+6. Bake 9 minutes, turn them, then 6–9 minutes more until browned. *(oven 220 °C · 17 min)*
+7. Cool the kebabs on the rack while you make the roti. *(no heat)*
+8. Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball. *(no heat · 3 min)*
+9. Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe. *(no heat · 5 min)*
+10. Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing). *(no heat · 20 min)*
+11. Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth. *(no heat)*
+12. Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes. *(medium-high heat · 2 min)*
+13. Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks. *(no heat)*
+14. Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8). *(medium-high heat · 12 min)*
+15. Stack the cooked roti inside a clean tea towel so they stay soft while they cool. *(no heat)*
+16. Pack 4 kebabs and 2 roti per freezer bag. *(no heat)*
+17. Kachumber and raita (no cooking), on the day or the night before, for 1 portion: dice 80 g tomato, 80 g cucumber and 30 g red onion (1 cm); toss with 1½ tsp lemon juice (7 g), a pinch of roasted cumin and a pinch of salt. Raita: 60 g yogurt (4 tbsp) whisked with a few chopped mint leaves, a pinch of cumin and a pinch of salt, in its own pot. *(no heat · 5 min)*
+
+**Done when:** Break the thickest kebab open: browned outside, no pink inside, juices clear (75 °C if you have a thermometer). Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.
+
+**Box it up:** Cool and put away within 1 hour. Kebabs and roti go in the freezer (kebabs 3 months, roti 2 months); one bag can stay in the fridge if you eat it within 2 days. Kachumber and raita keep 2 days and cannot be frozen, so mix them fresh for each dinner (5 minutes).
+
+**Reheat:** Kebabs from frozen: oven or air fryer at 200 °C for 10–12 minutes, or microwave 2 minutes then 2 minutes in a hot pan, until hot all through. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel. Kachumber cold. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.
+
+**Tips**
+
+- Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).
+- Ask the butcher for "carne picada magra de ternera", about 10 % fat. Lean mince needs the 30 minutes in the fridge to hold its shape.
+- Kebabs falling off the skewers? Squeeze the onion harder and shape them flat on the tray instead.
+- Too spicy? Use 1 green chilli instead of 2–3.
+- Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.
+- Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.
 
 ## Added fat
 

@@ -66,13 +66,46 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. In a large microwave bowl mix the onion, oil, garlic and ginger; cover loosely and microwave 3 min at 800 W.
-2. Stir in the spices and salt, microwave 30 s; add the crushed tomato, cover and microwave 4 min, stirring halfway.
-3. Add the chickpeas, cover and microwave 3 min until bubbling; finish with lemon and coriander. (The water that steams off is not counted: weight kept, as for a no-yield assembly.)
-4. Raita: mix the protein yogurt, squeezed cucumber, mint and a pinch of salt; 2 small pots.
-5. Each portion: half the chana masala in a box, 1 raita pot, 1 sealed basmati cup. Reheat the chana until steaming (75 °C) and the rice cup 40 s.
+**Equipment**
+
+- Large microwave-safe bowl (about 2 l) with a microwave lid or a plate to cover it
+- Microwave (times are for 800 W; add 30 seconds a step at 700 W)
+- Oven glove (the bowl gets very hot)
+- Sieve
+- Grater
+- 2 boxes and 2 small lidded pots (about 150 ml)
+
+**Before you start**
+
+- Chop ½ medium onion very fine (80 g).
+- Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.
+- Drain and rinse the chickpeas (1 jar, 400 g drained).
+- Chop a few sprigs of coriander (6 g).
+
+**Steps**
+
+1. No cooking on the hob: everything is done in the microwave. In the bowl mix the onion, 2 tsp olive oil (10 g) and the ginger-garlic paste. Cover loosely and microwave until the onion is soft. *(microwave · 3 min)*
+2. Stir in the powders: 1½ tsp garam masala (3 g), 1 tsp ground cumin (2 g), 1 tsp ground coriander (2 g), ⅓ tsp red chilli powder (1 g), ⅓ tsp haldi (turmeric powder, 1 g) and ⅓ tsp salt (2 g). Microwave uncovered for only 30 seconds so the spices toast in the oil without burning. *(microwave)*
+3. Add the crushed tomato (200 g, half a 400 g tin). Stir, cover and microwave 4 minutes, stirring halfway. *(microwave · 4 min)*
+4. Add the chickpeas, stir, cover and microwave until bubbling. *(microwave · 3 min)*
+5. Stir in 2 tsp lemon juice (10 g) and the chopped coriander. Split between the 2 boxes. *(no heat)*
+6. Raita (no cooking): grate 60 g cucumber and squeeze it hard. Mix with 240 g protein yogurt and a few chopped mint leaves (2 g). Split into 2 pots. *(no heat · 2 min)*
+7. To eat now: open the basmati cup a little at one corner (or as the pack says) and microwave 40 seconds. *(microwave)*
+
+**Done when:** The sauce bubbles and is thick enough to coat the chickpeas; the onion is soft, not crunchy.
+
+**Box it up:** Tonight's portion: eat it. The second box: cool on the counter (no longer than 1 hour), then fridge (3 days) or freezer (3 months). The raita keeps 2 days and does not freeze; it takes 2 minutes to mix fresh. The rice cup stays sealed in the cupboard.
+
+**Reheat:** Chana from the fridge: microwave covered 2–3 minutes, stirring halfway, until steaming hot all through. Once only. From frozen: move it to the fridge the night before. Rice cup: 40 seconds. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.
+
+**Tips**
+
+- Halal: chickpeas, tomato, spices and a protein yogurt of milk and cultures only.
+- Spitting in the microwave? Keep the lid or plate on and stir with a long spoon.
+- Too spicy? Leave out the chilli powder and eat it with more raita.
+- Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).
 
 ## Added fat
 

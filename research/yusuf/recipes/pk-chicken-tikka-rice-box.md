@@ -74,13 +74,56 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Marinate: mix yogurt, lemon, garlic, ginger, spices, salt and half the oil; coat the chicken; cover and chill 4 h or overnight (the references marinate 30 min to overnight).
-2. Heat the oven to 230 °C (grill/fan). Spread chicken, pepper and onion on a lined tray, brush with the rest of the oil, roast 20–25 min until the chicken reaches 75 °C inside and has charred edges.
-3. Rice: rinse and soak the basmati 20 min; cook by absorption with the cumin seeds and salt (about 1 : 1.5 rice to water by volume) for 12 min, add the frozen peas, cover and steam 5 min more.
-4. Raita: mix the yogurt, squeezed cucumber, mint, cumin and salt.
-5. Cool everything fast (spread on trays, within 1 h). Pack each box: ¼ of the rice, ¼ of the chicken and veg. Raita goes in a separate small pot.
+**Equipment**
+
+- Mixing bowl with a lid (or a big freezer bag) for the marinade
+- Large oven tray lined with baking paper
+- Medium pot (2 l) with a tight lid
+- Sieve
+- Grater
+- Kitchen scale
+- A second tray or wide dish for cooling the rice
+- 4 lunch boxes and 4 small lidded pots (about 150 ml) for the raita
+
+**Before you start**
+
+- Cut the chicken thighs (720 g, boneless and skinless) into 4 cm pieces. Trim off any big lumps of fat.
+- Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.
+- Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).
+- Cut 2 red peppers (240 g) into 3 cm squares. Peel 1 large red onion (200 g), cut it into quarters and pull the layers apart into "petals".
+- Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.
+
+**Steps**
+
+1. Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), ⅔ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir. *(no heat · 5 min)*
+2. Add the chicken and turn it until every piece is coated. Cover and put it in the fridge for 4 hours or overnight. *(no heat · 240 min)*
+3. Heat the oven to 220 °C (fan, or fan with grill if your oven has it). *(oven 220 °C · 10 min)*
+4. Spread the chicken on the lined tray in one layer, letting extra marinade drip back into the bowl. Put the pepper and onion petals around it and drizzle everything with the other 2 tsp oil (10 g). *(no heat)*
+5. Roast 25 minutes, turning the pieces halfway, until the chicken has dark, slightly charred edges. *(oven 220 °C · 25 min)*
+6. Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and ⅔ tsp salt (4 g). *(high heat · 3 min)*
+7. Add the rice and stir once. Boil without the lid until the water has dropped just below the top of the rice and small holes appear on the surface. *(medium-high heat · 5 min)*
+8. Put the lid on tightly and turn the heat to the lowest. Leave 7 minutes; do not lift the lid. *(low heat · 7 min)*
+9. Scatter the frozen peas (240 g) on top of the rice, put the lid back on and steam 5 minutes more. Then turn off the heat, leave it 5 minutes and fluff the rice with a fork. *(low heat · 10 min)*
+10. Spread the rice on the second tray and leave the chicken and veg on their tray to cool fast (30 minutes, no longer than 1 hour). *(no heat · 30 min)*
+11. Raita (no cooking), first 2 pots: grate half the cucumber (100 g) and squeeze it hard in your hands over the sink. Whisk 150 g yogurt smooth, then stir in the cucumber, half the chopped mint (4 g, a small handful), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Mix the other 2 pots the same way on Tuesday night. *(no heat · 5 min)*
+12. Pack each lunch box with ¼ of the rice and ¼ of the chicken, peppers and onion. *(no heat)*
+
+**Done when:** Cut the biggest chicken piece: white all through, no pink, juices clear (75 °C if you have a thermometer), with browned edges. Rice: grains soft and separate, no water left in the bottom of the pot.
+
+**Box it up:** Cool on the trays and put the boxes away within 1 hour (rice must be cooled fast). Box 1 to the fridge (Monday). Boxes 2–4 straight into the freezer. The raita cannot be frozen and keeps 2 days: 2 pots on Sunday (Mon, Tue), 2 pots on Tuesday night (Wed, Thu).
+
+**Reheat:** Move the next box from the freezer to the fridge the night before. Sprinkle 1 tbsp water over the rice, then microwave with the lid loose 2½–3 minutes at full power, stirring halfway, until steaming hot all through. Reheat once only. Eat the raita cold, never microwaved.
+
+**Tips**
+
+- Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).
+- No food colouring needed: the paprika gives the red. Kashmiri chilli powder (Pakistani grocery) gives more colour with less heat.
+- Too spicy? Use 1 tsp chilli powder instead of 2 next time, and eat more raita with it.
+- If the marinade sticks or burns on the tray, the baking paper was missing or the oven runs hot: roast at 200 °C for 30 minutes instead.
+- Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.
+- Garam masala, chaat masala, red chilli powder and haldi are cheapest at the Pakistani grocery (Shan or National packs). Mercadona has comino molido (ground cumin), cúrcuma (haldi), pimentón (paprika) and cilantro (fresh coriander).
 
 ## Added fat
 
