@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 19:03 UTC by Omar._
+_Last updated: 2026-10-16 19:06 UTC by Omar._
 
 ## Links
 
@@ -37,7 +37,8 @@ _Paused 16:40–18:56 UTC (session limit); restarted fresh at 18:56 UTC._
 
 - **Kenji:** rules tripwire test; e2e for plans, picks, swap, chips and Lena's changes.
 - **Priya:** faster first load (O16), plural fix. (The halal guide card on About and the 'What does Check mean?' button are **done in code**.)
-- **Lab rebuild (Javier, Zainab, Yusuf):** Ayesha's notes and the cola split, then rebuilds so her stamps land (G19 → 0).
+- **Mariam:** Review 3, a full week on a fixed snapshot (commit 7434367), including cooking from the methods.
+- Done: **Lab rebuild**: G19 = **0** (every record reviewed), 351/351 pass, no numbers moved, cola names split.
 - Done: **Ayesha**: all 14 remaining records pass; new R4 check on meal-prep ingredient links (M-16); cola kept as two clearly named records (saved logs stay valid).
 - **Timeline (told to the Boss):** finish tonight, then Review 3, the fix wave, the final audit, a republish and the delivery report. Target: Sat 17 Oct about 10:00 Madrid, or Saturday night if a usage limit pauses us.
 - Done tonight:

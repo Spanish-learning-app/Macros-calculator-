@@ -63,3 +63,4 @@
 - 2026-10-16T16:32:17Z: Zainab done (bhindi rebuild, G19 14). Ayesha started on the final reviews. The Boss asked for the timeline; I said delivery by Sat 17 Oct about 10:00 Madrid, or Saturday night if a limit hits.
 - 2026-10-16T18:56:24Z: back after the session limit (16:40–18:56 UTC). The Boss said continue. Restarted Kenji, Priya and Ayesha fresh. O8 is done in code (Priya).
 - 2026-10-16T19:03:41Z: Ayesha done (14 pass, R4 check, cola split). A Lab rebuild run started (Javier, Zainab, Yusuf).
+- 2026-10-16T19:06:28Z: Lab rebuild done (G19 0). Snapshot worktree at 7434367 for Review 3; Mariam started. Bilal and Nasreen follow when a desk frees.
