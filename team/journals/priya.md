@@ -128,3 +128,10 @@ Timestamps are UTC.
 - e2e: 28 fails, all `meal-prep.spec.js` "N of 4 left" vs Lena's new "4 to eat · 1 eaten" wording
   (fix-wave item 3, not mine). With those strings swapped in a temp copy the spec passes (22/22
   phone+small), so my Tonight/Day changes hold. Spec update left for Lena/Kenji.
+
+## Sprint 3 orphan items O3, O10, O11 and the O16 a11y/speed pass, night of 2026-10-16
+
+- 02:05 UTC Read _common, MISTAKES (all), my briefs, STATUS (O3/O10/O11/O16), meeting 004 B/D and 005
+  wave 2, Nasreen/Mariam/Bilal Review 2. Plan: (1) serve chips, (2) saved-meal kcal/protein line,
+  (3) Nasreen wording (UI strings only; rules.js wording proposed to Ayesha), kam-tel line,
+  (4) a11y + speed pass incl. recipe-method sheet and step mode. Yusuf/Kenji work in parallel.
