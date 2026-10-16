@@ -113,7 +113,8 @@ The Manager (Omar) checks this file at every review meeting and before every rep
 - **Root cause:** I wrote times from memory instead of the clock.
 - **Fix:** I corrected them, and run `date -u` before every write.
 - **Repeat (2026-10-16 01:57 UTC):** I did it again an hour after writing this rule: I wrote "02:12" into the feed, state.json and STATUS when the clock said 01:57. I caught it myself and corrected it.
-- **Extra rule:** run `date -u` in the same command that writes the timestamp, never earlier.
+- **Second repeat (2026-10-16 07:06 UTC):** a dashboard feed entry said 07:08, which was 2 minutes in the future. Dashboard writes go through a tool call, not a shell command, so the rule above did not cover them.
+- **Extra rule:** run `date -u` in the same command that writes the timestamp, never earlier. For dashboard writes, run `date -u` in a call **right before** the write and copy that exact time. Never round up.
 - **Rule:** see standing rule 5.
 
 ### M-02 · 2026-10-14 · Omar · Usage window burned in ten minutes
