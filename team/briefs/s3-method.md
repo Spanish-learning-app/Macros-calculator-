@@ -58,3 +58,32 @@ LibraryRecipe += {
 Test the contract: every library recipe has a method with at least equipment, steps, boxUp and reheat,
 and every heat value comes from the allowed list. Add an e2e test that opens one recipe and walks through
 the steps.
+
+## Addendum (Omar, 2026-10-16 03:50 Madrid): how the work is split, and the exact sheet format
+
+The sheets are `research/yusuf/recipes/NN-*.mjs`. Today each has `method: [ 'string', … ]`, which
+`build.mjs` reads but never writes to `app/data`. This was the bug (see `team/MISTAKES.md` M-01).
+Replace the array with an object in exactly the contract shape:
+
+```js
+method: {
+  equipment: ['Large frying pan (28 cm) with a lid', 'Pot for 2 l of water', '4 lunch boxes'],
+  prep: ['Cut the chicken thighs into 4 cm pieces.', 'Peel 12 garlic cloves and slice them thin.'],
+  steps: [
+    { text: 'Put the pan on the hob. Add 2 tbsp (30 g) olive oil and let it heat for 1 minute.', heat: 'medium-high', minutes: 1 },
+    { text: 'Add the chicken in one layer. Do not move it for 3 minutes, then turn the pieces.', heat: 'medium-high', minutes: 7 },
+    // … one action per step; say what goes in FIRST and what goes in LATER, the form (diced 1 cm, powder, liquid), the amount
+  ],
+  doneWhen: 'Cut the biggest piece: white all through, no pink, juices clear (75 °C if you have a thermometer).',
+  boxUp: 'Cool on the counter for 30–60 min, no longer. Boxes 1–2 to the fridge (eat by day 3), boxes 3–4 to the freezer.',
+  reheat: 'From the fridge: microwave with the lid loose, 2½–3 min, stir halfway, until steaming hot all through. From the freezer: move to the fridge the night before.',
+  tips: ['No guindilla? Use a pinch of chilli flakes or leave it out.'],
+}
+```
+
+- `heat` is one of: none, low, medium, medium-high, high, oven-180, oven-200, oven-220, microwave. Give `minutes` whenever there is a time.
+- No-cook preps: `steps` say "No cooking." in the first step (`heat: 'none'`) and give the assembly order (wet away from bread, dressing in a separate pot, and so on).
+- Food safety in plain words: rice is cooled fast (spread it out, in the fridge within 1 h) and reheated once only until steaming; the fridge/freezer split must match the record's `storage`.
+- Amounts must match the sheet's `lines` (grams plus household words: "2 tbsp (30 g)").
+- **Yusuf owns `build.mjs`.** It copies `method` to the library recipe in `app/data/recipes-mealprep.js`, renders the `.md` sheet's `## Method` from the same object, and fails the build if a sheet has no method or an unknown heat value.
+- **Split:** Zainab writes the desi sheets (01, 02, 03, 04, 08, 09, 14, 16–24, 28, 35, 39). Yusuf writes all the others. Each edits only the `method` key of their own sheets.
