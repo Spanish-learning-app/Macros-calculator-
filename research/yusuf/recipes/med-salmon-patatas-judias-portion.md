@@ -163,7 +163,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Reheat once on
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Salmon medallions, frozen, raw: 250 g | [Medallones de salmón Hacendado cocinar congelados](https://tienda.mercadona.es/product/26749/) | 250 g | 1 × pack | 3.95 € |
+| Salmon medallions, frozen, raw: 250 g | [Medallones de salmón Hacendado cocinar congelados](https://tienda.mercadona.es/product/26749/) | 4 medallions (250 g) | 1 × pack | 3.95 € |
 | Lemon juice: 16 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Olive oil: 18 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Salt: 3 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |

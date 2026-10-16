@@ -437,6 +437,8 @@ const DB = {
   'rice-noodles': { foodId: 'intl-noodles-rice-dry' },
   // Ayesha s3-backlog FIX 1 (2026-10-16): Javier's halal-logo soy sauce record, not the `check` intl-soy-sauce.
   'soy-sauce-halal': { foodId: 'intl-soy-sauce-halal' },
+  // Ayesha s3-backlog note a (2026-10-16): Javier's record for the same Hacendado pack (OFF 8480000267498).
+  'salmon-fillet': { foodId: 'intl-salmon-medallions' },
   'kidney-beans': { foodId: 'intl-kidney-beans-tinned' },
   sweetcorn: { foodId: 'intl-sweetcorn-tinned' },
   'broccoli-frozen': { foodId: 'intl-broccoli', name: 'Frozen broccoli (brócoli ultracongelado)' },

@@ -5327,7 +5327,7 @@ export default [
       { id: 'cold-salad', pot: true },
     ],
     ingredients: [
-      { name: 'Salmon medallions, frozen, raw', grams: 250, section: 'supermarket' },
+      { foodId: 'intl-salmon-medallions', grams: 250, section: 'supermarket' },
       { foodId: 'intl-lemon-juice', grams: 16, section: 'supermarket' },
       { foodId: 'med-olive-oil', grams: 18, section: 'supermarket' },
       { name: 'Salt', grams: 3, section: 'supermarket' },
