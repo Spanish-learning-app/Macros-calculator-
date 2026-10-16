@@ -551,8 +551,12 @@ export function createStore({
     );
   }
 
-  /** Adds one box entry to `next` (a working copy of the document). */
-  function placeInto(next, batchId, date, slot) {
+  /**
+   * Adds one box entry to `next` (a working copy of the document). `status` defaults to the usual
+   * add rule (eaten today, planned later); "Plan it" passes 'planned' so a box planned for today
+   * waits for its tick, like a copied or Fill-ed meal on a later day.
+   */
+  function placeInto(next, batchId, date, slot, status = statusForAdd(date)) {
     let batch = next.batches.find((b) => b.id === batchId);
     const f = requireFood(batch.recipeId);
     const box = pickBox(batch, date);
@@ -563,7 +567,7 @@ export function createStore({
       food: f,
       servingId: serving,
       qty: 1,
-      status: statusForAdd(date),
+      status,
     });
     const current = next.days?.[date] ?? emptyDay(date);
     let warning = null;
@@ -1216,13 +1220,23 @@ export function createStore({
         `Removed the ${food(batch.recipeId)?.name ?? 'batch'} batch`,
       );
     },
-    /** One box into `slot` on `date` (A17). With no box left it still adds a plain entry. */
-    placeBox({ batchId, date, slot }) {
+    /**
+     * One box into `slot` on `date` (A17). With no box left it still adds a plain entry.
+     * `status: 'planned'` plans it even for today (the Day view's "Plan it"); omitted, it follows
+     * the add rule (eaten today, planned later).
+     */
+    placeBox({ batchId, date, slot, status }) {
       requireBatch(batchId);
       const next = { ...data(), days: { ...(data().days ?? {}) }, batches: [...batchesList()] };
-      const result = placeInto(next, batchId, date, slot);
+      const result = placeInto(next, batchId, date, slot, status ?? statusForAdd(date));
       const f = food(requireBatch(batchId).recipeId);
-      commit(next, `Added ${f?.name ?? 'a box'} to ${slotLabel(slot)}`);
+      const name = f?.name ?? 'a box';
+      commit(
+        next,
+        status === 'planned'
+          ? `Planned ${name} for ${slotLabel(slot)}`
+          : `Added ${name} to ${slotLabel(slot)}`,
+      );
       return result;
     },
     /** Boxes into `slot` on each date while boxes last ("Fill Mon–Thu"). @returns {number} placed */

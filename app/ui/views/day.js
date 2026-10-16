@@ -766,7 +766,11 @@ export function mount(container, ctx) {
     );
   }
 
-  /** "Plan it": a meal today (or tomorrow when the box keeps, or must thaw first). */
+  /**
+   * "Plan it": a meal today (or tomorrow when the box keeps, or must thaw first). The entry is
+   * planned, today included, and the person ticks it as they eat (as with Fill and weekly plans
+   * on later days). "Eat it now" would have meant a second button and a guess at the meal.
+   */
   function planSpare(s, word, today) {
     const tomorrow = addDays(today, 1);
     const days = s.kind === 'frozen' ? [tomorrow] : s.kind === 'soon' ? [today, tomorrow] : [today];
@@ -778,7 +782,9 @@ export function mount(container, ctx) {
         slots.map((x) => ({
           label: `${d === today ? 'Today' : 'Tomorrow'} · ${x.label}`,
           testid: `spare-plan-${d === today ? 'today' : 'tomorrow'}-${x.id}`,
-          onSelect: () => store.placeBox({ batchId: s.batchId, date: d, slot: x.id }),
+          // Planned, even for today: the person ticks it when they eat it (the button says "Plan").
+          onSelect: () =>
+            store.placeBox({ batchId: s.batchId, date: d, slot: x.id, status: 'planned' }),
         })),
       ),
     });
