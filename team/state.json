@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T07:15:01Z",
+  "updatedAt": "2026-10-16T07:17:04Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -46,8 +46,8 @@
     },
     "priya": {
       "location": "office",
-      "status": "working",
-      "task": "Orphan UI (serve chips, saved-meal kcal, wording, kam-tel line) + accessibility and speed pass"
+      "status": "idle",
+      "task": "Done: serve chips, saved-meal totals, wording, kam-tel line"
     },
     "kenji": {
       "location": "office",
@@ -81,11 +81,6 @@
     }
   },
   "inFlight": [
-    {
-      "member": "priya",
-      "task": "O3 serve chips, O10 saved-meal kcal/protein, O11 wording + kam-tel line, O16 a11y + perf pass",
-      "output": "app/ui/** small local edits, app/styles/**"
-    },
     {
       "member": "lena",
       "task": "O7 weekly plans + ready picks UI, O6 halal swap, then O5/O9 (cost, pitch, references, where-to-buy)",
@@ -223,6 +218,18 @@
     {
       "member": "customer panel",
       "task": "Wave 3: Review 3 (full week incl. cooking from the app and Ramadan mode), fix wave, final audit, republish, delivery report"
+    },
+    {
+      "member": "ayesha",
+      "task": "Priya's rules.js wording proposals (activity 'moderate', confidence grades in plain words, sourceMethods label) — journals/priya.md"
+    },
+    {
+      "member": "priya",
+      "task": "O16 rest: lazy-load recipes-mealprep.js until Prep opens (first load 1.4 s); plural fix ('2 biscuit')"
+    },
+    {
+      "member": "lena",
+      "task": "Step mode aria-live on step text (recipe-method.js); shopping-list copy text lacks the where-to-buy line (4 e2e reds); Nasreen recipe-editor wording"
     }
   ],
   "reports": [

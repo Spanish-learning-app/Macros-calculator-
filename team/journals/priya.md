@@ -142,3 +142,15 @@ Timestamps are UTC.
   `savedMealLine(meal, store)` exported from add-sheet.js and used in the Day slot menu hint and the Prep saved-meals list.
   Verified at 400×860 light/dark with real data (scratchpad orph.mjs): 21 serve chips in the library, chips on ready rows and
   search rows, "2 foods · 439 kcal · 19 g protein", kam-tel line; no overflow, no console errors.
+- 07:12 UTC Food details: kam-tel citations read "The Moong daal (home-made) recipe with less oil: 22.5 g in the whole pot
+  instead of 45 g" (all 17 kam-tel records clean, no "→", "home sheet" or "§" left); Portions list drops "edible part" and says
+  once "Weights are the part you eat: no bones, peel or stones." (`edible-note`). review1 unit tests pass.
+- 07:16 UTC Checks: eslint app/ clean, prettier app/ clean, `npm test` 725/724/724 pass (the lint error in sprint3.spec.js:592
+  and prettier warnings in prep-plans.js/store.js/two unit tests are not mine). e2e phone 90 (a first run had 22 fails while the
+  shared :4173 server went away; the three specs re-ran 59/59 green), phone-dark + small 174 pass, 4 fail: the shopping-list
+  copy test (review2 A4, meal-prep A18 (7)) expects the new "where to buy" line in the copied text (O5, Lena), not mine.
+  O16 quick audit (Day/Week/Prep/Profile/Data/add sheet, 400 px): no unnamed controls, no targets under 44 px, no duplicate ids;
+  first load ~1.4 s locally, 62 files, ~1.5 MB (recipes-mealprep.js 328 KB is the biggest).
+  Left for O16: lazy-load recipes-mealprep.js (methods) until Prep opens; step mode announces only "Step x of n", not the step
+  text (Lena's recipe-method.js: aria-live on the body); "2 biscuit" plural in portionText (needs a plural map, touches many e2e
+  strings); Source panel grade descriptions are internal (rules.js, proposed to Ayesha). Stopping here, clean.

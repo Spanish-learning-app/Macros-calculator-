@@ -54,3 +54,4 @@
 - 2026-10-16T07:00:18Z: back after the session limit (02:06–06:59 UTC, 5 check-ins queued). Inbox empty. Restarted Yusuf, Kenji and Priya fresh from their journals, with a hard stop at 07:50 UTC. Kenji's BUG-M1/M2 went to Yusuf.
 - 2026-10-16T07:06:29Z: Yusuf done (all 64 recipes: method, pitch, references; cost on 58; BUG-M1/M2; plans data). Lena started on the plans UI and the halal swap, with a hard stop at 07:50. Logged M-15 (budget-week claim of 60 € when the week is 77 €).
 - 2026-10-16T07:15:01Z: Kenji done. check 0 fail (730 tests per zone), e2e 356 pass, 4 skipped, 0 fail. His BUG-M0/M1/M2 todos should now flip (Yusuf fixed all three); queued to make them plain tests. A design call on 'Plan it' (today = eaten) is queued for Lena.
+- 2026-10-16T07:17:04Z: Priya done (O3 serve chips, O10 saved-meal totals, O11 wording and the kam-tel line). Ayesha's wording proposals and the rest of O16 are queued.
