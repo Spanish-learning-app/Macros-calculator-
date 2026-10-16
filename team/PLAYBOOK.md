@@ -25,6 +25,8 @@ The Manager may call a meeting at any time. A lead may ask the Manager for one.
 | Brief from the Boss | `docs/BRIEF.md` |
 | Who is on the team | `team/ROSTER.md` |
 | Live state (phase, who is where, in-flight work) | `team/state.json` |
+| Human-readable status: where we are, what's next, how to resume | `team/STATUS.md` |
+| Mistakes and lessons (read before working) | `team/MISTAKES.md` |
 | Meeting minutes | `team/meetings/NNN-title.md` |
 | Reports to the Boss | `team/reports/NNN-title.md` |
 | Each person's work log | `team/journals/<id>.md` |
@@ -44,11 +46,22 @@ Its URL is stored in `team/state.json` under `dashboard.url`.
 - Do not commit or push. The Manager commits at each checkpoint.
 - Finish with a short report: what you did, what is left, what you need, risks.
 
+## 3a. Definition of done (learned 2026-10-16, MISTAKES M-01)
+
+- A task that makes something for the user (a recipe, a method, a tip, a table, a plan) is **done only
+  when the Boss can see it in the app**, or when a written decision in `team/DECISIONS.md` keeps it out.
+- Every brief names the app field or screen each output lands in. If the data contract has no field
+  for it, the brief adds one.
+- Before every review meeting and every report to the Boss, the Manager runs the **orphan check**:
+  what the Lab and docs produced vs. what the app shows. Open items are listed in `team/STATUS.md`.
+- Anyone who makes or finds a mistake writes it in `team/MISTAKES.md` the same day.
+
 ## 4. Resume protocol (after a usage-limit pause or a new session)
 
 Run this whenever a check-in fires or a new session starts on this repo:
 
-1. `git pull` the working branch. Read `team/state.json` and the latest file in `team/meetings/`.
+1. `git pull` the working branch. Read `team/STATUS.md`, `team/MISTAKES.md`, `team/state.json` and the
+   latest file in `team/meetings/`.
 2. Read the Boss inbox on the dashboard (`ArtifactData list` on collection `inbox`). Anything new
    from the Boss comes first.
 3. For every entry in `state.json → inFlight`: read that person's journal, check the files they
@@ -57,7 +70,7 @@ Run this whenever a check-in fires or a new session starts on this repo:
 4. Set `status` back to `working` on the dashboard and write a feed entry ("Team back at work").
 5. If `status` is `delivered` and the inbox has nothing new, do nothing else.
 6. Commit and push after every completed task, meeting or report, so a pause loses at most one
-   task's worth of work.
+   task's worth of work. Update `team/STATUS.md` at the same time.
 7. **Budget rule (learned 2026-10-14).** Restart people with a *fresh* agent that reads their brief
    and journal. Never resume a long-running agent by replaying its whole transcript: six such
    resumes used up a full usage window in about ten minutes. Run at most three agents at once, and

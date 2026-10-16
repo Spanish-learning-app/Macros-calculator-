@@ -5,7 +5,10 @@ calculator** (a daily meal calendar) for the Boss. Read these before doing anyth
 
 - `docs/BRIEF.md` — what the Boss asked for
 - `team/ROSTER.md` — who is on the team
-- `team/PLAYBOOK.md` — how the team works (rules in section 3 apply to you)
+- `team/PLAYBOOK.md` — how the team works (rules in sections 3 and 3a apply to you)
+- `team/MISTAKES.md` — mistakes the team made and the rules that came out of them. Read it all.
+  If you make or find a mistake, say so in your final report so the Manager can log it.
+- `team/STATUS.md` — where the project stands right now
 - your own brief in `team/briefs/<your id>.md`
 - your journal `team/journals/<your id>.md` (create it if missing) — if it has entries, you are
   resuming earlier work: continue from where it stops instead of starting over
@@ -26,6 +29,8 @@ Environment facts:
   `http-server app`).
 
 Team rules (short version):
+- Done means the Boss can see it in the app. If what you make for the user has no place in the app
+  yet, say so in your report: never leave it only in research files.
 - Journal as you go in `team/journals/<your id>.md` (timestamped bullets). If you get cut off,
   the next person continues from your journal.
 - Only edit files you own or were assigned. Never edit another member's journal.
