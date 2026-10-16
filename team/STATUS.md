@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 07:33 UTC by Omar._
+_Last updated: 2026-10-16 16:11 UTC by Omar._
 
 ## Links
 
@@ -31,9 +31,12 @@ _Last updated: 2026-10-16 07:33 UTC by Omar._
 | Protein tips and Ramadan mode | done in code, checked in Chromium (Lena). Published in v4 |
 | Sprint 3 wave 1 tests | partial; restarts after Yusuf lands (Kenji) |
 
-## Working now
+## Working now (night shift from 18:10 Madrid)
 
-Nobody: the team is **off duty 10:00–18:00 Madrid**. The next check-in is at 18:09.
+- **Yusuf:** budget week at 60 € or less, with every number generated (M-15); the `halalSwap` field; prices for the 6 recipes that have no cost yet.
+- **Lena:** "Plan it" fix; step-mode screen-reader support; recipe-editor wording; Ramadan day-by-day table and time edit (O12).
+- **Ayesha:** rules wording; smoothie fridge life; halal shopping guide as app data (O8); bhindi fix; review backlog.
+- Queued: Priya (halal guide UI, faster first load), Kenji (tests for plans, picks and chips), then Review 3.
 
 ## Next, in order (from 18:09 Madrid)
 

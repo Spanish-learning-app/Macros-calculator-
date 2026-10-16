@@ -1,10 +1,10 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "off-duty",
+  "status": "working",
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T07:33:38Z",
+  "updatedAt": "2026-10-16T16:11:19Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -21,18 +21,18 @@
   "members": {
     "omar": {
       "location": "office",
-      "status": "idle",
-      "task": "Off duty until 18:00 Madrid"
+      "status": "working",
+      "task": "Night shift: coordinating Sprint 3 finish"
     },
     "lena": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: weekly plans, ready picks, halal swap, where-to-buy, recipe cost/pitch/sources"
+      "status": "working",
+      "task": "Plan it fix, step-mode a11y, editor wording, Ramadan table"
     },
     "ayesha": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: alcohol rule 1.7.1, 38 reviewed"
+      "status": "working",
+      "task": "Rules wording, halal shopping guide (O8), bhindi fix, review backlog"
     },
     "bilal": {
       "location": "office",
@@ -71,8 +71,8 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: cost/pitch/references/methods on all 64; plans data; BUG-M1/M2 fixed"
+      "status": "working",
+      "task": "Budget week under 60 EUR (M-15), halalSwap field, missing prices"
     },
     "mariam": {
       "location": "office",
@@ -80,7 +80,23 @@
       "task": "Review 2 done: 8/10"
     }
   },
-  "inFlight": [],
+  "inFlight": [
+    {
+      "member": "yusuf",
+      "task": "Budget week <=60 EUR with generated numbers (M-15); halalSwap on feta recipe; price the 6 missing",
+      "output": "research/yusuf/**, app/data/*mealprep.js, docs/MEALPREP.md"
+    },
+    {
+      "member": "lena",
+      "task": "Plan it today=planned; step-mode aria-live; recipe-editor wording; O12 Ramadan table + time edit; drop HALAL_SWAPS when field lands; O13 if time",
+      "output": "app/** (not data), tests/unit/dev/**"
+    },
+    {
+      "member": "ayesha",
+      "task": "Priya's rules wording; smoothie fridge life; O8 halal guide as RULES data; bhindi fix; G19 review backlog",
+      "output": "app/data/rules.js, docs/NUTRITION.md, research/check-foods.mjs, research/review/**"
+    }
+  ],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
@@ -127,6 +143,10 @@
     {
       "at": "2026-10-16T07:12:18Z",
       "result": "09:09 Madrid check-in: inbox empty; no new agents started. Lena, Kenji, Priya finish by 07:50 UTC hard stop; then commit and off duty until 18:00."
+    },
+    {
+      "at": "2026-10-16T16:11:19Z",
+      "result": "18:10 Madrid: night shift start. Inbox empty. Started Yusuf, Lena, Ayesha (fresh)."
     }
   ],
   "pauses": [
@@ -194,36 +214,20 @@
   },
   "queued": [
     {
-      "member": "yusuf",
-      "task": "Budget week is 77.17 EUR at the till but MEALPREP.md says '60 EUR or less': bring it under 60 or change the claim (generated text must come from the numbers)"
+      "member": "priya",
+      "task": "O8 halal guide UI on About (after Ayesha), lazy-load recipe data, plural fix"
     },
     {
       "member": "kenji",
       "task": "Turn BUG-M0/M1/M2 todo tests into plain tests (Yusuf fixed all three at 07:05 UTC); e2e for Lena's plans UI and Priya's chips"
     },
     {
-      "member": "lena",
-      "task": "Design call: Day view 'Plan it' on today's spare box logs it as eaten (statusForAdd today=eaten) though the button says Plan"
-    },
-    {
-      "member": "ayesha",
-      "task": "Confirm smoothie #61 fridge 24 h vs storage class 3 days; review 138 awaiting (G19); bhindi fix; halal shopping guide text (O8)"
-    },
-    {
       "member": "customer panel",
       "task": "Wave 3: Review 3 (full week incl. cooking from the app and Ramadan mode), fix wave, final audit, republish, delivery report"
     },
     {
-      "member": "ayesha",
-      "task": "Priya's rules.js wording proposals (activity 'moderate', confidence grades in plain words, sourceMethods label) — journals/priya.md"
-    },
-    {
       "member": "priya",
       "task": "O16 rest: lazy-load recipes-mealprep.js until Prep opens (first load 1.4 s); plural fix ('2 biscuit')"
-    },
-    {
-      "member": "lena",
-      "task": "Step mode aria-live on step text (recipe-method.js); shopping-list copy text lacks the where-to-buy line (4 e2e reds); Nasreen recipe-editor wording"
     }
   ],
   "reports": [

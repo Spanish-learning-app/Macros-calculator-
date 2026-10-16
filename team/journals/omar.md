@@ -56,3 +56,4 @@
 - 2026-10-16T07:15:01Z: Kenji done. check 0 fail (730 tests per zone), e2e 356 pass, 4 skipped, 0 fail. His BUG-M0/M1/M2 todos should now flip (Yusuf fixed all three); queued to make them plain tests. A design call on 'Plan it' (today = eaten) is queued for Lena.
 - 2026-10-16T07:17:04Z: Priya done (O3 serve chips, O10 saved-meal totals, O11 wording and the kam-tel line). Ayesha's wording proposals and the rest of O16 are queued.
 - 2026-10-16T07:33:38Z: Lena done (O7 plans, ready picks, O6 swap, O5 where-to-buy, O9/O4 recipe sheet). npm run check exit 0 (731, 0 fail, 3 todo); e2e 356 pass, 4 skipped, 0 fail. I tapped through plans/ready/swap/serve chips myself at 400 px with no errors. Republished the app (v4). Off duty until 18:00.
+- 2026-10-16T16:11:19Z: night shift start. Inbox empty. Started Yusuf (budget week, M-15), Lena (Plan it, a11y, wording, O12) and Ayesha (wording, O8 guide data, bhindi, reviews). Priya and Kenji next.
