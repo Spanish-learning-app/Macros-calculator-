@@ -710,13 +710,18 @@ LibraryRecipe += { pitch?: string,              // one sentence for the card: wh
                             priceDate: string,  // YYYY-MM-DD: the OLDEST price read among the priced lines
                                                 // ("prices from 13 Oct"), never newer than the data
                             shop: string },     // e.g. "Mercadona Barcelona + halal butcher (Carne Halal Online)"
-                                                // absent when a line has no current price (6 sheets)
+                                                // absent when a main line has no current price (3 sheets on
+                                                // 2026-10-16: boneless halal thigh #1, #5; a forn barra #27)
                    references?: [{ title: string, url: string }],  // published recipes the sheet starts
                                                 // from, 2–5 per prep (O9); https links, shown in Source
                    timeNote?: string,           // start-to-finish time when waiting changes the plan
                                                 // (marinade, soak, slow simmer); `minutes` stays hands-on
                    cuisine?: 'desi'|'spanish'|'mediterranean'|'middle-eastern'|'italian'|'mexican'|'asian'|'international',
-                   serve?: 'cold'|'hot'|'either' }  // assemble preps only: how it is eaten (hot = microwave)
+                   serve?: 'cold'|'hot'|'either',   // assemble preps only: how it is eaten (hot = microwave)
+                   halalSwap?: string,          // foodId of the halal version of a prep that is not 'halal'
+                                                // (STATUS O6; today #29 feta → #40 Burgos); the build checks it is
+                                                // a halal prep of the same slot. The "Halal swap" button reads it.
+                   halalSwapNote?: string }     // one line: why the swap (e.g. rennet origin not stated)
 Ingredient.note                                 // where to buy, kept on every desi-shop line (halal butcher,
                                                 // Pakistani grocer) even when the line has a foodId
 ```
