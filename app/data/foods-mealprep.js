@@ -1450,7 +1450,7 @@ export default [
     shortName: 'Chicken shawarma pitas',
     aliases: ['Pitas de shawarma de pollo con yogur al ajo, hummus y ensalada', 'Pites de shawarma de pollastre amb iogurt a l\'all, hummus i amanida', 'shawarma', 'chicken shawarma', 'shawarma de pollo', 'shawarma pita', 'pita de pollo', 'chicken pita', 'doner pita', 'chicken kebab pita'],
     group: 'lunchbox',
-    state: 'cooked, one packed lunch box as eaten, all pots included (shawarma chicken (oven) 117 g, garlic-yogurt and hummus pot 84 g, lettuce, tomato, cucumber and red onion 165 g, pita bread (2 per box, in their bag) 120 g)',
+    state: 'cooked, one packed lunch box as eaten, all pots included (shawarma chicken (oven) 117 g, garlic-yogurt and hummus pot 84 g, lettuce, tomato, cucumber and red onion (own tub) 165 g, pita bread (2 per box, in their bag) 120 g)',
     per100g: {
       kcal: 141,
       protein: 9.9,
@@ -1560,7 +1560,7 @@ export default [
     nameRoman: 'pesto pasta',
     aliases: ['Pasta integral con pollo, brócoli y pesto de almendra', 'Pasta integral amb pollastre, bròquil i pesto d\'ametlla', 'chicken pesto pasta', 'pasta al pesto', 'pasta con pollo y brocoli', 'pasta pesto pollo', 'broccoli pasta', 'pasta amb pesto'],
     group: 'lunchbox',
-    state: 'cooked, one packed lunch box as eaten, all pots included (seared chicken 112 g, wholewheat penne and broccoli 253 g, almond-basil pesto (no cheese) and cherry tomatoes 111 g)',
+    state: 'cooked, one packed lunch box as eaten, all pots included (seared chicken 112 g, wholewheat penne and broccoli 253 g, almond-basil pesto (no cheese), stirred into the pasta 51 g, cherry tomatoes (own small pot, added fresh) 60 g)',
     per100g: {
       kcal: 130,
       protein: 9.6,

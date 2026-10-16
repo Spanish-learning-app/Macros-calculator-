@@ -93,6 +93,22 @@ export function savedMealTotals(meal, foodOf) {
 }
 
 /**
+ * "3 foods · 640 kcal · 42 g protein" for a saved meal (STATUS O10, Bilal and Nasreen), without
+ * the kcal when calories are hidden. Used by the add sheet, the Day slot menu and the Prep list.
+ * @param {{ items: object[] }} meal
+ * @param {{ food: (id: string) => object|null, settings: () => object }} store
+ */
+export function savedMealLine(meal, store) {
+  const t = savedMealTotals(meal, (id) => store.food(id));
+  const count = `${t.foods} ${t.foods === 1 ? 'food' : 'foods'}`;
+  if (!t.foods) return count;
+  const protein = `${fmtGrams(Math.round(t.protein))} g protein`;
+  return store.settings().hideCalories
+    ? `${count} · ${protein}`
+    : `${count} · ${fmtKcal(t.kcal)} kcal · ${protein}`;
+}
+
+/**
  * The sheet header line: which day the food counts for (Review 1). After midnight and before the
  * day start, food still counts for the evening before, and the line says so.
  * @returns {string} e.g. "Counts for Today, Wed 14 Oct" or
@@ -496,7 +512,10 @@ export function createAddSheet(props) {
             name,
             line: `1 ${word} · ${left} left · meal prep`,
             label: `Add a ${word} of ${name}`,
-            tags: serveChip(food, store.library().find((l) => l.food.id === batch.recipeId)?.recipe),
+            tags: serveChip(
+              food,
+              store.library().find((l) => l.food.id === batch.recipeId)?.recipe,
+            ),
             onAdd: () => {
               store.placeBox({ batchId: batch.id, date, slot });
               addedCount += 1;
@@ -512,7 +531,7 @@ export function createAddSheet(props) {
             testid: 'saved-meal-row',
             id: meal.id,
             name: meal.name,
-            line: savedMealLine(meal),
+            line: savedMealLine(meal, store),
             label: `Add ${meal.name}`,
             onAdd: () => {
               const n = store.addSavedMeal({ mealId: meal.id, date, slot });
@@ -524,17 +543,6 @@ export function createAddSheet(props) {
         ),
       ),
     );
-  }
-
-  /** "3 foods · 640 kcal · 42 g protein" for a saved meal row (STATUS O10, Bilal and Nasreen). */
-  function savedMealLine(meal) {
-    const t = savedMealTotals(meal, (id) => store.food(id));
-    const count = `${t.foods} ${t.foods === 1 ? 'food' : 'foods'}`;
-    if (!t.foods) return count;
-    const protein = `${fmtGrams(Math.round(t.protein))} g protein`;
-    return store.settings().hideCalories
-      ? `${count} · ${protein}`
-      : `${count} · ${fmtKcal(t.kcal)} kcal · ${protein}`;
   }
 
   function hiddenNote(hidden) {

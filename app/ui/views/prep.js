@@ -40,6 +40,7 @@ import {
   matchesCuisine,
 } from '../components/prep-bits.js';
 import { amountText } from '../components/ingredient-sheet.js';
+import { savedMealLine } from '../components/add-sheet.js';
 import {
   methodOf,
   renderMethod,
@@ -921,7 +922,8 @@ export function mount(container, ctx) {
         : h(
             'p',
             { class: 'empty-note' },
-            'No batches yet. Cook one from your recipes or the library below.',
+            // Nasreen Review 2: nobody said what a batch is.
+            'No batches yet. A batch is food you cook once and split into boxes: each box is one meal for one person. Cook one from the library below.',
           ),
       done
         ? h('p', { class: 'muted' }, `${done} finished ${done === 1 ? 'batch' : 'batches'} hidden.`)
@@ -966,10 +968,10 @@ export function mount(container, ctx) {
             'span',
             { class: 'muted' },
             chaiFood
-              ? `${macroLine(portionNutrients(chaiFood, 'cup', 1))
+              ? `One cup: ${macroLine(portionNutrients(chaiFood, 'cup', 1))
                   .split(' · ')
                   .slice(0, 2)
-                  .join(' · ')} a cup. First in your chai searches.`
+                  .join(' · ')}. It comes first when you search “chai”.`
               : 'Set milk, sugar and cup size once. It becomes your top chai.',
           ),
         ),
@@ -1011,6 +1013,11 @@ export function mount(container, ctx) {
                       .map((i) => store.food(i.foodId)?.name)
                       .filter(Boolean)
                       .join(' + '),
+                  ),
+                  h(
+                    'span',
+                    { class: 'prep-line', 'data-testid': 'saved-meal-totals' },
+                    savedMealLine(meal, store),
                   ),
                 ),
                 h(

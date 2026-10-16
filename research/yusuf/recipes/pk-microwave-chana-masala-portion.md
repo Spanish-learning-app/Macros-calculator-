@@ -86,13 +86,14 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Steps**
 
-1. No cooking on the hob: everything is done in the microwave. In the bowl mix the onion, 2 tsp olive oil (10 g) and the ginger-garlic paste. Cover loosely and microwave until the onion is soft. *(microwave · 3 min)*
-2. Stir in the powders: 1½ tsp garam masala (3 g), 1 tsp ground cumin (2 g), 1 tsp ground coriander (2 g), ⅓ tsp red chilli powder (1 g), ⅓ tsp haldi (turmeric powder, 1 g) and ⅓ tsp salt (2 g). Microwave uncovered for only 30 seconds so the spices toast in the oil without burning. *(microwave)*
-3. Add the crushed tomato (200 g, half a 400 g tin). Stir, cover and microwave 4 minutes, stirring halfway. *(microwave · 4 min)*
-4. Add the chickpeas, stir, cover and microwave until bubbling. *(microwave · 3 min)*
-5. Stir in 2 tsp lemon juice (10 g) and the chopped coriander. Split between the 2 boxes. *(no heat)*
-6. Raita (no cooking): grate 60 g cucumber and squeeze it hard. Mix with 240 g protein yogurt and a few chopped mint leaves (2 g). Split into 2 pots. *(no heat · 2 min)*
-7. To eat now: open the basmati cup a little at one corner (or as the pack says) and microwave 40 seconds. *(microwave)*
+1. No cooking on the hob: everything is done in the microwave. Get the microwave bowl and its loose lid ready. *(no heat)*
+2. In the bowl mix the onion, 2 tsp olive oil (10 g) and the ginger-garlic paste. Cover loosely and microwave until the onion is soft. *(microwave · 3 min)*
+3. Stir in the powders: 1½ tsp garam masala (3 g), 1 tsp ground cumin (2 g), 1 tsp ground coriander (2 g), ⅓ tsp red chilli powder (1 g), ⅓ tsp haldi (turmeric powder, 1 g) and ⅓ tsp salt (2 g). Microwave uncovered for only 30 seconds so the spices toast in the oil without burning. *(microwave)*
+4. Add the crushed tomato (200 g, half a 400 g tin). Stir, cover and microwave 4 minutes, stirring halfway. *(microwave · 4 min)*
+5. Add the chickpeas, stir, cover and microwave until bubbling. *(microwave · 3 min)*
+6. Stir in 2 tsp lemon juice (10 g) and the chopped coriander. Split between the 2 boxes. *(no heat)*
+7. Raita (no cooking): grate 60 g cucumber and squeeze it hard. Mix with 240 g protein yogurt and a few chopped mint leaves (2 g). Split into 2 pots. *(no heat · 2 min)*
+8. To eat now: open the basmati cup a little at one corner (or as the pack says) and microwave 40 seconds. *(microwave)*
 
 **Done when:** The sauce bubbles and is thick enough to coat the chickpeas; the onion is soft, not crunchy.
 

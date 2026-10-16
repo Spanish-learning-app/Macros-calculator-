@@ -159,7 +159,7 @@ test.describe('weight log (Profile)', () => {
     await expect(rows(page)).toHaveCount(1);
     await expect(rowOf(page, y)).toHaveCount(0);
     await saved(page, (d) => !d.weightLog?.[y] && d.weightLog?.[TODAY]?.kg === 82, 'deleted');
-    await ui.undo(page).click();
+    await ui.undo(page).getByRole('button', { name: 'Undo' }).click();
     await expect(rows(page)).toHaveCount(2);
     await expect(rowOf(page, y)).toContainText('83.1 kg');
     await page.reload();
@@ -323,12 +323,12 @@ test.describe('weight suggestion', () => {
     expect(n).toBeGreaterThan(1200);
     expect(n).not.toBe(2210); // P1's own target (NUTRITION 2.2): a suggestion is a change
     expect(Math.abs(n - 2210)).toBeLessThanOrEqual(200); // at most 200 kcal a time
-    expect((n - 2210) % 50).toBe(0); // in steps of 50 kcal
+    expect(Math.abs(n - 2210) % 50).toBe(0); // in steps of 50 kcal
     await page.getByTestId('weight-suggestion-accept').click();
     await expect(page.getByTestId('weight-suggestion')).toHaveCount(0);
     const doc = await saved(page, (d) => d.targetOverrides?.kcal === n, `kcal override ${n}`);
     expect(doc.profile.weightKg).toBe(82); // the profile itself is untouched
-    await ui.undo(page).click();
+    await ui.undo(page).getByRole('button', { name: 'Undo' }).click();
     await saved(page, (d) => d.targetOverrides?.kcal === undefined, 'override removed by Undo');
   });
 });
@@ -481,7 +481,16 @@ test.describe('spare-box line (Day)', () => {
     const lunch = ui.slot(page, 'lunch');
     await expect(ui.entries(lunch)).toHaveCount(1);
     await expect(ui.entries(lunch)).toContainText(food.shortName || food.name);
-    await saved(page, (d) => d.batches[0].boxes[0].status === 'placed', 'box planned');
+    // An entry added to today is logged as eaten (the store's statusForAdd), and the box follows its entry.
+    const doc = await saved(
+      page,
+      (d) => d.batches[0].boxes[0].placed?.date === TODAY,
+      'box placed on today',
+    );
+    const entry = doc.days[TODAY].entries.find((e) => e.boxRef?.boxId === 'b1-1');
+    expect(entry.slot).toBe('lunch');
+    expect(doc.batches[0].boxes[0].placed.entryId).toBe(entry.id);
+    expect(doc.batches[0].boxes[0].status).toBe(entry.status === 'eaten' ? 'eaten' : 'placed');
   });
 
   test("only today's page carries the line, not yesterday's", async ({ page }) => {
@@ -695,13 +704,13 @@ test.describe('How to make it (Prep library)', () => {
     page,
   }) => {
     await open(page);
+    // The sheet is titled with the name the row shows (the Prep list drops the "(lunch box)" brackets).
+    const rowName = (await row(page).locator('.prep-name').innerText()).trim();
     await row(page).getByTestId('library-method').click();
     const dialog = page.getByTestId('method-dialog');
     await expect(dialog).toBeVisible();
     await expect(dialog.getByRole('heading', { name: 'How to make it' })).toBeVisible();
-    await expect(
-      dialog.getByRole('heading', { name: food.shortName || food.name }).first(),
-    ).toBeVisible();
+    await expect(dialog.getByRole('heading', { name: rowName }).first()).toBeVisible();
     await expect(dialog.getByTestId('method-equipment').locator('li')).toHaveCount(
       m.equipment.length,
     );

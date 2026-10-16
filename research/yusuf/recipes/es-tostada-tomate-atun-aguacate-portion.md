@@ -71,10 +71,11 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Steps**
 
-1. Morning: cut ½ roll (65 g) open and toast it in the toaster, or 2 minutes a side in a dry pan. *(medium heat · 3 min)*
-2. Spoon half the tomato pulp onto the toast. Drizzle 1 tsp olive oil (3 g). *(no heat)*
-3. Open 1 can of tuna, drain it (60 g) and put it on top. *(no heat)*
-4. Slice ¼ avocado (50 g) and 1 boiled egg and lay them on top. *(no heat)*
+1. No cooking: only the bread is toasted. In the morning cut ½ roll (65 g) open. *(no heat)*
+2. Toast it in the toaster, or 2 minutes a side in a dry pan. *(medium heat · 3 min)*
+3. Spoon half the tomato pulp onto the toast. Drizzle 1 tsp olive oil (3 g). *(no heat)*
+4. Open 1 can of tuna, drain it (60 g) and put it on top. *(no heat)*
+5. Slice ¼ avocado (50 g) and 1 boiled egg and lay them on top. *(no heat)*
 
 **Done when:** The bread is golden and crisp at the edges.
 

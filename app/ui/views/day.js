@@ -6,7 +6,7 @@ import { h, mountChildren, setText } from '../dom.js';
 import { iconEl, katoriMark } from '../components/icons.js';
 import { createTotalsBar } from '../components/totals-bar.js';
 import { renderSlotSection } from '../components/slot-section.js';
-import { createAddSheet } from '../components/add-sheet.js';
+import { createAddSheet, savedMealLine } from '../components/add-sheet.js';
 import { openPortionPicker } from '../components/portion-picker.js';
 import { openDialog, openActionSheet } from '../components/dialog.js';
 import { createUndoToast } from '../components/toast.js';
@@ -289,7 +289,7 @@ export function mount(container, ctx) {
     for (const meal of store.savedMeals().slice(0, 6)) {
       actions.push({
         label: `Add ${meal.name}`,
-        hint: `Saved meal · ${meal.items.length} ${meal.items.length === 1 ? 'food' : 'foods'}`,
+        hint: `Saved meal · ${savedMealLine(meal, store)}`,
         icon: 'plus',
         testid: 'slot-add-meal',
         onSelect: () => store.addSavedMeal({ mealId: meal.id, date, slot }),

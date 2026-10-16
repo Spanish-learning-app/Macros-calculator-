@@ -700,6 +700,48 @@ Method = { equipment: string[],                 // "Large frying pan (28 cm) wit
 Heat = 'none'|'low'|'medium'|'medium-high'|'high'|'oven-180'|'oven-200'|'oven-220'|'microwave'
 ```
 
+**Lab additions to LibraryRecipe** (Nutrition Lab, Sprint 3, 2026-10-16; all optional and additive, no schema
+bump; written by `research/yusuf/build.mjs` from the recipe sheets, so the sheets and the app never drift apart):
+
+```js
+LibraryRecipe += { pitch?: string,              // one sentence for the card: what it is and why (O4); 64/64
+                   cost?: { perBoxEur: number,  // € per box, 2 decimals (the standard batch ÷ boxes)
+                            totalEur: number,   // € for the standard batch (`boxes`)
+                            priceDate: string,  // YYYY-MM-DD: the OLDEST price read among the priced lines
+                                                // ("prices from 13 Oct"), never newer than the data
+                            shop: string },     // e.g. "Mercadona Barcelona + halal butcher (Carne Halal Online)"
+                                                // absent when a line has no current price (6 sheets)
+                   references?: [{ title: string, url: string }],  // published recipes the sheet starts
+                                                // from, 2–5 per prep (O9); https links, shown in Source
+                   timeNote?: string,           // start-to-finish time when waiting changes the plan
+                                                // (marinade, soak, slow simmer); `minutes` stays hands-on
+                   cuisine?: 'desi'|'spanish'|'mediterranean'|'middle-eastern'|'italian'|'mexican'|'asian'|'international',
+                   serve?: 'cold'|'hot'|'either' }  // assemble preps only: how it is eaten (hot = microwave)
+Ingredient.note                                 // where to buy, kept on every desi-shop line (halal butcher,
+                                                // Pakistani grocer) even when the line has a foodId
+```
+
+Lab method rules on top of the Method contract (the build fails, and `tests/unit/qa/method-contract.test.js`
+checks the same): every library recipe has a method object; a no-cook prep (`assemble` or `ready`) opens
+with a step that starts "No cooking" with no heat, and names any light heat there ("No cooking: only the
+bread is toasted."); a cook prep never opens with "No cooking"; a `boxUp` that freezes numbered boxes
+belongs to a recipe whose `storage` can freeze (a fresh salad or tomatoes kept apart is `{ id, pot: true }`).
+
+**Weekly plans** (`app/data/plans-mealprep.js`, Nutrition Lab, STATUS O7; generated with the library, not yet
+read by the UI: one-tap "Use this week" and ready picks per slot are Lena's):
+
+```js
+export const PLANS = [{ id: 'low-cook-week'|'budget-week', name, pitch, priceDate, shop,
+  tillEur, eatenEur,                             // whole packs at the till / food eaten this week (pro-rata)
+  sundayMinutes, weekdayMinutes,                 // hands-on
+  batches: [{ foodId, when, boxes, from?: 'freezer', note }],   // what to make and when ("Sunday", "Wednesday night")
+  days: [{ day, weekday,                         // 'Monday', 1 … 'Friday', 5
+           items: [{ slot, foodId, servingId, qty }],  // one Day entry each; servingId 'g' = grams (qty = grams);
+                                                 // ready add-ons are in slot 'snacks'
+           kcal, protein, fiber }] }]            // preview totals from the Lab records; the app computes its own
+export const READY_PICKS = { breakfast|lunch|dinner|snacks: [{ name, note, items, kcal, protein, fiber }] }
+```
+
 **Method** (M-01: the sheets had methods and the contract had no field, so they never reached the
 app). Optional and additive: no schema bump. A recipe without a method shows no "How to make it"
 at all. `tests/contract/recipe-method.test.js` checks every method that exists has exactly this

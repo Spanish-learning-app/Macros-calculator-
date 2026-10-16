@@ -8,7 +8,7 @@
 // - "Source and details" opens in one tap (A9, A14).
 import { h, uid, setText } from '../dom.js';
 import { iconEl, measureDrawing } from './icons.js';
-import { halalChip, estimateBadge, urduName } from './food-bits.js';
+import { halalChip, estimateBadge, urduName, kamTelLine } from './food-bits.js';
 import { openFoodDetails } from './food-details.js';
 import {
   fmtKcal,
@@ -253,6 +253,7 @@ export function openPortionPicker(props) {
       ...[
         food ? urduName(food) : null,
         food ? estimateBadge(food, rules) : null,
+        food ? kamTelLine(food, rules) : null, // STATUS O11
         !food
           ? h('span', { class: 'picker-note' }, 'Quick add: one portion as you entered it.')
           : null,

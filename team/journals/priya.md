@@ -135,3 +135,10 @@ Timestamps are UTC.
   wave 2, Nasreen/Mariam/Bilal Review 2. Plan: (1) serve chips, (2) saved-meal kcal/protein line,
   (3) Nasreen wording (UI strings only; rules.js wording proposed to Ayesha), kam-tel line,
   (4) a11y + speed pass incl. recipe-method sheet and step mode. Yusuf/Kenji work in parallel.
+- 07:00 UTC (resume) Found O3 serve chips, O10 saved-meal totals, edible-part labels and the kam-tel helper already on disk.
+  Added: kam-tel line in the portion picker subtitle and in food details (it takes the place of "Style: Kam tel");
+  food-details Source panel in plain words ("Where these numbers come from" / Source / Worked out by / How sure, no "(C)" and no
+  duplicate estimate badge); chai card "One cup: … It comes first when you search “chai”."; batch empty note explains a batch;
+  `savedMealLine(meal, store)` exported from add-sheet.js and used in the Day slot menu hint and the Prep saved-meals list.
+  Verified at 400×860 light/dark with real data (scratchpad orph.mjs): 21 serve chips in the library, chips on ready rows and
+  search rows, "2 foods · 439 kcal · 19 g protein", kam-tel line; no overflow, no console errors.

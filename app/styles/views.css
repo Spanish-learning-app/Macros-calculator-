@@ -857,9 +857,15 @@
   display: none;
 }
 
-.picker-note {
+.picker-note,
+.kamtel-line {
   font-size: var(--text-sm);
   color: var(--text-muted);
+}
+
+/* O11: "Kam tel: made with about half the oil" on its own line under the name. */
+.picker-sub .kamtel-line {
+  flex-basis: 100%;
 }
 
 .picker-body > .picker-halal {

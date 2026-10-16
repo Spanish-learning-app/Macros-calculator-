@@ -423,4 +423,4 @@ The nutrition of a library prep always comes from its Lab record (this page), ne
 - Recipes: at least two published recipes per prep, listed in each sheet; the desi dinners reuse the references Zainab Rauf collected for her home-style records.
 - Storage: `RULES.mealPrep.storage` (NHS and UK FSA for rice; USDA FSIS for cooked meat, egg dishes and leftovers; Lab rules for salads, overnight oats and flatbreads).
 - Prices: tienda.mercadona.es (Barcelona, postal code 08001) and carnehalalonline.com, read 2026-10-13 and 2026-10-14. Prices change: the date is part of the number.
-- Calculation: `node research/yusuf/fetch.mjs`, then `node research/yusuf/build.mjs`. This page, the recipe sheets, `app/data/foods-mealprep.js` and `app/data/recipes-mealprep.js` come from the same run.
+- Calculation: `node research/yusuf/fetch.mjs`, then `node research/yusuf/build.mjs`. This page, the recipe sheets, `app/data/foods-mealprep.js`, `app/data/recipes-mealprep.js` and `app/data/plans-mealprep.js` (the two weeks and the ready picks as app data) come from the same run.

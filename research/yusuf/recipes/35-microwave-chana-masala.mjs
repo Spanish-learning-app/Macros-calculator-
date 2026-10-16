@@ -67,7 +67,8 @@ export default {
       'Chop a few sprigs of coriander (6 g).',
     ],
     steps: [
-      { text: 'No cooking on the hob: everything is done in the microwave. In the bowl mix the onion, 2 tsp olive oil (10 g) and the ginger-garlic paste. Cover loosely and microwave until the onion is soft.', heat: 'microwave', minutes: 3 },
+      { text: 'No cooking on the hob: everything is done in the microwave. Get the microwave bowl and its loose lid ready.', heat: 'none' },
+      { text: 'In the bowl mix the onion, 2 tsp olive oil (10 g) and the ginger-garlic paste. Cover loosely and microwave until the onion is soft.', heat: 'microwave', minutes: 3 },
       { text: 'Stir in the powders: 1½ tsp garam masala (3 g), 1 tsp ground cumin (2 g), 1 tsp ground coriander (2 g), ⅓ tsp red chilli powder (1 g), ⅓ tsp haldi (turmeric powder, 1 g) and ⅓ tsp salt (2 g). Microwave uncovered for only 30 seconds so the spices toast in the oil without burning.', heat: 'microwave' },
       { text: 'Add the crushed tomato (200 g, half a 400 g tin). Stir, cover and microwave 4 minutes, stirring halfway.', heat: 'microwave', minutes: 4 },
       { text: 'Add the chickpeas, stir, cover and microwave until bubbling.', heat: 'microwave', minutes: 3 },

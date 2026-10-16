@@ -43,7 +43,7 @@ export default {
       ],
     },
     {
-      id: 'pesto', label: 'Almond-basil pesto (no cheese) and cherry tomatoes', storage: 'cold-salad', yield: 'none', eat: 'either',
+      id: 'pesto', label: 'Almond-basil pesto (no cheese), stirred into the pasta', storage: 'cooked-starch', yield: 'none', eat: 'either',
       lines: [
         ['basil', 40, '2 trays'],
         ['almonds', 40, 'toasted'],
@@ -52,12 +52,15 @@ export default {
         ['lemon-juice', 30, ''],
         ['salt', 2, ''],
         ['water', 40, 'from the pasta pot, to loosen'],
-        ['tomato-cherry', 240, 'halved, added cold'],
       ],
+    },
+    {
+      id: 'tomatoes', label: 'Cherry tomatoes (own small pot, added fresh)', storage: 'cold-salad', pot: true, yield: 'none', eat: 'cold',
+      lines: [['tomato-cherry', 240, 'halved, added cold']],
     },
   ],
   method: {
-    equipment: ['Large frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Mug (to keep pasta water)', 'Stick blender and its jug (or small food processor)', 'Small dry pan for the almonds', 'Oven tray for cooling', '4 lunch boxes'],
+    equipment: ['Large frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Mug (to keep pasta water)', 'Stick blender and its jug (or small food processor)', 'Small dry pan for the almonds', 'Oven tray for cooling', '4 lunch boxes', '1 small lidded pot for the tomatoes'],
     prep: [
       'Cut the chicken breast (540 g) into bite-size pieces of about 2.5 cm.',
       'Peel 4 garlic cloves: chop 2 (6 g) for the chicken and keep 2 (6 g) whole for the pesto.',
@@ -73,11 +76,11 @@ export default {
       { text: 'Scoop out a mug of the cooking water, then drain the pasta and broccoli in the colander.', heat: 'none' },
       { text: 'Make the pesto: in the blender jug put the basil, toasted almonds, 3 tbsp olive oil (44 g), the 2 whole garlic cloves, 2 tbsp lemon juice (30 g), ⅓ tsp salt (2 g) and 40 g (about 3 tbsp) of the pasta water. Blend 1 minute until smooth.', heat: 'none', minutes: 1 },
       { text: 'Tip the pasta, broccoli and chicken back into the pot, add the pesto and stir until everything is green.', heat: 'none' },
-      { text: 'Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Add a quarter of the cherry tomatoes to the fridge box only.', heat: 'none', minutes: 25 },
+      { text: 'Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Put a quarter of the cherry tomatoes (60 g) in the small pot for the fridge box; keep the rest in the fridge.', heat: 'none', minutes: 25 },
     ],
     doneWhen: 'Chicken: white all through, no pink (75 °C). Pasta: soft but still slightly firm in the middle when you bite one.',
-    boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (1 month) without tomatoes. Each evening move one box from the freezer to the fridge and add a handful of cherry tomatoes in the morning.',
-    reheat: 'Hot: take out the tomatoes, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.',
+    boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge with its tomato pot, boxes 2–4 in the freezer (1 month) without tomatoes (the pesto is stirred into the pasta and freezes with it). Each evening move one box from the freezer to the fridge and fill the small pot with a handful of cherry tomatoes (60 g) in the morning.',
+    reheat: 'Hot: keep the tomato pot aside, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.',
     tips: ['The pesto has no cheese, so there is no rennet to check.'],
   },
   keeps: 'Box 1 in the fridge (pasta keeps 1 day); boxes 2–4 frozen',
@@ -87,6 +90,7 @@ export default {
   changes: [
     'Shop pesto has cheese with rennet (Hacendado 35438, 35186; Javier marks intl-pesto-basil check): a 5-minute almond pesto replaces it.',
     'Broccoli cooked in the pasta water: one pot, and with wholewheat penne about 12 g fibre per box.',
+    '2026-10-16 BUG-M1 (Kenji): the pesto is stirred into the pasta, so it is stored as the pasta (cooked-starch: 1 day fridge, freezes 1 month); the cherry tomatoes are their own fresh pot (cold-salad, pot). The record now freezes boxes 2–4 as the method says. Numbers unchanged.',
   ],
   confidence: 'B',
   confidenceWhy: 'Pasta and broccoli yields from USDA dry/cooked pairs, chicken from Bognár; label and USDA values.',

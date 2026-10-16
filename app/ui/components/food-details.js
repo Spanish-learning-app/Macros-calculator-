@@ -3,7 +3,7 @@
 import { h } from '../dom.js';
 import { openDialog } from './dialog.js';
 import { fmtKcal, fmtGrams, servingNote, fmtDateLong } from './format.js';
-import { estimateBadge, urduName } from './food-bits.js';
+import { urduName, kamTelText } from './food-bits.js';
 
 // Internal pointers that mean nothing to a customer (Review 1 item 9): file paths, doc sections,
 // recipe and record ids, and the Lab's working figures (yield, added fat, cross-check deltas).
@@ -92,23 +92,27 @@ export function openFoodDetails({ food, rules, onClose = null }) {
           food.state,
         )
       : null,
-    style ? h('p', { class: 'details-state' }, h('strong', null, 'Style: '), style.label) : null,
+    // A kam-tel food says how much less oil instead of repeating its label (STATUS O11).
+    kamTelText(food, rules)
+      ? h('p', { class: 'details-state', 'data-testid': 'kamtel-line' }, kamTelText(food, rules))
+      : style
+        ? h('p', { class: 'details-state' }, h('strong', null, 'Style: '), style.label)
+        : null,
     food.userRecipe && food.group === 'lunchbox'
       ? h('p', { class: 'details-state', 'data-testid': 'own-recipe-note' }, OWN_RECIPE_NOTE)
       : null,
 
-    h('h3', { class: 'details-h' }, 'Source'),
+    // Nasreen Review 2: "Citation / Method / Confidence Estimate (C) estimate" read as jargon.
+    h('h3', { class: 'details-h' }, 'Where these numbers come from'),
     h(
       'dl',
       { class: 'details-dl' },
-      row('Citation', h('span', { class: 'details-citation' }, displayCitation(src.citation))),
-      method ? row('Method', method.label) : null,
+      row('Source', h('span', { class: 'details-citation' }, displayCitation(src.citation))),
+      method ? row('Worked out by', method.label) : null,
       grade
         ? row(
-            'Confidence',
-            h('span', null, `${grade.label} (${grade.id})`),
-            ' ',
-            estimateBadge(food, rules),
+            'How sure',
+            h('span', null, grade.label),
             h('span', { class: 'details-sub' }, grade.description),
           )
         : null,

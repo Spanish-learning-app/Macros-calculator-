@@ -166,9 +166,13 @@ function checkMethod(s) {
   if (m.doneWhen !== undefined && (typeof m.doneWhen !== 'string' || !m.doneWhen.trim())) bad('doneWhen must be a string');
   for (const k of ['boxUp', 'reheat']) if (typeof m[k] !== 'string' || !m[k].trim()) bad(`needs ${k}: a string`);
   if (m.tips !== undefined && !isStrList(m.tips)) bad('tips must be a list of strings');
-  // A no-cook prep (assemble, no step with heat) says so in its first step (brief s3-method Addendum).
-  const noHeat = m.steps.every((st) => !st.heat || st.heat === 'none');
-  if (s.effort === 'assemble' && noHeat && !/^no cooking\b/i.test(m.steps[0].text)) bad('of a no-cook prep must start with "No cooking."');
+  // A no-cook prep (effort assemble or ready) opens with a "No cooking" step with no heat (brief s3-method Addendum);
+  // light heat later (toast, a microwave, a kettle) is named there: "No cooking: only the bread is toasted." (BUG-M2).
+  // A cook prep never opens with "No cooking" (the words would lie). Same rule as tests/unit/qa/method-contract.test.js.
+  const noCook = s.effort === 'assemble' || s.effort === 'ready';
+  const saysNoCook = /^No cooking\b/.test(m.steps[0].text);
+  if (noCook && (!saysNoCook || (m.steps[0].heat && m.steps[0].heat !== 'none'))) bad('of a no-cook prep must start with a "No cooking" step with no heat');
+  if (!noCook && saysNoCook) bad('of a cook prep must not start with "No cooking"');
   // Contract key order, only the contract keys.
   const out = {};
   for (const k of METHOD_KEYS) if (m[k] !== undefined) out[k] = k === 'steps' ? m.steps.map((st) => ({ text: st.text, ...(st.heat ? { heat: st.heat } : {}), ...(st.minutes ? { minutes: st.minutes } : {}) })) : m[k];
@@ -841,6 +845,7 @@ function weekMd(rows) {
   L.push(`**A lower protein target.** This week is planned for 120–140 g protein. If your target is lower, like Mariam's 96 g (1.6 g per kg at 60 kg), eat smaller portions or fewer add-ons, not different meals: the three preps alone give ${r0(Math.min(...meal))}–${r0(Math.max(...meal))} g a day, and the ready items add about ${r0(readyP)} g. Leave out the protein add-ons (the protein yogurt pots and Burgos tubs) and keep the fruit and almonds, or take the ½ box or ½ portion serving of one meal and fill up with fruit or bread. Set your own target in the app and the day bar shows where you are.`, '');
   weekShopMd(L, P);
   L.push(`**Approximate cost:** about **${eur(P.till)}** at the till for the week (whole packs at Mercadona on ${WEEK_SNAP}, a new price snapshot; halal chicken and beef mince at Carne Halal Online read 2026-10-13). About **${eur(P.eaten - P.freezer)}** of it is the food that goes into this week's batches and ready items (pro-rata, cupboard included), and that includes the 3 bolognese sauce portions and the tray-bake portion left in the freezer for the next weeks. The karahi portion from the freezer was bought on an earlier week: about **${eur(P.freezer)}** of food (pro-rata, same price dates). With it, the week eats about **${eur(P.eaten)}**, **${eur(P.eaten / 5)} a day** for three meals and the merienda, freezer stock included; the rest of the till money stays in the cupboard and fridge (oats, picos, spices, eggs, most of the yogurt and cheese packs). Prices change: the date is part of the number.`, '');
+  planData('low-cook-week', 'Low-cook week', `One Sunday cook (${P.mins.Sunday} min hands-on), short jobs on weekday evenings and ready food for the merienda: a different lunch most days, desi at dinner.`, P, WEEKS.v3);
   WEEK_RESULT.v3 = { snap: WEEK_SNAP, totals: P.totals.map(({ day, kcal, protein, fiber, meals }) => ({ day, kcal, protein, fiber, breakfast: meals[0].s.id, lunch: meals[1].s.id, dinner: meals[2].s.id, lunchCuisine: meals[1].s.cuisine, dinnerCuisine: meals[2].s.cuisine })), sundayMinutes: P.mins.Sunday, weekdayMinutes: P.mins.other, till: P.till, eaten: P.eaten, freezer: P.freezer, unpriced: P.unpriced };
   return L;
 }
@@ -855,10 +860,75 @@ function budgetWeekMd(rows) {
   L.push(`**Variety:** lunches ${mix(P, 1)}; dinners ${mix(P, 2)}.`, '');
   weekShopMd(L, P);
   L.push(`**Cost:** **${eur(P.till)} at the till** (${eur(P.till / 5)} a day), whole packs at Mercadona on ${WEEK_SNAP} (a new price snapshot) and halal chicken at Carne Halal Online read 2026-10-13. The food eaten this week is about **${eur(P.eaten)}** (${eur(P.eaten / 5)} a day, pro-rata, cupboard included, with the pasta-bake, tuna-pasta and chana masala portions left in the freezer). The till total leaves out the cupboard (oil, salt and spices: about ${eur(P.pantry)} of them go into the week)${P.unpriced.length ? ` and ${P.unpriced.map((i) => shortLabel(i).toLowerCase().replace(/, raw$/, '')).join(', ')} from the desi shop (a few grams, not priced)` : ''}. What is left over stays in the cupboard and fridge for next week (oats, pasta, picos, eggs, most of the spices). Prices change: the date is part of the number.`, '');
+  planData('budget-week', 'Budget week', 'The same idea on a tight budget: pasta, jarred chickpeas and lentils, eggs, oats and bananas, about 110–130 g protein a day.', P, WEEKS.budget);
   WEEK_RESULT.budget = { snap: WEEK_SNAP, totals: P.totals.map(({ day, kcal, protein, fiber, meals }) => ({ day, kcal, protein, fiber, breakfast: meals[0].s.id, lunch: meals[1].s.id, dinner: meals[2].s.id, lunchCuisine: meals[1].s.cuisine, dinnerCuisine: meals[2].s.cuisine })), sundayMinutes: P.mins.Sunday, weekdayMinutes: P.mins.other, till: P.till, eaten: P.eaten, tillPerDay: P.till / 5, eatenPerDay: P.eaten / 5, unpriced: P.unpriced };
   return L;
 }
 const WEEK_RESULT = {};
+
+// ------------------------------------------------------------------ app/data/plans-mealprep.js (STATUS O7)
+// The two weeks and the ready picks as app data, from the same WEEKS and READY objects as docs/MEALPREP.md.
+// Shape: journal yusuf 2026-10-16 07:07 and the header of the generated file.
+const PLAN_DATA = [];
+const WEEKDAY = { Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6, Sunday: 7 };
+const r2 = (x) => Math.round(x * 100) / 100;
+const n1 = (x) => Math.round(x * 10) / 10;
+// A ready item [foodId, servingId | grams, qty] → a Day entry { foodId, servingId, qty } ('g' = grams).
+const readyEntry = ([foodId, serving, qty = 1]) => (typeof serving === 'number' ? { foodId, servingId: 'g', qty: serving * qty } : { foodId, servingId: serving, qty });
+function planData(id, name, pitch, P, W) {
+  PLAN_DATA.push({
+    id,
+    name,
+    pitch,
+    priceDate: WEEK_SNAP,
+    shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
+    tillEur: r2(P.till),
+    eatenEur: r2(P.eaten),
+    sundayMinutes: P.mins.Sunday,
+    weekdayMinutes: P.mins.other,
+    batches: W.batches.map((b) => ({ foodId: b.id, when: b.when, boxes: b.make, ...(b.from ? { from: b.from } : {}), note: b.note })),
+    days: P.totals.map((t, i) => ({
+      day: t.day,
+      weekday: WEEKDAY[t.day],
+      items: [
+        ...['breakfast', 'lunch', 'dinner'].map((slot, k) => ({ slot, foodId: t.meals[k].s.id, servingId: t.meals[k].r.serving, qty: 1 })),
+        ...W.days[i].ready.map((x) => ({ slot: 'snacks', ...readyEntry(x.r) })),
+      ],
+      kcal: Math.round(t.kcal),
+      protein: n1(t.protein),
+      fiber: n1(t.fiber),
+    })),
+  });
+}
+function readyPicksData() {
+  return Object.fromEntries(
+    Object.entries(READY).map(([slot, picks]) => [
+      slot,
+      picks.map((p) => {
+        const t = sumLines(p.items.map(readyLine));
+        return { name: p.name, note: p.note, items: p.items.map(readyEntry), kcal: Math.round(t.kcal), protein: n1(t.protein), fiber: n1(t.fiber) };
+      }),
+    ]),
+  );
+}
+function plansFile() {
+  const header = `// Meal-prep weekly plans and ready-to-eat picks (STATUS O7). Owner: Yusuf Benali (Nutrition Lab).
+// GENERATED by research/yusuf/build.mjs from the same WEEKS and READY objects as docs/MEALPREP.md; do not edit by
+// hand. Every foodId is a Lab food (lunch-box preps in foods-mealprep.js, ready items in the other food files).
+// PLANS = [{ id, name, pitch, priceDate, shop, tillEur (whole packs at the till), eatenEur (the food eaten,
+// pro-rata), sundayMinutes, weekdayMinutes (hands-on), batches: [{ foodId, when, boxes, from?: 'freezer', note }],
+// days: [{ day, weekday (1 = Monday), items: [{ slot, foodId, servingId, qty }], kcal, protein, fiber }] }].
+// An item is a Day entry: servingId 'g' means grams (qty = grams). Ready items of a week are in slot 'snacks'
+// (merienda and add-ons). kcal, protein and fiber are the day's totals from the Lab records (a preview only;
+// the app computes its own from the entries). READY_PICKS = { breakfast|lunch|dinner|snacks: [{ name, note,
+// items, kcal, protein, fiber }] }: buy-and-eat meals, no prep.
+
+export const PLANS = [
+`;
+  const picks = readyPicksData();
+  const body = Object.entries(picks).map(([slot, list]) => `  ${slot}: [\n${serialize(list).replace(/^/gm, '  ')}\n  ],`).join('\n');
+  return `${header}${serialize(PLAN_DATA)}\n];\n\nexport const READY_PICKS = {\n${body}\n};\n`;
+}
 
 // ------------------------------------------------------------------ library page
 function libraryMd(rows) {
@@ -968,7 +1038,7 @@ function libraryMd(rows) {
   L.push('- Recipes: at least two published recipes per prep, listed in each sheet; the desi dinners reuse the references Zainab Rauf collected for her home-style records.');
   L.push('- Storage: `RULES.mealPrep.storage` (NHS and UK FSA for rice; USDA FSIS for cooked meat, egg dishes and leftovers; Lab rules for salads, overnight oats and flatbreads).');
   L.push('- Prices: tienda.mercadona.es (Barcelona, postal code 08001) and carnehalalonline.com, read ' + DATE + ' and 2026-10-14. Prices change: the date is part of the number.');
-  L.push('- Calculation: `node research/yusuf/fetch.mjs`, then `node research/yusuf/build.mjs`. This page, the recipe sheets, `app/data/foods-mealprep.js` and `app/data/recipes-mealprep.js` come from the same run.', '');
+  L.push('- Calculation: `node research/yusuf/fetch.mjs`, then `node research/yusuf/build.mjs`. This page, the recipe sheets, `app/data/foods-mealprep.js`, `app/data/recipes-mealprep.js` and `app/data/plans-mealprep.js` (the two weeks and the ready picks as app data) come from the same run.', '');
   return L.join('\n');
 }
 
@@ -998,6 +1068,7 @@ export default [
 fs.writeFileSync(path.join(root, 'app', 'data', 'foods-mealprep.js'), `${header}${serialize(rows.map(({ s, r }) => record(s, r)))}\n];\n`);
 fs.writeFileSync(path.join(root, 'app', 'data', 'recipes-mealprep.js'), recipesFile(rows));
 fs.writeFileSync(path.join(root, 'docs', 'MEALPREP.md'), libraryMd(rows));
+fs.writeFileSync(path.join(root, 'app', 'data', 'plans-mealprep.js'), plansFile());
 fs.writeFileSync(path.join(here, 'out', 'missing-foods.json'), JSON.stringify(Object.fromEntries([...MISSING].map(([k, v]) => [k, { label: v.label, recipes: [...v.recipes].sort((a, b) => a - b) }])), null, 1) + '\n');
 for (const { s, r } of rows) console.log(`R-MP-${s.n} ${s.id}: ${r.effort} ${r.minutes} min, ${r.box.grams} g, ${r.box.kcal} kcal, ${r1(r.box.protein)} g P, ${r1(r.box.fiber)} g fibre, ${r.cost.partialMajor ? 'cost n/a' : `${r.cost.perBox.toFixed(2)} €`}`);
 for (const [k, w] of Object.entries(WEEK_RESULT)) {

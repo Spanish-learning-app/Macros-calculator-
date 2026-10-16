@@ -55,7 +55,7 @@ The standard recipe below triangulates these and then adjusts to the box targets
 | Fresh mint (hierbabuena = spearmint) | 4 | 1 | chopped |
 | Hummus de garbanzos Hacendado receta clásica (made by Simply Greek) | 160 | 40 | 40 g per box |
 
-### Lettuce, tomato, cucumber and red onion
+### Lettuce, tomato, cucumber and red onion (own tub)
 
 | Ingredient | Raw g (4 boxes) | Per box | Notes |
 |---|---|---|---|
@@ -80,13 +80,13 @@ This is the method the app shows under "How to make it" (generated from the same
 - Mixing bowl
 - Small bowl for the sauce
 - Chopping board and knife
-- 4 lunch boxes and 8 small lidded pots (about 50 ml)
+- 4 lunch boxes, 4 salad tubs (about 500 ml) and 6 small lidded pots (about 50 ml)
 
 **Before you start**
 
 - Cut the chicken breast (520 g) into strips about 1 cm thick and 5 cm long.
 - Peel 4 garlic cloves. Grate 3 of them (9 g) for the marinade and 1 (3 g) for the sauce.
-- Shred the lettuce (160 g). Dice the tomatoes (240 g) and cucumber (200 g) into 1 cm cubes. Slice the red onion (60 g) thin.
+- Salad for boxes 1–2 only: shred half the lettuce (80 g), dice half the tomatoes (120 g) and cucumber (100 g) into 1 cm cubes and slice half the red onion (30 g) thin. Keep the other half whole in the fridge for Tuesday night.
 - Chop the mint leaves (4 g, a small handful) finely.
 
 **Steps**
@@ -96,16 +96,16 @@ This is the method the app shows under "How to make it" (generated from the same
 3. Turn the oven on to 220 °C and let it heat for 10 minutes. *(oven 220 °C · 10 min)*
 4. Spread the chicken on the lined tray in one layer, pieces not touching. Put it in the oven. *(oven 220 °C)*
 5. Roast for 15–18 minutes, until the edges start to brown. *(oven 220 °C · 18 min)*
-6. While it roasts, make the sauce: stir 160 g Greek yogurt, the 3 g grated garlic, 1½ tsp lemon juice (8 g) and the chopped mint in the small bowl. *(no heat)*
-7. Spoon the garlic-yogurt sauce into 4 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them. *(no heat)*
+6. While it roasts, make half the sauce (for boxes 1–2): stir 80 g Greek yogurt, half the 3 g grated garlic, ¾ tsp lemon juice (4 g) and half the chopped mint in the small bowl. Keep the rest of the yogurt in the fridge for Tuesday night. *(no heat)*
+7. Spoon the garlic-yogurt sauce into 2 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them. *(no heat)*
 8. Take the tray out. Check the biggest strip (see "Done when"). Let the chicken cool on the tray. *(no heat · 20 min)*
-9. Mix the lettuce, tomato, cucumber and onion. Divide the salad between the 4 boxes (or into separate salad boxes). *(no heat)*
+9. Mix the cut lettuce, tomato, cucumber and onion and divide it between 2 salad tubs (boxes 1–2). The salad always stays in its own tub, never in the chicken box. *(no heat)*
 10. Divide the cooled chicken into 4 equal portions. Keep it in its own box or on one side of the box, apart from the salad, so you can warm it alone. *(no heat)*
 11. At lunch: warm the chicken if you like (see Reheat), open the pitas, spread hummus and yogurt sauce inside, and fill with chicken and salad. *(no heat)*
 
 **Done when:** Cut the thickest strip: white all through, no pink, juices clear (75 °C if you have a thermometer).
 
-**Box it up:** Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken, salad and both pots in the fridge (eat by day 2). Boxes 3–4: chicken in the freezer (3 months; or the fridge if you eat it on day 3), and cut fresh salad and stir a fresh sauce on Tuesday night (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).
+**Box it up:** Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken box, salad tub and both pots in the fridge (eat by day 2). Boxes 3–4: chicken box in the freezer (3 months; or the fridge if you eat it on day 3); on Tuesday night cut the other half of the salad into 2 tubs and stir the second half of the sauce (80 g yogurt, the rest of the garlic, 4 g lemon juice, the rest of the mint) into 2 pots (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).
 
 **Reheat:** Chicken only, if you want it warm: take it out of the salad, microwave with the lid loose for about 1 minute until steaming hot. Never microwave the salad or the sauces. From the freezer: move the chicken to the fridge the night before.
 
@@ -123,7 +123,7 @@ This is the method the app shows under "How to make it" (generated from the same
 |---|---|---|---|---|
 | Shawarma chicken (oven) | 636 | 469 | **117** | `cooked-meat` |
 | Garlic-yogurt and hummus pot | 335 | 335 | **84** | `cold-salad` |
-| Lettuce, tomato, cucumber and red onion | 660 | 660 | **165** | `cold-salad` |
+| Lettuce, tomato, cucumber and red onion (own tub) | 660 | 660 | **165** | `cold-salad` |
 | Pita bread (2 per box, in their bag) | 480 | 480 | **120** | `proposed:bread` (not in RULES) |
 | **Batch** | 2111 | 1944 | **486** (½ box 243) | |
 
@@ -153,7 +153,7 @@ kcal = round(4P + 4C + 9F + 2·fibre) = **141** per 100 g. The sum of the tables
 |---|---|---|---|---|
 | Shawarma chicken (oven) | 117 g | `cooked-meat` | 3 days | 3 months |
 | Garlic-yogurt and hummus pot | 84 g | `cold-salad` | 2 days | do not freeze |
-| Lettuce, tomato, cucumber and red onion | 165 g | `cold-salad` | 2 days | do not freeze |
+| Lettuce, tomato, cucumber and red onion (own tub) | 165 g | `cold-salad` | 2 days | do not freeze |
 | Pita bread (2 per box, in their bag) | 120 g | `proposed:bread` (not in RULES) | — | yes (pack) |
 
 Use-by of a packed box = cooked date + the shortest fridge life in it = **2 days**. A frozen box has no use-by until it is moved to the fridge (then 1 day).
@@ -212,6 +212,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 - Breast instead of thigh: there is no current halal price for boneless thigh (prices.mjs), and breast keeps the box under the fat target.
 - A hummus pot next to the garlic yogurt brings the box to 8 g fibre (pita and salad alone give about 5).
 - Mission pita: no E471 (label 2026-10-13); the Mercadona wheat tortillas list E471 of unstated origin (2026-10-15).
+- 2026-10-16 BUG-M1 (Kenji): the salad is packed in its own tub (cold-salad, pot), so the record freezes boxes 3–4 as the method says; half the salad and half the yogurt sauce are made on Tuesday night (2-day rule). Numbers unchanged.
 
 ## Ingredient values (per 100 g, carbs = available carbohydrate)
 

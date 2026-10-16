@@ -74,7 +74,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Steps**
 
-1. Morning: cut 80 g of barra (a third of a barra) and split it lengthways. *(no heat)*
+1. No cooking: only the bread is toasted. In the morning cut 80 g of barra (a third of a barra) and split it lengthways. *(no heat)*
 2. Toast it in the toaster or a dry pan until golden, about 2–3 minutes. *(medium heat · 3 min)*
 3. Cut a ripe tomato (60 g, ½ medium) in half and grate the cut side into the bowl; throw away the skin. Or rub the cut tomato straight onto the toast. *(no heat)*
 4. Spread the tomato on the toast. Add a pinch of salt and 1 tsp olive oil (5 g). *(no heat)*

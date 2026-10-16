@@ -51,7 +51,7 @@ export default {
       ],
     },
     {
-      id: 'salad', label: 'Lettuce, tomato, cucumber and red onion', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      id: 'salad', label: 'Lettuce, tomato, cucumber and red onion (own tub)', storage: 'cold-salad', pot: true, yield: 'none', eat: 'cold',
       lines: [
         ['lettuce', 160, 'shredded'],
         ['tomato', 240, 'diced'],
@@ -65,11 +65,11 @@ export default {
     },
   ],
   method: {
-    equipment: ['Large oven tray lined with baking paper', 'Mixing bowl', 'Small bowl for the sauce', 'Chopping board and knife', '4 lunch boxes and 8 small lidded pots (about 50 ml)'],
+    equipment: ['Large oven tray lined with baking paper', 'Mixing bowl', 'Small bowl for the sauce', 'Chopping board and knife', '4 lunch boxes, 4 salad tubs (about 500 ml) and 6 small lidded pots (about 50 ml)'],
     prep: [
       'Cut the chicken breast (520 g) into strips about 1 cm thick and 5 cm long.',
       'Peel 4 garlic cloves. Grate 3 of them (9 g) for the marinade and 1 (3 g) for the sauce.',
-      'Shred the lettuce (160 g). Dice the tomatoes (240 g) and cucumber (200 g) into 1 cm cubes. Slice the red onion (60 g) thin.',
+      'Salad for boxes 1–2 only: shred half the lettuce (80 g), dice half the tomatoes (120 g) and cucumber (100 g) into 1 cm cubes and slice half the red onion (30 g) thin. Keep the other half whole in the fridge for Tuesday night.',
       'Chop the mint leaves (4 g, a small handful) finely.',
     ],
     steps: [
@@ -78,15 +78,15 @@ export default {
       { text: 'Turn the oven on to 220 °C and let it heat for 10 minutes.', heat: 'oven-220', minutes: 10 },
       { text: 'Spread the chicken on the lined tray in one layer, pieces not touching. Put it in the oven.', heat: 'oven-220' },
       { text: 'Roast for 15–18 minutes, until the edges start to brown.', heat: 'oven-220', minutes: 18 },
-      { text: 'While it roasts, make the sauce: stir 160 g Greek yogurt, the 3 g grated garlic, 1½ tsp lemon juice (8 g) and the chopped mint in the small bowl.', heat: 'none' },
-      { text: 'Spoon the garlic-yogurt sauce into 4 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them.', heat: 'none' },
+      { text: 'While it roasts, make half the sauce (for boxes 1–2): stir 80 g Greek yogurt, half the 3 g grated garlic, ¾ tsp lemon juice (4 g) and half the chopped mint in the small bowl. Keep the rest of the yogurt in the fridge for Tuesday night.', heat: 'none' },
+      { text: 'Spoon the garlic-yogurt sauce into 2 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them.', heat: 'none' },
       { text: 'Take the tray out. Check the biggest strip (see "Done when"). Let the chicken cool on the tray.', heat: 'none', minutes: 20 },
-      { text: 'Mix the lettuce, tomato, cucumber and onion. Divide the salad between the 4 boxes (or into separate salad boxes).', heat: 'none' },
+      { text: 'Mix the cut lettuce, tomato, cucumber and onion and divide it between 2 salad tubs (boxes 1–2). The salad always stays in its own tub, never in the chicken box.', heat: 'none' },
       { text: 'Divide the cooled chicken into 4 equal portions. Keep it in its own box or on one side of the box, apart from the salad, so you can warm it alone.', heat: 'none' },
       { text: 'At lunch: warm the chicken if you like (see Reheat), open the pitas, spread hummus and yogurt sauce inside, and fill with chicken and salad.', heat: 'none' },
     ],
     doneWhen: 'Cut the thickest strip: white all through, no pink, juices clear (75 °C if you have a thermometer).',
-    boxUp: 'Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken, salad and both pots in the fridge (eat by day 2). Boxes 3–4: chicken in the freezer (3 months; or the fridge if you eat it on day 3), and cut fresh salad and stir a fresh sauce on Tuesday night (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).',
+    boxUp: 'Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken box, salad tub and both pots in the fridge (eat by day 2). Boxes 3–4: chicken box in the freezer (3 months; or the fridge if you eat it on day 3); on Tuesday night cut the other half of the salad into 2 tubs and stir the second half of the sauce (80 g yogurt, the rest of the garlic, 4 g lemon juice, the rest of the mint) into 2 pots (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).',
     reheat: 'Chicken only, if you want it warm: take it out of the salad, microwave with the lid loose for about 1 minute until steaming hot. Never microwave the salad or the sauces. From the freezer: move the chicken to the fridge the night before.',
     tips: ['No time to marinate? 10 minutes is enough; the spices still stick.'],
   },
@@ -97,7 +97,7 @@ export default {
   changes: [
     'Breast instead of thigh: there is no current halal price for boneless thigh (prices.mjs), and breast keeps the box under the fat target.',
     'A hummus pot next to the garlic yogurt brings the box to 8 g fibre (pita and salad alone give about 5).',
-    'Mission pita: no E471 (label 2026-10-13); the Mercadona wheat tortillas list E471 of unstated origin (2026-10-15).',
+    'Mission pita: no E471 (label 2026-10-13); the Mercadona wheat tortillas list E471 of unstated origin (2026-10-15).',    '2026-10-16 BUG-M1 (Kenji): the salad is packed in its own tub (cold-salad, pot), so the record freezes boxes 3–4 as the method says; half the salad and half the yogurt sauce are made on Tuesday night (2-day rule). Numbers unchanged.',
   ],
   confidence: 'B',
   confidenceWhy: 'Chicken from the USDA roasted-breast water balance; labels for yogurt, hummus and pita; USDA vegetables.',

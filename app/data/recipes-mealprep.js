@@ -3226,7 +3226,7 @@ export default [
       prep: ['Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
       steps: [
         {
-          text: 'Morning: cut 80 g of barra (a third of a barra) and split it lengthways.',
+          text: 'No cooking: only the bread is toasted. In the morning cut 80 g of barra (a third of a barra) and split it lengthways.',
           heat: 'none',
         },
         {
@@ -3767,7 +3767,11 @@ export default [
       prep: ['Chop ½ medium onion very fine (80 g).', 'Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.', 'Drain and rinse the chickpeas (1 jar, 400 g drained).', 'Chop a few sprigs of coriander (6 g).'],
       steps: [
         {
-          text: 'No cooking on the hob: everything is done in the microwave. In the bowl mix the onion, 2 tsp olive oil (10 g) and the ginger-garlic paste. Cover loosely and microwave until the onion is soft.',
+          text: 'No cooking on the hob: everything is done in the microwave. Get the microwave bowl and its loose lid ready.',
+          heat: 'none',
+        },
+        {
+          text: 'In the bowl mix the onion, 2 tsp olive oil (10 g) and the ginger-garlic paste. Cover loosely and microwave until the onion is soft.',
           heat: 'microwave',
           minutes: 3,
         },
@@ -4311,7 +4315,6 @@ export default [
     storage: [
       'cooked-meat',
       { id: 'cold-salad', pot: true },
-      'cold-salad',
     ],
     ingredients: [
       { foodId: 'intl-chicken-breast-raw', grams: 520, section: 'butcher' },
@@ -4360,8 +4363,8 @@ export default [
       },
     ],
     method: {
-      equipment: ['Large oven tray lined with baking paper', 'Mixing bowl', 'Small bowl for the sauce', 'Chopping board and knife', '4 lunch boxes and 8 small lidded pots (about 50 ml)'],
-      prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick and 5 cm long.', 'Peel 4 garlic cloves. Grate 3 of them (9 g) for the marinade and 1 (3 g) for the sauce.', 'Shred the lettuce (160 g). Dice the tomatoes (240 g) and cucumber (200 g) into 1 cm cubes. Slice the red onion (60 g) thin.', 'Chop the mint leaves (4 g, a small handful) finely.'],
+      equipment: ['Large oven tray lined with baking paper', 'Mixing bowl', 'Small bowl for the sauce', 'Chopping board and knife', '4 lunch boxes, 4 salad tubs (about 500 ml) and 6 small lidded pots (about 50 ml)'],
+      prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick and 5 cm long.', 'Peel 4 garlic cloves. Grate 3 of them (9 g) for the marinade and 1 (3 g) for the sauce.', 'Salad for boxes 1–2 only: shred half the lettuce (80 g), dice half the tomatoes (120 g) and cucumber (100 g) into 1 cm cubes and slice half the red onion (30 g) thin. Keep the other half whole in the fridge for Tuesday night.', 'Chop the mint leaves (4 g, a small handful) finely.'],
       steps: [
         {
           text: 'In the mixing bowl stir together 60 g Greek yogurt (about 3 tbsp), 1½ tbsp lemon juice (20 g), 1 tbsp olive oil (14 g), the 9 g grated garlic, 1½ tsp ground cumin (3 g), 1½ tsp paprika (3 g), ⅓ tsp ground cinnamon (1 g), ⅓ tsp ground turmeric (1 g), ⅔ tsp salt (4 g) and a few grinds of black pepper (1 g).',
@@ -4387,11 +4390,11 @@ export default [
           minutes: 18,
         },
         {
-          text: 'While it roasts, make the sauce: stir 160 g Greek yogurt, the 3 g grated garlic, 1½ tsp lemon juice (8 g) and the chopped mint in the small bowl.',
+          text: 'While it roasts, make half the sauce (for boxes 1–2): stir 80 g Greek yogurt, half the 3 g grated garlic, ¾ tsp lemon juice (4 g) and half the chopped mint in the small bowl. Keep the rest of the yogurt in the fridge for Tuesday night.',
           heat: 'none',
         },
         {
-          text: 'Spoon the garlic-yogurt sauce into 4 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them.',
+          text: 'Spoon the garlic-yogurt sauce into 2 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them.',
           heat: 'none',
         },
         {
@@ -4400,7 +4403,7 @@ export default [
           minutes: 20,
         },
         {
-          text: 'Mix the lettuce, tomato, cucumber and onion. Divide the salad between the 4 boxes (or into separate salad boxes).',
+          text: 'Mix the cut lettuce, tomato, cucumber and onion and divide it between 2 salad tubs (boxes 1–2). The salad always stays in its own tub, never in the chicken box.',
           heat: 'none',
         },
         {
@@ -4413,7 +4416,7 @@ export default [
         },
       ],
       doneWhen: 'Cut the thickest strip: white all through, no pink, juices clear (75 °C if you have a thermometer).',
-      boxUp: 'Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken, salad and both pots in the fridge (eat by day 2). Boxes 3–4: chicken in the freezer (3 months; or the fridge if you eat it on day 3), and cut fresh salad and stir a fresh sauce on Tuesday night (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).',
+      boxUp: 'Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken box, salad tub and both pots in the fridge (eat by day 2). Boxes 3–4: chicken box in the freezer (3 months; or the fridge if you eat it on day 3); on Tuesday night cut the other half of the salad into 2 tubs and stir the second half of the sauce (80 g yogurt, the rest of the garlic, 4 g lemon juice, the rest of the mint) into 2 pots (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).',
       reheat: 'Chicken only, if you want it warm: take it out of the salad, microwave with the lid loose for about 1 minute until steaming hot. Never microwave the salad or the sauces. From the freezer: move the chicken to the fridge the night before.',
       tips: ['No time to marinate? 10 minutes is enough; the spices still stick.'],
     },
@@ -4617,7 +4620,11 @@ export default [
   {
     foodId: 'intl-chicken-broccoli-pesto-pasta-box',
     boxes: 4,
-    storage: ['cooked-meat', 'cooked-starch', 'cold-salad'],
+    storage: [
+      'cooked-meat',
+      'cooked-starch',
+      { id: 'cold-salad', pot: true },
+    ],
     ingredients: [
       { foodId: 'intl-chicken-breast-raw', grams: 540, section: 'butcher' },
       { foodId: 'med-olive-oil', grams: 52, section: 'supermarket' },
@@ -4661,7 +4668,7 @@ export default [
       },
     ],
     method: {
-      equipment: ['Large frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Mug (to keep pasta water)', 'Stick blender and its jug (or small food processor)', 'Small dry pan for the almonds', 'Oven tray for cooling', '4 lunch boxes'],
+      equipment: ['Large frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Mug (to keep pasta water)', 'Stick blender and its jug (or small food processor)', 'Small dry pan for the almonds', 'Oven tray for cooling', '4 lunch boxes', '1 small lidded pot for the tomatoes'],
       prep: ['Cut the chicken breast (540 g) into bite-size pieces of about 2.5 cm.', 'Peel 4 garlic cloves: chop 2 (6 g) for the chicken and keep 2 (6 g) whole for the pesto.', 'Pick the basil leaves off 2 trays (40 g). Halve the cherry tomatoes (240 g) and keep them in the fridge.'],
       steps: [
         {
@@ -4708,14 +4715,14 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Add a quarter of the cherry tomatoes to the fridge box only.',
+          text: 'Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Put a quarter of the cherry tomatoes (60 g) in the small pot for the fridge box; keep the rest in the fridge.',
           heat: 'none',
           minutes: 25,
         },
       ],
       doneWhen: 'Chicken: white all through, no pink (75 °C). Pasta: soft but still slightly firm in the middle when you bite one.',
-      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (1 month) without tomatoes. Each evening move one box from the freezer to the fridge and add a handful of cherry tomatoes in the morning.',
-      reheat: 'Hot: take out the tomatoes, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge with its tomato pot, boxes 2–4 in the freezer (1 month) without tomatoes (the pesto is stirred into the pasta and freezes with it). Each evening move one box from the freezer to the fridge and fill the small pot with a handful of cherry tomatoes (60 g) in the morning.',
+      reheat: 'Hot: keep the tomato pot aside, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.',
       tips: ['The pesto has no cheese, so there is no rennet to check.'],
     },
   },
@@ -5838,7 +5845,11 @@ export default [
       prep: ['The night before: cut the tomatoes (200 g, 2 medium) in half. Grate the cut side on the big holes of the grater until only the skin is left in your hand. Throw away the skin.', 'Stir ⅓ tsp salt (1 g) into the tomato pulp and keep it in the small pot in the fridge (enough for 2 mornings).', 'If you have no boiled eggs from Sunday, boil 2 eggs (10 minutes in bubbling water, 5 in cold water) and peel them.'],
       steps: [
         {
-          text: 'Morning: cut ½ roll (65 g) open and toast it in the toaster, or 2 minutes a side in a dry pan.',
+          text: 'No cooking: only the bread is toasted. In the morning cut ½ roll (65 g) open.',
+          heat: 'none',
+        },
+        {
+          text: 'Toast it in the toaster, or 2 minutes a side in a dry pan.',
           heat: 'medium',
           minutes: 3,
         },

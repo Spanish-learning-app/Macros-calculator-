@@ -51,7 +51,7 @@ export default {
     equipment: ['Pot for 6 eggs', 'Toaster, grill or dry frying pan', 'Box grater and a small bowl', 'Bread knife'],
     prep: ['Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
     steps: [
-      { text: 'Morning: cut 80 g of barra (a third of a barra) and split it lengthways.', heat: 'none' },
+      { text: 'No cooking: only the bread is toasted. In the morning cut 80 g of barra (a third of a barra) and split it lengthways.', heat: 'none' },
       { text: 'Toast it in the toaster or a dry pan until golden, about 2–3 minutes.', heat: 'medium', minutes: 3 },
       { text: 'Cut a ripe tomato (60 g, ½ medium) in half and grate the cut side into the bowl; throw away the skin. Or rub the cut tomato straight onto the toast.', heat: 'none' },
       { text: 'Spread the tomato on the toast. Add a pinch of salt and 1 tsp olive oil (5 g).', heat: 'none' },

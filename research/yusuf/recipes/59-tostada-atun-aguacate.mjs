@@ -51,7 +51,8 @@ export default {
       'If you have no boiled eggs from Sunday, boil 2 eggs (10 minutes in bubbling water, 5 in cold water) and peel them.',
     ],
     steps: [
-      { text: 'Morning: cut ½ roll (65 g) open and toast it in the toaster, or 2 minutes a side in a dry pan.', heat: 'medium', minutes: 3 },
+      { text: 'No cooking: only the bread is toasted. In the morning cut ½ roll (65 g) open.', heat: 'none' },
+      { text: 'Toast it in the toaster, or 2 minutes a side in a dry pan.', heat: 'medium', minutes: 3 },
       { text: 'Spoon half the tomato pulp onto the toast. Drizzle 1 tsp olive oil (3 g).', heat: 'none' },
       { text: 'Open 1 can of tuna, drain it (60 g) and put it on top.', heat: 'none' },
       { text: 'Slice ¼ avocado (50 g) and 1 boiled egg and lay them on top.', heat: 'none' },

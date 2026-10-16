@@ -48,7 +48,7 @@ The standard recipe below triangulates these and then adjusts to the box targets
 | Macarrón rayado integral Hacendado (wholewheat penne), dry | 280 | 70 | 70 g dry per box |
 | Broccoli, frozen (Brócoli Hacendado ultracongelado 1 kg; USDA 169968) | 400 | 100 | into the pasta water for the last 3 minutes |
 
-### Almond-basil pesto (no cheese) and cherry tomatoes
+### Almond-basil pesto (no cheese), stirred into the pasta
 
 | Ingredient | Raw g (4 boxes) | Per box | Notes |
 |---|---|---|---|
@@ -59,6 +59,11 @@ The standard recipe below triangulates these and then adjusts to the box targets
 | Lemon juice (1 lemon yields 48 g, USDA) | 30 | 7.5 |  |
 | Salt | 2 | 0.5 |  |
 | Water (absorbed) | 40 | 10 | from the pasta pot, to loosen |
+
+### Cherry tomatoes (own small pot, added fresh)
+
+| Ingredient | Raw g (4 boxes) | Per box | Notes |
+|---|---|---|---|
 | Cherry tomatoes, raw (USDA tomato, red, ripe) | 240 | 60 | halved, added cold |
 
 ## Method
@@ -74,6 +79,7 @@ This is the method the app shows under "How to make it" (generated from the same
 - Small dry pan for the almonds
 - Oven tray for cooling
 - 4 lunch boxes
+- 1 small lidded pot for the tomatoes
 
 **Before you start**
 
@@ -92,13 +98,13 @@ This is the method the app shows under "How to make it" (generated from the same
 7. Scoop out a mug of the cooking water, then drain the pasta and broccoli in the colander. *(no heat)*
 8. Make the pesto: in the blender jug put the basil, toasted almonds, 3 tbsp olive oil (44 g), the 2 whole garlic cloves, 2 tbsp lemon juice (30 g), ⅓ tsp salt (2 g) and 40 g (about 3 tbsp) of the pasta water. Blend 1 minute until smooth. *(no heat · 1 min)*
 9. Tip the pasta, broccoli and chicken back into the pot, add the pesto and stir until everything is green. *(no heat)*
-10. Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Add a quarter of the cherry tomatoes to the fridge box only. *(no heat · 25 min)*
+10. Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Put a quarter of the cherry tomatoes (60 g) in the small pot for the fridge box; keep the rest in the fridge. *(no heat · 25 min)*
 
 **Done when:** Chicken: white all through, no pink (75 °C). Pasta: soft but still slightly firm in the middle when you bite one.
 
-**Box it up:** Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (1 month) without tomatoes. Each evening move one box from the freezer to the fridge and add a handful of cherry tomatoes in the morning.
+**Box it up:** Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge with its tomato pot, boxes 2–4 in the freezer (1 month) without tomatoes (the pesto is stirred into the pasta and freezes with it). Each evening move one box from the freezer to the fridge and fill the small pot with a handful of cherry tomatoes (60 g) in the morning.
 
-**Reheat:** Hot: take out the tomatoes, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.
+**Reheat:** Hot: keep the tomato pot aside, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.
 
 **Tips**
 
@@ -114,7 +120,8 @@ This is the method the app shows under "How to make it" (generated from the same
 |---|---|---|---|---|
 | Seared chicken | 558 | 449 | **112** | `cooked-meat` |
 | Wholewheat penne and broccoli | 680 | 1011 | **253** | `cooked-starch` |
-| Almond-basil pesto (no cheese) and cherry tomatoes | 442 | 442 | **111** | `cold-salad` |
+| Almond-basil pesto (no cheese), stirred into the pasta | 202 | 202 | **51** | `cooked-starch` |
+| Cherry tomatoes (own small pot, added fresh) | 240 | 240 | **60** | `cold-salad` |
 | **Batch** | 1680 | 1902 | **475** (½ box 238) | |
 
 Overall yield 1.132 (cooked ÷ raw, absorbed water included). Yield factors used:
@@ -147,7 +154,8 @@ kcal = round(4P + 4C + 9F + 2·fibre) = **130** per 100 g. The sum of the tables
 |---|---|---|---|---|
 | Seared chicken | 112 g | `cooked-meat` | 3 days | 3 months |
 | Wholewheat penne and broccoli | 253 g | `cooked-starch` | 1 day | 1 month |
-| Almond-basil pesto (no cheese) and cherry tomatoes | 111 g | `cold-salad` | 2 days | do not freeze |
+| Almond-basil pesto (no cheese), stirred into the pasta | 51 g | `cooked-starch` | 1 day | 1 month |
+| Cherry tomatoes (own small pot, added fresh) | 60 g | `cold-salad` | 2 days | do not freeze |
 
 Use-by of a packed box = cooked date + the shortest fridge life in it = **1 day**. A frozen box has no use-by until it is moved to the fridge (then 1 day).
 
@@ -195,6 +203,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 
 - Shop pesto has cheese with rennet (Hacendado 35438, 35186; Javier marks intl-pesto-basil check): a 5-minute almond pesto replaces it.
 - Broccoli cooked in the pasta water: one pot, and with wholewheat penne about 12 g fibre per box.
+- 2026-10-16 BUG-M1 (Kenji): the pesto is stirred into the pasta, so it is stored as the pasta (cooked-starch: 1 day fridge, freezes 1 month); the cherry tomatoes are their own fresh pot (cold-salad, pot). The record now freezes boxes 2–4 as the method says. Numbers unchanged.
 
 ## Ingredient values (per 100 g, carbs = available carbohydrate)
 
