@@ -830,7 +830,7 @@ export default [
     tags: ['international', 'vegetarian', 'vegan', 'packaged'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal', reason: 'Assumes a soy sauce with a halal logo (Asian or Pakistani grocery). Without a halal seal, use the other soy sauce record (check).' },
-    source: { citation: 'USDA FDC SR Legacy 174277', method: 'direct', confidence: 'A', reviewer: 'javier', date: '2026-10-15', notes: 'USDA carbs by difference 4.93 − fibre 0.8 = 4.1 g available. Serving: 1 tbsp = 16 g (USDA SR 174277 portion). Carbohydrate by difference 4.93 minus fibre 0.8. Same food as intl-soy-sauce (Hacendado label, status check), but taken from USDA and assumed to carry a halal logo, so Yusuf\'s preps that say halal link here (worst-status rule). Per Ayesha, research/review/s3-backlog.md FIX 1.' },
+    source: { citation: 'USDA FDC SR Legacy 174277', method: 'direct', confidence: 'A', reviewer: 'ayesha', date: '2026-10-16', notes: 'USDA carbs by difference 4.93 − fibre 0.8 = 4.1 g available. Serving: 1 tbsp = 16 g (USDA SR 174277 portion). Carbohydrate by difference 4.93 minus fibre 0.8. Same food as intl-soy-sauce (Hacendado label, status check), but taken from USDA and assumed to carry a halal logo, so Yusuf\'s preps that say halal link here (worst-status rule). Per Ayesha, research/review/s3-backlog.md FIX 1.' },
   },
   {
     id: 'intl-teriyaki-sauce',
@@ -884,6 +884,6 @@ export default [
     tags: ['international', 'packaged', 'gym', 'seafood-fish', 'meal-prep'],
     slots: ['lunch', 'dinner'],
     halal: { status: 'halal' },
-    source: { citation: 'Label: Mercadona Medallones de salmón Hacendado cocinar congelados, 4 medallions, 250 g, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'javier', date: '2026-10-15', notes: 'Mercadona online shop product 26749 (tienda.mercadona.es/product/26749, EAN 8480000267498); per-100 g values from Open Food Facts 8480000267498. Label per 100 g: 932 kJ (221 kcal; 4P + 4C + 9F = 224, within 2 %), P 20, C 0, F 16, sat 2.3, salt 0.885 g; fibre 0. Ingredients: 99.2 % salmon (Salmo salar, farmed in Norway) and salt; may contain traces of crustaceans and molluscs. Values are for the raw frozen medallion as sold. 4 medallions in 250 g, so 1 medallion = 62.5 g (OFF serving 62.5 g). Cooked weight is lower, so weigh raw.' },
+    source: { citation: 'Label: Mercadona Medallones de salmón Hacendado cocinar congelados, 4 medallions, 250 g, read 2026-10-15', method: 'label', confidence: 'B', reviewer: 'ayesha', date: '2026-10-16', notes: 'Mercadona online shop product 26749 (tienda.mercadona.es/product/26749, EAN 8480000267498); per-100 g values from Open Food Facts 8480000267498. Label per 100 g: 932 kJ (221 kcal; 4P + 4C + 9F = 224, within 2 %), P 20, C 0, F 16, sat 2.3, salt 0.885 g; fibre 0. Ingredients: 99.2 % salmon (Salmo salar, farmed in Norway) and salt; may contain traces of crustaceans and molluscs. Values are for the raw frozen medallion as sold. 4 medallions in 250 g, so 1 medallion = 62.5 g (OFF serving 62.5 g). Cooked weight is lower, so weigh raw.' },
   },
 ];

@@ -313,3 +313,4 @@
   (clean). Open: #1, #5 (boneless halal thigh) and #27 (forn barra) still have no cost; Lena drops HALAL_SWAPS;
   nobody has tapped the budget plan in the running app yet (M-14).
 - 16:26 UTC Omar relay: salmon-fillet (name-only line, #53) now links Javier's intl-salmon-medallions (same Hacendado pack, OFF 8480000267498); soy and mozzarella already linked. #53 unchanged (611 kcal). Rebuilt; check-foods and npm test re-run. Ayesha's 6 held preps are ready for her re-check.
+- 2026-10-16 19:05 UTC — No source edits. Ran node research/yusuf/build.mjs so Ayesha's stamps reach the 6 preps (done by the Lab rebuild run). Only source.reviewer changed (yusuf -> ayesha); no kcal, macro or cost figure moved.

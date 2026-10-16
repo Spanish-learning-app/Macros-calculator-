@@ -776,7 +776,7 @@ const esmed = [
     id: 'med-falafel', name: 'Falafel (fried)',
     aliases: ['falafel', 'felafel', 'chickpea balls', 'falàfel', 'faláfel'],
     group: 'snack-fried', state: 'deep-fried chickpea balls, home-made',
-    ...fromCofid('15-795', 'C', 'Values differ widely between sources (USDA SR 172455 home-prepared 333 kcal without fibre; FNDDS 2707408 514 kcal). Serving: USDA 1 patty = 17 g.'),
+    ...fromCofid('15-795', 'C', 'Values differ widely between sources (USDA SR 172455 home-prepared 333 kcal at 35 % water; FNDDS 2707408 514 kcal at 19 % water). Spanish shop packs: 20 plain chickpea falafel labels on Open Food Facts (Spain, read 2026-10-16; e.g. Lidl Vemondo 198 and 216, Carrefour 185, Eroski 205, La Sirena 217.5, YGriega 219, SoriaNatural 222) have a median of 217.5 kcal per 100 g (middle half 198–222), so this home-fried value is about 16 % lower. Reviewed by Ayesha, 2026-10-16. Serving: USDA 1 patty = 17 g; shop falafel about 25 g (La Sirena 400 g = 14–16 pieces; Taifun 6 × 21 g).'),
     servings: [sv('piece', '1 falafel', 17, true)],
     tags: ['middle-eastern', 'vegetarian', 'vegan', 'fried'], slots: ['lunch', 'dinner', 'snacks'], halal: HALAL,
   },
@@ -977,13 +977,13 @@ const pk = [
     source: src("Label: Olper's Full Cream Milk (Engro Foods), 1.5 l, read 2026-10-13", 'label', 'B', "Open Food Facts 8964000346549 / 8964000346334: per 100 ml 267 kJ (64 kcal), P 2.7, C 5.4, F 3.5, sat 2.3; converted to per 100 g with 1.03 g/ml (RULES water-like; label lists 100 ml = 103 g). Nestlé Milk Pak (OFF 8961008219561: 62.8 kcal, P 2.72, C 5.2, F 3.52 per 100 ml) and Nurpur (8961101373108) agree within 4 %."),
   },
   {
-    id: 'pk-cola-regular', name: 'Cola, regular (soft drink)', nameUr: 'کولڈ ڈرنک', nameRoman: 'cold drink',
-    aliases: ['cold drink', 'coke', 'pepsi', 'cola', 'soft drink', 'coca cola', 'coca-cola', 'next cola', 'gourmet cola', 'botal', 'refresco de cola', 'cocacola'],
+    id: 'pk-cola-regular', name: 'Cola, regular (330 ml can, Spain)', nameUr: 'کولا', nameRoman: 'cola',
+    aliases: ['cola', 'coke', 'coca cola', 'coca-cola', 'cocacola', 'pepsi', 'soft drink', 'refresco de cola', 'refresc de cola', 'lata de cola', 'cola can', 'can of coke'],
     group: 'drink-other', state: 'regular (sugar-sweetened), as sold',
     per100g: perMlToPerG({ kcal: 44, protein: 0, carbs: 10.9, fat: 0, fiber: 0, sugars: 10.9 }, COLA_DENSITY),
-    servings: [sv('bottle-345', '1 bottle (345 ml)', r1(345 * COLA_DENSITY), true, '1 بوتل'), sv('can', '1 can (330 ml)', r1(330 * COLA_DENSITY)), sv('glass', '1 glass (250 ml)', r1(250 * COLA_DENSITY), false, '1 گلاس'), sv('bottle-500', '1 bottle (500 ml)', r1(500 * COLA_DENSITY))],
+    servings: [sv('bottle-345', '1 bottle (345 ml)', r1(345 * COLA_DENSITY), false, '1 بوتل'), sv('can', '1 can (330 ml)', r1(330 * COLA_DENSITY), true), sv('glass', '1 glass (250 ml)', r1(250 * COLA_DENSITY), false, '1 گلاس'), sv('bottle-500', '1 bottle (500 ml)', r1(500 * COLA_DENSITY))],
     tags: ['pakistani', 'international', 'vegetarian', 'vegan', 'packaged'], slots: ['lunch', 'dinner', 'snacks'], halal: HALAL,
-    source: src('Label: Coca-Cola Original Taste, 1.5 l, read 2026-10-13', 'label', 'B', `Open Food Facts 5449000051981 (sold in Pakistan among other countries): per 100 ml 44 kcal, carbs and sugars 10.9 g. Per 100 g with ${COLA_DENSITY.toFixed(3)} g/ml (USDA SR 174852 cola: 1 fl oz = 30.7 g). Pakistani colas agree: Cola Next 43 kcal / 10.7 g (OFF 8964001179030), Gourmet Cola 41.2 kcal / 10.3 g (OFF 0046876380001). Some Pakistani Pepsi listings show reduced sugar (5.35–7 g per 100 ml, OFF 0012000801754, 0012000004070), so this record may overstate those.`),
+    source: src('Label: Coca-Cola Original Taste, 1.5 l, read 2026-10-13', 'label', 'B', `Open Food Facts 5449000051981 (sold in Pakistan among other countries): per 100 ml 44 kcal, carbs and sugars 10.9 g. Per 100 g with ${COLA_DENSITY.toFixed(3)} g/ml (USDA SR 174852 cola: 1 fl oz = 30.7 g). Pakistani colas agree: Cola Next 43 kcal / 10.7 g (OFF 8964001179030), Gourmet Cola 41.2 kcal / 10.3 g (OFF 0046876380001). Some Pakistani Pepsi listings show reduced sugar (5.35–7 g per 100 ml, OFF 0012000801754, 0012000004070), so this record may overstate those. Spanish shop can (330 ml). The Pakistani 345 ml "cold drink" bottle is pk-cold-drink-cola (same values); both ids are kept because saved days refer to them.`),
   },
   {
     id: 'pk-juice-mango', name: 'Mango juice (pack, Nestlé Fruita Vitals Chaunsa)', nameUr: 'آم کا جوس', nameRoman: 'mango juice',
@@ -2158,7 +2158,7 @@ const SHORT = {
   'es-pulpo-cocido': 'Pulpo cocido', 'es-calamar-plancha': 'Calamar a la plancha', 'es-mejillones-escabeche': 'Mejillones escabeche',
   // pk-packaged
   'pk-marie-biscuit': 'Marie biscuit', 'pk-sooper-biscuit': 'Sooper biscuit', 'pk-gluco-biscuit': 'Gluco biscuit', 'pk-rio-biscuit': 'Rio biscuit',
-  'pk-uht-milk-full-cream': 'UHT milk, full-cream', 'pk-cola-regular': 'Cola, regular', 'pk-juice-mango': 'Mango juice',
+  'pk-uht-milk-full-cream': 'UHT milk, full-cream', 'pk-cola-regular': 'Cola, 330 ml can', 'pk-juice-mango': 'Mango juice',
   'pk-juice-apple': 'Apple juice', 'pk-rooh-afza-syrup': 'Rooh Afza syrup',
 };
 {

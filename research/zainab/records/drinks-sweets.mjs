@@ -111,11 +111,11 @@ export default [
   {
     id: 'pk-cold-drink-cola',
     direct: { src: 'fdc', code: 174852 },
-    name: 'Cold drink, cola (regular)',
-    shortName: 'Cold drink, cola',
+    name: 'Cold drink, cola (345 ml bottle, Pakistan)',
+    shortName: 'Cold drink, bottle',
     nameUr: 'کولڈ ڈرنک',
     nameRoman: 'cold drink',
-    aliases: uniq(['cold drink', 'coke', 'pepsi', 'cola', 'soft drink', 'soda', 'fizzy drink', 'coca cola', 'regular cola', 'bottle', 'کولڈ ڈرنک', 'بوتل']),
+    aliases: uniq(['cold drink', 'botal', 'bottle', 'coke', 'pepsi', 'cola', 'soft drink', 'soda', 'fizzy drink', 'regular cola', 'next cola', 'gourmet cola', 'کولڈ ڈرنک', 'بوتل']),
     group: 'drink-other',
     state: 'as sold, regular (sugar-sweetened)',
     servings: [
@@ -124,7 +124,7 @@ export default [
       { id: 'glass', label: '1 glass (250 ml)', labelUr: 'گلاس', grams: 260 },
       { id: 'bottle-500', label: '1 bottle (500 ml)', labelUr: 'آدھا لیٹر', grams: 519 },
     ],
-    tags: ['international'],
+    tags: ['pakistani', 'international'],
     slots: ['lunch', 'dinner', 'snacks'],
     source: { confidence: 'A', notes: 'Density 1.038 g/ml from FDC 174852 portion "1 fl oz = 30.7 g" (29.57 ml). Bottle sizes as sold (345 ml regular bottle).' },
   },

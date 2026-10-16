@@ -250,7 +250,7 @@ export default [
     tags: ['middle-eastern', 'vegetarian', 'vegan', 'fried'],
     slots: ['lunch', 'dinner', 'snacks'],
     halal: { status: 'halal', reason: 'Chickpeas, herbs and spices deep-fried in vegetable oil; no animal ingredient. If bought ready-made, ask whether the fryer is shared with meat.' },
-    source: { citation: 'CoFID 2021 15-795 Falafel, fried in rapeseed oil, homemade', method: 'direct', confidence: 'C', reviewer: 'javier', date: '2026-10-13', notes: 'CoFID carbohydrate is available carbohydrate; fibre = NSP fibre. Values differ widely between sources (USDA SR 172455 home-prepared 333 kcal without fibre; FNDDS 2707408 514 kcal). Serving: USDA 1 patty = 17 g.' },
+    source: { citation: 'CoFID 2021 15-795 Falafel, fried in rapeseed oil, homemade', method: 'direct', confidence: 'C', reviewer: 'ayesha', date: '2026-10-16', notes: 'CoFID carbohydrate is available carbohydrate; fibre = NSP fibre. Values differ widely between sources (USDA SR 172455 home-prepared 333 kcal at 35 % water; FNDDS 2707408 514 kcal at 19 % water). Spanish shop packs: 20 plain chickpea falafel labels on Open Food Facts (Spain, read 2026-10-16; e.g. Lidl Vemondo 198 and 216, Carrefour 185, Eroski 205, La Sirena 217.5, YGriega 219, SoriaNatural 222) have a median of 217.5 kcal per 100 g (middle half 198–222), so this home-fried value is about 16 % lower. Reviewed by Ayesha, 2026-10-16. Serving: USDA 1 patty = 17 g; shop falafel about 25 g (La Sirena 400 g = 14–16 pieces; Taifun 6 × 21 g).' },
   },
   {
     id: 'es-lentejas-pardinas-secas',

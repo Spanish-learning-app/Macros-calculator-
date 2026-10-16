@@ -385,7 +385,7 @@ const SPECS = [
     servings: ({ katoriSet }) => katoriSet(D.curry),
     tags: PKV,
     slots: MEAL,
-    crossCheck: [{ src: 'ref', code: 'khan2019-kadhi', note: 'Analysed "yogurt curry with pakoras" (Peshawar household recipes, AOAC, moisture 71.5 g). Water agrees with ours; the gap is fat (analysed 13.9 g vs our 11.7 g), so the Peshawar cooks probably used more oil. Carbohydrate there is by difference and includes fibre (ours 7.0 + 1.5 fibre = 8.5 g vs 10.3 g). We stay at the lower oil of the F&S and TfT recipes; extra tari or tarka oil can be logged as an add-on.' }],
+    crossCheck: [{ src: 'ref', code: 'khan2019-kadhi', note: 'Analysed "yogurt curry with pakoras" (Peshawar household recipes, AOAC, moisture 71.5 g). Why the gap: the analysed kadhi was thicker (71.5 g water vs our 75.3 g). Per gram of dry matter the fat is the same (ours 47 %, analysed 49 %): at the same water ours would be about 172 kcal and 13.5 g fat, within 3 %. Carbohydrate there is by difference and includes fibre (ours 7.0 + 1.5 fibre = 8.5 g vs 10.3 g). Kadhi thickness depends on simmer time; we keep the 35 % simmer loss. Reviewed by Ayesha, 2026-10-16.' }],
     assumptions: ['Kadhi simmer loss 35% of its water (assumption); pakora oil uptake from the CoFID 15-620 pakora composition.'],
     source: { confidence: 'C' },
   },
