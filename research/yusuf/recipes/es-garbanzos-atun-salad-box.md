@@ -57,12 +57,41 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Boil the eggs 10 min, cool in cold water, peel.
-2. Drain and rinse the chickpeas; drain the tuna well.
-3. Mix chickpeas, tuna, peppers, onion, tomatoes, cucumber and parsley. Dress with olive oil, lemon, cumin, salt and pepper.
-4. Each box: ¼ of the salad and 1 halved egg on top. Keep cold (insulated bag and ice pack).
+**Equipment**
+
+- Pot for 4 eggs
+- Sieve and can opener
+- Large bowl
+- Chopping board and knife
+- 4 lunch boxes (filled 2 at a time)
+
+**Before you start**
+
+- Dice the red pepper (200 g) and green pepper (100 g) into 1 cm pieces. Chop the red onion (100 g) small (3–5 mm).
+- Halve the cherry tomatoes (320 g). Dice the cucumber (160 g) into 1 cm cubes. Chop the parsley (15 g).
+
+**Steps**
+
+1. The only cooking is the eggs. Put 4 eggs in the pot, cover with cold water and bring to the boil. *(high heat · 5 min)*
+2. Turn down so it bubbles gently and cook 10 minutes. *(medium heat · 10 min)*
+3. Pour off the hot water, cover the eggs with cold water for 5 minutes, then peel them. Keep them in the fridge. *(no heat · 5 min)*
+4. Sunday, for 2 boxes: drain and rinse 300 g chickpeas (¾ of a jar) and drain 220 g tuna (about 4 cans). *(no heat)*
+5. In the bowl mix the chickpeas, tuna and half of all the chopped vegetables and parsley. *(no heat)*
+6. Dress with 2 tbsp olive oil (30 g), 1½ tbsp lemon juice (20 g), ½ tsp ground cumin (1 g, optional), a pinch of salt (1–2 g) and black pepper. Stir gently. *(no heat)*
+7. Fill 2 boxes with half the salad each and put 1 halved egg on top of each. *(no heat)*
+8. Tuesday night: repeat steps 4–7 with the other half for boxes 3 and 4. *(no heat)*
+
+**Done when:** The egg yolks are firm and pale yellow all through.
+
+**Box it up:** Cold only, no freezing. The dressed salad keeps 2 days and the boiled eggs 3 days, so mix half on Sunday (Mon, Tue) and half on Tuesday night (Wed, Thu). Keep the unopened tuna cans and chickpeas in the cupboard until then; keep the cut vegetables in a closed box in the fridge. Carry in an insulated bag with an ice pack.
+
+**Reheat:** Not reheated (no fish or eggs in the microwave): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).
+
+**Tips**
+
+- Lemon juice replaces wine vinegar. Tuna "al natural" (tuna, water, salt) has no oil to drain away, so the 60 g olive oil is all the fat.
 
 ## Added fat
 

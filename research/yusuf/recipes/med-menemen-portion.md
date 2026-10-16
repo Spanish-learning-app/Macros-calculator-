@@ -49,11 +49,36 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Soften onion and peppers in the oil 6 min. Add the tomato and cook 5 min until most of the juice is gone.
-2. Beat the eggs with salt and chilli; stir into the pan over low heat until just set, 2–3 min.
-3. Eat one portion now with ½ roll; box the other for tomorrow.
+**Equipment**
+
+- Frying pan (24–28 cm)
+- Bowl and fork for the eggs
+- Grater
+- Wooden spoon
+- 1 box for tomorrow
+
+**Before you start**
+
+- Chop the onion (80 g, ½ small onion) into 5 mm pieces. Dice the green peppers (200 g) into 1 cm pieces.
+- Grate the tomatoes (300 g, 3 medium) on the big holes of the grater and throw away the skins (or chop them small).
+- Crack 6 eggs into the bowl. Add a pinch of chilli powder or pul biber (1 g) and ⅓ tsp salt (2 g). Beat with the fork.
+
+**Steps**
+
+1. Heat 2 tsp olive oil (10 g) in the pan for 1 minute. *(medium heat · 1 min)*
+2. Add the onion and peppers. Cook, stirring now and then, until soft. *(medium heat · 6 min)*
+3. Add the tomato. Cook until most of the juice has gone and it looks like a thick sauce. *(medium heat · 5 min)*
+4. Turn the heat down to low. Pour in the eggs. *(low heat)*
+5. Stir slowly with the spoon, scraping the bottom, until the eggs are just set and creamy. *(low heat · 3 min)*
+6. Take the pan off the heat. Eat half now with ½ roll (65 g); put the other half in the box. *(no heat)*
+
+**Done when:** No runny raw egg is left: the eggs are soft, set curds.
+
+**Box it up:** Cool the second portion for no more than 1 hour, then put it in the fridge and eat it the next morning (egg dishes keep up to 3 days). Do not freeze.
+
+**Reheat:** Microwave 1 minute, stir, then 30 seconds more until steaming hot all through.
 
 ## Added fat
 

@@ -44,11 +44,43 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Blend the oats to a flour, add the yogurt, eggs, banana, cinnamon and salt and blend smooth. Rest 10 min to thicken (2 tsp baking powder makes them fluffier; optional, not counted).
-2. Wipe a non-stick pan with a little oil on medium heat. Pour about ¼ cup (65 g) of batter per pancake; cook 2 min until bubbles set, flip, 1–2 min more.
-3. Cool on a rack. Pack 4 pancakes per portion with baking paper between them; freeze flat.
+**Equipment**
+
+- Blender or stick blender with its jug
+- Non-stick frying pan (24 cm)
+- Kitchen paper (to wipe on the oil)
+- Ladle or ¼-cup measure
+- Spatula
+- Cooling rack
+- Baking paper and 3 freezer bags
+
+**Before you start**
+
+- Peel 2 small ripe bananas (200 g).
+
+**Steps**
+
+1. Blend the oats (200 g) for 30 seconds until they look like flour. *(no heat · 1 min)*
+2. Add the protein yogurt (400 g), 8 eggs, the bananas, 1½ tsp cinnamon (4 g) and a pinch of salt (1 g). Blend until smooth. *(no heat · 1 min)*
+3. Leave the batter 10 minutes to thicken. *(no heat · 10 min)*
+4. Heat the pan for 1 minute. Dip a folded piece of kitchen paper in the sunflower oil and wipe the pan (about 1 g of oil per pancake, 16 g in all). *(medium heat · 1 min)*
+5. Pour about ¼ cup (65 g) of batter into the pan for each pancake (2–3 at a time). *(medium heat)*
+6. Cook about 2 minutes, until bubbles appear on top and the edges look dry. *(medium heat · 2 min)*
+7. Flip with the spatula and cook 1–2 minutes more until golden. Move to the rack. Wipe the pan with oil again and repeat until all 16 are made. *(medium heat · 2 min)*
+8. When cool, stack 4 pancakes per portion with baking paper between them. *(no heat · 20 min)*
+
+**Done when:** Both sides are golden and the middle springs back when pressed; no wet batter shows on the side.
+
+**Box it up:** Cool for no more than 1 hour. One portion in the fridge (3 days), three portions in freezer bags laid flat in the freezer (2 months).
+
+**Reheat:** From frozen: toaster 2 cycles, or microwave 60–80 seconds under a paper towel, until hot right through. From the fridge: 40–60 seconds.
+
+**Tips**
+
+- 2 tsp baking powder makes them fluffier (optional; not counted).
+- A topping of yogurt or fruit is logged separately.
 
 ## Added fat
 

@@ -667,7 +667,9 @@ Batch = { id, recipeId,                       // a user recipe id or a library b
 ```js
 Recipe   += { kind?: 'chai',                  // "Set my chai once": at most one; serving 'cup'
               storage?: string[]|null,          // RULES.mealPrep.storage ids the user chose; null = inferred
-              updatedAt?: string }
+              updatedAt?: string,
+              method?: string }                 // "My method" (s3-method, 2026-10-16): free text, one step
+                                                // per line, trimmed, at most MY_METHOD_MAX (4000) characters
 Batch    += { name?: string }                   // display name kept if the recipe is deleted
 UserData += { savedMeals?: [{ id, name, slot, createdAt, items: [{ foodId, servingId, qty }] }] }  // optional; absent = none
 settings.seafood                                // now asked (Profile and onboarding), default 'all'
@@ -683,8 +685,34 @@ LibraryRecipe = { foodId,                       // the Lab food (group lunchbox)
                                                 // counts for the fridge life but does not stop freezing
                   ingredients: [{ foodId?, name?, grams, section?: 'butcher'|'supermarket', note? }],
                   effort?: 'cook'|'assemble'|'ready', // absent = 'cook' (Boss's "less cooking", 14 Oct)
-                  minutes?: number }             // hands-on minutes; assemble ≤ 15
+                  minutes?: number,              // hands-on minutes; assemble ≤ 15
+                  method?: Method }              // "How to make it" (s3-method, 2026-10-16), below
+
+Method = { equipment: string[],                 // "Large frying pan (28 cm) with a lid"
+           prep: string[],                      // "Before you start": cut sizes, forms ("Dice the onion 1 cm")
+           steps: [{ text: string,              // one action; order, amount and form in the words
+                     heat?: Heat,               // the step's chip
+                     minutes?: number }],       // > 0; the step's time chip
+           doneWhen?: string,                   // a doneness cue a beginner can see
+           boxUp: string,                       // cooling, fridge/freezer split (matches `storage`)
+           reheat: string,                      // or "Eat cold"
+           tips?: string[] }
+Heat = 'none'|'low'|'medium'|'medium-high'|'high'|'oven-180'|'oven-200'|'oven-220'|'microwave'
 ```
+
+**Method** (M-01: the sheets had methods and the contract had no field, so they never reached the
+app). Optional and additive: no schema bump. A recipe without a method shows no "How to make it"
+at all. `tests/contract/recipe-method.test.js` checks every method that exists has exactly this
+shape (heat values from the list, minutes > 0, the four required keys, no unknown keys); Kenji's
+data gate adds "every library recipe has one" when the Lab is done. The UI reads both kinds through
+`methodOf(recipe)` in `ui/components/recipe-method.js` (also tolerates the sheets' old
+`string[]`): a library row and a batch card get a "How to make it" button (a sheet with "What you
+need", the method and "Cook a batch"), the Cook / Make dialog a folded "How to make it", and both a
+"Step by step" mode (one step per screen, big text, Back / Next, "Step x of n", arrow keys, screen
+kept awake where allowed). The amounts in the steps are for the standard batch (`boxes`), which
+the UI says. A person's `Recipe.method` is edited in the recipe editor ("My method (optional)"),
+shown the same way, kept by export and import (whole recipe objects), and `migrate` drops a
+non-text or blank one and trims the rest (never 'corrupt').
 
 The Prep library filters on `effort` ("All · Cook · No-cook (≤15 min)", no-cook = `assemble` or
 `ready`) and shows the time on each card ("45 min", "10 min, no cooking", "Ready to eat"); a

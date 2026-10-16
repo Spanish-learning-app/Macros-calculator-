@@ -67,12 +67,43 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Toss the vegetables with 25 g oil, ras el hanout, cumin and salt; roast at 220 °C for 30–35 min, turning once.
-2. Toss the chicken strips with ras el hanout, garlic, 12 g oil and salt; roast on a second tray for the last 15–18 min (to 75 °C inside). Squeeze the lemon over.
-3. Couscous: pour 336 g boiling water with the oil and salt over the couscous, cover 5 min, fluff and fold in the parsley.
-4. Cool everything within 1 h. Each box: ¼ couscous, ¼ vegetables, ¼ chicken.
+**Equipment**
+
+- 2 oven trays lined with baking paper
+- Large bowl
+- Heatproof bowl with a plate or lid (couscous)
+- Kettle
+- 4 lunch boxes
+
+**Before you start**
+
+- Cut the courgettes (400 g) into 2 cm chunks, the carrots (300 g) into thick 1 cm slices, the red pepper (300 g) into chunks and the red onion (200 g) into wedges.
+- Cut the chicken breast (680 g) into strips about 1.5 cm thick. Peel and grate 3 garlic cloves (10 g).
+- Chop the parsley (15 g).
+
+**Steps**
+
+1. Turn the oven on to 220 °C. *(oven 220 °C · 10 min)*
+2. In the big bowl toss the vegetables with 2 tbsp olive oil (25 g), 2 tsp ras el hanout (6 g), 1½ tsp ground cumin (3 g) and ⅔ tsp salt (4 g). Spread on the first tray. *(no heat)*
+3. Roast the vegetables 15 minutes. *(oven 220 °C · 15 min)*
+4. Meanwhile, in the same bowl, toss the chicken with 2½ tsp ras el hanout (8 g), the garlic, a scant 1 tbsp olive oil (12 g) and ¾ tsp salt (5 g). Spread on the second tray. *(no heat)*
+5. Turn the vegetables over and put the chicken tray in the oven too. Roast both 15–18 minutes more. *(oven 220 °C · 18 min)*
+6. Check the chicken (see "Done when"). Squeeze 1½ tbsp lemon juice (20 g) over it. *(no heat)*
+7. Couscous: boil the kettle. Put the couscous (240 g), 1 tsp olive oil (5 g) and ⅓ tsp salt (2 g) in the heatproof bowl, pour over 336 ml boiling water, stir and cover for 5 minutes. *(no heat · 5 min)*
+8. Fluff the couscous with a fork and fold in the parsley. *(no heat)*
+9. Spread everything out to cool fast (in the fridge or freezer within 1 hour). Each box: a quarter of the couscous, vegetables and chicken. *(no heat · 30 min)*
+
+**Done when:** The chicken is white all through with clear juices (75 °C); the carrots are soft when you push in a knife.
+
+**Box it up:** Cool fast, in the fridge or freezer within 1 hour. Couscous keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (couscous 1 month, chicken and vegetables 3 months). Move the next day's box to the fridge the night before.
+
+**Reheat:** Hot: microwave with the lid loose 2½–3 minutes, stir, until steaming hot right through; reheat once only. Cold: eat within 2 hours of leaving the fridge (1 hour above 32 °C), carried with an ice pack; a squeeze of lemon helps.
+
+**Tips**
+
+- Ras el hanout blends vary: check the label for added salt and sugar.
 
 ## Added fat
 

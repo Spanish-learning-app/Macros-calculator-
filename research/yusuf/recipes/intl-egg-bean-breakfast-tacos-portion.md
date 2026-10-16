@@ -54,11 +54,39 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Warm the beans with the cumin in the oil, 2 min, mashing a few.
-2. Pour in the beaten eggs and whites with the salt; stir over low heat until just set. Box in 2.
-3. In the morning: microwave the filling 1 min (75 °C), warm 3 tortillas 20 s a side in a dry pan, fill and top with salsa.
+**Equipment**
+
+- Frying pan (24 cm)
+- Bowl and fork
+- Sieve
+- 2 boxes and 2 small lidded pots (about 75 ml)
+
+**Before you start**
+
+- Drain and rinse half a jar of kidney beans (200 g). Keep the other half in a closed box in the fridge for a salad or the burrito bowls (use within 2 days).
+- Crack 4 eggs into the bowl, add the liquid egg whites (100 g) and a pinch of salt (1 g), and beat with the fork.
+
+**Steps**
+
+1. Heat 1½ tsp sunflower oil (6 g) in the pan for 1 minute. *(medium heat · 1 min)*
+2. Add the beans and ½ tsp ground cumin (1 g). Stir 2 minutes and press a few beans flat with the fork. *(medium heat · 2 min)*
+3. Turn the heat down to low. Pour in the eggs. *(low heat)*
+4. Stir slowly, scraping the bottom, until the eggs are just set. *(low heat · 3 min)*
+5. Divide into the 2 boxes. Spoon 60 g salsa (about 3 tbsp) into each small pot. *(no heat)*
+6. In the morning: microwave the filling (see Reheat). Warm 3 corn tortillas in a dry pan, 20 seconds a side. *(medium heat · 2 min)*
+7. Fill the tortillas with the eggs and beans and top with the salsa. *(no heat)*
+
+**Done when:** No runny raw egg is left: the eggs are soft, set curds.
+
+**Box it up:** Cool for no more than 1 hour, then both boxes and salsa pots go in the fridge (eat by day 2: the opened salsa keeps 2 days). Do not freeze. The tortillas stay in their closed pack.
+
+**Reheat:** Filling: microwave with the lid loose 1 minute, stir, 30 seconds more until steaming hot all through. The salsa stays cold.
+
+**Tips**
+
+- Halal check: the corn tortillas list glycerine (E-422) without saying its origin, so the record is "check". A tortilla that lists no E-422, or says "de origen vegetal", is fine.
 
 ## Added fat
 

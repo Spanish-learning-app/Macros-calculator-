@@ -59,12 +59,43 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Brown the beef in the oil in a big pot; add onion, ginger and the spices, 5 min.
-2. Add the tomato and water; simmer 50 min, lid ajar, until the beef is tender (or 20 min in a pressure cooker).
-3. Add the lentils, chickpeas and rice; simmer 15–20 min. Stir in the herbs and lemon.
-4. Cool fast; freeze in 4 portions with ½ roll each in a bag.
+**Equipment**
+
+- Large pot (at least 4 l) with a lid
+- Wooden spoon
+- Sieve
+- Wide dish or 2 trays for cooling
+- 4 boxes (2 for the fridge, 2 for the freezer) and bags for the bread
+
+**Before you start**
+
+- Cut the beef (400 g) into small cubes of 1–2 cm.
+- Peel and chop the onion (200 g, 1 large) into 5 mm pieces. Peel and grate the ginger (6 g, a 3 cm piece).
+- Drain and rinse the lentils (1 jar, 400 g drained) and the chickpeas (1 jar, 400 g).
+- Rinse the rice (60 g). Chop the coriander (20 g) and parsley (20 g).
+
+**Steps**
+
+1. Heat a scant 1 tbsp olive oil (12 g) in the large pot for 1 minute. *(medium-high heat · 1 min)*
+2. Add the beef. Cook, turning the cubes, until brown on all sides. *(medium-high heat · 5 min)*
+3. Add the onion, ginger, 1 tsp ground turmeric (2 g), ⅓ tsp cinnamon (1 g), 1 tsp ground cumin (2 g) and black pepper (1 g). Stir and cook until the onion is soft. *(medium heat · 5 min)*
+4. Pour in the crushed tomato (600 g) and 1 l of water. Bring to the boil. *(high heat · 5 min)*
+5. Turn down, put the lid on with a gap and simmer 50 minutes, until a beef cube breaks easily with a spoon (or 20 minutes in a pressure cooker). *(low heat · 50 min)*
+6. Add the lentils, chickpeas and rice. Stir and simmer 15–20 minutes, stirring now and then so the rice does not stick. *(low heat · 18 min)*
+7. Turn off the heat. Stir in the coriander, parsley, 2½ tbsp lemon juice (40 g) and ¾ tsp salt (5 g). *(no heat)*
+8. Pour the soup into the wide dish or trays to cool fast (30 minutes), then fill 4 boxes (about 645 g each). *(no heat · 30 min)*
+
+**Done when:** The beef is tender (it breaks with a spoon), and the rice grains are soft and swollen.
+
+**Box it up:** Cool fast: in the fridge or freezer within 1 hour, because the soup contains rice. Portions 1–2 in the fridge (eat by day 3), portions 3–4 in the freezer (3 months). Put ½ roll (65 g) for each portion in a bag; freeze the bread if you will not use it within 3 days.
+
+**Reheat:** Add a splash of water. Microwave with the lid loose 3 minutes, stir, then 2 minutes more (or heat in a small pan) until it boils and is steaming hot all through. Reheat once only. From the freezer: move it to the fridge the night before.
+
+**Tips**
+
+- No stock cube and no smen (aged butter): the spices, herbs and lemon carry the flavour.
 
 ## Added fat
 

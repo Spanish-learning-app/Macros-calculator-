@@ -67,12 +67,42 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Toss the chicken with paprika, garlic, salt and pepper; sear in the oil 6–8 min (75 °C inside). Cool and slice.
-2. Boil the penne al dente (about 11 min), rinse under cold water, drain well.
-3. Whisk the hummus with lemon juice and water.
-4. Toss pasta with the dressing, then fold in the vegetables and chicken. Each box gets a quarter.
+**Equipment**
+
+- Frying pan (28 cm)
+- Large pot for 3 l of water and a colander
+- Small bowl and whisk or fork
+- Chopping board and knife
+- 4 lunch boxes and 3 freezer bags
+
+**Before you start**
+
+- Cut the chicken breast (600 g) into strips about 1 cm thick. Peel and grate 2 garlic cloves (6 g).
+- Halve the cherry tomatoes (320 g). Dice the cucumber (200 g) and red pepper (160 g) into 1 cm pieces. Wash the baby spinach (100 g) if it is not pre-washed.
+
+**Steps**
+
+1. Toss the chicken with 1½ tsp paprika (3 g), the garlic, ½ tsp salt (3 g) and black pepper (1 g). *(no heat)*
+2. Heat 2 tsp olive oil (10 g) in the frying pan for 1 minute. Add the chicken. *(medium-high heat · 1 min)*
+3. Cook 6–8 minutes, turning the strips every 2 minutes, until golden. Check one (see "Done when"). Cool on a plate, then slice. *(medium-high heat · 8 min)*
+4. Boil 3 l of water with a pinch of salt. Add the wholewheat penne (300 g) and cook about 11 minutes, until just soft. *(high heat · 11 min)*
+5. Drain the penne and rinse under the cold tap until cold. Shake it dry. *(no heat)*
+6. Make the dressing: whisk the hummus (160 g, ⅔ of the tub) with 2 tbsp lemon juice (30 g) and 3 tbsp water (40 g) until runny. *(no heat)*
+7. Box 1 (for tomorrow): toss a quarter of the pasta (about 175 g) with a quarter of the dressing, then fold in a quarter of the vegetables and a quarter of the chicken. *(no heat)*
+8. Boxes 2–4: freeze each pasta portion plain in a bag. Chicken: fridge (3 days) or freezer. Keep the dressing and cut vegetables in closed boxes in the fridge. *(no heat)*
+9. Each evening move one pasta bag (and chicken if frozen) to the fridge. In the morning toss with dressing, vegetables and chicken (2 minutes). *(no heat)*
+
+**Done when:** The chicken is white all through with clear juices (75 °C); the pasta is soft with a little bite.
+
+**Box it up:** Cool fast: everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only box 1 is assembled; the rest of the pasta is frozen plain (1 month). Dressing and cut vegetables keep 2 days and do not freeze: cut the vegetables again on Tuesday.
+
+**Reheat:** Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C), carried with an ice pack.
+
+**Tips**
+
+- Halal: the Hacendado hummus lists E270 "de origen vegetal" and no E471.
 
 ## Added fat
 

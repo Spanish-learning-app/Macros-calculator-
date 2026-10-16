@@ -57,13 +57,40 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Microwave or steam the potato slices until just tender (8–10 min), then sauté them with the onion in the oil in a 24–26 cm non-stick pan, 10 min, until soft and lightly golden. Season.
-2. Beat the eggs and whites with salt; stir in the potatoes and onion and rest 5 min.
-3. Cook in the oiled pan on low-medium heat 6–8 min, flip with a plate, cook 4–5 min more until set right through (no runny centre in a batch tortilla).
-4. Cool on a rack, cut into 4 wedges and wrap each wedge.
-5. Portion the yogurt into 4 pots; add the walnuts in the morning so they stay crunchy.
+**Equipment**
+
+- Non-stick frying pan 24–26 cm with sloped sides
+- Large flat plate (wider than the pan) to flip the tortilla
+- Large microwave-safe bowl with a plate as a lid (or a steamer)
+- Large mixing bowl and fork
+- Cooling rack
+- 4 boxes and 4 small pots
+
+**Before you start**
+
+- Peel the potatoes (700 g) and slice them thin (3 mm). Slice the onion (150 g) thin.
+- Crack 6 eggs into the large bowl and add the liquid egg whites (400 g) and 1 tsp salt (6 g). Beat with the fork.
+
+**Steps**
+
+1. Put the potato slices in the microwave bowl with 2 tbsp water, cover with the plate and microwave 8–10 minutes, until just soft (or steam them 10 minutes). *(microwave · 9 min)*
+2. Heat 1½ tbsp olive oil (about 20 g of the 30 g) in the frying pan. Add the potatoes and onion. *(medium heat · 1 min)*
+3. Cook 10 minutes, turning them gently now and then, until soft and lightly golden. *(medium heat · 10 min)*
+4. Tip the potatoes and onion into the eggs, stir and leave 5 minutes. Wipe out the pan. *(no heat · 5 min)*
+5. Heat the last 2 tsp olive oil (about 10 g) in the pan. Pour in the egg and potato mix and spread it flat. *(medium heat · 1 min)*
+6. Cook on low-medium heat 6–8 minutes, until the edges are set and the top is only a little wet. Shake the pan so it does not stick. *(low heat · 7 min)*
+7. Put the plate upside down on the pan. Holding both with oven gloves, turn them over together. Slide the tortilla back into the pan, cooked side up. *(no heat)*
+8. Cook 4–5 minutes more until set right through. *(low heat · 5 min)*
+9. Slide it onto the rack and cool 30 minutes. Cut into 4 wedges and wrap each one. *(no heat · 30 min)*
+10. Portion the protein yogurt into 4 pots (150 g each) only on the day you pack them (or 2 at a time). Add 10 g walnuts on top in the morning. *(no heat)*
+
+**Done when:** Press the middle: firm, and a knife pushed in comes out with no runny egg. A batch tortilla for boxes is cooked right through.
+
+**Box it up:** Cool within 1 hour, then the wedges go in the fridge (3 days). The tortilla does not freeze, so cook it Sunday for Monday to Wednesday and eat the 4th wedge as a dinner or snack (or cook it on a weekday evening for the next 3 lunches). Yogurt pots keep 2 days once portioned; bananas and walnuts stay at room temperature.
+
+**Reheat:** Eat cold (insulated bag and ice pack; within 2 hours of leaving the fridge). Do not microwave the tortilla in the box.
 
 ## Added fat
 

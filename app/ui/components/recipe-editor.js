@@ -62,7 +62,7 @@ export function openRecipeEditor({
   const methodId = uid('recipe-method');
   const methodIn = h('textarea', {
     id: methodId,
-    class: 'input method-input',
+    class: 'textarea method-input',
     rows: 5,
     maxlength: MY_METHOD_MAX,
     placeholder: 'Fry the onion on medium heat for 8 min.\nAdd the chicken…',

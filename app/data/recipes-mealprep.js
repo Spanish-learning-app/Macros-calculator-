@@ -248,6 +248,70 @@ export default [
     effort: 'cook',
     minutes: 40,
     cuisine: 'spanish',
+    method: {
+      equipment: ['Wide frying pan or sauté pan (28 cm) with a lid', 'Medium pot with a lid (rice)', 'Second pot (green beans) and a colander', 'Oven tray for cooling', '4 lunch boxes (1 for the fridge, 3 for the freezer)'],
+      prep: ['Cut the boneless, skinless chicken thighs (720 g) into 4 cm pieces. Sprinkle with 1 tsp salt (6 g) and black pepper (2 g).', 'Peel 12–14 garlic cloves (40 g) and slice them thin (2 mm).', 'Squeeze about 1¼ lemons: you need 60 g (4 tbsp) of juice. Chop the parsley (15 g, a big handful).', 'Rinse the brown rice (240 g) in a sieve.'],
+      steps: [
+        {
+          text: 'Rice first: put the rice in the medium pot with 1.2 l of water and ½ tsp salt (3 g). Bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Turn down so it bubbles gently, half-cover and cook 25 minutes (start the chicken now).',
+          heat: 'medium',
+          minutes: 25,
+        },
+        {
+          text: 'Heat 2 tbsp olive oil (30 g) in the wide pan for 1 minute. Add the chicken in one layer (in 2 batches if it does not fit).',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Brown the chicken 6–8 minutes, turning the pieces every 2 minutes, until golden on all sides. Lift it out onto a plate.',
+          heat: 'medium-high',
+          minutes: 8,
+        },
+        {
+          text: 'Turn the heat down. Add the sliced garlic, 1 dried guindilla (optional) and ½ bay leaf. Stir until the garlic is pale gold, not brown (burnt garlic tastes bitter).',
+          heat: 'low',
+          minutes: 2,
+        },
+        {
+          text: 'Put the chicken back. Pour in the lemon juice (60 g) and 100 ml water. Put the lid on and cook 10 minutes.',
+          heat: 'medium',
+          minutes: 10,
+        },
+        {
+          text: 'Take the lid off and cook until the liquid has become a thin, shiny glaze. Stir in the parsley.',
+          heat: 'medium',
+          minutes: 5,
+        },
+        {
+          text: 'Add the frozen peas (200 g) to the rice for its last 5 minutes. Drain off any water left.',
+          heat: 'medium',
+          minutes: 5,
+        },
+        {
+          text: 'Boil the frozen green beans (600 g) in the second pot of salted water for 8 minutes. Drain well.',
+          heat: 'high',
+          minutes: 8,
+        },
+        {
+          text: 'Spread the rice on the tray to cool fast. Let the chicken and beans cool too (all in the fridge or freezer within 1 hour).',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Each box: a quarter of the rice and peas, a quarter of the beans, a quarter of the chicken with its garlic glaze.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Cut the biggest chicken piece: no pink, juices clear (75 °C). The rice is soft with no hard white centre.',
+      boxUp: 'Rice must be cooled fast: spread it out and get it in the fridge within 1 hour. Rice keeps only 1 day in the fridge, so box 1 goes in the fridge and boxes 2–4 in the freezer (rice 1 month, chicken 3 months). Move the next day\'s box to the fridge the night before.',
+      reheat: 'Microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot right through. Reheat once only. A squeeze of fresh lemon after reheating lifts it.',
+      tips: ['No wine: lemon juice and water replace the white wine of the classic recipe.', 'No guindilla? Use a pinch of chilli flakes or leave it out.'],
+    },
   },
   {
     foodId: 'es-albondigas-tomate-couscous-box',
@@ -275,6 +339,63 @@ export default [
     effort: 'cook',
     minutes: 50,
     cuisine: 'spanish',
+    method: {
+      equipment: ['Large deep frying pan or casserole (28 cm)', 'Large bowl for the meat mix', 'Heatproof bowl with a plate or lid (couscous)', 'Kettle', 'Grater', 'Oven tray for cooling', '4 lunch boxes with tight lids'],
+      prep: ['Peel 6 garlic cloves: chop 3 very finely (8 g) for the meatballs and chop 3 (10 g) for the sauce.', 'Chop the parsley (10 g). Chop the onion (150 g) and green pepper (120 g) small (5 mm). Peel and grate the carrot (100 g).', 'Open the crushed tomato (800 g).'],
+      steps: [
+        {
+          text: 'In the big bowl mix the beef mince (640 g), breadcrumbs (45 g, about 5 tbsp), 1 egg, the 8 g garlic, the parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands. Leave 10 minutes.',
+          heat: 'none',
+          minutes: 10,
+        },
+        {
+          text: 'Roll 24 balls of about 30 g each (the size of a walnut). Wash your hands.',
+          heat: 'none',
+        },
+        {
+          text: 'Heat 1½ tbsp olive oil (20 g) in the pan. Brown the meatballs in 2 batches, turning them, 4–5 minutes per batch. Lift them onto a plate (they are not cooked through yet).',
+          heat: 'medium-high',
+          minutes: 10,
+        },
+        {
+          text: 'In the same pan add 1 tbsp olive oil (15 g), the onion, pepper, carrot and the 10 g garlic. Cook, stirring, until soft.',
+          heat: 'medium',
+          minutes: 10,
+        },
+        {
+          text: 'Add the crushed tomato, 1 tsp sugar (4 g), 1½ tsp paprika (3 g), ½ tsp oregano (1 g), ½ bay leaf and ½ tsp salt (3 g). Simmer 15 minutes.',
+          heat: 'low',
+          minutes: 15,
+        },
+        {
+          text: 'Put the meatballs back in the sauce. Simmer 15 minutes more without a lid, turning them once, until the sauce is thick.',
+          heat: 'low',
+          minutes: 15,
+        },
+        {
+          text: 'Couscous: boil the kettle. Put the couscous (240 g), 2 tsp olive oil (8 g) and ⅓ tsp salt (2 g) in the heatproof bowl. Pour over 336 ml boiling water, stir once and cover.',
+          heat: 'none',
+        },
+        {
+          text: 'Leave the couscous covered 5 minutes, then fluff it with a fork.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Spread the couscous and meatballs on a tray or wide dish to cool fast (all in the fridge or freezer within 1 hour).',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Each box: a quarter of the couscous and 6 meatballs with a quarter of the sauce. Use a tight lid or a deeper compartment for the sauce.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Cut a meatball in half: no pink inside (75 °C). The sauce is thick enough not to slosh in the box.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Couscous keeps only 1 day in the fridge, so box 1 goes in the fridge and boxes 2–4 in the freezer (couscous 1 month, meatballs 3 months). Move the next day\'s box to the fridge the night before.',
+      reheat: 'Microwave with the lid loose 3 minutes, stir the sauce, then 30–60 seconds more until steaming hot right through. Reheat once only.',
+      tips: ['Halal: check the breadcrumbs label for manteca (lard). No wine in the sauce.'],
+    },
   },
   {
     foodId: 'med-moroccan-chicken-couscous-box',
@@ -308,6 +429,46 @@ export default [
     effort: 'cook',
     minutes: 35,
     cuisine: 'middle-eastern',
+    method: {
+      equipment: ['2 oven trays lined with baking paper', 'Large bowl', 'Heatproof bowl with a plate or lid (couscous)', 'Kettle', '4 lunch boxes'],
+      prep: ['Cut the courgettes (400 g) into 2 cm chunks, the carrots (300 g) into thick 1 cm slices, the red pepper (300 g) into chunks and the red onion (200 g) into wedges.', 'Cut the chicken breast (680 g) into strips about 1.5 cm thick. Peel and grate 3 garlic cloves (10 g).', 'Chop the parsley (15 g).'],
+      steps: [
+        { text: 'Turn the oven on to 220 °C.', heat: 'oven-220', minutes: 10 },
+        {
+          text: 'In the big bowl toss the vegetables with 2 tbsp olive oil (25 g), 2 tsp ras el hanout (6 g), 1½ tsp ground cumin (3 g) and ⅔ tsp salt (4 g). Spread on the first tray.',
+          heat: 'none',
+        },
+        { text: 'Roast the vegetables 15 minutes.', heat: 'oven-220', minutes: 15 },
+        {
+          text: 'Meanwhile, in the same bowl, toss the chicken with 2½ tsp ras el hanout (8 g), the garlic, a scant 1 tbsp olive oil (12 g) and ¾ tsp salt (5 g). Spread on the second tray.',
+          heat: 'none',
+        },
+        {
+          text: 'Turn the vegetables over and put the chicken tray in the oven too. Roast both 15–18 minutes more.',
+          heat: 'oven-220',
+          minutes: 18,
+        },
+        {
+          text: 'Check the chicken (see "Done when"). Squeeze 1½ tbsp lemon juice (20 g) over it.',
+          heat: 'none',
+        },
+        {
+          text: 'Couscous: boil the kettle. Put the couscous (240 g), 1 tsp olive oil (5 g) and ⅓ tsp salt (2 g) in the heatproof bowl, pour over 336 ml boiling water, stir and cover for 5 minutes.',
+          heat: 'none',
+          minutes: 5,
+        },
+        { text: 'Fluff the couscous with a fork and fold in the parsley.', heat: 'none' },
+        {
+          text: 'Spread everything out to cool fast (in the fridge or freezer within 1 hour). Each box: a quarter of the couscous, vegetables and chicken.',
+          heat: 'none',
+          minutes: 30,
+        },
+      ],
+      doneWhen: 'The chicken is white all through with clear juices (75 °C); the carrots are soft when you push in a knife.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Couscous keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (couscous 1 month, chicken and vegetables 3 months). Move the next day\'s box to the fridge the night before.',
+      reheat: 'Hot: microwave with the lid loose 2½–3 minutes, stir, until steaming hot right through; reheat once only. Cold: eat within 2 hours of leaving the fridge (1 hour above 32 °C), carried with an ice pack; a squeeze of lemon helps.',
+      tips: ['Ras el hanout blends vary: check the label for added salt and sugar.'],
+    },
   },
   {
     foodId: 'pk-chicken-seekh-tabbouleh-box',
@@ -447,6 +608,47 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'spanish',
+    method: {
+      equipment: ['Pot for 4 eggs', 'Sieve and can opener', 'Large bowl', 'Chopping board and knife', '4 lunch boxes (filled 2 at a time)'],
+      prep: ['Dice the red pepper (200 g) and green pepper (100 g) into 1 cm pieces. Chop the red onion (100 g) small (3–5 mm).', 'Halve the cherry tomatoes (320 g). Dice the cucumber (160 g) into 1 cm cubes. Chop the parsley (15 g).'],
+      steps: [
+        {
+          text: 'The only cooking is the eggs. Put 4 eggs in the pot, cover with cold water and bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        { text: 'Turn down so it bubbles gently and cook 10 minutes.', heat: 'medium', minutes: 10 },
+        {
+          text: 'Pour off the hot water, cover the eggs with cold water for 5 minutes, then peel them. Keep them in the fridge.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Sunday, for 2 boxes: drain and rinse 300 g chickpeas (¾ of a jar) and drain 220 g tuna (about 4 cans).',
+          heat: 'none',
+        },
+        {
+          text: 'In the bowl mix the chickpeas, tuna and half of all the chopped vegetables and parsley.',
+          heat: 'none',
+        },
+        {
+          text: 'Dress with 2 tbsp olive oil (30 g), 1½ tbsp lemon juice (20 g), ½ tsp ground cumin (1 g, optional), a pinch of salt (1–2 g) and black pepper. Stir gently.',
+          heat: 'none',
+        },
+        {
+          text: 'Fill 2 boxes with half the salad each and put 1 halved egg on top of each.',
+          heat: 'none',
+        },
+        {
+          text: 'Tuesday night: repeat steps 4–7 with the other half for boxes 3 and 4.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'The egg yolks are firm and pale yellow all through.',
+      boxUp: 'Cold only, no freezing. The dressed salad keeps 2 days and the boiled eggs 3 days, so mix half on Sunday (Mon, Tue) and half on Tuesday night (Wed, Thu). Keep the unopened tuna cans and chickpeas in the cupboard until then; keep the cut vegetables in a closed box in the fridge. Carry in an insulated bag with an ice pack.',
+      reheat: 'Not reheated (no fish or eggs in the microwave): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+      tips: ['Lemon juice replaces wine vinegar. Tuna "al natural" (tuna, water, salt) has no oil to drain away, so the 60 g olive oil is all the fat.'],
+    },
   },
   {
     foodId: 'med-chicken-hummus-pasta-salad-box',
@@ -470,6 +672,55 @@ export default [
     effort: 'cook',
     minutes: 30,
     cuisine: 'mediterranean',
+    method: {
+      equipment: ['Frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Small bowl and whisk or fork', 'Chopping board and knife', '4 lunch boxes and 3 freezer bags'],
+      prep: ['Cut the chicken breast (600 g) into strips about 1 cm thick. Peel and grate 2 garlic cloves (6 g).', 'Halve the cherry tomatoes (320 g). Dice the cucumber (200 g) and red pepper (160 g) into 1 cm pieces. Wash the baby spinach (100 g) if it is not pre-washed.'],
+      steps: [
+        {
+          text: 'Toss the chicken with 1½ tsp paprika (3 g), the garlic, ½ tsp salt (3 g) and black pepper (1 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Heat 2 tsp olive oil (10 g) in the frying pan for 1 minute. Add the chicken.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Cook 6–8 minutes, turning the strips every 2 minutes, until golden. Check one (see "Done when"). Cool on a plate, then slice.',
+          heat: 'medium-high',
+          minutes: 8,
+        },
+        {
+          text: 'Boil 3 l of water with a pinch of salt. Add the wholewheat penne (300 g) and cook about 11 minutes, until just soft.',
+          heat: 'high',
+          minutes: 11,
+        },
+        {
+          text: 'Drain the penne and rinse under the cold tap until cold. Shake it dry.',
+          heat: 'none',
+        },
+        {
+          text: 'Make the dressing: whisk the hummus (160 g, ⅔ of the tub) with 2 tbsp lemon juice (30 g) and 3 tbsp water (40 g) until runny.',
+          heat: 'none',
+        },
+        {
+          text: 'Box 1 (for tomorrow): toss a quarter of the pasta (about 175 g) with a quarter of the dressing, then fold in a quarter of the vegetables and a quarter of the chicken.',
+          heat: 'none',
+        },
+        {
+          text: 'Boxes 2–4: freeze each pasta portion plain in a bag. Chicken: fridge (3 days) or freezer. Keep the dressing and cut vegetables in closed boxes in the fridge.',
+          heat: 'none',
+        },
+        {
+          text: 'Each evening move one pasta bag (and chicken if frozen) to the fridge. In the morning toss with dressing, vegetables and chicken (2 minutes).',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'The chicken is white all through with clear juices (75 °C); the pasta is soft with a little bite.',
+      boxUp: 'Cool fast: everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only box 1 is assembled; the rest of the pasta is frozen plain (1 month). Dressing and cut vegetables keep 2 days and do not freeze: cut the vegetables again on Tuesday.',
+      reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C), carried with an ice pack.',
+      tips: ['Halal: the Hacendado hummus lists E270 "de origen vegetal" and no E471.'],
+    },
   },
   {
     foodId: 'es-tortilla-proteica-skyr-box',
@@ -492,6 +743,59 @@ export default [
     effort: 'cook',
     minutes: 40,
     cuisine: 'spanish',
+    method: {
+      equipment: ['Non-stick frying pan 24–26 cm with sloped sides', 'Large flat plate (wider than the pan) to flip the tortilla', 'Large microwave-safe bowl with a plate as a lid (or a steamer)', 'Large mixing bowl and fork', 'Cooling rack', '4 boxes and 4 small pots'],
+      prep: ['Peel the potatoes (700 g) and slice them thin (3 mm). Slice the onion (150 g) thin.', 'Crack 6 eggs into the large bowl and add the liquid egg whites (400 g) and 1 tsp salt (6 g). Beat with the fork.'],
+      steps: [
+        {
+          text: 'Put the potato slices in the microwave bowl with 2 tbsp water, cover with the plate and microwave 8–10 minutes, until just soft (or steam them 10 minutes).',
+          heat: 'microwave',
+          minutes: 9,
+        },
+        {
+          text: 'Heat 1½ tbsp olive oil (about 20 g of the 30 g) in the frying pan. Add the potatoes and onion.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Cook 10 minutes, turning them gently now and then, until soft and lightly golden.',
+          heat: 'medium',
+          minutes: 10,
+        },
+        {
+          text: 'Tip the potatoes and onion into the eggs, stir and leave 5 minutes. Wipe out the pan.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Heat the last 2 tsp olive oil (about 10 g) in the pan. Pour in the egg and potato mix and spread it flat.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Cook on low-medium heat 6–8 minutes, until the edges are set and the top is only a little wet. Shake the pan so it does not stick.',
+          heat: 'low',
+          minutes: 7,
+        },
+        {
+          text: 'Put the plate upside down on the pan. Holding both with oven gloves, turn them over together. Slide the tortilla back into the pan, cooked side up.',
+          heat: 'none',
+        },
+        { text: 'Cook 4–5 minutes more until set right through.', heat: 'low', minutes: 5 },
+        {
+          text: 'Slide it onto the rack and cool 30 minutes. Cut into 4 wedges and wrap each one.',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Portion the protein yogurt into 4 pots (150 g each) only on the day you pack them (or 2 at a time). Add 10 g walnuts on top in the morning.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Press the middle: firm, and a knife pushed in comes out with no runny egg. A batch tortilla for boxes is cooked right through.',
+      boxUp: 'Cool within 1 hour, then the wedges go in the fridge (3 days). The tortilla does not freeze, so cook it Sunday for Monday to Wednesday and eat the 4th wedge as a dinner or snack (or cook it on a weekday evening for the next 3 lunches). Yogurt pots keep 2 days once portioned; bananas and walnuts stay at room temperature.',
+      reheat: 'Eat cold (insulated bag and ice pack; within 2 hours of leaving the fridge). Do not microwave the tortilla in the box.',
+    },
   },
   {
     foodId: 'intl-overnight-oats-protein-jar',
@@ -510,6 +814,34 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'international',
+    method: {
+      equipment: ['3 jars with lids (400–500 ml)', 'Spoon', 'Knife and board for the walnuts'],
+      prep: ['Chop the walnuts (24 g) roughly.'],
+      steps: [
+        {
+          text: 'No cooking. In each jar put 50 g oats (about ½ cup), 10 g chia seeds (1 tbsp) and 1 g cinnamon (a good pinch).',
+          heat: 'none',
+        },
+        {
+          text: 'Add 150 g protein yogurt and 120 ml semi-skimmed milk (120 g) to each jar.',
+          heat: 'none',
+        },
+        { text: 'Stir well, scraping the bottom so no dry oats or chia stay stuck.', heat: 'none' },
+        {
+          text: 'Sprinkle 8 g chopped walnuts on top of each jar. Close the lids and put the jars in the fridge.',
+          heat: 'none',
+        },
+        {
+          text: 'Leave at least 6 hours (overnight). Before the first jar, stir once more if it set unevenly.',
+          heat: 'none',
+          minutes: 360,
+        },
+        { text: 'In the morning slice half a banana (60 g) on top and eat cold.', heat: 'none' },
+      ],
+      doneWhen: 'The oats are soft and the mix is thick like a pudding, with no dry oats.',
+      boxUp: 'All 3 jars go in the fridge on Sunday night for Monday, Tuesday and Wednesday (3 days). For Thursday and Friday, make 2 more on Wednesday night. Do not freeze.',
+      reheat: 'Eat cold from the jar. If you like it warm: lid off, microwave 1 minute, stirring halfway.',
+    },
   },
   {
     foodId: 'intl-egg-muffins-roti-portion',
@@ -567,6 +899,51 @@ export default [
     effort: 'cook',
     minutes: 35,
     cuisine: 'international',
+    method: {
+      equipment: ['Blender or stick blender with its jug', 'Non-stick frying pan (24 cm)', 'Kitchen paper (to wipe on the oil)', 'Ladle or ¼-cup measure', 'Spatula', 'Cooling rack', 'Baking paper and 3 freezer bags'],
+      prep: ['Peel 2 small ripe bananas (200 g).'],
+      steps: [
+        {
+          text: 'Blend the oats (200 g) for 30 seconds until they look like flour.',
+          heat: 'none',
+          minutes: 1,
+        },
+        {
+          text: 'Add the protein yogurt (400 g), 8 eggs, the bananas, 1½ tsp cinnamon (4 g) and a pinch of salt (1 g). Blend until smooth.',
+          heat: 'none',
+          minutes: 1,
+        },
+        { text: 'Leave the batter 10 minutes to thicken.', heat: 'none', minutes: 10 },
+        {
+          text: 'Heat the pan for 1 minute. Dip a folded piece of kitchen paper in the sunflower oil and wipe the pan (about 1 g of oil per pancake, 16 g in all).',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Pour about ¼ cup (65 g) of batter into the pan for each pancake (2–3 at a time).',
+          heat: 'medium',
+        },
+        {
+          text: 'Cook about 2 minutes, until bubbles appear on top and the edges look dry.',
+          heat: 'medium',
+          minutes: 2,
+        },
+        {
+          text: 'Flip with the spatula and cook 1–2 minutes more until golden. Move to the rack. Wipe the pan with oil again and repeat until all 16 are made.',
+          heat: 'medium',
+          minutes: 2,
+        },
+        {
+          text: 'When cool, stack 4 pancakes per portion with baking paper between them.',
+          heat: 'none',
+          minutes: 20,
+        },
+      ],
+      doneWhen: 'Both sides are golden and the middle springs back when pressed; no wet batter shows on the side.',
+      boxUp: 'Cool for no more than 1 hour. One portion in the fridge (3 days), three portions in freezer bags laid flat in the freezer (2 months).',
+      reheat: 'From frozen: toaster 2 cycles, or microwave 60–80 seconds under a paper towel, until hot right through. From the fridge: 40–60 seconds.',
+      tips: ['2 tsp baking powder makes them fluffier (optional; not counted).', 'A topping of yogurt or fruit is logged separately.'],
+    },
   },
   {
     foodId: 'pk-aloo-paratha-raita-portion',
@@ -2035,6 +2412,51 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'asian',
+    method: {
+      equipment: ['Frying pan (24–28 cm)', 'Small jar with a lid (for the dressing)', 'Grater', 'Chopping board and knife', '2 lunch boxes and 2 small lidded pots (about 50 ml)'],
+      prep: ['Cut the chicken breast (280 g) into strips about 1 cm thick.', 'Peel the ginger and grate it: 6 g (a 3 cm piece) for the chicken and 6 g for the dressing. Peel and grate 1–2 garlic cloves (4 g).', 'Cut the carrot (160 g) and cucumber (160 g) into thin matchsticks (or grate the carrot). Slice the red pepper (160 g) thin. Chop the coriander (10 g, a handful).'],
+      steps: [
+        {
+          text: 'Mix the chicken strips with the 6 g ginger, the garlic and a pinch of salt (1 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Heat 1½ tsp sunflower oil (6 g) in the frying pan for 1 minute.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chicken and cook about 6 minutes, turning the strips every 2 minutes, until golden on all sides. Check one (see "Done when").',
+          heat: 'medium-high',
+          minutes: 6,
+        },
+        {
+          text: 'Move the chicken to a plate and let it cool for up to 30 minutes.',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Make the dressing in the jar: 1 tbsp + 1 tsp halal-certified soy sauce (20 g), 2 tbsp lemon or lime juice (30 g), 2 tsp sunflower oil (10 g), the other 6 g grated ginger, 1½ tsp sugar (6 g) and a pinch of chilli powder (1 g, optional). Close and shake until the sugar dissolves. Pour into the 2 pots.',
+          heat: 'none',
+        },
+        {
+          text: 'Fill each box: half the carrot, cucumber, pepper and coriander, then half the chicken on top.',
+          heat: 'none',
+        },
+        {
+          text: 'Sprinkle 15 g peanuts (about 1 tbsp) over each box, last, so they stay crunchy. The sealed quinoa cup (125 g) and the dressing pot go next to the box.',
+          heat: 'none',
+        },
+        {
+          text: 'At lunch: open the quinoa cup and tip it in, pour the dressing over, close the lid and shake.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Cut the thickest strip: white all through, no pink, juices clear (75 °C).',
+      boxUp: 'Cool the chicken for no more than 1 hour, then both boxes and pots go in the fridge (eat by day 2). Do not freeze the salad. Make 2 boxes at a time. The quinoa cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked grains does not apply.',
+      reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+      tips: ['Halal: use a soy sauce with a halal certificate (or a tamari that lists no alcohol). Ordinary brewed soy sauce can contain alcohol from fermentation.'],
+    },
   },
   {
     foodId: 'intl-chicken-burrito-bowl-box',
@@ -2069,6 +2491,49 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'mexican',
+    method: {
+      equipment: ['Large frying pan (28 cm)', 'Sieve', 'Can opener', '4 lunch boxes and 4 small boxes or pots (about 150 ml) for the cold side'],
+      prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick.', 'Peel and chop 2 garlic cloves (6 g).', 'Drain and rinse the kidney beans (1 jar, 400 g). Drain the 3 small tins of sweetcorn (210 g).', 'Shred the lettuce (120 g).'],
+      steps: [
+        {
+          text: 'In a bowl mix the chicken with 2 tsp sunflower oil (10 g), 1½ tsp ground cumin (3 g), 2 tsp paprika (4 g), 1 tsp chilli powder (2 g), 1 tsp dried oregano (2 g), the garlic and ½ tsp salt (3 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Heat the frying pan for 1 minute (no extra oil: it is on the chicken).',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chicken and cook 6–8 minutes, turning the strips every 2 minutes, until browned all over. Check one (see "Done when"). Move it to a plate.',
+          heat: 'medium-high',
+          minutes: 8,
+        },
+        {
+          text: 'Put the beans and corn in the same pan with 1 tsp cumin (2 g) and a pinch of salt (1 g). Stir for 3 minutes until hot.',
+          heat: 'medium',
+          minutes: 3,
+        },
+        {
+          text: 'Let the chicken and beans cool on the counter (up to 1 hour), then put a quarter of the chicken and a quarter of the beans and corn in each lunch box.',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Make the cold side for 2 boxes: in each small box put 60 g salsa (about 3 tbsp), 40 g Greek yogurt (2 tbsp) with 1 tsp lemon juice (2–3 g) stirred in, and 30 g lettuce. Make the other 2 on Tuesday night.',
+          heat: 'none',
+        },
+        {
+          text: 'At lunch: microwave the rice cup (125 g) for 1 minute and the chicken and beans until steaming. Tip the rice in, then top with the cold salsa, yogurt and lettuce.',
+          heat: 'microwave',
+          minutes: 3,
+        },
+      ],
+      doneWhen: 'Chicken: white all through, no pink, juices clear (75 °C). Beans: hot all through.',
+      boxUp: 'Boxes 1–3: chicken and beans in the fridge (3 days). Box 4: chicken and beans in the freezer (3 months). The cold side keeps 2 days once the salsa jar is open, so pot 2 sides on Sunday and 2 on Tuesday night. The sealed rice cups stay in the cupboard.',
+      reheat: 'Chicken and beans: microwave with the lid loose 2 minutes, stir, then 30–60 seconds more until steaming hot all through. Rice cup: 1 minute, as on the pack. The salsa, yogurt and lettuce stay cold. From the freezer: move box 4 to the fridge the night before.',
+      tips: ['Halal: the salsa has wine vinegar (vinegar, not wine). Greek yogurt replaces sour cream.'],
+    },
   },
   {
     foodId: 'intl-chicken-rice-noodle-stir-fry-box',
@@ -2109,6 +2574,55 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'asian',
+    method: {
+      equipment: ['Wok or the largest frying pan you have (30 cm)', 'Large heatproof bowl and a kettle', 'Colander', 'Small bowl for the sauce', 'Oven tray for cooling', '4 lunch boxes'],
+      prep: ['Take the frozen broccoli (300 g) out to thaw in a colander 1 hour before, or rinse it under the warm tap.', 'Cut the chicken breast (560 g) into thin strips (5 mm).', 'Peel and chop 3 garlic cloves (9 g). Peel and grate the ginger (10 g, a 5 cm piece).', 'Slice the onion (100 g) thin. Cut the red pepper (200 g) into strips and the carrot (160 g) into thin matchsticks. Slice the mushrooms (200 g).', 'Sauce: in the small bowl mix 4 tbsp halal-certified soy sauce (60 g), 1½ tbsp lemon or lime juice (20 g), 2 tsp sugar (8 g) and a pinch of chilli powder (1 g).'],
+      steps: [
+        {
+          text: 'Boil the kettle. Put the dry rice noodles (320 g) in the big bowl and cover them with the just-boiled water. Leave 6 minutes.',
+          heat: 'none',
+          minutes: 6,
+        },
+        {
+          text: 'Drain the noodles in the colander and rinse them under the cold tap so they do not stick. Leave to drain.',
+          heat: 'none',
+        },
+        {
+          text: 'Heat the wok until very hot. Add 1 tbsp sunflower oil (12 g).',
+          heat: 'high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chicken, garlic and ginger. Stir and toss for about 5 minutes until the chicken is white all through. Tip it onto a plate.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Add 2 tsp sunflower oil (10 g) to the wok. Add the onion, carrot and pepper and stir-fry 3 minutes.',
+          heat: 'high',
+          minutes: 3,
+        },
+        {
+          text: 'Add the broccoli, mushrooms and frozen peas (200 g). Stir-fry 4 minutes until the peas are hot and the mushrooms soft.',
+          heat: 'high',
+          minutes: 4,
+        },
+        {
+          text: 'Put the chicken back, add the noodles and pour over the sauce. Toss with two spoons for 2 minutes until everything is coated and hot.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Spread on the tray to cool fast (20–30 minutes), then divide into 4 boxes.',
+          heat: 'none',
+          minutes: 25,
+        },
+      ],
+      doneWhen: 'Chicken: white all through with no pink (75 °C). Noodles: soft, coated in sauce, no dry white bits.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Cooked noodles keep only 1 day: box 1 in the fridge, boxes 2–4 in the freezer (1 month). Move one to the fridge each evening.',
+      reheat: 'Add 1 tbsp water, cover loosely and microwave 2½–3 minutes, stir, then 1 minute more until steaming hot all through. Reheat once only.',
+      tips: ['Halal: use a soy sauce with a halal certificate (or a tamari that lists no alcohol). No mirin or rice wine in this recipe.'],
+    },
   },
   {
     foodId: 'es-pollo-patatas-pimientos-horno-portion',
@@ -2137,6 +2651,44 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'spanish',
+    method: {
+      equipment: ['1 very large oven tray or 2 normal trays, lined with baking paper', 'Large bowl', 'Chopping board and knife', 'Kitchen paper', '4 boxes (3 for the fridge, 1 for the freezer)'],
+      prep: ['Wash the potatoes (900 g), peel them and cut them into wedges about 2 cm thick.', 'Cut the red pepper (300 g) and green pepper (200 g) into strips 1.5 cm wide. Cut the red onion (200 g) into 8 wedges.', 'Drain the chickpeas (1 jar, 400 g), rinse them and pat them dry with kitchen paper so they crisp.', 'Cut each chicken fillet (600 g, 4 fillets) in half. Peel and grate 3 garlic cloves (9 g).'],
+      steps: [
+        { text: 'Turn the oven on to 220 °C.', heat: 'oven-220', minutes: 10 },
+        {
+          text: 'In the large bowl toss the potatoes, peppers, onion and chickpeas with 2 tbsp olive oil (28 g), 1 tsp paprika (2 g) and ⅓ tsp salt (2 g). Spread them on the tray in one layer.',
+          heat: 'none',
+        },
+        { text: 'Put the tray in the oven and roast 20 minutes.', heat: 'oven-220', minutes: 20 },
+        {
+          text: 'Meanwhile, in the same bowl, mix the chicken with a scant 1 tbsp olive oil (12 g), 2 tsp paprika (4 g), 1 tsp dried oregano (2 g), the grated garlic, 1½ tbsp lemon juice (20 g), ½ tsp salt (3 g) and black pepper (1 g). Wash your hands.',
+          heat: 'none',
+        },
+        {
+          text: 'Take the tray out (use oven gloves). Push the vegetables to the sides and lay the chicken pieces in the gaps.',
+          heat: 'none',
+        },
+        {
+          text: 'Roast 18–20 minutes more, until the chicken is golden and the potatoes are soft when you push in a knife.',
+          heat: 'oven-220',
+          minutes: 20,
+        },
+        {
+          text: 'Check the biggest chicken piece (see "Done when"). Let the tray cool on the counter for 20–30 minutes.',
+          heat: 'none',
+          minutes: 25,
+        },
+        {
+          text: 'Divide into 4 portions: 2 pieces of chicken and a quarter of the vegetables each.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Cut the biggest chicken piece: white all through, no pink, juices clear (75 °C). A knife slides into the potatoes with no resistance.',
+      boxUp: 'Cool for no more than 1 hour. Portions 1–3 in the fridge (eat Monday to Wednesday, by day 3); portion 4 in the freezer (3 months).',
+      reheat: 'Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more until steaming hot all through; or 10 minutes in a 200 °C oven to crisp the potatoes. From the freezer: move it to the fridge the night before.',
+      tips: ['No stock cube: a chicken stock cube is not halal unless it is certified.'],
+    },
   },
   {
     foodId: 'med-salmon-patatas-judias-portion',
@@ -2167,6 +2719,39 @@ export default [
     effort: 'cook',
     minutes: 15,
     cuisine: 'mediterranean',
+    method: {
+      equipment: ['Large oven tray lined with baking paper', 'Small bowl for the sauce', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)'],
+      prep: ['The night before: move 4 frozen salmon medallions (250 g) from the freezer to the fridge to thaw on a plate.', 'Peel the potatoes (400 g) and cut them into wedges about 2 cm thick.', 'Cut the red onion (80 g, ½ onion) into wedges. Peel and slice 2 garlic cloves (6 g). Keep the green beans (300 g) frozen until step 4.', 'Chop the parsley (4 g, a small handful) and grate a small piece of garlic (2 g) for the sauce.'],
+      steps: [
+        { text: 'Turn the oven on to 200 °C.', heat: 'oven-200', minutes: 10 },
+        {
+          text: 'On the tray toss the potatoes with half of 1 tbsp olive oil (7 g), 1 tsp paprika (2 g) and ⅓ tsp salt (2 g). Spread them out.',
+          heat: 'none',
+        },
+        { text: 'Roast the potatoes 17 minutes.', heat: 'oven-200', minutes: 17 },
+        {
+          text: 'Take the tray out. Add the frozen green beans, onion and sliced garlic, and drizzle the rest of the 1 tbsp oil (7 g). Toss.',
+          heat: 'none',
+        },
+        {
+          text: 'Pat the salmon dry. Lay it on top of the vegetables, drizzle 1 tsp olive oil (4 g) and 2 tsp lemon juice (10 g), and sprinkle a pinch of salt (1 g).',
+          heat: 'none',
+        },
+        { text: 'Roast 13–15 minutes more.', heat: 'oven-200', minutes: 15 },
+        {
+          text: 'Make the sauce: stir 120 g Greek yogurt, 1 tsp lemon juice (6 g), the grated garlic and the parsley. Spoon into the 2 pots.',
+          heat: 'none',
+        },
+        {
+          text: 'Check the salmon (see "Done when"). Divide into 2 portions: 2 medallions and half the vegetables each.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'The salmon is opaque pink (not glassy) in the middle and flakes when you press it with a fork (63 °C). The potatoes are soft when you push in a knife.',
+      boxUp: 'Eat portion 1 that night. Cool portion 2 for no more than 1 hour and put it in the fridge with its sauce pot; eat it the next evening (by day 2). The salmon was frozen once: do not freeze it again.',
+      reheat: 'Take the yogurt pot out (it stays cold). Microwave covered 1½–2 minutes until steaming hot all through.',
+      tips: ['No 200 °C on your oven dial? 210 °C works: take 1–2 minutes off each roasting time.'],
+    },
   },
   {
     foodId: 'intl-chili-con-carne-rice-portion',
@@ -2195,6 +2780,60 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'mexican',
+    method: {
+      equipment: ['Wide deep frying pan or casserole (28 cm) with a lid', 'Medium pot with a lid for the rice', 'Wooden spoon', 'Sieve', 'Oven tray or wide dish for cooling', '4 boxes and 4 small lidded pots'],
+      prep: ['Peel and chop the onion (200 g, 1 large) into 5 mm pieces. Dice the red pepper (200 g) into 1 cm pieces.', 'Peel and chop 3 garlic cloves (9 g).', 'Drain and rinse the kidney beans (1 jar, 400 g). Open the crushed tomato (800 g).', 'Rinse the brown rice (240 g) in the sieve under cold water.'],
+      steps: [
+        {
+          text: 'Rice first: put the rice in the medium pot with 1 l of water and a pinch of salt. Bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Turn down so it bubbles gently, cover and cook 30 minutes (or the time on the pack). While it cooks, make the chili.',
+          heat: 'low',
+          minutes: 30,
+        },
+        {
+          text: 'Heat 2 tsp olive oil (10 g) in the wide pan for 1 minute. Add the beef mince (500 g) and break it up with the spoon. Cook until no pink is left and it starts to brown.',
+          heat: 'medium-high',
+          minutes: 5,
+        },
+        {
+          text: 'Add the onion, pepper and garlic. Cook, stirring, until the onion is soft.',
+          heat: 'medium',
+          minutes: 6,
+        },
+        {
+          text: 'Add 2 tsp ground cumin (4 g), 2 tsp paprika (4 g), 1½ tsp chilli powder (3 g, less if you do not like it hot) and 1 tsp dried oregano (2 g). Stir 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Pour in the crushed tomato, add the beans and ⅔ tsp salt (4 g). Stir.',
+          heat: 'medium',
+        },
+        {
+          text: 'When it bubbles, turn down, put the lid on with a gap and simmer 30 minutes, stirring every 10 minutes.',
+          heat: 'low',
+          minutes: 30,
+        },
+        {
+          text: 'Drain any water left in the rice. Spread the rice on the tray to cool fast (it must be in the fridge within 1 hour).',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Let the chili cool for 20–30 minutes, then fill 4 boxes: about 155 g rice and 425 g chili each. Spoon 40 g Greek yogurt (2 tbsp) into each small pot.',
+          heat: 'none',
+          minutes: 25,
+        },
+      ],
+      doneWhen: 'The chili is thick (a spoon dragged across leaves a line) and no meat is pink; the rice is soft with no hard centre.',
+      boxUp: 'Cool fast: rice and chili in the fridge or freezer within 1 hour. Rice keeps only 1 day in the fridge, so portion 1 goes in the fridge and portions 2–4 in the freezer (1 month). Or freeze the chili alone (3 months) and pair it with a sealed rice cup on the night. The yogurt pots keep 2 days in the fridge and do not freeze.',
+      reheat: 'Take the yogurt pot out. Microwave with the lid loose 3 minutes, stir, then 1–2 minutes more until steaming hot all through. Reheat the rice once only. From the freezer: move it to the fridge the night before.',
+      tips: ['No beer and no stock cube: the cumin, paprika and tomato carry the flavour.'],
+    },
   },
   {
     foodId: 'med-shakshuka-garbanzos-portion',
@@ -2222,6 +2861,64 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'middle-eastern',
+    method: {
+      equipment: ['Wide deep frying pan (28 cm)', 'Small frying pan (20 cm) with a lid, for the night', 'Wooden spoon', '4 freezer boxes or bags and 4 small lidded pots'],
+      prep: ['Slice the onion (200 g, 1 large) thin. Cut the red peppers (300 g) into strips 1 cm wide.', 'Peel and chop 3 garlic cloves (9 g).', 'Drain the chickpeas (1 jar, 400 g). Open the crushed tomato (800 g).'],
+      steps: [
+        {
+          text: 'Sunday: heat 1½ tbsp olive oil (20 g) in the wide pan for 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add the onion and peppers. Cook, stirring now and then, until soft and floppy.',
+          heat: 'medium',
+          minutes: 8,
+        },
+        {
+          text: 'Add the garlic, 2 tsp ground cumin (4 g), 1 tbsp paprika (6 g) and a pinch of chilli powder (1 g). Stir 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Pour in the crushed tomato, add the chickpeas and ½ tsp salt (3 g). Stir.',
+          heat: 'medium',
+        },
+        {
+          text: 'When it bubbles, turn down and simmer 15 minutes, stirring now and then, until thick.',
+          heat: 'low',
+          minutes: 15,
+        },
+        {
+          text: 'Cool for 20–30 minutes, then split into 4 portions (about 360 g each).',
+          heat: 'none',
+          minutes: 25,
+        },
+        {
+          text: 'Spoon 60 g Greek yogurt (3 tbsp) into each small pot for the fridge.',
+          heat: 'none',
+        },
+        {
+          text: 'On the night: put one portion of sauce in the small pan and heat it until it bubbles.',
+          heat: 'medium',
+          minutes: 4,
+        },
+        {
+          text: 'Make 2 hollows in the sauce with a spoon. Crack 1 egg into each hollow.',
+          heat: 'medium',
+        },
+        {
+          text: 'Put the lid on and cook 6–8 minutes, until the egg whites are set.',
+          heat: 'low',
+          minutes: 7,
+        },
+        { text: 'Serve with the yogurt and ½ roll (65 g).', heat: 'none' },
+      ],
+      doneWhen: 'The egg whites are fully white and firm; the yolks are as runny or as set as you like (cook 2 minutes more for a firm yolk).',
+      boxUp: 'Cool the sauce for no more than 1 hour. Fridge: the portions for the next 3 days. Freezer: the rest (3 months). The eggs are cracked in fresh on the night; cooked eggs are not frozen. The yogurt pots keep 2 days in the fridge. Freeze the rolls if you will not use them within 3 days.',
+      reheat: 'The sauce is heated in the pan until it bubbles before the eggs go in (step 8). From the freezer: move a portion to the fridge the night before.',
+      tips: ['Eat it straight away once the eggs are in: do not box and reheat a cooked shakshuka egg.'],
+    },
   },
   {
     foodId: 'med-harira-beef-portion',
@@ -2249,6 +2946,55 @@ export default [
     effort: 'cook',
     minutes: 30,
     cuisine: 'middle-eastern',
+    method: {
+      equipment: ['Large pot (at least 4 l) with a lid', 'Wooden spoon', 'Sieve', 'Wide dish or 2 trays for cooling', '4 boxes (2 for the fridge, 2 for the freezer) and bags for the bread'],
+      prep: ['Cut the beef (400 g) into small cubes of 1–2 cm.', 'Peel and chop the onion (200 g, 1 large) into 5 mm pieces. Peel and grate the ginger (6 g, a 3 cm piece).', 'Drain and rinse the lentils (1 jar, 400 g drained) and the chickpeas (1 jar, 400 g).', 'Rinse the rice (60 g). Chop the coriander (20 g) and parsley (20 g).'],
+      steps: [
+        {
+          text: 'Heat a scant 1 tbsp olive oil (12 g) in the large pot for 1 minute.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the beef. Cook, turning the cubes, until brown on all sides.',
+          heat: 'medium-high',
+          minutes: 5,
+        },
+        {
+          text: 'Add the onion, ginger, 1 tsp ground turmeric (2 g), ⅓ tsp cinnamon (1 g), 1 tsp ground cumin (2 g) and black pepper (1 g). Stir and cook until the onion is soft.',
+          heat: 'medium',
+          minutes: 5,
+        },
+        {
+          text: 'Pour in the crushed tomato (600 g) and 1 l of water. Bring to the boil.',
+          heat: 'high',
+          minutes: 5,
+        },
+        {
+          text: 'Turn down, put the lid on with a gap and simmer 50 minutes, until a beef cube breaks easily with a spoon (or 20 minutes in a pressure cooker).',
+          heat: 'low',
+          minutes: 50,
+        },
+        {
+          text: 'Add the lentils, chickpeas and rice. Stir and simmer 15–20 minutes, stirring now and then so the rice does not stick.',
+          heat: 'low',
+          minutes: 18,
+        },
+        {
+          text: 'Turn off the heat. Stir in the coriander, parsley, 2½ tbsp lemon juice (40 g) and ¾ tsp salt (5 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Pour the soup into the wide dish or trays to cool fast (30 minutes), then fill 4 boxes (about 645 g each).',
+          heat: 'none',
+          minutes: 30,
+        },
+      ],
+      doneWhen: 'The beef is tender (it breaks with a spoon), and the rice grains are soft and swollen.',
+      boxUp: 'Cool fast: in the fridge or freezer within 1 hour, because the soup contains rice. Portions 1–2 in the fridge (eat by day 3), portions 3–4 in the freezer (3 months). Put ½ roll (65 g) for each portion in a bag; freeze the bread if you will not use it within 3 days.',
+      reheat: 'Add a splash of water. Microwave with the lid loose 3 minutes, stir, then 2 minutes more (or heat in a small pan) until it boils and is steaming hot all through. Reheat once only. From the freezer: move it to the fridge the night before.',
+      tips: ['No stock cube and no smen (aged butter): the spices, herbs and lemon carry the flavour.'],
+    },
   },
   {
     foodId: 'intl-chicken-spinach-pasta-bake-portion',
@@ -2275,6 +3021,56 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'italian',
+    method: {
+      equipment: ['Wide deep frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Oven dish about 20 × 30 cm', 'Wooden spoon', '4 boxes (1 for the fridge, 3 for the freezer)'],
+      prep: ['Take the frozen spinach (300 g) out 1 hour before, or thaw it in the microwave 3 minutes; squeeze out the water.', 'Cut the chicken breast (400 g) into bite-size pieces of about 2.5 cm.', 'Peel and chop the onion (150 g, 1 medium) into 5 mm pieces. Peel and chop 2 garlic cloves (6 g).', 'Drain the 2 mozzarella balls (250 g) and tear them into small pieces.'],
+      steps: [
+        {
+          text: 'Turn the oven on to 200 °C. Put 3 l of water on to boil with a pinch of salt.',
+          heat: 'oven-200',
+          minutes: 10,
+        },
+        {
+          text: 'Heat 2 tsp olive oil (10 g) in the wide pan for 1 minute. Add the chicken and cook, turning, until white on all sides.',
+          heat: 'medium-high',
+          minutes: 5,
+        },
+        {
+          text: 'Add the onion and garlic. Cook, stirring, until the onion is soft.',
+          heat: 'medium',
+          minutes: 5,
+        },
+        {
+          text: 'Add the spinach, crushed tomato (600 g), 1 tsp dried oregano (2 g), ½ tsp salt (3 g) and black pepper (1 g). Stir and simmer 10 minutes.',
+          heat: 'low',
+          minutes: 10,
+        },
+        {
+          text: 'Meanwhile add the wholewheat penne (280 g) to the boiling water and cook 2 minutes less than the pack says (about 8 minutes). Drain.',
+          heat: 'high',
+          minutes: 8,
+        },
+        {
+          text: 'Mix the penne into the sauce. Tip everything into the oven dish and spread it flat.',
+          heat: 'none',
+        },
+        { text: 'Scatter the torn mozzarella over the top.', heat: 'none' },
+        {
+          text: 'Bake 15 minutes, until the cheese has melted and the edges bubble.',
+          heat: 'oven-200',
+          minutes: 15,
+        },
+        {
+          text: 'Let it cool 20–30 minutes, then cut into 4 equal portions and box them.',
+          heat: 'none',
+          minutes: 25,
+        },
+      ],
+      doneWhen: 'The cheese is melted with a few golden spots and the sauce bubbles at the edges; the chicken was white all through before it went in.',
+      boxUp: 'Cool fast: in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge, so portion 1 is for the next day and portions 2–4 go in the freezer (1 month). Move one to the fridge the night before.',
+      reheat: 'Microwave covered 2½–3 minutes, then 1 minute more if needed, until steaming hot all through. Reheat once only.',
+      tips: ['Halal: mozzarella with microbial coagulant (cuajo microbiano), as on the Hacendado light ball (51230). Check the label if you buy another brand.'],
+    },
   },
   {
     foodId: 'es-crema-verduras-huevo-garbanzos-portion',
@@ -2292,6 +3088,31 @@ export default [
     minutes: 8,
     serve: 'hot',
     cuisine: 'spanish',
+    method: {
+      equipment: ['Small pot with a lid for 2 eggs', 'Medium pan, or a large microwave-safe bowl with a plate as a lid', 'Sieve', 'A soup bowl'],
+      prep: ['Sunday: boil 4 eggs (10 minutes in bubbling water, then 5 minutes in cold water), peel them and keep them in the fridge (3 days).', 'Drain and rinse the chickpeas (1 jar, 400 g).'],
+      steps: [
+        {
+          text: 'No cooking from raw: you only heat a ready-made soup. Pour half the brik of crema de verduras (about 250 ml, 258 g) into the pan or bowl.',
+          heat: 'none',
+        },
+        { text: 'Add half the chickpeas (200 g).', heat: 'none' },
+        {
+          text: 'Heat until it boils: in a pan 4–5 minutes, stirring; in the microwave 3–4 minutes with a plate on top, stirring halfway.',
+          heat: 'medium',
+          minutes: 4,
+        },
+        { text: 'Pour into the soup bowl. Chop 2 boiled eggs and put them on top.', heat: 'none' },
+        {
+          text: 'Drizzle 1 tsp extra virgin olive oil (5 g) and grind over a little black pepper. Eat with ½ roll (65 g).',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'The soup bubbles at the edge and is steaming hot all through.',
+      boxUp: 'Close the opened brik and put the rest of the chickpeas in a closed box: both go in the fridge and are used the next night (they keep 2 days once opened). Do not freeze the eggs.',
+      reheat: 'The soup is heated fresh each night until it boils. The eggs go on after, cold or warmed by the soup.',
+      tips: ['The crema has no stock, cream or butter (Hacendado 60308). Another brand may use chicken stock: check the label.'],
+    },
   },
   {
     foodId: 'es-tostada-tomate-atun-aguacate-portion',
@@ -2310,6 +3131,26 @@ export default [
     minutes: 8,
     serve: 'cold',
     cuisine: 'spanish',
+    method: {
+      equipment: ['Box grater', 'Small lidded pot (about 250 ml)', 'Small pot for the eggs (if you have no boiled eggs)', 'Toaster or a dry frying pan', 'Sieve'],
+      prep: ['The night before: cut the tomatoes (200 g, 2 medium) in half. Grate the cut side on the big holes of the grater until only the skin is left in your hand. Throw away the skin.', 'Stir ⅓ tsp salt (1 g) into the tomato pulp and keep it in the small pot in the fridge (enough for 2 mornings).', 'If you have no boiled eggs from Sunday, boil 2 eggs (10 minutes in bubbling water, 5 in cold water) and peel them.'],
+      steps: [
+        {
+          text: 'Morning: cut ½ roll (65 g) open and toast it in the toaster, or 2 minutes a side in a dry pan.',
+          heat: 'medium',
+          minutes: 3,
+        },
+        {
+          text: 'Spoon half the tomato pulp onto the toast. Drizzle 1 tsp olive oil (3 g).',
+          heat: 'none',
+        },
+        { text: 'Open 1 can of tuna, drain it (60 g) and put it on top.', heat: 'none' },
+        { text: 'Slice ¼ avocado (50 g) and 1 boiled egg and lay them on top.', heat: 'none' },
+      ],
+      doneWhen: 'The bread is golden and crisp at the edges.',
+      boxUp: 'The tomato pulp keeps 2 days in the fridge; boiled eggs 3 days; neither freezes. Wrap the unused half avocado with its stone in and a drop of lemon, and keep it in the fridge for the next morning. Freeze the rest of the rolls if you will not use them in 3 days.',
+      reheat: 'Not reheated: eaten as soon as it is made.',
+    },
   },
   {
     foodId: 'intl-egg-mozzarella-breakfast-roll-portion',
@@ -2333,6 +3174,30 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'international',
+    method: {
+      equipment: ['Square oven tin, about 20 × 20 cm, lined with baking paper', 'Large bowl and a whisk or fork', 'Chopping board and knife', 'Baking paper and foil (or freezer bags) for 4 rolls'],
+      prep: ['Chop the baby spinach (60 g, 2 handfuls) roughly. Dice the red pepper (80 g, ½ pepper) into 1 cm pieces.', 'Drain the mozzarella ball (125 g) and cut it into 8 slices.', 'Cut the 4 rolls (130 g each) open along one side.'],
+      steps: [
+        { text: 'Turn the oven on to 180 °C.', heat: 'oven-180', minutes: 10 },
+        {
+          text: 'Crack 6 eggs into the bowl. Add the liquid egg whites (200 g), a pinch of salt (1 g) and black pepper (1 g). Whisk 30 seconds until even.',
+          heat: 'none',
+        },
+        { text: 'Stir in the spinach and pepper.', heat: 'none' },
+        { text: 'Pour into the lined tin. Bake 18–20 minutes.', heat: 'oven-180', minutes: 20 },
+        {
+          text: 'Check it (see "Done when"). Let it cool in the tin 15 minutes, then lift it out and cut it into 4 squares.',
+          heat: 'none',
+          minutes: 15,
+        },
+        { text: 'Put 1 egg square and 2 slices of mozzarella in each roll.', heat: 'none' },
+        { text: 'Wrap each roll in baking paper, then in foil or a freezer bag.', heat: 'none' },
+      ],
+      doneWhen: 'The middle is firm and springs back when you press it; a knife pushed into the centre comes out clean, with no runny egg.',
+      boxUp: 'Cool for no more than 1 hour. Keep 1–2 rolls in the fridge (eat by day 3) and freeze the rest (2 months).',
+      reheat: 'Take off the foil and paper and wrap the roll in a paper towel. Microwave 1½–2 minutes until steaming hot in the middle. From frozen: 1 minute on defrost first, then 1½–2 minutes on full power.',
+      tips: ['Halal: mozzarella with microbial coagulant (Hacendado light, 51230). Check the label of any other brand for animal rennet (cuajo animal).'],
+    },
   },
   {
     foodId: 'intl-banana-oat-smoothie-jar',
@@ -2349,6 +3214,37 @@ export default [
     minutes: 5,
     serve: 'cold',
     cuisine: 'international',
+    method: {
+      equipment: ['Stick blender and its tall jug (or a blender)', 'Jar with a lid, 500 ml'],
+      prep: ['Peel the small banana (about 100 g) and break it into 3–4 pieces.'],
+      steps: [
+        {
+          text: 'No cooking. Put the protein yogurt (200 g, 1 pot) and the milk (150 ml, 150 g) in the jug.',
+          heat: 'none',
+        },
+        {
+          text: 'Add the oats (40 g, about 4 tbsp), the banana and the peanuts (15 g, about 1 tbsp).',
+          heat: 'none',
+        },
+        {
+          text: 'Blend for 1 minute, moving the blender up and down, until smooth with no whole oats.',
+          heat: 'none',
+          minutes: 1,
+        },
+        {
+          text: 'Pour into the jar right up to the top (less air, less browning) and close the lid.',
+          heat: 'none',
+        },
+        {
+          text: 'In the morning: shake the jar well and drink. Add a splash of milk if it has got too thick.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'No lumps of banana or whole oats are left when you tilt the jug.',
+      boxUp: 'Straight into the fridge. Make it the night before, one jar at a time, and drink it within 24 hours. Do not freeze.',
+      reheat: 'Not reheated: drink it cold.',
+      tips: ['Peanut allergy or none in the cupboard? Use 15 g almonds.'],
+    },
   },
   {
     foodId: 'med-menemen-portion',
@@ -2367,6 +3263,36 @@ export default [
     effort: 'cook',
     minutes: 15,
     cuisine: 'middle-eastern',
+    method: {
+      equipment: ['Frying pan (24–28 cm)', 'Bowl and fork for the eggs', 'Grater', 'Wooden spoon', '1 box for tomorrow'],
+      prep: ['Chop the onion (80 g, ½ small onion) into 5 mm pieces. Dice the green peppers (200 g) into 1 cm pieces.', 'Grate the tomatoes (300 g, 3 medium) on the big holes of the grater and throw away the skins (or chop them small).', 'Crack 6 eggs into the bowl. Add a pinch of chilli powder or pul biber (1 g) and ⅓ tsp salt (2 g). Beat with the fork.'],
+      steps: [
+        { text: 'Heat 2 tsp olive oil (10 g) in the pan for 1 minute.', heat: 'medium', minutes: 1 },
+        {
+          text: 'Add the onion and peppers. Cook, stirring now and then, until soft.',
+          heat: 'medium',
+          minutes: 6,
+        },
+        {
+          text: 'Add the tomato. Cook until most of the juice has gone and it looks like a thick sauce.',
+          heat: 'medium',
+          minutes: 5,
+        },
+        { text: 'Turn the heat down to low. Pour in the eggs.', heat: 'low' },
+        {
+          text: 'Stir slowly with the spoon, scraping the bottom, until the eggs are just set and creamy.',
+          heat: 'low',
+          minutes: 3,
+        },
+        {
+          text: 'Take the pan off the heat. Eat half now with ½ roll (65 g); put the other half in the box.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'No runny raw egg is left: the eggs are soft, set curds.',
+      boxUp: 'Cool the second portion for no more than 1 hour, then put it in the fridge and eat it the next morning (egg dishes keep up to 3 days). Do not freeze.',
+      reheat: 'Microwave 1 minute, stir, then 30 seconds more until steaming hot all through.',
+    },
   },
   {
     foodId: 'intl-egg-bean-breakfast-tacos-portion',
@@ -2393,6 +3319,42 @@ export default [
     effort: 'cook',
     minutes: 15,
     cuisine: 'mexican',
+    method: {
+      equipment: ['Frying pan (24 cm)', 'Bowl and fork', 'Sieve', '2 boxes and 2 small lidded pots (about 75 ml)'],
+      prep: ['Drain and rinse half a jar of kidney beans (200 g). Keep the other half in a closed box in the fridge for a salad or the burrito bowls (use within 2 days).', 'Crack 4 eggs into the bowl, add the liquid egg whites (100 g) and a pinch of salt (1 g), and beat with the fork.'],
+      steps: [
+        {
+          text: 'Heat 1½ tsp sunflower oil (6 g) in the pan for 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add the beans and ½ tsp ground cumin (1 g). Stir 2 minutes and press a few beans flat with the fork.',
+          heat: 'medium',
+          minutes: 2,
+        },
+        { text: 'Turn the heat down to low. Pour in the eggs.', heat: 'low' },
+        {
+          text: 'Stir slowly, scraping the bottom, until the eggs are just set.',
+          heat: 'low',
+          minutes: 3,
+        },
+        {
+          text: 'Divide into the 2 boxes. Spoon 60 g salsa (about 3 tbsp) into each small pot.',
+          heat: 'none',
+        },
+        {
+          text: 'In the morning: microwave the filling (see Reheat). Warm 3 corn tortillas in a dry pan, 20 seconds a side.',
+          heat: 'medium',
+          minutes: 2,
+        },
+        { text: 'Fill the tortillas with the eggs and beans and top with the salsa.', heat: 'none' },
+      ],
+      doneWhen: 'No runny raw egg is left: the eggs are soft, set curds.',
+      boxUp: 'Cool for no more than 1 hour, then both boxes and salsa pots go in the fridge (eat by day 2: the opened salsa keeps 2 days). Do not freeze. The tortillas stay in their closed pack.',
+      reheat: 'Filling: microwave with the lid loose 1 minute, stir, 30 seconds more until steaming hot all through. The salsa stays cold.',
+      tips: ['Halal check: the corn tortillas list glycerine (E-422) without saying its origin, so the record is "check". A tortilla that lists no E-422, or says "de origen vegetal", is fine.'],
+    },
   },
   {
     foodId: 'intl-caprese-snack-box',
@@ -2414,5 +3376,27 @@ export default [
     minutes: 5,
     serve: 'cold',
     cuisine: 'italian',
+    method: {
+      equipment: ['Sieve', 'Chopping board and knife', '2 small boxes'],
+      prep: ['Halve the cherry tomatoes (300 g).'],
+      steps: [
+        { text: 'No cooking. Drain the mozzarella balls in the sieve.', heat: 'none' },
+        {
+          text: 'Tear 100 g mozzarella into bite-size pieces for each box (1 ball is 125 g: the leftover 50 g goes in a salad).',
+          heat: 'none',
+        },
+        {
+          text: 'Add half the tomatoes to each box, then a few basil leaves (3 g) and a grind of black pepper.',
+          heat: 'none',
+        },
+        {
+          text: 'Close the boxes. Put a bag of picos (15 g) next to each box, not inside, so they stay crunchy.',
+          heat: 'none',
+        },
+      ],
+      boxUp: 'Straight into the fridge; eat by day 2 (an opened mozzarella ball keeps 2 days). Do not freeze. Carry it in an insulated bag if it leaves home.',
+      reheat: 'Not reheated: eat cold.',
+      tips: ['Halal: the Hacendado light mozzarella (51230) uses microbial coagulant. Check any other brand for animal rennet (cuajo animal).'],
+    },
   },
 ];

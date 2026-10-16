@@ -104,12 +104,12 @@ export function mount(container, ctx) {
       return store.recipeTotals(own).lines.map((line) => {
         const f = store.food(line.foodId);
         const serving = f ? servingOf(f, line.servingId) : null;
-        return `${f?.name ?? line.foodId} · ${serving ? amountText(serving, line.qty) : `${fmtGrams(line.grams)} g`}`;
+        return `${f?.name ?? line.foodId} · ${serving ? amountText(serving, line.qty) : `${fmtGrams(line.grams)}\u00a0g`}`;
       });
     }
     return (recipeOf(recipeId)?.ingredients ?? []).map(
       (ing) =>
-        `${ing.name ?? store.food(ing.foodId)?.name ?? ing.foodId} · ${fmtGrams(ing.grams)} g`,
+        `${ing.name ?? store.food(ing.foodId)?.name ?? ing.foodId} · ${fmtGrams(ing.grams)}\u00a0g`,
     );
   }
 

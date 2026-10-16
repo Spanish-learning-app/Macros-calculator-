@@ -52,10 +52,37 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Heat half the brik of crema (about 250 ml) with 200 g chickpeas in a pan or a big bowl in the microwave, 3–4 min, until boiling hot.
-2. Chop 2 boiled eggs over the top; drizzle 5 g olive oil and grind pepper. Serve with ½ roll.
+**Equipment**
+
+- Small pot with a lid for 2 eggs
+- Medium pan, or a large microwave-safe bowl with a plate as a lid
+- Sieve
+- A soup bowl
+
+**Before you start**
+
+- Sunday: boil 4 eggs (10 minutes in bubbling water, then 5 minutes in cold water), peel them and keep them in the fridge (3 days).
+- Drain and rinse the chickpeas (1 jar, 400 g).
+
+**Steps**
+
+1. No cooking from raw: you only heat a ready-made soup. Pour half the brik of crema de verduras (about 250 ml, 258 g) into the pan or bowl. *(no heat)*
+2. Add half the chickpeas (200 g). *(no heat)*
+3. Heat until it boils: in a pan 4–5 minutes, stirring; in the microwave 3–4 minutes with a plate on top, stirring halfway. *(medium heat · 4 min)*
+4. Pour into the soup bowl. Chop 2 boiled eggs and put them on top. *(no heat)*
+5. Drizzle 1 tsp extra virgin olive oil (5 g) and grind over a little black pepper. Eat with ½ roll (65 g). *(no heat)*
+
+**Done when:** The soup bubbles at the edge and is steaming hot all through.
+
+**Box it up:** Close the opened brik and put the rest of the chickpeas in a closed box: both go in the fridge and are used the next night (they keep 2 days once opened). Do not freeze the eggs.
+
+**Reheat:** The soup is heated fresh each night until it boils. The eggs go on after, cold or warmed by the soup.
+
+**Tips**
+
+- The crema has no stock, cream or butter (Hacendado 60308). Another brand may use chicken stock: check the label.
 
 ## Added fat
 

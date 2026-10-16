@@ -57,12 +57,44 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Brown the chicken in the oil; add onion and garlic, 5 min; then spinach, tomato, oregano, salt and pepper; simmer 10 min.
-2. Boil the penne 2 min less than the pack says; drain and mix with the sauce.
-3. Spread in a dish, scatter the mozzarella, bake at 200 °C for 15 min.
-4. Cool fast; cut into 4 portions.
+**Equipment**
+
+- Wide deep frying pan (28 cm)
+- Large pot for 3 l of water and a colander
+- Oven dish about 20 × 30 cm
+- Wooden spoon
+- 4 boxes (1 for the fridge, 3 for the freezer)
+
+**Before you start**
+
+- Take the frozen spinach (300 g) out 1 hour before, or thaw it in the microwave 3 minutes; squeeze out the water.
+- Cut the chicken breast (400 g) into bite-size pieces of about 2.5 cm.
+- Peel and chop the onion (150 g, 1 medium) into 5 mm pieces. Peel and chop 2 garlic cloves (6 g).
+- Drain the 2 mozzarella balls (250 g) and tear them into small pieces.
+
+**Steps**
+
+1. Turn the oven on to 200 °C. Put 3 l of water on to boil with a pinch of salt. *(oven 200 °C · 10 min)*
+2. Heat 2 tsp olive oil (10 g) in the wide pan for 1 minute. Add the chicken and cook, turning, until white on all sides. *(medium-high heat · 5 min)*
+3. Add the onion and garlic. Cook, stirring, until the onion is soft. *(medium heat · 5 min)*
+4. Add the spinach, crushed tomato (600 g), 1 tsp dried oregano (2 g), ½ tsp salt (3 g) and black pepper (1 g). Stir and simmer 10 minutes. *(low heat · 10 min)*
+5. Meanwhile add the wholewheat penne (280 g) to the boiling water and cook 2 minutes less than the pack says (about 8 minutes). Drain. *(high heat · 8 min)*
+6. Mix the penne into the sauce. Tip everything into the oven dish and spread it flat. *(no heat)*
+7. Scatter the torn mozzarella over the top. *(no heat)*
+8. Bake 15 minutes, until the cheese has melted and the edges bubble. *(oven 200 °C · 15 min)*
+9. Let it cool 20–30 minutes, then cut into 4 equal portions and box them. *(no heat · 25 min)*
+
+**Done when:** The cheese is melted with a few golden spots and the sauce bubbles at the edges; the chicken was white all through before it went in.
+
+**Box it up:** Cool fast: in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge, so portion 1 is for the next day and portions 2–4 go in the freezer (1 month). Move one to the fridge the night before.
+
+**Reheat:** Microwave covered 2½–3 minutes, then 1 minute more if needed, until steaming hot all through. Reheat once only.
+
+**Tips**
+
+- Halal: mozzarella with microbial coagulant (cuajo microbiano), as on the Hacendado light ball (51230). Check the label if you buy another brand.
 
 ## Added fat
 

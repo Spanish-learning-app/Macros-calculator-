@@ -43,10 +43,23 @@ export default {
       lines: [['bocadillo-bread', 130, '1 roll, split; toasting is not counted']],
     },
   ],
-  method: [
-    'The night before: grate the tomato into a small pot (keeps 2 days); boil eggs if you have none.',
-    'In the morning: toast ½ roll, spoon on the tomato, a little oil and salt, then the tuna, sliced avocado and egg.',
-  ],
+  method: {
+    equipment: ['Box grater', 'Small lidded pot (about 250 ml)', 'Small pot for the eggs (if you have no boiled eggs)', 'Toaster or a dry frying pan', 'Sieve'],
+    prep: [
+      'The night before: cut the tomatoes (200 g, 2 medium) in half. Grate the cut side on the big holes of the grater until only the skin is left in your hand. Throw away the skin.',
+      'Stir ⅓ tsp salt (1 g) into the tomato pulp and keep it in the small pot in the fridge (enough for 2 mornings).',
+      'If you have no boiled eggs from Sunday, boil 2 eggs (10 minutes in bubbling water, 5 in cold water) and peel them.',
+    ],
+    steps: [
+      { text: 'Morning: cut ½ roll (65 g) open and toast it in the toaster, or 2 minutes a side in a dry pan.', heat: 'medium', minutes: 3 },
+      { text: 'Spoon half the tomato pulp onto the toast. Drizzle 1 tsp olive oil (3 g).', heat: 'none' },
+      { text: 'Open 1 can of tuna, drain it (60 g) and put it on top.', heat: 'none' },
+      { text: 'Slice ¼ avocado (50 g) and 1 boiled egg and lay them on top.', heat: 'none' },
+    ],
+    doneWhen: 'The bread is golden and crisp at the edges.',
+    boxUp: 'The tomato pulp keeps 2 days in the fridge; boiled eggs 3 days; neither freezes. Wrap the unused half avocado with its stone in and a drop of lemon, and keep it in the fridge for the next morning. Freeze the rest of the rolls if you will not use them in 3 days.',
+    reheat: 'Not reheated: eaten as soon as it is made.',
+  },
   keeps: 'Tomato pulp 2 days; eggs 3 days; avocado cut on the day',
   storagePlan: 'Grate tomato for 2 mornings at a time. Use half an avocado per day: wrap the other half with its stone and a drop of lemon.',
   reheat: 'Not reheated.',

@@ -38,10 +38,19 @@ export default {
       lines: [['picos', 30, '15 g per box, in a bag']],
     },
   ],
-  method: [
-    'Drain and tear the mozzarella; halve the tomatoes. Box with basil and pepper.',
-    'A bag of picos on the side. Keep cold.',
-  ],
+  method: {
+    equipment: ['Sieve', 'Chopping board and knife', '2 small boxes'],
+    prep: ['Halve the cherry tomatoes (300 g).'],
+    steps: [
+      { text: 'No cooking. Drain the mozzarella balls in the sieve.', heat: 'none' },
+      { text: 'Tear 100 g mozzarella into bite-size pieces for each box (1 ball is 125 g: the leftover 50 g goes in a salad).', heat: 'none' },
+      { text: 'Add half the tomatoes to each box, then a few basil leaves (3 g) and a grind of black pepper.', heat: 'none' },
+      { text: 'Close the boxes. Put a bag of picos (15 g) next to each box, not inside, so they stay crunchy.', heat: 'none' },
+    ],
+    boxUp: 'Straight into the fridge; eat by day 2 (an opened mozzarella ball keeps 2 days). Do not freeze. Carry it in an insulated bag if it leaves home.',
+    reheat: 'Not reheated: eat cold.',
+    tips: ['Halal: the Hacendado light mozzarella (51230) uses microbial coagulant. Check any other brand for animal rennet (cuajo animal).'],
+  },
   keeps: '2 days in the fridge',
   storagePlan: 'Make 2 boxes at a time; an opened mozzarella ball keeps 2 days in water in the fridge.',
   reheat: 'Not reheated. Keep cold (insulated bag) if it leaves home.',

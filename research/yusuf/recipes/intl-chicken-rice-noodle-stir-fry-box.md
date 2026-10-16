@@ -63,12 +63,45 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Soak the noodles in just-boiled water 6 min; drain and rinse cold.
-2. Stir-fry the chicken with garlic and ginger in a very hot wok or big pan, 5 min; take it out.
-3. Add the second oil and stir-fry onion, carrot and pepper 3 min, then broccoli, mushrooms and peas 4 min.
-4. Mix soy, lemon, sugar and chilli; add with the noodles and chicken, toss 2 min. Cool fast and box.
+**Equipment**
+
+- Wok or the largest frying pan you have (30 cm)
+- Large heatproof bowl and a kettle
+- Colander
+- Small bowl for the sauce
+- Oven tray for cooling
+- 4 lunch boxes
+
+**Before you start**
+
+- Take the frozen broccoli (300 g) out to thaw in a colander 1 hour before, or rinse it under the warm tap.
+- Cut the chicken breast (560 g) into thin strips (5 mm).
+- Peel and chop 3 garlic cloves (9 g). Peel and grate the ginger (10 g, a 5 cm piece).
+- Slice the onion (100 g) thin. Cut the red pepper (200 g) into strips and the carrot (160 g) into thin matchsticks. Slice the mushrooms (200 g).
+- Sauce: in the small bowl mix 4 tbsp halal-certified soy sauce (60 g), 1½ tbsp lemon or lime juice (20 g), 2 tsp sugar (8 g) and a pinch of chilli powder (1 g).
+
+**Steps**
+
+1. Boil the kettle. Put the dry rice noodles (320 g) in the big bowl and cover them with the just-boiled water. Leave 6 minutes. *(no heat · 6 min)*
+2. Drain the noodles in the colander and rinse them under the cold tap so they do not stick. Leave to drain. *(no heat)*
+3. Heat the wok until very hot. Add 1 tbsp sunflower oil (12 g). *(high heat · 1 min)*
+4. Add the chicken, garlic and ginger. Stir and toss for about 5 minutes until the chicken is white all through. Tip it onto a plate. *(high heat · 5 min)*
+5. Add 2 tsp sunflower oil (10 g) to the wok. Add the onion, carrot and pepper and stir-fry 3 minutes. *(high heat · 3 min)*
+6. Add the broccoli, mushrooms and frozen peas (200 g). Stir-fry 4 minutes until the peas are hot and the mushrooms soft. *(high heat · 4 min)*
+7. Put the chicken back, add the noodles and pour over the sauce. Toss with two spoons for 2 minutes until everything is coated and hot. *(medium-high heat · 2 min)*
+8. Spread on the tray to cool fast (20–30 minutes), then divide into 4 boxes. *(no heat · 25 min)*
+
+**Done when:** Chicken: white all through with no pink (75 °C). Noodles: soft, coated in sauce, no dry white bits.
+
+**Box it up:** Cool fast, in the fridge or freezer within 1 hour. Cooked noodles keep only 1 day: box 1 in the fridge, boxes 2–4 in the freezer (1 month). Move one to the fridge each evening.
+
+**Reheat:** Add 1 tbsp water, cover loosely and microwave 2½–3 minutes, stir, then 1 minute more until steaming hot all through. Reheat once only.
+
+**Tips**
+
+- Halal: use a soy sauce with a halal certificate (or a tamari that lists no alcohol). No mirin or rice wine in this recipe.
 
 ## Added fat
 

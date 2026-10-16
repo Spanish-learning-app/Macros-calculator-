@@ -57,12 +57,43 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Heat the oven to 220 °C. Toss potatoes, peppers, onion and chickpeas with the oil, paprika and salt on one large tray (or two).
-2. Roast 20 min. Meanwhile coat the chicken with oil, paprika, oregano, garlic, lemon, salt and pepper.
-3. Push the vegetables aside, lay the chicken on the tray and roast 18–20 min more (75 °C inside).
-4. Cool fast, divide into 4 portions.
+**Equipment**
+
+- 1 very large oven tray or 2 normal trays, lined with baking paper
+- Large bowl
+- Chopping board and knife
+- Kitchen paper
+- 4 boxes (3 for the fridge, 1 for the freezer)
+
+**Before you start**
+
+- Wash the potatoes (900 g), peel them and cut them into wedges about 2 cm thick.
+- Cut the red pepper (300 g) and green pepper (200 g) into strips 1.5 cm wide. Cut the red onion (200 g) into 8 wedges.
+- Drain the chickpeas (1 jar, 400 g), rinse them and pat them dry with kitchen paper so they crisp.
+- Cut each chicken fillet (600 g, 4 fillets) in half. Peel and grate 3 garlic cloves (9 g).
+
+**Steps**
+
+1. Turn the oven on to 220 °C. *(oven 220 °C · 10 min)*
+2. In the large bowl toss the potatoes, peppers, onion and chickpeas with 2 tbsp olive oil (28 g), 1 tsp paprika (2 g) and ⅓ tsp salt (2 g). Spread them on the tray in one layer. *(no heat)*
+3. Put the tray in the oven and roast 20 minutes. *(oven 220 °C · 20 min)*
+4. Meanwhile, in the same bowl, mix the chicken with a scant 1 tbsp olive oil (12 g), 2 tsp paprika (4 g), 1 tsp dried oregano (2 g), the grated garlic, 1½ tbsp lemon juice (20 g), ½ tsp salt (3 g) and black pepper (1 g). Wash your hands. *(no heat)*
+5. Take the tray out (use oven gloves). Push the vegetables to the sides and lay the chicken pieces in the gaps. *(no heat)*
+6. Roast 18–20 minutes more, until the chicken is golden and the potatoes are soft when you push in a knife. *(oven 220 °C · 20 min)*
+7. Check the biggest chicken piece (see "Done when"). Let the tray cool on the counter for 20–30 minutes. *(no heat · 25 min)*
+8. Divide into 4 portions: 2 pieces of chicken and a quarter of the vegetables each. *(no heat)*
+
+**Done when:** Cut the biggest chicken piece: white all through, no pink, juices clear (75 °C). A knife slides into the potatoes with no resistance.
+
+**Box it up:** Cool for no more than 1 hour. Portions 1–3 in the fridge (eat Monday to Wednesday, by day 3); portion 4 in the freezer (3 months).
+
+**Reheat:** Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more until steaming hot all through; or 10 minutes in a 200 °C oven to crisp the potatoes. From the freezer: move it to the fridge the night before.
+
+**Tips**
+
+- No stock cube: a chicken stock cube is not halal unless it is certified.
 
 ## Added fat
 

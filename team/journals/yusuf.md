@@ -194,3 +194,5 @@
   steps with "heat · minutes", Done when, Box it up, Reheat, Tips). TODO left in build.mjs: `LEGACY_OK` lets an old
   string-array method warn (sheet gets a TODO note, app gets no method) until every sheet is converted; then delete it.
 - 01:52 UTC Beginner methods written for 41–48 (build checked; a bad heat value fails the build as intended).
+- 01:55 UTC Beginner methods 49–64 written; all of 41–64 now carry the method object (build OK). Relaxed the no-cook check: an assemble prep with no heated step must start "No cooking." (58 heats a carton soup, 59 toasts bread, 42 boils eggs).
+- 01:56 UTC Beginner methods 05–07, 10–13, 15 written.

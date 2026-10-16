@@ -166,7 +166,9 @@ function checkMethod(s) {
   if (m.doneWhen !== undefined && (typeof m.doneWhen !== 'string' || !m.doneWhen.trim())) bad('doneWhen must be a string');
   for (const k of ['boxUp', 'reheat']) if (typeof m[k] !== 'string' || !m[k].trim()) bad(`needs ${k}: a string`);
   if (m.tips !== undefined && !isStrList(m.tips)) bad('tips must be a list of strings');
-  if (s.effort === 'assemble' && !/^no cooking\b/i.test(m.steps[0].text)) bad('of a no-cook prep must start with "No cooking."');
+  // A no-cook prep (assemble, no step with heat) says so in its first step (brief s3-method Addendum).
+  const noHeat = m.steps.every((st) => !st.heat || st.heat === 'none');
+  if (s.effort === 'assemble' && noHeat && !/^no cooking\b/i.test(m.steps[0].text)) bad('of a no-cook prep must start with "No cooking."');
   // Contract key order, only the contract keys.
   const out = {};
   for (const k of METHOD_KEYS) if (m[k] !== undefined) out[k] = k === 'steps' ? m.steps.map((st) => ({ text: st.text, ...(st.heat ? { heat: st.heat } : {}), ...(st.minutes ? { minutes: st.minutes } : {}) })) : m[k];

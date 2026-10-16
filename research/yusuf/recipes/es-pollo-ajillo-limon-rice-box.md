@@ -61,14 +61,47 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Season the chicken with salt and pepper. Brown it in the olive oil in a wide pan over medium-high heat, 6–8 min; lift it out.
-2. Lower the heat; fry the sliced garlic, guindilla and bay leaf gently until pale gold (do not burn it).
-3. Return the chicken, add the lemon juice and 100 ml water, cover and cook 10 min, then uncover until the sauce is a glaze and the chicken reaches 75 °C inside. Stir in the parsley.
-4. Brown rice: simmer about 30 min in plenty of salted water (or by absorption, about 1 : 2 by volume), adding the frozen peas for the last 5 min; drain.
-5. Boil the green beans 8 min and drain well.
-6. Cool within 1 h. Each box: ¼ of the rice and peas, ¼ of the beans, ¼ of the chicken with its garlic glaze.
+**Equipment**
+
+- Wide frying pan or sauté pan (28 cm) with a lid
+- Medium pot with a lid (rice)
+- Second pot (green beans) and a colander
+- Oven tray for cooling
+- 4 lunch boxes (1 for the fridge, 3 for the freezer)
+
+**Before you start**
+
+- Cut the boneless, skinless chicken thighs (720 g) into 4 cm pieces. Sprinkle with 1 tsp salt (6 g) and black pepper (2 g).
+- Peel 12–14 garlic cloves (40 g) and slice them thin (2 mm).
+- Squeeze about 1¼ lemons: you need 60 g (4 tbsp) of juice. Chop the parsley (15 g, a big handful).
+- Rinse the brown rice (240 g) in a sieve.
+
+**Steps**
+
+1. Rice first: put the rice in the medium pot with 1.2 l of water and ½ tsp salt (3 g). Bring to the boil. *(high heat · 5 min)*
+2. Turn down so it bubbles gently, half-cover and cook 25 minutes (start the chicken now). *(medium heat · 25 min)*
+3. Heat 2 tbsp olive oil (30 g) in the wide pan for 1 minute. Add the chicken in one layer (in 2 batches if it does not fit). *(medium-high heat · 1 min)*
+4. Brown the chicken 6–8 minutes, turning the pieces every 2 minutes, until golden on all sides. Lift it out onto a plate. *(medium-high heat · 8 min)*
+5. Turn the heat down. Add the sliced garlic, 1 dried guindilla (optional) and ½ bay leaf. Stir until the garlic is pale gold, not brown (burnt garlic tastes bitter). *(low heat · 2 min)*
+6. Put the chicken back. Pour in the lemon juice (60 g) and 100 ml water. Put the lid on and cook 10 minutes. *(medium heat · 10 min)*
+7. Take the lid off and cook until the liquid has become a thin, shiny glaze. Stir in the parsley. *(medium heat · 5 min)*
+8. Add the frozen peas (200 g) to the rice for its last 5 minutes. Drain off any water left. *(medium heat · 5 min)*
+9. Boil the frozen green beans (600 g) in the second pot of salted water for 8 minutes. Drain well. *(high heat · 8 min)*
+10. Spread the rice on the tray to cool fast. Let the chicken and beans cool too (all in the fridge or freezer within 1 hour). *(no heat · 30 min)*
+11. Each box: a quarter of the rice and peas, a quarter of the beans, a quarter of the chicken with its garlic glaze. *(no heat)*
+
+**Done when:** Cut the biggest chicken piece: no pink, juices clear (75 °C). The rice is soft with no hard white centre.
+
+**Box it up:** Rice must be cooled fast: spread it out and get it in the fridge within 1 hour. Rice keeps only 1 day in the fridge, so box 1 goes in the fridge and boxes 2–4 in the freezer (rice 1 month, chicken 3 months). Move the next day's box to the fridge the night before.
+
+**Reheat:** Microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot right through. Reheat once only. A squeeze of fresh lemon after reheating lifts it.
+
+**Tips**
+
+- No wine: lemon juice and water replace the white wine of the classic recipe.
+- No guindilla? Use a pinch of chilli flakes or leave it out.
 
 ## Added fat
 

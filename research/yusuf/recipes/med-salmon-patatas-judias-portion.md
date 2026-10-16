@@ -61,11 +61,42 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Oven at 210 °C. Toss the potatoes with half the oil, paprika and salt; roast 15 min.
-2. Add the green beans, onion, garlic and the rest of the oil; lay the salmon on top with lemon, oil and salt. Roast 12–15 min (salmon flakes, 63 °C inside).
-3. Stir the yogurt sauce. Cool and box 2 portions with a sauce pot each.
+**Equipment**
+
+- Large oven tray lined with baking paper
+- Small bowl for the sauce
+- Chopping board and knife
+- 2 boxes and 2 small lidded pots (about 100 ml)
+
+**Before you start**
+
+- The night before: move 4 frozen salmon medallions (250 g) from the freezer to the fridge to thaw on a plate.
+- Peel the potatoes (400 g) and cut them into wedges about 2 cm thick.
+- Cut the red onion (80 g, ½ onion) into wedges. Peel and slice 2 garlic cloves (6 g). Keep the green beans (300 g) frozen until step 4.
+- Chop the parsley (4 g, a small handful) and grate a small piece of garlic (2 g) for the sauce.
+
+**Steps**
+
+1. Turn the oven on to 200 °C. *(oven 200 °C · 10 min)*
+2. On the tray toss the potatoes with half of 1 tbsp olive oil (7 g), 1 tsp paprika (2 g) and ⅓ tsp salt (2 g). Spread them out. *(no heat)*
+3. Roast the potatoes 17 minutes. *(oven 200 °C · 17 min)*
+4. Take the tray out. Add the frozen green beans, onion and sliced garlic, and drizzle the rest of the 1 tbsp oil (7 g). Toss. *(no heat)*
+5. Pat the salmon dry. Lay it on top of the vegetables, drizzle 1 tsp olive oil (4 g) and 2 tsp lemon juice (10 g), and sprinkle a pinch of salt (1 g). *(no heat)*
+6. Roast 13–15 minutes more. *(oven 200 °C · 15 min)*
+7. Make the sauce: stir 120 g Greek yogurt, 1 tsp lemon juice (6 g), the grated garlic and the parsley. Spoon into the 2 pots. *(no heat)*
+8. Check the salmon (see "Done when"). Divide into 2 portions: 2 medallions and half the vegetables each. *(no heat)*
+
+**Done when:** The salmon is opaque pink (not glassy) in the middle and flakes when you press it with a fork (63 °C). The potatoes are soft when you push in a knife.
+
+**Box it up:** Eat portion 1 that night. Cool portion 2 for no more than 1 hour and put it in the fridge with its sauce pot; eat it the next evening (by day 2). The salmon was frozen once: do not freeze it again.
+
+**Reheat:** Take the yogurt pot out (it stays cold). Microwave covered 1½–2 minutes until steaming hot all through.
+
+**Tips**
+
+- No 200 °C on your oven dial? 210 °C works: take 1–2 minutes off each roasting time.
 
 ## Added fat
 

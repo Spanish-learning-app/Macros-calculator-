@@ -68,12 +68,41 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Toss the chicken with oil, spices, garlic and salt; sear 6–8 min (75 °C inside).
-2. In the same pan warm the beans and corn with the cumin, 3 min.
-3. Box chicken, beans and corn with a sealed rice cup; salsa, yogurt and lettuce in a small box or pot.
-4. At lunch: microwave the rice cup (1 min) and the chicken and beans until steaming; top with the cold salsa, yogurt and lettuce.
+**Equipment**
+
+- Large frying pan (28 cm)
+- Sieve
+- Can opener
+- 4 lunch boxes and 4 small boxes or pots (about 150 ml) for the cold side
+
+**Before you start**
+
+- Cut the chicken breast (520 g) into strips about 1 cm thick.
+- Peel and chop 2 garlic cloves (6 g).
+- Drain and rinse the kidney beans (1 jar, 400 g). Drain the 3 small tins of sweetcorn (210 g).
+- Shred the lettuce (120 g).
+
+**Steps**
+
+1. In a bowl mix the chicken with 2 tsp sunflower oil (10 g), 1½ tsp ground cumin (3 g), 2 tsp paprika (4 g), 1 tsp chilli powder (2 g), 1 tsp dried oregano (2 g), the garlic and ½ tsp salt (3 g). *(no heat)*
+2. Heat the frying pan for 1 minute (no extra oil: it is on the chicken). *(medium-high heat · 1 min)*
+3. Add the chicken and cook 6–8 minutes, turning the strips every 2 minutes, until browned all over. Check one (see "Done when"). Move it to a plate. *(medium-high heat · 8 min)*
+4. Put the beans and corn in the same pan with 1 tsp cumin (2 g) and a pinch of salt (1 g). Stir for 3 minutes until hot. *(medium heat · 3 min)*
+5. Let the chicken and beans cool on the counter (up to 1 hour), then put a quarter of the chicken and a quarter of the beans and corn in each lunch box. *(no heat · 30 min)*
+6. Make the cold side for 2 boxes: in each small box put 60 g salsa (about 3 tbsp), 40 g Greek yogurt (2 tbsp) with 1 tsp lemon juice (2–3 g) stirred in, and 30 g lettuce. Make the other 2 on Tuesday night. *(no heat)*
+7. At lunch: microwave the rice cup (125 g) for 1 minute and the chicken and beans until steaming. Tip the rice in, then top with the cold salsa, yogurt and lettuce. *(microwave · 3 min)*
+
+**Done when:** Chicken: white all through, no pink, juices clear (75 °C). Beans: hot all through.
+
+**Box it up:** Boxes 1–3: chicken and beans in the fridge (3 days). Box 4: chicken and beans in the freezer (3 months). The cold side keeps 2 days once the salsa jar is open, so pot 2 sides on Sunday and 2 on Tuesday night. The sealed rice cups stay in the cupboard.
+
+**Reheat:** Chicken and beans: microwave with the lid loose 2 minutes, stir, then 30–60 seconds more until steaming hot all through. Rice cup: 1 minute, as on the pack. The salsa, yogurt and lettuce stay cold. From the freezer: move box 4 to the fridge the night before.
+
+**Tips**
+
+- Halal: the salsa has wine vinegar (vinegar, not wine). Greek yogurt replaces sour cream.
 
 ## Added fat
 

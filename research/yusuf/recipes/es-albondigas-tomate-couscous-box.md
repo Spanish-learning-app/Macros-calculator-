@@ -66,14 +66,46 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Mix the mince, breadcrumbs, egg, garlic, parsley, salt and pepper; rest 10 min. Roll 24 meatballs (about 30 g each).
-2. Brown the meatballs in 20 g olive oil in batches, 4–5 min, and set aside.
-3. In the same pan soften the onion, green pepper, carrot and garlic in 15 g oil, 10 min. Add the crushed tomato, sugar, paprika, oregano, bay leaf and salt; simmer 15 min.
-4. Return the meatballs and simmer 15 min more, uncovered, until the sauce is thick enough not to slosh in a box and the meatballs reach 75 °C inside.
-5. Couscous: pour 336 g boiling water with the oil and salt over the couscous, cover 5 min, fluff with a fork.
-6. Cool within 1 h. Each box: ¼ of the couscous, 6 meatballs with ¼ of the sauce. Use a box with a tight lid, or put the sauce side in a deeper compartment.
+**Equipment**
+
+- Large deep frying pan or casserole (28 cm)
+- Large bowl for the meat mix
+- Heatproof bowl with a plate or lid (couscous)
+- Kettle
+- Grater
+- Oven tray for cooling
+- 4 lunch boxes with tight lids
+
+**Before you start**
+
+- Peel 6 garlic cloves: chop 3 very finely (8 g) for the meatballs and chop 3 (10 g) for the sauce.
+- Chop the parsley (10 g). Chop the onion (150 g) and green pepper (120 g) small (5 mm). Peel and grate the carrot (100 g).
+- Open the crushed tomato (800 g).
+
+**Steps**
+
+1. In the big bowl mix the beef mince (640 g), breadcrumbs (45 g, about 5 tbsp), 1 egg, the 8 g garlic, the parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands. Leave 10 minutes. *(no heat · 10 min)*
+2. Roll 24 balls of about 30 g each (the size of a walnut). Wash your hands. *(no heat)*
+3. Heat 1½ tbsp olive oil (20 g) in the pan. Brown the meatballs in 2 batches, turning them, 4–5 minutes per batch. Lift them onto a plate (they are not cooked through yet). *(medium-high heat · 10 min)*
+4. In the same pan add 1 tbsp olive oil (15 g), the onion, pepper, carrot and the 10 g garlic. Cook, stirring, until soft. *(medium heat · 10 min)*
+5. Add the crushed tomato, 1 tsp sugar (4 g), 1½ tsp paprika (3 g), ½ tsp oregano (1 g), ½ bay leaf and ½ tsp salt (3 g). Simmer 15 minutes. *(low heat · 15 min)*
+6. Put the meatballs back in the sauce. Simmer 15 minutes more without a lid, turning them once, until the sauce is thick. *(low heat · 15 min)*
+7. Couscous: boil the kettle. Put the couscous (240 g), 2 tsp olive oil (8 g) and ⅓ tsp salt (2 g) in the heatproof bowl. Pour over 336 ml boiling water, stir once and cover. *(no heat)*
+8. Leave the couscous covered 5 minutes, then fluff it with a fork. *(no heat · 5 min)*
+9. Spread the couscous and meatballs on a tray or wide dish to cool fast (all in the fridge or freezer within 1 hour). *(no heat · 30 min)*
+10. Each box: a quarter of the couscous and 6 meatballs with a quarter of the sauce. Use a tight lid or a deeper compartment for the sauce. *(no heat)*
+
+**Done when:** Cut a meatball in half: no pink inside (75 °C). The sauce is thick enough not to slosh in the box.
+
+**Box it up:** Cool fast, in the fridge or freezer within 1 hour. Couscous keeps only 1 day in the fridge, so box 1 goes in the fridge and boxes 2–4 in the freezer (couscous 1 month, meatballs 3 months). Move the next day's box to the fridge the night before.
+
+**Reheat:** Microwave with the lid loose 3 minutes, stir the sauce, then 30–60 seconds more until steaming hot right through. Reheat once only.
+
+**Tips**
+
+- Halal: check the breadcrumbs label for manteca (lard). No wine in the sauce.
 
 ## Added fat
 

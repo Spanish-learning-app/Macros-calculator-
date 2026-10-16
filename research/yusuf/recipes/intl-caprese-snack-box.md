@@ -46,10 +46,32 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Drain and tear the mozzarella; halve the tomatoes. Box with basil and pepper.
-2. A bag of picos on the side. Keep cold.
+**Equipment**
+
+- Sieve
+- Chopping board and knife
+- 2 small boxes
+
+**Before you start**
+
+- Halve the cherry tomatoes (300 g).
+
+**Steps**
+
+1. No cooking. Drain the mozzarella balls in the sieve. *(no heat)*
+2. Tear 100 g mozzarella into bite-size pieces for each box (1 ball is 125 g: the leftover 50 g goes in a salad). *(no heat)*
+3. Add half the tomatoes to each box, then a few basil leaves (3 g) and a grind of black pepper. *(no heat)*
+4. Close the boxes. Put a bag of picos (15 g) next to each box, not inside, so they stay crunchy. *(no heat)*
+
+**Box it up:** Straight into the fridge; eat by day 2 (an opened mozzarella ball keeps 2 days). Do not freeze. Carry it in an insulated bag if it leaves home.
+
+**Reheat:** Not reheated: eat cold.
+
+**Tips**
+
+- Halal: the Hacendado light mozzarella (51230) uses microbial coagulant. Check any other brand for animal rennet (cuajo animal).
 
 ## Added fat
 

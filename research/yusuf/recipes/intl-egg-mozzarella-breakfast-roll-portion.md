@@ -54,11 +54,40 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Oven at 180 °C. Whisk eggs, whites, salt and pepper; stir in spinach and pepper. Pour into a lined 20 × 20 cm tin and bake 18–20 min until set.
-2. Cool, cut into 4 squares. Split the rolls; fill each with an egg square and a quarter of the mozzarella.
-3. Wrap each roll in baking paper and foil (or a bag) and freeze.
+**Equipment**
+
+- Square oven tin, about 20 × 20 cm, lined with baking paper
+- Large bowl and a whisk or fork
+- Chopping board and knife
+- Baking paper and foil (or freezer bags) for 4 rolls
+
+**Before you start**
+
+- Chop the baby spinach (60 g, 2 handfuls) roughly. Dice the red pepper (80 g, ½ pepper) into 1 cm pieces.
+- Drain the mozzarella ball (125 g) and cut it into 8 slices.
+- Cut the 4 rolls (130 g each) open along one side.
+
+**Steps**
+
+1. Turn the oven on to 180 °C. *(oven 180 °C · 10 min)*
+2. Crack 6 eggs into the bowl. Add the liquid egg whites (200 g), a pinch of salt (1 g) and black pepper (1 g). Whisk 30 seconds until even. *(no heat)*
+3. Stir in the spinach and pepper. *(no heat)*
+4. Pour into the lined tin. Bake 18–20 minutes. *(oven 180 °C · 20 min)*
+5. Check it (see "Done when"). Let it cool in the tin 15 minutes, then lift it out and cut it into 4 squares. *(no heat · 15 min)*
+6. Put 1 egg square and 2 slices of mozzarella in each roll. *(no heat)*
+7. Wrap each roll in baking paper, then in foil or a freezer bag. *(no heat)*
+
+**Done when:** The middle is firm and springs back when you press it; a knife pushed into the centre comes out clean, with no runny egg.
+
+**Box it up:** Cool for no more than 1 hour. Keep 1–2 rolls in the fridge (eat by day 3) and freeze the rest (2 months).
+
+**Reheat:** Take off the foil and paper and wrap the roll in a paper towel. Microwave 1½–2 minutes until steaming hot in the middle. From frozen: 1 minute on defrost first, then 1½–2 minutes on full power.
+
+**Tips**
+
+- Halal: mozzarella with microbial coagulant (Hacendado light, 51230). Check the label of any other brand for animal rennet (cuajo animal).
 
 ## Added fat
 

@@ -272,15 +272,18 @@ export function openMethodDialog({ title, method, ingredients = [], note = null,
     content: [
       ingredients.length
         ? h(
-            'div',
-            { class: 'method-part', 'data-testid': 'method-ingredients' },
-            h('h3', { class: 'group-title' }, 'What you need'),
-            note ? h('p', { class: 'muted method-note' }, note) : null,
+            'details',
+            { class: 'method-need', 'data-testid': 'method-ingredients' },
+            h(
+              'summary',
+              { class: 'cook-method-summary' },
+              `What you need · ${ingredients.length} ${ingredients.length === 1 ? 'ingredient' : 'ingredients'}`,
+            ),
             list(ingredients),
           )
         : null,
       renderMethod(method, {
-        note: ingredients.length ? null : note,
+        note,
         onSteps: () => openStepMode({ title, method }),
       }),
     ],
@@ -354,7 +357,7 @@ export function openStepMode({ title, method }) {
   const dialog = h(
     'dialog',
     {
-      class: 'dlg stepper',
+      class: 'dlg step-mode',
       'data-testid': 'method-stepper',
       'aria-labelledby': titleId,
     },

@@ -41,11 +41,34 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Put everything in a jug and blend 1 minute (a stick blender is enough).
-2. Pour into a 500 ml jar with a lid, filled to the top (less air, less browning). Fridge.
-3. Shake and drink within 24 hours.
+**Equipment**
+
+- Stick blender and its tall jug (or a blender)
+- Jar with a lid, 500 ml
+
+**Before you start**
+
+- Peel the small banana (about 100 g) and break it into 3–4 pieces.
+
+**Steps**
+
+1. No cooking. Put the protein yogurt (200 g, 1 pot) and the milk (150 ml, 150 g) in the jug. *(no heat)*
+2. Add the oats (40 g, about 4 tbsp), the banana and the peanuts (15 g, about 1 tbsp). *(no heat)*
+3. Blend for 1 minute, moving the blender up and down, until smooth with no whole oats. *(no heat · 1 min)*
+4. Pour into the jar right up to the top (less air, less browning) and close the lid. *(no heat)*
+5. In the morning: shake the jar well and drink. Add a splash of milk if it has got too thick. *(no heat)*
+
+**Done when:** No lumps of banana or whole oats are left when you tilt the jug.
+
+**Box it up:** Straight into the fridge. Make it the night before, one jar at a time, and drink it within 24 hours. Do not freeze.
+
+**Reheat:** Not reheated: drink it cold.
+
+**Tips**
+
+- Peanut allergy or none in the cupboard? Use 15 g almonds.
 
 ## Added fat
 

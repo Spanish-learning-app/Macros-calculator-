@@ -68,12 +68,42 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Toss the chicken with ginger, garlic and salt; sear in the oil 6 min (75 °C). Cool and slice.
-2. Cut the vegetables; shake the dressing in a jar until the sugar dissolves.
-3. Box chicken and vegetables with peanuts on top, a sealed quinoa cup and a dressing pot.
-4. At lunch: tip the quinoa in, pour the dressing, toss.
+**Equipment**
+
+- Frying pan (24–28 cm)
+- Small jar with a lid (for the dressing)
+- Grater
+- Chopping board and knife
+- 2 lunch boxes and 2 small lidded pots (about 50 ml)
+
+**Before you start**
+
+- Cut the chicken breast (280 g) into strips about 1 cm thick.
+- Peel the ginger and grate it: 6 g (a 3 cm piece) for the chicken and 6 g for the dressing. Peel and grate 1–2 garlic cloves (4 g).
+- Cut the carrot (160 g) and cucumber (160 g) into thin matchsticks (or grate the carrot). Slice the red pepper (160 g) thin. Chop the coriander (10 g, a handful).
+
+**Steps**
+
+1. Mix the chicken strips with the 6 g ginger, the garlic and a pinch of salt (1 g). *(no heat)*
+2. Heat 1½ tsp sunflower oil (6 g) in the frying pan for 1 minute. *(medium-high heat · 1 min)*
+3. Add the chicken and cook about 6 minutes, turning the strips every 2 minutes, until golden on all sides. Check one (see "Done when"). *(medium-high heat · 6 min)*
+4. Move the chicken to a plate and let it cool for up to 30 minutes. *(no heat · 20 min)*
+5. Make the dressing in the jar: 1 tbsp + 1 tsp halal-certified soy sauce (20 g), 2 tbsp lemon or lime juice (30 g), 2 tsp sunflower oil (10 g), the other 6 g grated ginger, 1½ tsp sugar (6 g) and a pinch of chilli powder (1 g, optional). Close and shake until the sugar dissolves. Pour into the 2 pots. *(no heat)*
+6. Fill each box: half the carrot, cucumber, pepper and coriander, then half the chicken on top. *(no heat)*
+7. Sprinkle 15 g peanuts (about 1 tbsp) over each box, last, so they stay crunchy. The sealed quinoa cup (125 g) and the dressing pot go next to the box. *(no heat)*
+8. At lunch: open the quinoa cup and tip it in, pour the dressing over, close the lid and shake. *(no heat)*
+
+**Done when:** Cut the thickest strip: white all through, no pink, juices clear (75 °C).
+
+**Box it up:** Cool the chicken for no more than 1 hour, then both boxes and pots go in the fridge (eat by day 2). Do not freeze the salad. Make 2 boxes at a time. The quinoa cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked grains does not apply.
+
+**Reheat:** Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).
+
+**Tips**
+
+- Halal: use a soy sauce with a halal certificate (or a tamari that lists no alcohol). Ordinary brewed soy sauce can contain alcohol from fermentation.
 
 ## Added fat
 

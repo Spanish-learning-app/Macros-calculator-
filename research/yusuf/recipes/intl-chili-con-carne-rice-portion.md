@@ -60,12 +60,45 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+This is the method the app shows under "How to make it" (generated from the same data).
 
-1. Brown the mince in the oil, 5 min. Add onion, pepper and garlic; cook 6 min.
-2. Add the spices for 1 min, then tomato and beans. Simmer 30 min, lid ajar, until thick.
-3. Cook the brown rice (about 30 min, or use 4 sealed brown-rice cups).
-4. Cool fast; portion the chili with rice. Freeze the portions you will not eat in 1 day.
+**Equipment**
+
+- Wide deep frying pan or casserole (28 cm) with a lid
+- Medium pot with a lid for the rice
+- Wooden spoon
+- Sieve
+- Oven tray or wide dish for cooling
+- 4 boxes and 4 small lidded pots
+
+**Before you start**
+
+- Peel and chop the onion (200 g, 1 large) into 5 mm pieces. Dice the red pepper (200 g) into 1 cm pieces.
+- Peel and chop 3 garlic cloves (9 g).
+- Drain and rinse the kidney beans (1 jar, 400 g). Open the crushed tomato (800 g).
+- Rinse the brown rice (240 g) in the sieve under cold water.
+
+**Steps**
+
+1. Rice first: put the rice in the medium pot with 1 l of water and a pinch of salt. Bring to the boil. *(high heat · 5 min)*
+2. Turn down so it bubbles gently, cover and cook 30 minutes (or the time on the pack). While it cooks, make the chili. *(low heat · 30 min)*
+3. Heat 2 tsp olive oil (10 g) in the wide pan for 1 minute. Add the beef mince (500 g) and break it up with the spoon. Cook until no pink is left and it starts to brown. *(medium-high heat · 5 min)*
+4. Add the onion, pepper and garlic. Cook, stirring, until the onion is soft. *(medium heat · 6 min)*
+5. Add 2 tsp ground cumin (4 g), 2 tsp paprika (4 g), 1½ tsp chilli powder (3 g, less if you do not like it hot) and 1 tsp dried oregano (2 g). Stir 1 minute. *(medium heat · 1 min)*
+6. Pour in the crushed tomato, add the beans and ⅔ tsp salt (4 g). Stir. *(medium heat)*
+7. When it bubbles, turn down, put the lid on with a gap and simmer 30 minutes, stirring every 10 minutes. *(low heat · 30 min)*
+8. Drain any water left in the rice. Spread the rice on the tray to cool fast (it must be in the fridge within 1 hour). *(no heat · 20 min)*
+9. Let the chili cool for 20–30 minutes, then fill 4 boxes: about 155 g rice and 425 g chili each. Spoon 40 g Greek yogurt (2 tbsp) into each small pot. *(no heat · 25 min)*
+
+**Done when:** The chili is thick (a spoon dragged across leaves a line) and no meat is pink; the rice is soft with no hard centre.
+
+**Box it up:** Cool fast: rice and chili in the fridge or freezer within 1 hour. Rice keeps only 1 day in the fridge, so portion 1 goes in the fridge and portions 2–4 in the freezer (1 month). Or freeze the chili alone (3 months) and pair it with a sealed rice cup on the night. The yogurt pots keep 2 days in the fridge and do not freeze.
+
+**Reheat:** Take the yogurt pot out. Microwave with the lid loose 3 minutes, stir, then 1–2 minutes more until steaming hot all through. Reheat the rice once only. From the freezer: move it to the fridge the night before.
+
+**Tips**
+
+- No beer and no stock cube: the cumin, paprika and tomato carry the flavour.
 
 ## Added fat
 
