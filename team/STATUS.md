@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 16:32 UTC by Omar._
+_Last updated: 2026-10-16 18:56 UTC by Omar._
 
 ## Links
 
@@ -33,8 +33,10 @@ _Last updated: 2026-10-16 16:32 UTC by Omar._
 
 ## Working now (night shift)
 
+_Paused 16:40–18:56 UTC (session limit); restarted fresh at 18:56 UTC._
+
 - **Kenji:** rules tripwire test; e2e for plans, picks, swap, chips and Lena's changes.
-- **Priya:** halal guide card on About (O8); faster first load (O16).
+- **Priya:** faster first load (O16), plural fix. (The halal guide card on About and the 'What does Check mean?' button are **done in code**.)
 - **Ayesha:** final reviews (6 held preps, new records, Zainab's 4), the cola duplicate decision; G19 to 0.
 - **Timeline (told to the Boss):** finish tonight, then Review 3, the fix wave, the final audit, a republish and the delivery report. Target: Sat 17 Oct about 10:00 Madrid, or Saturday night if a usage limit pauses us.
 - Done tonight:
@@ -67,7 +69,7 @@ out (DECISIONS 2026-10-16). When an item reaches the app, move it to "Done" with
 | O5 | "Where to buy" notes on 27 ingredients (e.g. garam masala at the Pakistani grocery) | Shown in the weekly shopping list | Lena | **done, published v4** (2026-10-16) |
 | O6 | Feta → Burgos halal swap: a separate record with no swap button. **Report #2 wrongly said "one-tap swap"** (MISTAKES M-14) | A "Halal swap" button on the feta box that opens the Burgos version | Lena | **done, published v4** (2026-10-16) |
 | O7 | Low-cook week, budget week and ready-to-eat picks (`docs/MEALPREP.md`) | One-tap plans and picks per slot in Prep | Yusuf (data), Lena (UI) | **done, published v4** (2026-10-16) |
-| O8 | Halal shopping guide for Barcelona (manteca, gelatina, E-471/472, "¿lleva manteca de cerdo?", butchers) | A section on the About page | Ayesha (text), Priya (UI) | text done (`RULES.halalGuide`, rules 1.7.2); UI queued (Priya) |
+| O8 | Halal shopping guide for Barcelona (manteca, gelatina, E-471/472, "¿lleva manteca de cerdo?", butchers) | A section on the About page | Ayesha (text), Priya (UI) | **done in code** (About card + Check button, Priya; not yet published) |
 | O9 | Recipe references, 2–5 links per prep | Listed in the prep's Source panel | Yusuf (data), Lena (UI) | **done, published v4** (2026-10-16) |
 | O10 | Saved-meal row shows no kcal or protein (Bilal, Nasreen) | Show kcal · protein on the row | Priya | **done in code** (Priya, 2026-10-16; published in v4) |
 | O11 | Nasreen's wording carry-overs; kam-tel "half the oil" line | Copy fixes | Priya with Ayesha | **done in code** (Priya, 2026-10-16; published in v4) |

@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T16:32:17Z",
+  "updatedAt": "2026-10-16T18:56:24Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -47,7 +47,7 @@
     "priya": {
       "location": "office",
       "status": "working",
-      "task": "Halal guide card on About (O8), lazy-load recipe data, plural fix"
+      "task": "Faster first load (lazy-load), plural fix, a11y re-check"
     },
     "kenji": {
       "location": "office",
@@ -83,18 +83,18 @@
   "inFlight": [
     {
       "member": "kenji",
-      "task": "Rules 1.7.2 tripwire, M0-M2 plain, e2e for plans/picks/swap/chips/Lena's changes",
-      "output": "tests/** (not dev)"
+      "task": "Run/fix sprint3-wave2.spec.js, halal guide tests, full check + e2e",
+      "output": "tests/**"
     },
     {
       "member": "priya",
-      "task": "O8 halal guide UI, O16 lazy-load, plural",
-      "output": "app/ui/**, app/styles/**"
+      "task": "O16 lazy-load recipe/plans data, plural fix, a11y re-check of new dialogs",
+      "output": "app/ui/**"
     },
     {
       "member": "ayesha",
-      "task": "Re-check 6 held preps, Javier's 3 + falafel, Zainab's 4; cola decision; G19 to 0 plan",
-      "output": "research/review/**, docs/NUTRITION.md"
+      "task": "Final reviews (6 held, Javier 3 + falafel, Zainab 4), cola decision, G19 plan",
+      "output": "research/review/**"
     }
   ],
   "checkIn": {
@@ -147,6 +147,10 @@
     {
       "at": "2026-10-16T16:11:19Z",
       "result": "18:10 Madrid: night shift start. Inbox empty. Started Yusuf, Lena, Ayesha (fresh)."
+    },
+    {
+      "at": "2026-10-16T18:56:24Z",
+      "result": "2 check-ins (17:09, 18:09 UTC) delivered at reset. Inbox empty. Priya's halal guide UI and Kenji's wave-2 spec were already committed. Restarted Kenji, Priya, Ayesha fresh."
     }
   ],
   "pauses": [
@@ -203,6 +207,12 @@
       "to": "2026-10-16T07:00:18Z",
       "reason": "Session usage limit (reset 06:40 UTC)",
       "resumedBy": "check-in backlog read at 06:59"
+    },
+    {
+      "from": "2026-10-16T16:40:00Z",
+      "to": "2026-10-16T18:56:24Z",
+      "reason": "Session usage limit (reset 18:50 UTC)",
+      "resumedBy": "Boss message + check-in backlog"
     }
   ],
   "workingHours": {

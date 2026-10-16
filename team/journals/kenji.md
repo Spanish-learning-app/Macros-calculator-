@@ -161,3 +161,4 @@
 ## Sprint 3 wave 2 QA (rules 1.7.2, M0/M1/M2, new e2e)
 
 - 2026-10-16 16:26 UTC: Task 1+2 done. mealprep.test.js FRIDGE_DAYS gets 'blended-smoothie': 1 (checked rules.js:537: fridgeDays 1, freezable false, freezerMonths null), count asserted 9, smoothie not freezable. method-contract.test.js: BUG-M0/M1/M2 verified passing first (0 of 64 without method, M1 pesto + shawarma plan freezable, M2 toast preps open "No cooking"); now plain tests (PENDING list and M1/M2 exclusions removed, `knownBug` import gone). `npm test` Madrid 735/735 pass, 0 todo.
+- 2026-10-16 18:56 UTC: RESUMED (usage-limit stop). Running sprint3-wave2.spec.js on phone first.

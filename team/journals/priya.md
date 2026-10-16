@@ -173,3 +173,4 @@ Timestamps are UTC.
   "What Check means" section; Escape returns to the food details. Small, local (food-details.js + the new file).
   Verified 400×860 light/dark, real data: 4 sections closed, order first card → guide → grades → reference values,
   57 lang-marked spans, no overflow, no console errors; soy sauce (check) → details → button → dialog opens katori-check.
+- 18:56 UTC (resume after usage limit) halal guide card + check-guide button on disk and committed. Next: O16 lazy-load recipes/plans mealprep, plural fix if contained, a11y re-check of the guide dialog and Ramadan controls.
