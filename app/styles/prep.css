@@ -899,6 +899,20 @@ span.chip-halal {
   cursor: pointer;
 }
 
+.cook-method-summary::-webkit-details-marker {
+  display: none;
+}
+
+.cook-method-summary::before {
+  content: '▸';
+  width: 1.25em;
+  flex: none;
+}
+
+details[open] > .cook-method-summary::before {
+  content: '▾';
+}
+
 .cook-method[open] > .cook-method-summary {
   margin-bottom: var(--space-2);
 }
