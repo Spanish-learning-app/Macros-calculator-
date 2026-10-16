@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Nudges, Ramadan, polish",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T07:12:18Z",
+  "updatedAt": "2026-10-16T07:15:01Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -51,8 +51,8 @@
     },
     "kenji": {
       "location": "office",
-      "status": "working",
-      "task": "Sprint 3 tests: weight, kam-tel, shortName, method contract, e2e"
+      "status": "idle",
+      "task": "Done: Sprint 3 unit + e2e (356 e2e pass)"
     },
     "zainab": {
       "location": "office",
@@ -81,11 +81,6 @@
     }
   },
   "inFlight": [
-    {
-      "member": "kenji",
-      "task": "Sprint 3 wave 1 QA (sprint3-weight 2 failures: test or app bug), method contract test, e2e weight/spare-box/meal names/cuisine chips",
-      "output": "tests/** (not tests/unit/dev)"
-    },
     {
       "member": "priya",
       "task": "O3 serve chips, O10 saved-meal kcal/protein, O11 wording + kam-tel line, O16 a11y + perf pass",
@@ -212,6 +207,14 @@
     {
       "member": "yusuf",
       "task": "Budget week is 77.17 EUR at the till but MEALPREP.md says '60 EUR or less': bring it under 60 or change the claim (generated text must come from the numbers)"
+    },
+    {
+      "member": "kenji",
+      "task": "Turn BUG-M0/M1/M2 todo tests into plain tests (Yusuf fixed all three at 07:05 UTC); e2e for Lena's plans UI and Priya's chips"
+    },
+    {
+      "member": "lena",
+      "task": "Design call: Day view 'Plan it' on today's spare box logs it as eaten (statusForAdd today=eaten) though the button says Plan"
     },
     {
       "member": "ayesha",
