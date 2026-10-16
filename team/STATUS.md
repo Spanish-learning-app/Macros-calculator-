@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 19:06 UTC by Omar._
+_Last updated: 2026-10-16 19:09 UTC by Omar._
 
 ## Links
 
@@ -35,7 +35,8 @@ _Last updated: 2026-10-16 19:06 UTC by Omar._
 
 _Paused 16:40–18:56 UTC (session limit); restarted fresh at 18:56 UTC._
 
-- **Kenji:** rules tripwire test; e2e for plans, picks, swap, chips and Lena's changes.
+- **Nasreen:** Review 3, cooking as a first-time cook from the methods.
+- Done: **Kenji**: everything green, 735 unit tests and 524 e2e (incl. plans, picks, swap, chips, Ramadan table, halal guide).
 - **Priya:** faster first load (O16), plural fix. (The halal guide card on About and the 'What does Check mean?' button are **done in code**.)
 - **Mariam:** Review 3, a full week on a fixed snapshot (commit 7434367), including cooking from the methods.
 - Done: **Lab rebuild**: G19 = **0** (every record reviewed), 351/351 pass, no numbers moved, cola names split.
@@ -77,7 +78,7 @@ out (DECISIONS 2026-10-16). When an item reaches the app, move it to "Done" with
 | O11 | Nasreen's wording carry-overs; kam-tel "half the oil" line | Copy fixes | Priya with Ayesha | **done in code** (Priya, 2026-10-16; published in v4) |
 | O12 | Ramadan: full day-by-day table, ±30 min time edit (`RULES.ramadan`) | Part of the Ramadan UI | Lena | **done in code** (2026-10-16; not yet published) |
 | O13 | Urdu serving labels (`labelUr`, 454 foods) | Shown when "Pakistani meal names" is chosen | Lena | **done in code** (2026-10-16; not yet published) |
-| O14 | E2E tests for Sprint 3 features (weight, spare box, meal names, cuisine chips, tips, Ramadan, methods) | E2E suite | Kenji | **mostly done**: e2e for weight, spare box, meal names, cuisine chips, methods (2026-10-16); plans, picks and chips are next |
+| O14 | E2E tests for Sprint 3 features (weight, spare box, meal names, cuisine chips, tips, Ramadan, methods) | E2E suite | Kenji | **done** (2026-10-16: 524 e2e incl. all Sprint 3 features) |
 | O15 | Two possible bugs from Mariam (Fill Mon–Thu after Monday; "30 g – 30 g" on picos) | Verify, then fix | Kenji, Lena | queued |
 | O16 | Accessibility and speed pass (Meeting 005) | As planned | Priya | queued |
 

@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Review 3",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-16T19:06:28Z",
+  "updatedAt": "2026-10-16T19:09:16Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -51,8 +51,8 @@
     },
     "kenji": {
       "location": "office",
-      "status": "working",
-      "task": "Tests: rules tripwire, plans, picks, swap, chips, Ramadan table"
+      "status": "idle",
+      "task": "Done: all green (735 unit, 524 e2e)"
     },
     "zainab": {
       "location": "office",
@@ -66,8 +66,8 @@
     },
     "nasreen": {
       "location": "office",
-      "status": "idle",
-      "task": "Review 2 done: would keep using it"
+      "status": "working",
+      "task": "Review 3: cooking as a beginner from How to make it"
     },
     "yusuf": {
       "location": "office",
@@ -82,11 +82,6 @@
   },
   "inFlight": [
     {
-      "member": "kenji",
-      "task": "Run/fix sprint3-wave2.spec.js, halal guide tests, full check + e2e",
-      "output": "tests/**"
-    },
-    {
       "member": "priya",
       "task": "O16 lazy-load recipe/plans data, plural fix, a11y re-check of new dialogs",
       "output": "app/ui/**"
@@ -95,6 +90,11 @@
       "member": "mariam",
       "task": "Review 3 full week on snapshot 7434367 (scratchpad/review3)",
       "output": "team/feedback/mariam-review3.md"
+    },
+    {
+      "member": "nasreen",
+      "task": "Review 3: beginner cooking from methods, Urdu labels, editor, shopping list (snapshot 7434367)",
+      "output": "team/feedback/nasreen-review3.md"
     }
   ],
   "checkIn": {
@@ -224,8 +224,8 @@
   },
   "queued": [
     {
-      "member": "bilal + nasreen",
-      "task": "Review 3 (after Kenji/Priya land): Bilal lifter week, Nasreen first-time cook cooking from methods"
+      "member": "bilal",
+      "task": "Review 3 (after Priya lands): lifter week, tap counts, plans, protein"
     },
     {
       "member": "omar",
