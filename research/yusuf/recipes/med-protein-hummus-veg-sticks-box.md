@@ -54,6 +54,8 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Whisk the hummus, queso fresco batido and lemon until smooth; split into 2 pots and dust with paprika.
 2. Cut the vegetables into sticks and pack them next to the pots; picos in a bag.
 

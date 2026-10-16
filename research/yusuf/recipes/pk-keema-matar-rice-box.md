@@ -63,6 +63,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Heat the oil, crackle the cumin seeds, then soften the onion 8–10 min. Add garlic and ginger for 1 min.
 2. Add the mince and break it up; brown on high heat 8–10 min until the liquid has gone.
 3. Add tomato, green chilli, yogurt, ground spices and salt. Cover and cook 15 min on low (add a splash of water only if it sticks), then uncover and dry it out.

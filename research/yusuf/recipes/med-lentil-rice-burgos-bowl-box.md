@@ -58,6 +58,8 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Drain and rinse the lentils. Mix with tomato, cucumber, onion, mint, olive oil, lemon and cumin; put half in each box with the rocket on top.
 2. Add 2 sealed Burgos tubs and 1 sealed rice cup to each box.
 3. At lunch: microwave the rice cup 40 s, tip it in, crumble the Burgos over and mix. Good cold too.

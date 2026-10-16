@@ -10,6 +10,9 @@ import {
   sumNutrients,
 } from './foods.js';
 
+/** "My method" on a person's recipe (§13.1, s3-method): free text, at most this many characters. */
+export const MY_METHOD_MAX = 4000;
+
 export const RECIPE_PREFIX = 'my-recipe-';
 export const BOX_STORAGES = Object.freeze(['fridge', 'freezer']);
 export const BOX_STATUSES = Object.freeze(['available', 'placed', 'eaten', 'discarded']);

@@ -49,6 +49,8 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Drain the lentils into a sieve and rinse them well under cold water (the jar liquid is salty); drain the tuna.
 2. Dice the pepper and cucumber, halve the tomatoes, chop the onion and parsley.
 3. Mix everything with the olive oil, lemon, cumin and pepper; fold in the feta last. No extra salt: lentils, tuna and feta bring enough.

@@ -63,6 +63,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Brown the onion in the oil 8–10 min. Add garlic and ginger, 1 min, then the mince; break it up and cook on high until the water it releases has dried off (10 min).
 2. Add tomatoes, yogurt, salt and the ground spices; cover and cook 10 min. Add the peas and green chilli, cover 8 min, then uncover and dry until the oil separates. Finish with garam masala and coriander.
 3. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 50 g dough each), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.

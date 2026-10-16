@@ -56,6 +56,8 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Boil 4 eggs 10 min, cool and peel (or use 4 from the Sunday batch).
 2. Drain and flake the salmon; mix with cucumber, carrot, avocado, onion, coriander, lemon and pepper.
 3. Each box: half the salmon salad, 2 halved eggs, and 1 sealed rice cup on the side.

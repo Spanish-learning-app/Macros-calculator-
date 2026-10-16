@@ -18,6 +18,7 @@ import {
   fmtGrams,
   portionNutrients,
   defaultServingOf,
+  servingOf,
 } from '../components/format.js';
 import {
   macroLine,
@@ -38,6 +39,13 @@ import {
   cuisineLabel,
   matchesCuisine,
 } from '../components/prep-bits.js';
+import { amountText } from '../components/ingredient-sheet.js';
+import {
+  methodOf,
+  renderMethod,
+  openMethodDialog,
+  openStepMode,
+} from '../components/recipe-method.js';
 
 const SLOT_ORDER = ['breakfast', 'lunch', 'dinner', 'snacks', 'evening'];
 
@@ -79,6 +87,70 @@ export function mount(container, ctx) {
     toast.el,
   );
   mountChildren(container, root);
+
+  // ------------------------------------------------------------------ how to make it (s3-method)
+
+  /** The person's recipe or the library recipe behind a food id (null when there is none). */
+  function recipeOf(recipeId) {
+    return (
+      store.recipe(recipeId) ?? store.library().find((l) => l.food.id === recipeId)?.recipe ?? null
+    );
+  }
+
+  /** "What you need" lines for one standard batch. */
+  function ingredientLines(recipeId) {
+    const own = store.recipe(recipeId);
+    if (own) {
+      return store.recipeTotals(own).lines.map((line) => {
+        const f = store.food(line.foodId);
+        const serving = f ? servingOf(f, line.servingId) : null;
+        return `${f?.name ?? line.foodId} · ${serving ? amountText(serving, line.qty) : `${fmtGrams(line.grams)} g`}`;
+      });
+    }
+    return (recipeOf(recipeId)?.ingredients ?? []).map(
+      (ing) =>
+        `${ing.name ?? store.food(ing.foodId)?.name ?? ing.foodId} · ${fmtGrams(ing.grams)} g`,
+    );
+  }
+
+  /** "Amounts are for 4 boxes." (the steps' amounts are for the standard batch). */
+  function amountsNote(recipeId) {
+    const food = store.food(recipeId);
+    const r = recipeOf(recipeId);
+    if (!food || !r || store.recipe(recipeId)?.potKatori) return null;
+    return `Amounts are for ${plural(r.boxes ?? 1, boxWord(food, rules))}.`;
+  }
+
+  function showMethod(recipeId, { cook = false } = {}) {
+    const food = store.food(recipeId);
+    const method = methodOf(recipeOf(recipeId));
+    if (!food || !method) return;
+    const verb =
+      !store.recipe(recipeId) && effortOf(recipeOf(recipeId)) !== 'cook' ? 'Make' : 'Cook';
+    openMethodDialog({
+      title: displayName(food),
+      method,
+      ingredients: ingredientLines(recipeId),
+      note: amountsNote(recipeId),
+      action: cook ? { label: `${verb} a batch`, onSelect: () => openCook(recipeId) } : null,
+    });
+  }
+
+  /** The small "How to make it" button on a row or card; null when the recipe has no method. */
+  function methodLink(recipeId, testid, label = 'How to make it') {
+    const r = recipeOf(recipeId);
+    if (!methodOf(r)) return null;
+    return h(
+      'button',
+      {
+        type: 'button',
+        class: 'link-btn method-link',
+        'data-testid': testid,
+        onclick: () => showMethod(recipeId, { cook: testid === 'library-method' }),
+      },
+      typeof r.method === 'string' ? 'My method' : label,
+    );
+  }
 
   // ------------------------------------------------------------------ cook a batch
 
@@ -217,11 +289,33 @@ export function mount(container, ctx) {
         h('h3', { class: 'group-title' }, 'Fridge or freezer'),
         keepNote,
         boxesList,
+        cookMethod(recipeId),
       ],
       actions: cookBtn,
     });
     renderDates();
     renderBoxes();
+  }
+
+  /** "How to make it" folded inside the Cook / Make dialog (open it while cooking). */
+  function cookMethod(recipeId) {
+    const method = methodOf(recipeOf(recipeId));
+    if (!method) return null;
+    const food = store.food(recipeId);
+    return h(
+      'details',
+      { class: 'cook-method', 'data-testid': 'cook-method' },
+      h(
+        'summary',
+        { class: 'cook-method-summary' },
+        method.kind === 'text' ? 'My method' : 'How to make it',
+      ),
+      renderMethod(method, {
+        heading: false,
+        note: amountsNote(recipeId),
+        onSteps: () => openStepMode({ title: displayName(food), method }),
+      }),
+    );
   }
 
   // ------------------------------------------------------------------ batches
@@ -371,6 +465,7 @@ export function mount(container, ctx) {
           : null,
       ),
       halal.reason,
+      methodLink(batch.recipeId, 'batch-method'),
       h(
         'ul',
         { class: 'box-list', role: 'list' },
@@ -706,6 +801,7 @@ export function mount(container, ctx) {
           )
         : null,
       halal ? h('div', { class: 'entry-halal' }, halal.chip) : null,
+      food ? methodLink(recipe.id, 'recipe-method') : null,
       halal ? halal.reason : null,
     );
   }
@@ -726,11 +822,7 @@ export function mount(container, ctx) {
           'aria-haspopup': 'dialog',
           onclick: () => openCook(food.id),
         },
-        h(
-          'span',
-          { class: 'prep-name' },
-          food.name.replace(/\s*\((lunch box|breakfast|dinner)[^)]*\)\s*$/i, ''),
-        ),
+        h('span', { class: 'prep-name' }, displayName(food)),
         h(
           'span',
           { class: 'prep-line' },
@@ -750,6 +842,7 @@ export function mount(container, ctx) {
         verb,
       ),
       halal ? h('div', { class: 'entry-halal' }, halal.chip) : null,
+      methodLink(food.id, 'library-method'),
       halal ? halal.reason : null,
     );
   }
@@ -1045,6 +1138,11 @@ export function mount(container, ctx) {
       container.replaceChildren();
     },
   };
+}
+
+/** A library food's name without its "(lunch box …)" tail. */
+function displayName(food) {
+  return food.name.replace(/\s*\((lunch box|breakfast|dinner)[^)]*\)\s*$/i, '');
 }
 
 function capital(word) {

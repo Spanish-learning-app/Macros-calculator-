@@ -66,6 +66,8 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. In a large microwave bowl mix the onion, oil, garlic and ginger; cover loosely and microwave 3 min at 800 W.
 2. Stir in the spices and salt, microwave 30 s; add the crushed tomato, cover and microwave 4 min, stirring halfway.
 3. Add the chickpeas, cover and microwave 3 min until bubbling; finish with lemon and coriander. (The water that steams off is not counted: weight kept, as for a no-yield assembly.)

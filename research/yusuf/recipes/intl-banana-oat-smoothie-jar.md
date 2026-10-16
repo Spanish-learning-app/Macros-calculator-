@@ -41,6 +41,8 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Put everything in a jug and blend 1 minute (a stick blender is enough).
 2. Pour into a 500 ml jar with a lid, filled to the top (less air, less browning). Fridge.
 3. Shake and drink within 24 hours.

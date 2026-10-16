@@ -19,6 +19,7 @@ import {
   shoppingList,
   shoppingForShop,
   spareBoxes,
+  MY_METHOD_MAX,
 } from '../core/mealprep.js';
 import {
   setWeight,
@@ -1115,6 +1116,10 @@ export function createStore({
         ...(recipe.chai ? { chai: { ...recipe.chai } } : {}),
         ...(Array.isArray(recipe.storage) && recipe.storage.length
           ? { storage: [...recipe.storage] }
+          : {}),
+        // "My method" (s3-method, §13.1): optional free text, kept up to MY_METHOD_MAX characters.
+        ...(typeof recipe.method === 'string' && recipe.method.trim()
+          ? { method: recipe.method.replace(/\r\n/g, '\n').trim().slice(0, MY_METHOD_MAX) }
           : {}),
       };
       const list = recipesList();

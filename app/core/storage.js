@@ -8,6 +8,7 @@ import { ENTRY_SLOT_IDS } from './days.js';
 import { weightLogProblems, mergeWeightLogs, weightEntries } from './weight.js';
 import { ramadanModeProblems } from './ramadan.js';
 import { nudgeSettingsProblems } from './nudges.js';
+import { MY_METHOD_MAX } from './mealprep.js';
 
 /** @typedef {import('./types.js').UserData} UserData */
 
@@ -301,11 +302,28 @@ export function migrate(raw) {
     if (kept.length) data.weightLog = Object.fromEntries(kept.map((e) => [e.date, { kg: e.kg }]));
     else delete data.weightLog;
   }
+  // s3-method (§13.1): "My method" is optional text on a recipe; anything else is dropped, never 'corrupt'.
+  if (Array.isArray(data.recipes) && data.recipes.some(badMethod)) {
+    data.recipes = data.recipes.map((r) => {
+      if (!badMethod(r)) return r;
+      const { method, ...rest } = r;
+      return typeof method === 'string' && method.trim()
+        ? { ...rest, method: method.trim().slice(0, MY_METHOD_MAX) }
+        : rest;
+    });
+  }
   const problems = validateUserData(data);
   if (problems.length > 0) {
     throw codedError('INVALID', `the document is not valid: ${problems[0]}`, problems);
   }
   return data;
+}
+
+/** A recipe whose `method` is present but not clean text of at most MY_METHOD_MAX characters. */
+function badMethod(recipe) {
+  if (!isObject(recipe) || !Object.hasOwn(recipe, 'method')) return false;
+  const m = recipe.method;
+  return typeof m !== 'string' || !m.trim() || m !== m.trim() || m.length > MY_METHOD_MAX;
 }
 
 function isQuotaError(error) {

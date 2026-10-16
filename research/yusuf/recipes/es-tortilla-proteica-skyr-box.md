@@ -57,6 +57,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Microwave or steam the potato slices until just tender (8–10 min), then sauté them with the onion in the oil in a 24–26 cm non-stick pan, 10 min, until soft and lightly golden. Season.
 2. Beat the eggs and whites with salt; stir in the potatoes and onion and rest 5 min.
 3. Cook in the oiled pan on low-medium heat 6–8 min, flip with a plate, cook 4–5 min more until set right through (no runny centre in a batch tortilla).

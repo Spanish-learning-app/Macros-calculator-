@@ -68,10 +68,48 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-1. Season the chicken with paprika, garlic, salt and pepper; sear in the oil 3–4 min a side (75 °C inside). Cool and slice.
-2. Blitz basil, almonds, oil, garlic, lemon and salt (a stick blender in a jug, 1 minute). Spoon into 2 small pots.
-3. Pack chicken, piquillo strips, tomato and lettuce in each box. The roll stays in its bag.
-4. At lunch (or in the morning): split the roll, spread the pesto, fill with chicken and vegetables. Filling it late keeps the bread crisp.
+This is the method the app shows under "How to make it" (generated from the same data).
+
+**Equipment**
+
+- Frying pan (24–28 cm)
+- Stick blender and its tall jug (or a small food processor)
+- Small dry pan for the almonds
+- 2 lunch boxes and 2 small lidded pots (about 50 ml)
+- Chopping board and sharp knife
+
+**Before you start**
+
+- Take the chicken (300 g) out of the fridge. If the fillets are thicker than 1.5 cm, cut each one through the middle to make 2 thin fillets.
+- Peel 3 garlic cloves. Grate 2 of them (6 g) for the chicken; keep 1 whole (3 g) for the pesto.
+- Pick the leaves off the basil tray (20 g). Throw away the thick stalks.
+- Drain the piquillo peppers (½ jar, 160 g) and cut them into strips 1 cm wide.
+- Slice the tomatoes (160 g) 5 mm thick. Wash and dry the lettuce leaves (60 g).
+
+**Steps**
+
+1. Put the chicken on a plate. Sprinkle over 1 tsp sweet paprika (2 g), the grated garlic, ⅓ tsp salt (2 g) and a few grinds of black pepper (1 g). Rub it in with your hands, then wash your hands. *(no heat)*
+2. Put the frying pan on the hob. Add 1½ tsp olive oil (6 g) and heat it for 1 minute. *(medium-high heat · 1 min)*
+3. Lay the fillets in the pan in one layer. Do not move them for 3–4 minutes, until the underside is golden. *(medium-high heat · 4 min)*
+4. Turn the fillets over and cook the other side for 3–4 minutes. *(medium-high heat · 4 min)*
+5. Cut into the thickest fillet. If you see any pink, cook 1–2 minutes more. Move the chicken to a clean plate to cool. *(no heat)*
+6. Put the almonds (20 g) in the small dry pan, no oil. Shake the pan now and then until they smell toasted and turn light brown. *(medium heat · 3 min)*
+7. Put the basil leaves, toasted almonds, 1 tbsp olive oil (14 g), the whole garlic clove, 2 tsp lemon juice (10 g) and a pinch of salt (1 g) in the blender jug. Blend for about 1 minute until it is a rough paste. *(no heat · 1 min)*
+8. Spoon the pesto into the 2 small pots (about 34 g each) and close them. *(no heat)*
+9. When the chicken is cool (about 20 minutes), slice it into strips. *(no heat · 20 min)*
+10. Fill each lunch box: half the chicken, half the piquillo strips, half the tomato slices and half the lettuce. Keep the rolls in their bag, not in the box. *(no heat)*
+11. At lunch: cut the roll open, spread one pot of pesto inside, then add the chicken, peppers, tomato and lettuce. Filling the roll at the last minute keeps it crisp. *(no heat)*
+
+**Done when:** The chicken is white all the way through with no pink in the middle and the juices run clear (75 °C if you have a thermometer).
+
+**Box it up:** Let the chicken cool on the counter for no more than 1 hour, then box everything and put both boxes and the pesto pots in the fridge (eat by day 2). The salad and pesto do not freeze. The rolls stay in their bag at room temperature for 2–3 days, or freeze them. Carry the box in an insulated bag with an ice pack.
+
+**Reheat:** Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).
+
+**Tips**
+
+- Making 4? Double the chicken and freeze half of it, sliced, for up to 3 months; thaw it in the fridge overnight.
+- The pesto has no cheese, so there is no rennet to check.
 
 ## Added fat
 

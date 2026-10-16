@@ -58,6 +58,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Paratha: knead atta, salt and water; rest 20 min; make 4 balls. Roll each thin, brush with 2 g oil, fold in half twice and roll again to 20 cm (light layers).
 2. Cook each paratha on a hot tawa, 1 min a side, then with 2 g oil a side until golden.
 3. Omelette: whisk the eggs, whites, onion, tomato, chilli, coriander, spices and salt. For each roll, pour a quarter into a pan wiped with 2 g oil, swirl to the size of the paratha, put the paratha on top while the egg is still soft, flip after 1 min and cook 1 min more.

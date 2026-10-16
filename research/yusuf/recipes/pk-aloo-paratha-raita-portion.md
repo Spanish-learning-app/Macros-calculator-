@@ -59,6 +59,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Boil the potatoes in their skins until tender (20 min), peel, mash and cool. Mix in onion, chilli, coriander, cumin, chilli powder and half the salt.
 2. Knead the atta, the rest of the salt and the water to a soft dough; rest 20 min; make 4 balls of 100 g.
 3. Roll a ball to 10 cm, put a quarter of the filling in the middle, close it into a pouch, flatten and roll gently to 18–20 cm.

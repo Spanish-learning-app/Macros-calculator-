@@ -57,6 +57,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Boil the eggs 10 min, cool in cold water, peel.
 2. Drain and rinse the chickpeas; drain the tuna well.
 3. Mix chickpeas, tuna, peppers, onion, tomatoes, cucumber and parsley. Dress with olive oil, lemon, cumin, salt and pepper.

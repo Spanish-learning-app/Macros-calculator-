@@ -57,6 +57,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Mix the mince, breadcrumbs, egg, garlic, parsley, salt and pepper; shape 20 meatballs (about 33 g).
 2. Sofregit: cook the onion slowly in the olive oil 20 min until golden and soft; add the paprika, then the crushed tomato and bay leaf, and cook 10 min to a thick sauce.
 3. Add the water, potatoes and the raw meatballs; cover and simmer 20 min. Add the peas and simmer 10 min more, lid ajar, until the potatoes are soft and the meatballs 75 °C inside.

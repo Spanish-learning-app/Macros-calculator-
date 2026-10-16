@@ -73,6 +73,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Toss the chicken with garlic, ginger, spices and salt. Sear in the oil in a hot pan 6–8 min until cooked through (75 °C); squeeze lemon over and cool.
 2. Boil the peeled, cubed potato 10–12 min until just tender; drain and cool.
 3. Mix chickpeas, potato, onion, tomato, cucumber, chilli and coriander with lemon, chaat masala, cumin and salt.

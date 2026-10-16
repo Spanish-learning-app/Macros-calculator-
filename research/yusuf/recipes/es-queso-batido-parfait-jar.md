@@ -47,6 +47,8 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. In each of 3 jars put 40 g oats, 10 g chia and a pinch of cinnamon; spoon in 220 g queso fresco batido and stir well.
 2. Top with the walnuts, close and refrigerate (at least 4 hours: the oats and chia soften in the cheese).
 3. In the morning peel and slice a kiwi on top. Eat cold.

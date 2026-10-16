@@ -67,6 +67,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Toss the chicken with paprika, garlic, salt and pepper; sear in the oil 6–8 min (75 °C inside). Cool and slice.
 2. Boil the penne al dente (about 11 min), rinse under cold water, drain well.
 3. Whisk the hummus with lemon juice and water.

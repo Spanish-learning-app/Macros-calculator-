@@ -61,6 +61,8 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Cut the carrot, pepper and cucumber into sticks; split between 2 boxes with the tomatoes and a 70 g pot of hummus each.
 2. Add 2 peeled boiled eggs per box (Sunday batch) and 2 sealed Burgos tubs.
 3. To eat: tip the Burgos onto a plate with a drizzle of olive oil and oregano; dip the vegetables and picos in the hummus.

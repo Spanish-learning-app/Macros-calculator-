@@ -81,6 +81,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Put the mince, drained chana dal, rough-chopped onion, garlic, ginger, whole spices, chilli and salt in a pot with about 600 ml water. Simmer, covered, 30–40 min until the dal is soft, then uncover and cook until completely dry (this matters: wet mix = broken kebabs).
 2. Cool a little, remove the cinnamon stick, then grind to a smooth paste in a food processor.
 3. Mix in the raw red onion, green chilli, coriander, mint and 1 egg. Shape 12 flat patties (about 75 g each).

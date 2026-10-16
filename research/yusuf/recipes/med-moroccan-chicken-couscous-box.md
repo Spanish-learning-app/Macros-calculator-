@@ -67,6 +67,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Toss the vegetables with 25 g oil, ras el hanout, cumin and salt; roast at 220 °C for 30–35 min, turning once.
 2. Toss the chicken strips with ras el hanout, garlic, 12 g oil and salt; roast on a second tray for the last 15–18 min (to 75 °C inside). Squeeze the lemon over.
 3. Couscous: pour 336 g boiling water with the oil and salt over the couscous, cover 5 min, fluff and fold in the parsley.

@@ -49,6 +49,8 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. In each of 3 jars (400–500 ml with a lid) put 50 g oats, 10 g chia and a pinch of cinnamon; add 150 g protein yogurt and 120 g milk and stir well, scraping the bottom.
 2. Top with the chopped walnuts, close and refrigerate. Leave at least 6 hours (overnight); stir once more before the first jar if it set unevenly.
 3. In the morning slice half a banana on top. Eat cold.

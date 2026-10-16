@@ -28,8 +28,17 @@ The Manager (Omar) checks this file at every review meeting and before every rep
 10. **Check what the Boss eats, not what is easy for us to make.** Variety rules are in
     `team/briefs/s3-variety.md`. (M-11)
 11. **Answer a Boss message first, before restarting the team.** (M-13)
+12. **Never claim a feature in a report before tapping it in the running app.** (M-14)
 
 ## Log
+
+### M-14 · 2026-10-15 (found 2026-10-16 by the orphan audit) · Omar · Report #2 claimed a feature the app doesn't have
+- **What happened:**
+  - Report #2 told the Boss "the feta salad box has a one-tap halal swap (Burgos 0%)".
+  - In fact the Burgos version is a separate prep you have to find yourself, and there is no swap button.
+- **Root cause:** I wrote the report from Yusuf's data report ("a real alternative record") and never tapped through it in the app.
+- **Fix:** I told the Boss. A real swap button is now planned (STATUS O6).
+- **Rule:** every feature claimed in a report to the Boss is checked in the running app first: open it and tap it.
 
 ### M-13 · 2026-10-15 · Omar · A Boss message waited behind a usage pause
 - **What happened:** a Boss message arrived just before a session limit. The reply came hours later, after the restart work.

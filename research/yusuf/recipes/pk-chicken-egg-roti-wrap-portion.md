@@ -66,6 +66,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 75 g dough each, rolled to 25 cm), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.
 2. Chicken: fry the strips in the oil on high heat 4–5 min until cooked through (75 °C); add pepper, onion, garlic, ginger, spices and salt for 3 min more; finish with lemon.
 3. Egg: in the same pan, softly scramble the eggs and whites with salt, 2 min (no extra oil). Cool the chicken and egg on a tray (wrapping hot egg makes the wrap soggy).

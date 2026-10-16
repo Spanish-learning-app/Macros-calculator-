@@ -63,6 +63,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Brown the onion in the oil (10 min). Add garlic, ginger and the beef; sear on high 5 min. Add tomatoes, yogurt, salt and spices; cook until the oil separates (bhunai, 8–10 min).
 2. Add 400 g of the water, cover and simmer 60–75 min until the beef is tender (pressure cooker: 25 min).
 3. Add the potatoes and the rest of the water; simmer lid ajar 20–25 min until the potatoes are soft and the shorba is light. Finish with garam masala and coriander.

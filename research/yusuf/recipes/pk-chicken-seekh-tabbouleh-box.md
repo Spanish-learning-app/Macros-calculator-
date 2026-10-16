@@ -74,6 +74,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Mix the chicken mince with the squeezed onion, ginger, garlic, chilli, herbs, spices and salt; chill 30 min (firmer kebabs).
 2. With wet hands shape 16 sausage-shaped kebabs (about 50 g each), on skewers or straight on a lined tray. Brush with oil.
 3. Bake at 240 °C (grill on) for 12–15 min, turning once, until 75 °C inside and browned at the edges.

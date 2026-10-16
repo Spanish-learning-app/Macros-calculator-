@@ -126,7 +126,13 @@ const CONTRACT = {
       pluralLabel: 1,
       spareBoxes: 3, // Sprint 3 (meeting 005): the Day view's spare/old box line
     },
-    constants: ['RECIPE_PREFIX', 'BOX_STORAGES', 'BOX_STATUSES', 'CUPBOARD_SECTION'],
+    constants: [
+      'RECIPE_PREFIX',
+      'BOX_STORAGES',
+      'BOX_STATUSES',
+      'CUPBOARD_SECTION',
+      'MY_METHOD_MAX',
+    ],
   },
   // Sprint 3, ARCHITECTURE §14: the weight log and trend.
   weight: {

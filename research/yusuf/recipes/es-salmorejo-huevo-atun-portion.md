@@ -57,6 +57,8 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Use 2 eggs per portion from the Sunday boiled-egg batch; peel and chop.
 2. Pour 250 g very cold salmorejo into a bowl, top with the egg and the drained tuna and a few drops of olive oil.
 3. Eat with 30 g of picos; an orange for dessert.

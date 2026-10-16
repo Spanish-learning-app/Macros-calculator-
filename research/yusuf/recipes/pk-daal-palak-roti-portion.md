@@ -71,6 +71,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Simmer the lentils with turmeric, chilli, coriander, ginger, tomato and salt in about 1 litre of water, lid ajar, 25 min until soft and thick, stirring now and then (the lentil yield counts only the water the lentils hold, about 2.7 × their dry weight).
 2. Stir in the frozen spinach and simmer 10 min more.
 3. Tarka: fry the cumin seeds, onion, garlic and green chilli in the oil until golden; pour over the daal; finish with lemon.

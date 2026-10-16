@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 01:58 UTC (03:58 Madrid) by Omar._
+_Last updated: 2026-10-16 02:10 UTC (04:10 Madrid) by Omar._
 
 ## Links
 
@@ -36,7 +36,7 @@ _Max 3 agents at once._
 
 - **Yusuf:** finishing variety preps 41–64, the method pipeline in `build.mjs`, and beginner methods for the non-desi sheets.
 - **Lena:** stabilising the protein-tip UI, then "How to make it" (recipe cards, Cook dialog, step-by-step mode, "My method").
-- **Zainab:** next, when a desk frees: beginner methods for the 20 desi sheets.
+- **Zainab:** beginner methods for the 20 desi sheets.
 
 ## Next, in order
 
@@ -44,17 +44,38 @@ _Max 3 agents at once._
 2. Yusuf: weekly plans redo (low-cook and budget weeks) as one-tap plans in the app.
 3. Lena: Ramadan-mode UI. Priya: accessibility and speed pass.
 4. Ayesha: review backlog (129 records awaiting review), and the open bhindi fix.
-5. Orphan items below: each one either goes into the app or gets a written decision.
+5. Orphan items O3–O16 below (Priya takes the small UI items, Lena the rest after methods).
 6. Review 3 (customer panel, a full week, including cooking from the app), fix wave, final audit, **republish**, delivery report.
 
 ## Not in the app yet (orphan check, MISTAKES M-01)
 
-Things the team wrote for the Boss that the app does not show yet. Each needs an owner and a plan.
+Full audit on 2026-10-16 at 02:00 UTC. Each item gets an owner and a plan, or a written decision to leave it
+out (DECISIONS 2026-10-16). When an item reaches the app, move it to "Done" with the commit.
 
-| Item | Where it lives now | Plan |
-|---|---|---|
-| Cooking methods for every prep | `research/yusuf/recipes/*.mjs` `method` | in progress (s3-method) |
-| _Full audit results are being added. See the next update._ | | |
+| # | Item (where it lives now) | Plan | Owner | State |
+|---|---|---|---|---|
+| O1 | Cooking methods, 64 preps (`research/yusuf/recipes/*.mjs` `method`) | "How to make it" section and step mode | Yusuf, Zainab (data), Lena (UI) | in progress |
+| O2 | Reheating notes, food-safety rules (cool within 1 h, reheat once until steaming, ice pack), per-recipe storage plan (sheets, `RULES.mealPrep`) | Goes into each method's `boxUp`/`reheat`, plus one "Keeping boxes safe" note in Prep | Yusuf, Zainab, Lena | in progress |
+| O3 | `serve` cold/hot/either on 21 preps (data only) | "Good cold" / "Microwave" chip on library cards and prep rows | Priya | queued |
+| O4 | One-line pitch and cost per box, 64 sheets (`pitch`, `## Cost per box`) | Pitch plus "≈ 1.90 € a box (prices 15 Oct)" on library cards | Yusuf (data), Priya (UI) | queued |
+| O5 | "Where to buy" notes on 27 ingredients (e.g. garam masala at the Pakistani grocery) | Shown in the weekly shopping list | Lena | queued |
+| O6 | Feta → Burgos halal swap: a separate record with no swap button. **Report #2 wrongly said "one-tap swap"** (MISTAKES M-14) | A "Halal swap" button on the feta box that opens the Burgos version | Lena | queued |
+| O7 | Low-cook week, budget week and ready-to-eat picks (`docs/MEALPREP.md`) | One-tap plans and picks per slot in Prep | Yusuf (data), Lena (UI) | queued |
+| O8 | Halal shopping guide for Barcelona (manteca, gelatina, E-471/472, "¿lleva manteca de cerdo?", butchers) | A section on the About page | Ayesha (text), Priya (UI) | queued |
+| O9 | Recipe references, 2–5 links per prep | Listed in the prep's Source panel | Yusuf (data), Lena (UI) | queued |
+| O10 | Saved-meal row shows no kcal or protein (Bilal, Nasreen) | Show kcal · protein on the row | Priya | queued |
+| O11 | Nasreen's wording carry-overs; kam-tel "half the oil" line | Copy fixes | Priya with Ayesha | queued |
+| O12 | Ramadan: full day-by-day table, ±30 min time edit (`RULES.ramadan`) | Part of the Ramadan UI | Lena | queued |
+| O13 | Urdu serving labels (`labelUr`, 454 foods) | Shown when "Pakistani meal names" is chosen | Lena | low priority |
+| O14 | E2E tests for Sprint 3 features (weight, spare box, meal names, cuisine chips, tips, Ramadan, methods) | E2E suite | Kenji | queued |
+| O15 | Two possible bugs from Mariam (Fill Mon–Thu after Monday; "30 g – 30 g" on picos) | Verify, then fix | Kenji, Lena | queued |
+| O16 | Accessibility and speed pass (Meeting 005) | As planned | Priya | queued |
+
+**Left out on purpose (DECISIONS 2026-10-16):**
+- Per-ingredient Mercadona product and price lines: prices change weekly, so the app shows cost per box with its price date instead.
+- `sharePct` and the vocabulary descriptions: internal.
+- The sample-day templates (`app/data/templates.js`, never wired up): the weekly plans replace them, and the file is removed in the final audit.
+- Diet tag filters (vegetarian/vegan): revisited at Review 3.
 
 ## How to resume (for a new session or after a pause)
 

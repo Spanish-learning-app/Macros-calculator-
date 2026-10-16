@@ -59,6 +59,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Brown the beef in the oil in a big pot; add onion, ginger and the spices, 5 min.
 2. Add the tomato and water; simmer 50 min, lid ajar, until the beef is tender (or 20 min in a pressure cooker).
 3. Add the lentils, chickpeas and rice; simmer 15–20 min. Stir in the herbs and lemon.

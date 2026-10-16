@@ -63,6 +63,8 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Boil 2 eggs 10 min, cool and peel (or take 2 from the Sunday batch).
 2. Drain the tuna; mix with pepper, cucumber, onion, olive oil, lemon and pepper. Put half in each box, with the lettuce on top and a sliced egg.
 3. Spoon 50 g hummus into a small pot per box. Pitas stay in their bag.

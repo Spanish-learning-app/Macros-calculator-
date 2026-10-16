@@ -68,6 +68,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Toss the chicken with ginger, garlic and salt; sear in the oil 6 min (75 °C). Cool and slice.
 2. Cut the vegetables; shake the dressing in a jar until the sugar dissolves.
 3. Box chicken and vegetables with peanuts on top, a sealed quinoa cup and a dressing pot.

@@ -52,6 +52,8 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Drain and rinse the chickpeas; mix with tomato, onion, coriander, chilli, lemon and chaat masala.
 2. Split between 2 boxes. Spoon 120 g protein yogurt into a small pot each and dust with roasted cumin; pour it over just before eating.
 

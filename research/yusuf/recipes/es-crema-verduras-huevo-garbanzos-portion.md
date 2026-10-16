@@ -52,6 +52,8 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Heat half the brik of crema (about 250 ml) with 200 g chickpeas in a pan or a big bowl in the microwave, 3–4 min, until boiling hot.
 2. Chop 2 boiled eggs over the top; drizzle 5 g olive oil and grind pepper. Serve with ½ roll.
 

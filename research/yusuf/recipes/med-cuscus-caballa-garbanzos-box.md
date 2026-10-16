@@ -58,6 +58,8 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Pour 84 g (84 ml) boiling water over 60 g couscous with the salt; cover 5 min, fluff with a fork, add the lemon and let it cool.
 2. Meanwhile drain and rinse the chickpeas, dice the vegetables, and break the mackerel into flakes.
 3. Mix everything in the box and add 1 sealed Burgos tub to crumble over at lunch. Make it the night before and keep it in the fridge.

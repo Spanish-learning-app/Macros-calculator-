@@ -61,6 +61,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Oven at 210 °C. Toss the potatoes with half the oil, paprika and salt; roast 15 min.
 2. Add the green beans, onion, garlic and the rest of the oil; lay the salmon on top with lemon, oil and salt. Roast 12–15 min (salmon flakes, 63 °C inside).
 3. Stir the yogurt sauce. Cool and box 2 portions with a sauce pot each.

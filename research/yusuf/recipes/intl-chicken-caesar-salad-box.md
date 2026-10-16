@@ -72,10 +72,44 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-1. Season and sear the chicken 3–4 min a side (75 °C inside). Cool and slice.
-2. Wash, dry and cut the romaine; halve the tomatoes. Box with the chicken and a halved egg.
-3. Whisk the dressing; pour into 2 small pots.
-4. At lunch: dress, toss, break the picos over.
+This is the method the app shows under "How to make it" (generated from the same data).
+
+**Equipment**
+
+- Frying pan (24–28 cm)
+- Small pot (for 2 eggs)
+- Salad spinner or a clean tea towel
+- Jar or bowl for the dressing
+- 2 lunch boxes and 2 small lidded pots (about 100 ml)
+
+**Before you start**
+
+- If the chicken breast (260 g) is thicker than 1.5 cm, cut it through the middle into 2 thin fillets.
+- Peel 2 garlic cloves. Grate 1 (3 g) for the chicken and a small piece (2 g) for the dressing.
+- Cut the 2 romaine hearts (400 g) into strips 2 cm wide. Halve the cherry tomatoes (200 g).
+
+**Steps**
+
+1. Put 2 eggs in the small pot, cover with cold water and bring to the boil. Turn down so it bubbles gently and cook 10 minutes. *(high heat · 10 min)*
+2. Pour off the hot water, cover the eggs with cold water and leave 5 minutes. Peel and halve them. *(no heat · 5 min)*
+3. While the eggs cook, rub the chicken with the 3 g grated garlic, ⅓ tsp salt (2 g) and black pepper (1 g). *(no heat)*
+4. Heat 1½ tsp olive oil (6 g) in the frying pan for 1 minute. *(medium-high heat · 1 min)*
+5. Add the chicken. Cook 3–4 minutes without moving it, until golden underneath. *(medium-high heat · 4 min)*
+6. Turn it over and cook 3–4 minutes more. Check it (see "Done when"), then let it cool on a plate and slice it. *(medium-high heat · 4 min)*
+7. Wash the lettuce in cold water and dry it very well in the salad spinner or by rolling it in a clean tea towel. Wet leaves go soggy. *(no heat)*
+8. Make the dressing: mix 120 g Greek yogurt (about 6 tbsp), 2 tsp Dijon mustard (10 g), 1 tbsp lemon juice (16 g), 1 tbsp + 1 tsp olive oil (18 g), the 2 g grated garlic, black pepper (1 g) and a pinch of salt (1 g). Pour it into the 2 pots. *(no heat)*
+9. Fill each box: half the lettuce, half the tomatoes, half the chicken slices and 1 egg in halves. The dressing pot and the bag of picos (40 g per box) go next to the box, not on the salad. *(no heat)*
+10. At lunch: pour the dressing over, close the lid and shake, then break the picos over the top. *(no heat)*
+
+**Done when:** The chicken is white all through with clear juices (75 °C); the egg yolks are firm.
+
+**Box it up:** Cool the chicken for no more than 1 hour, then put both boxes and the dressing pots in the fridge (eat by day 2). Do not freeze. Make 2 boxes on Sunday night and 2 more on Tuesday night. The picos stay in their sealed bag in the cupboard. Carry in an insulated bag with an ice pack.
+
+**Reheat:** Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).
+
+**Tips**
+
+- The dressing uses yogurt, mustard and lemon: no anchovy, no cheese, so nothing to check for rennet.
 
 ## Added fat
 

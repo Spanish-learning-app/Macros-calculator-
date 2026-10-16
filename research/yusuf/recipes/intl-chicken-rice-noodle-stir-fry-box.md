@@ -63,6 +63,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Soak the noodles in just-boiled water 6 min; drain and rinse cold.
 2. Stir-fry the chicken with garlic and ginger in a very hot wok or big pan, 5 min; take it out.
 3. Add the second oil and stir-fry onion, carrot and pepper 3 min, then broccoli, mushrooms and peas 4 min.

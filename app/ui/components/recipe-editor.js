@@ -9,6 +9,7 @@ import { openPortionPicker } from './portion-picker.js';
 import { openIngredientSheet, amountText } from './ingredient-sheet.js';
 import { fmtKcal, fmtGrams, servingOf, parseQty } from './format.js';
 import { macroLine } from './prep-bits.js';
+import { MY_METHOD_MAX } from '../../core/mealprep.js';
 
 /**
  * @param {{ store: object, rules: object, recipe?: object|null,
@@ -32,6 +33,7 @@ export function openRecipeEditor({
     cookedWeightG: recipe?.cookedWeightG ?? null,
     potKatori: pot ? recipe.potKatori : null,
     storage: recipe?.storage ?? null,
+    method: typeof recipe?.method === 'string' ? recipe.method : '',
   };
   /** 'boxes' | 'one' (a single dish, "1 whole recipe") | 'katori' (a family pot). */
   let makes = pot ? 'katori' : recipe?.boxes === 1 ? 'one' : 'boxes';
@@ -56,6 +58,32 @@ export function openRecipeEditor({
     },
   });
   const list = h('ul', { class: 'ing-list', role: 'list', 'data-testid': 'ingredient-list' });
+  // "My method" (s3-method): optional free text, one step per line; shown on the recipe and in Cook.
+  const methodId = uid('recipe-method');
+  const methodIn = h('textarea', {
+    id: methodId,
+    class: 'input method-input',
+    rows: 5,
+    maxlength: MY_METHOD_MAX,
+    placeholder: 'Fry the onion on medium heat for 8 min.\nAdd the chicken…',
+    value: draft.method,
+    'data-testid': 'recipe-my-method',
+    'aria-describedby': `${methodId}-help`,
+    oninput: () => {
+      draft.method = methodIn.value;
+    },
+  });
+  const methodField = h(
+    'div',
+    { class: 'field' },
+    h('label', { class: 'field-label', for: methodId }, 'My method (optional)'),
+    methodIn,
+    h(
+      'p',
+      { class: 'field-help', id: `${methodId}-help` },
+      'How you make it, one step per line. It shows on the recipe and when you cook it.',
+    ),
+  );
   const boxesOut = h('output', { class: 'boxes-count', 'data-testid': 'recipe-boxes' });
   const weightIn = h('input', {
     id: weightId,
@@ -254,6 +282,7 @@ export function openRecipeEditor({
         h('div', { class: 'recipe-row' }, boxesField, weightField, katoriField),
         weightHelp,
         summary,
+        methodField,
         error,
       ),
       h(

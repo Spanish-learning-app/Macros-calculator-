@@ -80,6 +80,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Blitz the onion, chillies, herbs, garlic and ginger; squeeze out the onion juice. Mix with the mince, spices and salt and knead 3–4 min until sticky; chill 30 min.
 2. Shape 16 kebabs (50 g each) around skewers or into long logs. Brush a lined tray with the oil, bake at 220 °C for 15–18 min, turning once, until browned and 75 °C inside (or sear in a pan and finish in the oven, as TfT does).
 3. Roti stock: knead the atta, salt and water to a soft dough, rest 20 min, divide into balls (about 50 g dough each), roll thin and cook on a dry tawa 30–40 s a side, pressing the edges so it puffs. Stack in a cloth; once cool, freeze in fours between sheets of baking paper.

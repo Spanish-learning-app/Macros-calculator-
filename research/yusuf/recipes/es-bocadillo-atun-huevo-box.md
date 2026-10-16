@@ -62,10 +62,42 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 ## Method
 
-1. Boil 2 eggs 10 min (or take 2 from the Sunday batch); cool and peel.
-2. Drain the tuna; mix with onion, oil and pepper. Put half in each box with the tomato slices, lettuce and a sliced egg.
-3. Mash the avocado with lemon and salt; press into 2 small pots with no air on top.
-4. At lunch: split the roll, spread the avocado, add the tuna, egg, tomato and lettuce.
+This is the method the app shows under "How to make it" (generated from the same data).
+
+**Equipment**
+
+- Small pot (for 2 eggs)
+- Bowl and fork
+- Can opener and a sieve
+- 2 lunch boxes and 2 small lidded pots (about 50 ml)
+- Chopping board and knife
+
+**Before you start**
+
+- Finely chop the red onion (20 g, about ¼ of a small onion) into pieces of about 3 mm.
+- Slice the tomatoes (200 g) 5 mm thick. Wash and dry the lettuce (60 g).
+- Open the 4 cans of tuna and tip them into the sieve to drain (240 g drained).
+
+**Steps**
+
+1. No cooking for the filling. Only the eggs are boiled (skip this and the next 2 steps if you have 2 boiled eggs from Sunday). Put 2 eggs in the small pot and cover them with cold water. *(no heat)*
+2. Bring the water to the boil, then turn the heat down so it bubbles gently. Cook 10 minutes. *(high heat · 10 min)*
+3. Pour off the hot water and fill the pot with cold water. Leave the eggs 5 minutes, then peel them and slice each egg. *(no heat · 5 min)*
+4. Put the drained tuna in the bowl. Add the chopped onion, 1½ tsp olive oil (6 g) and a few grinds of black pepper (1 g). Mix with the fork. *(no heat)*
+5. Halve the avocado (you need ½, 100 g). Scoop the flesh into a cup, add 1 tsp lemon juice (6 g) and a pinch of salt (1 g), and mash with the fork. *(no heat)*
+6. Press the avocado into the 2 small pots and smooth the top so no air touches it. Close the lids. *(no heat)*
+7. In each lunch box put half the tuna, half the tomato slices, half the lettuce and 1 sliced egg. The tomato stays in the box, never in the bread. *(no heat)*
+8. At lunch: cut the roll open, spread the avocado, then add the tuna, egg, tomato and lettuce. *(no heat)*
+
+**Done when:** Boiled eggs: the yolk is firm and pale yellow all through.
+
+**Box it up:** Put both boxes and the avocado pots in the fridge at once (eat by day 2). Do not freeze. The rolls stay in their bag at room temperature for 2–3 days. Carry the box in an insulated bag with an ice pack.
+
+**Reheat:** Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).
+
+**Tips**
+
+- If the avocado turns a little brown on top, scrape off the thin top layer: it is fine underneath.
 
 ## Added fat
 

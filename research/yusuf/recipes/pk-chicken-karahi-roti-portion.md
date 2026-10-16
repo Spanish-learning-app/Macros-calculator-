@@ -63,6 +63,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Heat the oil in a karahi or wide pan; cook the onion 6–8 min until golden. Add garlic and grated ginger for 1 min.
 2. Add the chicken on high heat until it turns white (4–5 min). Add the tomatoes, salt and the ground spices; cover 10 min until the tomatoes collapse.
 3. Uncover and cook on high, stirring, until the tomatoes are a thick masala and the oil shows at the edges (8–10 min; no water). Lower the heat, stir in the yogurt, green chillies and black pepper, 3 min more; finish with ginger strips, garam masala and coriander.

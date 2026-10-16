@@ -40,6 +40,12 @@ const PATHS = {
   info: ['M12 11v6', 'M12 7.5v.5', 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z'],
   back: ['M19 12H5', 'M11 6l-6 6 6 6'],
   drop: ['M12 3c3.5 4.5 6 7.6 6 10.5a6 6 0 0 1-12 0C6 10.6 8.5 7.5 12 3z'], // fluids line (Ramadan)
+  // "How to make it" (Sprint 3, Lena): the heat and time chips on each step.
+  flame: [
+    'M12 3c.6 3.2 5 5.6 5 10.2a5 5 0 0 1-10 0c0-2.6 1.4-4.3 2.6-5.3.2 1.8 1 2.9 2.1 3.4.6-2.9-.4-5.4.3-8.3z',
+  ],
+  clock: ['M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z', 'M12 7.5V12l3 2'],
+  next: ['M5 12h14', 'M13 6l6 6-6 6'],
 };
 
 /**

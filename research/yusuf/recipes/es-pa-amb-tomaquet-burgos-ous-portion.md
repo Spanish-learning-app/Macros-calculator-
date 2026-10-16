@@ -59,6 +59,8 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Sunday: boil 6 eggs 10 min, cool in cold water and keep them in their shells in the fridge (3 days).
 2. Each morning: toast 80 g of barra (split lengthways), rub or spread 60 g grated tomato, add a pinch of salt and 5 g olive oil.
 3. Open a Burgos tub and slice it over the toast or eat alongside; peel 2 eggs; an orange to finish.

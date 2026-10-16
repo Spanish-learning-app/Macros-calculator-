@@ -12,6 +12,9 @@
 // serve (assemble preps only, Meeting 004): 'cold' | 'hot' | 'either', how the prep is eaten (hot = microwave).
 // cuisine (Sprint 3, brief s3-variety): 'desi' | 'spanish' | 'mediterranean' | 'italian' | 'mexican' | 'asian' |
 // 'middle-eastern' | 'international', for the Prep library's cuisine chips.
+// method (brief s3-method): { equipment, prep, steps: [{ text, heat?, minutes? }], doneWhen?, boxUp, reheat, tips? },
+// heat one of none | low | medium | medium-high | high | oven-180 | oven-200 | oven-220 | microwave. Written for a
+// beginner on the recipe sheet (research/yusuf/recipes/NN-*.mjs) and copied here unchanged.
 
 export default [
   {
@@ -1365,6 +1368,66 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'spanish',
+    method: {
+      equipment: ['Frying pan (24–28 cm)', 'Stick blender and its tall jug (or a small food processor)', 'Small dry pan for the almonds', '2 lunch boxes and 2 small lidded pots (about 50 ml)', 'Chopping board and sharp knife'],
+      prep: ['Take the chicken (300 g) out of the fridge. If the fillets are thicker than 1.5 cm, cut each one through the middle to make 2 thin fillets.', 'Peel 3 garlic cloves. Grate 2 of them (6 g) for the chicken; keep 1 whole (3 g) for the pesto.', 'Pick the leaves off the basil tray (20 g). Throw away the thick stalks.', 'Drain the piquillo peppers (½ jar, 160 g) and cut them into strips 1 cm wide.', 'Slice the tomatoes (160 g) 5 mm thick. Wash and dry the lettuce leaves (60 g).'],
+      steps: [
+        {
+          text: 'Put the chicken on a plate. Sprinkle over 1 tsp sweet paprika (2 g), the grated garlic, ⅓ tsp salt (2 g) and a few grinds of black pepper (1 g). Rub it in with your hands, then wash your hands.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the frying pan on the hob. Add 1½ tsp olive oil (6 g) and heat it for 1 minute.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Lay the fillets in the pan in one layer. Do not move them for 3–4 minutes, until the underside is golden.',
+          heat: 'medium-high',
+          minutes: 4,
+        },
+        {
+          text: 'Turn the fillets over and cook the other side for 3–4 minutes.',
+          heat: 'medium-high',
+          minutes: 4,
+        },
+        {
+          text: 'Cut into the thickest fillet. If you see any pink, cook 1–2 minutes more. Move the chicken to a clean plate to cool.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the almonds (20 g) in the small dry pan, no oil. Shake the pan now and then until they smell toasted and turn light brown.',
+          heat: 'medium',
+          minutes: 3,
+        },
+        {
+          text: 'Put the basil leaves, toasted almonds, 1 tbsp olive oil (14 g), the whole garlic clove, 2 tsp lemon juice (10 g) and a pinch of salt (1 g) in the blender jug. Blend for about 1 minute until it is a rough paste.',
+          heat: 'none',
+          minutes: 1,
+        },
+        {
+          text: 'Spoon the pesto into the 2 small pots (about 34 g each) and close them.',
+          heat: 'none',
+        },
+        {
+          text: 'When the chicken is cool (about 20 minutes), slice it into strips.',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Fill each lunch box: half the chicken, half the piquillo strips, half the tomato slices and half the lettuce. Keep the rolls in their bag, not in the box.',
+          heat: 'none',
+        },
+        {
+          text: 'At lunch: cut the roll open, spread one pot of pesto inside, then add the chicken, peppers, tomato and lettuce. Filling the roll at the last minute keeps it crisp.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'The chicken is white all the way through with no pink in the middle and the juices run clear (75 °C if you have a thermometer).',
+      boxUp: 'Let the chicken cool on the counter for no more than 1 hour, then box everything and put both boxes and the pesto pots in the fridge (eat by day 2). The salad and pesto do not freeze. The rolls stay in their bag at room temperature for 2–3 days, or freeze them. Carry the box in an insulated bag with an ice pack.',
+      reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+      tips: ['Making 4? Double the chicken and freeze half of it, sliced, for up to 3 months; thaw it in the fridge overnight.', 'The pesto has no cheese, so there is no rennet to check.'],
+    },
   },
   {
     foodId: 'es-bocadillo-atun-huevo-box',
@@ -1396,6 +1459,50 @@ export default [
     minutes: 10,
     serve: 'cold',
     cuisine: 'spanish',
+    method: {
+      equipment: ['Small pot (for 2 eggs)', 'Bowl and fork', 'Can opener and a sieve', '2 lunch boxes and 2 small lidded pots (about 50 ml)', 'Chopping board and knife'],
+      prep: ['Finely chop the red onion (20 g, about ¼ of a small onion) into pieces of about 3 mm.', 'Slice the tomatoes (200 g) 5 mm thick. Wash and dry the lettuce (60 g).', 'Open the 4 cans of tuna and tip them into the sieve to drain (240 g drained).'],
+      steps: [
+        {
+          text: 'No cooking for the filling. Only the eggs are boiled (skip this and the next 2 steps if you have 2 boiled eggs from Sunday). Put 2 eggs in the small pot and cover them with cold water.',
+          heat: 'none',
+        },
+        {
+          text: 'Bring the water to the boil, then turn the heat down so it bubbles gently. Cook 10 minutes.',
+          heat: 'high',
+          minutes: 10,
+        },
+        {
+          text: 'Pour off the hot water and fill the pot with cold water. Leave the eggs 5 minutes, then peel them and slice each egg.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Put the drained tuna in the bowl. Add the chopped onion, 1½ tsp olive oil (6 g) and a few grinds of black pepper (1 g). Mix with the fork.',
+          heat: 'none',
+        },
+        {
+          text: 'Halve the avocado (you need ½, 100 g). Scoop the flesh into a cup, add 1 tsp lemon juice (6 g) and a pinch of salt (1 g), and mash with the fork.',
+          heat: 'none',
+        },
+        {
+          text: 'Press the avocado into the 2 small pots and smooth the top so no air touches it. Close the lids.',
+          heat: 'none',
+        },
+        {
+          text: 'In each lunch box put half the tuna, half the tomato slices, half the lettuce and 1 sliced egg. The tomato stays in the box, never in the bread.',
+          heat: 'none',
+        },
+        {
+          text: 'At lunch: cut the roll open, spread the avocado, then add the tuna, egg, tomato and lettuce.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Boiled eggs: the yolk is firm and pale yellow all through.',
+      boxUp: 'Put both boxes and the avocado pots in the fridge at once (eat by day 2). Do not freeze. The rolls stay in their bag at room temperature for 2–3 days. Carry the box in an insulated bag with an ice pack.',
+      reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+      tips: ['If the avocado turns a little brown on top, scrape off the thin top layer: it is fine underneath.'],
+    },
   },
   {
     foodId: 'med-chicken-shawarma-pita-box',
@@ -1433,6 +1540,64 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'middle-eastern',
+    method: {
+      equipment: ['Large oven tray lined with baking paper', 'Mixing bowl', 'Small bowl for the sauce', 'Chopping board and knife', '4 lunch boxes and 8 small lidded pots (about 50 ml)'],
+      prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick and 5 cm long.', 'Peel 4 garlic cloves. Grate 3 of them (9 g) for the marinade and 1 (3 g) for the sauce.', 'Shred the lettuce (160 g). Dice the tomatoes (240 g) and cucumber (200 g) into 1 cm cubes. Slice the red onion (60 g) thin.', 'Chop the mint leaves (4 g, a small handful) finely.'],
+      steps: [
+        {
+          text: 'In the mixing bowl stir together 60 g Greek yogurt (about 3 tbsp), 1½ tbsp lemon juice (20 g), 1 tbsp olive oil (14 g), the 9 g grated garlic, 1½ tsp ground cumin (3 g), 1½ tsp paprika (3 g), ⅓ tsp ground cinnamon (1 g), ⅓ tsp ground turmeric (1 g), ⅔ tsp salt (4 g) and a few grinds of black pepper (1 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Add the chicken strips and stir until every piece is coated. Cover and leave in the fridge for 30 minutes (or overnight). Wash your hands.',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Turn the oven on to 220 °C and let it heat for 10 minutes.',
+          heat: 'oven-220',
+          minutes: 10,
+        },
+        {
+          text: 'Spread the chicken on the lined tray in one layer, pieces not touching. Put it in the oven.',
+          heat: 'oven-220',
+        },
+        {
+          text: 'Roast for 15–18 minutes, until the edges start to brown.',
+          heat: 'oven-220',
+          minutes: 18,
+        },
+        {
+          text: 'While it roasts, make the sauce: stir 160 g Greek yogurt, the 3 g grated garlic, 1½ tsp lemon juice (8 g) and the chopped mint in the small bowl.',
+          heat: 'none',
+        },
+        {
+          text: 'Spoon the garlic-yogurt sauce into 4 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them.',
+          heat: 'none',
+        },
+        {
+          text: 'Take the tray out. Check the biggest strip (see "Done when"). Let the chicken cool on the tray.',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'Mix the lettuce, tomato, cucumber and onion. Divide the salad between the 4 boxes (or into separate salad boxes).',
+          heat: 'none',
+        },
+        {
+          text: 'Divide the cooled chicken into 4 equal portions. Keep it in its own box or on one side of the box, apart from the salad, so you can warm it alone.',
+          heat: 'none',
+        },
+        {
+          text: 'At lunch: warm the chicken if you like (see Reheat), open the pitas, spread hummus and yogurt sauce inside, and fill with chicken and salad.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'Cut the thickest strip: white all through, no pink, juices clear (75 °C if you have a thermometer).',
+      boxUp: 'Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken, salad and both pots in the fridge (eat by day 2). Boxes 3–4: chicken in the freezer (3 months; or the fridge if you eat it on day 3), and cut fresh salad and stir a fresh sauce on Tuesday night (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).',
+      reheat: 'Chicken only, if you want it warm: take it out of the salad, microwave with the lid loose for about 1 minute until steaming hot. Never microwave the salad or the sauces. From the freezer: move the chicken to the fridge the night before.',
+      tips: ['No time to marinate? 10 minutes is enough; the spices still stick.'],
+    },
   },
   {
     foodId: 'intl-chicken-caesar-salad-box',
@@ -1460,6 +1625,61 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'international',
+    method: {
+      equipment: ['Frying pan (24–28 cm)', 'Small pot (for 2 eggs)', 'Salad spinner or a clean tea towel', 'Jar or bowl for the dressing', '2 lunch boxes and 2 small lidded pots (about 100 ml)'],
+      prep: ['If the chicken breast (260 g) is thicker than 1.5 cm, cut it through the middle into 2 thin fillets.', 'Peel 2 garlic cloves. Grate 1 (3 g) for the chicken and a small piece (2 g) for the dressing.', 'Cut the 2 romaine hearts (400 g) into strips 2 cm wide. Halve the cherry tomatoes (200 g).'],
+      steps: [
+        {
+          text: 'Put 2 eggs in the small pot, cover with cold water and bring to the boil. Turn down so it bubbles gently and cook 10 minutes.',
+          heat: 'high',
+          minutes: 10,
+        },
+        {
+          text: 'Pour off the hot water, cover the eggs with cold water and leave 5 minutes. Peel and halve them.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'While the eggs cook, rub the chicken with the 3 g grated garlic, ⅓ tsp salt (2 g) and black pepper (1 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Heat 1½ tsp olive oil (6 g) in the frying pan for 1 minute.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chicken. Cook 3–4 minutes without moving it, until golden underneath.',
+          heat: 'medium-high',
+          minutes: 4,
+        },
+        {
+          text: 'Turn it over and cook 3–4 minutes more. Check it (see "Done when"), then let it cool on a plate and slice it.',
+          heat: 'medium-high',
+          minutes: 4,
+        },
+        {
+          text: 'Wash the lettuce in cold water and dry it very well in the salad spinner or by rolling it in a clean tea towel. Wet leaves go soggy.',
+          heat: 'none',
+        },
+        {
+          text: 'Make the dressing: mix 120 g Greek yogurt (about 6 tbsp), 2 tsp Dijon mustard (10 g), 1 tbsp lemon juice (16 g), 1 tbsp + 1 tsp olive oil (18 g), the 2 g grated garlic, black pepper (1 g) and a pinch of salt (1 g). Pour it into the 2 pots.',
+          heat: 'none',
+        },
+        {
+          text: 'Fill each box: half the lettuce, half the tomatoes, half the chicken slices and 1 egg in halves. The dressing pot and the bag of picos (40 g per box) go next to the box, not on the salad.',
+          heat: 'none',
+        },
+        {
+          text: 'At lunch: pour the dressing over, close the lid and shake, then break the picos over the top.',
+          heat: 'none',
+        },
+      ],
+      doneWhen: 'The chicken is white all through with clear juices (75 °C); the egg yolks are firm.',
+      boxUp: 'Cool the chicken for no more than 1 hour, then put both boxes and the dressing pots in the fridge (eat by day 2). Do not freeze. Make 2 boxes on Sunday night and 2 more on Tuesday night. The picos stay in their sealed bag in the cupboard. Carry in an insulated bag with an ice pack.',
+      reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+      tips: ['The dressing uses yogurt, mustard and lemon: no anchovy, no cheese, so nothing to check for rennet.'],
+    },
   },
   {
     foodId: 'intl-beef-bolognese-pasta-box',
@@ -1482,6 +1702,59 @@ export default [
     effort: 'cook',
     minutes: 30,
     cuisine: 'italian',
+    method: {
+      equipment: ['Wide deep frying pan or casserole (28 cm) with a lid', 'Wooden spoon', 'Large pot for 3 l of water and a colander', 'Grater', 'Oven tray or wide dish for cooling', '4 lunch boxes and 2 freezer bags'],
+      prep: ['Peel the onion (150 g, 1 medium) and chop it small (5 mm).', 'Peel and grate the carrot (120 g, 1 large) on the big holes of the grater.', 'Wipe the mushrooms (200 g) and chop them into 1 cm pieces.', 'Peel 3 garlic cloves (9 g) and chop them finely.', 'Open 1½ tins of crushed tomato (800 g).'],
+      steps: [
+        {
+          text: 'Put the wide pan on the hob. Add a scant 1 tbsp olive oil (12 g) and heat 1 minute.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the beef mince (500 g). Break it up with the wooden spoon and cook, stirring now and then, until there is no pink left and it starts to brown.',
+          heat: 'medium-high',
+          minutes: 5,
+        },
+        {
+          text: 'Add the onion, carrot, mushrooms and garlic. Stir and cook until the onion is soft and see-through and the mushrooms have shrunk.',
+          heat: 'medium',
+          minutes: 8,
+        },
+        {
+          text: 'Pour in the crushed tomato. Add 1 tsp dried oregano (2 g), 1 bay leaf, ⅔ tsp salt (4 g) and black pepper (1 g). Stir.',
+          heat: 'medium',
+        },
+        {
+          text: 'When it bubbles, turn the heat down so it bubbles gently. Put the lid on, leaving a small gap. Simmer 30–40 minutes, stirring every 10 minutes so it does not stick.',
+          heat: 'low',
+          minutes: 35,
+        },
+        {
+          text: 'Take out the bay leaf. Spread the sauce on the tray or wide dish to cool fast (about 30 minutes).',
+          heat: 'none',
+          minutes: 30,
+        },
+        {
+          text: 'Split the sauce into 4 equal portions (about 350 g each): 2 into boxes for the fridge, 2 into freezer bags pressed flat.',
+          heat: 'none',
+        },
+        {
+          text: 'The night before each lunch: boil 2 l of water with a pinch of salt. Add 80 g wholewheat penne for each box and cook for the time on the pack (about 10 minutes), stirring once.',
+          heat: 'high',
+          minutes: 10,
+        },
+        {
+          text: 'Drain the penne in the colander, add it to the box with a portion of sauce and mix. Let it cool 20–30 minutes, then close and refrigerate.',
+          heat: 'none',
+          minutes: 30,
+        },
+      ],
+      doneWhen: 'The sauce is thick enough that a spoon dragged across the pan leaves a clear line, and no meat is pink.',
+      boxUp: 'Cool fast, in the fridge within 1 hour. Sauce: 2 portions in the fridge (3 days), 2 in the freezer (3 months). Cooked pasta keeps only 1 day in the fridge, so mix pasta and sauce the night before you eat it (or freeze plain cooked pasta in portions for up to a month).',
+      reheat: 'Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more, until steaming hot right through. Reheat once only. Frozen sauce: move it to the fridge the night before.',
+      tips: ['No wine and no stock cube: the tomato and mushrooms give the depth.'],
+    },
   },
   {
     foodId: 'intl-chicken-broccoli-pesto-pasta-box',
@@ -1508,6 +1781,64 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'italian',
+    method: {
+      equipment: ['Large frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Mug (to keep pasta water)', 'Stick blender and its jug (or small food processor)', 'Small dry pan for the almonds', 'Oven tray for cooling', '4 lunch boxes'],
+      prep: ['Cut the chicken breast (540 g) into bite-size pieces of about 2.5 cm.', 'Peel 4 garlic cloves: chop 2 (6 g) for the chicken and keep 2 (6 g) whole for the pesto.', 'Pick the basil leaves off 2 trays (40 g). Halve the cherry tomatoes (240 g) and keep them in the fridge.'],
+      steps: [
+        {
+          text: 'Toast the almonds (40 g) in the small dry pan, shaking it, until light brown and fragrant. Tip onto a plate.',
+          heat: 'medium',
+          minutes: 3,
+        },
+        {
+          text: 'Put 3 l of water on to boil in the large pot with a pinch of salt.',
+          heat: 'high',
+          minutes: 10,
+        },
+        {
+          text: 'Heat 2 tsp olive oil (8 g) in the frying pan for 1 minute. Add the chicken, the chopped garlic, ½ tsp salt (3 g) and black pepper (1 g).',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Cook the chicken 6–8 minutes, turning the pieces every 2 minutes, until golden on all sides. Check one piece (see "Done when"), then take the pan off the heat.',
+          heat: 'medium-high',
+          minutes: 8,
+        },
+        {
+          text: 'Add the wholewheat penne (280 g) to the boiling water. Stir once. Cook for the pack time minus 3 minutes (about 7 minutes).',
+          heat: 'high',
+          minutes: 7,
+        },
+        {
+          text: 'Add the frozen broccoli (400 g) to the same pot and cook 3 minutes more.',
+          heat: 'high',
+          minutes: 3,
+        },
+        {
+          text: 'Scoop out a mug of the cooking water, then drain the pasta and broccoli in the colander.',
+          heat: 'none',
+        },
+        {
+          text: 'Make the pesto: in the blender jug put the basil, toasted almonds, 3 tbsp olive oil (44 g), the 2 whole garlic cloves, 2 tbsp lemon juice (30 g), ⅓ tsp salt (2 g) and 40 g (about 3 tbsp) of the pasta water. Blend 1 minute until smooth.',
+          heat: 'none',
+          minutes: 1,
+        },
+        {
+          text: 'Tip the pasta, broccoli and chicken back into the pot, add the pesto and stir until everything is green.',
+          heat: 'none',
+        },
+        {
+          text: 'Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Add a quarter of the cherry tomatoes to the fridge box only.',
+          heat: 'none',
+          minutes: 25,
+        },
+      ],
+      doneWhen: 'Chicken: white all through, no pink (75 °C). Pasta: soft but still slightly firm in the middle when you bite one.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (1 month) without tomatoes. Each evening move one box from the freezer to the fridge and add a handful of cherry tomatoes in the morning.',
+      reheat: 'Hot: take out the tomatoes, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.',
+      tips: ['The pesto has no cheese, so there is no rennet to check.'],
+    },
   },
   {
     foodId: 'intl-tuna-tomato-pasta-box',
@@ -1530,6 +1861,55 @@ export default [
     effort: 'cook',
     minutes: 20,
     cuisine: 'italian',
+    method: {
+      equipment: ['Wide deep frying pan or casserole (28 cm)', 'Wooden spoon', 'Large pot for 3 l of water and a colander', 'Can opener and sieve', 'Oven tray for cooling', '4 lunch boxes'],
+      prep: ['Peel the onion (150 g, 1 medium) and chop it small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.', 'Open and drain 6 cans of tuna in the sieve (360 g drained).', 'Slice the pitted green olives (60 g) into rings.', 'Open the crushed tomato (800 g).'],
+      steps: [
+        {
+          text: 'Heat 1½ tbsp olive oil (20 g) in the wide pan for 1 minute.',
+          heat: 'medium',
+          minutes: 1,
+        },
+        {
+          text: 'Add the onion and garlic. Stir and cook until soft and see-through, not brown.',
+          heat: 'medium',
+          minutes: 6,
+        },
+        {
+          text: 'Pour in the crushed tomato. Add 1 tsp dried oregano (2 g), a pinch of chilli powder (1 g, optional), ⅓ tsp salt (2 g) and black pepper (1 g). Stir.',
+          heat: 'medium',
+        },
+        {
+          text: 'When it bubbles, turn down and simmer 10 minutes, stirring now and then. Meanwhile put 3 l of water on to boil with a pinch of salt.',
+          heat: 'low',
+          minutes: 10,
+        },
+        {
+          text: 'Add the frozen peas (300 g) to the sauce and cook 4 minutes.',
+          heat: 'medium',
+          minutes: 4,
+        },
+        {
+          text: 'Take the pan off the heat. Fold in the tuna and olives gently so the tuna stays in flakes.',
+          heat: 'none',
+        },
+        {
+          text: 'Add the wholewheat penne (360 g) to the boiling water. Cook for the pack time (about 10 minutes), stirring once.',
+          heat: 'high',
+          minutes: 10,
+        },
+        { text: 'Drain the penne, tip it into the sauce and mix well.', heat: 'none' },
+        {
+          text: 'Spread on the tray to cool fast (20–30 minutes), then divide into 4 boxes (about 575 g each).',
+          heat: 'none',
+          minutes: 25,
+        },
+      ],
+      doneWhen: 'The pasta is soft but still slightly firm in the middle, and the peas are bright green and hot.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (1 month); move one to the fridge each evening.',
+      reheat: 'Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more until steaming hot all through (reheat once only). Or eat it cold as a pasta salad within 2 hours of leaving the fridge.',
+      tips: ['Olives: use plain pitted manzanilla. "Rellenas de anchoa" are stuffed with anchovy.'],
+    },
   },
   {
     foodId: 'med-greek-chicken-pasta-salad-box',
@@ -1565,6 +1945,57 @@ export default [
     effort: 'cook',
     minutes: 25,
     cuisine: 'mediterranean',
+    method: {
+      equipment: ['Frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Bowl for the dressing', 'Chopping board and knife', '4 lunch boxes, 4 small lidded pots (about 100 ml) and 3 freezer bags'],
+      prep: ['If the chicken breasts (540 g) are thicker than 1.5 cm, cut them through the middle into thin fillets.', 'Peel 4 garlic cloves: grate 2 (6 g) for the chicken and 2 (6 g) for the dressing.', 'Dice the cucumber (300 g) and green pepper (160 g) into 1 cm pieces. Halve the cherry tomatoes (320 g). Slice the red onion (60 g) thin. Halve the olives (80 g).', 'Chop the mint leaves (6 g) finely.'],
+      steps: [
+        {
+          text: 'Rub the chicken with 1½ tsp dried oregano (3 g), the 6 g grated garlic, 2 tsp lemon juice (10 g), ½ tsp salt (3 g) and black pepper (1 g).',
+          heat: 'none',
+        },
+        {
+          text: 'Heat 2 tsp olive oil (8 g) in the frying pan for 1 minute.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Add the chicken. Cook 3–4 minutes without moving, until golden underneath.',
+          heat: 'medium-high',
+          minutes: 4,
+        },
+        {
+          text: 'Turn and cook 3–4 minutes more. Check it (see "Done when"), cool on a plate, then slice.',
+          heat: 'medium-high',
+          minutes: 4,
+        },
+        {
+          text: 'Boil 3 l of water with a pinch of salt. Add the wholewheat penne (280 g) and cook for the pack time (about 10 minutes).',
+          heat: 'high',
+          minutes: 10,
+        },
+        {
+          text: 'Drain the penne and rinse it under the cold tap until it is cold. Shake it dry in the colander.',
+          heat: 'none',
+        },
+        {
+          text: 'Make the dressing: mix 240 g Greek yogurt, 1¾ tbsp olive oil (24 g), 2 tbsp lemon juice (30 g), the 6 g grated garlic, the mint and ⅓ tsp salt (2 g). Spoon into 4 pots (about 77 g each).',
+          heat: 'none',
+        },
+        {
+          text: 'Box 1 (for tomorrow): a quarter of the pasta (about 160 g), a quarter of the chicken and a quarter of the vegetables. Dressing pot next to it.',
+          heat: 'none',
+        },
+        {
+          text: 'Boxes 2–4: put each remaining pasta portion in a freezer bag. Chicken: fridge (3 days) or freezer. Keep the cut vegetables in a closed box in the fridge.',
+          heat: 'none',
+        },
+        { text: 'At lunch: pour the dressing over and toss.', heat: 'none' },
+      ],
+      doneWhen: 'Chicken: white all through, no pink, juices clear (75 °C). Pasta: soft with a little bite.',
+      boxUp: 'Cool fast, everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only box 1 is assembled; the pasta for boxes 2–4 is frozen (1 month). Each evening move one pasta bag to the fridge; in the morning add chicken, vegetables and a dressing pot. Cut vegetables and dressing keep 2 days and do not freeze: cut a fresh batch on Tuesday night.',
+      reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
+      tips: ['No feta in this salad, so no rennet to check. Dill is not sold at Mercadona: mint works.'],
+    },
   },
   {
     foodId: 'intl-chicken-quinoa-peanut-salad-box',

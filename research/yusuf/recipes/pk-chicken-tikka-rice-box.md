@@ -74,6 +74,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Marinate: mix yogurt, lemon, garlic, ginger, spices, salt and half the oil; coat the chicken; cover and chill 4 h or overnight (the references marinate 30 min to overnight).
 2. Heat the oven to 230 °C (grill/fan). Spread chicken, pepper and onion on a lined tray, brush with the rest of the oil, roast 20–25 min until the chicken reaches 75 °C inside and has charred edges.
 3. Rice: rinse and soak the basmati 20 min; cook by absorption with the cumin seeds and salt (about 1 : 1.5 rice to water by volume) for 12 min, add the frozen peas, cover and steam 5 min more.

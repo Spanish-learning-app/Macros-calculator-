@@ -64,6 +64,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Soften onion and pepper in the oil 8 min; add garlic and spices for 1 min.
 2. Add the tomato and chickpeas; simmer 15 min until thick. Cool and freeze in 4 portions.
 3. On the night: heat one portion in a small pan, make 2 wells, crack in 2 eggs, cover and cook 6–8 min. Serve with yogurt and ½ roll.

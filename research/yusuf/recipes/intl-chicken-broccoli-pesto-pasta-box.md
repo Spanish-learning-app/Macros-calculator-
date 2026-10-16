@@ -63,10 +63,46 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-1. Sear the seasoned chicken in the oil 6–8 min (75 °C inside).
-2. Boil the penne; add the frozen broccoli for the last 3 minutes. Drain, keeping a cup of the water.
-3. Blitz basil, almonds, oil, garlic, lemon and salt with 40 g of the pasta water.
-4. Toss pasta, broccoli, chicken and pesto; cool fast. Add the tomatoes when you box it.
+This is the method the app shows under "How to make it" (generated from the same data).
+
+**Equipment**
+
+- Large frying pan (28 cm)
+- Large pot for 3 l of water and a colander
+- Mug (to keep pasta water)
+- Stick blender and its jug (or small food processor)
+- Small dry pan for the almonds
+- Oven tray for cooling
+- 4 lunch boxes
+
+**Before you start**
+
+- Cut the chicken breast (540 g) into bite-size pieces of about 2.5 cm.
+- Peel 4 garlic cloves: chop 2 (6 g) for the chicken and keep 2 (6 g) whole for the pesto.
+- Pick the basil leaves off 2 trays (40 g). Halve the cherry tomatoes (240 g) and keep them in the fridge.
+
+**Steps**
+
+1. Toast the almonds (40 g) in the small dry pan, shaking it, until light brown and fragrant. Tip onto a plate. *(medium heat · 3 min)*
+2. Put 3 l of water on to boil in the large pot with a pinch of salt. *(high heat · 10 min)*
+3. Heat 2 tsp olive oil (8 g) in the frying pan for 1 minute. Add the chicken, the chopped garlic, ½ tsp salt (3 g) and black pepper (1 g). *(medium-high heat · 1 min)*
+4. Cook the chicken 6–8 minutes, turning the pieces every 2 minutes, until golden on all sides. Check one piece (see "Done when"), then take the pan off the heat. *(medium-high heat · 8 min)*
+5. Add the wholewheat penne (280 g) to the boiling water. Stir once. Cook for the pack time minus 3 minutes (about 7 minutes). *(high heat · 7 min)*
+6. Add the frozen broccoli (400 g) to the same pot and cook 3 minutes more. *(high heat · 3 min)*
+7. Scoop out a mug of the cooking water, then drain the pasta and broccoli in the colander. *(no heat)*
+8. Make the pesto: in the blender jug put the basil, toasted almonds, 3 tbsp olive oil (44 g), the 2 whole garlic cloves, 2 tbsp lemon juice (30 g), ⅓ tsp salt (2 g) and 40 g (about 3 tbsp) of the pasta water. Blend 1 minute until smooth. *(no heat · 1 min)*
+9. Tip the pasta, broccoli and chicken back into the pot, add the pesto and stir until everything is green. *(no heat)*
+10. Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Add a quarter of the cherry tomatoes to the fridge box only. *(no heat · 25 min)*
+
+**Done when:** Chicken: white all through, no pink (75 °C). Pasta: soft but still slightly firm in the middle when you bite one.
+
+**Box it up:** Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (1 month) without tomatoes. Each evening move one box from the freezer to the fridge and add a handful of cherry tomatoes in the morning.
+
+**Reheat:** Hot: take out the tomatoes, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.
+
+**Tips**
+
+- The pesto has no cheese, so there is no rennet to check.
 
 ## Added fat
 

@@ -54,6 +54,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Oven at 180 °C. Whisk eggs, whites, salt and pepper; stir in spinach and pepper. Pour into a lined 20 × 20 cm tin and bake 18–20 min until set.
 2. Cool, cut into 4 squares. Split the rolls; fill each with an egg square and a quarter of the mozzarella.
 3. Wrap each roll in baking paper and foil (or a bag) and freeze.

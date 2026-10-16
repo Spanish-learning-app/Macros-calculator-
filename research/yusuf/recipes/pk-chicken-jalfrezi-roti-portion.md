@@ -64,6 +64,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Heat the oil, crackle the cumin seeds, soften the chopped onion 5 min; add garlic and ginger, then the puréed tomatoes, salt and ground spices; cook to a thick masala (8 min).
 2. Add the chicken on high heat, stir-fry 6–8 min until cooked through (75 °C).
 3. Add the peppers, onion petals and green chilli; toss 3–4 min so they stay crisp. Finish with garam masala and lemon.

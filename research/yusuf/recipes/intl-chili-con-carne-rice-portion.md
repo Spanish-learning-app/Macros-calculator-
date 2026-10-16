@@ -60,6 +60,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Brown the mince in the oil, 5 min. Add onion, pepper and garlic; cook 6 min.
 2. Add the spices for 1 min, then tomato and beans. Simmer 30 min, lid ajar, until thick.
 3. Cook the brown rice (about 30 min, or use 4 sealed brown-rice cups).

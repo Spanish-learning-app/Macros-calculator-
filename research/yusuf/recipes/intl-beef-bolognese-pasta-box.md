@@ -55,10 +55,46 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-1. Brown the mince in the oil in a wide pan, 5 min, breaking it up. Add onion, carrot, mushrooms and garlic; cook 8 min until soft.
-2. Add the tomato, oregano, bay, salt and pepper. Simmer 30–40 min, lid ajar, stirring now and then, until thick.
-3. Cool fast on a tray. Box 1–2 portions for the fridge and freeze the rest flat in bags.
-4. Boil 80 g penne per box the night before (or that morning), drain and toss with a portion of sauce.
+This is the method the app shows under "How to make it" (generated from the same data).
+
+**Equipment**
+
+- Wide deep frying pan or casserole (28 cm) with a lid
+- Wooden spoon
+- Large pot for 3 l of water and a colander
+- Grater
+- Oven tray or wide dish for cooling
+- 4 lunch boxes and 2 freezer bags
+
+**Before you start**
+
+- Peel the onion (150 g, 1 medium) and chop it small (5 mm).
+- Peel and grate the carrot (120 g, 1 large) on the big holes of the grater.
+- Wipe the mushrooms (200 g) and chop them into 1 cm pieces.
+- Peel 3 garlic cloves (9 g) and chop them finely.
+- Open 1½ tins of crushed tomato (800 g).
+
+**Steps**
+
+1. Put the wide pan on the hob. Add a scant 1 tbsp olive oil (12 g) and heat 1 minute. *(medium-high heat · 1 min)*
+2. Add the beef mince (500 g). Break it up with the wooden spoon and cook, stirring now and then, until there is no pink left and it starts to brown. *(medium-high heat · 5 min)*
+3. Add the onion, carrot, mushrooms and garlic. Stir and cook until the onion is soft and see-through and the mushrooms have shrunk. *(medium heat · 8 min)*
+4. Pour in the crushed tomato. Add 1 tsp dried oregano (2 g), 1 bay leaf, ⅔ tsp salt (4 g) and black pepper (1 g). Stir. *(medium heat)*
+5. When it bubbles, turn the heat down so it bubbles gently. Put the lid on, leaving a small gap. Simmer 30–40 minutes, stirring every 10 minutes so it does not stick. *(low heat · 35 min)*
+6. Take out the bay leaf. Spread the sauce on the tray or wide dish to cool fast (about 30 minutes). *(no heat · 30 min)*
+7. Split the sauce into 4 equal portions (about 350 g each): 2 into boxes for the fridge, 2 into freezer bags pressed flat. *(no heat)*
+8. The night before each lunch: boil 2 l of water with a pinch of salt. Add 80 g wholewheat penne for each box and cook for the time on the pack (about 10 minutes), stirring once. *(high heat · 10 min)*
+9. Drain the penne in the colander, add it to the box with a portion of sauce and mix. Let it cool 20–30 minutes, then close and refrigerate. *(no heat · 30 min)*
+
+**Done when:** The sauce is thick enough that a spoon dragged across the pan leaves a clear line, and no meat is pink.
+
+**Box it up:** Cool fast, in the fridge within 1 hour. Sauce: 2 portions in the fridge (3 days), 2 in the freezer (3 months). Cooked pasta keeps only 1 day in the fridge, so mix pasta and sauce the night before you eat it (or freeze plain cooked pasta in portions for up to a month).
+
+**Reheat:** Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more, until steaming hot right through. Reheat once only. Frozen sauce: move it to the fridge the night before.
+
+**Tips**
+
+- No wine and no stock cube: the tomato and mushrooms give the depth.
 
 ## Added fat
 

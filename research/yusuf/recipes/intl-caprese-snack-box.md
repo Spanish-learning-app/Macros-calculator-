@@ -46,6 +46,8 @@ The assembly below starts from these and adjusts to the snack targets (see "Chan
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Drain and tear the mozzarella; halve the tomatoes. Box with basil and pepper.
 2. A bag of picos on the side. Keep cold.
 

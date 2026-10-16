@@ -56,6 +56,8 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Dice the apple into the lemon juice straight away; add the mandarin segments and pomegranate arils; sprinkle the chaat masala and toss.
 2. Spoon 240 g protein yogurt into each of 2 boxes and top with half the fruit chaat. Close and refrigerate.
 3. In the morning add half a sliced banana and the chopped almonds. Eat cold.

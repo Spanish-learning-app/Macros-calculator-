@@ -68,6 +68,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Toss the chicken with oil, spices, garlic and salt; sear 6–8 min (75 °C inside).
 2. In the same pan warm the beans and corn with the cumin, 3 min.
 3. Box chicken, beans and corn with a sealed rice cup; salsa, yogurt and lettuce in a small box or pot.

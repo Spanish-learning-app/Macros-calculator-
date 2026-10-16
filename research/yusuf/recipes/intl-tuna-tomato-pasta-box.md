@@ -53,9 +53,45 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-1. Soften the onion and garlic in the oil 6 min. Add the tomato, oregano and chilli; simmer 10 min.
-2. Add the peas for 4 min, then take off the heat and fold in the tuna and olives.
-3. Boil the penne al dente, drain and toss with the sauce. Cool fast and box.
+This is the method the app shows under "How to make it" (generated from the same data).
+
+**Equipment**
+
+- Wide deep frying pan or casserole (28 cm)
+- Wooden spoon
+- Large pot for 3 l of water and a colander
+- Can opener and sieve
+- Oven tray for cooling
+- 4 lunch boxes
+
+**Before you start**
+
+- Peel the onion (150 g, 1 medium) and chop it small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.
+- Open and drain 6 cans of tuna in the sieve (360 g drained).
+- Slice the pitted green olives (60 g) into rings.
+- Open the crushed tomato (800 g).
+
+**Steps**
+
+1. Heat 1½ tbsp olive oil (20 g) in the wide pan for 1 minute. *(medium heat · 1 min)*
+2. Add the onion and garlic. Stir and cook until soft and see-through, not brown. *(medium heat · 6 min)*
+3. Pour in the crushed tomato. Add 1 tsp dried oregano (2 g), a pinch of chilli powder (1 g, optional), ⅓ tsp salt (2 g) and black pepper (1 g). Stir. *(medium heat)*
+4. When it bubbles, turn down and simmer 10 minutes, stirring now and then. Meanwhile put 3 l of water on to boil with a pinch of salt. *(low heat · 10 min)*
+5. Add the frozen peas (300 g) to the sauce and cook 4 minutes. *(medium heat · 4 min)*
+6. Take the pan off the heat. Fold in the tuna and olives gently so the tuna stays in flakes. *(no heat)*
+7. Add the wholewheat penne (360 g) to the boiling water. Cook for the pack time (about 10 minutes), stirring once. *(high heat · 10 min)*
+8. Drain the penne, tip it into the sauce and mix well. *(no heat)*
+9. Spread on the tray to cool fast (20–30 minutes), then divide into 4 boxes (about 575 g each). *(no heat · 25 min)*
+
+**Done when:** The pasta is soft but still slightly firm in the middle, and the peas are bright green and hot.
+
+**Box it up:** Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (1 month); move one to the fridge each evening.
+
+**Reheat:** Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more until steaming hot all through (reheat once only). Or eat it cold as a pasta salad within 2 hours of leaving the fridge.
+
+**Tips**
+
+- Olives: use plain pitted manzanilla. "Rellenas de anchoa" are stuffed with anchovy.
 
 ## Added fat
 

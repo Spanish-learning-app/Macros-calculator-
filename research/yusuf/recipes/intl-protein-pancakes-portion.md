@@ -44,6 +44,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Blend the oats to a flour, add the yogurt, eggs, banana, cinnamon and salt and blend smooth. Rest 10 min to thicken (2 tsp baking powder makes them fluffier; optional, not counted).
 2. Wipe a non-stick pan with a little oil on medium heat. Pour about ¼ cup (65 g) of batter per pancake; cook 2 min until bubbles set, flip, 1–2 min more.
 3. Cool on a rack. Pack 4 pancakes per portion with baking paper between them; freeze flat.

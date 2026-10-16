@@ -129,6 +129,73 @@ function costText(r) {
   return `**Indicative cost per ${u.one}: ${eur(c.perBox)}** (${eur(c.batch)} for ${r.boxes} ${u.many}). ${src}${xc}${missing.length ? ` Not included (no price found, small amounts): ${missing.join(', ')}.` : ''}`;
 }
 
+// ------------------------------------------------------------------ method (brief s3-method, ARCHITECTURE §13.1)
+// LibraryRecipe.method = { equipment: string[], prep: string[], steps: [{ text, heat?, minutes? }], doneWhen?,
+// boxUp, reheat, tips? }. The sheet's `method` object is copied to app/data/recipes-mealprep.js and rendered as the
+// sheet's "## Method" from the same object, so the app and the sheets never drift apart (MISTAKES M-01).
+const HEATS = ['none', 'low', 'medium', 'medium-high', 'high', 'oven-180', 'oven-200', 'oven-220', 'microwave'];
+const HEAT_WORD = { none: 'no heat', low: 'low heat', medium: 'medium heat', 'medium-high': 'medium-high heat', high: 'high heat', 'oven-180': 'oven 180 °C', 'oven-200': 'oven 200 °C', 'oven-220': 'oven 220 °C', microwave: 'microwave' };
+const METHOD_KEYS = ['equipment', 'prep', 'steps', 'doneWhen', 'boxUp', 'reheat', 'tips'];
+// TODO(s3-method): sheets that still carry the old string-array method only warn. When every sheet has the object
+// (Yusuf's and Zainab's), delete LEGACY_OK so a string-array method fails the build too.
+const LEGACY_OK = true;
+const LEGACY = [];
+const isStrList = (a) => Array.isArray(a) && a.every((x) => typeof x === 'string' && x.trim());
+function checkMethod(s) {
+  const m = s.method;
+  const bad = (why) => {
+    throw new Error(`R-MP-${s.n} ${s.file ?? s.id}: method ${why}`);
+  };
+  if (m == null) bad('is missing (every library recipe needs one, brief s3-method)');
+  if (Array.isArray(m)) {
+    if (!LEGACY_OK) bad('is still the old string array: write the object (brief s3-method Addendum)');
+    LEGACY.push(s.n);
+    return null;
+  }
+  if (typeof m !== 'object') bad('must be an object');
+  for (const k of Object.keys(m)) if (!METHOD_KEYS.includes(k)) bad(`has an unknown key "${k}"`);
+  if (!isStrList(m.equipment) || !m.equipment.length) bad('needs equipment: a non-empty list of strings');
+  if (!isStrList(m.prep)) bad('needs prep: a list of strings (may be empty)');
+  if (!Array.isArray(m.steps) || !m.steps.length) bad('needs steps');
+  m.steps.forEach((st, i) => {
+    if (!st || typeof st.text !== 'string' || !st.text.trim()) bad(`step ${i + 1} has no text`);
+    for (const k of Object.keys(st)) if (!['text', 'heat', 'minutes'].includes(k)) bad(`step ${i + 1} has an unknown key "${k}"`);
+    if (st.heat !== undefined && !HEATS.includes(st.heat)) bad(`step ${i + 1} has an unknown heat "${st.heat}" (allowed: ${HEATS.join(', ')})`);
+    if (st.minutes !== undefined && !(typeof st.minutes === 'number' && st.minutes > 0)) bad(`step ${i + 1} minutes must be a number > 0`);
+  });
+  if (m.doneWhen !== undefined && (typeof m.doneWhen !== 'string' || !m.doneWhen.trim())) bad('doneWhen must be a string');
+  for (const k of ['boxUp', 'reheat']) if (typeof m[k] !== 'string' || !m[k].trim()) bad(`needs ${k}: a string`);
+  if (m.tips !== undefined && !isStrList(m.tips)) bad('tips must be a list of strings');
+  if (s.effort === 'assemble' && !/^no cooking\b/i.test(m.steps[0].text)) bad('of a no-cook prep must start with "No cooking."');
+  // Contract key order, only the contract keys.
+  const out = {};
+  for (const k of METHOD_KEYS) if (m[k] !== undefined) out[k] = k === 'steps' ? m.steps.map((st) => ({ text: st.text, ...(st.heat ? { heat: st.heat } : {}), ...(st.minutes ? { minutes: st.minutes } : {}) })) : m[k];
+  return out;
+}
+const fmtMin = (x) => `${String(x).replace(/\.5$/, '½')} min`;
+function methodMd(s) {
+  const m = s.methodObj;
+  const L = ['## Method', ''];
+  if (!m) {
+    L.push('> TODO (brief s3-method): this sheet still has the short cook\'s method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.', '');
+    s.method.forEach((x, i) => L.push(`${i + 1}. ${x}`));
+    return L;
+  }
+  L.push('This is the method the app shows under "How to make it" (generated from the same data).', '');
+  L.push('**Equipment**', '', ...m.equipment.map((x) => `- ${x}`), '');
+  if (m.prep.length) L.push('**Before you start**', '', ...m.prep.map((x) => `- ${x}`), '');
+  L.push('**Steps**', '');
+  m.steps.forEach((st, i) => {
+    const chip = [st.heat ? HEAT_WORD[st.heat] : null, st.minutes ? fmtMin(st.minutes) : null].filter(Boolean).join(' · ');
+    L.push(`${i + 1}. ${st.text}${chip ? ` *(${chip})*` : ''}`);
+  });
+  L.push('');
+  if (m.doneWhen) L.push(`**Done when:** ${m.doneWhen}`, '');
+  L.push(`**Box it up:** ${m.boxUp}`, '', `**Reheat:** ${m.reheat}`);
+  if (m.tips?.length) L.push('', '**Tips**', '', ...m.tips.map((x) => `- ${x}`));
+  return L;
+}
+
 // ------------------------------------------------------------------ recipe sheet
 function sheetMd(s, r) {
   const L = [];
@@ -159,9 +226,7 @@ function sheetMd(s, r) {
     }
     L.push('');
   }
-  L.push('## Method', '');
-  s.method.forEach((m, i) => L.push(`${i + 1}. ${m}`));
-  L.push('');
+  L.push(...methodMd(s), '');
   const oils = r.components.flatMap((c) => c.lines).filter((l) => l.ingId.startsWith('oil-'));
   const oilG = oils.reduce((a, l) => a + l.grams, 0);
   L.push('## Added fat', '', `${oilG} g of oil for the batch (${r1(oilG / r.boxes)} g per ${u.one}), all assumed eaten. That is ${r1(r.addedFatPer100g)} g per 100 g as eaten (\`addedFatPer100g\`). Oil is weighed, not poured: 1 tbsp of oil = 13.6 g (\`RULES.referenceWeightsG\`).`, '');
@@ -400,7 +465,7 @@ function libraryRecipe(s, r) {
     const e = c.pot ? { id: c.storage, pot: true } : c.storage;
     if (!storage.some((x) => JSON.stringify(x) === JSON.stringify(e))) storage.push(e);
   }
-  return { foodId: s.id, boxes: r.boxes, storage, ingredients, effort: r.effort, minutes: r.minutes, ...(r.effort === 'assemble' ? { serve: s.eat } : {}), ...(s.cuisine ? { cuisine: s.cuisine } : {}) };
+  return { foodId: s.id, boxes: r.boxes, storage, ingredients, effort: r.effort, minutes: r.minutes, ...(r.effort === 'assemble' ? { serve: s.eat } : {}), ...(s.cuisine ? { cuisine: s.cuisine } : {}), ...(s.methodObj ? { method: s.methodObj } : {}) };
 }
 function recipesFile(rows) {
   const recs = rows.map(({ s, r }) => libraryRecipe(s, r));
@@ -418,6 +483,9 @@ function recipesFile(rows) {
 // serve (assemble preps only, Meeting 004): 'cold' | 'hot' | 'either', how the prep is eaten (hot = microwave).
 // cuisine (Sprint 3, brief s3-variety): 'desi' | 'spanish' | 'mediterranean' | 'italian' | 'mexican' | 'asian' |
 // 'middle-eastern' | 'international', for the Prep library's cuisine chips.
+// method (brief s3-method): { equipment, prep, steps: [{ text, heat?, minutes? }], doneWhen?, boxUp, reheat, tips? },
+// heat one of none | low | medium | medium-high | high | oven-180 | oven-200 | oven-220 | microwave. Written for a
+// beginner on the recipe sheet (research/yusuf/recipes/NN-*.mjs) and copied here unchanged.
 
 export default [
 `;
@@ -854,6 +922,7 @@ function libraryMd(rows) {
 
 // ------------------------------------------------------------------ main
 const sheets = await loadSheets();
+for (const s of sheets) s.methodObj = checkMethod(s);
 const rows = sheets.map((s) => ({ s, r: compute(s) }));
 for (const { s, r } of rows) fs.writeFileSync(path.join(here, 'recipes', `${s.id}.md`), sheetMd(s, r));
 const header = `// Halal lunch-box library: each box as an ordinary food record with a "1 box" serving (Meeting 002).
@@ -875,5 +944,6 @@ for (const [k, w] of Object.entries(WEEK_RESULT)) {
 }
 fs.writeFileSync(path.join(here, 'out', 'low-cook-week.json'), JSON.stringify(WEEK_RESULT, null, 1) + '\n');
 console.log(`\n${rows.length} sheets, app/data/foods-mealprep.js and docs/MEALPREP.md written.`);
+if (LEGACY.length) console.warn(`\nWARNING (TODO s3-method): ${LEGACY.length} sheet(s) still have the old string-array method and get NO method in the app: R-MP-${LEGACY.join(', ')}.`);
 void priceOf;
 void DESI;

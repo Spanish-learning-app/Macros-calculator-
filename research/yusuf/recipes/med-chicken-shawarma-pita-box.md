@@ -72,10 +72,46 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
-1. Mix the chicken with yogurt, lemon, oil, garlic and spices; marinate 30 min (or overnight).
-2. Spread on a lined tray and roast at 220 °C for 15–18 min (75 °C inside). Rest and slice.
-3. Stir the garlic-yogurt sauce; pot it with the hummus (2 small pots per box).
-4. Box the chicken; pack the salad on top or in its own box. At lunch warm the chicken (1 min) if you like, open the pitas, spread hummus and yogurt, fill with chicken and salad.
+This is the method the app shows under "How to make it" (generated from the same data).
+
+**Equipment**
+
+- Large oven tray lined with baking paper
+- Mixing bowl
+- Small bowl for the sauce
+- Chopping board and knife
+- 4 lunch boxes and 8 small lidded pots (about 50 ml)
+
+**Before you start**
+
+- Cut the chicken breast (520 g) into strips about 1 cm thick and 5 cm long.
+- Peel 4 garlic cloves. Grate 3 of them (9 g) for the marinade and 1 (3 g) for the sauce.
+- Shred the lettuce (160 g). Dice the tomatoes (240 g) and cucumber (200 g) into 1 cm cubes. Slice the red onion (60 g) thin.
+- Chop the mint leaves (4 g, a small handful) finely.
+
+**Steps**
+
+1. In the mixing bowl stir together 60 g Greek yogurt (about 3 tbsp), 1½ tbsp lemon juice (20 g), 1 tbsp olive oil (14 g), the 9 g grated garlic, 1½ tsp ground cumin (3 g), 1½ tsp paprika (3 g), ⅓ tsp ground cinnamon (1 g), ⅓ tsp ground turmeric (1 g), ⅔ tsp salt (4 g) and a few grinds of black pepper (1 g). *(no heat)*
+2. Add the chicken strips and stir until every piece is coated. Cover and leave in the fridge for 30 minutes (or overnight). Wash your hands. *(no heat · 30 min)*
+3. Turn the oven on to 220 °C and let it heat for 10 minutes. *(oven 220 °C · 10 min)*
+4. Spread the chicken on the lined tray in one layer, pieces not touching. Put it in the oven. *(oven 220 °C)*
+5. Roast for 15–18 minutes, until the edges start to brown. *(oven 220 °C · 18 min)*
+6. While it roasts, make the sauce: stir 160 g Greek yogurt, the 3 g grated garlic, 1½ tsp lemon juice (8 g) and the chopped mint in the small bowl. *(no heat)*
+7. Spoon the garlic-yogurt sauce into 4 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them. *(no heat)*
+8. Take the tray out. Check the biggest strip (see "Done when"). Let the chicken cool on the tray. *(no heat · 20 min)*
+9. Mix the lettuce, tomato, cucumber and onion. Divide the salad between the 4 boxes (or into separate salad boxes). *(no heat)*
+10. Divide the cooled chicken into 4 equal portions. Keep it in its own box or on one side of the box, apart from the salad, so you can warm it alone. *(no heat)*
+11. At lunch: warm the chicken if you like (see Reheat), open the pitas, spread hummus and yogurt sauce inside, and fill with chicken and salad. *(no heat)*
+
+**Done when:** Cut the thickest strip: white all through, no pink, juices clear (75 °C if you have a thermometer).
+
+**Box it up:** Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken, salad and both pots in the fridge (eat by day 2). Boxes 3–4: chicken in the freezer (3 months; or the fridge if you eat it on day 3), and cut fresh salad and stir a fresh sauce on Tuesday night (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).
+
+**Reheat:** Chicken only, if you want it warm: take it out of the salad, microwave with the lid loose for about 1 minute until steaming hot. Never microwave the salad or the sauces. From the freezer: move the chicken to the fridge the night before.
+
+**Tips**
+
+- No time to marinate? 10 minutes is enough; the spices still stick.
 
 ## Added fat
 

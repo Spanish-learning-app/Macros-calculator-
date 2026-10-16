@@ -54,6 +54,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Warm the beans with the cumin in the oil, 2 min, mashing a few.
 2. Pour in the beaten eggs and whites with the salt; stir over low heat until just set. Box in 2.
 3. In the morning: microwave the filling 1 min (75 °C), warm 3 tortillas 20 s a side in a dry pan, fill and top with salsa.

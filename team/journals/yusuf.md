@@ -187,3 +187,10 @@
   Rules met: ≥4 styles in every slot; desi lunches 6/29 = 21 % (7/37 = 19 % eligible), all rice-based (tikka, keema,
   pulao, chana masala with rice) or pita/salad boxes; no roti at lunch (roti dinners are dinner-only via slotsOf).
   Step 1 (variety) done.
+- 01:50 UTC Step 2 method pipeline in build.mjs: checkMethod() validates the contract (equipment non-empty,
+  prep list, steps with text, heat from the 9 allowed values, minutes > 0, boxUp, reheat, optional doneWhen/tips, no
+  unknown keys, no-cook preps start with "No cooking.") and throws on a missing method or an unknown heat. The object is
+  copied to the library recipe (`method`) and rendered as the sheet's "## Method" (Equipment, Before you start, numbered
+  steps with "heat · minutes", Done when, Box it up, Reheat, Tips). TODO left in build.mjs: `LEGACY_OK` lets an old
+  string-array method warn (sheet gets a TODO note, app gets no method) until every sheet is converted; then delete it.
+- 01:52 UTC Beginner methods written for 41–48 (build checked; a bad heat value fails the build as intended).

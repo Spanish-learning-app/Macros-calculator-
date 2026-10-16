@@ -66,6 +66,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Mix the mince, breadcrumbs, egg, garlic, parsley, salt and pepper; rest 10 min. Roll 24 meatballs (about 30 g each).
 2. Brown the meatballs in 20 g olive oil in batches, 4–5 min, and set aside.
 3. In the same pan soften the onion, green pepper, carrot and garlic in 15 g oil, 10 min. Add the crushed tomato, sugar, paprika, oregano, bay leaf and salt; simmer 15 min.

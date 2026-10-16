@@ -60,6 +60,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Yakhni: put the chicken, the rough-chopped onion, whole spices and salt in a pot with about 700 ml water; simmer 15–20 min until the chicken is just cooked. Lift out the chicken; strain and keep the stock.
 2. In a wide pot fry the sliced onion in the oil until golden (10–12 min). Add garlic, ginger and chilli for 1 min, then tomato and yogurt; cook until the oil separates.
 3. Add the drained rice and chickpeas, then the stock topped up with water to about 1.5 times the rice volume. Boil uncovered until the water drops below the rice surface.

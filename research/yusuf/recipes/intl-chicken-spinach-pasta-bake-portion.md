@@ -57,6 +57,8 @@ The standard recipe below triangulates these and then adjusts to the box targets
 
 ## Method
 
+> TODO (brief s3-method): this sheet still has the short cook's method below; the beginner method (equipment, before you start, steps with heat and time, done when, box it up, reheat) is not written yet, so the app shows no method for it.
+
 1. Brown the chicken in the oil; add onion and garlic, 5 min; then spinach, tomato, oregano, salt and pepper; simmer 10 min.
 2. Boil the penne 2 min less than the pack says; drain and mix with the sauce.
 3. Spread in a dish, scatter the mozzarella, bake at 200 °C for 15 min.
