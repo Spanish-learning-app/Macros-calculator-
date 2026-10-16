@@ -589,8 +589,6 @@ test.describe('cuisine chips (Prep library)', () => {
   };
   const shown = (page) =>
     page.getByTestId('library-row').evaluateAll((els) => els.map((e) => e.dataset.foodId).sort());
-  const chip = (page, label) =>
-    page.getByTestId('library-cuisine').getByRole('button', { name: label, exact: true });
 
   test('the Lab tags the library: at least four cuisines, and the chip row shows them', async ({
     page,

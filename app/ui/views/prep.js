@@ -1233,14 +1233,17 @@ export function listText(title, list) {
   const lines = [title];
   for (const s of list.sections) {
     lines.push('', s.label);
-    for (const item of s.items) lines.push(`- ${itemText(item)}${item.note ? ` · ${item.note}` : ''}`);
+    for (const item of s.items)
+      lines.push(`- ${itemText(item)}${item.note ? ` · ${item.note}` : ''}`);
   }
   return lines.join('\n');
 }
 
 /** Where to buy (STATUS O5), from the Lab's ingredient `note`. */
 function shopNote(item) {
-  return item.note ? h('span', { class: 'shop-note', 'data-testid': 'shop-note' }, item.note) : null;
+  return item.note
+    ? h('span', { class: 'shop-note', 'data-testid': 'shop-note' }, item.note)
+    : null;
 }
 
 function shopSections(list) {
