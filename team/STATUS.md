@@ -62,7 +62,7 @@ out (DECISIONS 2026-10-16). When an item reaches the app, move it to "Done" with
 | O5 | "Where to buy" notes on 27 ingredients (e.g. garam masala at the Pakistani grocery) | Shown in the weekly shopping list | Lena | **done, published v4** (2026-10-16) |
 | O6 | Feta → Burgos halal swap: a separate record with no swap button. **Report #2 wrongly said "one-tap swap"** (MISTAKES M-14) | A "Halal swap" button on the feta box that opens the Burgos version | Lena | **done, published v4** (2026-10-16) |
 | O7 | Low-cook week, budget week and ready-to-eat picks (`docs/MEALPREP.md`) | One-tap plans and picks per slot in Prep | Yusuf (data), Lena (UI) | **done, published v4** (2026-10-16) |
-| O8 | Halal shopping guide for Barcelona (manteca, gelatina, E-471/472, "¿lleva manteca de cerdo?", butchers) | A section on the About page | Ayesha (text), Priya (UI) | queued |
+| O8 | Halal shopping guide for Barcelona (manteca, gelatina, E-471/472, "¿lleva manteca de cerdo?", butchers) | A section on the About page | Ayesha (text), Priya (UI) | text done (`RULES.halalGuide`, rules 1.7.2); UI queued (Priya) |
 | O9 | Recipe references, 2–5 links per prep | Listed in the prep's Source panel | Yusuf (data), Lena (UI) | **done, published v4** (2026-10-16) |
 | O10 | Saved-meal row shows no kcal or protein (Bilal, Nasreen) | Show kcal · protein on the row | Priya | **done in code** (Priya, 2026-10-16; published in v4) |
 | O11 | Nasreen's wording carry-overs; kam-tel "half the oil" line | Copy fixes | Priya with Ayesha | **done in code** (Priya, 2026-10-16; published in v4) |

@@ -57,6 +57,7 @@ export default {
   changes: [
     'Protein yogurt instead of protein powder (whey brands are not all halal-certified).',
     'Whole peanuts blended in instead of peanut butter.',
+    '2026-10-16 (Ayesha FIX 3, s3-backlog): storage class blended-smoothie (1 day, no freezing, rules 1.7.2) instead of overnight-oats (3 days), so the app\'s use-by matches "drink within 1 day".',
   ],
   confidence: 'B',
   confidenceWhy: 'No cooking: labels (yogurt, milk), USDA oats, banana and peanuts.',
