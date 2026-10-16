@@ -88,10 +88,11 @@ test('RULES.weightTrend carries the section 14 numbers', () => {
   assert.equal(w.suggest.cooldownDaysAfterChange, 28);
   assert.equal(w.suggest.snoozeDaysAfterDismiss, 14);
   assert.equal(w.suggest.fastLossPctBodyWeightPerWeek, 1);
-  assert.deepEqual(
-    [...w.suggest.neverForFlags].sort(),
-    ['breastfeeding', 'eating_disorder', 'pregnant'],
-  );
+  assert.deepEqual([...w.suggest.neverForFlags].sort(), [
+    'breastfeeding',
+    'eating_disorder',
+    'pregnant',
+  ]);
   assert.equal(w.suggest.neverInRamadanMode, true);
 });
 
@@ -108,7 +109,11 @@ test('log: setWeight replaces the day, removeWeight deletes it, entries come bac
   assert.deepEqual(weightEntries(removeWeight(log, '2026-09-01')), [
     { date: '2026-09-03', kg: 80.9 },
   ]);
-  assert.deepEqual(weightEntries(removeWeight(log, '2026-12-25')), weightEntries(log), 'no entry: no change');
+  assert.deepEqual(
+    weightEntries(removeWeight(log, '2026-12-25')),
+    weightEntries(log),
+    'no entry: no change',
+  );
   assert.deepEqual(weightEntries(undefined), []);
 });
 
@@ -144,28 +149,87 @@ test('smoothing: five days of readings, worked by hand (alpha 0.1 a day)', () =>
   // t2 = 80.1 + 0.1 * (79 - 80.1)        = 79.99
   // t3 = 79.99 + 0.1 * (80 - 79.99)      = 79.991
   // t4 = 79.991 + 0.1 * (80.5 - 79.991)  = 80.0419
-  const r = run(at([[0, 80], [1, 81], [2, 79], [3, 80], [4, 80.5]]));
-  [80, 80.1, 79.99, 79.991, 80.0419].forEach((want, i) => near(r.points[i].trendKg, want, 0.006, `t${i}`));
+  const r = run(
+    at([
+      [0, 80],
+      [1, 81],
+      [2, 79],
+      [3, 80],
+      [4, 80.5],
+    ]),
+  );
+  [80, 80.1, 79.99, 79.991, 80.0419].forEach((want, i) =>
+    near(r.points[i].trendKg, want, 0.006, `t${i}`),
+  );
   near(r.latest.trendKg, 80.04, 0.006);
   assert.equal(r.latest.kg, 80.5, 'the raw reading is kept next to the trend');
 });
 
 test('smoothing: a gap of d days weighs the new reading 1 - 0.9^d (1 day 10%, 7 days 52%, 30 days 96%)', () => {
   // 7 days: 80 + (1 - 0.9^7) * (78 - 80) = 80 - 2 * 0.5217031 = 78.95659
-  near(run(at([[0, 80], [7, 78]])).latest.trendKg, 78.9566, 0.006, '7-day gap');
+  near(
+    run(
+      at([
+        [0, 80],
+        [7, 78],
+      ]),
+    ).latest.trendKg,
+    78.9566,
+    0.006,
+    '7-day gap',
+  );
   // 30 days: 80 + 0.9576089 * (70 - 80) = 70.42391
-  near(run(at([[0, 80], [30, 70]])).latest.trendKg, 70.4239, 0.006, '30-day gap');
+  near(
+    run(
+      at([
+        [0, 80],
+        [30, 70],
+      ]),
+    ).latest.trendKg,
+    70.4239,
+    0.006,
+    '30-day gap',
+  );
   // 1 day: 80 + 0.1 * (70 - 80) = 79
-  near(run(at([[0, 80], [1, 70]])).latest.trendKg, 79, 0.006, '1-day gap');
+  near(
+    run(
+      at([
+        [0, 80],
+        [1, 70],
+      ]),
+    ).latest.trendKg,
+    79,
+    0.006,
+    '1-day gap',
+  );
   // mixed: day 0 80, day 1 79 -> 79.9; day 4 (3-day gap, weight 1 - 0.729 = 0.271) reads 82 -> 79.9 + 0.271 * 2.1 = 80.4691
-  near(run(at([[0, 80], [1, 79], [4, 82]])).latest.trendKg, 80.4691, 0.006, 'mixed gaps');
+  near(
+    run(
+      at([
+        [0, 80],
+        [1, 79],
+        [4, 82],
+      ]),
+    ).latest.trendKg,
+    80.4691,
+    0.006,
+    'mixed gaps',
+  );
 });
 
 test('smoothing: the first entry seeds the trend, entries may come in any order', () => {
   const r = run(at([[0, 71.4]]));
   assert.equal(r.points.length, 1);
   near(r.points[0].trendKg, 71.4, 0.006);
-  const shuffled = run(at([[4, 80.5], [0, 80], [2, 79], [3, 80], [1, 81]]));
+  const shuffled = run(
+    at([
+      [4, 80.5],
+      [0, 80],
+      [2, 79],
+      [3, 80],
+      [1, 81],
+    ]),
+  );
   near(shuffled.latest.trendKg, 80.0419, 0.006);
   assert.deepEqual(
     shuffled.points.map((p) => p.date),
@@ -177,7 +241,11 @@ test('smoothing: the first entry seeds the trend, entries may come in any order'
 
 test('display: the trend shows from 5 entries spanning at least 7 days, not before', () => {
   assert.equal(run(line([0, 2, 4, 6], 80, 0)).showTrend, false, '4 entries over 6 days');
-  assert.equal(run(line([0, 1, 2, 3, 4, 5, 6], 80, 0)).showTrend, false, '7 entries over only 6 days');
+  assert.equal(
+    run(line([0, 1, 2, 3, 4, 5, 6], 80, 0)).showTrend,
+    false,
+    '7 entries over only 6 days',
+  );
   assert.equal(run(line([0, 2, 4, 6, 7], 80, 0)).showTrend, true, '5 entries over 7 days');
   assert.equal(run(line([0, 1, 2, 3, 4, 5, 6, 7], 80, 0)).showTrend, true);
   assert.equal(run(line([0, 7], 80, 0)).showTrend, false, '2 entries over 7 days');
@@ -187,7 +255,11 @@ test('display: the trend shows from 5 entries spanning at least 7 days, not befo
 test('rate: shows from 6 entries spanning at least 14 days (in the 28-day window), not before', () => {
   assert.equal(run(line([0, 3, 6, 9, 14], 80, 0)).weeklyRateKg, null, '5 entries over 14 days');
   assert.equal(run(line([0, 3, 6, 9, 12, 13], 80, 0)).weeklyRateKg, null, '6 entries over 13 days');
-  assert.notEqual(run(line([0, 3, 6, 9, 12, 14], 80, 0)).weeklyRateKg, null, '6 entries over 14 days');
+  assert.notEqual(
+    run(line([0, 3, 6, 9, 12, 14], 80, 0)).weeklyRateKg,
+    null,
+    '6 entries over 14 days',
+  );
 });
 
 test('rate: least-squares slope of the raw readings times 7, worked by hand', () => {
@@ -195,7 +267,16 @@ test('rate: least-squares slope of the raw readings times 7, worked by hand', ()
   // mean x 7.5, mean y 79.25 ; dx -7.5 -4.5 -1.5 1.5 4.5 7.5 ; dy .75 1.25 -.25 .25 -1.25 -.75
   // sxy = -5.625 -5.625 +.375 +.375 -5.625 -5.625 = -21.75 ; sxx = 2 * (56.25 + 20.25 + 2.25) = 157.5
   // slope = -0.138095 a day -> x 7 = -0.9667 kg a week
-  const r = run(at([[0, 80], [3, 80.5], [6, 79], [9, 79.5], [12, 78], [15, 78.5]]));
+  const r = run(
+    at([
+      [0, 80],
+      [3, 80.5],
+      [6, 79],
+      [9, 79.5],
+      [12, 78],
+      [15, 78.5],
+    ]),
+  );
   near(r.weeklyRateKg, -0.97, 0.011);
   // A clean line: 0.1 kg a day down is exactly -0.7 a week.
   near(run(line([0, 3, 6, 9, 12, 15], 80, -0.1)).weeklyRateKg, -0.7, 0.011);
@@ -204,7 +285,10 @@ test('rate: least-squares slope of the raw readings times 7, worked by hand', ()
 
 test('rate: only the last 28 days count (an old heavy reading does not move it)', () => {
   const recent = line([0, 3, 6, 9, 12, 15], 80, -0.1); // -0.7 a week
-  const old = at([[-40, 95], [-38, 94]]); // far outside the window
+  const old = at([
+    [-40, 95],
+    [-38, 94],
+  ]); // far outside the window
   near(run([...old, ...recent]).weeklyRateKg, -0.7, 0.011);
   // The window is 28 days back from the latest reading: entries at -20 and -10 relative to the latest are inside.
   const wide = line([0, 5, 10, 15, 20, 25, 28], 90, -0.2); // inside 28 days, slope -0.2 a day = -1.4 a week
@@ -239,7 +323,11 @@ test('suggest: the rate must differ from the goal pace by MORE than 0.25 kg a we
   assert.equal(run(small).suggestion, null, 'difference 0.20');
   // Gain goal 0.25 a week, weight flat: the difference is exactly 0.25, which is not more than 0.25.
   const flat = line(range(0, 22, 2), 80, 0);
-  assert.equal(run(flat, { goal: 'gain', rateKgPerWeek: 0.25 }).suggestion, null, 'difference exactly 0.25');
+  assert.equal(
+    run(flat, { goal: 'gain', rateKgPerWeek: 0.25 }).suggestion,
+    null,
+    'difference exactly 0.25',
+  );
   // Gaining 0.30 against maintain is a suggestion.
   assert.ok(run(line(range(0, 22, 2), 80, 0.3 / 7)).suggestion, 'difference 0.30');
 });
@@ -289,15 +377,27 @@ test('rails: a suggestion never goes under the floor (rounded down to 50, 2400 -
   assert.equal(run(GAIN_035, { kcal: 2400, floorKcal: 2300 }).suggestion.newKcal, 2300);
   // At the floor already: the rails leave no room, so no suggestion.
   assert.equal(run(GAIN_035, { kcal: 2400, floorKcal: 2400 }).suggestion, null);
-  assert.equal(run(GAIN_035, { kcal: 2400, floorKcal: 2380 }).suggestion, null, 'room under one step');
+  assert.equal(
+    run(GAIN_035, { kcal: 2400, floorKcal: 2380 }).suggestion,
+    null,
+    'room under one step',
+  );
 });
 
 test('rails: a suggestion never goes over the surplus ceiling', () => {
   const flat = line(range(0, 22, 2), 80, 0);
   const gain = { goal: 'gain', rateKgPerWeek: 0.5 }; // flat weight against +0.5: wants +200
   assert.equal(run(flat, { ...gain, kcal: 2800, ceilingKcal: 3100 }).suggestion.newKcal, 3000);
-  assert.equal(run(flat, { ...gain, kcal: 2800, ceilingKcal: 2900 }).suggestion.newKcal, 2900, 'only +100 fits');
-  assert.equal(run(flat, { ...gain, kcal: 2800, ceilingKcal: 2800 }).suggestion, null, 'already at the cap');
+  assert.equal(
+    run(flat, { ...gain, kcal: 2800, ceilingKcal: 2900 }).suggestion.newKcal,
+    2900,
+    'only +100 fits',
+  );
+  assert.equal(
+    run(flat, { ...gain, kcal: 2800, ceilingKcal: 2800 }).suggestion,
+    null,
+    'already at the cap',
+  );
 });
 
 test('suggestRails: deficit caps and floor, worked by hand (25% of TDEE, 1000 kcal, 1% of body weight a week)', () => {
@@ -358,7 +458,11 @@ test('fast loss: never beyond the never-list and never over the ceiling', () => 
   assert.equal(run(e, { ...ctx, flags: ['eating_disorder'] }).suggestion, null);
   assert.equal(run(e, { ...ctx, kcal: null }).suggestion, null);
   assert.equal(run(e, { ...ctx, ceilingKcal: 1900 }).suggestion, null, 'no room above');
-  assert.equal(run(e, { ...ctx, ceilingKcal: 1960 }).suggestion.newKcal, 1950, 'only one step fits');
+  assert.equal(
+    run(e, { ...ctx, ceilingKcal: 1960 }).suggestion.newKcal,
+    1950,
+    'only one step fits',
+  );
 });
 
 // ------------------------------------------------------------------ 14.3.1 cooldown and snooze
@@ -382,9 +486,17 @@ test('snooze: "Not now" hides the suggestion for 14 days', () => {
 
 test('cooldown and snooze are independent: a long-ago change does not lift a fresh snooze, and vice versa', () => {
   const today = last(GAIN_035);
-  assert.equal(run(GAIN_035, { changedOn: plus(today, -60), dismissedOn: plus(today, -3) }).suggestion, null);
-  assert.equal(run(GAIN_035, { changedOn: plus(today, -3), dismissedOn: plus(today, -60) }).suggestion, null);
-  assert.ok(run(GAIN_035, { changedOn: plus(today, -60), dismissedOn: plus(today, -60) }).suggestion);
+  assert.equal(
+    run(GAIN_035, { changedOn: plus(today, -60), dismissedOn: plus(today, -3) }).suggestion,
+    null,
+  );
+  assert.equal(
+    run(GAIN_035, { changedOn: plus(today, -3), dismissedOn: plus(today, -60) }).suggestion,
+    null,
+  );
+  assert.ok(
+    run(GAIN_035, { changedOn: plus(today, -60), dismissedOn: plus(today, -60) }).suggestion,
+  );
 });
 
 // ------------------------------------------------------------------ 14.4 never suggest
@@ -522,7 +634,8 @@ test('store: pregnant and eating_disorder profiles never get a suggestion; skipp
 
 test('store: Ramadan mode on means no suggestion', (t) => {
   const { store } = weightStore();
-  if (typeof store.setRamadanMode !== 'function') return t.todo('store.setRamadanMode is not built yet');
+  if (typeof store.setRamadanMode !== 'function')
+    return t.todo('store.setRamadanMode is not built yet');
   assert.ok(store.weightTrend().suggestion, 'baseline');
   store.setRamadanMode({ on: true, startDate: '2026-10-14' });
   assert.equal(store.weightTrend().suggestion, null);

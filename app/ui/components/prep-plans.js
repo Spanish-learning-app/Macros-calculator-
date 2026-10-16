@@ -98,7 +98,7 @@ function planCard(plan, { store, notes, onChange, monday, friday }) {
         ? h(
             'span',
             { 'data-testid': 'plan-cost' },
-            `${euro(plan.tillEur)} at the till${plan.priceDate ? ` · prices from ${fmtDateShort(plan.priceDate)}` : ''}`,
+            `${euro(plan.tillEur)} at the till${Number.isFinite(plan.eatenEur) ? ` (${euro(plan.eatenEur)} of it eaten this week)` : ''}${plan.priceDate ? ` · prices from ${fmtDateShort(plan.priceDate)}` : ''}`,
           )
         : null,
       Number.isFinite(plan.sundayMinutes)
