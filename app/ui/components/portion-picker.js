@@ -16,6 +16,7 @@ import {
   fmtQty,
   parseQty,
   unitName,
+  pluralUnit,
   servingOf,
   defaultServingOf,
   portionNutrients,
@@ -422,7 +423,9 @@ export function openPortionPicker(props) {
         : { ...scaledSnapshot(entry, qty), grams: null };
       const serving = food ? servingOf(food, servingId) : null;
       const what =
-        food && serving && servingId !== 'g' ? `${fmtQty(qty)} ${unitName(serving)} = ` : '';
+        food && serving && servingId !== 'g'
+          ? `${fmtQty(qty)} ${pluralUnit(unitName(serving), qty)} = `
+          : '';
       preview.replaceChildren(
         h(
           'p',
