@@ -48,21 +48,20 @@ export default {
   method: {
     equipment: ['Pot for 4 eggs (if you have none boiled)', 'Grater', 'Bowl and fork', 'Can opener', '2 lunch boxes'],
     prep: [
-      'Dice the cucumber (160 g) into 1 cm cubes. Peel and grate the carrot (120 g). Chop the red onion (20 g) small and the coriander (6 g).',
+      'Dice the cucumber (160 g) into 1 cm cubes. Peel and grate {{n:carrot}}. Chop the red onion (20 g) small and the coriander (6 g).',
       'If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.',
     ],
     steps: [
-      { text: 'No cooking for the salad. Open the 3 cans of salmon (240 g), drain them and flake the fish into the bowl with the fork.', heat: 'none' },
+      { text: 'No cooking: only the eggs are boiled (skip it if you have eggs boiled in the last 3 days) and the rice cup is warmed at lunch. Open the 3 cans of salmon (240 g), drain them and flake the fish into the bowl with the fork.', heat: 'none' },
       { text: 'Halve the avocado (you need ½, 100 g). Dice the flesh into 1 cm cubes and add it straight away with 2 tbsp lemon juice (30 g), which stops it browning.', heat: 'none' },
       { text: 'Add the cucumber, carrot, onion, coriander and black pepper (1 g). Mix gently.', heat: 'none' },
-      { text: 'Put half the salad in each box with 2 halved eggs. Put 1 sealed rice cup (125 g) next to each box.', heat: 'none' },
+      { text: 'Put half the salad in each box with 2 halved eggs. Put 1 sealed rice cup (125 g) next to each box.', heat: 'none', pack: true },
       { text: 'At lunch: pierce the film of the rice cup and microwave it 40 seconds (800 W). Tip it into the box and mix, or eat the rice cold.', heat: 'microwave', minutes: 1 },
     ],
-    boxUp: 'Straight into the fridge. The salmon salad keeps 2 days and the eggs 3 days; make 2 boxes on Sunday or Tuesday night. Do not freeze. The rice cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked rice does not apply.',
+    boxUp: 'Straight into the fridge. {{split}} Make 2 boxes on Sunday or Tuesday night. The rice cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked rice does not apply.',
     reheat: 'Only the sealed rice cup goes in the microwave (40 seconds, pierced). The fish and eggs are eaten cold.',
   },
-  keeps: '2 days in the fridge; do not freeze',
-  storagePlan: 'Salmon salad keeps 2 days, eggs 3 days; the rice cup stays sealed (cupboard-stable) until lunch, which avoids the 1-day rule for cooked rice. Make 2 boxes on Sunday or Tuesday night.',
+  storagePlan: 'Salmon salad keeps 2 days, eggs 3 days. {{split}} The rice cup stays sealed (cupboard-stable) until lunch, which avoids the 1-day rule for cooked rice. Make 2 boxes on Sunday or Tuesday night.',
   reheat: 'Only the sealed rice cup goes in the microwave (40 s at 800 W, pierced). The fish and egg are eaten cold.',
   crossCheck: null,
   changes: [

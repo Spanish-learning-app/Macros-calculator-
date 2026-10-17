@@ -32,6 +32,17 @@ The Manager (Omar) checks this file at every review meeting and before every rep
 
 ## Log
 
+### M-17 · 2026-10-16 (found by Bilal, Review 3) · Yusuf, Omar · `timeNote` written for 10 recipes, shown nowhere (M-01 again)
+- **What happened:**
+  - Yusuf added a `timeNote` (for example "plus a 4-hour marinade") to 10 recipes on 10-16.
+  - No screen reads the field, so the chicken tikka card says "40 min" with no word about the marinade.
+  - My orphan check that night ran before the field existed, and nobody re-ran it.
+- **Root cause:** a new data field was added without a UI owner or a check that someone reads it.
+- **Fix:** Lena shows it (or Yusuf folds it into the honest total time), and the R3 fix wave covers it.
+- **Rule:**
+  - Every new Lab field needs a named consumer (a screen) in the same task; otherwise it doesn't ship.
+  - The orphan check runs again before every report, not only once.
+
 ### M-16 · 2026-10-16 (found by Ayesha's review) · Yusuf · Light mozzarella linked to the full-fat record (M-09 repeat)
 - **What happened:** three new preps use light mozzarella in the recipe, but the build mapped it to the full-fat mozzarella record. Ayesha says the shown numbers are still within tolerance because Yusuf's label values were used for those lines. The link was still wrong. Separately, two "halal" preps linked the soy-sauce record that is `check`.
 - **Root cause:** the build's ingredient → record map falls back to the nearest existing record when the exact product has none, and nobody saw it.

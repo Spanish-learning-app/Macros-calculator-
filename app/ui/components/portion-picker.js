@@ -6,7 +6,7 @@
 // - Live grams and nutrients before adding; inline errors for 0, empty and negative (no pop-up).
 // - The style switch (home / restaurant / dhaba) keeps the serving and quantity (A9).
 // - "Source and details" opens in one tap (A9, A14).
-import { h, uid, setText } from '../dom.js';
+import { h, uid, setText, mountChildren } from '../dom.js';
 import { iconEl, measureDrawing } from './icons.js';
 import { halalChip, estimateBadge, urduName, kamTelLine } from './food-bits.js';
 import { openFoodDetails } from './food-details.js';
@@ -382,7 +382,10 @@ export function openPortionPicker(props) {
     const grams = servingId === 'g';
     fractionBox.hidden = !food && grams;
     if (food || !grams) {
-      fractionBox.replaceChildren(
+      // mountChildren, not replaceChildren: a missing "Thora sa" chip is null, and the DOM's own
+      // replaceChildren printed it as the word "null" (Nasreen R3 #1, recipe picker).
+      mountChildren(
+        fractionBox,
         food && props.showSlot !== false && !tasteChipHidden(food, rules)
           ? tasteChip(parsed)
           : null,

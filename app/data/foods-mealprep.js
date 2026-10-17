@@ -347,7 +347,7 @@ export default [
       reason: 'Fish and plant foods only; tuna label: tuna, water, salt (checked 2026-10-13).',
     },
     source: {
-      citation: 'Recipe R-MP-10: Chickpea and tuna salad with egg, standard batch of 4 boxes (research/yusuf/recipes/es-garbanzos-atun-salad-box.md)',
+      citation: 'Recipe R-MP-10: Chickpea and tuna salad with egg, standard batch of 2 boxes (research/yusuf/recipes/es-garbanzos-atun-salad-box.md)',
       method: 'recipe',
       confidence: 'B',
       reviewer: 'ayesha',
@@ -867,7 +867,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 10 min for 3). Labels, prices and table values read 2026-10-14. 1 jar = 348 g = 400 kcal, 26.4 g protein, 10.8 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 7 min for 3). Labels, prices and table values read 2026-10-14. 1 jar = 348 g = 400 kcal, 26.4 g protein, 10.8 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -896,7 +896,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 12 min for 3). Labels, prices and table values read 2026-10-14. 1 portion = 439 g = 505 kcal, 28.5 g protein, 6.6 g fibre. Eat hot or cold; use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 10 min for 3). Labels, prices and table values read 2026-10-14. 1 portion = 439 g = 505 kcal, 28.5 g protein, 6.6 g fibre. Eat hot or cold; use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -975,7 +975,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 12 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 671 g = 590 kcal, 45.6 g protein, 18.1 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 10 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 671 g = 590 kcal, 45.6 g protein, 18.1 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1010,7 +1010,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 12 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 564 g = 654 kcal, 40.0 g protein, 9.6 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 8 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 564 g = 654 kcal, 40.0 g protein, 9.6 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1048,7 +1048,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 12 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 496 g = 734 kcal, 47.1 g protein, 9.4 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 9 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 496 g = 734 kcal, 47.1 g protein, 9.4 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1077,7 +1077,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 10 min for 1). Labels, prices and table values read 2026-10-14. 1 box = 623 g = 723 kcal, 41.1 g protein, 13.1 g fibre. Eat hot or cold; use-by 1 day in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 8 min for 1). Labels, prices and table values read 2026-10-14. 1 box = 623 g = 723 kcal, 41.1 g protein, 13.1 g fibre. Eat hot or cold; use-by 1 day in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1116,7 +1116,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 10 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 673 g = 606 kcal, 38.4 g protein, 15.5 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 7 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 673 g = 606 kcal, 38.4 g protein, 15.5 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1223,7 +1223,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 10 min for 2). Labels, prices and table values read 2026-10-14. 1 portion = 619 g = 669 kcal, 39.0 g protein, 14.2 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 7 min for 2). Labels, prices and table values read 2026-10-14. 1 portion = 619 g = 669 kcal, 39.0 g protein, 14.2 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1261,7 +1261,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 8 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 326 g = 274 kcal, 15.6 g protein, 7.5 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 4 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 326 g = 274 kcal, 15.6 g protein, 7.5 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1287,7 +1287,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 8 min for 3). Labels, prices and table values read 2026-10-14. 1 jar = 275 g = 223 kcal, 20.4 g protein, 7.4 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 11 min for 3). Labels, prices and table values read 2026-10-14. 1 jar = 275 g = 223 kcal, 20.4 g protein, 7.4 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1327,7 +1327,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 10 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 319 g = 258 kcal, 22.0 g protein, 9.9 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 7 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 319 g = 258 kcal, 22.0 g protein, 9.9 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1366,7 +1366,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 12 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 671 g = 584 kcal, 47.0 g protein, 18.1 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 10 min for 2). Labels, prices and table values read 2026-10-14. 1 box = 671 g = 584 kcal, 47.0 g protein, 18.1 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1403,7 +1403,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (20 min hands-on for 2; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 482 g = 709 kcal, 49.2 g protein, 9.2 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (30 min hands-on for 2; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 482 g = 709 kcal, 49.2 g protein, 9.2 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1441,7 +1441,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (no-cook, 10 min hands-on for 2; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 497 g = 666 kcal, 44.2 g protein, 9.9 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (no-cook, 13 min hands-on for 2; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 497 g = 666 kcal, 44.2 g protein, 9.9 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1478,7 +1478,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 486 g = 685 kcal, 48.1 g protein, 9.2 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (15 min hands-on for 4; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 486 g = 685 kcal, 48.1 g protein, 9.2 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1550,7 +1550,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (30 min hands-on for 4; cuisine italian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 534 g = 609 kcal, 40.1 g protein, 14.4 g fibre. Eat hot (microwave); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine italian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 534 g = 609 kcal, 40.1 g protein, 14.4 g fibre. Eat hot (microwave); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1622,7 +1622,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (20 min hands-on for 4; cuisine italian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 574 g = 585 kcal, 37.9 g protein, 17.8 g fibre. Eat hot or cold; use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine italian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 574 g = 585 kcal, 37.9 g protein, 17.8 g fibre. Eat hot or cold; use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1724,7 +1724,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (20 min hands-on for 4; cuisine mexican). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 522 g = 590 kcal, 47.5 g protein, 13.1 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine mexican). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 522 g = 590 kcal, 47.5 g protein, 13.1 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1762,7 +1762,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine asian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 661 g = 615 kcal, 44.3 g protein, 9.3 g fibre. Eat hot (microwave); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (30 min hands-on for 4; cuisine asian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 661 g = 615 kcal, 44.3 g protein, 9.3 g fibre. Eat hot (microwave); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1796,7 +1796,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (20 min hands-on for 4; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 535 g = 599 kcal, 46.5 g protein, 16.1 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 535 g = 599 kcal, 46.5 g protein, 16.1 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1830,7 +1830,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (15 min hands-on for 2; cuisine mediterranean). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 527 g = 611 kcal, 35.3 g protein, 10.0 g fibre. Eat hot (microwave); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (14 min hands-on for 2; cuisine mediterranean). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 527 g = 611 kcal, 35.3 g protein, 10.0 g fibre. Eat hot (microwave); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1929,7 +1929,7 @@ export default [
       confidence: 'C',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (30 min hands-on for 4; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 709 g = 659 kcal, 46.1 g protein, 18.4 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (20 min hands-on for 4; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 709 g = 659 kcal, 46.1 g protein, 18.4 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1966,7 +1966,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine italian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 518 g = 549 kcal, 47.1 g protein, 13.0 g fibre. Eat hot (microwave); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (20 min hands-on for 4; cuisine italian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 518 g = 549 kcal, 47.1 g protein, 13.0 g fibre. Eat hot (microwave); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -2004,7 +2004,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (no-cook, 8 min hands-on for 2; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 628 g = 710 kcal, 33.3 g protein, 16.3 g fibre. Eat hot (microwave); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (no-cook, 13 min hands-on for 2; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 628 g = 710 kcal, 33.3 g protein, 16.3 g fibre. Eat hot (microwave); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -2042,7 +2042,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (no-cook, 8 min hands-on for 2; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 329 g = 428 kcal, 26.0 g protein, 6.9 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (no-cook, 13 min hands-on for 2; cuisine spanish). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 329 g = 428 kcal, 26.0 g protein, 6.9 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -2079,7 +2079,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (20 min hands-on for 4; cuisine international). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 307 g = 519 kcal, 31.3 g protein, 5.2 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (11 min hands-on for 4; cuisine international). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 307 g = 519 kcal, 31.3 g protein, 5.2 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -2108,7 +2108,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (no-cook, 5 min hands-on for 1; cuisine international). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 jar = 506 g = 516 kcal, 34.9 g protein, 8.1 g fibre. Eat cold (no microwave needed); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (no-cook, 7 min hands-on for 1; cuisine international). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 jar = 506 g = 516 kcal, 34.9 g protein, 8.1 g fibre. Eat cold (no microwave needed); use-by 1 day in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -2142,7 +2142,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (15 min hands-on for 2; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 429 g = 485 kcal, 26.6 g protein, 6.4 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (25 min hands-on for 2; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 429 g = 485 kcal, 26.6 g protein, 6.4 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -2170,7 +2170,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (15 min hands-on for 2; cuisine mexican). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 379 g = 512 kcal, 29.9 g protein, 13.3 g fibre. Eat hot (microwave); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (13 min hands-on for 2; cuisine mexican). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 379 g = 512 kcal, 29.9 g protein, 13.3 g fibre. Eat hot (microwave); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -2208,7 +2208,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (no-cook, 5 min hands-on for 2; cuisine italian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 269 g = 239 kcal, 20.7 g protein, 3.5 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (no-cook, 6 min hands-on for 2; cuisine italian). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 269 g = 239 kcal, 20.7 g protein, 3.5 g fibre. Eat cold (no microwave needed); use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
 ];

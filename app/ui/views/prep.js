@@ -39,6 +39,7 @@ import {
   cuisineLabel,
   matchesCuisine,
   halalSwapOf,
+  amountsText,
 } from '../components/prep-bits.js';
 import { amountText } from '../components/ingredient-sheet.js';
 import { savedMealLine } from '../components/add-sheet.js';
@@ -50,6 +51,7 @@ import {
   recipeAbout,
 } from '../components/recipe-method.js';
 import { plansSection, readySection } from '../components/prep-plans.js';
+import { takePrepIntent } from '../components/prep-intent.js';
 
 const SLOT_ORDER = ['breakfast', 'lunch', 'dinner', 'snacks', 'evening'];
 
@@ -86,7 +88,7 @@ export function mount(container, ctx) {
     h(
       'p',
       { class: 'muted prep-lead' },
-      'A batch is food you cook once and split into boxes (or jars): each box is one meal, for any day. “Cook” needs the hob or oven; “Make” needs no cooking.',
+      'A batch is food you cook once and split into boxes (or jars): each box is one meal, for any day. “Cook” needs the hob or oven; “Make” is mostly putting it together (at most a few minutes, such as boiling eggs).',
     ),
     notices,
     batchesBox,
@@ -108,48 +110,64 @@ export function mount(container, ctx) {
     );
   }
 
-  /** "What you need" lines for one standard batch. */
-  function ingredientLines(recipeId) {
+  /** The boxes the recipe's amounts are for (a family pot: its katori). */
+  function baseBoxes(recipeId) {
+    const own = store.recipe(recipeId);
+    if (own?.potKatori > 0) return own.potKatori;
+    return recipeOf(recipeId)?.boxes ?? 1;
+  }
+
+  /**
+   * "What you need" lines: for the standard batch, or for `boxes` (Nasreen R3 #2: the amounts
+   * follow what you cook; "for 5" says so in the summary).
+   */
+  function ingredientLines(recipeId, boxes = null) {
+    const f = boxes ? boxes / baseBoxes(recipeId) : 1;
+    const g = (grams) => `${fmtGrams(Math.round(grams * f))}\u00a0g`;
     const own = store.recipe(recipeId);
     if (own) {
       return store.recipeTotals(own).lines.map((line) => {
-        const f = store.food(line.foodId);
-        const serving = f ? servingOf(f, line.servingId) : null;
-        return `${f?.name ?? line.foodId} · ${serving ? amountText(serving, line.qty) : `${fmtGrams(line.grams)}\u00a0g`}`;
+        const food = store.food(line.foodId);
+        const serving = food ? servingOf(food, line.servingId) : null;
+        return `${food?.name ?? line.foodId} · ${serving && f === 1 ? amountText(serving, line.qty) : g(line.grams)}`;
       });
     }
     return (recipeOf(recipeId)?.ingredients ?? []).map(
-      (ing) =>
-        `${ing.name ?? store.food(ing.foodId)?.name ?? ing.foodId} · ${fmtGrams(ing.grams)}\u00a0g`,
+      (ing) => `${ing.name ?? store.food(ing.foodId)?.name ?? ing.foodId} · ${g(ing.grams)}`,
     );
   }
 
-  /** "Amounts are for 4 boxes." (the steps' amounts are for the standard batch). */
-  function amountsNote(recipeId) {
+  /** "Amounts are for 4 boxes." and, for another number, how to scale (the steps keep the recipe's). */
+  function amountsNote(recipeId, boxes = null) {
     const food = store.food(recipeId);
     const r = recipeOf(recipeId);
-    if (!food || !r || store.recipe(recipeId)?.potKatori) return null;
-    return `Amounts are for ${plural(r.boxes ?? 1, boxWord(food, rules))}.`;
+    if (!food || !r) return null;
+    const base = baseBoxes(recipeId);
+    if (store.recipe(recipeId)?.potKatori && (!boxes || boxes === base)) return null;
+    return amountsText(base, boxes ?? base, boxWord(food, rules));
   }
 
-  function showMethod(recipeId, { cook = false } = {}) {
+  function showMethod(recipeId, { cook = false, boxes = null } = {}) {
     const food = store.food(recipeId);
     const method = methodOf(recipeOf(recipeId));
     if (!food || !method) return;
-    const verb =
-      !store.recipe(recipeId) && effortOf(recipeOf(recipeId)) !== 'cook' ? 'Make' : 'Cook';
+    const scaled = boxes && boxes !== baseBoxes(recipeId) ? boxes : null;
     openMethodDialog({
       title: displayName(food),
       method,
-      ingredients: ingredientLines(recipeId),
-      note: amountsNote(recipeId),
-      action: cook ? { label: `${verb} a batch`, onSelect: () => openCook(recipeId) } : null,
+      ingredients: ingredientLines(recipeId, scaled),
+      ingredientsFor: scaled ? plural(scaled, boxWord(food, rules)) : null,
+      note: amountsNote(recipeId, scaled),
+      stepKey: recipeId,
+      action: cook
+        ? { label: `${cookVerb(recipeId)} a batch`, onSelect: () => openCook(recipeId) }
+        : null,
       about: store.recipe(recipeId) ? null : recipeAbout(recipeOf(recipeId)),
     });
   }
 
   /** The small "How to make it" button on a row or card; null when the recipe has no method. */
-  function methodLink(recipeId, testid, label = 'How to make it') {
+  function methodLink(recipeId, testid, label = 'How to make it', boxes = null) {
     const r = recipeOf(recipeId);
     if (!methodOf(r)) return null;
     return h(
@@ -158,7 +176,7 @@ export function mount(container, ctx) {
         type: 'button',
         class: 'link-btn method-link',
         'data-testid': testid,
-        onclick: () => showMethod(recipeId, { cook: testid === 'library-method' }),
+        onclick: () => showMethod(recipeId, { cook: testid === 'library-method', boxes }),
       },
       typeof r.method === 'string' ? 'My method' : label,
     );
@@ -166,20 +184,28 @@ export function mount(container, ctx) {
 
   // ------------------------------------------------------------------ cook a batch
 
+  /** 'Make' for a library prep that needs no hob or oven, else 'Cook'. */
+  function cookVerb(recipeId) {
+    const lib = store.library().find((l) => l.food.id === recipeId);
+    return !store.recipe(recipeId) && lib && effortOf(lib.recipe) !== 'cook' ? 'Make' : 'Cook';
+  }
+
   function openCook(recipeId) {
     const food = store.food(recipeId);
     if (!food) return;
     const word = boxWord(food, rules);
-    const userRecipe = store.recipe(recipeId);
-    const lib = store.library().find((l) => l.food.id === recipeId);
-    let boxes = userRecipe?.boxes ?? lib?.recipe?.boxes ?? 4;
-    const makeVerb = !userRecipe && effortOf(lib?.recipe) !== 'cook' ? 'Make' : 'Cook';
+    // A family pot opens on its katori (Nasreen R3 #7); a plan's weekday job on what is still
+    // planned with no box (Mariam: the plan says ×1, the dialog said 2).
+    const waiting = plannedWithoutBox(recipeId);
+    let boxes = waiting || baseBoxes(recipeId) || 4;
+    const makeVerb = cookVerb(recipeId);
     let plan = store.planFor(recipeId, boxes);
     let storage = [...plan.storage];
     const per = portionNutrients(food, defaultServingOf(food).id, 1);
     const halal = halalBadge(food, rules);
     const countOut = h('output', { class: 'boxes-count', 'data-testid': 'cook-boxes' });
     const boxesList = h('ul', { class: 'cook-boxes', role: 'list' });
+    const scaleNote = h('p', { class: 'muted method-note', 'data-testid': 'cook-amounts' });
     const keepNote = h('p', { class: 'field-help' });
     // "Cooked on" as three chips in the app's own date words (Priya's note 5: the native date
     // input showed US order). A batch is cooked yesterday, today or (planned) tomorrow.
@@ -221,10 +247,7 @@ export function mount(container, ctx) {
           storage,
         });
         handle.close('done');
-        batchNotes.set(
-          batchId,
-          `Cooked ${plural(boxes, word)}. Now place them on the days you’ll eat them.`,
-        );
+        batchNotes.set(batchId, cookedNote(batchId, boxes, word, makeVerb));
         render();
         container
           .querySelector(`[data-batch-id="${CSS.escape(batchId)}"]`)
@@ -235,6 +258,8 @@ export function mount(container, ctx) {
     function renderBoxes() {
       setText(countOut, String(boxes));
       setText(cookBtn, `${makeVerb} ${plural(boxes, word)}`);
+      setText(scaleNote, boxes === baseBoxes(recipeId) ? '' : (amountsNote(recipeId, boxes) ?? ''));
+      scaleNote.hidden = !scaleNote.textContent;
       const days = plan.fridgeDays;
       setText(
         keepNote,
@@ -270,6 +295,7 @@ export function mount(container, ctx) {
             plan = store.planFor(recipeId, boxes);
             storage = [...plan.storage];
             renderBoxes();
+            dialogMethod?.renderNeed?.();
           },
         },
         iconEl(dir > 0 ? 'plus' : 'minus'),
@@ -297,37 +323,110 @@ export function mount(container, ctx) {
             h('div', { class: 'stepper' }, step(-1), countOut, step(1)),
           ),
         ),
+        scaleNote,
         h('div', { class: 'field' }, h('span', { class: 'field-label' }, 'Cooked'), dateChips),
         h('h3', { class: 'group-title' }, 'Fridge or freezer'),
         keepNote,
         boxesList,
-        cookMethod(recipeId),
+        cookMethod(recipeId, () => boxes),
       ],
       actions: cookBtn,
     });
+    const dialogMethod = handle.dialog?.querySelector?.('[data-testid="cook-method"]') ?? null;
     renderDates();
     renderBoxes();
   }
 
-  /** "How to make it" folded inside the Cook / Make dialog (open it while cooking). */
-  function cookMethod(recipeId) {
+  /**
+   * "How to make it" folded inside the Cook / Make dialog (open it while cooking). "What you need"
+   * lists the amounts for the boxes chosen, and step mode carries the amounts line (Nasreen R3 #2;
+   * the dialog's own line under the box count says how to scale).
+   */
+  function cookMethod(recipeId, boxesNow) {
     const method = methodOf(recipeOf(recipeId));
     if (!method) return null;
     const food = store.food(recipeId);
-    return h(
+    const need = h('div', { class: 'cook-need' });
+    const block = renderMethod(method, {
+      heading: false,
+      note: amountsNote(recipeId),
+      onSteps: () =>
+        openStepMode({
+          title: displayName(food),
+          method,
+          note: amountsNote(recipeId, boxesNow()),
+          key: recipeId,
+        }),
+    });
+    const details = h(
       'details',
-      { class: 'cook-method', 'data-testid': 'cook-method' },
+      {
+        class: 'cook-method',
+        'data-testid': 'cook-method',
+        ontoggle: () => {
+          if (details.open) renderNeed();
+        },
+      },
       h(
         'summary',
         { class: 'cook-method-summary' },
         method.kind === 'text' ? 'My method' : 'How to make it',
       ),
-      renderMethod(method, {
-        heading: false,
-        note: amountsNote(recipeId),
-        onSteps: () => openStepMode({ title: displayName(food), method }),
-      }),
+      need,
+      block,
     );
+    function renderNeed() {
+      const n = boxesNow();
+      const lines = ingredientLines(recipeId, n);
+      mountChildren(
+        need,
+        lines.length && method.kind !== 'text'
+          ? h(
+              'div',
+              { class: 'method-part', 'data-testid': 'cook-need' },
+              h(
+                'h4',
+                { class: 'method-h' },
+                `What you need for ${plural(n, boxWord(food, rules))}`,
+              ),
+              h(
+                'ul',
+                { class: 'method-list', role: 'list' },
+                lines.map((t) => h('li', null, t)),
+              ),
+            )
+          : null,
+      );
+    }
+    renderNeed();
+    details.renderNeed = renderNeed;
+    return details;
+  }
+
+  /** Planned rows of this dish from today on with no box behind them (a plan's weekday jobs). */
+  function plannedWithoutBox(recipeId) {
+    let n = 0;
+    for (let i = 0; i < 8; i += 1) {
+      const d = addDays(store.today(), i);
+      n += store
+        .day(d)
+        .entries.filter((e) => e.foodId === recipeId && !e.boxRef && e.status === 'planned').length;
+    }
+    return n;
+  }
+
+  /** After cooking: where the boxes went (R3-A: planned rows take their box), else what to do. */
+  function cookedNote(batchId, boxes, word, verb) {
+    const batch = store.batch(batchId);
+    const placed = (batch?.boxes ?? []).filter((b) => b.placed);
+    const done = `${verb === 'Make' ? 'Made' : 'Cooked'} ${plural(boxes, word)}.`;
+    if (!placed.length) return `${done} Now place them on the days you’ll eat them.`;
+    const where = placed.map((b) => {
+      const e = store.day(b.placed.date).entries.find((x) => x.id === b.placed.entryId);
+      return `${store.slotLabel(e?.slot ?? 'lunch')} ${dayText(b.placed.date, store.today())}`;
+    });
+    const rest = boxes - placed.length;
+    return `${done} ${placed.length === 1 ? 'It is' : 'They are'} in your plan: ${where.join(', ')}.${rest > 0 ? ` Place the other ${plural(rest, word)} on the days you’ll eat them.` : ''}`;
   }
 
   // ------------------------------------------------------------------ batches
@@ -477,7 +576,7 @@ export function mount(container, ctx) {
           : null,
       ),
       halal.reason,
-      methodLink(batch.recipeId, 'batch-method'),
+      methodLink(batch.recipeId, 'batch-method', 'How to make it', total),
       h(
         'ul',
         { class: 'box-list', role: 'list' },
@@ -682,53 +781,124 @@ export function mount(container, ctx) {
         body,
         status,
       ],
-      actions: h(
-        'button',
-        {
-          type: 'button',
-          class: 'btn btn-primary',
-          'data-testid': 'shopping-copy',
-          onclick: async () => {
-            const t = text();
-            if (!t) return;
-            const ok = await copyText(t, status);
-            if (ok)
-              status.replaceChildren(
-                h(
-                  'p',
-                  { class: 'prep-note prep-note--info' },
-                  'Copied. Paste it into your notes or a chat.',
-                ),
-              );
-          },
-        },
-        iconEl('copy', 18),
-        h('span', null, 'Copy list'),
-      ),
+      actions: copyButton('shopping-copy', text, status),
     });
     renderList();
   }
 
-  /** One list for this week's batches, merged by food (Review 2, Mariam #1, Bilal #4). */
+  /**
+   * "Copy list" that says so where you are looking (Mariam R3 should-fix 7): the button reads
+   * "Copied" for a few seconds, and the line under the list says what to do next.
+   */
+  function copyButton(testid, getText, status) {
+    const label = h('span', null, 'Copy list');
+    const icon = h('span', { class: 'copy-icon', 'aria-hidden': 'true' }, iconEl('copy', 18));
+    let timer = null;
+    const btn = h(
+      'button',
+      {
+        type: 'button',
+        class: 'btn btn-primary',
+        'data-testid': testid,
+        onclick: async () => {
+          const t = getText();
+          if (!t) return;
+          const ok = await copyText(t, status);
+          if (!ok) return;
+          status.replaceChildren(
+            h(
+              'p',
+              { class: 'prep-note prep-note--info' },
+              'Copied. Paste it into your notes or a chat.',
+            ),
+          );
+          setText(label, 'Copied');
+          icon.replaceChildren(iconEl('check', 18));
+          btn.dataset.copied = 'true';
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            setText(label, 'Copy list');
+            icon.replaceChildren(iconEl('copy', 18));
+            delete btn.dataset.copied;
+          }, 3000);
+        },
+      },
+      icon,
+      label,
+    );
+    return btn;
+  }
+
+  /**
+   * One list for this week's batches, merged by food (Review 2, Mariam #1, Bilal #4), and, when a
+   * weekly plan is in use, the rest of its week: weekday jobs and ready food (R3-A, Mariam #4).
+   */
   function openWeekShopping() {
-    const { batches, list } = store.weekShopping();
-    const status = h('div', { class: 'shop-status', 'aria-live': 'polite' });
+    const { batches, weekdayJobs = [], ready = [], list } = store.weekShopping();
     const listed = batches.filter((b) => b.listed);
-    const missing = batches.filter((b) => !b.listed);
-    const what = (b) =>
-      `${shortPrepName(b.name)} (${plural(b.boxes, boxWord(store.food(batchRecipe(b.id)), rules))})`;
-    const title = `Shopping for this week: ${plural(listed.length, 'batch')}`;
-    openDialog({
+    const missing = [...batches, ...weekdayJobs].filter((b) => !b.listed);
+    const what = (b) => {
+      const f = store.food(b.foodId ?? batchRecipe(b.id));
+      return `${f?.shortName ?? shortPrepName(b.name)} (${plural(b.boxes, boxWord(f, rules))})`;
+    };
+    const jobs = weekdayJobs.filter((b) => b.listed);
+    openShoppingDialog({
       title: 'Shopping for the week',
-      testid: 'week-shopping-dialog',
-      content: [
-        h(
-          'p',
-          { class: 'muted' },
-          listed.length
-            ? `For ${listed.map(what).join(', ')}. Each food once, in packs where we know the pack size.`
+      testid: 'week-shopping',
+      copyTitle: `Shopping for this week: ${plural(listed.length + jobs.length, 'batch')}`,
+      lead: [
+        listed.length
+          ? `For ${listed.map(what).join(', ')}.`
+          : jobs.length
+            ? null
             : 'None of this week’s batches has an ingredient list yet.',
-        ),
+        jobs.length ? `Your plan’s weekday jobs: ${jobs.map(what).join(', ')}.` : null,
+        ready.length ? `Ready food your plan puts on the days: ${ready.join(', ')}.` : null,
+        list ? 'Each food once, in packs where we know the pack size.' : null,
+      ],
+      missing,
+      list,
+    });
+  }
+
+  /** A weekly plan's whole list, before or after "Use this week" (R3-A, Mariam #4). */
+  function openPlanShopping(plan) {
+    const found = store.planShopping(plan.id);
+    if (!found) return;
+    const { batches, ready, list } = found;
+    const what = (b) => {
+      const f = store.food(b.foodId);
+      return `${f?.shortName ?? shortPrepName(b.name)} (${plural(b.boxes, boxWord(f, rules))})`;
+    };
+    const listed = batches.filter((b) => b.listed);
+    openShoppingDialog({
+      title: `Shopping: ${plan.name}`,
+      testid: 'plan-shopping',
+      copyTitle: `${plan.name}: shopping for the week`,
+      lead: [
+        listed.length ? `For ${listed.map(what).join(', ')}.` : null,
+        ready.length ? `Ready food on the days: ${ready.join(', ')}.` : null,
+        (plan.batches ?? []).some((b) => b.from === 'freezer')
+          ? `Not on the list: ${plan.batches
+              .filter((b) => b.from === 'freezer')
+              .map((b) => shortPrepName(store.food(b.foodId)?.name ?? b.foodId))
+              .join(', ')} (from your freezer).`
+          : null,
+        list ? 'Each food once, in packs where we know the pack size.' : null,
+      ],
+      missing: batches.filter((b) => !b.listed),
+      list,
+    });
+  }
+
+  /** The shared shopping dialog: lead lines, the list in sections, and Copy list. */
+  function openShoppingDialog({ title, testid, copyTitle, lead, missing, list }) {
+    const status = h('div', { class: 'shop-status', 'aria-live': 'polite' });
+    openDialog({
+      title,
+      testid: `${testid}-dialog`,
+      content: [
+        lead.filter(Boolean).map((t) => h('p', { class: 'muted' }, t)),
         missing.length
           ? h(
               'p',
@@ -738,34 +908,12 @@ export function mount(container, ctx) {
           : null,
         h(
           'div',
-          { class: 'shop-body', 'data-testid': 'week-shopping-list' },
+          { class: 'shop-body', 'data-testid': `${testid}-list` },
           list ? shopSections(list) : null,
         ),
         status,
       ],
-      actions: list
-        ? h(
-            'button',
-            {
-              type: 'button',
-              class: 'btn btn-primary',
-              'data-testid': 'week-shopping-copy',
-              onclick: async () => {
-                const ok = await copyText(listText(title, list), status);
-                if (ok)
-                  status.replaceChildren(
-                    h(
-                      'p',
-                      { class: 'prep-note prep-note--info' },
-                      'Copied. Paste it into your notes or a chat.',
-                    ),
-                  );
-              },
-            },
-            iconEl('copy', 18),
-            h('span', null, 'Copy list'),
-          )
-        : null,
+      actions: list ? copyButton(`${testid}-copy`, () => listText(copyTitle, list), status) : null,
     });
   }
 
@@ -890,15 +1038,36 @@ export function mount(container, ctx) {
   function render() {
     const today = store.today();
     renderPlans();
-    // Tonight's freezer moves (A18): one tap each.
-    const move = store.prepNotices(today).moveTonight;
+    // Tonight's freezer moves (A18): one tap each; the night-before parts and the planned preps
+    // with no box yet (R3-A), with their Make button.
+    const { moveTonight: move, later, make, jobs = [] } = store.prepNotices(today);
+    const meal = (slot) => (slot ? store.slotLabel(slot).toLowerCase() : 'meal');
+    const makeBtn = (foodId) =>
+      h(
+        'button',
+        {
+          type: 'button',
+          class: 'btn btn-secondary',
+          'data-testid': 'tonight-make-btn',
+          onclick: () => openCook(foodId),
+        },
+        `${cookVerb(foodId)} it`,
+      );
     mountChildren(
       notices,
-      move.length
+      move.length || later.length || make.length || jobs.length
         ? h(
             'div',
             { class: 'card prep-tonight', 'data-testid': 'move-tonight' },
             h('h3', { class: 'card-title' }, 'Tonight'),
+            jobs.map((j) =>
+              h(
+                'div',
+                { class: 'tonight-row', 'data-testid': 'tonight-plan-job' },
+                h('p', null, j.text),
+                j.make ? makeBtn(j.recipeId) : null,
+              ),
+            ),
             move.map((m) =>
               h(
                 'div',
@@ -917,6 +1086,36 @@ export function mount(container, ctx) {
                   },
                   'Move to fridge',
                 ),
+              ),
+            ),
+            later.map((l) =>
+              h(
+                'div',
+                { class: 'tonight-row', 'data-testid': 'tonight-later' },
+                h(
+                  'p',
+                  null,
+                  `For tomorrow’s ${meal(l.slot)} (${shortPrepName(l.name)}): ${l.job ?? 'cook the part made the night before (see How to make it).'}`,
+                ),
+              ),
+            ),
+            make.map((m) =>
+              h(
+                'div',
+                {
+                  class: 'tonight-row',
+                  'data-testid': 'tonight-make',
+                  'data-food-id': m.foodId,
+                  'data-date': m.date,
+                },
+                h(
+                  'p',
+                  null,
+                  m.when === 'today'
+                    ? `Today’s ${meal(m.slot)}: ${shortPrepName(m.name)}. No box made yet.`
+                    : `Tomorrow’s ${meal(m.slot)}: ${shortPrepName(m.name)}. No box made yet.`,
+                ),
+                makeBtn(m.foodId),
               ),
             ),
           )
@@ -1171,7 +1370,10 @@ export function mount(container, ctx) {
 
   /** Weekly plans and ready picks (O7); a missing Lab file leaves both sections empty and hidden. */
   function renderPlans() {
-    mountChildren(plansBox, plansSection({ store, notes: planNotes, onChange: render }));
+    mountChildren(
+      plansBox,
+      plansSection({ store, notes: planNotes, onChange: render, onShop: openPlanShopping }),
+    );
     plansBox.hidden = !plansBox.childElementCount;
     mountChildren(readyBox, readySection({ store }));
     readyBox.hidden = !readyBox.childElementCount;
@@ -1179,9 +1381,16 @@ export function mount(container, ctx) {
 
   const unsubscribe = store.subscribe(() => render());
 
+  /** "Make it" on the Day view's Tonight card (R3-A) opens that recipe's Make / Cook dialog here. */
+  function takeIntent() {
+    const intent = takePrepIntent();
+    if (intent?.cook && store.food(intent.cook)) openCook(intent.cook);
+  }
+
   return {
     update() {
       render();
+      takeIntent();
     },
     unmount() {
       unsubscribe();

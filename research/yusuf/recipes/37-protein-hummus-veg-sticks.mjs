@@ -52,14 +52,13 @@ export default {
     steps: [
       { text: 'No cooking. In the bowl whisk the hummus (80 g), queso fresco batido (260 g) and 2 tsp lemon juice (10 g) until smooth.', heat: 'none' },
       { text: 'Split the dip between the 2 pots and dust each with a pinch of paprika (0.5 g).', heat: 'none' },
-      { text: 'Peel the carrots (120 g) and cut them into sticks. Cut half a cucumber (60 g) into sticks and the red pepper (100 g) into strips.', heat: 'none' },
-      { text: 'Pack the sticks in the boxes next to the pots. Put 10 g picos per box in a small bag.', heat: 'none' },
+      { text: 'Peel {{n:carrot}} and cut them into sticks. Cut half a cucumber (60 g) into sticks and the red pepper (100 g) into strips.', heat: 'none' },
+      { text: 'Pack the sticks in the boxes next to the pots. Put 10 g picos per box in a small bag.', heat: 'none', pack: true },
     ],
-    boxUp: 'Straight into the fridge. The dip and cut vegetables keep 2 days: make 2 boxes at a time. Do not freeze.',
+    boxUp: 'Straight into the fridge. {{split}} The dip and cut vegetables keep 2 days: make 2 boxes at a time.',
     reheat: 'Not reheated: eat cold.',
   },
-  keeps: '2 days in the fridge',
-  storagePlan: 'Make 2 boxes at a time (cut vegetables and the dip keep 2 days).',
+  storagePlan: '{{split}} Cut vegetables and the dip keep 2 days.',
   reheat: 'Not reheated.',
   crossCheck: null,
   changes: [

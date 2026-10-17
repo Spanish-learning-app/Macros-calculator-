@@ -314,3 +314,19 @@
   nobody has tapped the budget plan in the running app yet (M-14).
 - 16:26 UTC Omar relay: salmon-fillet (name-only line, #53) now links Javier's intl-salmon-medallions (same Hacendado pack, OFF 8480000267498); soy and mozzarella already linked. #53 unchanged (611 kcal). Rebuilt; check-foods and npm test re-run. Ayesha's 6 held preps are ready for her re-check.
 - 2026-10-16 19:05 UTC — No source edits. Ran node research/yusuf/build.mjs so Ayesha's stamps reach the 6 preps (done by the Lab rebuild run). Only source.reviewer changed (yusuf -> ayesha); no kcal, macro or cost figure moved.
+
+## 2026-10-17 — Fix wave R3-B (Mariam + Nasreen Review 3): recipe and plan data
+
+- 00:16 UTC Restarted fresh after the usage limit (previous run saved nothing; `git status` clean). Read _common,
+  MISTAKES (M-15, M-16, rules 1, 6, 12), both Review 3 reports, this journal, build.mjs, calc.mjs, app core
+  storagePlan/boxUseBy/shoppingList/buyAmount.
+- 00:16 UTC PLANNED DATA SHAPES (for Lena; all optional and additive, final shapes confirmed in a later entry):
+  - LibraryRecipe.`storage` leaves out a component that is made fresh later (bolognese penne), so the app's own
+    rule (first fridgeDays boxes in the fridge, rest frozen) gives the same split as the method.
+  - LibraryRecipe.`keep` = { fridgeDays, fridge, freezer, freezerMonths?, later?: [{ name, storage, fridgeDays,
+    when, text }] }: the one storage truth (the method's boxUp sentence is generated from it).
+  - LibraryRecipe.`minutes` (hands-on, now generated from the steps) + `totalMinutes` (start to finish).
+  - LibraryRecipe.`lightCooking` (no-cook preps that still boil eggs / heat soup / toast: what heat they use).
+  - PLANS[].batches[]: `fridge`, `freezer` (this plan's split) and `eat: [{ day, weekday, slot, from }]`.
+  - PLANS[].`evenings` = [{ day, weekday, time: 'morning'|'evening'|'night', kind, text, recipeId }].
+  - PLANS[].days[].items[]: `batch` = index into the plan's batches for a meal made by a batch.

@@ -1,6 +1,7 @@
 // R-MP-12 · Protein tortilla de patatas (eggs + egg whites) with a high-protein yogurt pot. 4 boxes. Raw edible grams.
 export default {
   n: 12,
+  sameDayOk: true, // 4 wedges, 3 days, no freezing: the 4th is a dinner or merienda in those 3 days (boxUp says so)
   effort: 'cook',
   minutes: 40,
   cuisine: 'spanish',
@@ -35,7 +36,7 @@ export default {
       ],
     },
     {
-      id: 'yogurt', label: 'High-protein yogurt pot with walnuts', pot: 'yogurt', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      id: 'yogurt', label: 'High-protein yogurt pot with walnuts', fresh: true, pot: 'yogurt', storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['protein-yogurt', 600, 'Mercadona +Proteínas natural (150 g per pot)'],
         ['walnuts', 40, '10 g per pot, added in the morning'],
@@ -49,27 +50,28 @@ export default {
   method: {
     equipment: ['Non-stick frying pan 24–26 cm with sloped sides', 'Large flat plate (wider than the pan) to flip the tortilla', 'Large microwave-safe bowl with a plate as a lid (or a steamer)', 'Large mixing bowl and fork', 'Cooling rack', '4 boxes and 4 small pots'],
     prep: [
-      'Peel the potatoes (700 g) and slice them thin (3 mm). Slice the onion (150 g) thin.',
+      'Peel {{n:potato}} and slice them thin (3 mm). Slice {{n:onion}} thin.',
       'Crack 6 eggs into the large bowl and add the liquid egg whites (400 g) and 1 tsp salt (6 g). Beat with the fork.',
     ],
     steps: [
-      { text: 'Put the potato slices in the microwave bowl with 2 tbsp water, cover with the plate and microwave 8–10 minutes, until just soft (or steam them 10 minutes).', heat: 'microwave', minutes: 9 },
+      { text: 'Put the potato slices in the microwave bowl with 2 tbsp water, cover with the plate and microwave 8–10 minutes, until just soft (or steam them 10 minutes).', heat: 'microwave', minutes: 9, wait: true },
       { text: 'Heat 1½ tbsp olive oil (about 20 g of the 30 g) in the frying pan. Add the potatoes and onion.', heat: 'medium', minutes: 1 },
       { text: 'Cook 10 minutes, turning them gently now and then, until soft and lightly golden.', heat: 'medium', minutes: 10 },
-      { text: 'Tip the potatoes and onion into the eggs, stir and leave 5 minutes. Wipe out the pan.', heat: 'none', minutes: 5 },
+      { text: 'Tip the potatoes and onion into the eggs, stir and leave 5 minutes. Wipe out the pan.', heat: 'none', minutes: 5, wait: true },
       { text: 'Heat the last 2 tsp olive oil (about 10 g) in the pan. Pour in the egg and potato mix and spread it flat.', heat: 'medium', minutes: 1 },
       { text: 'Cook on low-medium heat 6–8 minutes, until the edges are set and the top is only a little wet. Shake the pan so it does not stick.', heat: 'low', minutes: 7 },
       { text: 'Put the plate upside down on the pan. Holding both with oven gloves, turn them over together. Slide the tortilla back into the pan, cooked side up.', heat: 'none' },
       { text: 'Cook 4–5 minutes more until set right through.', heat: 'low', minutes: 5 },
-      { text: 'Slide it onto the rack and cool 30 minutes. Cut into 4 wedges and wrap each one.', heat: 'none', minutes: 30 },
+      { text: 'Check: press the middle. It is firm, and a knife pushed in comes out with no runny egg. Still runny? Lid on, 2–3 minutes more on low.', heat: 'none', check: true },
+      { text: 'Slide it onto the rack and cool 30 minutes.', heat: 'none', minutes: 30, wait: true },
+      { text: 'Cut into 4 wedges and wrap each one.', heat: 'none', pack: true },
       { text: 'Portion the protein yogurt into 4 pots (150 g each) only on the day you pack them (or 2 at a time). Add 10 g walnuts on top in the morning.', heat: 'none' },
     ],
     doneWhen: 'Press the middle: firm, and a knife pushed in comes out with no runny egg. A batch tortilla for boxes is cooked right through.',
-    boxUp: 'Cool within 1 hour, then the wedges go in the fridge (3 days). The tortilla does not freeze, so cook it Sunday for Monday to Wednesday and eat the 4th wedge as a dinner or snack (or cook it on a weekday evening for the next 3 lunches). Yogurt pots keep 2 days once portioned; bananas and walnuts stay at room temperature.',
+    boxUp: 'Cool within 1 hour. {{split}} The tortilla does not freeze, so eat the 4th wedge as a dinner or snack within those days (or cook it on a weekday evening for the next 3 lunches). Yogurt pots keep 2 days once portioned; bananas and walnuts stay at room temperature.',
     reheat: 'Eat cold (insulated bag and ice pack; within 2 hours of leaving the fridge). Do not microwave the tortilla in the box.',
   },
-  keeps: 'Tortilla 3 days, no freezing',
-  storagePlan: 'Tortilla keeps 3 days in the fridge and should not be frozen, so this batch does not stretch to Thursday from a Sunday cook: cook it Sunday for Mon–Wed and eat the 4th wedge as a dinner or merienda, or cook it on a weekday evening for the next 3 lunches. Yogurt pots: 2 days once portioned (keep the tub closed until then). Banana and walnuts at room temperature.',
+  storagePlan: 'Tortilla should not be frozen, so this batch does not stretch to Thursday from a Sunday cook. {{split}} Eat the 4th wedge as a dinner or merienda, or cook it on a weekday evening for the next 3 lunches. Yogurt pots: 2 days once portioned (keep the tub closed until then). Banana and walnuts at room temperature.',
   reheat: 'Eaten cold (insulated bag and ice pack; within 2 h of leaving the fridge). Do not microwave the tortilla in the box: eggs are on the no-reheat list for boxes.',
   crossCheck: { fdc: 2707278, comps: ['tortilla'], note: 'FNDDS "Egg omelet or scrambled egg, with potatoes and/or onions, no added fat" for the tortilla part.' },
   extraChecks: [{ cofid: '12-957', comps: ['tortilla'], note: 'CoFID "Omelette, Spanish, homemade": made with whole eggs only, so less protein is expected.' }],

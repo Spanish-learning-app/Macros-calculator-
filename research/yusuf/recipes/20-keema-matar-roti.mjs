@@ -1,5 +1,8 @@
 // R-MP-20 · Keema matar (lean halal beef mince with peas) and 2 wholemeal roti (freezer dinner portion).
-import { rotiComponent, ROTI_REFS } from '../shared.mjs';
+import { rotiComponent, rotiSteps, ROTI_REFS } from '../shared.mjs';
+
+// R3-B: dough first, curry in the fridge on a timer, one action per roti step, roti cooled before bagging.
+const R = rotiSteps({ count: 8, atta: 235, water: 165, cups: 'about 2 cups', waterCups: 'a little under ¾ cup' });
 
 export default {
   n: 20,
@@ -55,31 +58,27 @@ export default {
   method: {
     equipment: ['Wide deep frying pan or karahi (28 cm) with a lid', 'Wooden spoon', 'Grater', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Tray for cooling', '4 flat freezer bags or boxes'],
     prep: [
-      'Chop 1 medium onion fine (160 g, 5 mm). Chop 2 medium tomatoes (240 g) small.',
+      'Chop {{n:onion}} fine (5 mm). Chop 2 medium tomatoes (240 g) small.',
       'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.',
       'Chop 2 green chillies (10 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup. Chop a small handful of coriander (8 g).',
     ],
     steps: [
-      { text: 'Heat 2⅓ tbsp sunflower oil (32 g) in the pan for 1 minute.', heat: 'medium', minutes: 1 },
+      ...R.dough,
+      { text: 'Heat 2 tbsp + 1 tsp sunflower oil (32 g) in the pan for 1 minute.', heat: 'medium', minutes: 1 },
       { text: 'Add the onion and stir every minute or two until golden brown (not dark).', heat: 'medium', minutes: 9 },
       { text: 'Add the ginger-garlic paste and stir 1 minute.', heat: 'medium', minutes: 1 },
-      { text: 'Add the mince (520 g). Break it up with the spoon and cook on high, stirring, until the water it lets out has dried off and no pink is left.', heat: 'high', minutes: 10 },
-      { text: 'Add the tomatoes and the whisked yogurt, then 1 heaped tsp salt (7 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), 1 tsp ground cumin (2 g) and ⅔ tsp haldi (turmeric powder, 2 g). Stir, lid on, cook 10 minutes.', heat: 'low', minutes: 10 },
-      { text: 'Add the frozen peas (320 g) and the green chillies. Lid on, 8 minutes.', heat: 'medium', minutes: 8 },
+      { text: 'Add the mince (520 g: the butcher weighs it). Break it up with the spoon and cook on high, stirring, until the water it lets out has dried off and no pink is left.', heat: 'high', minutes: 10 },
+      { text: 'Add the tomatoes and the whisked yogurt, then 1 heaped tsp salt (7 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), 1 tsp ground cumin (2 g) and a heaped ½ tsp haldi (turmeric powder, 2 g). Stir, lid on, cook 10 minutes.', heat: 'low', minutes: 10, wait: true },
+      { text: 'Add the frozen peas ({{n:peas}}) and the green chillies. Lid on, 8 minutes.', heat: 'medium', minutes: 8, wait: true },
       { text: 'Lid off. Stir until there is no watery juice left and the oil separates at the edges.', heat: 'medium-high', minutes: 4 },
-      { text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander. Spread on the tray to cool while you make the roti.', heat: 'none' },
-      { text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.', heat: 'none', minutes: 3 },
-      { text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.', heat: 'none', minutes: 5 },
-      { text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).', heat: 'none', minutes: 20 },
-      { text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.', heat: 'none' },
-      { text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.', heat: 'medium-high', minutes: 2 },
-      { text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.', heat: 'none' },
-      { text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).', heat: 'medium-high', minutes: 12 },
-      { text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.', heat: 'none' },
-      { text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).', heat: 'none' },
+      { text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander.', heat: 'none' },
+      { text: 'Check: push the keema aside. No liquid runs into the gap, no pink meat is left, oil glistens at the edges and the peas are soft. Wet? Stir on high 2 minutes more.', heat: 'none', check: true },
+      R.cool('keema'),
+      ...R.cook,
+      { text: 'Pack 4 portions: ¼ of the cold keema in a flat freezer bag or box, and 2 cooled roti in a small bag (baking paper between them).', heat: 'none', pack: true },
     ],
     doneWhen: 'Keema: no pink meat, no loose liquid when you push it aside, oil glistening at the edges, peas soft. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-    boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months.',
+    boxUp: 'Cool on a wide tray and put away within 1 hour. {{split}} Each portion goes with its 2 roti.',
     reheat: 'Move a frozen portion to the fridge the night before. Keema: microwave covered 2½–3 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first, then 4–5 minutes), or in a pan with a splash of water. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
     tips: [
       'Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).',
@@ -90,8 +89,7 @@ export default {
       'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.',
     ],
   },
-  keeps: '3 days fridge; 2 months frozen',
-  storagePlan: 'Portion 1 in the fridge, portions 2–4 in the freezer with their roti. Move to the fridge the night before.',
+  storagePlan: '{{split}} Each portion keeps its 2 roti with it.',
   reheat: 'Keema: microwave covered 2½–3 min from the fridge (4–5 min from frozen on defrost first), stirring, until steaming hot (75 °C); or in a pan with a splash of water. Roti on a hot tawa, 20–30 s a side.',
   crossCheck: null,
   extraChecks: [{ zainab: 'keema-home', comps: ['keema'], note: "Zainab's home keema (85% lean mince, ⅓ cup oil per lb, some potato) should be richer than this lean, pea-heavy version." }],

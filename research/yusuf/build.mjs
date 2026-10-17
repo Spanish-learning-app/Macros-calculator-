@@ -12,6 +12,8 @@ import REG from './ingredients.mjs';
 import { BUTCHER, DESI } from './prices.mjs';
 import { stampReview } from '../review/reviewed.mjs';
 import { FOODS } from '../../app/data/index.js';
+import { buyAmount, pluralLabel, storagePlan as appStoragePlan } from '../../app/core/mealprep.js';
+import { SHEET_STEP_KEYS, minutesOf, durText, keepOf, splitText, keepsText, storageWordsCheck, packCheck, fracText } from './method-data.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..', '..');
@@ -28,7 +30,9 @@ const TB = RULES.mealPrep.targetsBySlot;
 const UNIT = { box: { one: 'box', many: 'boxes' }, jar: { one: 'jar', many: 'jars' }, portion: { one: 'portion', many: 'portions' } };
 const SLOT_WORD = { breakfast: 'breakfast', lunch: 'lunch', dinner: 'dinner', snacks: 'snack' };
 const EFFORT_WORD = { cook: 'batch-cooked', assemble: 'no-cook assembly', ready: 'ready to eat' };
-const timeText = (r) => (r.effort === 'cook' ? `${r.minutes} min hands-on` : `${r.minutes} min, no cooking`);
+// Hands-on and start-to-finish minutes are generated from the method (R3-B, method-data.mjs minutesOf); a no-cook
+// prep that still boils eggs or heats a soup says so (lightCooking), never "no cooking".
+const timeText = (r, s) => `${r.minutes} min hands-on${s?.totalMinutes > r.minutes ? `, about ${durText(s.totalMinutes)} start to finish` : ''}${r.effort === 'cook' ? '' : s?.lightCooking ? ` (${s.lightCooking})` : ', no cooking'}`;
 
 const r1 = (x) => (Math.round(x * 10) / 10).toFixed(1);
 const r0 = (x) => String(Math.round(x));
@@ -161,7 +165,8 @@ function checkMethod(s) {
   if (!Array.isArray(m.steps) || !m.steps.length) bad('needs steps');
   m.steps.forEach((st, i) => {
     if (!st || typeof st.text !== 'string' || !st.text.trim()) bad(`step ${i + 1} has no text`);
-    for (const k of Object.keys(st)) if (!['text', 'heat', 'minutes'].includes(k)) bad(`step ${i + 1} has an unknown key "${k}"`);
+    for (const k of Object.keys(st)) if (!SHEET_STEP_KEYS.includes(k)) bad(`step ${i + 1} has an unknown key "${k}"`);
+    for (const k of ['wait', 'during', 'ahead', 'check', 'pack']) if (st[k] !== undefined && st[k] !== true) bad(`step ${i + 1}: ${k} must be true when present`);
     if (st.heat !== undefined && !HEATS.includes(st.heat)) bad(`step ${i + 1} has an unknown heat "${st.heat}" (allowed: ${HEATS.join(', ')})`);
     if (st.minutes !== undefined && !(typeof st.minutes === 'number' && st.minutes > 0)) bad(`step ${i + 1} minutes must be a number > 0`);
   });
@@ -175,11 +180,120 @@ function checkMethod(s) {
   const saysNoCook = /^No cooking\b/.test(m.steps[0].text);
   if (noCook && (!saysNoCook || (m.steps[0].heat && m.steps[0].heat !== 'none'))) bad('of a no-cook prep must start with a "No cooking" step with no heat');
   if (!noCook && saysNoCook) bad('of a cook prep must not start with "No cooking"');
-  // Contract key order, only the contract keys.
+  return true;
+}
+// ------------------------------------------------------------------ R3-B: placeholders, storage truth, checks
+// Household amounts in a method come from the recipe's own lines and the Lab record the shopping list uses
+// (Review 3: "1½ tins" in the method, "1 × 800 g jar" on the list). In a sheet's method text:
+//   {{n:ingId}}        the whole batch's grams of that ingredient as you measure it at home
+//   {{n:ingId:grams}}  part of it ("{{n:onion:40}}")
+//   {{split}}          the generated fridge/freezer sentence (boxUp and storagePlan only)
+const COUNT_IDS = new Set(['small', 'medium', 'large', 'clove', 'piece', 'fruit', 'egg', 'roll', 'pot', 'tub']);
+function countServing(f) {
+  const sv = (f?.servings ?? []).filter((x) => /^1\s/.test(x.label) && COUNT_IDS.has(x.id) && x.grams > 0);
+  return sv.find((x) => x.default) ?? sv.find((x) => x.id === 'medium') ?? sv[0] ?? null;
+}
+function lineGrams(r, ingId) {
+  const g = r.components.flatMap((c) => c.lines).filter((l) => l.ingId === ingId).reduce((a, l) => a + l.grams, 0);
+  if (!g) throw new Error(`${r.id}: {{n:${ingId}}} names an ingredient the recipe does not use`);
+  return g;
+}
+function amountPhrase(ingId, grams) {
+  const f = FOOD.get(DB[ingId]?.foodId);
+  const g = fmtG(Math.round(grams * 10) / 10);
+  const sv = countServing(f);
+  if (sv) {
+    const n = grams / sv.grams;
+    const adj = { 'onion-red': 'red', 'pepper-red': 'red', 'pepper-green': 'green' }[ingId];
+    const base = sv.label.replace(/^1\s+/, '').split(' (')[0];
+    const one = adj ? base.replace(/(\w+)$/, `${adj} $1`) : base;
+    // To the nearest half, as you would count them in the kitchen; "about" when that is not exact.
+    const h = n < 1 ? Math.max(0.25, Math.round(n * 4) / 4) : Math.round(n * 2) / 2;
+    return `${Math.abs(n - h) > 0.06 ? 'about ' : ''}${fracText(h)} ${h > 1 ? pluralLabel(one) : one} (${g} g)`;
+  }
+  if (f?.pack?.grams) {
+    const p = grams / f.pack.grams;
+    const word = f.pack.label.split(' ').pop();
+    if (Math.abs(p - Math.round(p)) < 0.03 && Math.round(p) >= 1) return `${Math.round(p)} ${Math.round(p) > 1 ? pluralLabel(word) : word} (${g} g)`;
+  }
+  const cup = f?.servings?.find((x) => x.label === '1 cup' && x.grams > 0);
+  if (cup) return `${g} g (about ${fracText(grams / cup.grams)} cup${grams / cup.grams > 1.12 ? 's' : ''})`;
+  return `${g} g`;
+}
+function resolveText(text, s, r) {
+  return text.replace(/\{\{(split|n:[a-z0-9-]+(?::[\d.]+)?)\}\}/g, (all, key) => {
+    if (key === 'split') return splitText(s.keep, UNIT[r.serving], r.boxes, s.eatNow ?? 0);
+    const [, ingId, part] = key.split(':');
+    if (!REG[ingId]) throw new Error(`${s.id}: ${all} names an unknown ingredient`);
+    return amountPhrase(ingId, part ? Number(part) : lineGrams(r, ingId));
+  });
+}
+// A count said in the method with its grams ("1 small onion (120 g)") must match the Lab record's unit weight for
+// that size, within a quarter of a unit (Review 3: "1 small onion (120 g)" when a small onion is 70 g).
+const COUNT_NOUN = { onion: 'intl-onion', carrot: 'intl-carrot', tomato: 'intl-tomato', potato: 'intl-potato-raw', cucumber: 'intl-cucumber', pepper: 'intl-pepper-red', banana: 'intl-banana', avocado: 'intl-avocado', 'garlic clove': 'intl-garlic' };
+const WORDNUM = { a: 1, an: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, '½': 0.5, '¼': 0.25, '¾': 0.75 };
+const numOf = (t) => WORDNUM[t.toLowerCase()] ?? (Number(t.replace(/[½¼¾]/, '')) || 0) + (/½/.test(t) ? 0.5 : /¼/.test(t) ? 0.25 : /¾/.test(t) ? 0.75 : 0);
+function countCheck(s, texts) {
+  const errs = [];
+  const re = /(?<![–-])\b(about |a little over |a little under |half )?(\d+[½¼¾]?|[½¼¾]|an?|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:(small|medium|large|big)\s+)?(?:red\s+|green\s+)?(onion|carrot|tomato|potato|cucumber|pepper|banana|avocado|garlic clove)(?:e?s)?\b[^()\d:;]{0,25}\((\d+(?:\.\d+)?) g\b/gi;
+  for (const t of texts)
+    for (const x of t.matchAll(re)) {
+      const f = FOOD.get(COUNT_NOUN[x[4].toLowerCase()]);
+      const size = (x[3] ?? '').toLowerCase().replace('big', 'large');
+      const sv = f.servings.find((v) => v.id === size) ?? countServing(f);
+      const said = numOf(x[2]) * (x[1] === 'half ' ? 0.5 : 1);
+      const real = Number(x[5]) / sv.grams;
+      if (Math.abs(said - real) > Math.max(0.25, 0.25 * real) + 1e-9) errs.push(`R-MP-${s.n} ${s.id}: method says "${x[0]}" but ${x[5]} g is ${real.toFixed(2)} × the record's ${sv.label} (${sv.grams} g). Write "${amountPhrase(Object.keys(DB).find((k) => DB[k].foodId === f.id) ?? 'onion', Number(x[5]))}" or use {{n:…}}`);
+    }
+  if (errs.length) throw new Error(errs.join('\n'));
+}
+// The method as the app gets it: placeholders resolved, the R3-B checks run, the sheet-only step keys dropped.
+function finishMethod(s, r) {
+  const m = s.method;
+  const res = (x) => resolveText(x, s, r);
+  const ST_ALL = r.components.map((c) => ST.get(c.storage)).filter(Boolean);
+  const hasBread = r.components.some((c) => c.storage === 'proposed:bread');
+  const allowed = {
+    days: new Set([...ST_ALL.map((x) => x.fridgeDays), RULES.mealPrep.thawedFridgeDays ?? 1, ...(hasBread ? [3] : [])]),
+    months: new Set(ST_ALL.filter((x) => x.freezable).map((x) => x.freezerMonths)),
+  };
+  storageWordsCheck(s, 'boxUp', m.boxUp, allowed);
+  storageWordsCheck(s, 'storagePlan', s.storagePlan, allowed);
+  if (s.keeps !== undefined) throw new Error(`${s.id}: keeps is generated now (R3-B); move any extra words to keepsNote`);
+  if (s.keepsNote) storageWordsCheck(s, 'keepsNote', s.keepsNote, allowed);
+  storageWordsCheck(s, 'equipment', m.equipment.join(' | '), allowed);
+  if (s.timeNote !== undefined) throw new Error(`${s.id}: timeNote is generated now (R3-B); put the waiting in waitNote, with no total`);
+  packCheck(s, m.steps, m.doneWhen);
+  s.storagePlanText = res(s.storagePlan);
+  s.keepsText = keepsText(s.keep, s.keepsNote);
   const out = {};
-  for (const k of METHOD_KEYS) if (m[k] !== undefined) out[k] = k === 'steps' ? m.steps.map((st) => ({ text: st.text, ...(st.heat ? { heat: st.heat } : {}), ...(st.minutes ? { minutes: st.minutes } : {}) })) : m[k];
+  for (const k of METHOD_KEYS) {
+    if (m[k] === undefined) continue;
+    if (k === 'steps') out.steps = m.steps.map((st) => ({ text: res(st.text), ...(st.heat ? { heat: st.heat } : {}), ...(st.minutes ? { minutes: st.minutes } : {}) }));
+    else out[k] = Array.isArray(m[k]) ? m[k].map(res) : res(m[k]);
+  }
+  countCheck(s, [...out.prep, ...out.steps.map((x) => x.text), ...out.equipment]);
+  for (const st of out.steps) if (st.text.length > 400) throw new Error(`${s.id}: a ${st.text.length}-character step is more than one action: "${st.text.slice(0, 60)}"`);
+  if (out.steps.length > 20) throw new Error(`${s.id}: ${out.steps.length} steps (the app contract allows 3–20)`);
+  // Time note: generated from the minutes, with the sheet's waitNote (a marinade, a soak) when there is one.
+  const t = s.totalMinutes;
+  s.timeNote = s.totalMinutes - s.minutes >= 15 || s.aheadMinutes || s.waitNote ? `About ${durText(t)} start to finish (${s.minutes} min of it hands-on)${s.aheadMinutes ? `, plus ${durText(s.aheadMinutes)} started ahead` : ''}${s.waitNote ? `: ${s.waitNote}` : ''}.` : undefined;
+  // lightCooking: what heat a no-cook prep still uses, from its own "No cooking: …" first step.
+  if (s.effort !== 'cook') {
+    const heated = m.steps.filter((st) => st.heat && st.heat !== 'none');
+    const said = out.steps[0].text.match(/^No cooking[^:]*:\s*([^.]*)/);
+    // Boiled eggs count as cooking even when the boiling is a "Before you start" line (Mariam Review 3: "10 min, no
+    // cooking" on a prep that boils eggs).
+    const boils = [...out.prep, ...out.steps.map((x) => x.text)].some((t) => /\bboil/i.test(t));
+    if (heated.length || boils) {
+      if (!said) throw new Error(`${s.id}: a no-cook prep with a heated step must name it in step 1 ("No cooking: only the eggs are boiled.")`);
+      s.lightCooking = said[1].replace(/^only /, '').replace(/\s*\([^)]*\)/g, '').trim();
+      if (boils && !/boil/i.test(s.lightCooking)) throw new Error(`${s.id}: boils something but step 1 says "${said[0]}": name the boiling there`);
+    }
+  }
   return out;
 }
+
 // Sub-minute steps read in seconds ("30 s"), never "0½ min" (Zainab's note, 2026-10-16).
 const fmtMin = (x) => (x < 1 ? `${Math.round(x * 60)} s` : `${String(x).replace(/\.5$/, '½')} min`);
 function methodMd(s) {
@@ -219,7 +333,7 @@ function sheetMd(s, r) {
   if (s.names.ur) L.push(`| اردو | ${s.names.ur} |`);
   if (s.names.roman) L.push(`| Roman Urdu | ${s.names.roman} |`);
   L.push('', `**Eat:** ${EAT[s.eat]}. **Halal:** ${s.halal.status}${s.halal.reason ? `: ${s.halal.reason}` : ''} **Confidence:** ${s.confidence}.`, '');
-  L.push(`**Meal:** ${SLOT_WORD[r.slot]} prep, logged as "1 ${u.one}". **Effort:** ${EFFORT_WORD[r.effort]} (\`effort: '${r.effort}'\`), ${timeText(r)} for the batch of ${r.boxes}.${s.timeNote ? ` ${s.timeNote}` : ''}`, '');
+  L.push(`**Meal:** ${SLOT_WORD[r.slot]} prep, logged as "1 ${u.one}". **Effort:** ${EFFORT_WORD[r.effort]} (\`effort: '${r.effort}'\`), ${timeText(r, s)} for the batch of ${r.boxes}.${s.timeNote ? ` ${s.timeNote}` : ''}`, '');
   L.push(`## One ${u.one} at a glance`, '', `| ${u.one[0].toUpperCase() + u.one.slice(1)} weight | kcal | Protein | Carbs | Fat | Fibre |`, '|---|---|---|---|---|---|');
   L.push(`| ${b.grams} g (½ ${u.one} ${r.halfBoxG} g) | ${b.kcal} | ${r1(b.protein)} g | ${r1(b.carbs)} g | ${r1(b.fat)} g | ${r1(b.fiber)} g |`, '');
   L.push(`Targets (\`RULES.mealPrep.targetsBySlot.${r.slot}\`): ${T.kcal.min}–${T.kcal.max} kcal ${ok(r.targets.kcal)}; ${T.proteinG.min}–${T.proteinG.max} g protein ${ok(r.targets.protein)}; at least ${T.minFiberG} g fibre ${ok(r.targets.fiber)}.`, '');
@@ -269,7 +383,7 @@ function sheetMd(s, r) {
     L.push(`| ${c.label} | ${c.boxG} g | ${sr.cls} | ${sr.fridge} | ${sr.freezer} |`);
   }
   L.push('', `Use-by of a packed ${u.one} = cooked date + the shortest fridge life in it = **${r.fridgeDays} day${r.fridgeDays > 1 ? 's' : ''}**. A frozen ${u.one} has no use-by until it is moved to the fridge (then 1 day).`, '');
-  L.push(s.storagePlan, '');
+  L.push(s.storagePlanText, '');
   for (const c of r.components) if (PROPOSED_STORAGE[c.storage]) L.push(`- ${PROPOSED_STORAGE[c.storage].label}: ${PROPOSED_STORAGE[c.storage].note}`);
   const chill = r.effort === 'cook' ? 'Chill everything within 60 minutes of cooking (spread on a tray).' : 'Assemble with cold ingredients straight from the fridge and put the boxes back in the fridge at once.';
   L.push('', r.slot === 'lunch' || s.eat === 'cold' ? `${chill} Cold boxes travel in an insulated bag with an ice pack and are eaten within 2 hours of leaving the fridge (1 hour above 32 °C).` : `${chill} Reheat once only, until steaming hot right through (75 °C).`, '');
@@ -480,11 +594,14 @@ function libraryRecipe(s, r) {
     }
   const ingredients = [...items.values()].map((i) => ({ ...i, grams: Math.round(i.grams * 10) / 10 }));
   const storage = [];
-  for (const c of r.components) {
-    if (!ST.has(c.storage)) continue; // proposed classes (bread, whole fruit) are not use-by items
-    const e = c.pot ? { id: c.storage, pot: true } : c.storage;
+  r.components.forEach((c, i) => {
+    if (!ST.has(c.storage)) return; // proposed classes (bread, whole fruit) are not use-by items
+    const sc = s.components[i];
+    if (sc.fresh) return; // made again in rounds or on the night (R3-B keep.fresh): never sets the box's life
+    // A part cooked the night before each box (the bolognese penne): Lena's shape (app/core/mealprep.js laterParts).
+    const e = sc.later ? { id: c.storage, later: true, job: sc.later.job } : c.pot ? { id: c.storage, pot: true } : c.storage;
     if (!storage.some((x) => JSON.stringify(x) === JSON.stringify(e))) storage.push(e);
-  }
+  });
   const cost = costOf(r);
   const references = (s.references ?? []).map((x) => ({ title: x.title, url: x.url }));
   return {
@@ -494,6 +611,9 @@ function libraryRecipe(s, r) {
     ingredients,
     effort: r.effort,
     minutes: r.minutes,
+    totalMinutes: s.totalMinutes,
+    keep: keepData(s.keep),
+    ...(s.lightCooking ? { lightCooking: s.lightCooking } : {}),
     ...(r.effort === 'assemble' ? { serve: s.eat } : {}),
     ...(s.cuisine ? { cuisine: s.cuisine } : {}),
     ...(s.timeNote ? { timeNote: s.timeNote } : {}),
@@ -502,6 +622,17 @@ function libraryRecipe(s, r) {
     ...(references.length ? { references } : {}),
     ...(s.methodObj ? { method: s.methodObj } : {}),
     ...(s.halalSwap ? { halalSwap: s.halalSwap.id, halalSwapNote: s.halalSwap.reason } : {}),
+  };
+}
+// LibraryRecipe.keep (R3-B): the one storage truth, as data. The build checks it equals the app's own storagePlan.
+function keepData(k) {
+  return {
+    fridgeDays: k.fridgeDays,
+    fridge: k.fridge,
+    freezer: k.freezer,
+    ...(k.freezerMonths ? { freezerMonths: k.freezerMonths } : {}),
+    ...(k.later ? { later: k.later.map(({ name, storage, fridgeDays, when, job }) => ({ name, storage, fridgeDays, when, job })) } : {}),
+    ...(k.fresh ? { fresh: k.fresh.map(({ name, storage, fridgeDays, again }) => ({ name, storage, fridgeDays, ...(again ? { again } : {}) })) } : {}),
   };
 }
 // LibraryRecipe.cost (STATUS O4): the sheet's "Cost per box" as data. Absent when a main ingredient has no current
@@ -575,7 +706,7 @@ function noCookMd(list) {
   for (const { s, r } of [...list].sort((a, b) => order[a.r.slot] - order[b.r.slot] || a.s.n - b.s.n)) {
     const cost = r.cost.partialMajor ? 'not available' : `${r.cost.perBox.toFixed(2)} €`;
     const halal = s.halal.status === 'halal' ? 'halal' : `**${s.halal.status}**: ${s.halal.reason}`;
-    L.push(`| ${s.n} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md) (1 ${UNIT[r.serving].one}, ${r.box.grams} g) | ${SLOT_WORD[r.slot]} | ${s.pitch} | ${r.box.kcal} | ${r1(r.box.protein)} g | ${r1(r.box.fiber)} g | ${eatShort[s.eat]} | ${r.minutes} min for ${r.boxes} | ${s.keeps} | ${cost} | ${halal} |`);
+    L.push(`| ${s.n} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md) (1 ${UNIT[r.serving].one}, ${r.box.grams} g) | ${SLOT_WORD[r.slot]} | ${s.pitch} | ${r.box.kcal} | ${r1(r.box.protein)} g | ${r1(r.box.fiber)} g | ${eatShort[s.eat]} | ${r.minutes} min for ${r.boxes} | ${s.keepsText} | ${cost} | ${halal} |`);
   }
   L.push('');
   L.push('- **The lunch-box test.** Every lunch here travels: a closed box, nothing that leaks, good cold or with one item (a sealed rice cup or the box itself) in the microwave. Fish and eggs are never microwaved; sauces and dips go in a small pot; pitas are filled at lunch so they stay dry.');
@@ -1061,7 +1192,7 @@ function libraryMd(rows) {
     L.push(`| # | Prep | Why you will like it | kcal | Protein | Fibre | Eat | Hands-on | Keeps | Cost per ${list[0].r.slot === 'breakfast' ? 'jar or portion' : u.one} |`, '|---|---|---|---|---|---|---|---|---|---|');
     for (const { s, r } of list) {
       const cost = r.cost.partialMajor ? 'not available' : `${r.cost.perBox.toFixed(2)} €`;
-      L.push(`| ${s.n} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md) (1 ${UNIT[r.serving].one}, ${r.box.grams} g) | ${s.pitch} | ${r.box.kcal} | ${r1(r.box.protein)} g | ${r1(r.box.fiber)} g | ${eatShort[s.eat]} | ${r.minutes} min for ${r.boxes} | ${s.keeps} | ${cost} |`);
+      L.push(`| ${s.n} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md) (1 ${UNIT[r.serving].one}, ${r.box.grams} g) | ${s.pitch} | ${r.box.kcal} | ${r1(r.box.protein)} g | ${r1(r.box.fiber)} g | ${eatShort[s.eat]} | ${r.minutes} min for ${r.boxes} | ${s.keepsText} | ${cost} |`);
     }
     L.push('');
   };
@@ -1166,8 +1297,36 @@ function libraryMd(rows) {
 
 // ------------------------------------------------------------------ main
 const sheets = await loadSheets();
-for (const s of sheets) s.methodObj = checkMethod(s);
+for (const s of sheets) {
+  checkMethod(s);
+  // R3-B honest minutes: hands-on and start to finish, generated from the method (the typed figure is only logged).
+  const t = minutesOf(s);
+  Object.assign(s, { minutesTyped: s.minutes, minutes: t.hands, totalMinutes: t.total, aheadMinutes: t.ahead });
+}
 const rows = sheets.map((s) => ({ s, r: compute(s) }));
+const FOOD_INDEX = new Map(FOODS.map((f) => [f.id, f]));
+const R3_ERRORS = [];
+for (const { s, r } of rows) {
+  try {
+    s.keep = keepOf(s, r, ST);
+    s.methodObj = finishMethod(s, r);
+  } catch (e) {
+    R3_ERRORS.push(e.message);
+  }
+}
+if (R3_ERRORS.length) {
+  console.error(R3_ERRORS.join('\n'));
+  throw new Error(`${R3_ERRORS.length} sheet(s) fail the R3-B checks (above)`);
+}
+// One storage truth (R3-B): the app's own storagePlan, run on the library recipe we write, must give the same
+// fridge life and split as the method's generated sentence. A disagreement fails the build.
+for (const { s, r } of rows) {
+  const lib = libraryRecipe(s, r);
+  const app = appStoragePlan(lib, r.boxes, FOOD_INDEX, RULES);
+  const appFridge = app.storage.filter((x) => x === 'fridge').length;
+  if (app.fridgeDays !== s.keep.fridgeDays || appFridge !== s.keep.fridge) throw new Error(`R-MP-${s.n} ${s.id}: the app would keep ${appFridge} in the fridge for ${app.fridgeDays} days; the method says ${s.keep.fridge} for ${s.keep.fridgeDays}`);
+}
+MISSING.clear();
 // halalSwap (STATUS O6): only on a prep that is not halal, pointing at a halal prep of the same slot, with a reason.
 for (const { s, r } of rows) {
   if (!s.halalSwap) continue;
@@ -1200,7 +1359,7 @@ fs.writeFileSync(path.join(root, 'app', 'data', 'recipes-mealprep.js'), recipesF
 fs.writeFileSync(path.join(root, 'docs', 'MEALPREP.md'), libraryMd(rows));
 fs.writeFileSync(path.join(root, 'app', 'data', 'plans-mealprep.js'), plansFile());
 fs.writeFileSync(path.join(here, 'out', 'missing-foods.json'), JSON.stringify(Object.fromEntries([...MISSING].map(([k, v]) => [k, { label: v.label, recipes: [...v.recipes].sort((a, b) => a - b) }])), null, 1) + '\n');
-for (const { s, r } of rows) console.log(`R-MP-${s.n} ${s.id}: ${r.effort} ${r.minutes} min, ${r.box.grams} g, ${r.box.kcal} kcal, ${r1(r.box.protein)} g P, ${r1(r.box.fiber)} g fibre, ${r.cost.partialMajor ? 'cost n/a' : `${r.cost.perBox.toFixed(2)} €`}`);
+for (const { s, r } of rows) console.log(`R-MP-${s.n} ${s.id}: ${r.effort} ${r.minutes} min hands-on (typed ${s.minutesTyped}), ${s.totalMinutes} min in all, ${r.box.grams} g, ${r.box.kcal} kcal, ${r1(r.box.protein)} g P, ${r1(r.box.fiber)} g fibre, ${r.cost.partialMajor ? 'cost n/a' : `${r.cost.perBox.toFixed(2)} €`}`);
 for (const [k, w] of Object.entries(WEEK_RESULT)) {
   for (const t of w.totals) console.log(`${k} ${t.day}: ${Math.round(t.kcal)} kcal, ${r1(t.protein)} g P, ${r1(t.fiber)} g fibre`);
   console.log(`${k} cost: till ${w.till.toFixed(2)} €, eaten ${w.eaten.toFixed(2)} € (${(w.eaten / 5).toFixed(2)} €/day)${w.freezer ? `, freezer ${w.freezer.toFixed(2)} €` : ''}, unpriced ${w.unpriced.join(', ') || 'none'}`);

@@ -435,7 +435,7 @@ test('shoppingForShop: merged across batches, butcher first, staples in "Check y
 test('store.weekShopping: this week’s batches in one list, each food once; old batches left out', () => {
   const clock = { now: new Date(2026, 9, 18, 18) };
   const store = makeStore(clock);
-  assert.deepEqual(store.weekShopping(), { batches: [], list: null });
+  assert.deepEqual(store.weekShopping(), { batches: [], weekdayJobs: [], ready: [], list: null });
   clock.now = new Date(2026, 9, 10, 18);
   store.cookBatch({ recipeId: 'pk-chicken-tikka-rice-box', boxes: 4 }); // 8 days before: left out
   clock.now = new Date(2026, 9, 18, 18);

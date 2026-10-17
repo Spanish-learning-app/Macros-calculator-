@@ -1707,6 +1707,28 @@
   font-size: var(--text-sm);
 }
 
+/* Tonight's jobs (R3-A): the penne for tomorrow's box, a planned prep with no box yet. Two lines
+   that wrap, unlike the one-line freezer move. */
+.day-prep .tonight-row--job {
+  flex-wrap: wrap;
+  padding-block: var(--space-1);
+}
+
+.tonight-job {
+  flex: 1 1 200px;
+  min-width: 0;
+  font-size: var(--text-sm);
+}
+
+.tonight-job-what {
+  display: block;
+  opacity: 0.85;
+}
+
+.day-prep--tonight {
+  margin-bottom: var(--space-3);
+}
+
 /* One friendly empty day (B8) */
 .empty-day {
   display: grid;

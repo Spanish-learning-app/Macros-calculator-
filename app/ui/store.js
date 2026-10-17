@@ -394,7 +394,8 @@ export function createStore({
     const slots = slotDefs(t);
     const minutes = minutesOfDay(now());
     const d = day(t);
-    const all = dayTotals(d, index(), { include: 'all' });
+    // Only what was eaten counts (R3-A, Mariam #6): a weekly plan's planned rows are not food yet.
+    const all = dayTotals(d, index(), { include: 'eaten' });
     const common = {
       rules,
       target,
@@ -424,7 +425,7 @@ export function createStore({
         minutes,
         dayStart: dayStartOf(t),
         eaten: all.total.protein,
-        entries: d.entries.length,
+        entries: d.entries.filter((e) => e.status === 'eaten').length,
       });
       if (found) tip = { kind: 'checkpoint', ...found };
     }
@@ -583,7 +584,28 @@ export function createStore({
     let batch = next.batches.find((b) => b.id === batchId);
     const f = requireFood(batch.recipeId);
     const box = pickBox(batch, date);
-    const serving = findServing(f, 'box') ? 'box' : defaultServing(f).id;
+    const current = next.days?.[date] ?? emptyDay(date);
+    // R3-A (Mariam #1): the same dish already planned in that meal with no box behind it (a weekly
+    // plan's row) takes the box; the meal is never doubled.
+    const waiting = current.entries.find(
+      (e) => e.slot === slot && e.foodId === f.id && !e.boxRef && e.status === 'planned',
+    );
+    if (box && waiting) {
+      const linked = { ...waiting, boxRef: { batchId, boxId: box.id }, status };
+      batch = placeBox(batch, box.id, { date, entryId: waiting.id });
+      next.batches = next.batches.map((b) => (b.id === batchId ? batch : b));
+      next.days = {
+        ...next.days,
+        [date]: {
+          ...current,
+          entries: current.entries.map((e) => (e.id === waiting.id ? linked : e)),
+        },
+      };
+      const useBy = useByOf(batch, box);
+      const warning = box.storage === 'fridge' && useBy && useBy < date ? 'past-use-by' : null;
+      return { entryId: waiting.id, boxId: box.id, noneLeft: false, warning, linked: true };
+    }
+    const serving = boxServingOf(f, batch.recipeId);
     const entry = createEntry({
       id: makeId(),
       slot,
@@ -592,7 +614,6 @@ export function createStore({
       qty: 1,
       status,
     });
-    const current = next.days?.[date] ?? emptyDay(date);
     let warning = null;
     if (box) {
       entry.boxRef = { batchId, boxId: box.id };
@@ -610,6 +631,184 @@ export function createStore({
       date,
     });
     return { entryId: entry.id, boxId: box?.id ?? null, noneLeft: !box, warning };
+  }
+
+  /**
+   * What a weekly plan needs bought: its batches merged by food (boxes added up; a batch that comes
+   * from the freezer is not bought) and every day item that no batch makes (ready food).
+   */
+  function planNeeds(plan) {
+    const batches = [];
+    const made = new Set();
+    for (const b of plan.batches ?? []) {
+      made.add(b.foodId);
+      if (b.from || !food(b.foodId)) continue;
+      const n = Math.max(1, Math.round(Number(b.boxes) || 1));
+      const prev = batches.find((x) => x.foodId === b.foodId);
+      if (prev) prev.boxes += n;
+      else
+        batches.push({
+          foodId: b.foodId,
+          name: food(b.foodId).name,
+          boxes: n,
+          when: b.when ?? null,
+          sunday: b.when === 'Sunday',
+        });
+    }
+    const ready = [];
+    for (const d of plan.days ?? []) {
+      for (const item of d.items ?? []) {
+        if (made.has(item.foodId) || libraryById.has(item.foodId)) continue;
+        const f = food(item.foodId);
+        if (!f) continue;
+        const servingId = findServing(f, item.servingId) ? item.servingId : defaultServing(f).id;
+        ready.push({ foodId: f.id, servingId, qty: item.qty ?? 1 });
+      }
+    }
+    return { batches, ready };
+  }
+
+  /** Ready food as one pseudo-recipe for shoppingList (one "box" = everything listed). */
+  function readyRecipe(items) {
+    return {
+      recipe: {
+        boxes: 1,
+        ingredients: items.map((i) => ({ foodId: i.foodId, servingId: i.servingId, qty: i.qty })),
+      },
+      boxes: 1,
+    };
+  }
+
+  /** The ready foods' names, once each, for the list's lead line. */
+  function readyNames(items) {
+    return [...new Set(items.map((i) => food(i.foodId)?.shortName ?? food(i.foodId)?.name))].filter(
+      Boolean,
+    );
+  }
+
+  /**
+   * Storage entries of a part cooked the night before (`{ id, later: true, job? }`, ARCHITECTURE
+   * §13.1); core mealprep leaves them out of the fridge life the same way.
+   */
+  function laterParts(recipe) {
+    return (Array.isArray(recipe?.storage) ? recipe.storage : [])
+      .filter((s) => s && typeof s === 'object' && s.later === true)
+      .map((s) => ({ job: typeof s.job === 'string' && s.job.trim() ? s.job.trim() : null }));
+  }
+
+  /** The Lab's `keep.later[].job` (or `.text`; R3-B shape): what to cook the night before, or null. */
+  function keepLaterText(recipe) {
+    const list = Array.isArray(recipe?.keep?.later) ? recipe.keep.later : [];
+    const pick = (x) => [x?.job, x?.text].find((v) => typeof v === 'string' && v.trim());
+    const t = list.map(pick).find(Boolean);
+    return t ? t.trim() : null;
+  }
+
+  /**
+   * Evening jobs of the weekly plans in use on `date` (a batch stamped `plan: { id, monday }` from
+   * the last week): PLANS[].evenings = [{ weekday, time?, text, recipeId? }], today's weekday.
+   * @returns {{ text: string, recipeId: string|null, time: string|null }[]}
+   */
+  function planEvenings(date) {
+    const out = [];
+    const seen = new Set();
+    for (const b of batchesList()) {
+      const use = b.plan;
+      if (!use?.id || !isISODate(use.monday) || seen.has(`${use.id}|${use.monday}`)) continue;
+      seen.add(`${use.id}|${use.monday}`);
+      const offset = Math.round((Date.parse(date) - Date.parse(use.monday)) / 86400000);
+      if (offset < -1 || offset > 6) continue;
+      const weekday = ((offset + 7) % 7) + 1; // the Sunday before is weekday 7
+      const plan = api.weeklyPlans().find((p) => p.id === use.id);
+      for (const e of Array.isArray(plan?.evenings) ? plan.evenings : []) {
+        if (e?.weekday !== weekday || typeof e.text !== 'string' || !e.text.trim()) continue;
+        if (e.time === 'morning') continue; // "Tonight" is the evening's list
+        out.push({
+          text: e.text.trim(),
+          recipeId: typeof e.recipeId === 'string' && food(e.recipeId) ? e.recipeId : null,
+          time: e.time ?? null,
+        });
+      }
+    }
+    return out;
+  }
+
+  /** The method step that starts "The night before…" (what to do then), or null. */
+  function nightBeforeStep(recipe) {
+    const steps = Array.isArray(recipe?.method?.steps) ? recipe.method.steps : [];
+    for (const raw of steps) {
+      const t = typeof raw === 'string' ? raw : raw?.text;
+      const m = typeof t === 'string' ? /^\s*the night before[^:]*:\s*(.+)$/i.exec(t) : null;
+      if (m) return m[1].charAt(0).toUpperCase() + m[1].slice(1);
+    }
+    return null;
+  }
+
+  /** The serving one box logs: a family pot's box is one katori (Nasreen R3 #7), else 'box'. */
+  function boxServingOf(f, recipeId) {
+    const pot = findRecipe(recipeId)?.potKatori;
+    if (Number.isFinite(pot) && pot > 0 && findServing(f, 'katori')) return 'katori';
+    return findServing(f, 'box') ? 'box' : defaultServing(f).id;
+  }
+
+  /**
+   * R3-A (Mariam #1): a batch cooked now takes over the planned rows of the same dish with no box
+   * behind them (a weekly plan's weekday jobs), from its cooking day for a week, earliest first,
+   * while a box keeps (fridge box still good that day, or a frozen one). Mutates `next`.
+   * @returns {number} rows linked
+   */
+  function linkPlanned(next, batchId) {
+    const batch = next.batches.find((b) => b.id === batchId);
+    const from = batch.cookedOn > today() ? batch.cookedOn : today();
+    let linked = 0;
+    for (let i = 0; i < 8; i += 1) {
+      const date = addDays(from, i);
+      const rows = (next.days?.[date]?.entries ?? [])
+        .filter((e) => e.foodId === batch.recipeId && !e.boxRef && e.status === 'planned')
+        .sort((a, b) => ENTRY_SLOT_IDS.indexOf(a.slot) - ENTRY_SLOT_IDS.indexOf(b.slot));
+      for (const row of rows) {
+        const b = next.batches.find((x) => x.id === batchId);
+        const box = pickBox(b, date);
+        if (!box) return linked;
+        const useBy = box.storage === 'fridge' ? useByOf(b, box) : null;
+        if (box.storage === 'fridge' && useBy && useBy < date) continue;
+        placeInto(next, batchId, date, row.slot, 'planned');
+        linked += 1;
+      }
+    }
+    return linked;
+  }
+
+  /**
+   * Fridge or freezer for a plan's batch (R3-A, Mariam #2): a box eaten within the recipe's fridge
+   * life stays in the fridge; a later or unplaced box goes in the freezer (if the food freezes).
+   * The recipe record's storage is the one truth; a part cooked later (penne) does not count.
+   */
+  function planStorage(batch, cap = null) {
+    const pl = storagePlan(recipeFor(batch.recipeId), batch.boxes.length, index(), rules);
+    const last = addDays(batch.cookedOn, pl.fridgeDays);
+    // The plan may say how many stay in the fridge (Lab R3-B: batches[].fridge); the earliest
+    // eaten get the fridge, and never a box eaten after its fridge life.
+    const order = batch.boxes
+      .map((box, i) => ({ i, date: box.placed?.date ?? '9999' }))
+      .sort((a, b) => a.date.localeCompare(b.date) || a.i - b.i)
+      .map((x) => x.i);
+    const limit = Number.isInteger(cap) && cap >= 0 ? cap : Infinity;
+    return {
+      ...batch,
+      boxes: batch.boxes.map((box, i) => {
+        const date = box.placed?.date ?? null;
+        const inLife = date !== null && date <= last;
+        const fridge = !pl.freezable || (inLife && order.indexOf(i) < limit);
+        return { ...box, storage: fridge ? 'fridge' : 'freezer' };
+      }),
+    };
+  }
+
+  /** Plan and ready-pick rows in 'snacks' are the merienda (Mariam #5): 'evening' when the day has it. */
+  function planSlot(slot, date) {
+    if (slot !== 'snacks') return slot;
+    return slotDefs(date).some((s) => s.id === 'evening') ? 'evening' : slot;
   }
 
   function boxNumber(batch, boxId) {
@@ -795,7 +994,60 @@ export function createStore({
           });
         });
       }
-      return { moveTonight };
+      // R3-A (Mariam #3): tonight's jobs. A box placed tomorrow whose recipe has a part cooked the
+      // night before (the bolognese penne), and planned prep rows with no box behind them yet
+      // (a plan's weekday jobs: tomorrow's, and today's meals still to come).
+      const later = [];
+      for (const batch of batchesList()) {
+        const recipe = recipeFor(batch.recipeId);
+        const parts = laterParts(recipe);
+        const step = nightBeforeStep(recipe);
+        if (!parts.length && !step && !keepLaterText(recipe)) continue;
+        batch.boxes.forEach((box, i) => {
+          if (box.status !== 'placed' || box.placed?.date !== tomorrow) return;
+          const entry = day(tomorrow).entries.find((e) => e.id === box.placed.entryId);
+          later.push({
+            batchId: batch.id,
+            boxId: box.id,
+            number: i + 1,
+            name: food(batch.recipeId)?.name ?? batch.name ?? 'Box',
+            slot: entry?.slot ?? null,
+            job: parts.find((p) => p.job)?.job ?? keepLaterText(recipe) ?? step,
+          });
+        });
+      }
+      const make = [];
+      const order = slotDefs(date).map((s) => s.id);
+      const nowAt = order.indexOf(slotAt(minutesOfDay(now()), date));
+      for (const d of [date, tomorrow]) {
+        for (const e of day(d).entries) {
+          if (e.boxRef || e.status !== 'planned' || !e.foodId) continue;
+          if (!libraryById.has(e.foodId) && !findRecipe(e.foodId)) continue;
+          if (d === date && nowAt >= 0 && order.indexOf(e.slot) < nowAt) continue;
+          if (make.some((m) => m.date === d && m.slot === e.slot && m.foodId === e.foodId))
+            continue;
+          make.push({
+            date: d,
+            when: d === date ? 'today' : 'tomorrow',
+            slot: e.slot,
+            foodId: e.foodId,
+            name: food(e.foodId)?.name ?? e.snapshot?.name ?? 'Prep',
+          });
+        }
+      }
+      // The plan's own evening jobs (Lab: PLANS[].evenings), for the week a plan is in use. They
+      // replace the rows worked out above for the same recipe.
+      const jobs = planEvenings(date);
+      const covered = new Set(jobs.map((j) => j.recipeId).filter(Boolean));
+      return {
+        moveTonight,
+        later: later.filter((l) => !covered.has(findBatch(l.batchId)?.recipeId)),
+        make: make.filter((m) => !covered.has(m.foodId)),
+        jobs: jobs.map((j) => ({
+          ...j,
+          make: Boolean(j.recipeId && make.some((m) => m.foodId === j.recipeId)),
+        })),
+      };
     },
     /**
      * Shopping list for `boxes` of a batch's (or recipe's) recipe, as you buy it (shoppingForShop:
@@ -829,10 +1081,62 @@ export function createStore({
           listed,
         };
       });
+      // R3-A (Mariam #4): a weekly plan in use brings the rest of its week: the weekday batches
+      // not cooked yet and the ready food (merienda, fruit, nuts) its days plan.
+      const used = new Map();
+      for (const b of batches) {
+        if (b.plan?.id && !used.has(`${b.plan.id}|${b.plan.monday}`)) {
+          used.set(`${b.plan.id}|${b.plan.monday}`, b.plan);
+        }
+      }
+      const weekdayJobs = [];
+      const ready = [];
+      for (const use of used.values()) {
+        const plan = api.weeklyPlans().find((p) => p.id === use.id);
+        if (!plan) continue;
+        const needs = planNeeds(plan);
+        const sunday = addDays(use.monday, -1);
+        for (const job of needs.batches.filter((x) => !x.sunday)) {
+          // A weekday batch already cooked (and not by the plan) is in the list above.
+          const done = batches
+            .filter((b) => !b.plan && b.recipeId === job.foodId && b.cookedOn >= sunday)
+            .reduce((n, b) => n + b.boxes.length, 0);
+          const boxes = job.boxes - done;
+          if (boxes <= 0) continue;
+          const recipe = recipeFor(job.foodId);
+          const listed = Boolean(recipe.ingredients?.length);
+          if (listed) plans.push({ recipe, boxes });
+          weekdayJobs.push({ foodId: job.foodId, name: job.name, boxes, listed });
+        }
+        ready.push(...needs.ready);
+      }
+      if (ready.length) plans.push(readyRecipe(ready));
       const list = plans.length
         ? shoppingForShop(shoppingList(plans, index(), rules), index(), rules)
         : null;
-      return { batches: named, list };
+      return { batches: named, weekdayJobs, ready: readyNames(ready), list };
+    },
+    /**
+     * The whole shopping list for a weekly plan (R3-A, Mariam #4): every batch it makes (Sunday and
+     * weekday nights; not what comes from the freezer) and its ready food, merged by food.
+     * @returns {{ batches: { foodId, name, boxes, when, listed }[], ready: string[], list: object|null }|null}
+     */
+    planShopping(planId) {
+      const plan = api.weeklyPlans().find((p) => p.id === planId);
+      if (!plan) return null;
+      const needs = planNeeds(plan);
+      const plans = [];
+      const batches = needs.batches.map((b) => {
+        const recipe = recipeFor(b.foodId);
+        const listed = Boolean(recipe.ingredients?.length);
+        if (listed) plans.push({ recipe, boxes: b.boxes });
+        return { ...b, listed };
+      });
+      if (needs.ready.length) plans.push(readyRecipe(needs.ready));
+      const list = plans.length
+        ? shoppingForShop(shoppingList(plans, index(), rules), index(), rules)
+        : null;
+      return { batches, ready: readyNames(needs.ready), list };
     },
     /** Boxes of a batch by state (Review 2: "3 to eat · 1 eaten"). */
     boxCounts(batchId) {
@@ -1238,7 +1542,13 @@ export function createStore({
           status: 'available',
         })),
       };
-      commit({ ...data(), batches: [...batchesList(), batch] });
+      const next = {
+        ...data(),
+        days: { ...(data().days ?? {}) },
+        batches: [...batchesList(), batch],
+      };
+      linkPlanned(next, id);
+      commit(next);
       return id;
     },
     setBoxStorage(batchId, boxId, storage) {
@@ -1337,16 +1647,18 @@ export function createStore({
         if (b.when !== 'Sunday' || b.from || cooked.has(b.foodId) || !food(b.foodId)) continue;
         const n = Math.max(1, Math.round(b.boxes));
         const recipeId = b.foodId;
-        const pl = storagePlan(recipeFor(recipeId), n, index(), rules);
         const id = makeId();
+        // Every box starts in the fridge (so they are placed in order); fridge or freezer is
+        // decided below from the day each box is eaten (R3-A, Mariam #2).
         next.batches.push({
           id,
           recipeId,
           name: food(recipeId).name,
           cookedOn: sunday < today() ? today() : sunday,
+          plan: { id: plan.id, monday },
           boxes: Array.from({ length: n }, (_, i) => ({
             id: `${id}-${i + 1}`,
-            storage: boxStorage(null, pl, i),
+            storage: 'fridge',
             movedToFridgeOn: null,
             placed: null,
             status: 'available',
@@ -1361,13 +1673,13 @@ export function createStore({
         const date = addDays(monday, (d.weekday ?? 1) - 1);
         dates.push(date);
         const taken = new Set((next.days[date]?.entries ?? []).map((e) => e.slot));
-        const slots = [...new Set(d.items.map((i) => i.slot))];
+        const slots = [...new Set(d.items.map((i) => planSlot(i.slot, date)))];
         for (const slot of slots) {
           if (taken.has(slot)) {
             skipped += 1;
             continue;
           }
-          for (const item of d.items.filter((i) => i.slot === slot)) {
+          for (const item of d.items.filter((i) => planSlot(i.slot, date) === slot)) {
             const f = food(item.foodId);
             if (!f) continue;
             const batchId = cooked.get(item.foodId);
@@ -1406,16 +1718,27 @@ export function createStore({
           next.batches.find((x) => x.id === id).boxes.every((box) => box.status === 'available'),
         ),
       );
-      next.batches = next.batches.filter((x) => !unused.has(x.id));
+      next.batches = next.batches
+        .filter((x) => !unused.has(x.id))
+        .map((x) =>
+          [...cooked.values()].includes(x.id)
+            ? planStorage(
+                x,
+                (plan.batches ?? []).find((b) => b.foodId === x.recipeId && b.when === 'Sunday')
+                  ?.fridge ?? null,
+              )
+            : x,
+        );
       const batches = cooked.size - unused.size;
       if (!entries) return { batches: 0, entries: 0, skipped, dates };
       commit(next, `Planned ${plan.name}`);
       return { batches, entries, skipped, dates };
     },
     /** One tap on a ready-to-eat pick: its items into `slot` on `date`. Undoable. @returns {number} */
-    addReadyPick({ slot, index: i, date }) {
-      const pick = api.readyPicks(slot)[i];
+    addReadyPick({ slot: key, index: i, date }) {
+      const pick = api.readyPicks(key)[i];
       if (!pick) return 0;
+      const slot = planSlot(key, date);
       let d = day(date);
       let recents = data().recents ?? {};
       for (const item of pick.items) {

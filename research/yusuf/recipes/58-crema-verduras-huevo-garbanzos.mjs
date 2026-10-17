@@ -1,6 +1,7 @@
 // R-MP-58 · Vegetable crema with boiled eggs, chickpeas and bread (dinner portion, no cooking). Batch: 2 portions.
 export default {
   n: 58,
+  eatNow: 1, // the first dinner is eaten the night it is made; the rest of the brik and chickpeas make the second
   slot: 'dinner',
   serving: 'portion',
   boxes: 2,
@@ -44,25 +45,27 @@ export default {
     },
   ],
   method: {
-    equipment: ['Small pot with a lid for 2 eggs', 'Medium pan, or a large microwave-safe bowl with a plate as a lid', 'Sieve', 'A soup bowl'],
+    equipment: ['Small pot for 4 eggs', 'Medium pan, or a large microwave-safe bowl with a plate as a lid', 'Sieve', 'A soup bowl'],
     prep: [
-      'Sunday: boil 4 eggs (10 minutes in bubbling water, then 5 minutes in cold water), peel them and keep them in the fridge (3 days).',
+      'Eggs: use 4 eggs boiled in the last 3 days, or boil them now (step 2). Boiled eggs keep 3 days in their shells.',
       'Drain and rinse the chickpeas (1 jar, 400 g).',
     ],
     steps: [
-      { text: 'No cooking from raw: you only heat a ready-made soup. Pour half the brik of crema de verduras (about 250 ml, 258 g) into the pan or bowl.', heat: 'none' },
+      { text: 'No cooking: only a ready-made soup is heated and the eggs are boiled. Skip the next step if you have 4 eggs boiled in the last 3 days.', heat: 'none' },
+      { text: 'Cover 4 eggs with cold water in the small pot, bring to the boil and cook 10 minutes at a gentle bubble, then cool them 5 minutes in cold water. Keep 2 in their shells for tomorrow.', heat: 'high', minutes: 15, wait: true },
+      { text: 'Pour half the brik of crema de verduras (about 250 ml, 258 g) into the pan or bowl.', heat: 'none' },
       { text: 'Add half the chickpeas (200 g).', heat: 'none' },
-      { text: 'Heat until it boils: in a pan 4–5 minutes, stirring; in the microwave 3–4 minutes with a plate on top, stirring halfway.', heat: 'medium', minutes: 4 },
-      { text: 'Pour into the soup bowl. Chop 2 boiled eggs and put them on top.', heat: 'none' },
+      { text: 'Heat until it boils: in a pan 4–5 minutes, stirring; in the microwave 3–4 minutes with a plate on top, stirring halfway. It is ready when it bubbles at the edge and is steaming hot all through.', heat: 'medium', minutes: 4, check: true },
+      { text: 'Pour into the soup bowl. Chop 2 peeled boiled eggs and put them on top.', heat: 'none', pack: true },
       { text: 'Drizzle 1 tsp extra virgin olive oil (5 g) and grind over a little black pepper. Eat with ½ roll (65 g).', heat: 'none' },
     ],
     doneWhen: 'The soup bubbles at the edge and is steaming hot all through.',
-    boxUp: 'Close the opened brik and put the rest of the chickpeas in a closed box: both go in the fridge and are used the next night (they keep 2 days once opened). Do not freeze the eggs.',
+    boxUp: 'Close the opened brik and put the rest of the chickpeas in a closed box in the fridge for the next night (they keep 2 days once opened). {{split}}',
     reheat: 'The soup is heated fresh each night until it boils. The eggs go on after, cold or warmed by the soup.',
     tips: ['The crema has no stock, cream or butter (Hacendado 60308). Another brand may use chicken stock: check the label.'],
   },
-  keeps: 'Unopened briks to their date; eggs 3 days',
-  storagePlan: 'One brik and one jar of chickpeas make 2 dinners: once opened, both keep 2 days in the fridge, so eat the second portion the next night. Boil the eggs on Sunday (3 days).',
+  keepsNote: 'unopened briks to their date',
+  storagePlan: 'One brik and one jar of chickpeas make 2 dinners. {{split}} Boil the eggs on the night, or use eggs boiled in the last 3 days.',
   reheat: 'Heat the soup until boiling hot; the eggs go on after.',
   crossCheck: null,
   changes: [

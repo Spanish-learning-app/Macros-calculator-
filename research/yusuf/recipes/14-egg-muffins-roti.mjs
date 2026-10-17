@@ -1,6 +1,9 @@
 // R-MP-14 · Desi egg muffins (3) with a wholemeal roti (breakfast portion). Standard batch: 12 muffins +
 // 4 roti = 4 portions.
-import { rotiComponent, ROTI_REFS } from '../shared.mjs';
+import { rotiComponent, rotiSteps, ROTI_REFS } from '../shared.mjs';
+
+// R3-B: dough first, curry in the fridge on a timer, one action per roti step, roti cooled before bagging.
+const R = rotiSteps({ count: 4, atta: 117, water: 82, cups: 'about 1 cup', waterCups: 'about ⅓ cup' });
 
 export default {
   n: 14,
@@ -52,27 +55,23 @@ export default {
   method: {
     equipment: ['12-hole muffin tin (or 12 silicone muffin moulds)', 'Pastry brush or kitchen paper', 'Jug or bowl and a whisk or fork', 'Wire rack', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Baking paper', 'Freezer bags and 1–2 boxes for the fridge'],
     prep: [
-      'Chop the baby spinach (120 g). Dice the red pepper small (160 g, 5 mm). Chop the red onion fine (80 g, ½ medium), 2 green chillies (10 g) and a small handful of coriander (8 g).',
-      'Take the frozen peas (120 g) out of the bag; they go in frozen.',
+      'Chop the baby spinach (120 g). Dice {{n:pepper-red}} small (5 mm). Chop the red onion fine (80 g, ½ medium), 2 green chillies (10 g) and a small handful of coriander (8 g).',
+      'Take the frozen peas (120 g, about 1 cup) out of the bag; they go in frozen.',
     ],
     steps: [
+      ...R.dough,
       { text: 'Heat the oven to 180 °C. Brush the 12 holes of the tin with 2 tsp oil (8 g), right up the sides.', heat: 'oven-180', minutes: 10 },
       { text: 'Divide the spinach, pepper, peas, onion, chilli and coriander between the 12 holes.', heat: 'none' },
-      { text: 'In the jug whisk 8 eggs, 390 ml liquid egg whites (400 g), 1 tsp ground cumin (2 g), ¾ tsp red chilli powder (2 g), ⅓ tsp haldi (turmeric powder, 1 g), ½ tsp black pepper (1 g) and ⅔ tsp salt (4 g) until no streaks of white are left.', heat: 'none', minutes: 2 },
+      { text: 'In the jug whisk 8 eggs, 390 ml liquid egg whites (400 g), 1 tsp ground cumin (2 g), ¾ tsp red chilli powder (2 g), a heaped ¼ tsp haldi (turmeric powder, 1 g), ½ tsp black pepper (1 g) and a heaped ½ tsp salt (4 g) until no streaks of white are left.', heat: 'none', minutes: 2 },
       { text: 'Pour the egg over the vegetables until each hole is about ¾ full (they rise).', heat: 'none' },
       { text: 'Bake until puffed and set in the middle.', heat: 'oven-180', minutes: 22 },
-      { text: 'Leave them 10 minutes in the tin, run a knife around each one and lift them onto the rack to cool.', heat: 'none', minutes: 10 },
-      { text: 'Roti dough (no cooking yet): in a big bowl mix 117 g atta (wholemeal chapati flour, about 1 cup) with a pinch of salt (1 g). Pour in 82 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.', heat: 'none', minutes: 3 },
-      { text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.', heat: 'none', minutes: 5 },
-      { text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).', heat: 'none', minutes: 20 },
-      { text: 'Divide the dough into 4 equal balls of about 50 g (golf-ball size). Keep them under the cloth.', heat: 'none' },
-      { text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.', heat: 'medium-high', minutes: 2 },
-      { text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.', heat: 'none' },
-      { text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 6 minutes for 4).', heat: 'medium-high', minutes: 6 },
-      { text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.', heat: 'none' },
+      { text: 'Check: push a knife into the middle of one muffin. It comes out clean, with no runny egg, and the tops are puffed and firm. Wet? 3–4 minutes more.', heat: 'none', check: true },
+      { text: 'Leave them 10 minutes in the tin, run a knife around each one and lift them onto the rack to cool while you make the roti.', heat: 'none', minutes: 10, wait: true },
+      ...R.cook,
+      { text: 'Pack 4 portions: 3 cooled muffins and 1 roti each, baking paper between the roti.', heat: 'none', pack: true },
     ],
     doneWhen: 'Muffins: puffed and firm on top; a knife pushed into the middle comes out clean, with no runny egg. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-    boxUp: 'Cool and put away within 1 hour. Each portion is 3 muffins and 1 roti. Portion 1 (and 2 if you eat it within 2 days) in the fridge. Freeze the other muffins flat on a tray for 1 hour, then put them in a bag (2 months). Freeze the roti in a stack with baking paper between them (2 months; 2 days in the fridge).',
+    boxUp: 'Cool and put away within 1 hour. Each portion is 3 muffins and 1 roti. {{split}} To freeze, lay the muffins flat on a tray for 1 hour first, then bag them with their roti.',
     reheat: 'Muffins from the fridge: microwave 30–40 seconds; from frozen: 60–90 seconds, turning once, until hot all through. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
     tips: [
       'Liquid egg whites are "claras de huevo pasteurizadas" in a carton at Mercadona, in the egg aisle.',
@@ -83,8 +82,7 @@ export default {
       'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.',
     ],
   },
-  keeps: '3 days fridge; 2 months frozen (muffins and roti)',
-  storagePlan: 'Portion 1 (and 2, if you like) in the fridge; the rest in the freezer. Egg muffins keep 3 days in the fridge and 2 months frozen (USDA FSIS, egg casseroles); roti 2 days in the fridge, 2 months frozen.',
+  storagePlan: '{{split}} Egg muffins keep 3 days in the fridge and 2 months frozen (USDA FSIS, egg casseroles); roti 2 days in the fridge, 2 months frozen.',
   reheat: 'Muffins from the fridge: microwave 30–40 s; from frozen: 60–90 s, turning once, until hot right through. Roti: 20–30 s a side on a hot tawa or dry pan, or 15 s in the microwave under a damp paper towel.',
   crossCheck: null,
   extraChecks: [{ zainab: 'roti-home', comps: ['roti'], note: "Same dough and yield as Zainab's home roti, so the roti part should match." }],

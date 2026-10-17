@@ -58,8 +58,8 @@
     "dinnerCuisine": "desi"
    }
   ],
-  "sundayMinutes": 75,
-  "weekdayMinutes": 43,
+  "sundayMinutes": 72,
+  "weekdayMinutes": 55,
   "till": 75.64009999999999,
   "eaten": 43.96661900277803,
   "freezer": 1.9324516777188325,
@@ -125,8 +125,8 @@
     "dinnerCuisine": "desi"
    }
   ],
-  "sundayMinutes": 75,
-  "weekdayMinutes": 60,
+  "sundayMinutes": 80,
+  "weekdayMinutes": 65,
   "till": 58.97199999999999,
   "eaten": 32.442313619657696,
   "tillPerDay": 11.794399999999998,

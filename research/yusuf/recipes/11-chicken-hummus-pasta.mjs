@@ -39,7 +39,7 @@ export default {
       lines: [['pasta-wholewheat', 300, 'boiled al dente, rinsed cold']],
     },
     {
-      id: 'dressing', label: 'Hummus-lemon dressing', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      id: 'dressing', label: 'Hummus-lemon dressing', pot: true, storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['hummus', 160, 'Hacendado receta clásica (⅔ of a 240 g tub)'],
         ['lemon-juice', 30, ''],
@@ -47,7 +47,7 @@ export default {
       ],
     },
     {
-      id: 'veg', label: 'Salad vegetables', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      id: 'veg', label: 'Salad vegetables', pot: true, storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['spinach', 100, 'baby leaves'],
         ['tomato-cherry', 320, 'halved'],
@@ -65,21 +65,22 @@ export default {
     steps: [
       { text: 'Toss the chicken with 1½ tsp paprika (3 g), the garlic, ½ tsp salt (3 g) and black pepper (1 g).', heat: 'none' },
       { text: 'Heat 2 tsp olive oil (10 g) in the frying pan for 1 minute. Add the chicken.', heat: 'medium-high', minutes: 1 },
-      { text: 'Cook 6–8 minutes, turning the strips every 2 minutes, until golden. Check one (see "Done when"). Cool on a plate, then slice.', heat: 'medium-high', minutes: 8 },
-      { text: 'Boil 3 l of water with a pinch of salt. Add the wholewheat penne (300 g) and cook about 11 minutes, until just soft.', heat: 'high', minutes: 11 },
+      { text: 'Cook 6–8 minutes, turning the strips every 2 minutes, until golden.', heat: 'medium-high', minutes: 8 },
+      { text: 'Check: cut the thickest strip. White all through with clear juices. Pink? 2 more minutes. Then cool the chicken on a plate and slice it.', heat: 'none', check: true },
+      { text: 'Boil 3 l of water with a pinch of salt. Add the wholewheat penne (300 g, about 3¾ cups) and cook about 11 minutes, until just soft.', heat: 'high', minutes: 11, wait: true },
       { text: 'Drain the penne and rinse under the cold tap until cold. Shake it dry.', heat: 'none' },
       { text: 'Make the dressing: whisk the hummus (160 g, ⅔ of the tub) with 2 tbsp lemon juice (30 g) and 3 tbsp water (40 g) until runny.', heat: 'none' },
-      { text: 'Box 1 (for tomorrow): toss a quarter of the pasta (about 175 g) with a quarter of the dressing, then fold in a quarter of the vegetables and a quarter of the chicken.', heat: 'none' },
-      { text: 'Boxes 2–4: freeze each pasta portion plain in a bag. Chicken: fridge (3 days) or freezer. Keep the dressing and cut vegetables in closed boxes in the fridge.', heat: 'none' },
-      { text: 'Each evening move one pasta bag (and chicken if frozen) to the fridge. In the morning toss with dressing, vegetables and chicken (2 minutes).', heat: 'none' },
+      { text: 'Tomorrow\'s box: toss a quarter of the pasta (about 175 g) with a quarter of the dressing, then fold in a quarter of the vegetables and a quarter of the chicken.', heat: 'none', pack: true },
+      { text: 'Put each other pasta portion with a quarter of the chicken in a freezer bag and freeze it. Keep the dressing and cut vegetables in closed boxes in the fridge.', heat: 'none' },
+      { text: 'Each evening move one bag to the fridge. In the morning toss it with dressing and vegetables (2 minutes). On Tuesday night cut fresh vegetables and whisk new dressing.', heat: 'none', ahead: true },
     ],
     doneWhen: 'The chicken is white all through with clear juices (75 °C); the pasta is soft with a little bite.',
-    boxUp: 'Cool fast: everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only box 1 is assembled; the rest of the pasta is frozen plain (1 month). Dressing and cut vegetables keep 2 days and do not freeze: cut the vegetables again on Tuesday.',
+    boxUp: 'Cool fast: everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only tomorrow\'s box is dressed; the others freeze as pasta and chicken. {{split}} Dressing and cut vegetables keep 2 days and do not freeze: make them again on Tuesday night.',
     reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C), carried with an ice pack.',
     tips: ['Halal: the Hacendado hummus lists E270 "de origen vegetal" and no E471.'],
   },
-  keeps: 'Pasta frozen in portions; chicken 3 days; veg cut twice',
-  storagePlan: 'Cooked pasta keeps 1 day in the fridge and the dressed vegetables 2 days, so: box 1 assembled on Sunday; pasta for boxes 2–4 frozen plain (1 month) and chicken frozen or chilled (3 days). Each evening move one pasta and one chicken portion to the fridge and toss with dressing and vegetables in the morning (2 minutes). Cut the vegetables on Sunday and again on Tuesday.',
+  keepsNote: 'vegetables and dressing made in two rounds',
+  storagePlan: 'Cooked pasta keeps 1 day in the fridge and the dressed vegetables 2 days. {{split}} Each evening move one pasta-and-chicken bag down and toss it with dressing and vegetables in the morning (2 minutes). Cut the vegetables on Sunday and again on Tuesday.',
   reheat: 'Not reheated. Eat within 2 h of leaving the fridge (1 h above 32 °C).',
   crossCheck: { fdc: 2708948, note: 'FNDDS "Macaroni or pasta salad with meat" (mayonnaise-based): our box uses hummus and more vegetables, so less fat per 100 g is expected.' },
   changes: [

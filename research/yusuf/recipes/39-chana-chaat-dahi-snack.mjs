@@ -52,10 +52,10 @@ export default {
     steps: [
       { text: 'No cooking. Drain and rinse 260 g chickpeas (about ⅔ of a 400 g-drained jar) in the sieve and shake them dry.', heat: 'none', minutes: 1 },
       { text: 'Dice 1 small tomato (80 g) into 1 cm cubes. Chop ¼ small red onion very fine (30 g), a few sprigs of coriander (6 g) and, if you like heat, ½ green chilli (3 g).', heat: 'none', minutes: 4 },
-      { text: 'In the bowl mix the chickpeas, tomato, onion, coriander and chilli with 1 tbsp lemon juice (15 g) and 1 tsp chaat masala (3 g). Split between the 2 boxes.', heat: 'none', minutes: 1 },
+      { text: 'In the bowl mix the chickpeas, tomato, onion, coriander and chilli with 1 tbsp lemon juice (15 g) and 1 tsp chaat masala (3 g). Split between the 2 boxes.', heat: 'none', minutes: 1, pack: true },
       { text: 'Spoon 120 g protein yogurt into each pot and dust with a pinch of roasted ground cumin (½ g). Pour it over the chaat just before you eat it.', heat: 'none', minutes: 1 },
     ],
-    boxUp: 'Into the fridge straight away; eat within 2 days. Do not freeze. Keep the last third of the chickpea jar in its liquid in the fridge and use it within 2 days.',
+    boxUp: 'Into the fridge straight away. {{split}} Keep the last third of the chickpea jar in its liquid in the fridge and use it within 2 days.',
     reheat: 'Not reheated: eat it cold.',
     tips: [
       'Chaat masala (Pakistani grocery) is what makes it chaat. No chaat masala? Use a pinch of salt, roasted cumin and a little more lemon.',
@@ -64,8 +64,7 @@ export default {
       'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.',
     ],
   },
-  keeps: '2 days in the fridge',
-  storagePlan: 'Make 2 boxes at a time; the last third of the chickpea jar goes into the next salad within 2 days.',
+  storagePlan: '{{split}} The last third of the chickpea jar goes into the next salad within 2 days.',
   reheat: 'Not reheated.',
   crossCheck: null,
   changes: [

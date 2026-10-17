@@ -680,9 +680,14 @@ settings.seafood                                // now asked (Profile and onboar
 ```js
 LibraryRecipe = { foodId,                       // the Lab food (group lunchbox) it describes
                   boxes,                        // standard batch, whole number >= 1
-                  storage: (string | { id, pot?: true })[],  // RULES.mealPrep.storage id per component;
+                  storage: (string | { id, pot?: true, later?: true, job?: string })[],
+                                                // RULES.mealPrep.storage id per component;
                                                 // pot: true = a side pot packed apart (raita), which
-                                                // counts for the fridge life but does not stop freezing
+                                                // counts for the fridge life but does not stop freezing;
+                                                // later: true (R3-A) = cooked the night before each box is
+                                                // eaten (bolognese penne): not in the fridge life, not in
+                                                // the freezing judgement; `job` is the Day's "Tonight" line
+                                                // (else the method step that starts "The night before")
                   ingredients: [{ foodId?, name?, grams, section?: 'butcher'|'supermarket', note? }],
                   effort?: 'cook'|'assemble'|'ready', // absent = 'cook' (Boss's "less cooking", 14 Oct)
                   minutes?: number,              // hands-on minutes; assemble ≤ 15
@@ -747,6 +752,17 @@ export const PLANS = [{ id: 'low-cook-week'|'budget-week', name, pitch, priceDat
 export const READY_PICKS = { breakfast|lunch|dinner|snacks: [{ name, note, items, kcal, protein, fiber }] }
 ```
 
+**How the app uses a plan (R3-A, Mariam Review 3).** "Use this week" stamps each batch it cooks with
+`plan: { id, monday }` (an extra batch field, kept by export/import; no schema bump). Fridge or freezer per
+box comes from the day the box is eaten and the recipe's fridge life (`storagePlan(...).fridgeDays`): eaten
+within it → fridge, later or not placed → freezer (if the food freezes); a batch's `fridge` count, if the Lab
+adds one, caps the fridge boxes. Rows in slot `snacks` (and the `snacks` ready picks) go to `evening`
+(Merienda / Shaam ki chai) when the day has that slot. A batch cooked later takes over the planned rows of
+the same dish with no box behind them, from its cooking day for a week (never a second row in the meal);
+`placeBox` into a meal that has such a row links it too. Optional Lab fields read when present:
+`PLANS[].evenings = [{ weekday (7 = the Sunday before), time?, text, recipeId? }]` (shown as "Tonight"
+lines in that plan's week, replacing the app's own lines for the same recipe) and `keep.later[].text`.
+
 **Method** (M-01: the sheets had methods and the contract had no field, so they never reached the
 app). Optional and additive: no schema bump. A recipe without a method shows no "How to make it"
 at all. `tests/contract/recipe-method.test.js` checks every method that exists has exactly this
@@ -786,14 +802,19 @@ Lab adds it, else "Halal butcher" and "Supermarket".
 | `boxesLeft(batch)` | count of `available` boxes |
 | `placeBox(batch, boxId, { date, entryId })` | new batch with that box `placed`; `RangeError` when the box is not `available` |
 | `syncBatches(batches, days)` | the store runs it after every change: a box whose entry (found by `boxRef`, any date) is `eaten` becomes `eaten`, `planned` becomes `placed` (with the entry's current date), and a placed or eaten box with no entry is `available` again. `discarded` stays. Returns the same array when nothing changed |
-| `shoppingList(plans, foodIndex, rules = null)` | `plans = [{ recipe, boxes }]` (user or library recipe); every ingredient scaled by `boxes / recipe.boxes`, merged by `foodId` (else by name); `{ sections: [{ id, label, items: [{ key, foodId, name, grams, count: { qty, label } \| null, note? }] }] }` with empty sections left out, `butcher` first; `note` (where to buy, O5) is the first ingredient line's `note` for that item, present only when one says |
+| `shoppingList(plans, foodIndex, rules = null)` | `plans = [{ recipe, boxes }]` (user or library recipe); every ingredient scaled by `boxes / recipe.boxes` (a family pot: `boxes / recipe.potKatori`, its boxes being katori), merged by `foodId` (else by name); `{ sections: [{ id, label, items: [{ key, foodId, name, grams, count: { qty, label } \| null, note? }] }] }` with empty sections left out, `butcher` first; `note` (where to buy, O5) is the first ingredient line's `note` for that item, present only when one says |
 
 The store (§7.3) adds: `recipes()`, `recipe(id)`, `recipeTotals(id)`, `saveRecipe(r)`, `deleteRecipe(id)`,
 `library()`, `batches()`, `cookBatch({ recipeId, boxes, cookedOn?, storage? })`, `setBoxStorage(batchId,
 boxId, storage)`, `discardBox`, `deleteBatch`, `placeBox({ batchId, date, slot, status? })` (returns `{ entryId,
 boxId, noneLeft }`; with no box left it still adds a plain entry, A17; `status: 'planned'` plans the box
 even for today, used by the Day view's "Plan it", otherwise today is eaten and later days planned), `fillDays`, `boxInfo(entry)`,
-`prepNotices(date)`, `shopping(batchId, boxes)`, `chai()`, `saveChai(opts)`, `savedMeals()`, `saveMeal`,
+`prepNotices(date)` (`{ moveTonight, later, make, jobs }`: frozen boxes to move tonight; boxes placed
+tomorrow whose recipe has a part cooked the night before, with its `job`; planned prep rows with no box,
+tomorrow's and today's still to come; the used plan's own `evenings`), `shopping(batchId, boxes)`,
+`weekShopping()` (`{ batches, weekdayJobs, ready, list }`: this week's batches plus, for a plan in use, its
+weekday batches not cooked yet and its ready food), `planShopping(planId)` (`{ batches, ready, list }`: a
+plan's whole week, without the batches that come from the freezer), `chai()`, `saveChai(opts)`, `savedMeals()`, `saveMeal`,
 `addSavedMeal`, `deleteSavedMeal`. The food index also applies `settings.seafood`: a food whose
 seafood tag is outside the choice shows `check` with `RULES.vocab.halalRules.seafoodNote`.
 

@@ -267,9 +267,11 @@ export function openMethodDialog({
   title,
   method,
   ingredients = [],
+  ingredientsFor = null,
   note = null,
   action = null,
   about = null,
+  stepKey = null,
 }) {
   if (!method) return null;
   const handle = openDialog({
@@ -285,14 +287,14 @@ export function openMethodDialog({
             h(
               'summary',
               { class: 'cook-method-summary' },
-              `What you need · ${ingredients.length} ${ingredients.length === 1 ? 'ingredient' : 'ingredients'}`,
+              `What you need${ingredientsFor ? ` for ${ingredientsFor}` : ''} · ${ingredients.length} ${ingredients.length === 1 ? 'ingredient' : 'ingredients'}`,
             ),
             list(ingredients),
           )
         : null,
       renderMethod(method, {
         note,
-        onSteps: () => openStepMode({ title, method }),
+        onSteps: () => openStepMode({ title, method, note, key: stepKey ?? title }),
       }),
     ],
     actions: action
@@ -314,14 +316,26 @@ export function openMethodDialog({
   return handle;
 }
 
+/** Where each recipe's step mode was closed (Nasreen R3 #5: a stray × lost the place). */
+const stepPlaces = new Map();
+
+/** A step that sends you to "Done when" (Mariam R3 should-fix 1): the check goes on that screen. */
+export function refersToDone(text) {
+  return /\bdone when\b/i.test(String(text ?? ''));
+}
+
 /**
  * Step-by-step mode: one screen at a time, big text, big Back and Next buttons, "Step x of n".
  * Screens: "Before you start" (when there is prep), each step, then "Finish" (done when, box it up,
  * reheat) when the method has any of them. Arrow keys move too; the screen is kept awake where the
- * browser allows it.
- * @param {{ title: string, method: ReturnType<typeof methodOf> }} props
+ * browser allows it. R3-A: `note` ("Amounts are for 2 boxes…") stays under the progress bar; a
+ * step that says "see Done when" shows the check on its own screen; closing keeps the place for
+ * `key`, and opening again starts there ("Start again" goes back to the first screen); Done at the
+ * end forgets it.
+ * @param {{ title: string, method: ReturnType<typeof methodOf>, note?: string|null,
+ *   key?: string|null }} props
  */
-export function openStepMode({ title, method }) {
+export function openStepMode({ title, method, note = null, key = null }) {
   if (!method?.steps.length) return null;
   const n = method.steps.length;
   const screens = [
@@ -329,7 +343,26 @@ export function openStepMode({ title, method }) {
     ...method.steps.map((step, i) => ({ kind: 'step', step, i })),
     ...(method.doneWhen || method.boxUp || method.reheat ? [{ kind: 'finish' }] : []),
   ];
-  let at = 0;
+  const place = key ?? title;
+  const saved = stepPlaces.get(place);
+  let at = Number.isInteger(saved) && saved > 0 && saved < screens.length ? saved : 0;
+  const restart = h(
+    'button',
+    {
+      type: 'button',
+      class: 'link-btn stepper-restart',
+      'data-testid': 'stepper-restart',
+      onclick: () => {
+        at = 0;
+        render();
+        next.focus();
+      },
+    },
+    'Start again',
+  );
+  const amounts = note
+    ? h('p', { class: 'stepper-note', 'data-testid': 'stepper-amounts' }, note)
+    : null;
   const titleId = uid('steps');
   const bodyId = uid('step-body');
   // The step body is the live region (Priya's O16 audit): a screen reader hears "Step 2 of 6." and
@@ -399,8 +432,9 @@ export function openStepMode({ title, method }) {
       h(
         'div',
         { class: 'stepper-progress' },
-        count,
+        h('div', { class: 'stepper-count-row' }, count, restart),
         h('span', { class: 'stepper-bar', 'aria-hidden': 'true' }, bar),
+        amounts,
       ),
       body,
       h('footer', { class: 'stepper-actions' }, back, next),
@@ -414,6 +448,7 @@ export function openStepMode({ title, method }) {
     const s = screens[at];
     const last = at === screens.length - 1;
     back.disabled = at === 0;
+    restart.hidden = at === 0;
     setText(nextLabel, last ? 'Done' : 'Next');
     next.setAttribute('aria-label', last ? 'Done, close step by step' : 'Next step');
     const stepNo = s.kind === 'step' ? s.i + 1 : s.kind === 'prep' ? 0 : n;
@@ -445,6 +480,14 @@ export function openStepMode({ title, method }) {
         said(label),
         h('p', { class: 'stepper-step' }, s.step.text),
         stepChips(s.step, true),
+        method.doneWhen && refersToDone(s.step.text)
+          ? h(
+              'div',
+              { class: 'stepper-part stepper-done', 'data-testid': 'stepper-done' },
+              h('h3', null, 'Done when'),
+              h('p', null, method.doneWhen),
+            )
+          : null,
       );
     } else {
       setText(count, 'Finish');
@@ -482,6 +525,7 @@ export function openStepMode({ title, method }) {
 
   function go(dir) {
     if (dir > 0 && at === screens.length - 1) {
+      finished = true;
       close();
       return;
     }
@@ -513,9 +557,12 @@ export function openStepMode({ title, method }) {
   }
 
   let closed = false;
+  let finished = false;
   function close() {
     if (closed) return;
     closed = true;
+    if (finished || at === 0) stepPlaces.delete(place);
+    else stepPlaces.set(place, at);
     try {
       lock?.release().catch(() => {});
     } catch {

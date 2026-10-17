@@ -28,11 +28,7 @@ export default [
   {
     foodId: 'pk-chicken-tikka-rice-box',
     boxes: 4,
-    storage: [
-      'cooked-meat',
-      'cooked-starch',
-      { id: 'cold-salad', pot: true },
-    ],
+    storage: ['cooked-meat', 'cooked-starch'],
     ingredients: [
       { foodId: 'intl-chicken-thigh-raw', grams: 720, section: 'butcher' },
       {
@@ -74,9 +70,24 @@ export default [
       { foodId: 'intl-mint-fresh', grams: 8, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 40,
+    minutes: 25,
+    totalMinutes: 80,
+    keep: {
+      fridgeDays: 1,
+      fridge: 1,
+      freezer: 3,
+      freezerMonths: 1,
+      fresh: [
+        {
+          name: 'Raita pot',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Tuesday night: mix 2 more raita pots for Wednesday and Thursday (5 min).',
+        },
+      ],
+    },
     cuisine: 'desi',
-    timeNote: 'Start the night before: the chicken marinates 4 hours or overnight. On the day about 1 h 10 min, mostly oven, plus 30 min cooling.',
+    timeNote: 'About 1 h 20 min start to finish (25 min of it hands-on), plus 4 h 5 min started ahead: start the night before, so the chicken marinates at least 4 hours.',
     pitch: 'Oven-grilled thigh tikka with peppers over matar rice; cool raita in its own pot.',
     references: [
       { title: 'SOS Cuisine, Chicken tikka', url: 'https://www.soscuisine.com/recipe/1068' },
@@ -98,11 +109,11 @@ export default [
       },
     ],
     method: {
-      equipment: ['Mixing bowl with a lid (or a big freezer bag) for the marinade', 'Large oven tray lined with baking paper', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', 'Kitchen scale', 'A second tray or wide dish for cooling the rice', '4 lunch boxes and 4 small lidded pots (about 150 ml) for the raita'],
-      prep: ['Cut the chicken thighs (720 g, boneless and skinless) into 4 cm pieces. Trim off any big lumps of fat.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.', 'Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).', 'Cut 2 red peppers (240 g) into 3 cm squares. Peel 1 large red onion (200 g), cut it into quarters and pull the layers apart into "petals".', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.'],
+      equipment: ['Mixing bowl with a lid (or a big freezer bag) for the marinade', 'Large oven tray lined with baking paper', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', 'A second tray or wide dish for cooling the rice', '4 lunch boxes and 4 small lidded pots (about 150 ml) for the raita'],
+      prep: ['Cut the chicken thighs (720 g, boneless and skinless: the butcher weighs them) into 4 cm pieces. Trim off any big lumps of fat.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.', 'Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).', 'Cut 2 red peppers (240 g) into 3 cm squares. Peel about 2 medium red onions (200 g), cut it into quarters and pull the layers apart into "petals".', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.'],
       steps: [
         {
-          text: 'Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), ⅔ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir.',
+          text: 'Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir.',
           heat: 'none',
           minutes: 5,
         },
@@ -126,7 +137,7 @@ export default [
           minutes: 25,
         },
         {
-          text: 'Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and ⅔ tsp salt (4 g).',
+          text: 'Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g).',
           heat: 'high',
           minutes: 3,
         },
@@ -141,9 +152,13 @@ export default [
           minutes: 7,
         },
         {
-          text: 'Scatter the frozen peas (240 g) on top of the rice, put the lid back on and steam 5 minutes more. Then turn off the heat, leave it 5 minutes and fluff the rice with a fork.',
+          text: 'Scatter the frozen peas (240 g, about 1¾ cups) on top of the rice, put the lid back on and steam 5 minutes more. Then turn off the heat, leave it 5 minutes and fluff the rice with a fork.',
           heat: 'low',
           minutes: 10,
+        },
+        {
+          text: 'Check the chicken before it cools: cut the biggest piece open. It must be white all through with no pink and clear juices. Still pink? Back in the oven for 5 minutes, then check again.',
+          heat: 'none',
         },
         {
           text: 'Spread the rice on the second tray and leave the chicken and veg on their tray to cool fast (30 minutes, no longer than 1 hour).',
@@ -161,7 +176,7 @@ export default [
         },
       ],
       doneWhen: 'Cut the biggest chicken piece: white all through, no pink, juices clear (75 °C if you have a thermometer), with browned edges. Rice: grains soft and separate, no water left in the bottom of the pot.',
-      boxUp: 'Cool on the trays and put the boxes away within 1 hour (rice must be cooled fast). Box 1 to the fridge (Monday). Boxes 2–4 straight into the freezer. The raita cannot be frozen and keeps 2 days: 2 pots on Sunday (Mon, Tue), 2 pots on Tuesday night (Wed, Thu).',
+      boxUp: 'Cool on the trays and put the boxes away within 1 hour (rice must be cooled fast). Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. The raita cannot be frozen and keeps 2 days: 2 pots on Sunday (Mon, Tue), 2 pots on Tuesday night (Wed, Thu).',
       reheat: 'Move the next box from the freezer to the fridge the night before. Sprinkle 1 tbsp water over the rice, then microwave with the lid loose 2½–3 minutes at full power, stirring halfway, until steaming hot all through. Reheat once only. Eat the raita cold, never microwaved.',
       tips: ['Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'No food colouring needed: the paprika gives the red. Kashmiri chilli powder (Pakistani grocery) gives more colour with less heat.', 'Too spicy? Use 1 tsp chilli powder instead of 2 next time, and eat more raita with it.', 'If the marinade sticks or burns on the tray, the baking paper was missing or the oven runs hot: roast at 200 °C for 30 minutes instead.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.', 'Garam masala, chaat masala, red chilli powder and haldi are cheapest at the Pakistani grocery (Shan or National packs). Mercadona has comino molido (ground cumin), cúrcuma (haldi), pimentón (paprika) and cilantro (fresh coriander).'],
     },
@@ -217,8 +232,11 @@ export default [
       { foodId: 'intl-rice-basmati-dry', grams: 240, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 45,
+    minutes: 55,
+    totalMinutes: 115,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'desi',
+    timeNote: 'About 1 h 55 min start to finish (55 min of it hands-on).',
     pitch: 'Dry beef keema with lots of peas over basmati: the classic that freezes best.',
     cost: {
       perBoxEur: 2.66,
@@ -234,8 +252,8 @@ export default [
       { title: 'Masala TV (Tahir Chaudhary), Keema aloo matar', url: 'https://masala.tv/?p=7648' },
     ],
     method: {
-      equipment: ['Wide deep frying pan or karahi (28 cm) with a lid', 'Wooden spoon', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', 'Kitchen scale', '2 trays or wide dishes for cooling', '4 lunch boxes'],
-      prep: ['Peel 1 large onion (200 g) and dice it small (5 mm).', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Chop 2 medium tomatoes (250 g) small. Chop 2 green chillies (10 g).', 'Whisk 1 tbsp yogurt (15 g) smooth in a cup. Chop a handful of fresh coriander leaves (15 g).', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve until the water runs almost clear, then soak it in cold water for 20 minutes.'],
+      equipment: ['Wide deep frying pan or karahi (28 cm) with a lid', 'Wooden spoon', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', '2 trays or wide dishes for cooling', '4 lunch boxes'],
+      prep: ['Peel about 2 medium onions (200 g) and dice it small (5 mm).', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Chop 2 medium tomatoes (250 g) small. Chop 2 green chillies (10 g).', 'Whisk 1 tbsp yogurt (15 g) smooth in a cup. Chop a handful of fresh coriander leaves (15 g).', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve until the water runs almost clear, then soak it in cold water for 20 minutes.'],
       steps: [
         {
           text: 'Put the pan on the hob. Add 2 tbsp sunflower oil (28 g) and heat 1 minute.',
@@ -258,12 +276,12 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Add the mince (600 g). Break it up with the wooden spoon. Cook, stirring, until it has let out its water, the water has dried off and no pink is left.',
+          text: 'Add the mince (600 g: ask the butcher to weigh it). Break it up with the wooden spoon. Cook, stirring, until it has let out its water, the water has dried off and no pink is left.',
           heat: 'high',
           minutes: 9,
         },
         {
-          text: 'Add the tomatoes, green chillies and the whisked yogurt, then the powders: 2 tsp ground coriander (dhania powder, 4 g), 1 tsp red chilli powder (3 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 heaped tsp salt (7 g). Stir well.',
+          text: 'Add the tomatoes, green chillies and the whisked yogurt, then the powders: 2 tsp ground coriander (dhania powder, 4 g), 1 tsp red chilli powder (3 g), a heaped ½ tsp haldi (turmeric powder, 2 g) and 1 heaped tsp salt (7 g). Stir well.',
           heat: 'medium',
           minutes: 1,
         },
@@ -278,7 +296,7 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Add the frozen peas (400 g) and 3 tbsp water. Lid on, 5 minutes.',
+          text: 'Add the frozen peas (400 g (about 3 cups)) and 3 tbsp water. Lid on, 5 minutes.',
           heat: 'medium',
           minutes: 5,
         },
@@ -292,23 +310,33 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Rice: drain it. Bring 450 ml water to the boil in the pot with ½ tsp salt (3 g), add the rice and boil without the lid until the water drops just below the top of the rice.',
+          text: 'Check the keema: push it to one side. No liquid runs into the gap, no pink meat is left and the peas are soft and bright green. Still wet? Stir on high 2–3 minutes more.',
+          heat: 'none',
+        },
+        {
+          text: 'Rice: drain the rice that has been soaking. Bring 450 ml water to the boil in the pot with ½ tsp salt (3 g), add the rice and boil without the lid until the water drops just below the top of the rice.',
           heat: 'high',
           minutes: 5,
         },
         {
-          text: 'Lid on tightly, lowest heat, 10 minutes without lifting the lid. Then turn off the heat, rest 5 minutes and fluff with a fork.',
+          text: 'Lid on tightly, lowest heat, 10 minutes without lifting the lid.',
           heat: 'low',
-          minutes: 15,
+          minutes: 10,
         },
         {
-          text: 'Spread the keema and the rice on separate trays to cool fast (30 minutes, no longer than 1 hour). Then pack each box with ¼ of the rice and ¼ of the keema.',
+          text: 'Turn off the heat and leave the lid on 5 minutes more, then fluff the rice with a fork.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Spread the keema and the rice on separate trays to cool fast (30 minutes, no longer than 1 hour).',
           heat: 'none',
           minutes: 30,
         },
+        { text: 'Pack each box with ¼ of the rice and ¼ of the keema.', heat: 'none' },
       ],
       doneWhen: 'Push the keema to one side: no liquid runs into the gap, the oil glistens, no pink meat is left and the peas are soft and bright green.',
-      boxUp: 'Rice must be cooled fast: boxes into the fridge or freezer within 1 hour. Box 1 in the fridge. Boxes 2–4 in the freezer; eat them within 1 month (the rice limit; keema alone keeps 3 months).',
+      boxUp: 'Rice must be cooled fast: boxes into the fridge or freezer within 1 hour. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. The rice sets the 1 month; keema alone keeps 3 months frozen.',
       reheat: 'Move the next box to the fridge the night before. Sprinkle 1 tbsp water over the rice, microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot all through. Reheat once only.',
       tips: ['Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Ask the butcher for "carne picada magra de ternera", about 10 % fat. Fattier mince gives a greasy box and more calories than the app shows.', 'Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).', 'Too spicy? Leave out the green chillies; the chilli powder alone is mild.', 'If the keema catches on the bottom, add 2 tbsp water, scrape and lower the heat a little.'],
     },
@@ -371,9 +399,11 @@ export default [
       { foodId: 'intl-mint-fresh', grams: 6, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 45,
+    minutes: 50,
+    totalMinutes: 115,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'desi',
-    timeNote: 'About 1 h 15 min start to finish: the rice soaks 30 min while the chicken simmers. Plus 30 min cooling.',
+    timeNote: 'About 1 h 55 min start to finish (50 min of it hands-on): the rice soaks 30 min while the stock simmers.',
     pitch: 'Rice cooked in its own spiced chicken stock, with chana: one pot, one fork, mild smell.',
     cost: {
       perBoxEur: 1.99,
@@ -393,10 +423,10 @@ export default [
     ],
     method: {
       equipment: ['Medium pot (3 l) for the yakhni (stock)', 'Wide heavy pot (24–26 cm) with a tight lid, plus a sheet of foil', 'Sieve and a measuring jug', 'Slotted spoon', 'Grater', 'Tray for cooling', '4 lunch boxes'],
-      prep: ['Cut the chicken breast (640 g) into 4 cm pieces.', 'Roughly chop ½ small onion (60 g) for the stock. Slice 1 large onion (175 g) thin, in half-moons.', 'Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste.', 'Slit 2 green chillies (10 g) lengthwise. Chop 1 tomato (100 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup.', 'Rinse the basmati (280 g, about 1½ cups) until the water runs almost clear, then soak it in cold water for 30 minutes.', 'Drain and rinse the chickpeas (320 g drained, most of a 570 g jar).', 'Whole spices for the stock: 2 tsp zeera (cumin seeds, 4 g), 2 tsp whole coriander seeds (4 g), 1 tsp black peppercorns (3 g), 1 cinnamon stick (5 cm, 2 g), 3–4 cloves (1 g), 3–4 green cardamom pods pressed open (1 g) and ½ bay leaf.'],
+      prep: ['Cut the chicken breast (640 g) into 4 cm pieces.', 'Roughly chop ½ medium onion (60 g) for the stock. Slice about 1½ medium onions (175 g) thin, in half-moons.', 'Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste.', 'Slit 2 green chillies (10 g) lengthwise. Chop 1 tomato (100 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup.', 'Rinse the basmati (280 g, about 1½ cups) until the water runs almost clear, then soak it in cold water for 30 minutes.', 'Drain and rinse the chickpeas (320 g drained, most of a 570 g jar).', 'Whole spices for the stock: 2 tsp zeera (cumin seeds, 4 g), 2 tsp whole coriander seeds (4 g), 1 tsp black peppercorns (3 g), 1 cinnamon stick (5 cm, 2 g), 3–4 cloves (1 g), 3–4 green cardamom pods pressed open (1 g) and ½ bay leaf.'],
       steps: [
         {
-          text: 'Yakhni (stock): put the chicken, the rough onion, all the whole spices and 1⅔ tsp salt (10 g) in the 3 l pot with 700 ml water. Bring to the boil.',
+          text: 'Yakhni (stock): put the chicken, the rough onion, all the whole spices and 1¾ tsp salt (10 g) in the 3 l pot with 700 ml water. Bring to the boil.',
           heat: 'high',
           minutes: 5,
         },
@@ -446,13 +476,18 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Spread the pulao on the tray to cool fast (30 minutes, no longer than 1 hour), then split it into 4 boxes.',
+          text: 'Check before it cools: push a spoon to the bottom of the pot. No water left, the grains are long, soft and separate, and the chicken is white all through. Water left? Lid back on, lowest heat, 3–4 minutes more.',
+          heat: 'none',
+        },
+        {
+          text: 'Spread the pulao on the tray to cool fast (30 minutes, no longer than 1 hour).',
           heat: 'none',
           minutes: 30,
         },
+        { text: 'Split it into 4 boxes, with the chicken shared out evenly.', heat: 'none' },
       ],
       doneWhen: 'The rice grains are long, soft and separate, and a spoon pushed to the bottom finds no water. The chicken is white all through.',
-      boxUp: 'Rice dish: cool fast and put away within 1 hour. Box 1 in the fridge; boxes 2–4 in the freezer (eat within 1 month).',
+      boxUp: 'Rice dish: cool fast and put away within 1 hour. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it.',
       reheat: 'Move the next box to the fridge the night before. Sprinkle 1 tbsp water over it, microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot all through. Reheat once only.',
       tips: ['Halal: chicken from the halal butcher; no stock cubes needed, the yakhni is the stock.', 'If the bottom catches during the dum, put a flat tawa or an empty frying pan under the pot next time.', 'Rice still hard after the dum? Sprinkle 3 tbsp hot water over it, cover again and leave 5 minutes on the lowest heat.', 'Whole spices are cheapest at the Pakistani grocery. If you have no cardamom or cloves, the pulao still works with cumin, coriander, pepper and cinnamon.'],
     },
@@ -460,11 +495,7 @@ export default [
   {
     foodId: 'pk-shami-kebab-pita-box',
     boxes: 4,
-    storage: [
-      'cooked-meat',
-      'cold-salad',
-      { id: 'cold-salad', pot: true },
-    ],
+    storage: ['cooked-meat'],
     ingredients: [
       { foodId: 'intl-beef-mince-lean-raw', grams: 500, section: 'butcher' },
       {
@@ -517,9 +548,30 @@ export default [
       { foodId: 'intl-cucumber', grams: 120, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 60,
+    minutes: 45,
+    totalMinutes: 165,
+    keep: {
+      fridgeDays: 3,
+      fridge: 3,
+      freezer: 1,
+      freezerMonths: 3,
+      fresh: [
+        {
+          name: 'Crunchy salad',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Tuesday night: make the salad for Wednesday and Thursday (5 min).',
+        },
+        {
+          name: 'Mint-yogurt pot',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Tuesday night: mix 2 more mint-yogurt pots (3 min).',
+        },
+      ],
+    },
     cuisine: 'desi',
-    timeNote: 'Soak the chana dal 1 hour first. Then about 1 h 10 min (the dal simmers 35 min, hands off), plus 35 min cooling.',
+    timeNote: 'About 2 h 45 min start to finish (45 min of it hands-on): soak the chana dal 1 hour first; the dal simmers 35 min, hands off.',
     pitch: 'Three beef-and-chana shami kebabs, pita, crunchy salad and a mint-yogurt pot: build it at your desk, cold or warm.',
     cost: {
       perBoxEur: 3.25,
@@ -539,8 +591,13 @@ export default [
     ],
     method: {
       equipment: ['Medium pot (3 l) with a lid', 'Food processor (or a stick blender with a tall jug)', 'Large non-stick frying pan', 'Grater', 'Plate with kitchen paper', '4 lunch boxes and 4 small lidded pots (about 150 ml)'],
-      prep: ['Soak the chana dal (150 g, about ¾ cup) in cold water for 1 hour, then drain it.', 'Roughly chop 1 small onion (100 g). Peel 5 garlic cloves (15 g, keep them whole) and a 3 cm piece of ginger (10 g).', 'Whole spices: 1 tbsp coriander seeds (6 g), 1½ tsp zeera (cumin seeds, 3 g), 1 tsp black peppercorns (3 g), a small piece of cinnamon stick (1 g) and 2 cloves (½ g).', 'For the mix: chop ½ small red onion very fine (60 g), 2 green chillies (10 g), a handful of coriander leaves (15 g) and of mint leaves (8 g).'],
+      prep: ['Roughly chop about 1 medium onion (100 g). Peel 5 garlic cloves (15 g, keep them whole) and a 3 cm piece of ginger (10 g).', 'Whole spices: 1 tbsp coriander seeds (6 g), 1½ tsp zeera (cumin seeds, 3 g), 1 tsp black peppercorns (3 g), a small piece of cinnamon stick (1 g) and 2 cloves (½ g).', 'For the mix: chop ½ medium red onion (60 g) very fine, 2 green chillies (10 g), a handful of coriander leaves (15 g) and of mint leaves (8 g).'],
       steps: [
+        {
+          text: 'Soak the chana dal (150 g, about ¾ cup) in cold water for 1 hour, then drain it. Do the rest of "Before you start" meanwhile.',
+          heat: 'none',
+          minutes: 60,
+        },
         {
           text: 'Put the mince (500 g), drained chana dal, onion chunks, whole garlic, ginger, whole spices, 1½ tsp red chilli powder or chilli flakes (4 g) and 1 heaped tsp salt (7 g) in the pot with 600 ml water. Bring to the boil.',
           heat: 'high',
@@ -575,7 +632,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Beat the second egg on a plate. Heat half the oil (12 g, a scant tbsp) in the frying pan for 1 minute.',
+          text: 'Beat the second egg on a plate. Heat half the oil (12 g, a little under 1 tbsp) in the frying pan for 1 minute.',
           heat: 'medium',
           minutes: 1,
         },
@@ -583,6 +640,10 @@ export default [
           text: 'Dip 6 patties in the egg, let the extra drip off, and fry 2 minutes a side until golden. Turn them once only, gently, with a flat spatula. Add the other 12 g oil and fry the other 6.',
           heat: 'medium',
           minutes: 8,
+        },
+        {
+          text: 'Check one kebab: golden brown on both sides, it holds its shape when you lift it, and it is steaming hot in the middle when you cut it. Pale? 1 more minute a side.',
+          heat: 'none',
         },
         {
           text: 'Let the kebabs cool on the plate with kitchen paper (20 minutes).',
@@ -605,7 +666,7 @@ export default [
         },
       ],
       doneWhen: 'Kebabs are golden brown on both sides, hold their shape when lifted and are hot in the middle.',
-      boxUp: 'Cool and put away within 1 hour. Kebabs keep 3 days in the fridge: kebabs for boxes 1–3 in the fridge (Mon–Wed) and box 4\'s kebabs in the freezer (or freeze them all and move one portion to the fridge each night). Salad and yogurt keep 2 days and cannot be frozen. Pitas: keep the pack closed at room temperature, or freeze them.',
+      boxUp: 'Cool and put away within 1 hour. Boxes 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Box 4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it. Salad and yogurt keep 2 days and cannot be frozen: make half on Sunday and half on Tuesday night. Pitas: keep the pack closed at room temperature, or freeze them.',
       reheat: 'Good cold. To eat warm: microwave the 3 kebabs alone, covered, 60–90 seconds until hot all through, then build the pita. Never microwave the salad or the yogurt. Frozen kebabs: move them to the fridge the night before.',
       tips: ['Halal: beef from the halal butcher. The Mission pita has no E471; if you buy wraps instead, pick ones labelled "E471 de origen vegetal".', 'Chana dal is split yellow chickpeas (Pakistani grocery). Do not swap in red lentils: they turn to mush and the kebabs fall apart.', 'Kebabs breaking in the pan? The mix was too wet. Chill the shaped patties 30 minutes in the fridge before frying, and turn them only once.', 'You can freeze the raw shaped patties between baking paper and fry them from frozen, 3 minutes a side.'],
     },
@@ -629,8 +690,11 @@ export default [
       { foodId: 'intl-green-beans-frozen', grams: 600, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 40,
+    minutes: 30,
+    totalMinutes: 85,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'spanish',
+    timeNote: 'About 1 h 25 min start to finish (30 min of it hands-on).',
     pitch: 'Spain\'s garlic chicken with lemon and parsley instead of wine, over brown rice with peas and green beans.',
     references: [
       {
@@ -647,8 +711,8 @@ export default [
       },
     ],
     method: {
-      equipment: ['Wide frying pan or sauté pan (28 cm) with a lid', 'Medium pot with a lid (rice)', 'Second pot (green beans) and a colander', 'Oven tray for cooling', '4 lunch boxes (1 for the fridge, 3 for the freezer)'],
-      prep: ['Cut the boneless, skinless chicken thighs (720 g) into 4 cm pieces. Sprinkle with 1 tsp salt (6 g) and black pepper (2 g).', 'Peel 12–14 garlic cloves (40 g) and slice them thin (2 mm).', 'Squeeze about 1¼ lemons: you need 60 g (4 tbsp) of juice. Chop the parsley (15 g, a big handful).', 'Rinse the brown rice (240 g) in a sieve.'],
+      equipment: ['Wide frying pan or sauté pan (28 cm) with a lid', 'Medium pot with a lid (rice)', 'Second pot (green beans) and a colander', 'Oven tray for cooling', '4 lunch boxes'],
+      prep: ['Cut the boneless, skinless chicken thighs (720 g: the butcher weighs them) into 4 cm pieces. Sprinkle with 1 tsp salt (6 g) and black pepper (2 g).', 'Peel 12–14 garlic cloves (40 g) and slice them thin (2 mm).', 'Squeeze about 1¼ lemons: you need 60 g (4 tbsp) of juice. Chop the parsley (15 g, a big handful).', 'Rinse the brown rice (240 g) in a sieve.'],
       steps: [
         {
           text: 'Rice first: put the rice in the medium pot with 1.2 l of water and ½ tsp salt (3 g). Bring to the boil.',
@@ -686,7 +750,7 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Add the frozen peas (200 g) to the rice for its last 5 minutes. Drain off any water left.',
+          text: 'Add the frozen peas (200 g (about 1½ cups)) to the rice for its last 5 minutes. Drain off any water left.',
           heat: 'medium',
           minutes: 5,
         },
@@ -694,6 +758,10 @@ export default [
           text: 'Boil the frozen green beans (600 g) in the second pot of salted water for 8 minutes. Drain well.',
           heat: 'high',
           minutes: 8,
+        },
+        {
+          text: 'Check before it cools: cut the biggest chicken piece. No pink, juices clear. The rice is soft with no hard white centre. Pink? Lid on, 3 minutes more.',
+          heat: 'none',
         },
         {
           text: 'Spread the rice on the tray to cool fast. Let the chicken and beans cool too (all in the fridge or freezer within 1 hour).',
@@ -706,7 +774,7 @@ export default [
         },
       ],
       doneWhen: 'Cut the biggest chicken piece: no pink, juices clear (75 °C). The rice is soft with no hard white centre.',
-      boxUp: 'Rice must be cooled fast: spread it out and get it in the fridge within 1 hour. Rice keeps only 1 day in the fridge, so box 1 goes in the fridge and boxes 2–4 in the freezer (rice 1 month, chicken 3 months). Move the next day\'s box to the fridge the night before.',
+      boxUp: 'Rice must be cooled fast: spread it out and get it in the fridge within 1 hour. Rice keeps only 1 day in the fridge. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. Frozen, the rice keeps 1 month and the chicken 3 months.',
       reheat: 'Microwave with the lid loose 3 minutes, stir, then 30–60 seconds more until steaming hot right through. Reheat once only. A squeeze of fresh lemon after reheating lifts it.',
       tips: ['No wine: lemon juice and water replace the white wine of the classic recipe.', 'No guindilla? Use a pinch of chilli flakes or leave it out.'],
     },
@@ -735,8 +803,11 @@ export default [
       { foodId: 'med-couscous-dry', grams: 240, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 50,
+    minutes: 30,
+    totalMinutes: 100,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'spanish',
+    timeNote: 'About 1 h 40 min start to finish (30 min of it hands-on).',
     pitch: 'Spanish home-style beef meatballs in a thick tomato, pepper and carrot sauce on couscous.',
     cost: {
       perBoxEur: 2.7,
@@ -760,7 +831,7 @@ export default [
     ],
     method: {
       equipment: ['Large deep frying pan or casserole (28 cm)', 'Large bowl for the meat mix', 'Heatproof bowl with a plate or lid (couscous)', 'Kettle', 'Grater', 'Oven tray for cooling', '4 lunch boxes with tight lids'],
-      prep: ['Peel 6 garlic cloves: chop 3 very finely (8 g) for the meatballs and chop 3 (10 g) for the sauce.', 'Chop the parsley (10 g). Chop the onion (150 g) and green pepper (120 g) small (5 mm). Peel and grate the carrot (100 g).', 'Open the crushed tomato (800 g).'],
+      prep: ['Peel 6 garlic cloves: chop 3 very finely (8 g) for the meatballs and chop 3 (10 g) for the sauce.', 'Chop the parsley (10 g). Chop about 1½ medium onions (150 g) and 1 green pepper (120 g) small (5 mm). Peel and grate about 1½ medium carrots (100 g).', 'Open 1 jar (800 g) of crushed tomato.'],
       steps: [
         {
           text: 'In the big bowl mix the beef mince (640 g), breadcrumbs (45 g, about 5 tbsp), 1 egg, the 8 g garlic, the parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands. Leave 10 minutes.',
@@ -792,13 +863,17 @@ export default [
           minutes: 15,
         },
         {
-          text: 'Couscous: boil the kettle. Put the couscous (240 g), 2 tsp olive oil (8 g) and ⅓ tsp salt (2 g) in the heatproof bowl. Pour over 336 ml boiling water, stir once and cover.',
+          text: 'Couscous: boil the kettle. Put the couscous (240 g), 2 tsp olive oil (8 g) and a heaped ¼ tsp salt (2 g) in the heatproof bowl. Pour over 336 ml boiling water (a little under 1½ cups), stir once and cover.',
           heat: 'none',
         },
         {
           text: 'Leave the couscous covered 5 minutes, then fluff it with a fork.',
           heat: 'none',
           minutes: 5,
+        },
+        {
+          text: 'Check: cut a meatball in half. No pink inside, and the sauce is thick enough not to slosh. Pink? 5 minutes more in the sauce.',
+          heat: 'none',
         },
         {
           text: 'Spread the couscous and meatballs on a tray or wide dish to cool fast (all in the fridge or freezer within 1 hour).',
@@ -811,7 +886,7 @@ export default [
         },
       ],
       doneWhen: 'Cut a meatball in half: no pink inside (75 °C). The sauce is thick enough not to slosh in the box.',
-      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Couscous keeps only 1 day in the fridge, so box 1 goes in the fridge and boxes 2–4 in the freezer (couscous 1 month, meatballs 3 months). Move the next day\'s box to the fridge the night before.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Couscous keeps only 1 day in the fridge. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. Frozen, the couscous keeps 1 month and the meatballs 3 months.',
       reheat: 'Microwave with the lid loose 3 minutes, stir the sauce, then 30–60 seconds more until steaming hot right through. Reheat once only.',
       tips: ['Halal: check the breadcrumbs label for manteca (lard). No wine in the sauce.'],
     },
@@ -846,8 +921,11 @@ export default [
       { foodId: 'intl-parsley-fresh', grams: 15, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 35,
+    minutes: 15,
+    totalMinutes: 85,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'middle-eastern',
+    timeNote: 'About 1 h 25 min start to finish (15 min of it hands-on).',
     pitch: 'Ras el hanout chicken and tray-roast courgette, carrot, pepper and onion on couscous; good hot or at room temperature.',
     cost: {
       perBoxEur: 2.16,
@@ -871,16 +949,16 @@ export default [
     ],
     method: {
       equipment: ['2 oven trays lined with baking paper', 'Large bowl', 'Heatproof bowl with a plate or lid (couscous)', 'Kettle', '4 lunch boxes'],
-      prep: ['Cut the courgettes (400 g) into 2 cm chunks, the carrots (300 g) into thick 1 cm slices, the red pepper (300 g) into chunks and the red onion (200 g) into wedges.', 'Cut the chicken breast (680 g) into strips about 1.5 cm thick. Peel and grate 3 garlic cloves (10 g).', 'Chop the parsley (15 g).'],
+      prep: ['Cut the courgettes (400 g) into 2 cm chunks, about 5 medium carrots (300 g) into thick 1 cm slices, 2½ red peppers (300 g) into chunks and about 2 medium red onions (200 g) into wedges.', 'Cut the chicken breast (680 g) into strips about 1.5 cm thick. Peel and grate 3 garlic cloves (10 g).', 'Chop the parsley (15 g).'],
       steps: [
         { text: 'Turn the oven on to 220 °C.', heat: 'oven-220', minutes: 10 },
         {
-          text: 'In the big bowl toss the vegetables with 2 tbsp olive oil (25 g), 2 tsp ras el hanout (6 g), 1½ tsp ground cumin (3 g) and ⅔ tsp salt (4 g). Spread on the first tray.',
+          text: 'In the big bowl toss the vegetables with 2 tbsp olive oil (25 g), 2 tsp ras el hanout (6 g), 1½ tsp ground cumin (3 g) and a heaped ½ tsp salt (4 g). Spread on the first tray.',
           heat: 'none',
         },
         { text: 'Roast the vegetables 15 minutes.', heat: 'oven-220', minutes: 15 },
         {
-          text: 'Meanwhile, in the same bowl, toss the chicken with 2½ tsp ras el hanout (8 g), the garlic, a scant 1 tbsp olive oil (12 g) and ¾ tsp salt (5 g). Spread on the second tray.',
+          text: 'Meanwhile, in the same bowl, toss the chicken with 2½ tsp ras el hanout (8 g), the garlic, a little under 1 tbsp olive oil (12 g) and ¾ tsp salt (5 g). Spread on the second tray.',
           heat: 'none',
         },
         {
@@ -889,23 +967,24 @@ export default [
           minutes: 18,
         },
         {
-          text: 'Check the chicken (see "Done when"). Squeeze 1½ tbsp lemon juice (20 g) over it.',
+          text: 'Check: cut the thickest chicken strip. White all through with clear juices, and a knife slides into the carrots. Pink? 3–4 minutes more in the oven. Then squeeze 1½ tbsp lemon juice (20 g) over the chicken.',
           heat: 'none',
         },
         {
-          text: 'Couscous: boil the kettle. Put the couscous (240 g), 1 tsp olive oil (5 g) and ⅓ tsp salt (2 g) in the heatproof bowl, pour over 336 ml boiling water, stir and cover for 5 minutes.',
+          text: 'Couscous: boil the kettle. Put the couscous (240 g), 1 tsp olive oil (5 g) and a heaped ¼ tsp salt (2 g) in the heatproof bowl, pour over 336 ml boiling water (a little under 1½ cups), stir and cover for 5 minutes.',
           heat: 'none',
           minutes: 5,
         },
         { text: 'Fluff the couscous with a fork and fold in the parsley.', heat: 'none' },
         {
-          text: 'Spread everything out to cool fast (in the fridge or freezer within 1 hour). Each box: a quarter of the couscous, vegetables and chicken.',
+          text: 'Spread everything out to cool fast (in the fridge or freezer within 1 hour).',
           heat: 'none',
           minutes: 30,
         },
+        { text: 'Each box: a quarter of the couscous, vegetables and chicken.', heat: 'none' },
       ],
       doneWhen: 'The chicken is white all through with clear juices (75 °C); the carrots are soft when you push in a knife.',
-      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Couscous keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (couscous 1 month, chicken and vegetables 3 months). Move the next day\'s box to the fridge the night before.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Couscous keeps only 1 day in the fridge. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. Frozen, the couscous keeps 1 month, the chicken and vegetables 3 months.',
       reheat: 'Hot: microwave with the lid loose 2½–3 minutes, stir, until steaming hot right through; reheat once only. Cold: eat within 2 hours of leaving the fridge (1 hour above 32 °C), carried with an ice pack; a squeeze of lemon helps.',
       tips: ['Ras el hanout blends vary: check the label for added salt and sugar.'],
     },
@@ -913,7 +992,7 @@ export default [
   {
     foodId: 'pk-chicken-seekh-tabbouleh-box',
     boxes: 4,
-    storage: ['cooked-meat', 'cooked-starch', 'cold-salad'],
+    storage: ['cooked-meat', 'cooked-starch'],
     ingredients: [
       { foodId: 'intl-chicken-mince-raw', grams: 640, section: 'butcher' },
       { foodId: 'intl-onion', grams: 150, section: 'supermarket' },
@@ -968,9 +1047,24 @@ export default [
       { foodId: 'med-olive-oil', grams: 40, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 45,
+    minutes: 25,
+    totalMinutes: 90,
+    keep: {
+      fridgeDays: 1,
+      fridge: 1,
+      freezer: 3,
+      freezerMonths: 1,
+      fresh: [
+        {
+          name: 'Tabbouleh herbs and vegetables',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Tuesday night: chop and dress the second half of the tabbouleh salad (13 min).',
+        },
+      ],
+    },
     cuisine: 'desi',
-    timeNote: 'About 1 h 15 min start to finish: the kebab mix chills 30 min and the bulgur soaks while they bake. Plus 20 min cooling.',
+    timeNote: 'About 1 h 30 min start to finish (25 min of it hands-on): the kebab mix chills 30 min before it bakes.',
     pitch: 'Spiced chicken seekh kebabs with a lemony parsley-and-bulgur tabbouleh: made for eating cold.',
     cost: {
       perBoxEur: 3.42,
@@ -998,7 +1092,7 @@ export default [
     ],
     method: {
       equipment: ['Big mixing bowl', 'Grater', 'Clean tea towel or kitchen paper for squeezing', 'Oven tray lined with baking paper (skewers optional)', 'Heatproof bowl with a plate as a lid', 'Kettle', 'Sharp knife and chopping board', 'Wire rack or plate for cooling', '4 lunch boxes and 3 freezer bags'],
-      prep: ['Grate 1 medium onion (150 g) and squeeze it hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.', 'Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.', 'Chop 2 green chillies (10 g), a handful of coriander (15 g) and a few mint leaves (5 g) very fine.'],
+      prep: ['Grate about 1½ medium onions (150 g) and squeeze it hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.', 'Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.', 'Chop 2 green chillies (10 g), a handful of coriander (15 g) and a few mint leaves (5 g) very fine.'],
       steps: [
         {
           text: 'In the bowl mix the chicken mince (640 g) with the squeezed onion, ginger-garlic paste, chillies, coriander and mint, and the powders: 2 tsp roasted ground cumin (4 g), 2 tsp garam masala (4 g), ¾ tsp red chilli powder (2 g), ¾ tsp chaat masala (2 g), ½ tsp black pepper (1 g) and 1 tsp salt (6 g). Knead with your hand until sticky.',
@@ -1024,6 +1118,10 @@ export default [
           heat: 'oven-220',
           minutes: 17,
         },
+        {
+          text: 'Check: break the thickest kebab open. White all through, no pink, clear juices, browned at the edges. Pink? 3–4 minutes more in the oven.',
+          heat: 'none',
+        },
         { text: 'Let the kebabs cool on the rack.', heat: 'none', minutes: 20 },
         {
           text: 'Bulgur (no cooking on the hob): pour 300 ml boiling water from the kettle over the bulgur (200 g, about 1 cup) in the heatproof bowl. Stir, cover with the plate and leave 20 minutes until the water is soaked up. Fluff with a fork and spread it out to cool.',
@@ -1031,7 +1129,7 @@ export default [
           minutes: 20,
         },
         {
-          text: 'Split the cooled bulgur into 4 portions (about 125 g each). Keep 1 in the fridge for Monday; press the other 3 flat in freezer bags and freeze.',
+          text: 'Split the cooled bulgur into 4 portions (about 125 g each) and the kebabs into 4 sets of 4.',
           heat: 'none',
         },
         {
@@ -1040,17 +1138,17 @@ export default [
           minutes: 10,
         },
         {
-          text: 'Whisk 2 tbsp lemon juice (30 g), 1½ tbsp extra virgin olive oil (20 g) and ⅓ tsp salt (2 g). Toss with the chopped herbs and vegetables. Fold Monday\'s bulgur portion into half of this salad; keep the other half in a box for Tuesday.',
+          text: 'Whisk 2 tbsp lemon juice (30 g), 1½ tbsp extra virgin olive oil (20 g) and a heaped ¼ tsp salt (2 g). Toss with the chopped herbs and vegetables. Fold Monday\'s bulgur portion into half of this salad; keep the other half in a box for Tuesday.',
           heat: 'none',
           minutes: 3,
         },
         {
-          text: 'Each box: ¼ of the tabbouleh with its bulgur, and 4 kebabs on the side. Make the second half of the salad the same way on Tuesday night.',
+          text: 'Fill tomorrow\'s box: ¼ of the tabbouleh with its bulgur and 4 kebabs on the side. Put each other set of 4 kebabs with a bulgur portion in a freezer bag, pressed flat. Make the second half of the salad the same way on Tuesday night.',
           heat: 'none',
         },
       ],
       doneWhen: 'Break the thickest kebab open: white all through, no pink, juices clear (75 °C if you have a thermometer); browned at the edges.',
-      boxUp: 'Cool and put away within 1 hour. Kebabs: 3 days in the fridge (Mon–Wed boxes), Thursday\'s 4 kebabs in the freezer (3 months). Soaked bulgur counts as cooked grain (1 day in the fridge), so it lives in the freezer: each evening move one bulgur portion to the fridge and mix it into the salad the next morning. The dressed salad keeps 2 days and does not freeze: half on Sunday, half on Tuesday night.',
+      boxUp: 'Cool and put away within 1 hour. Soaked bulgur counts as cooked grain (1 day in the fridge), so it freezes with its kebabs. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. Mix the bulgur into the salad in the morning. The dressed salad keeps 2 days and does not freeze: half on Sunday, half on Tuesday night.',
       reheat: 'Made to eat cold: carry it in an insulated bag with an ice pack and eat within 2 hours of leaving the fridge. To eat the kebabs warm, microwave them alone, covered, 60–90 seconds until hot all through. Never microwave the tabbouleh.',
       tips: ['Halal: chicken mince from the halal butcher. Ask them to mince some thigh with the breast: it stays juicier.', 'Kebabs falling apart? Squeeze the onion harder, chill the mix longer, and shape them flat on the tray instead of on skewers.', 'Bulgur is at Turkish and Pakistani grocers ("bulgur" or "dalia"); fine or medium both work. Flat-leaf parsley is perejil at Mercadona.', 'Chaat masala (Pakistani grocery) gives the tang. No chaat masala? Use a squeeze of lemon and a pinch of salt.'],
     },
@@ -1060,7 +1158,6 @@ export default [
     boxes: 4,
     storage: [
       'cooked-meat',
-      'cold-salad',
       { id: 'cold-salad', pot: true },
     ],
     ingredients: [
@@ -1117,7 +1214,10 @@ export default [
     ],
     effort: 'cook',
     minutes: 35,
+    totalMinutes: 60,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 3 },
     cuisine: 'desi',
+    timeNote: 'About 1 h start to finish (35 min of it hands-on), plus 10 min started ahead.',
     pitch: 'Tangy chickpeas, potato and spiced chicken with chaat masala and lemon; mint yogurt on the side. No microwave needed.',
     cost: {
       perBoxEur: 2.46,
@@ -1151,7 +1251,7 @@ export default [
           minutes: 11,
         },
         {
-          text: 'In a bowl toss the chicken with the ginger-garlic paste, 1½ tsp ground cumin (3 g), 1½ tsp ground coriander (3 g), 1¼ tsp paprika (3 g), ⅓ tsp red chilli powder (1 g) and ⅔ tsp salt (4 g).',
+          text: 'In a bowl toss the chicken with the ginger-garlic paste, 1½ tsp ground cumin (3 g), 1½ tsp ground coriander (3 g), 1¼ tsp paprika (3 g), a heaped ¼ tsp red chilli powder (1 g) and a heaped ½ tsp salt (4 g).',
           heat: 'none',
           minutes: 2,
         },
@@ -1166,12 +1266,16 @@ export default [
           minutes: 7,
         },
         {
+          text: 'Check: cut the biggest chicken piece. White all through, no pink. Pink? 2 more minutes in the pan.',
+          heat: 'none',
+        },
+        {
           text: 'Turn off the heat, squeeze 1 tbsp lemon juice (15 g) over the chicken and spread it on a plate to cool.',
           heat: 'none',
           minutes: 20,
         },
         {
-          text: 'Chaat (no cooking), half now for Monday and Tuesday: in the bowl gently mix half the chickpeas (220 g), half the potato cubes, half the onion, tomato, cucumber, chilli and coriander with 1⅓ tbsp lemon juice (20 g), 1½ tsp chaat masala (4 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g).',
+          text: 'Chaat (no cooking), half now for Monday and Tuesday: in the bowl gently mix half the chickpeas (220 g), half the potato cubes, half the onion, tomato, cucumber, chilli and coriander with 1 tbsp + 1 tsp lemon juice (20 g), 1½ tsp chaat masala (4 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g).',
           heat: 'none',
           minutes: 5,
         },
@@ -1181,51 +1285,54 @@ export default [
           minutes: 2,
         },
         {
-          text: 'Boxes 1 and 2: half each of today\'s chaat, topped with ¼ of the chicken; a yogurt pot on the side. Put the other half of the chicken in a freezer bag in the freezer and the other half of the potatoes and chopped vegetables in a box in the fridge.',
+          text: 'Boxes 1 and 2: half each of today\'s chaat, topped with ¼ of the chicken; a yogurt pot on the side. Put the rest of the chicken in 2 freezer bags (¼ each) in the freezer, and the other half of the potatoes and chopped vegetables in a closed box in the fridge.',
           heat: 'none',
         },
         {
-          text: 'Monday night: move the frozen chicken to the fridge. Tuesday night: mix the second half of the chaat and 2 more yogurt pots the same way and pack boxes 3 and 4 (10 minutes).',
+          text: 'Tuesday night: mix the second half of the chaat and 2 more yogurt pots the same way (10 minutes), and move one chicken bag to the fridge for box 3. Wednesday night: move the last bag down for box 4.',
           heat: 'none',
           minutes: 10,
         },
       ],
       doneWhen: 'Chicken: cut the biggest piece, white all through, no pink. Potato: a knife slides in easily but the cube does not fall apart.',
-      boxUp: 'Cold-only box. Cool the chicken and potato and put them away within 1 hour. A dressed chaat box keeps 2 days and cannot be frozen; cooked chicken keeps 3 days in the fridge or 3 months frozen, so half of it goes in the freezer on Sunday.',
+      boxUp: 'Cold-only box. Cool the chicken and potato and put them away within 1 hour. A dressed chaat box keeps 2 days and cannot be frozen, so the frozen boxes are the chicken only. Boxes 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Boxes 3–4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it. On Tuesday night mix the second half of the chaat for Wednesday and Thursday.',
       reheat: 'Not reheated: eat it cold, within 2 hours of leaving the fridge (1 hour on a day above 32 °C). Carry it in an insulated bag with an ice pack.',
       tips: ['Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Chaat masala is the tangy spice mix (Pakistani grocery). No chaat masala? Use 1 tbsp extra lemon juice and a pinch more roasted cumin.', 'Too spicy? Leave out the green chillies.', 'The chickpeas are Mercadona garbanzo cocido in a glass jar (400 g drained). Use the rest of the second jar within 2 days, kept in its liquid in the fridge.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.'],
     },
   },
   {
     foodId: 'es-garbanzos-atun-salad-box',
-    boxes: 4,
+    boxes: 2,
     storage: ['cold-salad', 'egg-dish'],
     ingredients: [
-      { foodId: 'es-garbanzos-cocidos', grams: 600, section: 'supermarket' },
-      { foodId: 'intl-tuna-canned-water', grams: 440, section: 'supermarket' },
-      { foodId: 'intl-pepper-red', grams: 200, section: 'supermarket' },
-      { foodId: 'intl-pepper-green', grams: 100, section: 'supermarket' },
+      { foodId: 'es-garbanzos-cocidos', grams: 300, section: 'supermarket' },
+      { foodId: 'intl-tuna-canned-water', grams: 220, section: 'supermarket' },
+      { foodId: 'intl-pepper-red', grams: 100, section: 'supermarket' },
+      { foodId: 'intl-pepper-green', grams: 50, section: 'supermarket' },
       {
         foodId: 'intl-onion',
         name: 'Red onion (cebolla morada)',
-        grams: 100,
+        grams: 50,
         section: 'supermarket',
       },
-      { foodId: 'intl-tomato-cherry', grams: 320, section: 'supermarket' },
-      { foodId: 'intl-cucumber', grams: 160, section: 'supermarket' },
-      { foodId: 'intl-parsley-fresh', grams: 15, section: 'supermarket' },
-      { foodId: 'med-olive-oil', grams: 60, section: 'supermarket' },
-      { foodId: 'intl-lemon-juice', grams: 40, section: 'supermarket' },
-      { name: 'Cumin', grams: 2, section: 'supermarket' },
-      { name: 'Salt', grams: 3, section: 'supermarket' },
-      { name: 'Black pepper', grams: 1, section: 'supermarket' },
-      { foodId: 'intl-egg-raw', grams: 200, section: 'supermarket' },
+      { foodId: 'intl-tomato-cherry', grams: 160, section: 'supermarket' },
+      { foodId: 'intl-cucumber', grams: 80, section: 'supermarket' },
+      { foodId: 'intl-parsley-fresh', grams: 7.5, section: 'supermarket' },
+      { foodId: 'med-olive-oil', grams: 30, section: 'supermarket' },
+      { foodId: 'intl-lemon-juice', grams: 20, section: 'supermarket' },
+      { name: 'Cumin', grams: 1, section: 'supermarket' },
+      { name: 'Salt', grams: 1.5, section: 'supermarket' },
+      { name: 'Black pepper', grams: 0.5, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 100, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 25,
+    minutes: 9,
+    totalMinutes: 30,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     cuisine: 'spanish',
+    timeNote: 'About 30 min start to finish (9 min of it hands-on).',
     pitch: 'The Spanish summer classic as a filling lunch: chickpeas, tuna, egg, peppers and tomato in olive oil and lemon.',
-    cost: { perBoxEur: 2.73, totalEur: 10.92, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
+    cost: { perBoxEur: 2.73, totalEur: 5.46, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
       {
         title: 'Directo al Paladar, Ensalada de garbanzos y atún con vinagreta de mostaza',
@@ -1241,26 +1348,30 @@ export default [
       },
     ],
     method: {
-      equipment: ['Pot for 4 eggs', 'Sieve and can opener', 'Large bowl', 'Chopping board and knife', '4 lunch boxes (filled 2 at a time)'],
-      prep: ['Dice the red pepper (200 g) and green pepper (100 g) into 1 cm pieces. Chop the red onion (100 g) small (3–5 mm).', 'Halve the cherry tomatoes (320 g). Dice the cucumber (160 g) into 1 cm cubes. Chop the parsley (15 g).'],
+      equipment: ['Small pot for 2 eggs', 'Sieve and can opener', 'Large bowl', 'Chopping board and knife', '2 lunch boxes'],
+      prep: ['Dice about ¾ red pepper (100 g) and about ½ green pepper (50 g) into 1 cm pieces. Chop ½ medium red onion (50 g) small (3–5 mm).', 'Halve the cherry tomatoes (160 g). Dice about ¾ medium cucumber (80 g) into 1 cm cubes. Chop the parsley (8 g, a small handful).'],
       steps: [
         {
-          text: 'The only cooking is the eggs. Put 4 eggs in the pot, cover with cold water and bring to the boil.',
+          text: 'The only cooking is the eggs. Put 2 eggs in the pot, cover with cold water and bring to the boil.',
           heat: 'high',
           minutes: 5,
         },
         { text: 'Turn down so it bubbles gently and cook 10 minutes.', heat: 'medium', minutes: 10 },
         {
-          text: 'Pour off the hot water, cover the eggs with cold water for 5 minutes, then peel them. Keep them in the fridge.',
+          text: 'Pour off the hot water, cover the eggs with cold water for 5 minutes, then peel them.',
           heat: 'none',
           minutes: 5,
         },
         {
-          text: 'Sunday, for 2 boxes: drain and rinse 300 g chickpeas (¾ of a jar) and drain 220 g tuna (about 4 cans).',
+          text: 'Check one egg: cut it in half. The yolk is firm and pale yellow all through. Soft in the middle? Boil the next ones 2 minutes longer.',
           heat: 'none',
         },
         {
-          text: 'In the bowl mix the chickpeas, tuna and half of all the chopped vegetables and parsley.',
+          text: 'Drain and rinse the chickpeas (300 g, ¾ of a jar) and drain the tuna (220 g, about 4 cans).',
+          heat: 'none',
+        },
+        {
+          text: 'In the bowl mix the chickpeas, tuna, chopped vegetables and parsley.',
           heat: 'none',
         },
         {
@@ -1271,13 +1382,9 @@ export default [
           text: 'Fill 2 boxes with half the salad each and put 1 halved egg on top of each.',
           heat: 'none',
         },
-        {
-          text: 'Tuesday night: repeat steps 4–7 with the other half for boxes 3 and 4.',
-          heat: 'none',
-        },
       ],
       doneWhen: 'The egg yolks are firm and pale yellow all through.',
-      boxUp: 'Cold only, no freezing. The dressed salad keeps 2 days and the boiled eggs 3 days, so mix half on Sunday (Mon, Tue) and half on Tuesday night (Wed, Thu). Keep the unopened tuna cans and chickpeas in the cupboard until then; keep the cut vegetables in a closed box in the fridge. Carry in an insulated bag with an ice pack.',
+      boxUp: 'Cold only, no freezing. The dressed salad keeps 2 days and the boiled eggs 3 days, so make it 2 boxes at a time. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. For Wednesday and Thursday make it again on Tuesday night. Carry in an insulated bag with an ice pack.',
       reheat: 'Not reheated (no fish or eggs in the microwave): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['Lemon juice replaces wine vinegar. Tuna "al natural" (tuna, water, salt) has no oil to drain away, so the 60 g olive oil is all the fat.'],
     },
@@ -1285,7 +1392,11 @@ export default [
   {
     foodId: 'med-chicken-hummus-pasta-salad-box',
     boxes: 4,
-    storage: ['cooked-meat', 'cooked-starch', 'cold-salad'],
+    storage: [
+      'cooked-meat',
+      'cooked-starch',
+      { id: 'cold-salad', pot: true },
+    ],
     ingredients: [
       { foodId: 'intl-chicken-breast-raw', grams: 600, section: 'butcher' },
       { foodId: 'med-olive-oil', grams: 10, section: 'supermarket' },
@@ -1302,8 +1413,11 @@ export default [
       { foodId: 'intl-pepper-red', grams: 160, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 30,
+    minutes: 20,
+    totalMinutes: 30,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'mediterranean',
+    timeNote: 'About 30 min start to finish (20 min of it hands-on), plus 1 min started ahead.',
     pitch: 'Wholewheat penne coated in hummus with paprika chicken, spinach, cherry tomatoes, cucumber and pepper.',
     cost: {
       perBoxEur: 2.39,
@@ -1339,12 +1453,16 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Cook 6–8 minutes, turning the strips every 2 minutes, until golden. Check one (see "Done when"). Cool on a plate, then slice.',
+          text: 'Cook 6–8 minutes, turning the strips every 2 minutes, until golden.',
           heat: 'medium-high',
           minutes: 8,
         },
         {
-          text: 'Boil 3 l of water with a pinch of salt. Add the wholewheat penne (300 g) and cook about 11 minutes, until just soft.',
+          text: 'Check: cut the thickest strip. White all through with clear juices. Pink? 2 more minutes. Then cool the chicken on a plate and slice it.',
+          heat: 'none',
+        },
+        {
+          text: 'Boil 3 l of water with a pinch of salt. Add the wholewheat penne (300 g, about 3¾ cups) and cook about 11 minutes, until just soft.',
           heat: 'high',
           minutes: 11,
         },
@@ -1357,20 +1475,20 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Box 1 (for tomorrow): toss a quarter of the pasta (about 175 g) with a quarter of the dressing, then fold in a quarter of the vegetables and a quarter of the chicken.',
+          text: 'Tomorrow\'s box: toss a quarter of the pasta (about 175 g) with a quarter of the dressing, then fold in a quarter of the vegetables and a quarter of the chicken.',
           heat: 'none',
         },
         {
-          text: 'Boxes 2–4: freeze each pasta portion plain in a bag. Chicken: fridge (3 days) or freezer. Keep the dressing and cut vegetables in closed boxes in the fridge.',
+          text: 'Put each other pasta portion with a quarter of the chicken in a freezer bag and freeze it. Keep the dressing and cut vegetables in closed boxes in the fridge.',
           heat: 'none',
         },
         {
-          text: 'Each evening move one pasta bag (and chicken if frozen) to the fridge. In the morning toss with dressing, vegetables and chicken (2 minutes).',
+          text: 'Each evening move one bag to the fridge. In the morning toss it with dressing and vegetables (2 minutes). On Tuesday night cut fresh vegetables and whisk new dressing.',
           heat: 'none',
         },
       ],
       doneWhen: 'The chicken is white all through with clear juices (75 °C); the pasta is soft with a little bite.',
-      boxUp: 'Cool fast: everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only box 1 is assembled; the rest of the pasta is frozen plain (1 month). Dressing and cut vegetables keep 2 days and do not freeze: cut the vegetables again on Tuesday.',
+      boxUp: 'Cool fast: everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only tomorrow\'s box is dressed; the others freeze as pasta and chicken. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. Dressing and cut vegetables keep 2 days and do not freeze: make them again on Tuesday night.',
       reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C), carried with an ice pack.',
       tips: ['Halal: the Hacendado hummus lists E270 "de origen vegetal" and no E471.'],
     },
@@ -1378,10 +1496,7 @@ export default [
   {
     foodId: 'es-tortilla-proteica-skyr-box',
     boxes: 4,
-    storage: [
-      'egg-dish',
-      { id: 'cold-salad', pot: true },
-    ],
+    storage: ['egg-dish'],
     ingredients: [
       { foodId: 'intl-potato-raw', grams: 700, section: 'supermarket' },
       { foodId: 'intl-onion', grams: 150, section: 'supermarket' },
@@ -1394,8 +1509,18 @@ export default [
       { foodId: 'intl-banana', grams: 404, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 40,
+    minutes: 30,
+    totalMinutes: 75,
+    keep: {
+      fridgeDays: 3,
+      fridge: 4,
+      freezer: 0,
+      fresh: [
+        { name: 'High-protein yogurt pot with walnuts', storage: 'cold-salad', fridgeDays: 2 },
+      ],
+    },
     cuisine: 'spanish',
+    timeNote: 'About 1 h 15 min start to finish (30 min of it hands-on).',
     pitch: 'A thick wedge of light tortilla de patatas made with whole eggs and egg whites, a skyr-style protein yogurt with walnuts, and a banana.',
     cost: { perBoxEur: 2.04, totalEur: 8.15, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -1411,7 +1536,7 @@ export default [
     ],
     method: {
       equipment: ['Non-stick frying pan 24–26 cm with sloped sides', 'Large flat plate (wider than the pan) to flip the tortilla', 'Large microwave-safe bowl with a plate as a lid (or a steamer)', 'Large mixing bowl and fork', 'Cooling rack', '4 boxes and 4 small pots'],
-      prep: ['Peel the potatoes (700 g) and slice them thin (3 mm). Slice the onion (150 g) thin.', 'Crack 6 eggs into the large bowl and add the liquid egg whites (400 g) and 1 tsp salt (6 g). Beat with the fork.'],
+      prep: ['Peel about 3½ medium potatoes (700 g) and slice them thin (3 mm). Slice about 1½ medium onions (150 g) thin.', 'Crack 6 eggs into the large bowl and add the liquid egg whites (400 g) and 1 tsp salt (6 g). Beat with the fork.'],
       steps: [
         {
           text: 'Put the potato slices in the microwave bowl with 2 tbsp water, cover with the plate and microwave 8–10 minutes, until just soft (or steam them 10 minutes).',
@@ -1449,17 +1574,18 @@ export default [
         },
         { text: 'Cook 4–5 minutes more until set right through.', heat: 'low', minutes: 5 },
         {
-          text: 'Slide it onto the rack and cool 30 minutes. Cut into 4 wedges and wrap each one.',
+          text: 'Check: press the middle. It is firm, and a knife pushed in comes out with no runny egg. Still runny? Lid on, 2–3 minutes more on low.',
           heat: 'none',
-          minutes: 30,
         },
+        { text: 'Slide it onto the rack and cool 30 minutes.', heat: 'none', minutes: 30 },
+        { text: 'Cut into 4 wedges and wrap each one.', heat: 'none' },
         {
           text: 'Portion the protein yogurt into 4 pots (150 g each) only on the day you pack them (or 2 at a time). Add 10 g walnuts on top in the morning.',
           heat: 'none',
         },
       ],
       doneWhen: 'Press the middle: firm, and a knife pushed in comes out with no runny egg. A batch tortilla for boxes is cooked right through.',
-      boxUp: 'Cool within 1 hour, then the wedges go in the fridge (3 days). The tortilla does not freeze, so cook it Sunday for Monday to Wednesday and eat the 4th wedge as a dinner or snack (or cook it on a weekday evening for the next 3 lunches). Yogurt pots keep 2 days once portioned; bananas and walnuts stay at room temperature.',
+      boxUp: 'Cool within 1 hour. All 4 boxes go in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Do not freeze. The tortilla does not freeze, so eat the 4th wedge as a dinner or snack within those days (or cook it on a weekday evening for the next 3 lunches). Yogurt pots keep 2 days once portioned; bananas and walnuts stay at room temperature.',
       reheat: 'Eat cold (insulated bag and ice pack; within 2 hours of leaving the fridge). Do not microwave the tortilla in the box.',
     },
   },
@@ -1477,7 +1603,9 @@ export default [
       { foodId: 'intl-banana', grams: 180, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 10,
+    minutes: 8,
+    totalMinutes: 8,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 0 },
     serve: 'cold',
     cuisine: 'international',
     pitch: 'Five minutes on Sunday night, three breakfasts ready; eat cold from the jar.',
@@ -1520,7 +1648,7 @@ export default [
         { text: 'In the morning slice half a banana (60 g) on top and eat cold.', heat: 'none' },
       ],
       doneWhen: 'The oats are soft and the mix is thick like a pudding, with no dry oats.',
-      boxUp: 'All 3 jars go in the fridge on Sunday night for Monday, Tuesday and Wednesday (3 days). For Thursday and Friday, make 2 more on Wednesday night. Do not freeze.',
+      boxUp: 'All 3 jars go in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Do not freeze. For Thursday and Friday, make 2 more on Wednesday night.',
       reheat: 'Eat cold from the jar. If you like it warm: lid off, microwave 1 minute, stirring halfway.',
     },
   },
@@ -1561,8 +1689,11 @@ export default [
       { foodId: 'intl-atta-wholemeal', grams: 117.4, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 35,
+    minutes: 30,
+    totalMinutes: 85,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 2 },
     cuisine: 'international',
+    timeNote: 'About 1 h 25 min start to finish (30 min of it hands-on).',
     pitch: 'Masala egg muffins from the freezer, 1 min in the microwave, with a warm roti.',
     cost: { perBoxEur: 1.52, totalEur: 6.09, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -1581,8 +1712,22 @@ export default [
     ],
     method: {
       equipment: ['12-hole muffin tin (or 12 silicone muffin moulds)', 'Pastry brush or kitchen paper', 'Jug or bowl and a whisk or fork', 'Wire rack', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Baking paper', 'Freezer bags and 1–2 boxes for the fridge'],
-      prep: ['Chop the baby spinach (120 g). Dice the red pepper small (160 g, 5 mm). Chop the red onion fine (80 g, ½ medium), 2 green chillies (10 g) and a small handful of coriander (8 g).', 'Take the frozen peas (120 g) out of the bag; they go in frozen.'],
+      prep: ['Chop the baby spinach (120 g). Dice about 1½ red peppers (160 g) small (5 mm). Chop the red onion fine (80 g, ½ medium), 2 green chillies (10 g) and a small handful of coriander (8 g).', 'Take the frozen peas (120 g, about 1 cup) out of the bag; they go in frozen.'],
       steps: [
+        {
+          text: 'Roti dough first, so it rests while you cook: in a big bowl mix 117 g atta (wholemeal chapati flour, about 1 cup) with a pinch of salt (1 g). Pour in 82 ml water (about ⅓ cup) a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and leave the dough to rest while you cook (at least 20 minutes: a rested dough rolls thin without tearing).',
+          heat: 'none',
+        },
         {
           text: 'Heat the oven to 180 °C. Brush the 12 holes of the tin with 2 tsp oil (8 g), right up the sides.',
           heat: 'oven-180',
@@ -1593,7 +1738,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'In the jug whisk 8 eggs, 390 ml liquid egg whites (400 g), 1 tsp ground cumin (2 g), ¾ tsp red chilli powder (2 g), ⅓ tsp haldi (turmeric powder, 1 g), ½ tsp black pepper (1 g) and ⅔ tsp salt (4 g) until no streaks of white are left.',
+          text: 'In the jug whisk 8 eggs, 390 ml liquid egg whites (400 g), 1 tsp ground cumin (2 g), ¾ tsp red chilli powder (2 g), a heaped ¼ tsp haldi (turmeric powder, 1 g), ½ tsp black pepper (1 g) and a heaped ½ tsp salt (4 g) until no streaks of white are left.',
           heat: 'none',
           minutes: 2,
         },
@@ -1603,50 +1748,51 @@ export default [
         },
         { text: 'Bake until puffed and set in the middle.', heat: 'oven-180', minutes: 22 },
         {
-          text: 'Leave them 10 minutes in the tin, run a knife around each one and lift them onto the rack to cool.',
+          text: 'Check: push a knife into the middle of one muffin. It comes out clean, with no runny egg, and the tops are puffed and firm. Wet? 3–4 minutes more.',
+          heat: 'none',
+        },
+        {
+          text: 'Leave them 10 minutes in the tin, run a knife around each one and lift them onto the rack to cool while you make the roti.',
           heat: 'none',
           minutes: 10,
         },
         {
-          text: 'Roti dough (no cooking yet): in a big bowl mix 117 g atta (wholemeal chapati flour, about 1 cup) with a pinch of salt (1 g). Pour in 82 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
-          heat: 'none',
-          minutes: 3,
-        },
-        {
-          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
-          heat: 'none',
-          minutes: 5,
-        },
-        {
-          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
-          heat: 'none',
-          minutes: 20,
-        },
-        {
-          text: 'Divide the dough into 4 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
-          heat: 'none',
-        },
-        {
-          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          text: 'Divide the dough into 4 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes.',
           heat: 'medium-high',
           minutes: 2,
         },
         {
-          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          text: 'Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle the size of a side plate (about 16 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks.',
           heat: 'none',
+          minutes: 1,
         },
         {
-          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 6 minutes for 4).',
+          text: 'First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it.',
           heat: 'medium-high',
-          minutes: 6,
+          minutes: 0.5,
         },
         {
-          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          text: 'Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Roll and cook the other 3 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 8 minutes.',
+          heat: 'medium-high',
+          minutes: 8,
+        },
+        {
+          text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
+          heat: 'none',
+          minutes: 10,
+        },
+        {
+          text: 'Pack 4 portions: 3 cooled muffins and 1 roti each, baking paper between the roti.',
           heat: 'none',
         },
       ],
       doneWhen: 'Muffins: puffed and firm on top; a knife pushed into the middle comes out clean, with no runny egg. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-      boxUp: 'Cool and put away within 1 hour. Each portion is 3 muffins and 1 roti. Portion 1 (and 2 if you eat it within 2 days) in the fridge. Freeze the other muffins flat on a tray for 1 hour, then put them in a bag (2 months). Freeze the roti in a stack with baking paper between them (2 months; 2 days in the fridge).',
+      boxUp: 'Cool and put away within 1 hour. Each portion is 3 muffins and 1 roti. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. To freeze, lay the muffins flat on a tray for 1 hour first, then bag them with their roti.',
       reheat: 'Muffins from the fridge: microwave 30–40 seconds; from frozen: 60–90 seconds, turning once, until hot all through. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
       tips: ['Liquid egg whites are "claras de huevo pasteurizadas" in a carton at Mercadona, in the egg aisle.', 'Muffins sticking to the tin? Use silicone moulds or paper cases next time rather than more oil.', 'They sink a little as they cool. That is normal.', 'Too spicy? Leave out the green chillies.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.'],
     },
@@ -1671,7 +1817,10 @@ export default [
     ],
     effort: 'cook',
     minutes: 35,
+    totalMinutes: 65,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 1, freezerMonths: 2 },
     cuisine: 'international',
+    timeNote: 'About 1 h 5 min start to finish (35 min of it hands-on).',
     pitch: 'Blender batter, sixteen pancakes, toast them from frozen on weekday mornings.',
     cost: { perBoxEur: 1.13, totalEur: 4.54, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -1693,7 +1842,7 @@ export default [
       prep: ['Peel 2 small ripe bananas (200 g).'],
       steps: [
         {
-          text: 'Blend the oats (200 g) for 30 seconds until they look like flour.',
+          text: 'Blend the oats (200 g, about 2 cups) for 30 seconds until they look like flour.',
           heat: 'none',
           minutes: 1,
         },
@@ -1718,18 +1867,24 @@ export default [
           minutes: 2,
         },
         {
-          text: 'Flip with the spatula and cook 1–2 minutes more until golden. Move to the rack. Wipe the pan with oil again and repeat until all 16 are made.',
+          text: 'Flip with the spatula and cook 1–2 minutes more until golden. Move to the rack.',
           heat: 'medium',
           minutes: 2,
         },
         {
-          text: 'When cool, stack 4 pancakes per portion with baking paper between them.',
+          text: 'Check the first ones: both sides golden, the middle springs back when pressed, no wet batter on the side. Wet inside? Cook the next ones on slightly lower heat, 30 seconds longer a side.',
           heat: 'none',
-          minutes: 20,
         },
+        {
+          text: 'Wipe the pan with oil again and cook the rest the same way, 2–3 at a time, until all 16 are made.',
+          heat: 'medium',
+          minutes: 25,
+        },
+        { text: 'Let them cool on the rack (20 minutes).', heat: 'none', minutes: 20 },
+        { text: 'Stack 4 pancakes per portion with baking paper between them.', heat: 'none' },
       ],
       doneWhen: 'Both sides are golden and the middle springs back when pressed; no wet batter shows on the side.',
-      boxUp: 'Cool for no more than 1 hour. One portion in the fridge (3 days), three portions in freezer bags laid flat in the freezer (2 months).',
+      boxUp: 'Cool for no more than 1 hour. Portions 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Portion 4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. Freeze them in freezer bags laid flat; they toast or microwave from frozen.',
       reheat: 'From frozen: toaster 2 cycles, or microwave 60–80 seconds under a paper towel, until hot right through. From the fridge: 40–60 seconds.',
       tips: ['2 tsp baking powder makes them fluffier (optional; not counted).', 'A topping of yogurt or fruit is logged separately.'],
     },
@@ -1737,10 +1892,7 @@ export default [
   {
     foodId: 'pk-aloo-paratha-raita-portion',
     boxes: 4,
-    storage: [
-      'cooked-flatbread',
-      { id: 'cold-salad', pot: true },
-    ],
+    storage: ['cooked-flatbread'],
     ingredients: [
       { foodId: 'intl-atta-wholemeal', grams: 200, section: 'supermarket' },
       { foodId: 'intl-potato-raw', grams: 520, section: 'supermarket' },
@@ -1771,8 +1923,24 @@ export default [
       { foodId: 'intl-mint-fresh', grams: 6, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 50,
+    minutes: 40,
+    totalMinutes: 125,
+    keep: {
+      fridgeDays: 2,
+      fridge: 2,
+      freezer: 2,
+      freezerMonths: 2,
+      fresh: [
+        {
+          name: 'Protein raita pots (4)',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Tuesday night: mix 2 more raita pots (3 min).',
+        },
+      ],
+    },
     cuisine: 'desi',
+    timeNote: 'About 2 h 5 min start to finish (40 min of it hands-on).',
     pitch: 'The Sunday-morning paratha, made light and frozen; a thick mint raita brings the protein.',
     cost: { perBoxEur: 1.12, totalEur: 4.47, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -1794,7 +1962,7 @@ export default [
       prep: ['Chop ¼ red onion very fine (40 g), 1–2 green chillies (8 g) and a small handful of coriander (8 g).', 'Measure the oil for frying into a small cup: 24 g (about 1¾ tbsp), 6 g for each paratha.'],
       steps: [
         {
-          text: 'Put the potatoes (520 g raw, about 3 medium) in their skins in the pot, cover with cold water and bring to the boil.',
+          text: 'Put 2½ medium potatoes (520 g) in their skins in the pot, cover with cold water and bring to the boil.',
           heat: 'high',
           minutes: 5,
         },
@@ -1814,10 +1982,11 @@ export default [
           heat: 'none',
           minutes: 3,
         },
+        { text: 'Knead 5 minutes until smooth.', heat: 'none', minutes: 5 },
         {
-          text: 'Knead 5 minutes until smooth, cover with a damp cloth and rest 20 minutes.',
+          text: 'Cover with a damp cloth and let the dough rest 20 minutes.',
           heat: 'none',
-          minutes: 25,
+          minutes: 20,
         },
         {
           text: 'Divide the dough into 4 balls (about 85 g each). Dust one with atta and roll it to a 10 cm circle.',
@@ -1843,6 +2012,10 @@ export default [
           minutes: 2,
         },
         {
+          text: 'Check this first paratha: golden-brown spots on both sides, crisp edges and no white, raw-looking dough. Pale? 30 seconds more a side, and cook the next ones a little longer.',
+          heat: 'none',
+        },
+        {
           text: 'Fill, roll and cook the other 3 parathas the same way (about 4 minutes each on the pan; roll the next one while one cooks).',
           heat: 'medium-high',
           minutes: 12,
@@ -1857,9 +2030,13 @@ export default [
           heat: 'none',
           minutes: 3,
         },
+        {
+          text: 'When they are cool, stack the parathas with baking paper between them and bag them as Box it up says.',
+          heat: 'none',
+        },
       ],
       doneWhen: 'Golden-brown spots on both sides, crisp edges and no white, raw-looking dough anywhere.',
-      boxUp: 'Cool and put away within 1 hour. Stack the parathas with baking paper between them in a freezer bag: freezer (2 months), or 1 in the fridge for the next day (2 days). Raita cannot be frozen and keeps 2 days: 2 pots on Sunday, 2 on Tuesday night (or mix one the night before, 2 minutes).',
+      boxUp: 'Cool and put away within 1 hour, parathas stacked with baking paper between them. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. Raita cannot be frozen and keeps 2 days: 2 pots on Sunday, 2 on Tuesday night (or mix one the night before, 2 minutes).',
       reheat: 'Paratha from frozen: straight onto a dry pan on medium heat, 2–3 minutes a side, until hot and crisp. Or microwave 1 minute, then 1 minute on the pan. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
       tips: ['Paratha tearing when you roll? The filling was still warm or lumpy, or the dough did not rest. Cool the mash fully and roll gently from the middle out.', 'Weigh the frying oil: it is most of the calories, and the app counts 6 g per paratha.', 'Too spicy? Leave out the green chilli and the chilli powder in the filling.', 'Protein yogurt is the high-protein plain yogurt on the shopping list (milk and cultures only, no gelatine).', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.'],
     },
@@ -1897,8 +2074,11 @@ export default [
       { name: 'Black pepper', grams: 1, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 45,
+    minutes: 50,
+    totalMinutes: 95,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 2 },
     cuisine: 'desi',
+    timeNote: 'About 1 h 35 min start to finish (50 min of it hands-on).',
     pitch: 'A dhaba-style egg roll that lives in the freezer; eat it with chai on the way out.',
     cost: { perBoxEur: 1.02, totalEur: 4.07, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -1914,17 +2094,18 @@ export default [
     ],
     method: {
       equipment: ['Big mixing bowl', 'Rolling pin (belan) and a clean worktop', 'Tawa or a dry non-stick frying pan the size of the paratha (24–26 cm)', 'Jug and a fork or whisk', 'Flat spatula and a big plate for flipping', 'Pastry brush or a teaspoon', 'Baking paper, foil and a freezer bag'],
-      prep: ['Chop the red onion fine (80 g, ½ medium). Cut 1 tomato in half, scoop out the seeds and chop it small (80 g). Chop 1–2 green chillies (8 g) and a small handful of coriander (8 g).', 'Measure the oil into a small cup: 32 g (about 2⅓ tbsp) in all: 2 g per paratha for folding, 4 g per paratha for the pan, 2 g per omelette.'],
+      prep: ['Chop the red onion fine (80 g, ½ medium). Cut 1 tomato in half, scoop out the seeds and chop it small (80 g). Chop 1–2 green chillies (8 g) and a small handful of coriander (8 g).', 'Measure the oil into a small cup: 32 g (about 2 tbsp + 1 tsp) in all: 2 g per paratha for folding, 4 g per paratha for the pan, 2 g per omelette.'],
       steps: [
         {
-          text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with ⅓ tsp salt (2 g). Add 140 ml water a little at a time, mixing with your fingers, until it is one soft ball.',
+          text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with a heaped ¼ tsp salt (2 g). Add 140 ml water a little at a time, mixing with your fingers, until it is one soft ball.',
           heat: 'none',
           minutes: 3,
         },
+        { text: 'Knead 5 minutes until smooth.', heat: 'none', minutes: 5 },
         {
-          text: 'Knead 5 minutes until smooth, cover with a damp cloth and rest 20 minutes.',
+          text: 'Cover with a damp cloth and let the dough rest 20 minutes.',
           heat: 'none',
-          minutes: 25,
+          minutes: 20,
         },
         {
           text: 'Divide into 4 balls. Roll one to a thin 15 cm circle, brush it with ½ tsp oil (2 g), fold it in half, then in half again (a triangle), dust with atta and roll it out to about 20 cm. The folds make light layers. Shape all 4 and keep them apart on a floured plate.',
@@ -1963,18 +2144,19 @@ export default [
           minutes: 1,
         },
         {
+          text: 'Check this first roll: cut the egg at the edge. It is set all through with no runny egg, and the paratha has golden spots on both sides. Runny? 1 more minute a side.',
+          heat: 'none',
+        },
+        {
           text: 'Slide it out egg side up and roll it up tightly. Make the other 3 rolls the same way.',
           heat: 'none',
           minutes: 9,
         },
-        {
-          text: 'Let the rolls cool 20–30 minutes, then wrap each in baking paper and then foil.',
-          heat: 'none',
-          minutes: 25,
-        },
+        { text: 'Let the rolls cool 20–30 minutes.', heat: 'none', minutes: 25 },
+        { text: 'Wrap each roll in baking paper and then foil.', heat: 'none' },
       ],
       doneWhen: 'The egg is set all through, with no runny egg when you cut a roll; the paratha has golden spots on both sides.',
-      boxUp: 'Cool and put away within 1 hour. All 4 rolls go in the freezer (2 months). Move one to the fridge the night before, or reheat from frozen. A roll in the fridge keeps 2 days.',
+      boxUp: 'Cool and put away within 1 hour. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. A frozen roll also reheats straight from the freezer.',
       reheat: 'From the fridge: dry pan 2 minutes a side, or microwave 60 seconds. From frozen: take off the foil (never microwave foil), keep the paper on and microwave 90 seconds, then 1 minute in a hot dry pan to crisp, until hot all through.',
       tips: ['Halal: eggs, flour and vegetables only. Liquid egg whites are "claras de huevo pasteurizadas" at Mercadona.', 'Egg too thick to set? Put a lid on the pan for 1 minute before you lay the paratha on.', 'Too spicy? Leave out the green chillies.', 'Short on time? Frozen plain parathas from the Pakistani grocery work, but they have much more fat than these (often 10–15 g each), so the app\'s numbers would be too low.', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.'],
     },
@@ -2011,6 +2193,8 @@ export default [
     ],
     effort: 'cook',
     minutes: 45,
+    totalMinutes: 55,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 2 },
     cuisine: 'desi',
     pitch: 'A freezer breakfast burrito made the desi way: a big roti instead of a shop wrap.',
     cost: {
@@ -2035,10 +2219,10 @@ export default [
     ],
     method: {
       equipment: ['Big mixing bowl', 'Rolling pin (belan) and a clean worktop', 'Your biggest dry non-stick frying pan (28 cm) or a large tawa', 'Clean tea towel', 'Grater', 'Bowl and fork for the eggs', 'Tray for cooling', 'Baking paper, foil and a freezer bag'],
-      prep: ['Cut the chicken breast (280 g) into thin strips (1 cm).', 'Cut 1 red pepper (120 g) into strips. Slice ½ red onion (80 g) thin.', 'Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.'],
+      prep: ['Cut the chicken breast (280 g) into thin strips (1 cm).', 'Cut 1 red pepper (120 g) into strips. Slice ¾ medium red onion (80 g) thin.', 'Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.'],
       steps: [
         {
-          text: 'Roti dough (no cooking yet): in a big bowl mix 176 g atta (wholemeal chapati flour, about 1½ cups) with a pinch of salt (1 g). Pour in 123 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          text: 'Roti dough first, so it rests while you cook: in a big bowl mix 176 g atta (wholemeal chapati flour, about 1½ cups) with a pinch of salt (1 g). Pour in 123 ml water (about ½ cup) a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
           heat: 'none',
           minutes: 3,
         },
@@ -2048,34 +2232,11 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
-          heat: 'none',
-          minutes: 20,
-        },
-        {
-          text: 'Divide the dough into 4 equal balls of about 75 g. Keep them under the cloth.',
+          text: 'Cover the bowl with a damp cloth and leave the dough to rest while you cook (at least 20 minutes: a rested dough rolls thin without tearing).',
           heat: 'none',
         },
         {
-          text: 'Put your biggest frying pan or tawa on the hob with no oil and heat it 2 minutes.',
-          heat: 'medium-high',
-          minutes: 2,
-        },
-        {
-          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 25 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
-          heat: 'none',
-        },
-        {
-          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 2 minutes each, 8 minutes for 4).',
-          heat: 'medium-high',
-          minutes: 8,
-        },
-        {
-          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
-          heat: 'none',
-        },
-        {
-          text: 'Chicken: wipe the pan, add a scant 1 tbsp oil (12 g) and heat 1 minute.',
+          text: 'Chicken: in the frying pan, add a little under 1 tbsp oil (12 g) and heat 1 minute.',
           heat: 'high',
           minutes: 1,
         },
@@ -2089,16 +2250,48 @@ export default [
           heat: 'medium-high',
           minutes: 3,
         },
-        { text: 'Spread the chicken on the tray to cool.', heat: 'none' },
         {
           text: 'Egg: whisk 4 eggs with 120 g liquid egg whites and a pinch of salt (1 g). Pour into the same pan (no extra oil) and stir slowly with the spatula until just set: soft, but no runny egg.',
           heat: 'medium',
           minutes: 2,
         },
         {
-          text: 'Spread the egg on the tray next to the chicken and let both cool 20 minutes (hot filling makes the wrap soggy).',
+          text: 'Check: cut the thickest chicken strip. White all through, no pink. The egg is set, with no runny parts. Pink? 2 more minutes in the pan.',
           heat: 'none',
-          minutes: 20,
+        },
+        {
+          text: 'Spread the egg on the tray next to the chicken and let both cool while you make the roti (hot filling makes the wrap soggy).',
+          heat: 'none',
+        },
+        {
+          text: 'Divide the dough into 4 equal balls of about 75 g (golf-ball size or a little bigger) and keep them under the cloth. Heat your biggest frying pan or tawa, with no oil, for 2 minutes.',
+          heat: 'medium-high',
+          minutes: 2,
+        },
+        {
+          text: 'Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle as big as your pan (about 25 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks.',
+          heat: 'none',
+          minutes: 1,
+        },
+        {
+          text: 'First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it.',
+          heat: 'medium-high',
+          minutes: 0.5,
+        },
+        {
+          text: 'Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Roll and cook the other 3 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 8 minutes.',
+          heat: 'medium-high',
+          minutes: 8,
+        },
+        {
+          text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
+          heat: 'none',
+          minutes: 10,
         },
         {
           text: 'Lay a roti flat. Put ¼ of the chicken and ¼ of the egg in a line across the lower third. Fold the sides in, then roll it up tightly from the bottom. Wrap in baking paper, then foil. Make all 4.',
@@ -2107,7 +2300,7 @@ export default [
         },
       ],
       doneWhen: 'Chicken: cut the thickest strip, white all through, no pink. Egg: set, with no runny parts. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-      boxUp: 'Cool and put away within 1 hour. 1 wrap in the fridge (eat within 2 days), 3 in the freezer (2 months). Move one down to the fridge the night before.',
+      boxUp: 'Cool and put away within 1 hour. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it.',
       reheat: 'From the fridge: dry pan 2 minutes a side, or microwave 60–75 seconds. From frozen: take off the foil (never microwave foil), wrap in a damp paper towel and microwave 2 minutes, turning once, until hot all through.',
       tips: ['Halal: chicken from the halal butcher. The big home roti replaces shop wraps, which list E471 without saying it is from plants.', 'A 25 cm roti is hard to roll at first. If it tears, make 2 smaller roti per wrap from the same dough instead.', 'Too spicy? Use ¼ tsp chilli powder.', 'Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.'],
     },
@@ -2160,8 +2353,11 @@ export default [
       { foodId: 'intl-atta-wholemeal', grams: 234.9, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 60,
+    minutes: 70,
+    totalMinutes: 90,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 2 },
     cuisine: 'desi',
+    timeNote: 'About 1 h 30 min start to finish (70 min of it hands-on).',
     pitch: 'Tomato-ginger karahi from Zainab\'s base, boneless and lighter, frozen flat with its rotis.',
     cost: {
       perBoxEur: 1.93,
@@ -2189,8 +2385,22 @@ export default [
     ],
     method: {
       equipment: ['Karahi, wok or wide frying pan (28 cm) with a lid', 'Wooden spoon', 'Grater', 'Bowl and fork for the yogurt', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Tray for cooling', '4 flat freezer bags or boxes'],
-      prep: ['Cut the chicken breast (640 g) into 4 cm pieces.', 'Chop 1 small onion fine (120 g, 5 mm). Chop 5 medium tomatoes (600 g) into small pieces.', 'Peel 7 garlic cloves (20 g) and grate them. Peel a 5 cm piece of ginger (20 g): grate half (10 g) and cut the other half into thin matchsticks for the end.', 'Slit 4 green chillies (20 g) lengthwise. Whisk the yogurt (120 g, ½ cup) with a fork until smooth. Chop a small handful of coriander (8 g).'],
+      prep: ['Cut the chicken breast (640 g) into 4 cm pieces.', 'Chop about 1 medium onion (120 g) fine (5 mm). Chop 5 medium tomatoes (600 g) into small pieces.', 'Peel 7 garlic cloves (20 g) and grate them. Peel a 5 cm piece of ginger (20 g): grate half (10 g) and cut the other half into thin matchsticks for the end.', 'Slit 4 green chillies (20 g) lengthwise. Whisk the yogurt (120 g, ½ cup) with a fork until smooth. Chop a small handful of coriander (8 g).'],
       steps: [
+        {
+          text: 'Roti dough first, so it rests while you cook: in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water (a little under ¾ cup) a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and leave the dough to rest while you cook (at least 20 minutes: a rested dough rolls thin without tearing).',
+          heat: 'none',
+        },
         {
           text: 'Heat 3 tbsp sunflower oil (40 g) in the karahi for 1 minute.',
           heat: 'medium',
@@ -2208,7 +2418,7 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Add the tomatoes, then 1⅓ tsp salt (8 g), 2 tsp red chilli powder (5 g), 2 tsp ground coriander (dhania powder, 4 g) and 1 tsp ground cumin (2 g). Stir, put the lid on and cook until the tomatoes collapse.',
+          text: 'Add the tomatoes, then 1¼ tsp salt (8 g), 2 tsp red chilli powder (5 g), 2 tsp ground coriander (dhania powder, 4 g) and 1 tsp ground cumin (2 g). Stir, put the lid on and cook until the tomatoes collapse: soft, falling apart and juicy.',
           heat: 'medium',
           minutes: 10,
         },
@@ -2223,53 +2433,54 @@ export default [
           minutes: 3,
         },
         {
-          text: 'Turn off the heat. Scatter over the ginger matchsticks, 1 tsp garam masala (2 g) and the coriander. Spread on the tray to cool while you make the roti.',
+          text: 'Turn off the heat. Scatter over the ginger matchsticks, 1 tsp garam masala (2 g) and the coriander.',
           heat: 'none',
         },
         {
-          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
-          heat: 'none',
-          minutes: 3,
-        },
-        {
-          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
-          heat: 'none',
-          minutes: 5,
-        },
-        {
-          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
-          heat: 'none',
-          minutes: 20,
-        },
-        {
-          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          text: 'Check: cut the biggest chicken piece. It is white all through with no pink, the masala coats it thickly and oil shines at the edges. Pink? Lid on, low heat, 3 minutes more.',
           heat: 'none',
         },
         {
-          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          text: 'Spread the curry on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour.',
+          heat: 'none',
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes.',
           heat: 'medium-high',
           minutes: 2,
         },
         {
-          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          text: 'Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle the size of a side plate (about 16 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks.',
           heat: 'none',
+          minutes: 1,
         },
         {
-          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          text: 'First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it.',
           heat: 'medium-high',
-          minutes: 12,
+          minutes: 0.5,
         },
         {
-          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          text: 'Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Roll and cook the other 7 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 18 minutes.',
+          heat: 'medium-high',
+          minutes: 18,
+        },
+        {
+          text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
           heat: 'none',
+          minutes: 10,
         },
         {
-          text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).',
+          text: 'Pack 4 portions: ¼ of the cold curry in a flat freezer bag or box, and 2 cooled roti in a small bag (baking paper between them).',
           heat: 'none',
         },
       ],
       doneWhen: 'Karahi: thick masala coats the chicken, there is almost no liquid, oil shines at the edges, and the biggest piece is white all through with no pink. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months. (The curry alone keeps 3 days in the fridge and 3 months frozen.)',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. Each portion goes with its 2 roti. The roti set the 2 days and 2 months: the curry alone keeps 3 days in the fridge and 3 months frozen.',
       reheat: 'Move a frozen portion to the fridge the night before. Curry: microwave covered 3 minutes, stirring halfway, until steaming hot all through (from frozen, use the defrost setting first, then 3–4 minutes), or warm it in a pan with 2 tbsp water. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
       tips: ['Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Too spicy? The slit chillies are easy to pick out before you pack it. Eat it with a spoon of yogurt.', 'Sticking during the bhunna? Add 2 tbsp water, scrape the bottom and turn the heat down a little.', 'Spanish "tomate pera" (plum tomatoes) give the best masala. Pale winter tomatoes need 2–3 minutes more on high.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.', 'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.'],
     },
@@ -2323,8 +2534,11 @@ export default [
       { foodId: 'intl-atta-wholemeal', grams: 234.9, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 55,
+    minutes: 65,
+    totalMinutes: 95,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 2 },
     cuisine: 'desi',
+    timeNote: 'About 1 h 35 min start to finish (65 min of it hands-on).',
     pitch: 'The freezer classic: dry keema with lots of peas, scooped up with a hot roti.',
     cost: {
       perBoxEur: 2.18,
@@ -2348,10 +2562,24 @@ export default [
     ],
     method: {
       equipment: ['Wide deep frying pan or karahi (28 cm) with a lid', 'Wooden spoon', 'Grater', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Tray for cooling', '4 flat freezer bags or boxes'],
-      prep: ['Chop 1 medium onion fine (160 g, 5 mm). Chop 2 medium tomatoes (240 g) small.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Chop 2 green chillies (10 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup. Chop a small handful of coriander (8 g).'],
+      prep: ['Chop 1½ medium onions (160 g) fine (5 mm). Chop 2 medium tomatoes (240 g) small.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Chop 2 green chillies (10 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup. Chop a small handful of coriander (8 g).'],
       steps: [
         {
-          text: 'Heat 2⅓ tbsp sunflower oil (32 g) in the pan for 1 minute.',
+          text: 'Roti dough first, so it rests while you cook: in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water (a little under ¾ cup) a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and leave the dough to rest while you cook (at least 20 minutes: a rested dough rolls thin without tearing).',
+          heat: 'none',
+        },
+        {
+          text: 'Heat 2 tbsp + 1 tsp sunflower oil (32 g) in the pan for 1 minute.',
           heat: 'medium',
           minutes: 1,
         },
@@ -2362,17 +2590,17 @@ export default [
         },
         { text: 'Add the ginger-garlic paste and stir 1 minute.', heat: 'medium', minutes: 1 },
         {
-          text: 'Add the mince (520 g). Break it up with the spoon and cook on high, stirring, until the water it lets out has dried off and no pink is left.',
+          text: 'Add the mince (520 g: the butcher weighs it). Break it up with the spoon and cook on high, stirring, until the water it lets out has dried off and no pink is left.',
           heat: 'high',
           minutes: 10,
         },
         {
-          text: 'Add the tomatoes and the whisked yogurt, then 1 heaped tsp salt (7 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), 1 tsp ground cumin (2 g) and ⅔ tsp haldi (turmeric powder, 2 g). Stir, lid on, cook 10 minutes.',
+          text: 'Add the tomatoes and the whisked yogurt, then 1 heaped tsp salt (7 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), 1 tsp ground cumin (2 g) and a heaped ½ tsp haldi (turmeric powder, 2 g). Stir, lid on, cook 10 minutes.',
           heat: 'low',
           minutes: 10,
         },
         {
-          text: 'Add the frozen peas (320 g) and the green chillies. Lid on, 8 minutes.',
+          text: 'Add the frozen peas (320 g (about 2½ cups)) and the green chillies. Lid on, 8 minutes.',
           heat: 'medium',
           minutes: 8,
         },
@@ -2382,53 +2610,54 @@ export default [
           minutes: 4,
         },
         {
-          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander. Spread on the tray to cool while you make the roti.',
+          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander.',
           heat: 'none',
         },
         {
-          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
-          heat: 'none',
-          minutes: 3,
-        },
-        {
-          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
-          heat: 'none',
-          minutes: 5,
-        },
-        {
-          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
-          heat: 'none',
-          minutes: 20,
-        },
-        {
-          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          text: 'Check: push the keema aside. No liquid runs into the gap, no pink meat is left, oil glistens at the edges and the peas are soft. Wet? Stir on high 2 minutes more.',
           heat: 'none',
         },
         {
-          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          text: 'Spread the keema on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour.',
+          heat: 'none',
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes.',
           heat: 'medium-high',
           minutes: 2,
         },
         {
-          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          text: 'Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle the size of a side plate (about 16 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks.',
           heat: 'none',
+          minutes: 1,
         },
         {
-          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          text: 'First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it.',
           heat: 'medium-high',
-          minutes: 12,
+          minutes: 0.5,
         },
         {
-          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          text: 'Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Roll and cook the other 7 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 18 minutes.',
+          heat: 'medium-high',
+          minutes: 18,
+        },
+        {
+          text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
           heat: 'none',
+          minutes: 10,
         },
         {
-          text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).',
+          text: 'Pack 4 portions: ¼ of the cold keema in a flat freezer bag or box, and 2 cooled roti in a small bag (baking paper between them).',
           heat: 'none',
         },
       ],
       doneWhen: 'Keema: no pink meat, no loose liquid when you push it aside, oil glistening at the edges, peas soft. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. Each portion goes with its 2 roti.',
       reheat: 'Move a frozen portion to the fridge the night before. Keema: microwave covered 2½–3 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first, then 4–5 minutes), or in a pan with a splash of water. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
       tips: ['Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Ask the butcher for "carne picada magra de ternera", about 10 % fat.', 'Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).', 'Too spicy? Leave out the green chillies.', 'If it catches on the bottom, add 2 tbsp water and scrape.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
     },
@@ -2477,7 +2706,9 @@ export default [
       { foodId: 'intl-atta-wholemeal', grams: 234.9, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 55,
+    minutes: 75,
+    totalMinutes: 85,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 2 },
     cuisine: 'desi',
     pitch: 'A quick stir-fried curry, half chicken and half peppers and onion, bright and not heavy.',
     cost: {
@@ -2506,6 +2737,20 @@ export default [
       prep: ['Cut the chicken breast (600 g) into 3 cm pieces.', 'Peel 2 medium onions (240 g). Chop one half fine (120 g) for the masala; cut the other half into quarters and pull the layers apart into "petals" (120 g).', 'Cut 1–2 red peppers (200 g) and 1–2 green peppers (200 g) into 3 cm squares.', 'Purée the tomatoes (320 g, about 3 small): blend them, or cut them in half and grate the cut side on the big holes of a grater; throw away the skins.', 'Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste. Slice 2 green chillies (10 g).'],
       steps: [
         {
+          text: 'Roti dough first, so it rests while you cook: in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water (a little under ¾ cup) a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and leave the dough to rest while you cook (at least 20 minutes: a rested dough rolls thin without tearing).',
+          heat: 'none',
+        },
+        {
           text: 'Heat 3 tbsp sunflower oil (40 g) in the pan for 1 minute.',
           heat: 'medium',
           minutes: 1,
@@ -2522,7 +2767,7 @@ export default [
         },
         { text: 'Add the ginger-garlic paste and stir 1 minute.', heat: 'medium', minutes: 1 },
         {
-          text: 'Add the puréed tomatoes, then 1 heaped tsp salt (7 g), 2 tsp ground coriander (4 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 tsp red chilli powder (3 g). Cook, stirring, until it is a thick paste and the oil shows at the edges.',
+          text: 'Add the puréed tomatoes, then 1 heaped tsp salt (7 g), 2 tsp ground coriander (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g) and 1 tsp red chilli powder (3 g). Cook, stirring, until it is a thick paste and the oil shows at the edges.',
           heat: 'medium',
           minutes: 8,
         },
@@ -2537,53 +2782,54 @@ export default [
           minutes: 4,
         },
         {
-          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and 2 tsp lemon juice (10 g). Spread on the tray to cool while you make the roti.',
+          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and 2 tsp lemon juice (10 g).',
           heat: 'none',
         },
         {
-          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
-          heat: 'none',
-          minutes: 3,
-        },
-        {
-          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
-          heat: 'none',
-          minutes: 5,
-        },
-        {
-          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
-          heat: 'none',
-          minutes: 20,
-        },
-        {
-          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          text: 'Check: cut the biggest chicken piece. White all through with no pink, the sauce coats it thickly, and the peppers are bright and still a little crunchy. Pink? 2 more minutes on medium.',
           heat: 'none',
         },
         {
-          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          text: 'Spread the jalfrezi on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour.',
+          heat: 'none',
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes.',
           heat: 'medium-high',
           minutes: 2,
         },
         {
-          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          text: 'Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle the size of a side plate (about 16 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks.',
           heat: 'none',
+          minutes: 1,
         },
         {
-          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          text: 'First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it.',
           heat: 'medium-high',
-          minutes: 12,
+          minutes: 0.5,
         },
         {
-          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          text: 'Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Roll and cook the other 7 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 18 minutes.',
+          heat: 'medium-high',
+          minutes: 18,
+        },
+        {
+          text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
           heat: 'none',
+          minutes: 10,
         },
         {
-          text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).',
+          text: 'Pack 4 portions: ¼ of the cold jalfrezi in a flat freezer bag or box, and 2 cooled roti in a small bag (baking paper between them).',
           heat: 'none',
         },
       ],
       doneWhen: 'Jalfrezi: the biggest chicken piece is white all through with no pink, the sauce coats it thickly, and the peppers are bright and still a little crunchy. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. Each portion goes with its 2 roti.',
       reheat: 'Move a frozen portion to the fridge the night before. Microwave covered 2½–3 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first). Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
       tips: ['Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'No soy sauce, ketchup or vinegar: the lemon gives the tang (some vinegars are made from wine).', 'Sticking while the tomato cooks down? Add 2 tbsp water and scrape.', 'Too spicy? Leave out the green chillies.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
     },
@@ -2631,9 +2877,11 @@ export default [
       { foodId: 'intl-atta-wholemeal', grams: 234.9, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 55,
+    minutes: 70,
+    totalMinutes: 175,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 2 },
     cuisine: 'desi',
-    timeNote: 'About 2 hours start to finish: the beef simmers 70 min, hands off, while you make the roti.',
+    timeNote: 'About 2 h 55 min start to finish (70 min of it hands-on): the beef simmers 70 min, hands off, while the roti dough rests.',
     pitch: 'Sunday-slow beef with potatoes in a light shorba; it tastes better after the freezer.',
     cost: {
       perBoxEur: 3.15,
@@ -2654,8 +2902,22 @@ export default [
     ],
     method: {
       equipment: ['Heavy pot or casserole (3–4 l) with a lid (or a pressure cooker)', 'Wooden spoon', 'Grater', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Wide tray for cooling', '4 freezer boxes'],
-      prep: ['Cut the beef (600 g, boneless) into 3 cm cubes if the butcher has not.', 'Slice 1 large onion thin (200 g). Chop 2 medium tomatoes (240 g).', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Peel 4 medium potatoes (600 g) and cut each in half. Keep them in a bowl of cold water.', 'Whisk the yogurt (60 g, 4 tbsp) smooth. Chop a small handful of coriander (8 g).'],
+      prep: ['Cut the beef (600 g, boneless) into 3 cm cubes if the butcher has not.', 'Slice about 2 medium onions (200 g) thin. Chop 2 medium tomatoes (240 g).', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Peel about 3 medium potatoes (600 g) and cut them into 8 big chunks (about 75 g each). Keep them in a bowl of cold water.', 'Whisk the yogurt (60 g, 4 tbsp) smooth. Chop a small handful of coriander (8 g).'],
       steps: [
+        {
+          text: 'Roti dough first, so it rests while you cook: in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water (a little under ¾ cup) a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and leave the dough to rest while you cook (at least 20 minutes: a rested dough rolls thin without tearing).',
+          heat: 'none',
+        },
         {
           text: 'Heat 2½ tbsp sunflower oil (36 g) in the pot for 1 minute. Add the onion and stir every minute or two until golden brown (not dark).',
           heat: 'medium',
@@ -2667,7 +2929,7 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Add the tomatoes and the whisked yogurt, then 1⅓ tsp salt (8 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 tsp ground cumin (2 g).',
+          text: 'Add the tomatoes and the whisked yogurt, then 1¼ tsp salt (8 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g) and 1 tsp ground cumin (2 g).',
           heat: 'medium',
         },
         {
@@ -2686,53 +2948,54 @@ export default [
           minutes: 22,
         },
         {
-          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander. Spread on the wide tray to cool; make the roti meanwhile.',
+          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander.',
           heat: 'none',
         },
         {
-          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
-          heat: 'none',
-          minutes: 3,
-        },
-        {
-          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
-          heat: 'none',
-          minutes: 5,
-        },
-        {
-          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
-          heat: 'none',
-          minutes: 20,
-        },
-        {
-          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          text: 'Check: a piece of beef breaks apart easily with a spoon and a knife slides into the potatoes. Firm? Lid on, 10 minutes more.',
           heat: 'none',
         },
         {
-          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          text: 'Spread the aloo gosht on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour.',
+          heat: 'none',
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes.',
           heat: 'medium-high',
           minutes: 2,
         },
         {
-          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          text: 'Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle the size of a side plate (about 16 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks.',
           heat: 'none',
+          minutes: 1,
         },
         {
-          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          text: 'First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it.',
           heat: 'medium-high',
-          minutes: 12,
+          minutes: 0.5,
         },
         {
-          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          text: 'Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Roll and cook the other 7 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 18 minutes.',
+          heat: 'medium-high',
+          minutes: 18,
+        },
+        {
+          text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
           heat: 'none',
+          minutes: 10,
         },
         {
-          text: 'Pack 4 portions: 2 potato halves, ¼ of the beef and shorba in each box, and 2 roti in a small bag.',
+          text: 'Pack 4 portions: 2 potato chunks, ¼ of the cold beef and shorba in each box, and 2 cooled roti in a small bag.',
           heat: 'none',
         },
       ],
       doneWhen: 'The beef breaks apart easily with a spoon, the potatoes are soft right through, and the shorba is thin. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months. Potatoes go a little softer after freezing; that is normal.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. Each portion goes with its 2 roti. Potatoes go a little softer after freezing; that is normal.',
       reheat: 'Move a frozen portion to the fridge the night before. Microwave covered 3–4 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first, then 4 minutes). Add a splash of water if the shorba has thickened. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
       tips: ['Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Ask for stewing beef ("ternera para guisar", for example morcillo or aguja). Lean steak goes dry and tough here.', 'This takes about 2 hours, mostly simmering: start it on a Sunday afternoon, or use a pressure cooker.', 'Beef still tough? It needs more time, not more heat: 15 minutes more with the lid on.', 'Too spicy? Use 1 tsp chilli powder instead of 1½.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
     },
@@ -2740,11 +3003,7 @@ export default [
   {
     foodId: 'pk-seekh-kebab-roti-portion',
     boxes: 4,
-    storage: [
-      'cooked-meat',
-      'cooked-flatbread',
-      { id: 'cold-salad', pot: true },
-    ],
+    storage: ['cooked-meat', 'cooked-flatbread'],
     ingredients: [
       { foodId: 'intl-beef-mince-lean-raw', grams: 640, section: 'butcher' },
       { foodId: 'intl-onion', grams: 80, section: 'supermarket' },
@@ -2797,9 +3056,30 @@ export default [
       },
     ],
     effort: 'cook',
-    minutes: 60,
+    minutes: 55,
+    totalMinutes: 120,
+    keep: {
+      fridgeDays: 2,
+      fridge: 2,
+      freezer: 2,
+      freezerMonths: 2,
+      fresh: [
+        {
+          name: 'Kachumber salad pot',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Make the kachumber on the day you eat a portion, or the night before (5 min).',
+        },
+        {
+          name: 'Mint raita pot',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Mix the raita on the day, or the night before (2 min).',
+        },
+      ],
+    },
     cuisine: 'desi',
-    timeNote: 'About 1 h 45 min start to finish with the roti: the kebab mix chills 30 min first.',
+    timeNote: 'About 2 h start to finish (55 min of it hands-on), plus 5 min started ahead: the kebab mix chills 30 min first.',
     pitch: 'Oven-baked seekh kebabs from the freezer, a hot roti, crunchy kachumber and cool raita.',
     cost: {
       perBoxEur: 2.86,
@@ -2825,6 +3105,20 @@ export default [
       equipment: ['Food processor or chopper (or a grater and a sharp knife)', 'Clean tea towel for squeezing', 'Big mixing bowl', 'Oven tray lined with baking paper (skewers optional)', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Wire rack', '4 freezer bags, 1 lunch box and 1 small lidded pot for each day'],
       prep: ['Peel ½ medium onion (80 g), 4 garlic cloves (12 g) and a 3 cm piece of ginger (10 g).'],
       steps: [
+        {
+          text: 'Roti dough first, so it rests while you cook: in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water (a little under ¾ cup) a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and leave the dough to rest while you cook (at least 20 minutes: a rested dough rolls thin without tearing).',
+          heat: 'none',
+        },
         {
           text: 'Blitz the onion, 2–3 green chillies (12 g), a handful of coriander (12 g), a few mint leaves (6 g), the garlic and the ginger until finely chopped (or grate the onion, garlic and ginger and chop the rest very fine). Squeeze the mix hard in the tea towel to get the onion juice out.',
           heat: 'none',
@@ -2855,45 +3149,45 @@ export default [
           heat: 'oven-220',
           minutes: 17,
         },
-        { text: 'Cool the kebabs on the rack while you make the roti.', heat: 'none' },
         {
-          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
-          heat: 'none',
-          minutes: 3,
-        },
-        {
-          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
-          heat: 'none',
-          minutes: 5,
-        },
-        {
-          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
-          heat: 'none',
-          minutes: 20,
-        },
-        {
-          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          text: 'Check: break the thickest kebab open. Browned outside, no pink inside, juices clear. Pink? 3 minutes more in the oven.',
           heat: 'none',
         },
         {
-          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          text: 'Spread the kebabs on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour.',
+          heat: 'none',
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes.',
           heat: 'medium-high',
           minutes: 2,
         },
         {
-          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          text: 'Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle the size of a side plate (about 16 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks.',
           heat: 'none',
+          minutes: 1,
         },
         {
-          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          text: 'First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it.',
           heat: 'medium-high',
-          minutes: 12,
+          minutes: 0.5,
         },
         {
-          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
-          heat: 'none',
+          text: 'Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel.',
+          heat: 'medium-high',
+          minutes: 1,
         },
-        { text: 'Pack 4 kebabs and 2 roti per freezer bag.', heat: 'none' },
+        {
+          text: 'Roll and cook the other 7 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 18 minutes.',
+          heat: 'medium-high',
+          minutes: 18,
+        },
+        {
+          text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
+          heat: 'none',
+          minutes: 10,
+        },
+        { text: 'Pack 4 cold kebabs and 2 cooled roti per bag.', heat: 'none' },
         {
           text: 'Kachumber and raita (no cooking), on the day or the night before, for 1 portion: dice 80 g tomato, 80 g cucumber and 30 g red onion (1 cm); toss with 1½ tsp lemon juice (7 g), a pinch of roasted cumin and a pinch of salt. Raita: 60 g yogurt (4 tbsp) whisked with a few chopped mint leaves, a pinch of cumin and a pinch of salt, in its own pot.',
           heat: 'none',
@@ -2901,7 +3195,7 @@ export default [
         },
       ],
       doneWhen: 'Break the thickest kebab open: browned outside, no pink inside, juices clear (75 °C if you have a thermometer). Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-      boxUp: 'Cool and put away within 1 hour. Kebabs and roti go in the freezer (kebabs 3 months, roti 2 months); one bag can stay in the fridge if you eat it within 2 days. Kachumber and raita keep 2 days and cannot be frozen, so mix them fresh for each dinner (5 minutes).',
+      boxUp: 'Cool and put away within 1 hour. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. The roti set the limits: kebabs alone keep 3 months frozen. Kachumber and raita keep 2 days and cannot be frozen, so mix them fresh for each dinner (5 minutes).',
       reheat: 'Kebabs from frozen: oven or air fryer at 200 °C for 10–12 minutes, or microwave 2 minutes then 2 minutes in a hot pan, until hot all through. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel. Kachumber cold. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
       tips: ['Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).', 'Ask the butcher for "carne picada magra de ternera", about 10 % fat. Lean mince needs the 30 minutes in the fridge to hold its shape.', 'Kebabs falling off the skewers? Squeeze the onion harder and shape them flat on the tray instead.', 'Too spicy? Use 1 green chilli instead of 2–3.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
     },
@@ -2909,11 +3203,7 @@ export default [
   {
     foodId: 'pk-daal-palak-roti-portion',
     boxes: 4,
-    storage: [
-      'cooked-curry',
-      { id: 'cold-salad', pot: true },
-      'cooked-flatbread',
-    ],
+    storage: ['cooked-curry', 'cooked-flatbread'],
     ingredients: [
       {
         foodId: 'intl-masoor-dal-dry',
@@ -2955,8 +3245,24 @@ export default [
       { foodId: 'intl-atta-wholemeal', grams: 234.9, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 45,
+    minutes: 60,
+    totalMinutes: 100,
+    keep: {
+      fridgeDays: 2,
+      fridge: 2,
+      freezer: 2,
+      freezerMonths: 2,
+      fresh: [
+        {
+          name: 'Greek-yogurt raita pot',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Mix 2 more raita pots later in the week (3 min).',
+        },
+      ],
+    },
     cuisine: 'desi',
+    timeNote: 'About 1 h 40 min start to finish (60 min of it hands-on).',
     pitch: 'The cheapest dinner in the library and the highest in fibre; Greek-yogurt raita adds the protein.',
     cost: {
       perBoxEur: 1.16,
@@ -2977,10 +3283,24 @@ export default [
     ],
     method: {
       equipment: ['Large pot (3 l)', 'Small frying pan for the tarka', 'Wooden spoon', 'Sieve', 'Grater', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Wide tray for cooling', '4 freezer boxes and 4 small lidded pots (about 250 ml)'],
-      prep: ['Rinse the red lentils (masoor, 280 g, about 1⅓ cups) in the sieve 3 times, until the water is almost clear.', 'Chop 2 medium tomatoes (200 g). Peel and grate a 3 cm piece of ginger (10 g).', 'For the tarka: slice 1 medium onion thin (160 g), peel and slice 5 garlic cloves thin (15 g), and slit 1–2 green chillies (8 g).'],
+      prep: ['Rinse the red lentils (masoor, 280 g, about 1⅓ cups) in the sieve 3 times, until the water is almost clear.', 'Chop 2 medium tomatoes (200 g). Peel and grate a 3 cm piece of ginger (10 g).', 'For the tarka: slice 1½ medium onions (160 g) thin, peel and slice 5 garlic cloves thin (15 g), and slit 1–2 green chillies (8 g).'],
       steps: [
         {
-          text: 'Put the lentils in the large pot with 1 litre water, the tomatoes, the ginger, ⅔ tsp haldi (turmeric powder, 2 g), 1 tsp red chilli powder (3 g), 2 tsp ground coriander (4 g) and 1⅓ tsp salt (8 g). Bring to the boil.',
+          text: 'Roti dough first, so it rests while you cook: in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water (a little under ¾ cup) a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
+          heat: 'none',
+          minutes: 3,
+        },
+        {
+          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
+          heat: 'none',
+          minutes: 5,
+        },
+        {
+          text: 'Cover the bowl with a damp cloth and leave the dough to rest while you cook (at least 20 minutes: a rested dough rolls thin without tearing).',
+          heat: 'none',
+        },
+        {
+          text: 'Put the lentils in the large pot with 1 litre water, the tomatoes, the ginger, a heaped ½ tsp haldi (turmeric powder, 2 g), 1 tsp red chilli powder (3 g), 2 tsp ground coriander (4 g) and 1¼ tsp salt (8 g). Bring to the boil.',
           heat: 'high',
           minutes: 5,
         },
@@ -2990,12 +3310,12 @@ export default [
           minutes: 25,
         },
         {
-          text: 'Stir in the frozen spinach (400 g) and simmer until it has melted in.',
+          text: 'Stir in the frozen spinach (400 g (about 2½ cups)) and simmer until it has melted in.',
           heat: 'low',
           minutes: 10,
         },
         {
-          text: 'Tarka: in the small pan heat 2⅓ tbsp oil (32 g) for 1 minute. Add 2 tsp zeera (whole cumin seeds, 4 g) and let them sizzle 20–30 seconds.',
+          text: 'Tarka: in the small pan heat 2 tbsp + 1 tsp oil (32 g) for 1 minute. Add 2 tsp zeera (whole cumin seeds, 4 g) and let them sizzle 20–30 seconds.',
           heat: 'medium',
           minutes: 1,
         },
@@ -3006,47 +3326,51 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Pour the hot tarka over the daal (stand back, it sizzles), stir in 1⅓ tbsp lemon juice (20 g) and turn off the heat. Spread on the tray to cool while you make the roti.',
+          text: 'Pour the hot tarka over the daal (stand back, it sizzles), stir in 1 tbsp + 1 tsp lemon juice (20 g) and turn off the heat.',
           heat: 'none',
         },
         {
-          text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.',
-          heat: 'none',
-          minutes: 3,
-        },
-        {
-          text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.',
-          heat: 'none',
-          minutes: 5,
-        },
-        {
-          text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).',
-          heat: 'none',
-          minutes: 20,
-        },
-        {
-          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.',
+          text: 'Check: the lentils have broken down completely, a spoon dragged through leaves a trail, and the tarka onions are golden. Watery? Simmer 5 minutes more, stirring.',
           heat: 'none',
         },
         {
-          text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.',
+          text: 'Spread the daal on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour.',
+          heat: 'none',
+        },
+        {
+          text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes.',
           heat: 'medium-high',
           minutes: 2,
         },
         {
-          text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.',
+          text: 'Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle the size of a side plate (about 16 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks.',
           heat: 'none',
+          minutes: 1,
         },
         {
-          text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).',
+          text: 'First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it.',
           heat: 'medium-high',
-          minutes: 12,
+          minutes: 0.5,
         },
         {
-          text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.',
+          text: 'Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel.',
+          heat: 'medium-high',
+          minutes: 1,
+        },
+        {
+          text: 'Roll and cook the other 7 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 18 minutes.',
+          heat: 'medium-high',
+          minutes: 18,
+        },
+        {
+          text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
+          heat: 'none',
+          minutes: 10,
+        },
+        {
+          text: 'Pack 4 portions: ¼ of the cold daal in a box, 2 cooled roti in a small bag.',
           heat: 'none',
         },
-        { text: 'Pack 4 portions: ¼ of the daal in a box, 2 roti in a small bag.', heat: 'none' },
         {
           text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt, a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week.',
           heat: 'none',
@@ -3054,7 +3378,7 @@ export default [
         },
       ],
       doneWhen: 'The lentils have broken down completely, a spoon dragged through leaves a trail, and the tarka onions are golden. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-      boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer with their roti; eat within 2 months (the daal alone keeps 3 months). The raita keeps 2 days and does not freeze.',
+      boxUp: 'Cool on a wide tray and put away within 1 hour. Portions 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Portions 3–4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. Each portion goes with its 2 roti; the roti set the limits (the daal alone keeps 3 months frozen). The raita keeps 2 days and does not freeze.',
       reheat: 'Move a frozen portion to the fridge the night before. Daal thickens in the freezer: add 3–4 tbsp water, then microwave covered 3 minutes, stirring halfway, or warm it in a pan, until bubbling hot all through. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
       tips: ['Halal: lentils, vegetables, flour and yogurt only. Check the yogurt label (no gelatine).', 'Masoor is split red lentils: "lentejas rojas" or "lentejas coral" at Mercadona, or at the Pakistani grocery. Frozen spinach comes as portions (espinacas en porciones).', 'Daal sticking or too thick? Stir the bottom more often and add 100 ml hot water.', 'Too spicy? Leave out the chilli powder; the green chillies in the tarka are mild when slit.', 'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.'],
     },
@@ -3081,7 +3405,10 @@ export default [
     ],
     effort: 'cook',
     minutes: 45,
+    totalMinutes: 105,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 1, freezerMonths: 3 },
     cuisine: 'spanish',
+    timeNote: 'About 1 h 45 min start to finish (45 min of it hands-on).',
     pitch: 'The Catalan grandmother\'s Sunday pot, made all-beef from the halal butcher.',
     cost: {
       perBoxEur: 2.47,
@@ -3100,8 +3427,8 @@ export default [
       },
     ],
     method: {
-      equipment: ['Large deep pan or casserole (28 cm) with a lid', 'Large bowl for the meat mix', 'Wooden spoon', 'Chopping board and knife', '4 boxes (1 for the fridge, 3 for the freezer)'],
-      prep: ['Peel and chop the onions (240 g, 2 medium) finely (3–5 mm).', 'Peel the potatoes (600 g) and cut them into 3 cm chunks. Keep them in a bowl of cold water.', 'Peel and chop 2 garlic cloves (6 g) very finely. Chop the parsley (8 g).'],
+      equipment: ['Large deep pan or casserole (28 cm) with a lid', 'Large bowl for the meat mix', 'Wooden spoon', 'Chopping board and knife', '4 boxes'],
+      prep: ['Peel and chop the onions (240 g, 2 medium) finely (3–5 mm).', 'Peel about 3 medium potatoes (600 g) and cut them into 3 cm chunks. Keep them in a bowl of cold water.', 'Peel and chop 2 garlic cloves (6 g) very finely. Chop the parsley (8 g).'],
       steps: [
         {
           text: 'In the bowl mix the beef mince (560 g), breadcrumbs (40 g, about 4 tbsp), 1 egg, the garlic, parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands.',
@@ -3117,12 +3444,12 @@ export default [
           minutes: 20,
         },
         {
-          text: 'Stir in 1 tsp paprika (2 g) for a few seconds, then add the crushed tomato (400 g) and 1 bay leaf. Cook until thick.',
+          text: 'Stir in 1 tsp paprika (2 g) for a few seconds, then add half a jar of crushed tomato (400 g) and 1 bay leaf. Cook until thick.',
           heat: 'medium',
           minutes: 10,
         },
         {
-          text: 'Add 300 ml water, the drained potatoes, ⅔ tsp salt (4 g) and the raw meatballs. Bring to a bubble.',
+          text: 'Add 300 ml water, the drained potatoes, a heaped ½ tsp salt (4 g) and the raw meatballs. Bring to a bubble.',
           heat: 'medium-high',
           minutes: 3,
         },
@@ -3132,22 +3459,22 @@ export default [
           minutes: 20,
         },
         {
-          text: 'Add the frozen peas (400 g). Simmer 10 minutes more with the lid a little open.',
+          text: 'Add the frozen peas (400 g (about 3 cups)). Simmer 10 minutes more with the lid a little open.',
           heat: 'low',
           minutes: 10,
         },
         {
-          text: 'Check (see "Done when"). Take out the bay leaf and let it cool 30 minutes.',
+          text: 'Check: a potato chunk breaks easily with a spoon, and a meatball cut in half has no pink inside. Pink or hard? Lid on, 5 minutes more.',
           heat: 'none',
-          minutes: 30,
         },
+        { text: 'Take out the bay leaf and let it cool 30 minutes.', heat: 'none', minutes: 30 },
         {
           text: 'Fill 4 boxes: 5 meatballs, a quarter of the potatoes, peas and sauce each.',
           heat: 'none',
         },
       ],
       doneWhen: 'A potato chunk breaks easily with a spoon and a meatball cut in half has no pink inside (75 °C).',
-      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Portion 1 in the fridge (3 days); portions 2–4 in the freezer (3 months). Move one to the fridge the night before.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Portions 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Portion 4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it.',
       reheat: 'Microwave covered 3–4 minutes, stirring halfway, until steaming hot all through (from frozen, defrost first). Or warm gently in a pan until it bubbles.',
       tips: ['Water, not stock: most shop stocks are chicken and not halal unless certified.', 'Check the breadcrumbs label for manteca (lard).'],
     },
@@ -3165,7 +3492,9 @@ export default [
       { foodId: 'intl-kiwi', grams: 207, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 10,
+    minutes: 7,
+    totalMinutes: 7,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 0 },
     serve: 'cold',
     cuisine: 'spanish',
     pitch: 'The Mercadona classic of the gym crowd: whipped fresh cheese, oats and chia in a jar, kiwi on top in the morning.',
@@ -3200,7 +3529,7 @@ export default [
         { text: 'In the morning peel 1 kiwi (69 g), slice it on top and eat cold.', heat: 'none' },
       ],
       doneWhen: 'The oats are soft and the jar is thick and spoonable.',
-      boxUp: 'All 3 jars go in the fridge on Sunday night for Monday to Wednesday (3 days). Do not freeze. Kiwis stay in the fruit bowl.',
+      boxUp: 'All 3 jars go in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Do not freeze. Kiwis stay in the fruit bowl.',
       reheat: 'Not reheated: eat cold from the jar.',
     },
   },
@@ -3223,7 +3552,10 @@ export default [
       { foodId: 'intl-orange', grams: 393, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 12,
+    minutes: 10,
+    totalMinutes: 10,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 0 },
+    lightCooking: 'the bread is toasted and the eggs are boiled',
     serve: 'either',
     cuisine: 'spanish',
     pitch: 'The Barcelona breakfast: toasted barra rubbed with tomato and olive oil, with fresh cheese, two eggs boiled on Sunday and an orange.',
@@ -3246,11 +3578,11 @@ export default [
       prep: ['Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
       steps: [
         {
-          text: 'No cooking: only the bread is toasted. In the morning cut 80 g of barra (a third of a barra) and split it lengthways.',
+          text: 'No cooking: only the bread is toasted and the eggs are boiled (on Sunday, 10 minutes). In the morning cut 80 g of barra (a third of a barra) and split it lengthways.',
           heat: 'none',
         },
         {
-          text: 'Toast it in the toaster or a dry pan until golden, about 2–3 minutes.',
+          text: 'Toast it in the toaster or a dry pan until golden and crisp at the edges, about 2–3 minutes.',
           heat: 'medium',
           minutes: 3,
         },
@@ -3269,7 +3601,7 @@ export default [
         { text: 'Finish with an orange.', heat: 'none' },
       ],
       doneWhen: 'The toast is crisp at the edges and the tomato soaks in a little.',
-      boxUp: 'Only the eggs are made ahead (Sunday, for Monday to Wednesday; 3 days in the fridge, in their shells; do not freeze). The Burgos tubs stay sealed in the fridge until their date. Buy the barra every other day, or freeze it in 80 g pieces and toast from frozen.',
+      boxUp: 'Only the eggs are made ahead, in their shells. All 3 portions go in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Do not freeze. The Burgos tubs stay sealed in the fridge until their date. Buy the barra every other day, or freeze it in 80 g pieces and toast from frozen.',
       reheat: 'Nothing is reheated: the toast is made fresh; eggs and cheese are eaten cold.',
       tips: ['Halal: a bakery barra of flour, water, salt and yeast. A supermarket barra may list E-472e without its origin.'],
     },
@@ -3295,6 +3627,8 @@ export default [
     ],
     effort: 'assemble',
     minutes: 12,
+    totalMinutes: 12,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     serve: 'cold',
     cuisine: 'desi',
     pitch: 'The iftar favourite as a breakfast: apple, banana, mandarin and pomegranate with chaat masala and lemon, on a thick protein yogurt.',
@@ -3314,7 +3648,7 @@ export default [
       prep: [],
       steps: [
         {
-          text: 'No cooking. Squeeze ½ lemon into the bowl: about 1⅓ tbsp juice (20 g).',
+          text: 'No cooking. Squeeze ½ lemon into the bowl: about 1 tbsp + 1 tsp juice (20 g).',
           heat: 'none',
         },
         {
@@ -3344,7 +3678,7 @@ export default [
           minutes: 1,
         },
       ],
-      boxUp: 'Into the fridge straight away. Cut fruit keeps 2 days: make 2 portions at a time (Sunday night for Monday and Tuesday). Do not freeze. Banana and almonds go on in the morning so they stay fresh and crunchy.',
+      boxUp: 'Into the fridge straight away. Both portions go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Banana and almonds go on in the morning so they stay fresh and crunchy.',
       reheat: 'Not reheated: eat it cold.',
       tips: ['Chaat masala (Pakistani grocery) gives the sweet-sour-salty taste. No chaat masala? A pinch of salt, roasted cumin and black pepper is close.', 'Mercadona sells ready pomegranate seeds (granada desgranada) in season. The rest of a whole fruit keeps 5 days in a box in the fridge.', 'Swap the mandarins for an orange, or the apple for a pear; the numbers change only a little.', 'Halal: the protein yogurt is milk and cultures only (no gelatine).'],
     },
@@ -3373,7 +3707,9 @@ export default [
       { name: 'Black pepper', grams: 1, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 12,
+    minutes: 10,
+    totalMinutes: 10,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     serve: 'cold',
     cuisine: 'spanish',
     pitch: 'Open a jar of lentils and a can of tuna, chop a pepper, and lunch is done for two days.',
@@ -3408,7 +3744,7 @@ export default [
         { text: 'Drain the feta cubes (80 g) and fold them in gently, last.', heat: 'none' },
         { text: 'Divide between the 2 boxes.', heat: 'none' },
       ],
-      boxUp: 'Straight into the fridge. The dressed salad keeps 2 days: make it Sunday night for Monday and Tuesday (or Tuesday night for Wednesday and Thursday). Do not freeze. Jars and cans wait in the cupboard. Carry in an insulated bag with an ice pack.',
+      boxUp: 'Straight into the fridge. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Make it Sunday night for Monday and Tuesday (or Tuesday night for Wednesday and Thursday). Jars and cans wait in the cupboard. Carry in an insulated bag with an ice pack.',
       reheat: 'Not reheated (fish and cheese): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['Halal: this feta uses rennet (cuajo) of unstated origin, so the record is "check". For a fully halal box use the Burgos version (R-MP-40), which uses microbial rennet.'],
     },
@@ -3437,7 +3773,10 @@ export default [
       { foodId: 'intl-rice-cup-brown', grams: 250, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 12,
+    minutes: 8,
+    totalMinutes: 9,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
+    lightCooking: 'the eggs are boiled and the rice cup is warmed at lunch',
     serve: 'either',
     cuisine: 'international',
     pitch: 'A poke-style bowl from the cupboard: canned salmon with lemon, a sealed brown-rice cup you microwave at uni, avocado and a boiled egg.',
@@ -3454,10 +3793,10 @@ export default [
     ],
     method: {
       equipment: ['Pot for 4 eggs (if you have none boiled)', 'Grater', 'Bowl and fork', 'Can opener', '2 lunch boxes'],
-      prep: ['Dice the cucumber (160 g) into 1 cm cubes. Peel and grate the carrot (120 g). Chop the red onion (20 g) small and the coriander (6 g).', 'If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
+      prep: ['Dice the cucumber (160 g) into 1 cm cubes. Peel and grate 2 medium carrots (120 g). Chop the red onion (20 g) small and the coriander (6 g).', 'If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
       steps: [
         {
-          text: 'No cooking for the salad. Open the 3 cans of salmon (240 g), drain them and flake the fish into the bowl with the fork.',
+          text: 'No cooking: only the eggs are boiled (skip it if you have eggs boiled in the last 3 days) and the rice cup is warmed at lunch. Open the 3 cans of salmon (240 g), drain them and flake the fish into the bowl with the fork.',
           heat: 'none',
         },
         {
@@ -3478,7 +3817,7 @@ export default [
           minutes: 1,
         },
       ],
-      boxUp: 'Straight into the fridge. The salmon salad keeps 2 days and the eggs 3 days; make 2 boxes on Sunday or Tuesday night. Do not freeze. The rice cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked rice does not apply.',
+      boxUp: 'Straight into the fridge. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Make 2 boxes on Sunday or Tuesday night. The rice cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked rice does not apply.',
       reheat: 'Only the sealed rice cup goes in the microwave (40 seconds, pierced). The fish and eggs are eaten cold.',
     },
   },
@@ -3509,7 +3848,10 @@ export default [
       { foodId: 'med-pita-bread', grams: 240, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 12,
+    minutes: 9,
+    totalMinutes: 9,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
+    lightCooking: 'the eggs are boiled',
     serve: 'cold',
     cuisine: 'mediterranean',
     pitch: 'A Tunisian-style sandwich you build at lunch: hummus in the pita, then tuna, egg and crunchy salad from the box.',
@@ -3533,7 +3875,7 @@ export default [
       prep: ['Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).', 'If you have no boiled eggs from Sunday: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
       steps: [
         {
-          text: 'No cooking for the filling. Open and drain 4 cans of tuna (240 g) and put the tuna in the bowl.',
+          text: 'No cooking: only the eggs are boiled (if you have none boiled in the last 3 days). Open and drain 4 cans of tuna (240 g) and put the tuna in the bowl.',
           heat: 'none',
         },
         {
@@ -3553,7 +3895,7 @@ export default [
           heat: 'none',
         },
       ],
-      boxUp: 'Straight into the fridge: tuna salad and hummus keep 2 days, eggs 3 days. Do not freeze. Make 2 boxes at a time. Pitas keep in their bag to the pack date (freeze them if not used in 3 days). Carry in an insulated bag with an ice pack.',
+      boxUp: 'Straight into the fridge. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Tuna salad and hummus keep 2 days, eggs 3 days: make 2 boxes at a time. Pitas keep in their bag to the pack date (freeze them if not used in 3 days). Carry in an insulated bag with an ice pack.',
       reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
     },
   },
@@ -3575,9 +3917,13 @@ export default [
       { foodId: 'es-queso-burgos-0', grams: 62.5, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 10,
+    minutes: 8,
+    totalMinutes: 25,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 0 },
+    lightCooking: 'the kettle is boiled for the couscous',
     serve: 'either',
     cuisine: 'mediterranean',
+    timeNote: 'About 25 min start to finish (8 min of it hands-on).',
     pitch: 'Kettle-only lunch: couscous soaks while you open a can of mackerel and a jar of chickpeas.',
     cost: { perBoxEur: 2.88, totalEur: 2.88, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -3594,9 +3940,12 @@ export default [
       equipment: ['Kettle', 'Lunch box (about 1 l) with a lid, or a plate to cover it', 'Fork', 'Sieve', 'Chopping board and knife'],
       prep: ['Dice the red pepper (60 g) and cucumber (60 g) into 1 cm pieces. Halve the cherry tomatoes (60 g). Chop the parsley or mint (5 g).', 'Drain and rinse 130 g chickpeas (about ⅓ of a jar). Keep the rest in a closed box in the fridge (2 days).'],
       steps: [
-        { text: 'No cooking: only water from the kettle. Boil the kettle.', heat: 'none' },
         {
-          text: 'Put the couscous (60 g, about 4 tbsp) and a pinch of salt in the lunch box. Pour over 84 ml boiling water. Cover for 5 minutes.',
+          text: 'No cooking: only the kettle is boiled for the couscous. Boil the kettle.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the couscous (60 g, about 4 tbsp) and a pinch of salt in the lunch box. Pour over 84 ml boiling water (about ⅓ cup). Cover for 5 minutes.',
           heat: 'none',
           minutes: 5,
         },
@@ -3619,7 +3968,7 @@ export default [
         },
       ],
       doneWhen: 'The couscous has soaked up all the water and the grains are soft and separate.',
-      boxUp: 'Make it the night before, one box at a time, and put it in the fridge as soon as it is cool (within 1 hour). Soaked couscous keeps 1 day in the fridge. Do not freeze.',
+      boxUp: 'Make it the night before, one box at a time, and put it in the fridge as soon as it is cool (within 1 hour). Into the fridge: eat it the next day. Do not freeze. Soaked couscous keeps 1 day.',
       reheat: 'Good cold (eat within 2 hours of leaving the fridge). If you want it warm: microwave with the lid loose 1½–2 minutes until steaming hot all through, once only (the Burgos goes on after).',
     },
   },
@@ -3646,7 +3995,10 @@ export default [
       { foodId: 'intl-rice-cup-brown', grams: 250, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 10,
+    minutes: 7,
+    totalMinutes: 8,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
+    lightCooking: 'the rice cup is warmed at lunch',
     serve: 'either',
     cuisine: 'mediterranean',
     pitch: 'A no-cook mujaddara: cumin-lemon lentils over a brown-rice cup, with cool fresh cheese and tomato on the side.',
@@ -3666,7 +4018,7 @@ export default [
       prep: ['Dice the tomato (200 g) and cucumber (120 g) into 1 cm pieces. Chop the red onion (30 g) small and the mint (4 g).'],
       steps: [
         {
-          text: 'No cooking for the salad. Tip the jar of lentils (400 g drained) into the sieve and rinse well under cold water. Let them drain.',
+          text: 'No cooking: only the rice cup is warmed at lunch. Tip the jar of lentils (400 g drained) into the sieve and rinse well under cold water. Let them drain.',
           heat: 'none',
         },
         { text: 'In the bowl mix the lentils, tomato, cucumber, onion and mint.', heat: 'none' },
@@ -3682,7 +4034,7 @@ export default [
           minutes: 1,
         },
       ],
-      boxUp: 'Straight into the fridge: the dressed lentils keep 2 days, so make 2 boxes at a time. Do not freeze. The Burgos tubs and rice cups stay sealed to their pack dates.',
+      boxUp: 'Straight into the fridge: the dressed lentils keep 2 days, so make 2 boxes at a time. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. The Burgos tubs and rice cups stay sealed to their pack dates.',
       reheat: 'Only the sealed rice cup is microwaved (40 seconds, pierced). The cheese and lentils stay cold.',
     },
   },
@@ -3700,6 +4052,9 @@ export default [
     ],
     effort: 'assemble',
     minutes: 8,
+    totalMinutes: 8,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
+    lightCooking: 'the eggs are boiled',
     serve: 'cold',
     cuisine: 'spanish',
     pitch: 'A cold Córdoba-style dinner from a carton: salmorejo topped with chopped egg and tuna instead of the usual cured ham, picos to dip.',
@@ -3713,10 +4068,10 @@ export default [
     ],
     method: {
       equipment: ['Pot for the Sunday eggs', 'Soup bowl', 'Can opener', 'Knife and board'],
-      prep: ['Sunday: boil the eggs (2 per dinner) 10 minutes, cool 5 minutes in cold water and keep them in the fridge (3 days).', 'Keep the salmorejo brik in the fridge so it is very cold.'],
+      prep: ['Boil the eggs (2 per dinner) 10 minutes, cool 5 minutes in cold water and keep them in the fridge: boiled eggs keep 3 days, so boil them no more than 3 days before you eat them.', 'Keep the salmorejo brik in the fridge so it is very cold.'],
       steps: [
         {
-          text: 'No cooking. Shake the brik and pour 250 g (about 245 ml) of cold salmorejo into the bowl.',
+          text: 'No cooking: only the eggs are boiled (up to 3 days ahead). Shake the brik and pour 250 g (about 1 cup) of cold salmorejo into the bowl.',
           heat: 'none',
         },
         { text: 'Peel and chop 2 boiled eggs and put them on top.', heat: 'none' },
@@ -3726,7 +4081,7 @@ export default [
           heat: 'none',
         },
       ],
-      boxUp: 'Close the opened brik and keep it in the fridge: it covers 2 dinners in a row (2 days once opened). Keep a second, unopened brik in the cupboard. Boiled eggs keep 3 days; do not freeze anything here.',
+      boxUp: 'Close the opened brik and keep it in the fridge: it covers 2 dinners in a row (2 days once opened). Both portions go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Keep a second, unopened brik in the cupboard. Boiled eggs keep 3 days.',
       reheat: 'Not reheated: salmorejo is eaten very cold.',
       tips: ['Halal: the Hacendado salmorejo is tomato, bread, olive oil, pepper, garlic, salt and vinegar. No ham: add the egg and tuna instead of jamón.'],
     },
@@ -3734,10 +4089,7 @@ export default [
   {
     foodId: 'pk-microwave-chana-masala-portion',
     boxes: 2,
-    storage: [
-      'cooked-curry',
-      { id: 'cold-salad', pot: true },
-    ],
+    storage: ['cooked-curry'],
     ingredients: [
       { foodId: 'es-garbanzos-cocidos', grams: 400, section: 'supermarket' },
       { foodId: 'es-tomate-triturado', grams: 200, section: 'supermarket' },
@@ -3770,6 +4122,22 @@ export default [
     ],
     effort: 'assemble',
     minutes: 15,
+    totalMinutes: 25,
+    keep: {
+      fridgeDays: 3,
+      fridge: 2,
+      freezer: 0,
+      freezerMonths: 3,
+      fresh: [
+        {
+          name: 'Protein raita pot',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Mix the second raita pot fresh on the day you eat it (2 min).',
+        },
+      ],
+    },
+    lightCooking: 'everything is done in the microwave',
     serve: 'hot',
     cuisine: 'desi',
     pitch: 'Desi comfort in 15 minutes and one bowl: jarred chickpeas in a spiced tomato masala, a basmati cup and a protein raita.',
@@ -3786,7 +4154,7 @@ export default [
     ],
     method: {
       equipment: ['Large microwave-safe bowl (about 2 l) with a microwave lid or a plate to cover it', 'Microwave (times are for 800 W; add 30 seconds a step at 700 W)', 'Oven glove (the bowl gets very hot)', 'Sieve', 'Grater', '2 boxes and 2 small lidded pots (about 150 ml)'],
-      prep: ['Chop ½ medium onion very fine (80 g).', 'Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.', 'Drain and rinse the chickpeas (1 jar, 400 g drained).', 'Chop a few sprigs of coriander (6 g).'],
+      prep: ['Chop ¾ medium onion (80 g) very fine.', 'Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.', 'Drain and rinse the chickpeas (1 jar, 400 g drained).', 'Chop a few sprigs of coriander (6 g).'],
       steps: [
         {
           text: 'No cooking on the hob: everything is done in the microwave. Get the microwave bowl and its loose lid ready.',
@@ -3798,7 +4166,7 @@ export default [
           minutes: 3,
         },
         {
-          text: 'Stir in the powders: 1½ tsp garam masala (3 g), 1 tsp ground cumin (2 g), 1 tsp ground coriander (2 g), ⅓ tsp red chilli powder (1 g), ⅓ tsp haldi (turmeric powder, 1 g) and ⅓ tsp salt (2 g). Microwave uncovered for only 30 seconds so the spices toast in the oil without burning.',
+          text: 'Stir in the powders: 1½ tsp garam masala (3 g), 1 tsp ground cumin (2 g), 1 tsp ground coriander (2 g), a heaped ¼ tsp red chilli powder (1 g), a heaped ¼ tsp haldi (turmeric powder, 1 g) and a heaped ¼ tsp salt (2 g). Microwave uncovered for only 30 seconds so the spices toast in the oil without burning.',
           heat: 'microwave',
         },
         {
@@ -3810,6 +4178,10 @@ export default [
           text: 'Add the chickpeas, stir, cover and microwave until bubbling.',
           heat: 'microwave',
           minutes: 3,
+        },
+        {
+          text: 'Check: the sauce bubbles and is thick enough to coat the chickpeas, and the onion is soft, not crunchy. Thin? 1 more minute uncovered.',
+          heat: 'none',
         },
         {
           text: 'Stir in 2 tsp lemon juice (10 g) and the chopped coriander. Split between the 2 boxes.',
@@ -3826,7 +4198,7 @@ export default [
         },
       ],
       doneWhen: 'The sauce bubbles and is thick enough to coat the chickpeas; the onion is soft, not crunchy.',
-      boxUp: 'Tonight\'s portion: eat it. The second box: cool on the counter (no longer than 1 hour), then fridge (3 days) or freezer (3 months). The raita keeps 2 days and does not freeze; it takes 2 minutes to mix fresh. The rice cup stays sealed in the cupboard.',
+      boxUp: 'Cool the second box on the counter (no longer than 1 hour). Eat portion 1 the day you make it. Portion 2 goes in the fridge: eat it within 3 days (by Wednesday if you make it on Sunday). It also freezes (3 months). The raita keeps 2 days and does not freeze; it takes 2 minutes to mix fresh. The rice cup stays sealed in the cupboard.',
       reheat: 'Chana from the fridge: microwave covered 2–3 minutes, stirring halfway, until steaming hot all through. Once only. From frozen: move it to the fridge the night before. Rice cup: 40 seconds. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
       tips: ['Halal: chickpeas, tomato, spices and a protein yogurt of milk and cultures only.', 'Spitting in the microwave? Keep the lid or plate on and stir with a long spoon.', 'Too spicy? Leave out the chilli powder and eat it with more raita.', 'Ginger-garlic paste: peel the garlic and ginger and grate both on the smallest holes of a grater, or blend them with 1 tsp water. A jar of ready paste from the Pakistani grocery is fine (use the same grams).'],
     },
@@ -3848,7 +4220,10 @@ export default [
       { foodId: 'es-picos-integrales', grams: 60, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 10,
+    minutes: 7,
+    totalMinutes: 7,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
+    lightCooking: 'the eggs are boiled',
     serve: 'cold',
     cuisine: 'spanish',
     pitch: 'The Spanish "picoteo" dinner for tired evenings: dip, cheese, eggs and crunchy vegetables, nothing to cook.',
@@ -3865,10 +4240,10 @@ export default [
     ],
     method: {
       equipment: ['Pot for the Sunday eggs', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)', 'A plate to serve'],
-      prep: ['Sunday: boil the eggs (2 per portion) 10 minutes, cool 5 minutes in cold water and keep them in the fridge (3 days).'],
+      prep: ['Boil the eggs (2 per portion) 10 minutes, cool 5 minutes in cold water and keep them in the fridge: boiled eggs keep 3 days, so boil them no more than 3 days before you eat them.'],
       steps: [
         {
-          text: 'No cooking. Peel the carrots (160 g) and cut them into sticks 1 cm thick. Cut the red pepper (140 g) into strips and the cucumber (160 g) into sticks.',
+          text: 'No cooking: only the eggs are boiled (up to 3 days ahead). Peel about 2½ medium carrots (160 g) and cut them into sticks 1 cm thick. Cut the red pepper (140 g) into strips and the cucumber (160 g) into sticks.',
           heat: 'none',
         },
         { text: 'Split the sticks and cherry tomatoes (120 g) between the 2 boxes.', heat: 'none' },
@@ -3879,7 +4254,7 @@ export default [
           heat: 'none',
         },
       ],
-      boxUp: 'Straight into the fridge. Cut vegetables and opened hummus keep 2 days: make 2 boxes at a time. Do not freeze. Picos stay in their bag; Burgos tubs stay sealed until you eat.',
+      boxUp: 'Straight into the fridge. Both portions go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Cut vegetables and opened hummus keep 2 days: make 2 boxes at a time. Picos stay in their bag; Burgos tubs stay sealed until you eat.',
       reheat: 'Not reheated: everything is eaten cold.',
     },
   },
@@ -3898,7 +4273,9 @@ export default [
       { foodId: 'es-picos-integrales', grams: 20, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 8,
+    minutes: 4,
+    totalMinutes: 4,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     serve: 'cold',
     cuisine: 'middle-eastern',
     pitch: 'Hummus whipped with queso fresco batido doubles the protein; carrot, cucumber and pepper sticks to dip.',
@@ -3926,7 +4303,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Peel the carrots (120 g) and cut them into sticks. Cut half a cucumber (60 g) into sticks and the red pepper (100 g) into strips.',
+          text: 'Peel 2 medium carrots (120 g) and cut them into sticks. Cut half a cucumber (60 g) into sticks and the red pepper (100 g) into strips.',
           heat: 'none',
         },
         {
@@ -3934,7 +4311,7 @@ export default [
           heat: 'none',
         },
       ],
-      boxUp: 'Straight into the fridge. The dip and cut vegetables keep 2 days: make 2 boxes at a time. Do not freeze.',
+      boxUp: 'Straight into the fridge. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. The dip and cut vegetables keep 2 days: make 2 boxes at a time.',
       reheat: 'Not reheated: eat cold.',
     },
   },
@@ -3950,7 +4327,9 @@ export default [
       { foodId: 'intl-pomegranate', grams: 150, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 8,
+    minutes: 11,
+    totalMinutes: 11,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 0 },
     serve: 'cold',
     cuisine: 'international',
     pitch: 'Stir, wait overnight, done: chia set in protein yogurt and milk, pomegranate on top.',
@@ -3986,7 +4365,7 @@ export default [
         { text: 'Just before eating, add 50 g pomegranate seeds on top.', heat: 'none' },
       ],
       doneWhen: 'The pudding is thick and set: it no longer pours when you tilt the jar.',
-      boxUp: 'The 3 jars keep 3 days in the fridge. Keep the pomegranate seeds in a closed box in the fridge (up to 3 days). Do not freeze.',
+      boxUp: 'All 3 jars go in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Do not freeze. Keep the pomegranate seeds in a closed box in the fridge (up to 3 days).',
       reheat: 'Not reheated: eat cold.',
     },
   },
@@ -4024,7 +4403,9 @@ export default [
       { name: 'Cumin', grams: 1, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 10,
+    minutes: 7,
+    totalMinutes: 7,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     serve: 'cold',
     cuisine: 'desi',
     pitch: 'Street-food chaat from a jar of chickpeas: onion, tomato, coriander, chaat masala and lemon, with a cool protein dahi on top.',
@@ -4064,7 +4445,7 @@ export default [
           minutes: 1,
         },
       ],
-      boxUp: 'Into the fridge straight away; eat within 2 days. Do not freeze. Keep the last third of the chickpea jar in its liquid in the fridge and use it within 2 days.',
+      boxUp: 'Into the fridge straight away. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Keep the last third of the chickpea jar in its liquid in the fridge and use it within 2 days.',
       reheat: 'Not reheated: eat it cold.',
       tips: ['Chaat masala (Pakistani grocery) is what makes it chaat. No chaat masala? Use a pinch of salt, roasted cumin and a little more lemon.', 'Too spicy? Leave out the green chilli.', 'Halal: chickpeas, vegetables, spices and a protein yogurt of milk and cultures only.', 'Roasted ground cumin (bhuna zeera): toast 1 tbsp cumin seeds in a dry pan on medium heat for about 1 minute, until they smell nutty and darken one shade, then crush them with a rolling pin or in a mortar. Keep it in a jar for all the raitas and chaats.'],
     },
@@ -4093,7 +4474,9 @@ export default [
       { foodId: 'es-queso-burgos-0', grams: 125, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 12,
+    minutes: 10,
+    totalMinutes: 10,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     serve: 'cold',
     cuisine: 'spanish',
     pitch: 'The lentil and tuna salad made with queso de Burgos 0% instead of feta: same 12 minutes, halal, a little lighter.',
@@ -4131,7 +4514,7 @@ export default [
         },
         { text: 'At lunch: crumble the Burgos over and mix.', heat: 'none' },
       ],
-      boxUp: 'Straight into the fridge. The dressed salad keeps 2 days: make it Sunday night for Monday and Tuesday (or Tuesday night for Wednesday and Thursday). Do not freeze. The Burgos tubs stay sealed to their date; jars and cans wait in the cupboard. Carry in an insulated bag with an ice pack.',
+      boxUp: 'Straight into the fridge. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Make it Sunday night for Monday and Tuesday (or Tuesday night for Wednesday and Thursday). The Burgos tubs stay sealed to their date; jars and cans wait in the cupboard. Carry in an insulated bag with an ice pack.',
       reheat: 'Not reheated (fish and fresh cheese): eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['Halal: queso de Burgos 0% with microbial rennet (cuajo microbiano), so this salad is fully halal.'],
     },
@@ -4160,8 +4543,11 @@ export default [
       { foodId: 'es-pan-bocadillo', grams: 260, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 20,
+    minutes: 30,
+    totalMinutes: 45,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     cuisine: 'spanish',
+    timeNote: 'About 45 min start to finish (30 min of it hands-on).',
     pitch: 'A proper Spanish bocadillo: paprika chicken, sweet piquillo peppers and a cheese-free almond pesto in a crusty roll you fill at lunch.',
     cost: {
       perBoxEur: 3.25,
@@ -4188,7 +4574,7 @@ export default [
       prep: ['Take the chicken (300 g) out of the fridge. If the fillets are thicker than 1.5 cm, cut each one through the middle to make 2 thin fillets.', 'Peel 3 garlic cloves. Grate 2 of them (6 g) for the chicken; keep 1 whole (3 g) for the pesto.', 'Pick the leaves off the basil tray (20 g). Throw away the thick stalks.', 'Drain the piquillo peppers (½ jar, 160 g) and cut them into strips 1 cm wide.', 'Slice the tomatoes (160 g) 5 mm thick. Wash and dry the lettuce leaves (60 g).'],
       steps: [
         {
-          text: 'Put the chicken on a plate. Sprinkle over 1 tsp sweet paprika (2 g), the grated garlic, ⅓ tsp salt (2 g) and a few grinds of black pepper (1 g). Rub it in with your hands, then wash your hands.',
+          text: 'Put the chicken on a plate. Sprinkle over 1 tsp sweet paprika (2 g), the grated garlic, a heaped ¼ tsp salt (2 g) and a few grinds of black pepper (1 g). Rub it in with your hands, then wash your hands.',
           heat: 'none',
         },
         {
@@ -4207,7 +4593,7 @@ export default [
           minutes: 4,
         },
         {
-          text: 'Cut into the thickest fillet. If you see any pink, cook 1–2 minutes more. Move the chicken to a clean plate to cool.',
+          text: 'Check: cut into the thickest fillet. It is white all the way through and the juices run clear. Any pink? Cook 1–2 minutes more. Then move the chicken to a clean plate to cool.',
           heat: 'none',
         },
         {
@@ -4239,7 +4625,7 @@ export default [
         },
       ],
       doneWhen: 'The chicken is white all the way through with no pink in the middle and the juices run clear (75 °C if you have a thermometer).',
-      boxUp: 'Let the chicken cool on the counter for no more than 1 hour, then box everything and put both boxes and the pesto pots in the fridge (eat by day 2). The salad and pesto do not freeze. The rolls stay in their bag at room temperature for 2–3 days, or freeze them. Carry the box in an insulated bag with an ice pack.',
+      boxUp: 'Let the chicken cool on the counter for no more than 1 hour, then box everything with the pesto pots. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. The salad and pesto do not freeze. The rolls stay in their bag at room temperature for 2–3 days, or freeze them. Carry the box in an insulated bag with an ice pack.',
       reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['Making 4? Double the chicken and freeze half of it, sliced, for up to 3 months; thaw it in the fridge overnight.', 'The pesto has no cheese, so there is no rennet to check.'],
     },
@@ -4271,9 +4657,13 @@ export default [
       { foodId: 'es-pan-bocadillo', grams: 260, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 10,
+    minutes: 13,
+    totalMinutes: 30,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
+    lightCooking: 'the eggs are boiled',
     serve: 'cold',
     cuisine: 'spanish',
+    timeNote: 'About 30 min start to finish (13 min of it hands-on).',
     pitch: 'The classic bocadillo de atún with a boiled egg, tomato and a pot of mashed avocado instead of mayonnaise. Ten minutes, no cooking.',
     cost: { perBoxEur: 2.85, totalEur: 5.7, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -4291,7 +4681,7 @@ export default [
       prep: ['Finely chop the red onion (20 g, about ¼ of a small onion) into pieces of about 3 mm.', 'Slice the tomatoes (200 g) 5 mm thick. Wash and dry the lettuce (60 g).', 'Open the 4 cans of tuna and tip them into the sieve to drain (240 g drained).'],
       steps: [
         {
-          text: 'No cooking for the filling. Only the eggs are boiled (skip this and the next 2 steps if you have 2 boiled eggs from Sunday). Put 2 eggs in the small pot and cover them with cold water.',
+          text: 'No cooking: only the eggs are boiled. Skip this and the next 2 steps if you have 2 eggs boiled in the last 3 days. Put 2 eggs in the small pot and cover them with cold water.',
           heat: 'none',
         },
         {
@@ -4303,6 +4693,10 @@ export default [
           text: 'Pour off the hot water and fill the pot with cold water. Leave the eggs 5 minutes, then peel them and slice each egg.',
           heat: 'none',
           minutes: 5,
+        },
+        {
+          text: 'Check as you slice: the yolk is firm and pale yellow all through. Soft? Boil the next eggs 2 minutes longer.',
+          heat: 'none',
         },
         {
           text: 'Put the drained tuna in the bowl. Add the chopped onion, 1½ tsp olive oil (6 g) and a few grinds of black pepper (1 g). Mix with the fork.',
@@ -4326,7 +4720,7 @@ export default [
         },
       ],
       doneWhen: 'Boiled eggs: the yolk is firm and pale yellow all through.',
-      boxUp: 'Put both boxes and the avocado pots in the fridge at once (eat by day 2). Do not freeze. The rolls stay in their bag at room temperature for 2–3 days. Carry the box in an insulated bag with an ice pack.',
+      boxUp: 'Put both boxes and the avocado pots in the fridge at once. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. The rolls stay in their bag at room temperature for 2–3 days. Carry the box in an insulated bag with an ice pack.',
       reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['If the avocado turns a little brown on top, scrape off the thin top layer: it is fine underneath.'],
     },
@@ -4364,9 +4758,11 @@ export default [
       { foodId: 'med-pita-bread', grams: 480, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 25,
+    minutes: 15,
+    totalMinutes: 90,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 3 },
     cuisine: 'middle-eastern',
-    timeNote: 'The chicken marinates 30 min (or overnight). About 1 h 15 min start to finish, plus 20 min cooling.',
+    timeNote: 'About 1 h 30 min start to finish (15 min of it hands-on): the chicken marinates 30 min (or overnight).',
     pitch: 'Oven shawarma chicken with cumin, paprika and cinnamon, a garlic-yogurt pot, hummus and a crunchy salad: you fill the warm or cold pitas at lunch.',
     cost: {
       perBoxEur: 2.68,
@@ -4389,7 +4785,7 @@ export default [
       prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick and 5 cm long.', 'Peel 4 garlic cloves. Grate 3 of them (9 g) for the marinade and 1 (3 g) for the sauce.', 'Salad for boxes 1–2 only: shred half the lettuce (80 g), dice half the tomatoes (120 g) and cucumber (100 g) into 1 cm cubes and slice half the red onion (30 g) thin. Keep the other half whole in the fridge for Tuesday night.', 'Chop the mint leaves (4 g, a small handful) finely.'],
       steps: [
         {
-          text: 'In the mixing bowl stir together 60 g Greek yogurt (about 3 tbsp), 1½ tbsp lemon juice (20 g), 1 tbsp olive oil (14 g), the 9 g grated garlic, 1½ tsp ground cumin (3 g), 1½ tsp paprika (3 g), ⅓ tsp ground cinnamon (1 g), ⅓ tsp ground turmeric (1 g), ⅔ tsp salt (4 g) and a few grinds of black pepper (1 g).',
+          text: 'In the mixing bowl stir together 60 g Greek yogurt (about 3 tbsp), 1½ tbsp lemon juice (20 g), 1 tbsp olive oil (14 g), the 9 g grated garlic, 1½ tsp ground cumin (3 g), 1½ tsp paprika (3 g), a heaped ¼ tsp ground cinnamon (1 g), a heaped ¼ tsp ground turmeric (1 g), a heaped ½ tsp salt (4 g) and a few grinds of black pepper (1 g).',
           heat: 'none',
         },
         {
@@ -4420,10 +4816,10 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Take the tray out. Check the biggest strip (see "Done when"). Let the chicken cool on the tray.',
+          text: 'Take the tray out. Check: cut the thickest strip. White all through, no pink, juices clear. Pink? 3 more minutes in the oven.',
           heat: 'none',
-          minutes: 20,
         },
+        { text: 'Let the chicken cool on the tray (20 minutes).', heat: 'none', minutes: 20 },
         {
           text: 'Mix the cut lettuce, tomato, cucumber and onion and divide it between 2 salad tubs (boxes 1–2). The salad always stays in its own tub, never in the chicken box.',
           heat: 'none',
@@ -4438,7 +4834,7 @@ export default [
         },
       ],
       doneWhen: 'Cut the thickest strip: white all through, no pink, juices clear (75 °C if you have a thermometer).',
-      boxUp: 'Cool the chicken on the counter for no more than 1 hour. Boxes 1–2: chicken box, salad tub and both pots in the fridge (eat by day 2). Boxes 3–4: chicken box in the freezer (3 months; or the fridge if you eat it on day 3); on Tuesday night cut the other half of the salad into 2 tubs and stir the second half of the sauce (80 g yogurt, the rest of the garlic, 4 g lemon juice, the rest of the mint) into 2 pots (salad and sauces keep 2 days and do not freeze). The pitas stay in their bag (freeze them if not used in 3 days).',
+      boxUp: 'Cool the chicken on the counter for no more than 1 hour. Boxes 1–2 in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Boxes 3–4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it. Salad tubs and sauce pots keep 2 days and do not freeze: the first two go in the fridge with the first boxes; on Tuesday night cut the other half of the salad into 2 tubs and stir the second half of the sauce (80 g yogurt, the rest of the garlic, 4 g lemon juice, the rest of the mint) into 2 pots. The pitas stay in their bag (freeze them if not used in 3 days).',
       reheat: 'Chicken only, if you want it warm: take it out of the salad, microwave with the lid loose for about 1 minute until steaming hot. Never microwave the salad or the sauces. From the freezer: move the chicken to the fridge the night before.',
       tips: ['No time to marinate? 10 minutes is enough; the spices still stick.'],
     },
@@ -4468,6 +4864,8 @@ export default [
     ],
     effort: 'cook',
     minutes: 20,
+    totalMinutes: 25,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     cuisine: 'international',
     pitch: 'Crisp romaine, seared chicken, a boiled egg and crunchy wholemeal picos, with a creamy yogurt-Dijon dressing in its own pot: no anchovy, no Parmesan.',
     cost: {
@@ -4496,16 +4894,11 @@ export default [
           minutes: 10,
         },
         {
-          text: 'Pour off the hot water, cover the eggs with cold water and leave 5 minutes. Peel and halve them.',
-          heat: 'none',
-          minutes: 5,
-        },
-        {
-          text: 'While the eggs cook, rub the chicken with the 3 g grated garlic, ⅓ tsp salt (2 g) and black pepper (1 g).',
+          text: 'While the eggs cook, rub the chicken with the 3 g grated garlic, a heaped ¼ tsp salt (2 g) and black pepper (1 g).',
           heat: 'none',
         },
         {
-          text: 'Heat 1½ tsp olive oil (6 g) in the frying pan for 1 minute.',
+          text: 'Still while the eggs cook, heat 1½ tsp olive oil (6 g) in the frying pan for 1 minute.',
           heat: 'medium-high',
           minutes: 1,
         },
@@ -4514,10 +4907,15 @@ export default [
           heat: 'medium-high',
           minutes: 4,
         },
+        { text: 'Turn it over and cook 3–4 minutes more.', heat: 'medium-high', minutes: 4 },
         {
-          text: 'Turn it over and cook 3–4 minutes more. Check it (see "Done when"), then let it cool on a plate and slice it.',
-          heat: 'medium-high',
-          minutes: 4,
+          text: 'Check: cut the chicken at its thickest point. White all through with clear juices. Pink? 1–2 minutes more a side. Then let it cool on a plate.',
+          heat: 'none',
+        },
+        {
+          text: 'Pour the hot water off the eggs, cover them with cold water and leave 5 minutes. Peel and halve them: the yolks should be firm.',
+          heat: 'none',
+          minutes: 5,
         },
         {
           text: 'Wash the lettuce in cold water and dry it very well in the salad spinner or by rolling it in a clean tea towel. Wet leaves go soggy.',
@@ -4528,16 +4926,16 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Fill each box: half the lettuce, half the tomatoes, half the chicken slices and 1 egg in halves. The dressing pot and the bag of picos (40 g per box) go next to the box, not on the salad.',
+          text: 'Slice the chicken. Fill each box: half the lettuce, half the tomatoes, half the chicken slices and 1 egg in halves. The dressing pot and the bag of picos (40 g per box) go next to the box, not on the salad.',
           heat: 'none',
         },
         {
-          text: 'At lunch: pour the dressing over, close the lid and shake, then break the picos over the top.',
+          text: 'Later, at lunch: pour the dressing over, close the lid and shake, then break the picos over the top.',
           heat: 'none',
         },
       ],
       doneWhen: 'The chicken is white all through with clear juices (75 °C); the egg yolks are firm.',
-      boxUp: 'Cool the chicken for no more than 1 hour, then put both boxes and the dressing pots in the fridge (eat by day 2). Do not freeze. Make 2 boxes on Sunday night and 2 more on Tuesday night. The picos stay in their sealed bag in the cupboard. Carry in an insulated bag with an ice pack.',
+      boxUp: 'Cool the chicken for no more than 1 hour, then box everything with the dressing pots. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Make 2 boxes on Sunday night and 2 more on Tuesday night. The picos stay in their sealed bag in the cupboard. Carry in an insulated bag with an ice pack.',
       reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['The dressing uses yogurt, mustard and lemon: no anchovy, no cheese, so nothing to check for rennet.'],
     },
@@ -4545,7 +4943,14 @@ export default [
   {
     foodId: 'intl-beef-bolognese-pasta-box',
     boxes: 4,
-    storage: ['cooked-meat', 'cooked-starch'],
+    storage: [
+      'cooked-meat',
+      {
+        id: 'cooked-starch',
+        later: true,
+        job: 'Boil 80 g wholewheat penne (about 1 cup) in 2 l of salted water for about 10 minutes, drain it, mix it with one portion of sauce, cool it 20–30 minutes and put the box in the fridge.',
+      },
+    ],
     ingredients: [
       { foodId: 'med-olive-oil', grams: 12, section: 'supermarket' },
       { foodId: 'intl-beef-mince-lean-raw', grams: 500, section: 'butcher' },
@@ -4561,9 +4966,25 @@ export default [
       { foodId: 'intl-pasta-wholewheat-dry', grams: 320, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 30,
+    minutes: 25,
+    totalMinutes: 90,
+    keep: {
+      fridgeDays: 3,
+      fridge: 3,
+      freezer: 1,
+      freezerMonths: 3,
+      later: [
+        {
+          name: 'Wholewheat penne',
+          storage: 'cooked-starch',
+          fridgeDays: 1,
+          when: 'the night before each box',
+          job: 'Boil 80 g wholewheat penne (about 1 cup) in 2 l of salted water for about 10 minutes, drain it, mix it with one portion of sauce, cool it 20–30 minutes and put the box in the fridge.',
+        },
+      ],
+    },
     cuisine: 'italian',
-    timeNote: 'About 1 h 15 min start to finish: the sauce simmers 30–40 min, hands off, then cools 30 min.',
+    timeNote: 'About 1 h 30 min start to finish (25 min of it hands-on), plus 40 min started ahead: the sauce simmers 30–40 min, hands off, then cools 30 min; the penne is boiled the night before each lunch (10 min).',
     pitch: 'A slow-simmered beef, mushroom and carrot ragù with no wine, frozen in portions; cook the penne fresh or the night before and lunch is done.',
     cost: {
       perBoxEur: 2.35,
@@ -4586,11 +5007,11 @@ export default [
       },
     ],
     method: {
-      equipment: ['Wide deep frying pan or casserole (28 cm) with a lid', 'Wooden spoon', 'Large pot for 3 l of water and a colander', 'Grater', 'Oven tray or wide dish for cooling', '4 lunch boxes and 2 freezer bags'],
-      prep: ['Peel the onion (150 g, 1 medium) and chop it small (5 mm).', 'Peel and grate the carrot (120 g, 1 large) on the big holes of the grater.', 'Wipe the mushrooms (200 g) and chop them into 1 cm pieces.', 'Peel 3 garlic cloves (9 g) and chop them finely.', 'Open 1½ tins of crushed tomato (800 g).'],
+      equipment: ['Wide deep frying pan or casserole (28 cm) with a lid', 'Wooden spoon', 'Pot for 2 l of water and a colander', 'Grater', 'Oven tray or wide dish for cooling', '4 lunch boxes or flat freezer bags'],
+      prep: ['Peel about 1½ medium onions (150 g) and chop it small (5 mm).', 'Peel and grate 2 medium carrots (120 g) on the big holes of the grater.', 'Wipe the mushrooms (200 g) and chop them into 1 cm pieces.', 'Peel 3 garlic cloves (9 g) and chop them finely.', 'Open 1 jar (800 g) of crushed tomato.'],
       steps: [
         {
-          text: 'Put the wide pan on the hob. Add a scant 1 tbsp olive oil (12 g) and heat 1 minute.',
+          text: 'Put the wide pan on the hob. Add a little under 1 tbsp olive oil (12 g) and heat 1 minute.',
           heat: 'medium-high',
           minutes: 1,
         },
@@ -4605,7 +5026,7 @@ export default [
           minutes: 8,
         },
         {
-          text: 'Pour in the crushed tomato. Add 1 tsp dried oregano (2 g), 1 bay leaf, ⅔ tsp salt (4 g) and black pepper (1 g). Stir.',
+          text: 'Pour in the crushed tomato. Add 1 tsp dried oregano (2 g), 1 bay leaf, a heaped ½ tsp salt (4 g) and black pepper (1 g). Stir.',
           heat: 'medium',
         },
         {
@@ -4614,16 +5035,20 @@ export default [
           minutes: 35,
         },
         {
+          text: 'Check: drag a spoon across the pan. It leaves a clear line, and no meat is pink. Runny? Simmer 5–10 minutes more with the lid off.',
+          heat: 'none',
+        },
+        {
           text: 'Take out the bay leaf. Spread the sauce on the tray or wide dish to cool fast (about 30 minutes).',
           heat: 'none',
           minutes: 30,
         },
         {
-          text: 'Split the sauce into 4 equal portions (about 350 g each): 2 into boxes for the fridge, 2 into freezer bags pressed flat.',
+          text: 'Split the sauce into 4 equal portions (about 350 g each), in lunch boxes or in freezer bags pressed flat (Box it up says which go where). No pasta yet.',
           heat: 'none',
         },
         {
-          text: 'The night before each lunch: boil 2 l of water with a pinch of salt. Add 80 g wholewheat penne for each box and cook for the time on the pack (about 10 minutes), stirring once.',
+          text: 'The night before each lunch: boil 2 l of water with a pinch of salt. Add 80 g wholewheat penne (about 1 cup) for each box and cook for the time on the pack (about 10 minutes), stirring once.',
           heat: 'high',
           minutes: 10,
         },
@@ -4634,7 +5059,7 @@ export default [
         },
       ],
       doneWhen: 'The sauce is thick enough that a spoon dragged across the pan leaves a clear line, and no meat is pink.',
-      boxUp: 'Cool fast, in the fridge within 1 hour. Sauce: 2 portions in the fridge (3 days), 2 in the freezer (3 months). Cooked pasta keeps only 1 day in the fridge, so mix pasta and sauce the night before you eat it (or freeze plain cooked pasta in portions for up to a month).',
+      boxUp: 'Cool fast, in the fridge within 1 hour. The sauce sets the dates: Boxes 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Box 4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it. Cooked penne keeps only 1 day, so boil it the night before each lunch and mix it with that box (or freeze plain cooked penne in portions for up to a month).',
       reheat: 'Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more, until steaming hot right through. Reheat once only. Frozen sauce: move it to the fridge the night before.',
       tips: ['No wine and no stock cube: the tomato and mushrooms give the depth.'],
     },
@@ -4667,7 +5092,10 @@ export default [
     ],
     effort: 'cook',
     minutes: 25,
+    totalMinutes: 65,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'italian',
+    timeNote: 'About 1 h 5 min start to finish (25 min of it hands-on).',
     pitch: 'Wholewheat penne, seared chicken and broccoli tossed in a fresh almond-basil pesto with cherry tomatoes. Good hot from the microwave or cold as a pasta salad.',
     cost: {
       perBoxEur: 2.64,
@@ -4709,17 +5137,21 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Cook the chicken 6–8 minutes, turning the pieces every 2 minutes, until golden on all sides. Check one piece (see "Done when"), then take the pan off the heat.',
+          text: 'Cook the chicken 6–8 minutes, turning the pieces every 2 minutes, until golden on all sides.',
           heat: 'medium-high',
           minutes: 8,
         },
         {
-          text: 'Add the wholewheat penne (280 g) to the boiling water. Stir once. Cook for the pack time minus 3 minutes (about 7 minutes).',
+          text: 'Check: cut the biggest piece. White all through, no pink. Pink? 2 more minutes. Then take the pan off the heat.',
+          heat: 'none',
+        },
+        {
+          text: 'Add the wholewheat penne (280 g, about 3½ cups) to the boiling water. Stir once. Cook for the pack time minus 3 minutes (about 7 minutes).',
           heat: 'high',
           minutes: 7,
         },
         {
-          text: 'Add the frozen broccoli (400 g) to the same pot and cook 3 minutes more.',
+          text: 'Add the frozen broccoli (400 g, about 4 cups) to the same pot and cook 3 minutes more.',
           heat: 'high',
           minutes: 3,
         },
@@ -4728,7 +5160,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Make the pesto: in the blender jug put the basil, toasted almonds, 3 tbsp olive oil (44 g), the 2 whole garlic cloves, 2 tbsp lemon juice (30 g), ⅓ tsp salt (2 g) and 40 g (about 3 tbsp) of the pasta water. Blend 1 minute until smooth.',
+          text: 'Make the pesto: in the blender jug put the basil, toasted almonds, 3 tbsp olive oil (44 g), the 2 whole garlic cloves, 2 tbsp lemon juice (30 g), a heaped ¼ tsp salt (2 g) and 40 g (about 3 tbsp) of the pasta water. Blend 1 minute until smooth.',
           heat: 'none',
           minutes: 1,
         },
@@ -4736,14 +5168,14 @@ export default [
           text: 'Tip the pasta, broccoli and chicken back into the pot, add the pesto and stir until everything is green.',
           heat: 'none',
         },
+        { text: 'Spread it on the tray to cool fast (20–30 minutes).', heat: 'none', minutes: 25 },
         {
-          text: 'Spread it on the tray to cool fast (20–30 minutes), then divide into 4 boxes. Put a quarter of the cherry tomatoes (60 g) in the small pot for the fridge box; keep the rest in the fridge.',
+          text: 'Divide into 4 boxes. Put a quarter of the cherry tomatoes (60 g) in the small pot for tomorrow\'s box; keep the rest in the fridge.',
           heat: 'none',
-          minutes: 25,
         },
       ],
       doneWhen: 'Chicken: white all through, no pink (75 °C). Pasta: soft but still slightly firm in the middle when you bite one.',
-      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge with its tomato pot, boxes 2–4 in the freezer (1 month) without tomatoes (the pesto is stirred into the pasta and freezes with it). Each evening move one box from the freezer to the fridge and fill the small pot with a handful of cherry tomatoes (60 g) in the morning.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. The frozen boxes go without tomatoes (the pesto is stirred into the pasta and freezes with it): fill the small pot with a handful of cherry tomatoes (60 g) in the morning.',
       reheat: 'Hot: keep the tomato pot aside, microwave with the lid loose 2½–3 minutes, stir, 1 minute more until steaming hot all through. Cold: eat within 2 hours of leaving the fridge. Reheat once only.',
       tips: ['The pesto has no cheese, so there is no rennet to check.'],
     },
@@ -4767,8 +5199,11 @@ export default [
       { foodId: 'intl-pasta-wholewheat-dry', grams: 360, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 20,
+    minutes: 25,
+    totalMinutes: 70,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'italian',
+    timeNote: 'About 1 h 10 min start to finish (25 min of it hands-on).',
     pitch: 'The student classic done properly: wholewheat penne in a garlicky tomato sauce with tuna, peas and green olives. Twenty minutes, one pan and one pot.',
     cost: { perBoxEur: 1.87, totalEur: 7.47, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -4783,7 +5218,7 @@ export default [
     ],
     method: {
       equipment: ['Wide deep frying pan or casserole (28 cm)', 'Wooden spoon', 'Large pot for 3 l of water and a colander', 'Can opener and sieve', 'Oven tray for cooling', '4 lunch boxes'],
-      prep: ['Peel the onion (150 g, 1 medium) and chop it small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.', 'Open and drain 6 cans of tuna in the sieve (360 g drained).', 'Slice the pitted green olives (60 g) into rings.', 'Open the crushed tomato (800 g).'],
+      prep: ['Peel about 1½ medium onions (150 g) and chop it small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.', 'Open and drain 6 cans of tuna in the sieve (360 g drained).', 'Slice the pitted green olives (60 g) into rings.', 'Open 1 jar (800 g) of crushed tomato.'],
       steps: [
         {
           text: 'Heat 1½ tbsp olive oil (20 g) in the wide pan for 1 minute.',
@@ -4796,7 +5231,7 @@ export default [
           minutes: 6,
         },
         {
-          text: 'Pour in the crushed tomato. Add 1 tsp dried oregano (2 g), a pinch of chilli powder (1 g, optional), ⅓ tsp salt (2 g) and black pepper (1 g). Stir.',
+          text: 'Pour in the crushed tomato. Add 1 tsp dried oregano (2 g), a pinch of chilli powder (1 g, optional), a heaped ¼ tsp salt (2 g) and black pepper (1 g). Stir.',
           heat: 'medium',
         },
         {
@@ -4805,7 +5240,7 @@ export default [
           minutes: 10,
         },
         {
-          text: 'Add the frozen peas (300 g) to the sauce and cook 4 minutes.',
+          text: 'Add the frozen peas (300 g (about 2¼ cups)) to the sauce and cook 4 minutes.',
           heat: 'medium',
           minutes: 4,
         },
@@ -4814,19 +5249,20 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Add the wholewheat penne (360 g) to the boiling water. Cook for the pack time (about 10 minutes), stirring once.',
+          text: 'Add the wholewheat penne (360 g, about 4½ cups) to the boiling water. Cook for the pack time (about 10 minutes), stirring once.',
           heat: 'high',
           minutes: 10,
         },
         { text: 'Drain the penne, tip it into the sauce and mix well.', heat: 'none' },
         {
-          text: 'Spread on the tray to cool fast (20–30 minutes), then divide into 4 boxes (about 575 g each).',
+          text: 'Check: bite a penne. It is soft but still slightly firm in the middle, and the peas are bright green and hot.',
           heat: 'none',
-          minutes: 25,
         },
+        { text: 'Spread on the tray to cool fast (20–30 minutes).', heat: 'none', minutes: 25 },
+        { text: 'Divide into 4 boxes (about 575 g each).', heat: 'none' },
       ],
       doneWhen: 'The pasta is soft but still slightly firm in the middle, and the peas are bright green and hot.',
-      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge: box 1 in the fridge, boxes 2–4 in the freezer (1 month); move one to the fridge each evening.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it.',
       reheat: 'Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more until steaming hot all through (reheat once only). Or eat it cold as a pasta salad within 2 hours of leaving the fridge.',
       tips: ['Olives: use plain pitted manzanilla. "Rellenas de anchoa" are stuffed with anchovy.'],
     },
@@ -4837,7 +5273,6 @@ export default [
     storage: [
       'cooked-meat',
       'cooked-starch',
-      'cold-salad',
       { id: 'cold-salad', pot: true },
     ],
     ingredients: [
@@ -4864,6 +5299,8 @@ export default [
     ],
     effort: 'cook',
     minutes: 25,
+    totalMinutes: 35,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'mediterranean',
     pitch: 'Oregano-lemon chicken, penne, cucumber, tomatoes, green pepper, red onion and olives in a cool tzatziki dressing. A cold lunch that tastes like summer.',
     cost: {
@@ -4900,13 +5337,13 @@ export default [
           heat: 'medium-high',
           minutes: 4,
         },
+        { text: 'Turn and cook 3–4 minutes more.', heat: 'medium-high', minutes: 4 },
         {
-          text: 'Turn and cook 3–4 minutes more. Check it (see "Done when"), cool on a plate, then slice.',
-          heat: 'medium-high',
-          minutes: 4,
+          text: 'Check: cut the thickest piece. White all through, no pink, juices clear. Pink? 1–2 minutes more a side. Then cool it on a plate and slice it.',
+          heat: 'none',
         },
         {
-          text: 'Boil 3 l of water with a pinch of salt. Add the wholewheat penne (280 g) and cook for the pack time (about 10 minutes).',
+          text: 'Boil 3 l of water with a pinch of salt. Add the wholewheat penne (280 g, about 3½ cups) and cook for the pack time (about 10 minutes).',
           heat: 'high',
           minutes: 10,
         },
@@ -4915,21 +5352,21 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Make the dressing: mix 240 g Greek yogurt, 1¾ tbsp olive oil (24 g), 2 tbsp lemon juice (30 g), the 6 g grated garlic, the mint and ⅓ tsp salt (2 g). Spoon into 4 pots (about 77 g each).',
+          text: 'Make the dressing: mix 240 g Greek yogurt, 1¾ tbsp olive oil (24 g), 2 tbsp lemon juice (30 g), the 6 g grated garlic, the mint and a heaped ¼ tsp salt (2 g). Spoon into 4 pots (about 77 g each).',
           heat: 'none',
         },
         {
-          text: 'Box 1 (for tomorrow): a quarter of the pasta (about 160 g), a quarter of the chicken and a quarter of the vegetables. Dressing pot next to it.',
+          text: 'Tomorrow\'s box: a quarter of the pasta (about 160 g), a quarter of the chicken and a quarter of the vegetables. Dressing pot next to it.',
           heat: 'none',
         },
         {
-          text: 'Boxes 2–4: put each remaining pasta portion in a freezer bag. Chicken: fridge (3 days) or freezer. Keep the cut vegetables in a closed box in the fridge.',
+          text: 'Put each other pasta portion with a quarter of the chicken in a freezer bag and freeze it. Keep the cut vegetables in a closed box in the fridge.',
           heat: 'none',
         },
         { text: 'At lunch: pour the dressing over and toss.', heat: 'none' },
       ],
       doneWhen: 'Chicken: white all through, no pink, juices clear (75 °C). Pasta: soft with a little bite.',
-      boxUp: 'Cool fast, everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only box 1 is assembled; the pasta for boxes 2–4 is frozen (1 month). Each evening move one pasta bag to the fridge; in the morning add chicken, vegetables and a dressing pot. Cut vegetables and dressing keep 2 days and do not freeze: cut a fresh batch on Tuesday night.',
+      boxUp: 'Cool fast, everything in the fridge or freezer within 1 hour. Cooked pasta keeps only 1 day in the fridge, so only tomorrow\'s box is assembled; the others freeze as pasta and chicken. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. In the morning add vegetables and a dressing pot. Cut vegetables and dressing keep 2 days and do not freeze: cut a fresh batch on Tuesday night.',
       reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['No feta in this salad, so no rennet to check. Dill is not sold at Mercadona: mint works.'],
     },
@@ -4971,7 +5408,10 @@ export default [
     ],
     effort: 'cook',
     minutes: 20,
+    totalMinutes: 40,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     cuisine: 'asian',
+    timeNote: 'About 40 min start to finish (20 min of it hands-on).',
     pitch: 'Ginger chicken, quinoa, crunchy carrot, cucumber and red pepper with roasted peanuts and a sweet-sour ginger dressing. No cooking for the grain: the quinoa comes in a cup.',
     cost: {
       perBoxEur: 2.79,
@@ -4991,7 +5431,7 @@ export default [
     ],
     method: {
       equipment: ['Frying pan (24–28 cm)', 'Small jar with a lid (for the dressing)', 'Grater', 'Chopping board and knife', '2 lunch boxes and 2 small lidded pots (about 50 ml)'],
-      prep: ['Cut the chicken breast (280 g) into strips about 1 cm thick.', 'Peel the ginger and grate it: 6 g (a 3 cm piece) for the chicken and 6 g for the dressing. Peel and grate 1–2 garlic cloves (4 g).', 'Cut the carrot (160 g) and cucumber (160 g) into thin matchsticks (or grate the carrot). Slice the red pepper (160 g) thin. Chop the coriander (10 g, a handful).'],
+      prep: ['Cut the chicken breast (280 g) into strips about 1 cm thick.', 'Peel the ginger and grate it: 6 g (a 3 cm piece) for the chicken and 6 g for the dressing. Peel and grate 1–2 garlic cloves (4 g).', 'Cut about 2½ medium carrots (160 g) and the cucumber (160 g) into thin matchsticks (or grate the carrot). Slice the red pepper (160 g) thin. Chop the coriander (10 g, a handful).'],
       steps: [
         {
           text: 'Mix the chicken strips with the 6 g ginger, the garlic and a pinch of salt (1 g).',
@@ -5003,9 +5443,13 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Add the chicken and cook about 6 minutes, turning the strips every 2 minutes, until golden on all sides. Check one (see "Done when").',
+          text: 'Add the chicken and cook about 6 minutes, turning the strips every 2 minutes, until golden on all sides.',
           heat: 'medium-high',
           minutes: 6,
+        },
+        {
+          text: 'Check: cut the thickest strip. White all through, no pink, juices clear. Pink? 1–2 minutes more.',
+          heat: 'none',
         },
         {
           text: 'Move the chicken to a plate and let it cool for up to 30 minutes.',
@@ -5030,7 +5474,7 @@ export default [
         },
       ],
       doneWhen: 'Cut the thickest strip: white all through, no pink, juices clear (75 °C).',
-      boxUp: 'Cool the chicken for no more than 1 hour, then both boxes and pots go in the fridge (eat by day 2). Do not freeze the salad. Make 2 boxes at a time. The quinoa cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked grains does not apply.',
+      boxUp: 'Cool the chicken for no more than 1 hour, then box both with their pots. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Make 2 boxes at a time. The quinoa cups stay sealed in the cupboard until lunch, so the 1-day rule for cooked grains does not apply.',
       reheat: 'Not reheated: eat cold within 2 hours of leaving the fridge (1 hour on a day above 32 °C).',
       tips: ['Halal: use a soy sauce with a halal certificate (or a tamari that lists no alcohol). Ordinary brewed soy sauce can contain alcohol from fermentation.'],
     },
@@ -5038,11 +5482,7 @@ export default [
   {
     foodId: 'intl-chicken-burrito-bowl-box',
     boxes: 4,
-    storage: [
-      'cooked-meat',
-      'cooked-curry',
-      { id: 'cold-salad', pot: true },
-    ],
+    storage: ['cooked-meat', 'cooked-curry'],
     ingredients: [
       { foodId: 'intl-chicken-breast-raw', grams: 520, section: 'butcher' },
       {
@@ -5066,8 +5506,24 @@ export default [
       { foodId: 'intl-lemon-juice', grams: 10, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 20,
+    minutes: 25,
+    totalMinutes: 55,
+    keep: {
+      fridgeDays: 3,
+      fridge: 3,
+      freezer: 1,
+      freezerMonths: 3,
+      fresh: [
+        {
+          name: 'Salsa, yogurt and lettuce (cold side)',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'Tuesday night: pot 2 more cold sides (salsa, yogurt, lettuce), 3 min.',
+        },
+      ],
+    },
     cuisine: 'mexican',
+    timeNote: 'About 55 min start to finish (25 min of it hands-on).',
     pitch: 'Smoky cumin-paprika chicken with kidney beans and sweetcorn over a brown-rice cup, with pico de gallo and a cool yogurt pot. Microwave the hot half, keep the salsa cold.',
     cost: {
       perBoxEur: 2.72,
@@ -5099,9 +5555,13 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Add the chicken and cook 6–8 minutes, turning the strips every 2 minutes, until browned all over. Check one (see "Done when"). Move it to a plate.',
+          text: 'Add the chicken and cook 6–8 minutes, turning the strips every 2 minutes, until browned all over.',
           heat: 'medium-high',
           minutes: 8,
+        },
+        {
+          text: 'Check: cut the thickest strip. White all through, no pink, juices clear. Pink? 2 more minutes. Then move the chicken to a plate.',
+          heat: 'none',
         },
         {
           text: 'Put the beans and corn in the same pan with 1 tsp cumin (2 g) and a pinch of salt (1 g). Stir for 3 minutes until hot.',
@@ -5109,9 +5569,13 @@ export default [
           minutes: 3,
         },
         {
-          text: 'Let the chicken and beans cool on the counter (up to 1 hour), then put a quarter of the chicken and a quarter of the beans and corn in each lunch box.',
+          text: 'Let the chicken and beans cool on the counter (up to 1 hour).',
           heat: 'none',
           minutes: 30,
+        },
+        {
+          text: 'Put a quarter of the chicken and a quarter of the beans and corn in each lunch box.',
+          heat: 'none',
         },
         {
           text: 'Make the cold side for 2 boxes: in each small box put 60 g salsa (about 3 tbsp), 40 g Greek yogurt (2 tbsp) with 1 tsp lemon juice (2–3 g) stirred in, and 30 g lettuce. Make the other 2 on Tuesday night.',
@@ -5124,7 +5588,7 @@ export default [
         },
       ],
       doneWhen: 'Chicken: white all through, no pink, juices clear (75 °C). Beans: hot all through.',
-      boxUp: 'Boxes 1–3: chicken and beans in the fridge (3 days). Box 4: chicken and beans in the freezer (3 months). The cold side keeps 2 days once the salsa jar is open, so pot 2 sides on Sunday and 2 on Tuesday night. The sealed rice cups stay in the cupboard.',
+      boxUp: 'Boxes 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Box 4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it. The cold side keeps 2 days once the salsa jar is open, so pot 2 sides on Sunday and 2 on Tuesday night. The sealed rice cups stay in the cupboard.',
       reheat: 'Chicken and beans: microwave with the lid loose 2 minutes, stir, then 30–60 seconds more until steaming hot all through. Rice cup: 1 minute, as on the pack. The salsa, yogurt and lettuce stay cold. From the freezer: move box 4 to the fridge the night before.',
       tips: ['Halal: the salsa has wine vinegar (vinegar, not wine). Greek yogurt replaces sour cream.'],
     },
@@ -5166,8 +5630,11 @@ export default [
       { name: 'Red chilli powder', grams: 1, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 25,
+    minutes: 30,
+    totalMinutes: 60,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'asian',
+    timeNote: 'About 1 h start to finish (30 min of it hands-on).',
     pitch: 'A wok of ginger-garlic chicken, broccoli, peppers, carrot, mushrooms and peas with rice noodles in a soy, lemon and chilli sauce. Microwave and eat.',
     cost: {
       perBoxEur: 2.42,
@@ -5187,7 +5654,7 @@ export default [
     ],
     method: {
       equipment: ['Wok or the largest frying pan you have (30 cm)', 'Large heatproof bowl and a kettle', 'Colander', 'Small bowl for the sauce', 'Oven tray for cooling', '4 lunch boxes'],
-      prep: ['Take the frozen broccoli (300 g) out to thaw in a colander 1 hour before, or rinse it under the warm tap.', 'Cut the chicken breast (560 g) into thin strips (5 mm).', 'Peel and chop 3 garlic cloves (9 g). Peel and grate the ginger (10 g, a 5 cm piece).', 'Slice the onion (100 g) thin. Cut the red pepper (200 g) into strips and the carrot (160 g) into thin matchsticks. Slice the mushrooms (200 g).', 'Sauce: in the small bowl mix 4 tbsp halal-certified soy sauce (60 g), 1½ tbsp lemon or lime juice (20 g), 2 tsp sugar (8 g) and a pinch of chilli powder (1 g).'],
+      prep: ['Take the frozen broccoli (300 g) out to thaw in a colander 1 hour before, or rinse it under the warm tap.', 'Cut the chicken breast (560 g) into thin strips (5 mm).', 'Peel and chop 3 garlic cloves (9 g). Peel and grate the ginger (10 g, a 5 cm piece).', 'Slice about 1 medium onion (100 g) thin. Cut about 1½ red peppers (200 g) into strips and about 2½ medium carrots (160 g) into thin matchsticks. Slice the mushrooms (200 g).', 'Sauce: in the small bowl mix 4 tbsp halal-certified soy sauce (60 g), 1½ tbsp lemon or lime juice (20 g), 2 tsp sugar (8 g) and a pinch of chilli powder (1 g).'],
       steps: [
         {
           text: 'Boil the kettle. Put the dry rice noodles (320 g) in the big bowl and cover them with the just-boiled water. Leave 6 minutes.',
@@ -5214,7 +5681,7 @@ export default [
           minutes: 3,
         },
         {
-          text: 'Add the broccoli, mushrooms and frozen peas (200 g). Stir-fry 4 minutes until the peas are hot and the mushrooms soft.',
+          text: 'Add the broccoli, mushrooms and frozen peas (200 g (about 1½ cups)). Stir-fry 4 minutes until the peas are hot and the mushrooms soft.',
           heat: 'high',
           minutes: 4,
         },
@@ -5224,13 +5691,14 @@ export default [
           minutes: 2,
         },
         {
-          text: 'Spread on the tray to cool fast (20–30 minutes), then divide into 4 boxes.',
+          text: 'Check: cut a chicken strip. White all through, no pink. The noodles are soft and coated, with no dry white bits. Dry? A splash of water and 1 more minute.',
           heat: 'none',
-          minutes: 25,
         },
+        { text: 'Spread on the tray to cool fast (20–30 minutes).', heat: 'none', minutes: 25 },
+        { text: 'Divide into 4 boxes.', heat: 'none' },
       ],
       doneWhen: 'Chicken: white all through with no pink (75 °C). Noodles: soft, coated in sauce, no dry white bits.',
-      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Cooked noodles keep only 1 day: box 1 in the fridge, boxes 2–4 in the freezer (1 month). Move one to the fridge each evening.',
+      boxUp: 'Cool fast, in the fridge or freezer within 1 hour. Cooked noodles keep only 1 day. Box 1 in the fridge: eat it the next day. Boxes 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it.',
       reheat: 'Add 1 tbsp water, cover loosely and microwave 2½–3 minutes, stir, then 1 minute more until steaming hot all through. Reheat once only.',
       tips: ['Halal: use a soy sauce with a halal certificate (or a tamari that lists no alcohol). No mirin or rice wine in this recipe.'],
     },
@@ -5260,8 +5728,11 @@ export default [
       { foodId: 'es-garbanzos-cocidos', grams: 400, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 20,
+    minutes: 25,
+    totalMinutes: 100,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 1, freezerMonths: 3 },
     cuisine: 'spanish',
+    timeNote: 'About 1 h 40 min start to finish (25 min of it hands-on).',
     pitch: 'One tray in the oven: lemon-paprika chicken on potatoes, red and green peppers, red onion and crispy chickpeas. Twenty minutes of chopping, the oven does the rest.',
     cost: {
       perBoxEur: 2.25,
@@ -5280,21 +5751,29 @@ export default [
       },
     ],
     method: {
-      equipment: ['1 very large oven tray or 2 normal trays, lined with baking paper', 'Large bowl', 'Chopping board and knife', 'Kitchen paper', '4 boxes (3 for the fridge, 1 for the freezer)'],
-      prep: ['Wash the potatoes (900 g), peel them and cut them into wedges about 2 cm thick.', 'Cut the red pepper (300 g) and green pepper (200 g) into strips 1.5 cm wide. Cut the red onion (200 g) into 8 wedges.', 'Drain the chickpeas (1 jar, 400 g), rinse them and pat them dry with kitchen paper so they crisp.', 'Cut each chicken fillet (600 g, 4 fillets) in half. Peel and grate 3 garlic cloves (9 g).'],
+      equipment: ['1 very large oven tray or 2 normal trays, lined with baking paper', 'Large bowl', 'Chopping board and knife', 'Kitchen paper', '4 boxes'],
+      prep: ['Wash about 4 medium potatoes (900 g), peel them and cut them into wedges about 2 cm thick.', 'Cut 2½ red peppers (300 g) and about 1½ green peppers (200 g) into strips 1.5 cm wide. Cut about 2 medium red onions (200 g) into 8 wedges.', 'Drain the chickpeas (1 jar, 400 g), rinse them and pat them dry with kitchen paper so they crisp.', 'Cut each chicken fillet (600 g, 4 fillets) in half. Peel and grate 3 garlic cloves (9 g).'],
       steps: [
-        { text: 'Turn the oven on to 220 °C.', heat: 'oven-220', minutes: 10 },
         {
-          text: 'In the large bowl toss the potatoes, peppers, onion and chickpeas with 2 tbsp olive oil (28 g), 1 tsp paprika (2 g) and ⅓ tsp salt (2 g). Spread them on the tray in one layer.',
-          heat: 'none',
-        },
-        { text: 'Put the tray in the oven and roast 20 minutes.', heat: 'oven-220', minutes: 20 },
-        {
-          text: 'Meanwhile, in the same bowl, mix the chicken with a scant 1 tbsp olive oil (12 g), 2 tsp paprika (4 g), 1 tsp dried oregano (2 g), the grated garlic, 1½ tbsp lemon juice (20 g), ½ tsp salt (3 g) and black pepper (1 g). Wash your hands.',
-          heat: 'none',
+          text: 'Turn the oven on to 220 °C with top and bottom heat (calor arriba y abajo), or 200 °C if you use the fan (ventilador).',
+          heat: 'oven-220',
+          minutes: 10,
         },
         {
-          text: 'Take the tray out (use oven gloves). Push the vegetables to the sides and lay the chicken pieces in the gaps.',
+          text: 'In the large bowl toss the potatoes, peppers, onion and chickpeas with 2 tbsp olive oil (28 g), 1 tsp sweet paprika (pimentón dulce, 2 g) and a heaped ¼ tsp salt (2 g). Spread them on the tray in one layer. With 2 trays, put half on each.',
+          heat: 'none',
+        },
+        {
+          text: 'Put the tray in the oven and roast 20 minutes (2 trays: one on the middle shelf, one just below).',
+          heat: 'oven-220',
+          minutes: 20,
+        },
+        {
+          text: 'Meanwhile, in the same bowl, mix the chicken with a little under 1 tbsp olive oil (12 g), 2 tsp sweet paprika (4 g), 1 tsp dried oregano (2 g), the grated garlic, 1½ tbsp lemon juice (20 g), ½ tsp salt (3 g) and black pepper (1 g). Wash your hands.',
+          heat: 'none',
+        },
+        {
+          text: 'Take the tray out (use oven gloves). Push the vegetables to the sides and lay the chicken pieces in the gaps (2 trays: 4 pieces on each, and swap the shelves).',
           heat: 'none',
         },
         {
@@ -5303,17 +5782,17 @@ export default [
           minutes: 20,
         },
         {
-          text: 'Check the biggest chicken piece (see "Done when"). Let the tray cool on the counter for 20–30 minutes.',
+          text: 'Check: cut the biggest chicken piece. White all through, no pink, juices clear; a knife slides into the potatoes with no resistance. Pink or hard? Back in the oven for 5 minutes, then check again.',
           heat: 'none',
-          minutes: 25,
         },
+        { text: 'Let the tray cool on the counter for 20–30 minutes.', heat: 'none', minutes: 25 },
         {
           text: 'Divide into 4 portions: 2 pieces of chicken and a quarter of the vegetables each.',
           heat: 'none',
         },
       ],
-      doneWhen: 'Cut the biggest chicken piece: white all through, no pink, juices clear (75 °C). A knife slides into the potatoes with no resistance.',
-      boxUp: 'Cool for no more than 1 hour. Portions 1–3 in the fridge (eat Monday to Wednesday, by day 3); portion 4 in the freezer (3 months).',
+      doneWhen: 'Cut the biggest chicken piece: white all through, no pink, juices clear. A knife slides into the potatoes with no resistance.',
+      boxUp: 'Cool for no more than 1 hour. Portions 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Portion 4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it.',
       reheat: 'Microwave with the lid loose 2½–3 minutes, stir, then 1 minute more until steaming hot all through; or 10 minutes in a 200 °C oven to crisp the potatoes. From the freezer: move it to the fridge the night before.',
       tips: ['No stock cube: a chicken stock cube is not halal unless it is certified.'],
     },
@@ -5345,8 +5824,11 @@ export default [
       { foodId: 'intl-parsley-fresh', grams: 4, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 15,
+    minutes: 14,
+    totalMinutes: 55,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0, freezerMonths: 3 },
     cuisine: 'mediterranean',
+    timeNote: 'About 55 min start to finish (14 min of it hands-on).',
     pitch: 'Lemony salmon medallions roasted on the same tray as paprika potatoes and green beans, with a cool lemon-yogurt sauce. Fifteen minutes of work.',
     cost: { perBoxEur: 2.86, totalEur: 5.71, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -5361,11 +5843,11 @@ export default [
     ],
     method: {
       equipment: ['Large oven tray lined with baking paper', 'Small bowl for the sauce', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)'],
-      prep: ['The night before: move 4 frozen salmon medallions (250 g) from the freezer to the fridge to thaw on a plate.', 'Peel the potatoes (400 g) and cut them into wedges about 2 cm thick.', 'Cut the red onion (80 g, ½ onion) into wedges. Peel and slice 2 garlic cloves (6 g). Keep the green beans (300 g) frozen until step 4.', 'Chop the parsley (4 g, a small handful) and grate a small piece of garlic (2 g) for the sauce.'],
+      prep: ['The night before: move 4 frozen salmon medallions (250 g) from the freezer to the fridge to thaw on a plate.', 'Peel about 2 medium potatoes (400 g) and cut them into wedges about 2 cm thick.', 'Cut the red onion (80 g, ½ onion) into wedges. Peel and slice 2 garlic cloves (6 g). Keep the green beans (300 g) frozen until step 4.', 'Chop the parsley (4 g, a small handful) and grate a small piece of garlic (2 g) for the sauce.'],
       steps: [
         { text: 'Turn the oven on to 200 °C.', heat: 'oven-200', minutes: 10 },
         {
-          text: 'On the tray toss the potatoes with half of 1 tbsp olive oil (7 g), 1 tsp paprika (2 g) and ⅓ tsp salt (2 g). Spread them out.',
+          text: 'On the tray toss the potatoes with half of 1 tbsp olive oil (7 g), 1 tsp paprika (2 g) and a heaped ¼ tsp salt (2 g). Spread them out.',
           heat: 'none',
         },
         { text: 'Roast the potatoes 17 minutes.', heat: 'oven-200', minutes: 17 },
@@ -5383,12 +5865,13 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Check the salmon (see "Done when"). Divide into 2 portions: 2 medallions and half the vegetables each.',
+          text: 'Check: press the thickest medallion with a fork. It is opaque pink in the middle, not glassy, and flakes; a knife slides into the potatoes. Glassy? 3 more minutes.',
           heat: 'none',
         },
+        { text: 'Divide into 2 portions: 2 medallions and half the vegetables each.', heat: 'none' },
       ],
       doneWhen: 'The salmon is opaque pink (not glassy) in the middle and flakes when you press it with a fork (63 °C). The potatoes are soft when you push in a knife.',
-      boxUp: 'Eat portion 1 that night. Cool portion 2 for no more than 1 hour and put it in the fridge with its sauce pot; eat it the next evening (by day 2). The salmon was frozen once: do not freeze it again.',
+      boxUp: 'Cool the second portion for no more than 1 hour and keep it with its sauce pot. Eat portion 1 the day you make it. Portion 2 goes in the fridge: eat it within 2 days (by Tuesday if you make it on Sunday). The salmon was frozen once: do not freeze it again.',
       reheat: 'Take the yogurt pot out (it stays cold). Microwave covered 1½–2 minutes until steaming hot all through.',
       tips: ['No 200 °C on your oven dial? 210 °C works: take 1–2 minutes off each roasting time.'],
     },
@@ -5419,8 +5902,10 @@ export default [
     ],
     effort: 'cook',
     minutes: 25,
+    totalMinutes: 100,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'mexican',
-    timeNote: 'About 1 h 30 min start to finish: the rice and the chili simmer 30 min each, hands off, then cool 20–30 min.',
+    timeNote: 'About 1 h 40 min start to finish (25 min of it hands-on): the rice and the chili simmer 30 min each, hands off.',
     pitch: 'Lean halal beef, kidney beans, peppers and tomato with cumin and chilli, simmered thick and frozen in portions, with brown rice and a spoon of yogurt.',
     cost: {
       perBoxEur: 2.56,
@@ -5440,7 +5925,7 @@ export default [
     ],
     method: {
       equipment: ['Wide deep frying pan or casserole (28 cm) with a lid', 'Medium pot with a lid for the rice', 'Wooden spoon', 'Sieve', 'Oven tray or wide dish for cooling', '4 boxes and 4 small lidded pots'],
-      prep: ['Peel and chop the onion (200 g, 1 large) into 5 mm pieces. Dice the red pepper (200 g) into 1 cm pieces.', 'Peel and chop 3 garlic cloves (9 g).', 'Drain and rinse the kidney beans (1 jar, 400 g). Open the crushed tomato (800 g).', 'Rinse the brown rice (240 g) in the sieve under cold water.'],
+      prep: ['Peel and chop about 2 medium onions (200 g) into 5 mm pieces. Dice about 1½ red peppers (200 g) into 1 cm pieces.', 'Peel and chop 3 garlic cloves (9 g).', 'Drain and rinse the kidney beans (1 jar, 400 g). Open 1 jar (800 g) of crushed tomato.', 'Rinse the brown rice (240 g) in the sieve under cold water.'],
       steps: [
         {
           text: 'Rice first: put the rice in the medium pot with 1 l of water and a pinch of salt. Bring to the boil.',
@@ -5468,7 +5953,7 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Pour in the crushed tomato, add the beans and ⅔ tsp salt (4 g). Stir.',
+          text: 'Pour in the crushed tomato, add the beans and a heaped ½ tsp salt (4 g). Stir.',
           heat: 'medium',
         },
         {
@@ -5477,18 +5962,21 @@ export default [
           minutes: 30,
         },
         {
-          text: 'Drain any water left in the rice. Spread the rice on the tray to cool fast (it must be in the fridge within 1 hour).',
+          text: 'Check: drag a spoon across the chili. It leaves a line, and no meat is pink. The rice is soft with no hard centre. Runny? 5 more minutes with the lid off.',
           heat: 'none',
-          minutes: 20,
         },
         {
-          text: 'Let the chili cool for 20–30 minutes, then fill 4 boxes: about 155 g rice and 425 g chili each. Spoon 40 g Greek yogurt (2 tbsp) into each small pot.',
+          text: 'Drain any water left in the rice. Spread the rice on the tray to cool fast (it must be in the fridge within 1 hour).',
           heat: 'none',
-          minutes: 25,
+        },
+        { text: 'Let the chili and rice cool for 20–30 minutes.', heat: 'none', minutes: 25 },
+        {
+          text: 'Fill 4 boxes: about 155 g rice and 425 g chili each. Spoon 40 g Greek yogurt (2 tbsp) into each small pot.',
+          heat: 'none',
         },
       ],
       doneWhen: 'The chili is thick (a spoon dragged across leaves a line) and no meat is pink; the rice is soft with no hard centre.',
-      boxUp: 'Cool fast: rice and chili in the fridge or freezer within 1 hour. Rice keeps only 1 day in the fridge, so portion 1 goes in the fridge and portions 2–4 in the freezer (1 month). Or freeze the chili alone (3 months) and pair it with a sealed rice cup on the night. The yogurt pots keep 2 days in the fridge and do not freeze.',
+      boxUp: 'Cool fast: rice and chili in the fridge or freezer within 1 hour. Rice keeps only 1 day in the fridge. Portion 1 in the fridge: eat it the next day. Portions 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it. Or freeze the chili alone (3 months) and pair it with a sealed rice cup on the night. The yogurt pots keep 2 days in the fridge and do not freeze.',
       reheat: 'Take the yogurt pot out. Microwave with the lid loose 3 minutes, stir, then 1–2 minutes more until steaming hot all through. Reheat the rice once only. From the freezer: move it to the fridge the night before.',
       tips: ['No beer and no stock cube: the cumin, paprika and tomato carry the flavour.'],
     },
@@ -5496,11 +5984,7 @@ export default [
   {
     foodId: 'med-shakshuka-garbanzos-portion',
     boxes: 4,
-    storage: [
-      'cooked-curry',
-      'egg-dish',
-      { id: 'cold-salad', pot: true },
-    ],
+    storage: ['cooked-curry'],
     ingredients: [
       { foodId: 'med-olive-oil', grams: 20, section: 'supermarket' },
       { foodId: 'intl-onion', grams: 200, section: 'supermarket' },
@@ -5518,7 +6002,29 @@ export default [
     ],
     effort: 'cook',
     minutes: 20,
+    totalMinutes: 60,
+    keep: {
+      fridgeDays: 3,
+      fridge: 3,
+      freezer: 1,
+      freezerMonths: 3,
+      fresh: [
+        {
+          name: 'Eggs poached in the sauce (2 per portion, on the night)',
+          storage: 'egg-dish',
+          fridgeDays: 3,
+          again: 'On the night: crack 2 eggs into the hot sauce (10 min).',
+        },
+        {
+          name: 'Yogurt pot',
+          storage: 'cold-salad',
+          fridgeDays: 2,
+          again: 'On the night: spoon 60 g Greek yogurt into a small bowl.',
+        },
+      ],
+    },
     cuisine: 'middle-eastern',
+    timeNote: 'About 1 h start to finish (20 min of it hands-on), plus 13 min started ahead.',
     pitch: 'A spiced pepper, tomato and chickpea sauce from the freezer; crack two eggs into it on the night and dip bread. Eight minutes at dinner.',
     cost: { perBoxEur: 1.64, totalEur: 6.57, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -5533,10 +6039,10 @@ export default [
     ],
     method: {
       equipment: ['Wide deep frying pan (28 cm)', 'Small frying pan (20 cm) with a lid, for the night', 'Wooden spoon', '4 freezer boxes or bags and 4 small lidded pots'],
-      prep: ['Slice the onion (200 g, 1 large) thin. Cut the red peppers (300 g) into strips 1 cm wide.', 'Peel and chop 3 garlic cloves (9 g).', 'Drain the chickpeas (1 jar, 400 g). Open the crushed tomato (800 g).'],
+      prep: ['Slice about 2 medium onions (200 g) thin. Cut 2½ red peppers (300 g) into strips 1 cm wide.', 'Peel and chop 3 garlic cloves (9 g).', 'Drain the chickpeas (1 jar, 400 g). Open 1 jar (800 g) of crushed tomato.'],
       steps: [
         {
-          text: 'Sunday: heat 1½ tbsp olive oil (20 g) in the wide pan for 1 minute.',
+          text: 'Heat 1½ tbsp olive oil (20 g) in the wide pan for 1 minute.',
           heat: 'medium',
           minutes: 1,
         },
@@ -5560,12 +6066,12 @@ export default [
           minutes: 15,
         },
         {
-          text: 'Cool for 20–30 minutes, then split into 4 portions (about 360 g each).',
+          text: 'Check: the sauce is thick (a spoon dragged across leaves a line), the peppers are soft and it bubbles all over. Runny? 5 more minutes.',
           heat: 'none',
-          minutes: 25,
         },
+        { text: 'Cool for 20–30 minutes.', heat: 'none', minutes: 25 },
         {
-          text: 'Spoon 60 g Greek yogurt (3 tbsp) into each small pot for the fridge.',
+          text: 'Split into 4 portions (about 360 g each), in boxes or flat freezer bags.',
           heat: 'none',
         },
         {
@@ -5578,14 +6084,14 @@ export default [
           heat: 'medium',
         },
         {
-          text: 'Put the lid on and cook 6–8 minutes, until the egg whites are set.',
+          text: 'Put the lid on and cook 6–8 minutes, until the egg whites are fully white and firm.',
           heat: 'low',
           minutes: 7,
         },
-        { text: 'Serve with the yogurt and ½ roll (65 g).', heat: 'none' },
+        { text: 'Serve with 60 g Greek yogurt (3 tbsp) and ½ roll (65 g).', heat: 'none' },
       ],
       doneWhen: 'The egg whites are fully white and firm; the yolks are as runny or as set as you like (cook 2 minutes more for a firm yolk).',
-      boxUp: 'Cool the sauce for no more than 1 hour. Fridge: the portions for the next 3 days. Freezer: the rest (3 months). The eggs are cracked in fresh on the night; cooked eggs are not frozen. The yogurt pots keep 2 days in the fridge. Freeze the rolls if you will not use them within 3 days.',
+      boxUp: 'Cool the sauce for no more than 1 hour. Portions 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Portion 4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it. The eggs are cracked in fresh on the night (cooked eggs are not frozen) and the yogurt is spooned out on the night. Freeze the rolls if you will not use them within 3 days.',
       reheat: 'The sauce is heated in the pan until it bubbles before the eggs go in (step 8). From the freezer: move a portion to the fridge the night before.',
       tips: ['Eat it straight away once the eggs are in: do not box and reheat a cooked shakshuka egg.'],
     },
@@ -5614,9 +6120,11 @@ export default [
       { foodId: 'es-pan-bocadillo', grams: 260, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 30,
+    minutes: 20,
+    totalMinutes: 125,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 1, freezerMonths: 3 },
     cuisine: 'middle-eastern',
-    timeNote: 'About 1 h 45 min start to finish: the beef simmers 50 min, hands off, then the soup cools 30 min.',
+    timeNote: 'About 2 h 5 min start to finish (20 min of it hands-on): the beef simmers 50 min, hands off.',
     pitch: 'The Moroccan iftar soup: beef, lentils, chickpeas, tomato, ginger, cinnamon, coriander and parsley, finished with lemon. It freezes well and fills you up.',
     cost: {
       perBoxEur: 3.02,
@@ -5635,11 +6143,11 @@ export default [
       },
     ],
     method: {
-      equipment: ['Large pot (at least 4 l) with a lid', 'Wooden spoon', 'Sieve', 'Wide dish or 2 trays for cooling', '4 boxes (2 for the fridge, 2 for the freezer) and bags for the bread'],
-      prep: ['Cut the beef (400 g) into small cubes of 1–2 cm.', 'Peel and chop the onion (200 g, 1 large) into 5 mm pieces. Peel and grate the ginger (6 g, a 3 cm piece).', 'Drain and rinse the lentils (1 jar, 400 g drained) and the chickpeas (1 jar, 400 g).', 'Rinse the rice (60 g). Chop the coriander (20 g) and parsley (20 g).'],
+      equipment: ['Large pot (at least 4 l) with a lid', 'Wooden spoon', 'Sieve', 'Wide dish or 2 trays for cooling', '4 boxes and bags for the bread'],
+      prep: ['Cut the beef (400 g) into small cubes of 1–2 cm.', 'Peel and chop about 2 medium onions (200 g) into 5 mm pieces. Peel and grate the ginger (6 g, a 3 cm piece).', 'Drain and rinse the lentils (1 jar, 400 g drained) and the chickpeas (1 jar, 400 g).', 'Rinse the rice (60 g). Chop the coriander (20 g) and parsley (20 g).'],
       steps: [
         {
-          text: 'Heat a scant 1 tbsp olive oil (12 g) in the large pot for 1 minute.',
+          text: 'Heat a little under 1 tbsp olive oil (12 g) in the large pot for 1 minute.',
           heat: 'medium-high',
           minutes: 1,
         },
@@ -5649,7 +6157,7 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Add the onion, ginger, 1 tsp ground turmeric (2 g), ⅓ tsp cinnamon (1 g), 1 tsp ground cumin (2 g) and black pepper (1 g). Stir and cook until the onion is soft.',
+          text: 'Add the onion, ginger, 1 tsp ground turmeric (2 g), a heaped ¼ tsp cinnamon (1 g), 1 tsp ground cumin (2 g) and black pepper (1 g). Stir and cook until the onion is soft.',
           heat: 'medium',
           minutes: 5,
         },
@@ -5673,13 +6181,18 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Pour the soup into the wide dish or trays to cool fast (30 minutes), then fill 4 boxes (about 645 g each).',
+          text: 'Check: a beef cube breaks easily with a spoon and the rice grains are soft and swollen. Firm? Simmer 5 more minutes.',
+          heat: 'none',
+        },
+        {
+          text: 'Pour the soup into the wide dish or trays to cool fast (30 minutes).',
           heat: 'none',
           minutes: 30,
         },
+        { text: 'Fill 4 boxes (about 645 g each).', heat: 'none' },
       ],
       doneWhen: 'The beef is tender (it breaks with a spoon), and the rice grains are soft and swollen.',
-      boxUp: 'Cool fast: in the fridge or freezer within 1 hour, because the soup contains rice. Portions 1–2 in the fridge (eat by day 3), portions 3–4 in the freezer (3 months). Put ½ roll (65 g) for each portion in a bag; freeze the bread if you will not use it within 3 days.',
+      boxUp: 'Cool fast: in the fridge or freezer within 1 hour, because the soup contains rice. Portions 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Portion 4 in the freezer: eat within 3 months, and move one to the fridge the night before you eat it. Put ½ roll (65 g) for each portion in a bag; freeze the bread if you will not use it within 3 days.',
       reheat: 'Add a splash of water. Microwave with the lid loose 3 minutes, stir, then 2 minutes more (or heat in a small pan) until it boils and is steaming hot all through. Reheat once only. From the freezer: move it to the fridge the night before.',
       tips: ['No stock cube and no smen (aged butter): the spices, herbs and lemon carry the flavour.'],
     },
@@ -5702,8 +6215,11 @@ export default [
       { foodId: 'es-mozzarella-light', grams: 250, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 25,
+    minutes: 20,
+    totalMinutes: 80,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'italian',
+    timeNote: 'About 1 h 20 min start to finish (20 min of it hands-on).',
     pitch: 'Wholewheat penne in a garlicky tomato and spinach sauce with chicken, under melted mozzarella. Comfort food from the freezer.',
     cost: {
       perBoxEur: 1.8,
@@ -5722,8 +6238,8 @@ export default [
       },
     ],
     method: {
-      equipment: ['Wide deep frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Oven dish about 20 × 30 cm', 'Wooden spoon', '4 boxes (1 for the fridge, 3 for the freezer)'],
-      prep: ['Take the frozen spinach (300 g) out 1 hour before, or thaw it in the microwave 3 minutes; squeeze out the water.', 'Cut the chicken breast (400 g) into bite-size pieces of about 2.5 cm.', 'Peel and chop the onion (150 g, 1 medium) into 5 mm pieces. Peel and chop 2 garlic cloves (6 g).', 'Drain the 2 mozzarella balls (250 g) and tear them into small pieces.'],
+      equipment: ['Wide deep frying pan (28 cm)', 'Large pot for 3 l of water and a colander', 'Oven dish about 20 × 30 cm', 'Wooden spoon', '4 boxes'],
+      prep: ['Take the frozen spinach (300 g) out 1 hour before, or thaw it in the microwave 3 minutes; squeeze out the water.', 'Cut the chicken breast (400 g) into bite-size pieces of about 2.5 cm.', 'Peel and chop about 1½ medium onions (150 g) into 5 mm pieces. Peel and chop 2 garlic cloves (6 g).', 'Drain the 2 mozzarella balls (250 g) and tear them into small pieces.'],
       steps: [
         {
           text: 'Turn the oven on to 200 °C. Put 3 l of water on to boil with a pinch of salt.',
@@ -5746,7 +6262,7 @@ export default [
           minutes: 10,
         },
         {
-          text: 'Meanwhile add the wholewheat penne (280 g) to the boiling water and cook 2 minutes less than the pack says (about 8 minutes). Drain.',
+          text: 'Meanwhile add the wholewheat penne (280 g, about 3½ cups) to the boiling water and cook 2 minutes less than the pack says (about 8 minutes). Drain.',
           heat: 'high',
           minutes: 8,
         },
@@ -5761,13 +6277,14 @@ export default [
           minutes: 15,
         },
         {
-          text: 'Let it cool 20–30 minutes, then cut into 4 equal portions and box them.',
+          text: 'Check: the cheese is melted with a few golden spots and the sauce bubbles at the edges. Cut into the middle: the biggest chicken piece you find is white all through. Not bubbling? 5 more minutes.',
           heat: 'none',
-          minutes: 25,
         },
+        { text: 'Let it cool 20–30 minutes.', heat: 'none', minutes: 25 },
+        { text: 'Cut into 4 equal portions and box them.', heat: 'none' },
       ],
       doneWhen: 'The cheese is melted with a few golden spots and the sauce bubbles at the edges; the chicken was white all through before it went in.',
-      boxUp: 'Cool fast: in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge, so portion 1 is for the next day and portions 2–4 go in the freezer (1 month). Move one to the fridge the night before.',
+      boxUp: 'Cool fast: in the fridge or freezer within 1 hour. Pasta keeps only 1 day in the fridge. Portion 1 in the fridge: eat it the next day. Portions 2–4 in the freezer: eat within 1 month, and move one to the fridge the night before you eat it.',
       reheat: 'Microwave covered 2½–3 minutes, then 1 minute more if needed, until steaming hot all through. Reheat once only.',
       tips: ['Halal: mozzarella with microbial coagulant (cuajo microbiano), as on the Hacendado light ball (51230). Check the label if you buy another brand.'],
     },
@@ -5785,9 +6302,13 @@ export default [
       { foodId: 'es-pan-bocadillo', grams: 130, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 8,
+    minutes: 13,
+    totalMinutes: 30,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
+    lightCooking: 'a ready-made soup is heated and the eggs are boiled',
     serve: 'hot',
     cuisine: 'spanish',
+    timeNote: 'About 30 min start to finish (13 min of it hands-on).',
     pitch: 'Half a brik of crema de verduras heated with chickpeas, topped with chopped boiled egg and a drizzle of olive oil, with bread to dip. A warm dinner in 8 minutes.',
     cost: { perBoxEur: 1.61, totalEur: 3.22, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -5801,27 +6322,39 @@ export default [
       },
     ],
     method: {
-      equipment: ['Small pot with a lid for 2 eggs', 'Medium pan, or a large microwave-safe bowl with a plate as a lid', 'Sieve', 'A soup bowl'],
-      prep: ['Sunday: boil 4 eggs (10 minutes in bubbling water, then 5 minutes in cold water), peel them and keep them in the fridge (3 days).', 'Drain and rinse the chickpeas (1 jar, 400 g).'],
+      equipment: ['Small pot for 4 eggs', 'Medium pan, or a large microwave-safe bowl with a plate as a lid', 'Sieve', 'A soup bowl'],
+      prep: ['Eggs: use 4 eggs boiled in the last 3 days, or boil them now (step 2). Boiled eggs keep 3 days in their shells.', 'Drain and rinse the chickpeas (1 jar, 400 g).'],
       steps: [
         {
-          text: 'No cooking from raw: you only heat a ready-made soup. Pour half the brik of crema de verduras (about 250 ml, 258 g) into the pan or bowl.',
+          text: 'No cooking: only a ready-made soup is heated and the eggs are boiled. Skip the next step if you have 4 eggs boiled in the last 3 days.',
+          heat: 'none',
+        },
+        {
+          text: 'Cover 4 eggs with cold water in the small pot, bring to the boil and cook 10 minutes at a gentle bubble, then cool them 5 minutes in cold water. Keep 2 in their shells for tomorrow.',
+          heat: 'high',
+          minutes: 15,
+        },
+        {
+          text: 'Pour half the brik of crema de verduras (about 250 ml, 258 g) into the pan or bowl.',
           heat: 'none',
         },
         { text: 'Add half the chickpeas (200 g).', heat: 'none' },
         {
-          text: 'Heat until it boils: in a pan 4–5 minutes, stirring; in the microwave 3–4 minutes with a plate on top, stirring halfway.',
+          text: 'Heat until it boils: in a pan 4–5 minutes, stirring; in the microwave 3–4 minutes with a plate on top, stirring halfway. It is ready when it bubbles at the edge and is steaming hot all through.',
           heat: 'medium',
           minutes: 4,
         },
-        { text: 'Pour into the soup bowl. Chop 2 boiled eggs and put them on top.', heat: 'none' },
+        {
+          text: 'Pour into the soup bowl. Chop 2 peeled boiled eggs and put them on top.',
+          heat: 'none',
+        },
         {
           text: 'Drizzle 1 tsp extra virgin olive oil (5 g) and grind over a little black pepper. Eat with ½ roll (65 g).',
           heat: 'none',
         },
       ],
       doneWhen: 'The soup bubbles at the edge and is steaming hot all through.',
-      boxUp: 'Close the opened brik and put the rest of the chickpeas in a closed box: both go in the fridge and are used the next night (they keep 2 days once opened). Do not freeze the eggs.',
+      boxUp: 'Close the opened brik and put the rest of the chickpeas in a closed box in the fridge for the next night (they keep 2 days once opened). Eat portion 1 the day you make it. Portion 2 goes in the fridge: eat it within 2 days (by Tuesday if you make it on Sunday). Do not freeze.',
       reheat: 'The soup is heated fresh each night until it boils. The eggs go on after, cold or warmed by the soup.',
       tips: ['The crema has no stock, cream or butter (Hacendado 60308). Another brand may use chicken stock: check the label.'],
     },
@@ -5840,7 +6373,10 @@ export default [
       { foodId: 'es-pan-bocadillo', grams: 130, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 8,
+    minutes: 13,
+    totalMinutes: 13,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
+    lightCooking: 'the bread is toasted and the eggs are boiled',
     serve: 'cold',
     cuisine: 'spanish',
     pitch: 'A Spanish café breakfast at home: toasted roll with grated tomato and olive oil, topped with tuna, avocado and a sliced egg.',
@@ -5857,14 +6393,14 @@ export default [
     ],
     method: {
       equipment: ['Box grater', 'Small lidded pot (about 250 ml)', 'Small pot for the eggs (if you have no boiled eggs)', 'Toaster or a dry frying pan', 'Sieve'],
-      prep: ['The night before: cut the tomatoes (200 g, 2 medium) in half. Grate the cut side on the big holes of the grater until only the skin is left in your hand. Throw away the skin.', 'Stir ⅓ tsp salt (1 g) into the tomato pulp and keep it in the small pot in the fridge (enough for 2 mornings).', 'If you have no boiled eggs from Sunday, boil 2 eggs (10 minutes in bubbling water, 5 in cold water) and peel them.'],
+      prep: ['The night before: cut the tomatoes (200 g, 2 medium) in half. Grate the cut side on the big holes of the grater until only the skin is left in your hand. Throw away the skin.', 'Stir a heaped ¼ tsp salt (1 g) into the tomato pulp and keep it in the small pot in the fridge (enough for 2 mornings).', 'If you have no eggs boiled in the last 3 days, boil 2 eggs (10 minutes in bubbling water, 5 in cold water) and peel them.'],
       steps: [
         {
-          text: 'No cooking: only the bread is toasted. In the morning cut ½ roll (65 g) open.',
+          text: 'No cooking: only the bread is toasted and the eggs are boiled. In the morning cut ½ roll (65 g) open.',
           heat: 'none',
         },
         {
-          text: 'Toast it in the toaster, or 2 minutes a side in a dry pan.',
+          text: 'Toast it in the toaster, or 2 minutes a side in a dry pan, until golden and crisp at the edges.',
           heat: 'medium',
           minutes: 3,
         },
@@ -5876,7 +6412,7 @@ export default [
         { text: 'Slice ¼ avocado (50 g) and 1 boiled egg and lay them on top.', heat: 'none' },
       ],
       doneWhen: 'The bread is golden and crisp at the edges.',
-      boxUp: 'The tomato pulp keeps 2 days in the fridge; boiled eggs 3 days; neither freezes. Wrap the unused half avocado with its stone in and a drop of lemon, and keep it in the fridge for the next morning. Freeze the rest of the rolls if you will not use them in 3 days.',
+      boxUp: 'Both portions go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. The tomato pulp keeps 2 days in the fridge; boiled eggs 3 days. Wrap the unused half avocado with its stone in and a drop of lemon, and keep it in the fridge for the next morning. Freeze the rest of the rolls if you will not use them in 3 days.',
       reheat: 'Not reheated: eaten as soon as it is made.',
     },
   },
@@ -5895,8 +6431,11 @@ export default [
       { foodId: 'es-pan-bocadillo', grams: 520, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 20,
+    minutes: 11,
+    totalMinutes: 55,
+    keep: { fridgeDays: 3, fridge: 3, freezer: 1, freezerMonths: 2 },
     cuisine: 'international',
+    timeNote: 'About 55 min start to finish (11 min of it hands-on).',
     pitch: 'A tray of baked egg with spinach and red pepper, cut into squares and sandwiched with mozzarella in a roll, then frozen. Two minutes in the microwave in the morning.',
     cost: { perBoxEur: 1.33, totalEur: 5.31, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -5911,7 +6450,7 @@ export default [
     ],
     method: {
       equipment: ['Square oven tin, about 20 × 20 cm, lined with baking paper', 'Large bowl and a whisk or fork', 'Chopping board and knife', 'Baking paper and foil (or freezer bags) for 4 rolls'],
-      prep: ['Chop the baby spinach (60 g, 2 handfuls) roughly. Dice the red pepper (80 g, ½ pepper) into 1 cm pieces.', 'Drain the mozzarella ball (125 g) and cut it into 8 slices.', 'Cut the 4 rolls (130 g each) open along one side.'],
+      prep: ['Chop the baby spinach (60 g, 2 handfuls) roughly. Dice about ¾ red pepper (80 g) into 1 cm pieces.', 'Drain the mozzarella ball (125 g) and cut it into 8 slices.', 'Cut the 4 rolls (130 g each) open along one side.'],
       steps: [
         { text: 'Turn the oven on to 180 °C.', heat: 'oven-180', minutes: 10 },
         {
@@ -5921,7 +6460,11 @@ export default [
         { text: 'Stir in the spinach and pepper.', heat: 'none' },
         { text: 'Pour into the lined tin. Bake 18–20 minutes.', heat: 'oven-180', minutes: 20 },
         {
-          text: 'Check it (see "Done when"). Let it cool in the tin 15 minutes, then lift it out and cut it into 4 squares.',
+          text: 'Check: press the middle. It is firm and springs back, and a knife pushed into the centre comes out clean, with no runny egg. Wet? 3–4 minutes more.',
+          heat: 'none',
+        },
+        {
+          text: 'Let it cool in the tin 15 minutes, then lift it out and cut it into 4 squares.',
           heat: 'none',
           minutes: 15,
         },
@@ -5929,7 +6472,7 @@ export default [
         { text: 'Wrap each roll in baking paper, then in foil or a freezer bag.', heat: 'none' },
       ],
       doneWhen: 'The middle is firm and springs back when you press it; a knife pushed into the centre comes out clean, with no runny egg.',
-      boxUp: 'Cool for no more than 1 hour. Keep 1–2 rolls in the fridge (eat by day 3) and freeze the rest (2 months).',
+      boxUp: 'Cool for no more than 1 hour. Portions 1–3 in the fridge: eat them within 3 days (by Wednesday if you make them on Sunday). Portion 4 in the freezer: eat within 2 months, and move one to the fridge the night before you eat it. A frozen roll needs no thawing: see Reheat.',
       reheat: 'Take off the foil and paper and wrap the roll in a paper towel. Microwave 1½–2 minutes until steaming hot in the middle. From frozen: 1 minute on defrost first, then 1½–2 minutes on full power.',
       tips: ['Halal: mozzarella with microbial coagulant (Hacendado light, 51230). Check the label of any other brand for animal rennet (cuajo animal).'],
     },
@@ -5946,7 +6489,9 @@ export default [
       { foodId: 'intl-peanuts', grams: 15, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 5,
+    minutes: 7,
+    totalMinutes: 7,
+    keep: { fridgeDays: 1, fridge: 1, freezer: 0 },
     serve: 'cold',
     cuisine: 'international',
     pitch: 'Blend it the night before, drink it on the way out: protein yogurt, milk, oats, a banana and a few peanuts. No protein powder.',
@@ -5988,7 +6533,7 @@ export default [
         },
       ],
       doneWhen: 'No lumps of banana or whole oats are left when you tilt the jug.',
-      boxUp: 'Straight into the fridge. Make it the night before, one jar at a time, and drink it within 1 day (24 hours). Do not freeze.',
+      boxUp: 'Straight into the fridge. Make it the night before, one jar at a time. Into the fridge: eat it the next day. Do not freeze. Drink it within 24 hours.',
       reheat: 'Not reheated: drink it cold.',
       tips: ['Peanut allergy or none in the cupboard? Use 15 g almonds.'],
     },
@@ -6008,7 +6553,9 @@ export default [
       { foodId: 'es-pan-bocadillo', grams: 130, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 15,
+    minutes: 25,
+    totalMinutes: 25,
+    keep: { fridgeDays: 3, fridge: 2, freezer: 0 },
     cuisine: 'middle-eastern',
     pitch: 'Soft eggs stirred into green peppers and tomato with a pinch of chilli, the Turkish breakfast, with bread to scoop. Cook two, reheat one tomorrow.',
     cost: { perBoxEur: 1.6, totalEur: 3.2, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
@@ -6024,7 +6571,7 @@ export default [
     ],
     method: {
       equipment: ['Frying pan (24–28 cm)', 'Bowl and fork for the eggs', 'Grater', 'Wooden spoon', '1 box for tomorrow'],
-      prep: ['Chop the onion (80 g, ½ small onion) into 5 mm pieces. Dice the green peppers (200 g) into 1 cm pieces.', 'Grate the tomatoes (300 g, 3 medium) on the big holes of the grater and throw away the skins (or chop them small).', 'Crack 6 eggs into the bowl. Add a pinch of chilli powder or pul biber (1 g) and ⅓ tsp salt (2 g). Beat with the fork.'],
+      prep: ['Chop ¾ medium onion (80 g) into 5 mm pieces. Dice about 1½ green peppers (200 g) into 1 cm pieces.', 'Grate about 2½ medium tomatoes (300 g) on the big holes of the grater and throw away the skins (or chop them small).', 'Crack 6 eggs into the bowl. Add a pinch of chilli powder or pul biber (1 g) and a heaped ¼ tsp salt (2 g). Beat with the fork.'],
       steps: [
         { text: 'Heat 2 tsp olive oil (10 g) in the pan for 1 minute.', heat: 'medium', minutes: 1 },
         {
@@ -6039,7 +6586,7 @@ export default [
         },
         { text: 'Turn the heat down to low. Pour in the eggs.', heat: 'low' },
         {
-          text: 'Stir slowly with the spoon, scraping the bottom, until the eggs are just set and creamy.',
+          text: 'Stir slowly with the spoon, scraping the bottom, until the eggs are just set and creamy: no runny raw egg is left.',
           heat: 'low',
           minutes: 3,
         },
@@ -6049,7 +6596,7 @@ export default [
         },
       ],
       doneWhen: 'No runny raw egg is left: the eggs are soft, set curds.',
-      boxUp: 'Cool the second portion for no more than 1 hour, then put it in the fridge and eat it the next morning (egg dishes keep up to 3 days). Do not freeze.',
+      boxUp: 'Cool the second portion for no more than 1 hour. Eat portion 1 the day you make it. Portion 2 goes in the fridge: eat it within 3 days (by Wednesday if you make it on Sunday). Do not freeze.',
       reheat: 'Microwave 1 minute, stir, then 30 seconds more until steaming hot all through.',
     },
   },
@@ -6076,8 +6623,11 @@ export default [
       { foodId: 'intl-tortilla-corn', grams: 156, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 15,
+    minutes: 13,
+    totalMinutes: 13,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     cuisine: 'mexican',
+    timeNote: 'About 13 min start to finish (13 min of it hands-on), plus 2 min started ahead.',
     pitch: 'Scrambled eggs with cumin and kidney beans in warm corn tortillas, topped with pico de gallo. The filling reheats in a minute; warm the tortillas in a dry pan.',
     cost: { perBoxEur: 1.91, totalEur: 3.81, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -6106,7 +6656,7 @@ export default [
         },
         { text: 'Turn the heat down to low. Pour in the eggs.', heat: 'low' },
         {
-          text: 'Stir slowly, scraping the bottom, until the eggs are just set.',
+          text: 'Stir slowly, scraping the bottom, until the eggs are just set: no runny raw egg is left.',
           heat: 'low',
           minutes: 3,
         },
@@ -6122,7 +6672,7 @@ export default [
         { text: 'Fill the tortillas with the eggs and beans and top with the salsa.', heat: 'none' },
       ],
       doneWhen: 'No runny raw egg is left: the eggs are soft, set curds.',
-      boxUp: 'Cool for no more than 1 hour, then both boxes and salsa pots go in the fridge (eat by day 2: the opened salsa keeps 2 days). Do not freeze. The tortillas stay in their closed pack.',
+      boxUp: 'Cool for no more than 1 hour, then box them with the salsa pots. Both portions go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. The opened salsa sets the 2 days. The tortillas stay in their closed pack.',
       reheat: 'Filling: microwave with the lid loose 1 minute, stir, 30 seconds more until steaming hot all through. The salsa stays cold.',
       tips: ['Halal check: the corn tortillas list glycerine (E-422) without saying its origin, so the record is "check". A tortilla that lists no E-422, or says "de origen vegetal", is fine.'],
     },
@@ -6139,7 +6689,9 @@ export default [
       { foodId: 'es-picos-integrales', grams: 30, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 5,
+    minutes: 6,
+    totalMinutes: 6,
+    keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     serve: 'cold',
     cuisine: 'italian',
     pitch: 'Torn mozzarella light with cherry tomatoes and basil, and a few wholemeal picos for crunch: 20 g protein for the afternoon.',
@@ -6172,7 +6724,7 @@ export default [
           heat: 'none',
         },
       ],
-      boxUp: 'Straight into the fridge; eat by day 2 (an opened mozzarella ball keeps 2 days). Do not freeze. Carry it in an insulated bag if it leaves home.',
+      boxUp: 'Straight into the fridge. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. An opened mozzarella ball keeps 2 days. Carry it in an insulated bag if it leaves home.',
       reheat: 'Not reheated: eat cold.',
       tips: ['Halal: the Hacendado light mozzarella (51230) uses microbial coagulant. Check any other brand for animal rennet (cuajo animal).'],
     },

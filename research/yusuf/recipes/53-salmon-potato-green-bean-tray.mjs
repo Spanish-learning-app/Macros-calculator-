@@ -1,6 +1,7 @@
 // R-MP-53 · Baked salmon with potatoes, green beans and a lemon yogurt pot (dinner portion). Batch: 2 portions.
 export default {
   n: 53,
+  eatNow: 1, // made on the night: portion 1 is that dinner
   slot: 'dinner',
   serving: 'portion',
   boxes: 2,
@@ -59,27 +60,28 @@ export default {
     equipment: ['Large oven tray lined with baking paper', 'Small bowl for the sauce', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)'],
     prep: [
       'The night before: move 4 frozen salmon medallions (250 g) from the freezer to the fridge to thaw on a plate.',
-      'Peel the potatoes (400 g) and cut them into wedges about 2 cm thick.',
+      'Peel {{n:potato}} and cut them into wedges about 2 cm thick.',
       'Cut the red onion (80 g, ½ onion) into wedges. Peel and slice 2 garlic cloves (6 g). Keep the green beans (300 g) frozen until step 4.',
       'Chop the parsley (4 g, a small handful) and grate a small piece of garlic (2 g) for the sauce.',
     ],
     steps: [
       { text: 'Turn the oven on to 200 °C.', heat: 'oven-200', minutes: 10 },
-      { text: 'On the tray toss the potatoes with half of 1 tbsp olive oil (7 g), 1 tsp paprika (2 g) and ⅓ tsp salt (2 g). Spread them out.', heat: 'none' },
+      { text: 'On the tray toss the potatoes with half of 1 tbsp olive oil (7 g), 1 tsp paprika (2 g) and a heaped ¼ tsp salt (2 g). Spread them out.', heat: 'none' },
       { text: 'Roast the potatoes 17 minutes.', heat: 'oven-200', minutes: 17 },
       { text: 'Take the tray out. Add the frozen green beans, onion and sliced garlic, and drizzle the rest of the 1 tbsp oil (7 g). Toss.', heat: 'none' },
       { text: 'Pat the salmon dry. Lay it on top of the vegetables, drizzle 1 tsp olive oil (4 g) and 2 tsp lemon juice (10 g), and sprinkle a pinch of salt (1 g).', heat: 'none' },
       { text: 'Roast 13–15 minutes more.', heat: 'oven-200', minutes: 15 },
-      { text: 'Make the sauce: stir 120 g Greek yogurt, 1 tsp lemon juice (6 g), the grated garlic and the parsley. Spoon into the 2 pots.', heat: 'none' },
-      { text: 'Check the salmon (see "Done when"). Divide into 2 portions: 2 medallions and half the vegetables each.', heat: 'none' },
+      { text: 'Make the sauce: stir 120 g Greek yogurt, 1 tsp lemon juice (6 g), the grated garlic and the parsley. Spoon into the 2 pots.', heat: 'none', during: true },
+      { text: 'Check: press the thickest medallion with a fork. It is opaque pink in the middle, not glassy, and flakes; a knife slides into the potatoes. Glassy? 3 more minutes.', heat: 'none', check: true },
+      { text: 'Divide into 2 portions: 2 medallions and half the vegetables each.', heat: 'none', pack: true },
     ],
     doneWhen: 'The salmon is opaque pink (not glassy) in the middle and flakes when you press it with a fork (63 °C). The potatoes are soft when you push in a knife.',
-    boxUp: 'Eat portion 1 that night. Cool portion 2 for no more than 1 hour and put it in the fridge with its sauce pot; eat it the next evening (by day 2). The salmon was frozen once: do not freeze it again.',
+    boxUp: 'Cool the second portion for no more than 1 hour and keep it with its sauce pot. {{split}} The salmon was frozen once: do not freeze it again.',
     reheat: 'Take the yogurt pot out (it stays cold). Microwave covered 1½–2 minutes until steaming hot all through.',
     tips: ['No 200 °C on your oven dial? 210 °C works: take 1–2 minutes off each roasting time.'],
   },
-  keeps: '3 days in the fridge; eat the salmon within 3 days, do not refreeze',
-  storagePlan: 'Make on the day you need it plus one: portion 1 that night, portion 2 the next evening. The medallions thaw overnight in the fridge.',
+  keepsNote: 'the salmon is never frozen twice',
+  storagePlan: 'Make it on the day you need it plus one. {{split}} The medallions thaw overnight in the fridge.',
   reheat: 'Microwave covered, 1½–2 min, until hot right through (75 °C); the yogurt pot stays cold.',
   crossCheck: null,
   changes: [

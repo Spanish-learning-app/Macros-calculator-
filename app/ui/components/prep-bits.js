@@ -2,6 +2,7 @@
 import { h } from '../dom.js';
 import { fmtKcal, fmtGrams, fmtDateShort, relativeDay } from './format.js';
 import { halalChip } from './food-bits.js';
+import { minutesText } from './recipe-method.js';
 
 /** "650 kcal · 49.6 g protein · 69 g carbs · 18 g fat · 8.4 g fibre" */
 export function macroLine(n, { hideKcal = false } = {}) {
@@ -25,12 +26,51 @@ export function shortPrepName(name) {
 export function boxWord(food, rules) {
   const ids = rules?.mealPrep?.prepServingIds ?? ['box', 'jar', 'portion'];
   const id = food?.servings?.find((s) => s.default)?.id;
+  // A family pot is counted in katori (Nasreen R3 #7): its batch "boxes" are katori.
+  if (id === 'katori' && food?.userRecipe) return 'katori';
   return ids.includes(id) ? id : 'box';
 }
 
-/** "boxes", "jars", "portions", "days". */
+/** "boxes", "jars", "portions", "days"; "katori" stays "katori" ("a pot of 8 katori"). */
 export function pluralWord(word) {
+  if (word === 'katori') return word;
   return word.endsWith('x') || word.endsWith('ch') ? `${word}es` : `${word}s`;
+}
+
+/** 1.25 → "1¼", 0.5 → "½", 5/3 → "1⅔", 1.7 → "1.7": a scale factor in kitchen words. */
+export function factorText(x) {
+  if (!(Number.isFinite(x) && x > 0)) return '';
+  const whole = Math.floor(x + 1e-9);
+  const rest = x - whole;
+  const parts = [
+    [0, ''],
+    [1 / 4, '¼'],
+    [1 / 3, '⅓'],
+    [1 / 2, '½'],
+    [2 / 3, '⅔'],
+    [3 / 4, '¾'],
+    [1, ''],
+  ];
+  for (const [v, sign] of parts) {
+    if (Math.abs(rest - v) < 0.02) {
+      const w = v === 1 ? whole + 1 : whole;
+      return `${w || !sign ? w : ''}${sign}`;
+    }
+  }
+  return String(Math.round(x * 10) / 10);
+}
+
+/**
+ * The method's amounts line (Nasreen R3 #2, Mariam should-fix 1): "Amounts are for 4 portions."
+ * and, when you make another number, how to scale them.
+ * @param {number} base the recipe's boxes @param {number} boxes what you make @param {string} word
+ */
+export function amountsText(base, boxes, word) {
+  const head = `Amounts are for ${plural(base, word)}.`;
+  if (!(boxes > 0) || boxes === base) return head;
+  const f = boxes / base;
+  const use = f < 1 ? `${factorText(f)} of each amount` : `${factorText(f)} times each amount`;
+  return `${head} You are making ${plural(boxes, word)}: use ${use}.`;
 }
 
 /** "1 box", "4 boxes". */
@@ -191,10 +231,24 @@ export function effortText(recipe) {
   const effort = effortOf(recipe);
   const m =
     Number.isFinite(recipe?.minutes) && recipe.minutes > 0 ? Math.round(recipe.minutes) : null;
+  // R3 (Mariam should-fix 3, Nasreen 2): the card's time is hands-on; with the Lab's
+  // `totalMinutes` it also says start to finish, and a no-cook prep that boils an egg or heats
+  // soup (`lightCooking`) does not claim "no cooking".
+  const total =
+    Number.isFinite(recipe?.totalMinutes) && recipe.totalMinutes > (m ?? 0)
+      ? minutesText(Math.round(recipe.totalMinutes))
+      : null;
+  const all = total ? ` · ${total} in all` : '';
   if (effort === 'ready') return 'Ready to eat';
-  if (effort === 'assemble') return m ? `${m} min, no cooking` : 'No cooking';
-  return m ? `${m} min` : null;
+  if (effort === 'assemble') {
+    const what = recipe?.lightCooking ? 'little cooking' : 'no cooking';
+    return m ? `${m} min, ${what}${all}` : `${capitalWord(what)}${all}`;
+  }
+  if (!m) return null;
+  return total ? `${m} min hands-on${all}` : `${m} min`;
 }
+
+const capitalWord = (w) => w.charAt(0).toUpperCase() + w.slice(1);
 
 /**
  * The halal alternative's food id for a prep whose halal status is not 'halal', or null

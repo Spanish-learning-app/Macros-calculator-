@@ -954,6 +954,44 @@ details[open] > .cook-method-summary::before {
   font-weight: var(--weight-bold);
 }
 
+/* R3-A: "Start again" next to the count when step mode reopens where you left it. */
+.stepper-count-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.stepper-restart {
+  flex: none;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-size: var(--text-sm);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* "Amounts are for 2 boxes…" stays on every screen. */
+.stepper-note {
+  margin: var(--space-2) 0 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* "Done when" on the step that says to check it. */
+.stepper-done {
+  margin-top: var(--space-4);
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: var(--accent-soft-text);
+}
+
+.stepper-done h3 {
+  color: inherit;
+}
+
 .stepper-bar {
   display: block;
   height: 6px;

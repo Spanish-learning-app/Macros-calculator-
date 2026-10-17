@@ -1,6 +1,9 @@
 // R-MP-19 · Chicken karahi (boneless, lighter oil) with 2 wholemeal roti (freezer dinner portion).
 // Standard batch: 4 portions + 8 roti.
-import { rotiComponent, ROTI_REFS } from '../shared.mjs';
+import { rotiComponent, rotiSteps, ROTI_REFS } from '../shared.mjs';
+
+// R3-B: dough first, curry in the fridge on a timer, one action per roti step, roti cooled before bagging.
+const R = rotiSteps({ count: 8, atta: 235, water: 165, cups: 'about 2 cups', waterCups: 'a little under ¾ cup' });
 
 export default {
   n: 19,
@@ -57,31 +60,27 @@ export default {
     equipment: ['Karahi, wok or wide frying pan (28 cm) with a lid', 'Wooden spoon', 'Grater', 'Bowl and fork for the yogurt', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Tray for cooling', '4 flat freezer bags or boxes'],
     prep: [
       'Cut the chicken breast (640 g) into 4 cm pieces.',
-      'Chop 1 small onion fine (120 g, 5 mm). Chop 5 medium tomatoes (600 g) into small pieces.',
+      'Chop {{n:onion}} fine (5 mm). Chop 5 medium tomatoes (600 g) into small pieces.',
       'Peel 7 garlic cloves (20 g) and grate them. Peel a 5 cm piece of ginger (20 g): grate half (10 g) and cut the other half into thin matchsticks for the end.',
       'Slit 4 green chillies (20 g) lengthwise. Whisk the yogurt (120 g, ½ cup) with a fork until smooth. Chop a small handful of coriander (8 g).',
     ],
     steps: [
+      ...R.dough,
       { text: 'Heat 3 tbsp sunflower oil (40 g) in the karahi for 1 minute.', heat: 'medium', minutes: 1 },
       { text: 'Add the onion and stir every minute until golden.', heat: 'medium', minutes: 7 },
       { text: 'Add the garlic and the grated ginger. Stir 1 minute until the raw smell goes.', heat: 'medium', minutes: 1 },
       { text: 'Add the chicken. Turn the heat up and stir until every piece is white on the outside.', heat: 'high', minutes: 5 },
-      { text: 'Add the tomatoes, then 1⅓ tsp salt (8 g), 2 tsp red chilli powder (5 g), 2 tsp ground coriander (dhania powder, 4 g) and 1 tsp ground cumin (2 g). Stir, put the lid on and cook until the tomatoes collapse.', heat: 'medium', minutes: 10 },
+      { text: 'Add the tomatoes, then 1¼ tsp salt (8 g), 2 tsp red chilli powder (5 g), 2 tsp ground coriander (dhania powder, 4 g) and 1 tsp ground cumin (2 g). Stir, put the lid on and cook until the tomatoes collapse: soft, falling apart and juicy.', heat: 'medium', minutes: 10, wait: true },
       { text: 'Lid off. Cook on high, stirring every minute and pressing the tomato pieces, until the sauce is a thick paste that clings to the chicken and the oil shows at the edges ("bhunna"). Do not add water.', heat: 'high', minutes: 9 },
       { text: 'Turn the heat to low. Stir in the whisked yogurt a spoon at a time (whisked and added slowly so it does not split), then the slit chillies and ¾ tsp crushed black pepper (2 g). Cook 3 minutes.', heat: 'low', minutes: 3 },
-      { text: 'Turn off the heat. Scatter over the ginger matchsticks, 1 tsp garam masala (2 g) and the coriander. Spread on the tray to cool while you make the roti.', heat: 'none' },
-      { text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.', heat: 'none', minutes: 3 },
-      { text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.', heat: 'none', minutes: 5 },
-      { text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).', heat: 'none', minutes: 20 },
-      { text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.', heat: 'none' },
-      { text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.', heat: 'medium-high', minutes: 2 },
-      { text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.', heat: 'none' },
-      { text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).', heat: 'medium-high', minutes: 12 },
-      { text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.', heat: 'none' },
-      { text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).', heat: 'none' },
+      { text: 'Turn off the heat. Scatter over the ginger matchsticks, 1 tsp garam masala (2 g) and the coriander.', heat: 'none' },
+      { text: 'Check: cut the biggest chicken piece. It is white all through with no pink, the masala coats it thickly and oil shines at the edges. Pink? Lid on, low heat, 3 minutes more.', heat: 'none', check: true },
+      R.cool('curry'),
+      ...R.cook,
+      { text: 'Pack 4 portions: ¼ of the cold curry in a flat freezer bag or box, and 2 cooled roti in a small bag (baking paper between them).', heat: 'none', pack: true },
     ],
     doneWhen: 'Karahi: thick masala coats the chicken, there is almost no liquid, oil shines at the edges, and the biggest piece is white all through with no pink. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-    boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months. (The curry alone keeps 3 days in the fridge and 3 months frozen.)',
+    boxUp: 'Cool on a wide tray and put away within 1 hour. {{split}} Each portion goes with its 2 roti. The roti set the 2 days and 2 months: the curry alone keeps 3 days in the fridge and 3 months frozen.',
     reheat: 'Move a frozen portion to the fridge the night before. Curry: microwave covered 3 minutes, stirring halfway, until steaming hot all through (from frozen, use the defrost setting first, then 3–4 minutes), or warm it in a pan with 2 tbsp water. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
     tips: [
       'Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).',
@@ -92,8 +91,7 @@ export default {
       'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.',
     ],
   },
-  keeps: '3 days fridge; 2 months frozen (3 for the curry)',
-  storagePlan: 'Portion 1 in the fridge for the next day or two; portions 2–4 in the freezer, each with its 2 roti. Curry 3 days fridge / 3 months frozen; roti 2 days / 2 months, so a frozen portion is best within 2 months. Move to the fridge the night before.',
+  storagePlan: '{{split}} Curry 3 days in the fridge or 3 months frozen; roti 2 days or 2 months, so the roti set the limits.',
   reheat: 'Curry: from the fridge, microwave 3 min covered, stirring halfway; from frozen, defrost on the microwave setting then 3–4 min, or warm in a pan with 2 tbsp water, until steaming (75 °C). Roti: 20–30 s a side on a hot tawa.',
   crossCheck: null,
   extraChecks: [{ zainab: 'chicken-karahi-home', comps: ['karahi'], note: "Zainab's home karahi uses bone-in pieces and 100 g fat per kg chicken; this one is boneless breast with 62 g oil per kg, so it should be leaner and higher in protein per 100 g." }],

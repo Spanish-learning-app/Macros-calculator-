@@ -52,15 +52,15 @@ export default {
     equipment: ['Chopping board and knife', 'Mixing bowl', 'Wooden spoon (for the pomegranate)', '2 breakfast boxes with lids'],
     prep: [],
     steps: [
-      { text: 'No cooking. Squeeze ½ lemon into the bowl: about 1⅓ tbsp juice (20 g).', heat: 'none' },
+      { text: 'No cooking. Squeeze ½ lemon into the bowl: about 1 tbsp + 1 tsp juice (20 g).', heat: 'none' },
       { text: 'Dice 1 apple (180 g) into 1.5 cm cubes with the skin on and drop them straight into the lemon juice. Stir so every cube is coated: it stops them going brown.', heat: 'none', minutes: 2 },
       { text: 'Peel 2 mandarins (176 g), pull them into segments and add them (halve the big ones).', heat: 'none', minutes: 2 },
       { text: 'Pomegranate: cut it in half across the middle. Hold one half cut side down over the bowl and tap the back hard with the wooden spoon so the seeds (arils) fall out. You need 100 g, about ⅓ of a fruit. Pick out any white pith.', heat: 'none', minutes: 3 },
       { text: 'Sprinkle 1 tsp chaat masala (3 g) over the fruit and toss.', heat: 'none' },
-      { text: 'Spoon 240 g protein yogurt into each box and put half the fruit chaat on top. Close and refrigerate.', heat: 'none', minutes: 2 },
+      { text: 'Spoon 240 g protein yogurt into each box and put half the fruit chaat on top. Close and refrigerate.', heat: 'none', minutes: 2, pack: true },
       { text: 'In the morning: slice ½ small banana (50 g) on top and add 20 g almonds (about 16), roughly chopped.', heat: 'none', minutes: 1 },
     ],
-    boxUp: 'Into the fridge straight away. Cut fruit keeps 2 days: make 2 portions at a time (Sunday night for Monday and Tuesday). Do not freeze. Banana and almonds go on in the morning so they stay fresh and crunchy.',
+    boxUp: 'Into the fridge straight away. {{split}} Banana and almonds go on in the morning so they stay fresh and crunchy.',
     reheat: 'Not reheated: eat it cold.',
     tips: [
       'Chaat masala (Pakistani grocery) gives the sweet-sour-salty taste. No chaat masala? A pinch of salt, roasted cumin and black pepper is close.',
@@ -69,8 +69,7 @@ export default {
       'Halal: the protein yogurt is milk and cultures only (no gelatine).',
     ],
   },
-  keeps: '2 days in the fridge (cut fruit); do not freeze',
-  storagePlan: 'Cut fruit keeps 2 days: make 2 portions at a time (Sunday night for Monday and Tuesday). Banana and almonds are added in the morning so they stay fresh and crunchy.',
+  storagePlan: 'Cut fruit keeps 2 days. {{split}} Banana and almonds are added in the morning so they stay fresh and crunchy.',
   reheat: 'Not reheated: eat cold.',
   crossCheck: null,
   changes: [

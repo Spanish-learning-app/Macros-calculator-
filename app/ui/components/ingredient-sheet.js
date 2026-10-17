@@ -150,6 +150,69 @@ export function rankIngredients(foods) {
 }
 
 /**
+ * Salt, spices and water (Nasreen R3 #8): almost no kcal or protein, and Katori has no records
+ * for most of them, so a search found "Butter (salted)" for salt and a persimmon for pani. The
+ * picker says they are not counted and shows only foods whose name is exactly the word.
+ */
+const NOT_COUNTED = new RegExp(
+  '^(?:(?:a\\s+)?(?:glass(?:es)?|cups?|pinch(?:es)?|chutki|jug)\\s+(?:of\\s+)?)?(?:' +
+    [
+      'salt',
+      'sea salt',
+      'namak',
+      'haldi',
+      'turmeric',
+      'zeera',
+      'jeera',
+      'cumin',
+      'cumin seeds?',
+      'ground cumin',
+      'garam masala',
+      'masala',
+      'spices?',
+      'lal mirch',
+      'red chill?i powder',
+      'chill?i powder',
+      'mirch powder',
+      'kali mirch',
+      'black pepper',
+      'dhania powder',
+      'coriander powder',
+      'ground coriander',
+      'coriander seeds?',
+      'bay leaf',
+      'bay leaves',
+      'tez patta',
+      'elaichi',
+      'cardamom',
+      'laung',
+      'dalchini',
+      'cinnamon',
+      'ajwain',
+      'kalonji',
+      'paprika',
+      'pimenton',
+      'oregano',
+      'water',
+      'pani',
+      'paani',
+      'baking powder',
+      'baking soda',
+    ].join('|') +
+    ')$',
+  'i',
+);
+
+/** @param {string} query the search words (amount already taken off) */
+export function isNotCounted(query) {
+  return NOT_COUNTED.test(
+    String(query ?? '')
+      .trim()
+      .replace(/\s+/g, ' '),
+  );
+}
+
+/**
  * @param {{ store: object, rules: object, date: string,
  *   onPick: (p: { foodId: string, servingId: string, qty: number }) => void,
  *   onClose?: () => void }} props
@@ -219,7 +282,8 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
     onPick({ foodId: food.id, servingId, qty });
     added += 1;
     const serving = servingId === 'g' ? { id: 'g' } : food.servings.find((s) => s.id === servingId);
-    setText(status, `Added ${portionText(serving, qty)} ${food.name}. ${added} added so far.`);
+    // "Added Onion: 3 medium onions." (Nasreen R3: "3 medium onion Onion" said the word twice).
+    setText(status, `Added ${food.name}: ${portionText(serving, qty)}. ${added} added so far.`);
   }
 
   function row(food, amount = null) {
@@ -302,7 +366,13 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
       return;
     }
     const found = store.search(q, { limit: 30 });
-    const all = [...found.hits.map((x) => x.food), ...found.hidden.map((x) => x.food)];
+    const spice = isNotCounted(q);
+    // Salt, spices, water: only a food named exactly that (none today), never "salted butter".
+    const keep = (x) => !spice || x.tier === 'exact';
+    const all = [
+      ...found.hits.filter(keep).map((x) => x.food),
+      ...found.hidden.filter(keep).map((x) => x.food),
+    ];
     const ok = rankIngredients(all.filter((f) => !f.userRecipe && f.halal?.status !== 'not-halal'));
     const blocked = all.filter((f) => f.halal?.status === 'not-halal');
     const note = searchNoteText(q, {
@@ -314,6 +384,13 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
     });
     mountChildren(
       results,
+      spice
+        ? h(
+            'p',
+            { class: 'help-row', 'data-testid': 'ingredient-not-counted', role: 'note' },
+            'Salt, spices and water add almost no kcal or protein, so they are not counted. Leave them out here, and write them in “My method”.',
+          )
+        : null,
       note ? h('p', { class: 'help-row', 'data-testid': 'search-note', role: 'note' }, note) : null,
       ok.length
         ? h(
@@ -321,7 +398,7 @@ export function openIngredientSheet({ store, rules, date, onPick, onClose = null
             { class: 'food-list', role: 'list' },
             ok.slice(0, 20).map((f) => row(f, amount)),
           )
-        : blocked.length || note
+        : blocked.length || note || spice
           ? null
           : h('p', { class: 'empty-note' }, `Nothing found for “${q}”. Try another spelling.`),
       blocked.length

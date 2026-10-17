@@ -1,6 +1,9 @@
 // R-MP-18 · Halal breakfast wrap: spiced chicken, egg and peppers in a large wholemeal roti (breakfast
 // portion). Standard batch: 4 wraps.
-import { rotiComponent, ROTI_REFS } from '../shared.mjs';
+import { rotiComponent, rotiSteps, ROTI_REFS } from '../shared.mjs';
+
+// R3-B: dough first, curry in the fridge on a timer, one action per roti step, roti cooled before bagging.
+const R = rotiSteps({ count: 4, atta: 176, water: 123, cups: 'about 1½ cups', waterCups: 'about ½ cup', ballG: 75, size: 'as big as your pan (about 25 cm across, 2 mm thick)', pan: 'your biggest frying pan or tawa' });
 
 export default {
   n: 18,
@@ -60,28 +63,22 @@ export default {
     equipment: ['Big mixing bowl', 'Rolling pin (belan) and a clean worktop', 'Your biggest dry non-stick frying pan (28 cm) or a large tawa', 'Clean tea towel', 'Grater', 'Bowl and fork for the eggs', 'Tray for cooling', 'Baking paper, foil and a freezer bag'],
     prep: [
       'Cut the chicken breast (280 g) into thin strips (1 cm).',
-      'Cut 1 red pepper (120 g) into strips. Slice ½ red onion (80 g) thin.',
+      'Cut {{n:pepper-red}} into strips. Slice {{n:onion-red}} thin.',
       'Peel and grate 2 garlic cloves (6 g) and a 2 cm piece of ginger (6 g) into a paste.',
     ],
     steps: [
-      { text: 'Roti dough (no cooking yet): in a big bowl mix 176 g atta (wholemeal chapati flour, about 1½ cups) with a pinch of salt (1 g). Pour in 123 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.', heat: 'none', minutes: 3 },
-      { text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.', heat: 'none', minutes: 5 },
-      { text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).', heat: 'none', minutes: 20 },
-      { text: 'Divide the dough into 4 equal balls of about 75 g. Keep them under the cloth.', heat: 'none' },
-      { text: 'Put your biggest frying pan or tawa on the hob with no oil and heat it 2 minutes.', heat: 'medium-high', minutes: 2 },
-      { text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 25 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.', heat: 'none' },
-      { text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 2 minutes each, 8 minutes for 4).', heat: 'medium-high', minutes: 8 },
-      { text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.', heat: 'none' },
-      { text: 'Chicken: wipe the pan, add a scant 1 tbsp oil (12 g) and heat 1 minute.', heat: 'high', minutes: 1 },
+      ...R.dough,
+      { text: 'Chicken: in the frying pan, add a little under 1 tbsp oil (12 g) and heat 1 minute.', heat: 'high', minutes: 1 },
       { text: 'Add the chicken strips and stir-fry until white all through.', heat: 'high', minutes: 5 },
       { text: 'Add the pepper, onion, ginger-garlic paste and the powders: 1 tsp ground cumin (2 g), 1¼ tsp paprika (3 g), ¾ tsp red chilli powder (2 g) and ½ tsp salt (3 g). Stir-fry 3 minutes until the pepper softens. Turn off the heat and squeeze in 2 tsp lemon juice (10 g).', heat: 'medium-high', minutes: 3 },
-      { text: 'Spread the chicken on the tray to cool.', heat: 'none' },
-      { text: 'Egg: whisk 4 eggs with 120 g liquid egg whites and a pinch of salt (1 g). Pour into the same pan (no extra oil) and stir slowly with the spatula until just set: soft, but no runny egg.', heat: 'medium', minutes: 2 },
-      { text: 'Spread the egg on the tray next to the chicken and let both cool 20 minutes (hot filling makes the wrap soggy).', heat: 'none', minutes: 20 },
-      { text: 'Lay a roti flat. Put ¼ of the chicken and ¼ of the egg in a line across the lower third. Fold the sides in, then roll it up tightly from the bottom. Wrap in baking paper, then foil. Make all 4.', heat: 'none', minutes: 5 },
+            { text: 'Egg: whisk 4 eggs with 120 g liquid egg whites and a pinch of salt (1 g). Pour into the same pan (no extra oil) and stir slowly with the spatula until just set: soft, but no runny egg.', heat: 'medium', minutes: 2 },
+      { text: 'Check: cut the thickest chicken strip. White all through, no pink. The egg is set, with no runny parts. Pink? 2 more minutes in the pan.', heat: 'none', check: true },
+      { text: 'Spread the egg on the tray next to the chicken and let both cool while you make the roti (hot filling makes the wrap soggy).', heat: 'none' },
+      ...R.cook,
+      { text: 'Lay a roti flat. Put ¼ of the chicken and ¼ of the egg in a line across the lower third. Fold the sides in, then roll it up tightly from the bottom. Wrap in baking paper, then foil. Make all 4.', heat: 'none', minutes: 5, pack: true },
     ],
     doneWhen: 'Chicken: cut the thickest strip, white all through, no pink. Egg: set, with no runny parts. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-    boxUp: 'Cool and put away within 1 hour. 1 wrap in the fridge (eat within 2 days), 3 in the freezer (2 months). Move one down to the fridge the night before.',
+    boxUp: 'Cool and put away within 1 hour. {{split}}',
     reheat: 'From the fridge: dry pan 2 minutes a side, or microwave 60–75 seconds. From frozen: take off the foil (never microwave foil), wrap in a damp paper towel and microwave 2 minutes, turning once, until hot all through.',
     tips: [
       'Halal: chicken from the halal butcher. The big home roti replaces shop wraps, which list E471 without saying it is from plants.',
@@ -91,8 +88,7 @@ export default {
       'Atta is wholemeal chapati flour ("chakki atta"), sold in 5 kg bags at the Pakistani grocery. Mercadona\'s harina integral de trigo also works; the roti come out a little firmer.',
     ],
   },
-  keeps: '3 days fridge; 2 months frozen',
-  storagePlan: 'One wrap in the fridge, three in the freezer; move one down the night before. The egg follows the egg-muffin class (3 days, 2 months), the chicken cooked-meat (3 days, 3 months), the roti 2 days / 2 months: the wrap keeps 2 months frozen and 2 days in the fridge.',
+  storagePlan: '{{split}} The egg follows the egg-muffin class (3 days, 2 months), the chicken cooked-meat (3 days, 3 months), the roti 2 days / 2 months: the wrap keeps 2 months frozen and 2 days in the fridge.',
   reheat: 'From the fridge: dry pan 2 min a side, or microwave 60–75 s. From frozen: microwave (out of the foil, in a damp paper towel) 2 min, turning once, until hot right through (75 °C).',
   crossCheck: null,
   changes: [

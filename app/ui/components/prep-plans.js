@@ -43,6 +43,28 @@ export function planAverages(plan) {
   };
 }
 
+/**
+ * The Lab writes "merienda" for the afternoon meal; with other meal names (Pakistani: "Shaam ki
+ * chai") the text says the person's own word (Nasreen R3 should-fix 6).
+ * @param {string|null|undefined} text @param {string} label the 'evening' slot's label
+ */
+export function mealWords(text, label) {
+  if (typeof text !== 'string' || !text) return text ?? null;
+  if (!label || /^merienda$/i.test(label)) return text;
+  return text.replace(/\bmerienda\b/gi, (w) =>
+    w[0] === 'M' ? label : label.charAt(0).toLowerCase() + label.slice(1),
+  );
+}
+
+/**
+ * Where a ready pick (or a plan's 'snacks' row) goes: the merienda ('evening') when the day has
+ * it, never the 00:00–05:00 Snacks (Mariam R3 #5). Matches store.usePlan / addReadyPick.
+ */
+export function readyTarget(store, key) {
+  if (key !== 'snacks') return key;
+  return store.slots(store.today()).some((s) => s.id === 'evening') ? 'evening' : key;
+}
+
 /** The result line after "Use this week". */
 export function usedText(r, plan, sunday) {
   const parts = [];
@@ -60,7 +82,7 @@ export function usedText(r, plan, sunday) {
  * @param {{ store: object, notes: Map<string,string>, onChange: Function }} opts
  * @returns {HTMLElement[]} the section's children ([] when the Lab file is missing)
  */
-export function plansSection({ store, notes, onChange }) {
+export function plansSection({ store, notes, onChange, onShop = null }) {
   const plans = store.weeklyPlans();
   if (!plans.length) return [];
   const monday = planMonday(store.today());
@@ -75,21 +97,22 @@ export function plansSection({ store, notes, onChange }) {
     h(
       'ul',
       { class: 'plan-list', role: 'list' },
-      plans.map((plan) => planCard(plan, { store, notes, onChange, monday, friday })),
+      plans.map((plan) => planCard(plan, { store, notes, onChange, onShop, monday, friday })),
     ),
   ];
 }
 
-function planCard(plan, { store, notes, onChange, monday, friday }) {
+function planCard(plan, { store, notes, onChange, onShop, monday, friday }) {
   const avg = planAverages(plan);
   const sunday = addDays(monday, -1);
   const batches = Array.isArray(plan.batches) ? plan.batches : [];
   const name = (id) => store.food(id)?.name ?? id;
+  const words = (t) => mealWords(t, store.slotLabel('evening'));
   return h(
     'li',
     { class: 'card plan-card', 'data-testid': 'plan-card', 'data-plan': plan.id },
     h('h4', { class: 'plan-name' }, plan.name),
-    plan.pitch ? h('p', { class: 'plan-pitch' }, plan.pitch) : null,
+    plan.pitch ? h('p', { class: 'plan-pitch' }, words(plan.pitch)) : null,
     h(
       'p',
       { class: 'plan-facts', 'data-testid': 'plan-facts' },
@@ -123,7 +146,7 @@ function planCard(plan, { store, notes, onChange, monday, friday }) {
                 null,
                 h('strong', null, `${b.when}: `),
                 `${name(b.foodId)}${b.from === 'freezer' ? ' (from the freezer)' : ` × ${b.boxes}`}`,
-                b.note ? h('span', { class: 'muted' }, ` · ${b.note}`) : null,
+                b.note ? h('span', { class: 'muted' }, ` · ${words(b.note)}`) : null,
               ),
             ),
           ),
@@ -145,6 +168,19 @@ function planCard(plan, { store, notes, onChange, monday, friday }) {
       iconEl('calendar', 18),
       h('span', null, `Use this week · ${weekRange(monday, friday)}`),
     ),
+    onShop
+      ? h(
+          'button',
+          {
+            type: 'button',
+            class: 'btn btn-quiet btn-block',
+            'data-testid': 'plan-shopping',
+            onclick: () => onShop(plan),
+          },
+          iconEl('copy', 18),
+          h('span', null, 'Shopping list'),
+        )
+      : null,
     noteEl(notes.get(plan.id) ?? null, 'info', 'plan-note'),
   );
 }
@@ -154,17 +190,30 @@ function planCard(plan, { store, notes, onChange, monday, friday }) {
  * @returns {HTMLElement[]}
  */
 export function readySection({ store }) {
-  const rows = READY_SLOTS.map((slot) => ({ slot, picks: store.readyPicks(slot) })).filter(
-    (r) => r.picks.length,
-  );
+  const rows = READY_SLOTS.map((key) => ({
+    key,
+    slot: readyTarget(store, key),
+    picks: store.readyPicks(key),
+  })).filter((r) => r.picks.length);
   if (!rows.length) return [];
+  const words = (t) => mealWords(t, store.slotLabel('evening'));
   return [
     h('h3', { class: 'section-title', id: 'prep-ready' }, 'Ready to eat'),
-    h('p', { class: 'muted plan-lead' }, 'No cooking: buy, open, eat. One tap adds it to today.'),
-    rows.map(({ slot, picks }) =>
+    h(
+      'p',
+      { class: 'muted plan-lead' },
+      'Buy and eat: little or no cooking. One tap adds it to today.',
+    ),
+    rows.map(({ key, slot, picks }) =>
       h(
         'div',
-        { class: 'ready-slot', 'data-testid': 'ready-row', 'data-slot': slot },
+        // data-slot: the Lab's key (as before); data-target-slot: the meal it goes in (R3-A).
+        {
+          class: 'ready-slot',
+          'data-testid': 'ready-row',
+          'data-slot': key,
+          'data-target-slot': slot,
+        },
         h('p', { class: 'ready-slot-title' }, store.slotLabel(slot)),
         h(
           'div',
@@ -176,9 +225,10 @@ export function readySection({ store }) {
                 type: 'button',
                 class: 'ready-pick',
                 'data-testid': 'ready-pick',
-                'data-slot': slot,
+                'data-slot': key,
+                'data-target-slot': slot,
                 'aria-label': `Add ${pick.name} to today’s ${store.slotLabel(slot).toLowerCase()}`,
-                onclick: () => store.addReadyPick({ slot, index: i, date: store.today() }),
+                onclick: () => store.addReadyPick({ slot: key, index: i, date: store.today() }),
               },
               h('span', { class: 'ready-pick-name' }, pick.name),
               h(
@@ -186,7 +236,7 @@ export function readySection({ store }) {
                 { class: 'ready-pick-macros' },
                 `${Math.round(pick.kcal)} kcal · ${Math.round(pick.protein)} g protein`,
               ),
-              pick.note ? h('span', { class: 'ready-pick-note' }, pick.note) : null,
+              pick.note ? h('span', { class: 'ready-pick-note' }, words(pick.note)) : null,
             ),
           ),
         ),

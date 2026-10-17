@@ -14,6 +14,7 @@ import { addDays, fmtDateShort, fmtDateLong, relativeDay } from '../components/f
 import { useByText, boxWord, frozenDueText, pluralWord } from '../components/prep-bits.js';
 import { rowName } from '../components/food-bits.js';
 import { renderTipCard, renderRamadanBar, renderFluidsLine } from '../components/day-tips.js';
+import { setPrepIntent } from '../components/prep-intent.js';
 
 /**
  * @param {HTMLElement} container
@@ -531,7 +532,7 @@ export function mount(container, ctx) {
     todayBtn.hidden = date === today;
 
     totals.update(date);
-    renderPrep(today);
+    const tonight = renderPrep(today);
 
     const focusKey = document.activeElement?.dataset?.focusKey ?? null;
     const day = store.day(date);
@@ -572,6 +573,13 @@ export function mount(container, ctx) {
         }),
       ),
     );
+    // Tonight's card sits right above the meal you are in (R3-A, Mariam #3): opening at the
+    // current meal keeps it on screen, at 13:30 and at 20:30 alike.
+    if (tonight) {
+      const at = slotsBox.querySelector(`[data-testid="slot-${store.defaultSlot(date)}"]`);
+      if (at) at.before(tonight);
+      else prepBox.append(tonight);
+    }
     if (focusKey && !document.querySelector('dialog[open]')) {
       container.querySelector(`[data-focus-key="${CSS.escape(focusKey)}"]`)?.focus();
     }
@@ -645,54 +653,134 @@ export function mount(container, ctx) {
     return null;
   }
 
-  /** "Tonight": frozen boxes for tomorrow, one tap each (A18 step 4). Only on today's page. */
+  /**
+   * "Tonight" (A18 step 4, R3-A): frozen boxes for tomorrow (one tap each), the part of tomorrow's
+   * box cooked the night before (the bolognese penne), and planned preps with no box made yet
+   * (a weekly plan's weekday jobs), with a Make button. Only on today's page. The spare line goes
+   * in the top box; the Tonight card is returned for render() to put above the current meal.
+   */
   function renderPrep(today) {
-    const move = date === today ? store.prepNotices(today).moveTonight : [];
-    mountChildren(
-      prepBox,
-      date === today ? spareLine(today) : null,
-      move.length
-        ? h(
-            'section',
+    const notes = date === today ? store.prepNotices(today) : null;
+    mountChildren(prepBox, date === today ? spareLine(today) : null);
+    const move = notes?.moveTonight ?? [];
+    const later = notes?.later ?? [];
+    const make = notes?.make ?? [];
+    const jobs = notes?.jobs ?? [];
+    if (!move.length && !later.length && !make.length && !jobs.length) return null;
+    const makeIt = (foodId) =>
+      h(
+        'button',
+        {
+          type: 'button',
+          class: 'btn btn-secondary',
+          'data-testid': 'tonight-make-btn',
+          onclick: () => {
+            setPrepIntent({ cook: foodId });
+            router.go({ name: 'prep', params: {} });
+          },
+        },
+        `${verbFor(foodId)} it`,
+      );
+    const meal = (slot) => (slot ? store.slotLabel(slot).toLowerCase() : 'meal');
+    const dish = (foodId, fallback) => {
+      const f = store.food(foodId);
+      return (f && rowName(f)) ?? fallback;
+    };
+    return h(
+      'div',
+      { class: 'day-prep day-prep--tonight' },
+      h(
+        'section',
+        {
+          class: 'card prep-tonight',
+          'data-testid': 'move-tonight',
+          'aria-label': 'Meal prep tonight',
+        },
+        // One line (Meeting 004 B2): the short sentence shows; the dish name is read out and
+        // shown on hover, as the full sentence.
+        move.map((m) => {
+          const where = m.slot ? `’s ${meal(m.slot)}` : '';
+          const full = `Tonight: take box ${m.number} of ${m.name} out of the freezer for tomorrow${where}.`;
+          return h(
+            'div',
+            { class: 'tonight-row' },
+            h(
+              'p',
+              { class: 'tonight-text', title: full },
+              h(
+                'span',
+                { 'aria-hidden': 'true' },
+                h('strong', null, 'Tonight:'),
+                ` box ${m.number} out of the freezer, for tomorrow${where}`,
+              ),
+              h('span', { class: 'sr-only' }, full),
+            ),
+            h(
+              'button',
+              {
+                type: 'button',
+                class: 'btn btn-secondary',
+                'data-testid': 'move-to-fridge',
+                onclick: () => store.setBoxStorage(m.batchId, m.boxId, 'fridge'),
+              },
+              'Move to fridge',
+            ),
+          );
+        }),
+        later.map((l) =>
+          h(
+            'div',
+            { class: 'tonight-row tonight-row--job', 'data-testid': 'tonight-later' },
+            h(
+              'p',
+              { class: 'tonight-job' },
+              h('strong', null, 'Tonight:'),
+              ` for tomorrow’s ${meal(l.slot)}, ${dish(store.batch(l.batchId)?.recipeId, l.name)}`,
+              h(
+                'span',
+                { class: 'tonight-job-what' },
+                l.job ?? 'it has a part you cook the night before: see How to make it in Prep.',
+              ),
+            ),
+          ),
+        ),
+        jobs.map((j) =>
+          h(
+            'div',
+            { class: 'tonight-row tonight-row--job', 'data-testid': 'tonight-plan-job' },
+            h('p', { class: 'tonight-job' }, h('strong', null, 'Tonight:'), ` ${j.text}`),
+            j.make ? makeIt(j.recipeId) : null,
+          ),
+        ),
+        make.map((m) => {
+          return h(
+            'div',
             {
-              class: 'card prep-tonight',
-              'data-testid': 'move-tonight',
-              'aria-label': 'Meal prep tonight',
+              class: 'tonight-row tonight-row--job',
+              'data-testid': 'tonight-make',
+              'data-food-id': m.foodId,
+              'data-date': m.date,
             },
-            // One line (Meeting 004 B2): the short sentence shows; the dish name is read out and
-            // shown on hover, as the full sentence.
-            move.map((m) => {
-              const meal = m.slot ? `’s ${store.slotLabel(m.slot).toLowerCase()}` : '';
-              const full = `Tonight: take box ${m.number} of ${m.name} out of the freezer for tomorrow${meal}.`;
-              return h(
-                'div',
-                { class: 'tonight-row' },
-                h(
-                  'p',
-                  { class: 'tonight-text', title: full },
-                  h(
-                    'span',
-                    { 'aria-hidden': 'true' },
-                    h('strong', null, 'Tonight:'),
-                    ` box ${m.number} out of the freezer, for tomorrow${meal}`,
-                  ),
-                  h('span', { class: 'sr-only' }, full),
-                ),
-                h(
-                  'button',
-                  {
-                    type: 'button',
-                    class: 'btn btn-secondary',
-                    'data-testid': 'move-to-fridge',
-                    onclick: () => store.setBoxStorage(m.batchId, m.boxId, 'fridge'),
-                  },
-                  'Move to fridge',
-                ),
-              );
-            }),
-          )
-        : null,
+            h(
+              'p',
+              { class: 'tonight-job' },
+              h('strong', null, m.when === 'today' ? 'Today:' : 'Tonight:'),
+              m.when === 'today'
+                ? ` ${dish(m.foodId, m.name)} for your ${meal(m.slot)}.`
+                : ` make tomorrow’s ${meal(m.slot)}, ${dish(m.foodId, m.name)}.`,
+              h('span', { class: 'tonight-job-what' }, 'No box made yet.'),
+            ),
+            makeIt(m.foodId),
+          );
+        }),
+      ),
     );
+  }
+
+  /** 'Make' for a library prep that needs no hob or oven, else 'Cook'. */
+  function verbFor(foodId) {
+    const lib = store.library().find((x) => x.food.id === foodId)?.recipe;
+    return lib && lib.effort && lib.effort !== 'cook' ? 'Make' : 'Cook';
   }
 
   /**
@@ -828,8 +916,12 @@ export function mount(container, ctx) {
           : window.innerHeight;
       const r = section.getBoundingClientRect();
       const need = Math.min(r.bottom, r.top + 150); // the heading and the first food
-      if (r.top >= top && need <= bottom) return;
-      window.scrollTo({ top: Math.max(0, window.scrollY + r.top - top - 8), behavior: 'instant' });
+      // Tonight's card sits just above this meal (R3-A): it comes into view with it.
+      const card = slotsBox.querySelector('.day-prep--tonight');
+      const from =
+        card && card.nextElementSibling === section ? card.getBoundingClientRect().top : r.top;
+      if (from >= top && need <= bottom) return;
+      window.scrollTo({ top: Math.max(0, window.scrollY + from - top - 8), behavior: 'instant' });
     });
   }
 

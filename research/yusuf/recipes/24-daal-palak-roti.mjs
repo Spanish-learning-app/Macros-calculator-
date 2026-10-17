@@ -1,5 +1,8 @@
 // R-MP-24 · Masoor daal palak (red lentils with spinach), protein raita and 2 wholemeal roti (dinner).
-import { rotiComponent, ROTI_REFS } from '../shared.mjs';
+import { rotiComponent, rotiSteps, ROTI_REFS } from '../shared.mjs';
+
+// R3-B: dough first, curry in the fridge on a timer, one action per roti step, roti cooled before bagging.
+const R = rotiSteps({ count: 8, atta: 235, water: 165, cups: 'about 2 cups', waterCups: 'a little under ¾ cup' });
 
 export default {
   n: 24,
@@ -49,7 +52,7 @@ export default {
       ],
     },
     {
-      id: 'raita', label: 'Greek-yogurt raita pot', pot: 'raita', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      id: 'raita', label: 'Greek-yogurt raita pot', fresh: { again: 'Mix 2 more raita pots later in the week (3 min).' }, pot: 'raita', storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['yogurt-greek-light', 600, '150 g per pot'],
         ['cucumber', 160, 'grated, squeezed'],
@@ -65,29 +68,25 @@ export default {
     prep: [
       'Rinse the red lentils (masoor, 280 g, about 1⅓ cups) in the sieve 3 times, until the water is almost clear.',
       'Chop 2 medium tomatoes (200 g). Peel and grate a 3 cm piece of ginger (10 g).',
-      'For the tarka: slice 1 medium onion thin (160 g), peel and slice 5 garlic cloves thin (15 g), and slit 1–2 green chillies (8 g).',
+      'For the tarka: slice {{n:onion}} thin, peel and slice 5 garlic cloves thin (15 g), and slit 1–2 green chillies (8 g).',
     ],
     steps: [
-      { text: 'Put the lentils in the large pot with 1 litre water, the tomatoes, the ginger, ⅔ tsp haldi (turmeric powder, 2 g), 1 tsp red chilli powder (3 g), 2 tsp ground coriander (4 g) and 1⅓ tsp salt (8 g). Bring to the boil.', heat: 'high', minutes: 5 },
-      { text: 'Spoon off the foam. Lid half on, simmer, stirring every 5 minutes so it does not stick, until the lentils have melted and the daal is thick.', heat: 'low', minutes: 25 },
-      { text: 'Stir in the frozen spinach (400 g) and simmer until it has melted in.', heat: 'low', minutes: 10 },
-      { text: 'Tarka: in the small pan heat 2⅓ tbsp oil (32 g) for 1 minute. Add 2 tsp zeera (whole cumin seeds, 4 g) and let them sizzle 20–30 seconds.', heat: 'medium', minutes: 1 },
+      ...R.dough,
+      { text: 'Put the lentils in the large pot with 1 litre water, the tomatoes, the ginger, a heaped ½ tsp haldi (turmeric powder, 2 g), 1 tsp red chilli powder (3 g), 2 tsp ground coriander (4 g) and 1¼ tsp salt (8 g). Bring to the boil.', heat: 'high', minutes: 5 },
+      { text: 'Spoon off the foam. Lid half on, simmer, stirring every 5 minutes so it does not stick, until the lentils have melted and the daal is thick.', heat: 'low', minutes: 25, wait: true },
+      { text: 'Stir in the frozen spinach ({{n:spinach-frozen}}) and simmer until it has melted in.', heat: 'low', minutes: 10, wait: true },
+      { text: 'Tarka: in the small pan heat 2 tbsp + 1 tsp oil (32 g) for 1 minute. Add 2 tsp zeera (whole cumin seeds, 4 g) and let them sizzle 20–30 seconds.', heat: 'medium', minutes: 1 },
       { text: 'Add the sliced onion and stir until golden brown.', heat: 'medium', minutes: 8 },
       { text: 'Add the garlic and green chillies and stir until the garlic is light golden (not dark: dark garlic is bitter).', heat: 'medium', minutes: 1 },
-      { text: 'Pour the hot tarka over the daal (stand back, it sizzles), stir in 1⅓ tbsp lemon juice (20 g) and turn off the heat. Spread on the tray to cool while you make the roti.', heat: 'none' },
-      { text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.', heat: 'none', minutes: 3 },
-      { text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.', heat: 'none', minutes: 5 },
-      { text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).', heat: 'none', minutes: 20 },
-      { text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.', heat: 'none' },
-      { text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.', heat: 'medium-high', minutes: 2 },
-      { text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.', heat: 'none' },
-      { text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).', heat: 'medium-high', minutes: 12 },
-      { text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.', heat: 'none' },
-      { text: 'Pack 4 portions: ¼ of the daal in a box, 2 roti in a small bag.', heat: 'none' },
-      { text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt, a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week.', heat: 'none', minutes: 3 },
+      { text: 'Pour the hot tarka over the daal (stand back, it sizzles), stir in 1 tbsp + 1 tsp lemon juice (20 g) and turn off the heat.', heat: 'none' },
+      { text: 'Check: the lentils have broken down completely, a spoon dragged through leaves a trail, and the tarka onions are golden. Watery? Simmer 5 minutes more, stirring.', heat: 'none', check: true },
+      R.cool('daal'),
+      ...R.cook,
+      { text: 'Pack 4 portions: ¼ of the cold daal in a box, 2 cooled roti in a small bag.', heat: 'none', pack: true },
+      { text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt, a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week.', heat: 'none', minutes: 3, during: true },
     ],
     doneWhen: 'The lentils have broken down completely, a spoon dragged through leaves a trail, and the tarka onions are golden. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-    boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer with their roti; eat within 2 months (the daal alone keeps 3 months). The raita keeps 2 days and does not freeze.',
+    boxUp: 'Cool on a wide tray and put away within 1 hour. {{split}} Each portion goes with its 2 roti; the roti set the limits (the daal alone keeps 3 months frozen). The raita keeps 2 days and does not freeze.',
     reheat: 'Move a frozen portion to the fridge the night before. Daal thickens in the freezer: add 3–4 tbsp water, then microwave covered 3 minutes, stirring halfway, or warm it in a pan, until bubbling hot all through. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
     tips: [
       'Halal: lentils, vegetables, flour and yogurt only. Check the yogurt label (no gelatine).',
@@ -97,8 +96,8 @@ export default {
       'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.',
     ],
   },
-  keeps: '3 days fridge; 2 months frozen (raita 2 days)',
-  storagePlan: 'Daal 3 days in the fridge, 3 months frozen (cooked-curry); roti 2 months frozen. Raita does not freeze: mix 2 pots on Sunday and 2 later in the week.',
+  keepsNote: 'raita made fresh',
+  storagePlan: '{{split}} Daal 3 days in the fridge, 3 months frozen (cooked-curry); roti 2 days, 2 months frozen. Raita does not freeze: mix 2 pots on Sunday and 2 later in the week.',
   reheat: 'Daal thickens in the freezer: reheat in a pan or microwave (covered, 3 min, stirring) with 3–4 tbsp water until bubbling hot (75 °C). The added water is not counted. Roti on a hot tawa; raita cold.',
   crossCheck: null,
   extraChecks: [{ zainab: 'masoor-daal-home', comps: ['daal'], note: "Zainab's home masoor daal is thinner (more water) and has more oil per portion; ours is a thick freezer daal, so per 100 g it should be denser." }],

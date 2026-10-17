@@ -1,11 +1,14 @@
 // R-MP-22 · Aloo gosht (halal beef and potato curry) with 2 wholemeal roti (freezer dinner portion).
-import { rotiComponent, ROTI_REFS } from '../shared.mjs';
+import { rotiComponent, rotiSteps, ROTI_REFS } from '../shared.mjs';
+
+// R3-B: dough first, curry in the fridge on a timer, one action per roti step, roti cooled before bagging.
+const R = rotiSteps({ count: 8, atta: 235, water: 165, cups: 'about 2 cups', waterCups: 'a little under ¾ cup' });
 
 export default {
   n: 22,
   effort: 'cook',
   minutes: 55,
-  timeNote: 'About 2 hours start to finish: the beef simmers 70 min, hands off, while you make the roti.', // minutes = hands-on; this is the waiting a beginner must plan for
+  waitNote: 'the beef simmers 70 min, hands off, while the roti dough rests',
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
@@ -57,31 +60,27 @@ export default {
     equipment: ['Heavy pot or casserole (3–4 l) with a lid (or a pressure cooker)', 'Wooden spoon', 'Grater', 'Big mixing bowl', 'Rolling pin (belan) and a clean worktop for rolling', 'Tawa or a dry non-stick frying pan (26–28 cm)', 'Clean tea towel', 'Wide tray for cooling', '4 freezer boxes'],
     prep: [
       'Cut the beef (600 g, boneless) into 3 cm cubes if the butcher has not.',
-      'Slice 1 large onion thin (200 g). Chop 2 medium tomatoes (240 g).',
+      'Slice {{n:onion}} thin. Chop 2 medium tomatoes (240 g).',
       'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.',
-      'Peel 4 medium potatoes (600 g) and cut each in half. Keep them in a bowl of cold water.',
+      'Peel {{n:potato}} and cut them into 8 big chunks (about 75 g each). Keep them in a bowl of cold water.',
       'Whisk the yogurt (60 g, 4 tbsp) smooth. Chop a small handful of coriander (8 g).',
     ],
     steps: [
+      ...R.dough,
       { text: 'Heat 2½ tbsp sunflower oil (36 g) in the pot for 1 minute. Add the onion and stir every minute or two until golden brown (not dark).', heat: 'medium', minutes: 10 },
       { text: 'Add the ginger-garlic paste and the beef. Turn the heat up and stir until the meat is browned on the outside.', heat: 'high', minutes: 5 },
-      { text: 'Add the tomatoes and the whisked yogurt, then 1⅓ tsp salt (8 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 tsp ground cumin (2 g).', heat: 'medium' },
+      { text: 'Add the tomatoes and the whisked yogurt, then 1¼ tsp salt (8 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g) and 1 tsp ground cumin (2 g).', heat: 'medium' },
       { text: 'Stir and cook until the tomato has melted into a thick paste and the oil separates at the edges ("bhunai"). If it sticks, add 2 tbsp of the measured water.', heat: 'medium', minutes: 9 },
-      { text: 'Add 400 ml water. Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry.', heat: 'low', minutes: 70 },
-      { text: 'Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny.', heat: 'low', minutes: 22 },
-      { text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander. Spread on the wide tray to cool; make the roti meanwhile.', heat: 'none' },
-      { text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.', heat: 'none', minutes: 3 },
-      { text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.', heat: 'none', minutes: 5 },
-      { text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).', heat: 'none', minutes: 20 },
-      { text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.', heat: 'none' },
-      { text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.', heat: 'medium-high', minutes: 2 },
-      { text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.', heat: 'none' },
-      { text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).', heat: 'medium-high', minutes: 12 },
-      { text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.', heat: 'none' },
-      { text: 'Pack 4 portions: 2 potato halves, ¼ of the beef and shorba in each box, and 2 roti in a small bag.', heat: 'none' },
+      { text: 'Add 400 ml water. Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry.', heat: 'low', minutes: 70, wait: true },
+      { text: 'Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny.', heat: 'low', minutes: 22, wait: true },
+      { text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander.', heat: 'none' },
+      { text: 'Check: a piece of beef breaks apart easily with a spoon and a knife slides into the potatoes. Firm? Lid on, 10 minutes more.', heat: 'none', check: true },
+      R.cool('aloo gosht'),
+      ...R.cook,
+      { text: 'Pack 4 portions: 2 potato chunks, ¼ of the cold beef and shorba in each box, and 2 cooled roti in a small bag.', heat: 'none', pack: true },
     ],
     doneWhen: 'The beef breaks apart easily with a spoon, the potatoes are soft right through, and the shorba is thin. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-    boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months. Potatoes go a little softer after freezing; that is normal.',
+    boxUp: 'Cool on a wide tray and put away within 1 hour. {{split}} Each portion goes with its 2 roti. Potatoes go a little softer after freezing; that is normal.',
     reheat: 'Move a frozen portion to the fridge the night before. Microwave covered 3–4 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first, then 4 minutes). Add a splash of water if the shorba has thickened. Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
     tips: [
       'Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).',
@@ -92,8 +91,7 @@ export default {
       'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.',
     ],
   },
-  keeps: '3 days fridge; 2 months frozen',
-  storagePlan: 'Portion 1 in the fridge; portions 2–4 in the freezer. Potatoes in a curry freeze well enough at home; they are a little softer after thawing.',
+  storagePlan: '{{split}} Potatoes in a curry freeze well enough at home; they are a little softer after thawing.',
   reheat: 'Microwave covered 3–4 min from the fridge, or defrost then 4 min from frozen, stirring, until steaming hot (75 °C); add a splash of water if the shorba has thickened. Roti on a hot tawa.',
   crossCheck: null,
   extraChecks: [{ zainab: 'aloo-gosht-home', comps: ['gosht'], note: "Zainab's home aloo gosht carries more shorba and oil per kg of beef; ours should be denser in protein." }],

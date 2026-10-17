@@ -1,6 +1,7 @@
 // R-MP-62 · Menemen: Turkish eggs with peppers and tomato, with bread (breakfast portion). Batch: 2 portions.
 export default {
   n: 62,
+  eatNow: 1, // portion 1 is that morning's breakfast
   slot: 'breakfast',
   serving: 'portion',
   boxes: 2,
@@ -44,24 +45,23 @@ export default {
   method: {
     equipment: ['Frying pan (24–28 cm)', 'Bowl and fork for the eggs', 'Grater', 'Wooden spoon', '1 box for tomorrow'],
     prep: [
-      'Chop the onion (80 g, ½ small onion) into 5 mm pieces. Dice the green peppers (200 g) into 1 cm pieces.',
-      'Grate the tomatoes (300 g, 3 medium) on the big holes of the grater and throw away the skins (or chop them small).',
-      'Crack 6 eggs into the bowl. Add a pinch of chilli powder or pul biber (1 g) and ⅓ tsp salt (2 g). Beat with the fork.',
+      'Chop {{n:onion}} into 5 mm pieces. Dice {{n:pepper-green}} into 1 cm pieces.',
+      'Grate {{n:tomato}} on the big holes of the grater and throw away the skins (or chop them small).',
+      'Crack 6 eggs into the bowl. Add a pinch of chilli powder or pul biber (1 g) and a heaped ¼ tsp salt (2 g). Beat with the fork.',
     ],
     steps: [
       { text: 'Heat 2 tsp olive oil (10 g) in the pan for 1 minute.', heat: 'medium', minutes: 1 },
       { text: 'Add the onion and peppers. Cook, stirring now and then, until soft.', heat: 'medium', minutes: 6 },
       { text: 'Add the tomato. Cook until most of the juice has gone and it looks like a thick sauce.', heat: 'medium', minutes: 5 },
       { text: 'Turn the heat down to low. Pour in the eggs.', heat: 'low' },
-      { text: 'Stir slowly with the spoon, scraping the bottom, until the eggs are just set and creamy.', heat: 'low', minutes: 3 },
-      { text: 'Take the pan off the heat. Eat half now with ½ roll (65 g); put the other half in the box.', heat: 'none' },
+      { text: 'Stir slowly with the spoon, scraping the bottom, until the eggs are just set and creamy: no runny raw egg is left.', heat: 'low', minutes: 3, check: true },
+      { text: 'Take the pan off the heat. Eat half now with ½ roll (65 g); put the other half in the box.', heat: 'none', pack: true },
     ],
     doneWhen: 'No runny raw egg is left: the eggs are soft, set curds.',
-    boxUp: 'Cool the second portion for no more than 1 hour, then put it in the fridge and eat it the next morning (egg dishes keep up to 3 days). Do not freeze.',
+    boxUp: 'Cool the second portion for no more than 1 hour. {{split}}',
     reheat: 'Microwave 1 minute, stir, then 30 seconds more until steaming hot all through.',
   },
-  keeps: '2 days in the fridge (the references say 2; egg dishes are allowed 3)',
-  storagePlan: 'Cook 2 portions: one now, one tomorrow.',
+  storagePlan: 'Cook 2 portions at once. {{split}}',
   reheat: 'Microwave 1–1½ min, stirring once, until hot right through (75 °C).',
   crossCheck: null,
   changes: [

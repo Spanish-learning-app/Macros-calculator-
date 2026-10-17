@@ -1,11 +1,14 @@
 // R-MP-23 · Beef seekh kebabs (frozen cooked) with 2 wholemeal roti, kachumber and raita (dinner portion).
-import { rotiComponent, ROTI_REFS } from '../shared.mjs';
+import { rotiComponent, rotiSteps, ROTI_REFS } from '../shared.mjs';
+
+// R3-B: dough first, curry in the fridge on a timer, one action per roti step, roti cooled before bagging.
+const R = rotiSteps({ count: 8, atta: 235, water: 165, cups: 'about 2 cups', waterCups: 'a little under ¾ cup' });
 
 export default {
   n: 23,
   effort: 'cook',
   minutes: 60,
-  timeNote: 'About 1 h 45 min start to finish with the roti: the kebab mix chills 30 min first.', // minutes = hands-on; this is the waiting a beginner must plan for
+  waitNote: 'the kebab mix chills 30 min first',
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,
@@ -50,7 +53,7 @@ export default {
     },
     rotiComponent(8),
     {
-      id: 'kachumber', label: 'Kachumber salad pot', pot: 'salad', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      id: 'kachumber', label: 'Kachumber salad pot', fresh: { again: 'Make the kachumber on the day you eat a portion, or the night before (5 min).' }, pot: 'salad', storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['tomato', 320, 'diced'],
         ['cucumber', 320, 'diced'],
@@ -61,7 +64,7 @@ export default {
       ],
     },
     {
-      id: 'raita', label: 'Mint raita pot', pot: 'raita', storage: 'cold-salad', yield: 'none', eat: 'cold',
+      id: 'raita', label: 'Mint raita pot', fresh: { again: 'Mix the raita on the day, or the night before (2 min).' }, pot: 'raita', storage: 'cold-salad', yield: 'none', eat: 'cold',
       lines: [
         ['yogurt-whole', 240, '60 g per pot'],
         ['mint', 4, ''],
@@ -76,26 +79,21 @@ export default {
       'Peel ½ medium onion (80 g), 4 garlic cloves (12 g) and a 3 cm piece of ginger (10 g).',
     ],
     steps: [
+      ...R.dough,
       { text: 'Blitz the onion, 2–3 green chillies (12 g), a handful of coriander (12 g), a few mint leaves (6 g), the garlic and the ginger until finely chopped (or grate the onion, garlic and ginger and chop the rest very fine). Squeeze the mix hard in the tea towel to get the onion juice out.', heat: 'none', minutes: 5 },
       { text: 'In the bowl add the mince (640 g), 1½ tsp roasted ground cumin (3 g), 2 tsp crushed coriander seeds (4 g), 1 tsp red chilli powder (3 g), 1½ tsp garam masala (3 g) and 1½ tsp salt (9 g). Knead with your hand 3–4 minutes until sticky.', heat: 'none', minutes: 4 },
-      { text: 'Cover and chill 30 minutes so the kebabs hold together.', heat: 'none', minutes: 30 },
+      { text: 'Cover and chill 30 minutes so the kebabs hold together.', heat: 'none', minutes: 30, wait: true },
       { text: 'Heat the oven to 220 °C. Brush the lined tray with the oil (16 g, about 1 tbsp + 1 tsp).', heat: 'oven-220', minutes: 10 },
       { text: 'With wet hands shape 16 long kebabs of about 50 g (12 cm long), on skewers or straight on the tray. Roll them in the oil on the tray.', heat: 'none', minutes: 8 },
       { text: 'Bake 9 minutes, turn them, then 6–9 minutes more until browned.', heat: 'oven-220', minutes: 17 },
-      { text: 'Cool the kebabs on the rack while you make the roti.', heat: 'none' },
-      { text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.', heat: 'none', minutes: 3 },
-      { text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.', heat: 'none', minutes: 5 },
-      { text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).', heat: 'none', minutes: 20 },
-      { text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.', heat: 'none' },
-      { text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.', heat: 'medium-high', minutes: 2 },
-      { text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.', heat: 'none' },
-      { text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).', heat: 'medium-high', minutes: 12 },
-      { text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.', heat: 'none' },
-      { text: 'Pack 4 kebabs and 2 roti per freezer bag.', heat: 'none' },
-      { text: 'Kachumber and raita (no cooking), on the day or the night before, for 1 portion: dice 80 g tomato, 80 g cucumber and 30 g red onion (1 cm); toss with 1½ tsp lemon juice (7 g), a pinch of roasted cumin and a pinch of salt. Raita: 60 g yogurt (4 tbsp) whisked with a few chopped mint leaves, a pinch of cumin and a pinch of salt, in its own pot.', heat: 'none', minutes: 5 },
+      { text: 'Check: break the thickest kebab open. Browned outside, no pink inside, juices clear. Pink? 3 minutes more in the oven.', heat: 'none', check: true },
+      R.cool('kebabs'),
+      ...R.cook,
+      { text: 'Pack 4 cold kebabs and 2 cooled roti per bag.', heat: 'none', pack: true },
+      { text: 'Kachumber and raita (no cooking), on the day or the night before, for 1 portion: dice 80 g tomato, 80 g cucumber and 30 g red onion (1 cm); toss with 1½ tsp lemon juice (7 g), a pinch of roasted cumin and a pinch of salt. Raita: 60 g yogurt (4 tbsp) whisked with a few chopped mint leaves, a pinch of cumin and a pinch of salt, in its own pot.', heat: 'none', minutes: 5, ahead: true },
     ],
     doneWhen: 'Break the thickest kebab open: browned outside, no pink inside, juices clear (75 °C if you have a thermometer). Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-    boxUp: 'Cool and put away within 1 hour. Kebabs and roti go in the freezer (kebabs 3 months, roti 2 months); one bag can stay in the fridge if you eat it within 2 days. Kachumber and raita keep 2 days and cannot be frozen, so mix them fresh for each dinner (5 minutes).',
+    boxUp: 'Cool and put away within 1 hour. {{split}} The roti set the limits: kebabs alone keep 3 months frozen. Kachumber and raita keep 2 days and cannot be frozen, so mix them fresh for each dinner (5 minutes).',
     reheat: 'Kebabs from frozen: oven or air fryer at 200 °C for 10–12 minutes, or microwave 2 minutes then 2 minutes in a hot pan, until hot all through. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel. Kachumber cold. Never microwave the raita or yogurt pot: it splits and goes watery. Eat it cold.',
     tips: [
       'Halal: buy the beef from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).',
@@ -106,8 +104,8 @@ export default {
       'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.',
     ],
   },
-  keeps: 'Kebabs 3 months frozen; salad and raita 2 days',
-  storagePlan: 'Kebabs and roti in the freezer (kebabs 3 months, roti 2 months; fridge 3 and 2 days). Chop the kachumber and mix the raita on the day, or the night before (5 minutes).',
+  keepsNote: 'kachumber and raita made fresh',
+  storagePlan: '{{split}} Kebabs alone keep 3 days or 3 months; the roti set 2 days and 2 months. Chop the kachumber and mix the raita on the day, or the night before (5 minutes).',
   reheat: 'Kebabs from frozen: oven or air fryer at 200 °C for 10–12 min, or microwave 2 min then a hot pan for 2 min, until hot right through (75 °C). Roti on a hot tawa. Salad and raita cold.',
   crossCheck: null,
   extraChecks: [{ zainab: 'seekh-kebab', comps: ['kebab'], note: "Zainab's seekh kebab uses 20% fat mince grilled; ours is 10% fat mince baked." }],

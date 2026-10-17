@@ -1,5 +1,8 @@
 // R-MP-21 · Chicken jalfrezi with peppers and 2 wholemeal roti (freezer dinner portion).
-import { rotiComponent, ROTI_REFS } from '../shared.mjs';
+import { rotiComponent, rotiSteps, ROTI_REFS } from '../shared.mjs';
+
+// R3-B: dough first, curry in the fridge on a timer, one action per roti step, roti cooled before bagging.
+const R = rotiSteps({ count: 8, atta: 235, water: 165, cups: 'about 2 cups', waterCups: 'a little under ¾ cup' });
 
 export default {
   n: 21,
@@ -63,26 +66,22 @@ export default {
       'Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste. Slice 2 green chillies (10 g).',
     ],
     steps: [
+      ...R.dough,
       { text: 'Heat 3 tbsp sunflower oil (40 g) in the pan for 1 minute.', heat: 'medium', minutes: 1 },
       { text: 'Add 1½ tsp zeera (whole cumin seeds, 3 g) and let them sizzle 20–30 seconds.', heat: 'medium', minutes: 1 },
       { text: 'Add the chopped onion and stir until soft and see-through.', heat: 'medium', minutes: 5 },
       { text: 'Add the ginger-garlic paste and stir 1 minute.', heat: 'medium', minutes: 1 },
-      { text: 'Add the puréed tomatoes, then 1 heaped tsp salt (7 g), 2 tsp ground coriander (4 g), ⅔ tsp haldi (turmeric powder, 2 g) and 1 tsp red chilli powder (3 g). Cook, stirring, until it is a thick paste and the oil shows at the edges.', heat: 'medium', minutes: 8 },
+      { text: 'Add the puréed tomatoes, then 1 heaped tsp salt (7 g), 2 tsp ground coriander (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g) and 1 tsp red chilli powder (3 g). Cook, stirring, until it is a thick paste and the oil shows at the edges.', heat: 'medium', minutes: 8 },
       { text: 'Add the chicken. Stir-fry until it is white all through.', heat: 'medium-high', minutes: 7 },
       { text: 'Add the peppers, onion petals and green chillies. Toss 3–4 minutes only, so they stay a bit crisp.', heat: 'high', minutes: 4 },
-      { text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and 2 tsp lemon juice (10 g). Spread on the tray to cool while you make the roti.', heat: 'none' },
-      { text: 'Roti dough (no cooking yet): in a big bowl mix 235 g atta (wholemeal chapati flour, about 2 cups) with a pinch of salt (1 g). Pour in 165 ml water a little at a time, mixing with your fingers, until it comes together in one soft, slightly sticky ball.', heat: 'none', minutes: 3 },
-      { text: 'Knead 5 minutes: push the dough away with the heel of your hand, fold it back, turn it, repeat. Wet your hand if it sticks. It is ready when it is smooth and soft, like an earlobe.', heat: 'none', minutes: 5 },
-      { text: 'Cover the bowl with a damp cloth and let the dough rest 20 minutes (a rested dough rolls thin without tearing).', heat: 'none', minutes: 20 },
-      { text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size). Keep them under the cloth.', heat: 'none' },
-      { text: 'Put the tawa or a dry non-stick frying pan on the hob with no oil and heat it 2 minutes.', heat: 'medium-high', minutes: 2 },
-      { text: 'Dip one ball in dry atta, flatten it with your palm and roll it into a thin circle about 16 cm across (2 mm thick). Turn it a quarter turn every few rolls so it stays round, and dust with flour when it sticks.', heat: 'none' },
-      { text: 'Lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. Cook 30–40 seconds, press the edges gently with a folded cloth so it puffs, then flip once more for 10 seconds. Roll the next roti while this one cooks (about 1½ minutes each, 12 minutes for 8).', heat: 'medium-high', minutes: 12 },
-      { text: 'Stack the cooked roti inside a clean tea towel so they stay soft while they cool.', heat: 'none' },
-      { text: 'Pack 4 portions: ¼ of the curry in a flat freezer bag or box, and 2 roti in a small bag (baking paper between them).', heat: 'none' },
+      { text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and 2 tsp lemon juice (10 g).', heat: 'none' },
+      { text: 'Check: cut the biggest chicken piece. White all through with no pink, the sauce coats it thickly, and the peppers are bright and still a little crunchy. Pink? 2 more minutes on medium.', heat: 'none', check: true },
+      R.cool('jalfrezi'),
+      ...R.cook,
+      { text: 'Pack 4 portions: ¼ of the cold jalfrezi in a flat freezer bag or box, and 2 cooled roti in a small bag (baking paper between them).', heat: 'none', pack: true },
     ],
     doneWhen: 'Jalfrezi: the biggest chicken piece is white all through with no pink, the sauce coats it thickly, and the peppers are bright and still a little crunchy. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',
-    boxUp: 'Cool on a wide tray and put away within 1 hour. Portion 1 in the fridge (eat within 2 days, the roti limit). Portions 2–4 in the freezer, each with its 2 roti; eat within 2 months.',
+    boxUp: 'Cool on a wide tray and put away within 1 hour. {{split}} Each portion goes with its 2 roti.',
     reheat: 'Move a frozen portion to the fridge the night before. Microwave covered 2½–3 minutes, stirring halfway, until steaming hot all through (from frozen: defrost setting first). Reheat once only. Roti: 20–30 seconds a side on a hot dry pan (from frozen, 30–40 seconds a side), or 15 seconds in the microwave under a damp paper towel.',
     tips: [
       'Halal: buy the chicken from the halal butcher (carnicería halal). Check the yogurt label says only milk and cultures (no gelatine).',
@@ -92,8 +91,7 @@ export default {
       'Short on time? Buy fresh or frozen wholemeal roti (chapati) at the Pakistani grocery near the halal butcher and warm each on a dry pan 30 seconds a side. Shop roti are often bigger and some have oil in them, so the numbers in the app change a little.',
     ],
   },
-  keeps: '3 days fridge; 2 months frozen',
-  storagePlan: 'Portion 1 in the fridge; portions 2–4 in the freezer with their roti; move one to the fridge the night before.',
+  storagePlan: '{{split}} Each portion keeps its 2 roti with it.',
   reheat: 'Microwave covered 2½–3 min from the fridge (defrost first from frozen), stirring halfway, until steaming hot (75 °C). Roti on a hot tawa.',
   crossCheck: null,
   changes: [

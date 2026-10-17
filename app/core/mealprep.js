@@ -265,6 +265,37 @@ export function storageIds(recipe, foodIndex, rules) {
   return [anyKnown ? 'cooked-curry' : 'cooked-starch'];
 }
 
+/**
+ * Parts of a recipe cooked later, the night before each box is eaten (R3-A, Mariam #2: the
+ * bolognese penne): storage entries `{ id, later: true, job? }`. They do not shorten the batch's
+ * fridge life; the Day view shows their job the evening before.
+ * @param {object} recipe @returns {{ id: string, job: string|null }[]}
+ */
+function laterParts(recipe) {
+  const own = Array.isArray(recipe?.storage) ? recipe.storage : [];
+  return own
+    .filter((s) => isObject(s) && s.later === true && typeof s.id === 'string')
+    .map((s) => ({
+      id: s.id,
+      job: typeof s.job === 'string' && s.job.trim() ? s.job.trim() : null,
+    }));
+}
+
+/** The storage ids that set the fridge life: all but the parts cooked later. */
+function lifeIds(recipe, foodIndex, rules) {
+  const ids = storageIds(recipe, foodIndex, rules);
+  const later = new Set(laterParts(recipe).map((p) => p.id));
+  if (!later.size) return ids;
+  // An id that is also in the box now (not only later) still counts.
+  const now = new Set(
+    recipe.storage
+      .filter((s) => !(isObject(s) && s.later === true))
+      .map((s) => (isObject(s) ? s.id : s)),
+  );
+  const kept = ids.filter((id) => !later.has(id) || now.has(id));
+  return kept.length ? kept : ids;
+}
+
 function rulesFor(ids, rules) {
   const all = rules?.mealPrep?.storage ?? [];
   const found = ids.map((id) => all.find((s) => s.id === id)).filter(Boolean);
@@ -285,14 +316,16 @@ export function storagePlan(recipe, boxes, foodIndex, rules) {
     throw new RangeError(`boxes must be a whole number >= 1, got ${show(boxes)}`);
   }
   const found = rulesFor(storageIds(recipe, foodIndex, rules), rules);
-  const fridgeDays = fridgeDaysOf(found);
+  const fridgeDays = fridgeDaysOf(rulesFor(lifeIds(recipe, foodIndex, rules), rules));
   // A side pot packed on its own ({ id, pot: true }, e.g. the raita) does not stop the box from
   // being frozen; it still counts for the fridge life.
   // Judged per entry, not per id: the same id can be both in the box and in a side pot (chana
   // chaat: the chaat is a cold salad and so is its raita pot), and the box one still counts.
   const own = Array.isArray(recipe.storage) && recipe.storage.length ? recipe.storage : null;
   const mainIds = own
-    ? own.filter((s) => !(isObject(s) && s.pot === true)).map((s) => (isObject(s) ? s.id : s))
+    ? own
+        .filter((s) => !(isObject(s) && (s.pot === true || s.later === true)))
+        .map((s) => (isObject(s) ? s.id : s))
     : null;
   const main = mainIds ? found.filter((s) => mainIds.includes(s.id)) : found;
   const judged = main.length ? main : found;
@@ -322,7 +355,7 @@ export function boxUseBy(batch, box, recipe, foodIndex, rules) {
     return addDays(box.movedToFridgeOn, rules?.mealPrep?.thawedFridgeDays ?? 1);
   }
   if (box.storage === 'freezer') return null;
-  const found = rulesFor(storageIds(recipe, foodIndex, rules), rules);
+  const found = rulesFor(lifeIds(recipe, foodIndex, rules), rules);
   return addDays(batch.cookedOn, fridgeDaysOf(found));
 }
 
@@ -425,8 +458,14 @@ export function shoppingList(plans, foodIndex, rules = null) {
   const items = new Map();
   for (const plan of plans) {
     checkRecipe(plan?.recipe);
+    // A family pot is counted in katori (Nasreen R3 #7): `boxes` are katori of a pot of potKatori.
+    const pot = plan.recipe.potKatori;
     const base =
-      Number.isFinite(plan.recipe.boxes) && plan.recipe.boxes > 0 ? plan.recipe.boxes : 1;
+      Number.isFinite(pot) && pot > 0
+        ? pot
+        : Number.isFinite(plan.recipe.boxes) && plan.recipe.boxes > 0
+          ? plan.recipe.boxes
+          : 1;
     if (!(Number.isFinite(plan.boxes) && plan.boxes > 0)) {
       throw new RangeError(`boxes must be > 0, got ${show(plan.boxes)}`);
     }
