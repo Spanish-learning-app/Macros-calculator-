@@ -12,7 +12,7 @@ Record `pk-chicken-tikka-rice-box` in `app/data/foods-mealprep.js` · library pa
 
 **Eat:** hot (microwave). **Halal:** halal: Chicken from a halal butcher; yogurt is milk and cultures only (label checked 2026-10-13). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 25 min hands-on, about 1 h 20 min start to finish for the batch of 4. About 1 h 20 min start to finish (25 min of it hands-on), plus 4 h 5 min started ahead: start the night before, so the chicken marinates at least 4 hours.
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 30 min hands-on, about 1 h 25 min start to finish for the batch of 4. About 1 h 25 min start to finish (30 min of it hands-on), plus 4 h 5 min started ahead: start the night before, so the chicken marinates at least 4 hours.
 
 ## One box at a glance
 

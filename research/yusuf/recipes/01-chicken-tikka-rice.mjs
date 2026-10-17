@@ -1,6 +1,7 @@
 // R-MP-1 · Chicken tikka rice bowl with a raita pot. Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 1,
+  prepMinutes: 15, // cutting the thighs, a ginger-garlic paste, peppers, onion petals, rinsing the rice
   effort: 'cook',
   minutes: 40,
   waitNote: 'start the night before, so the chicken marinates at least 4 hours',

@@ -70,8 +70,8 @@ export default [
       { foodId: 'intl-mint-fresh', grams: 8, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 25,
-    totalMinutes: 80,
+    minutes: 30,
+    totalMinutes: 85,
     keep: {
       fridgeDays: 1,
       fridge: 1,
@@ -87,7 +87,7 @@ export default [
       ],
     },
     cuisine: 'desi',
-    timeNote: 'About 1 h 20 min start to finish (25 min of it hands-on), plus 4 h 5 min started ahead: start the night before, so the chicken marinates at least 4 hours.',
+    timeNote: 'About 1 h 25 min start to finish (30 min of it hands-on), plus 4 h 5 min started ahead: start the night before, so the chicken marinates at least 4 hours.',
     pitch: 'Oven-grilled thigh tikka with peppers over matar rice; cool raita in its own pot.',
     references: [
       { title: 'SOS Cuisine, Chicken tikka', url: 'https://www.soscuisine.com/recipe/1068' },
@@ -548,8 +548,8 @@ export default [
       { foodId: 'intl-cucumber', grams: 120, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 45,
-    totalMinutes: 165,
+    minutes: 50,
+    totalMinutes: 170,
     keep: {
       fridgeDays: 3,
       fridge: 3,
@@ -571,7 +571,7 @@ export default [
       ],
     },
     cuisine: 'desi',
-    timeNote: 'About 2 h 45 min start to finish (45 min of it hands-on): soak the chana dal 1 hour first; the dal simmers 35 min, hands off.',
+    timeNote: 'About 2 h 50 min start to finish (50 min of it hands-on): soak the chana dal 1 hour first; the dal simmers 35 min, hands off.',
     pitch: 'Three beef-and-chana shami kebabs, pita, crunchy salad and a mint-yogurt pot: build it at your desk, cold or warm.',
     cost: {
       perBoxEur: 3.25,
@@ -630,6 +630,7 @@ export default [
         {
           text: 'With wet hands shape 12 flat round patties (about 75 g each, 1 cm thick). Smooth any cracks on the edges.',
           heat: 'none',
+          minutes: 6,
         },
         {
           text: 'Beat the second egg on a plate. Heat half the oil (12 g, a little under 1 tbsp) in the frying pan for 1 minute.',
@@ -803,11 +804,11 @@ export default [
       { foodId: 'med-couscous-dry', grams: 240, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 30,
-    totalMinutes: 100,
+    minutes: 40,
+    totalMinutes: 110,
     keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'spanish',
-    timeNote: 'About 1 h 40 min start to finish (30 min of it hands-on).',
+    timeNote: 'About 1 h 50 min start to finish (40 min of it hands-on).',
     pitch: 'Spanish home-style beef meatballs in a thick tomato, pepper and carrot sauce on couscous.',
     cost: {
       perBoxEur: 2.7,
@@ -841,6 +842,7 @@ export default [
         {
           text: 'Roll 24 balls of about 30 g each (the size of a walnut). Wash your hands.',
           heat: 'none',
+          minutes: 10,
         },
         {
           text: 'Heat 1½ tbsp olive oil (20 g) in the pan. Brown the meatballs in 2 batches, turning them, 4–5 minutes per batch. Lift them onto a plate (they are not cooked through yet).',
@@ -921,11 +923,11 @@ export default [
       { foodId: 'intl-parsley-fresh', grams: 15, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 15,
-    totalMinutes: 85,
+    minutes: 25,
+    totalMinutes: 90,
     keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'middle-eastern',
-    timeNote: 'About 1 h 25 min start to finish (15 min of it hands-on).',
+    timeNote: 'About 1 h 30 min start to finish (25 min of it hands-on).',
     pitch: 'Ras el hanout chicken and tray-roast courgette, carrot, pepper and onion on couscous; good hot or at room temperature.',
     cost: {
       perBoxEur: 2.16,
@@ -1047,8 +1049,8 @@ export default [
       { foodId: 'med-olive-oil', grams: 40, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 25,
-    totalMinutes: 90,
+    minutes: 35,
+    totalMinutes: 95,
     keep: {
       fridgeDays: 1,
       fridge: 1,
@@ -1064,7 +1066,7 @@ export default [
       ],
     },
     cuisine: 'desi',
-    timeNote: 'About 1 h 30 min start to finish (25 min of it hands-on): the kebab mix chills 30 min before it bakes.',
+    timeNote: 'About 1 h 35 min start to finish (35 min of it hands-on): the kebab mix chills 30 min before it bakes.',
     pitch: 'Spiced chicken seekh kebabs with a lemony parsley-and-bulgur tabbouleh: made for eating cold.',
     cost: {
       perBoxEur: 3.42,
@@ -1112,6 +1114,7 @@ export default [
         {
           text: 'With wet hands shape 16 sausages of about 50 g (12 cm long, 2.5 cm thick) on the tray, or press them around flat skewers. Brush them with the other 1 tsp oil (5 g).',
           heat: 'none',
+          minutes: 8,
         },
         {
           text: 'Bake 8 minutes, turn them, then 7–10 minutes more until browned at the edges.',
@@ -2878,10 +2881,10 @@ export default [
     ],
     effort: 'cook',
     minutes: 70,
-    totalMinutes: 175,
+    totalMinutes: 140,
     keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 2 },
     cuisine: 'desi',
-    timeNote: 'About 2 h 55 min start to finish (70 min of it hands-on): the beef simmers 70 min, hands off, while the roti dough rests.',
+    timeNote: 'About 2 h 20 min start to finish (70 min of it hands-on): the beef simmers 70 min, hands off, while the roti dough rests.',
     pitch: 'Sunday-slow beef with potatoes in a light shorba; it tastes better after the freezer.',
     cost: {
       perBoxEur: 3.15,
@@ -2943,23 +2946,6 @@ export default [
           minutes: 70,
         },
         {
-          text: 'Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny.',
-          heat: 'low',
-          minutes: 22,
-        },
-        {
-          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander.',
-          heat: 'none',
-        },
-        {
-          text: 'Check: a piece of beef breaks apart easily with a spoon and a knife slides into the potatoes. Firm? Lid on, 10 minutes more.',
-          heat: 'none',
-        },
-        {
-          text: 'Spread the aloo gosht on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour.',
-          heat: 'none',
-        },
-        {
           text: 'Divide the dough into 8 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes.',
           heat: 'medium-high',
           minutes: 2,
@@ -2988,6 +2974,23 @@ export default [
           text: 'Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy.',
           heat: 'none',
           minutes: 10,
+        },
+        {
+          text: 'Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny.',
+          heat: 'low',
+          minutes: 22,
+        },
+        {
+          text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander.',
+          heat: 'none',
+        },
+        {
+          text: 'Check: a piece of beef breaks apart easily with a spoon and a knife slides into the potatoes. Firm? Lid on, 10 minutes more.',
+          heat: 'none',
+        },
+        {
+          text: 'Spread the aloo gosht on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour.',
+          heat: 'none',
         },
         {
           text: 'Pack 4 portions: 2 potato chunks, ¼ of the cold beef and shorba in each box, and 2 cooled roti in a small bag.',
@@ -3404,11 +3407,11 @@ export default [
       { name: 'Bay leaf', grams: 1, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 45,
-    totalMinutes: 105,
+    minutes: 50,
+    totalMinutes: 110,
     keep: { fridgeDays: 3, fridge: 3, freezer: 1, freezerMonths: 3 },
     cuisine: 'spanish',
-    timeNote: 'About 1 h 45 min start to finish (45 min of it hands-on).',
+    timeNote: 'About 1 h 50 min start to finish (50 min of it hands-on).',
     pitch: 'The Catalan grandmother\'s Sunday pot, made all-beef from the halal butcher.',
     cost: {
       perBoxEur: 2.47,
@@ -3437,6 +3440,7 @@ export default [
         {
           text: 'Shape 20 meatballs of about 33 g (a little bigger than a walnut). Put them on a plate in the fridge. Wash your hands.',
           heat: 'none',
+          minutes: 8,
         },
         {
           text: 'Sofregit: heat 2 tbsp + 1 tsp olive oil (32 g) in the casserole. Add the onions and cook slowly, stirring every few minutes, until soft and golden.',
@@ -4758,11 +4762,11 @@ export default [
       { foodId: 'med-pita-bread', grams: 480, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 15,
-    totalMinutes: 90,
+    minutes: 25,
+    totalMinutes: 100,
     keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 3 },
     cuisine: 'middle-eastern',
-    timeNote: 'About 1 h 30 min start to finish (15 min of it hands-on): the chicken marinates 30 min (or overnight).',
+    timeNote: 'About 1 h 40 min start to finish (25 min of it hands-on): the chicken marinates 30 min (or overnight).',
     pitch: 'Oven shawarma chicken with cumin, paprika and cinnamon, a garlic-yogurt pot, hummus and a crunchy salad: you fill the warm or cold pitas at lunch.',
     cost: {
       perBoxEur: 2.68,
@@ -6120,11 +6124,11 @@ export default [
       { foodId: 'es-pan-bocadillo', grams: 260, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 20,
-    totalMinutes: 125,
+    minutes: 25,
+    totalMinutes: 130,
     keep: { fridgeDays: 3, fridge: 3, freezer: 1, freezerMonths: 3 },
     cuisine: 'middle-eastern',
-    timeNote: 'About 2 h 5 min start to finish (20 min of it hands-on): the beef simmers 50 min, hands off.',
+    timeNote: 'About 2 h 10 min start to finish (25 min of it hands-on): the beef simmers 50 min, hands off.',
     pitch: 'The Moroccan iftar soup: beef, lentils, chickpeas, tomato, ginger, cinnamon, coriander and parsley, finished with lemon. It freezes well and fills you up.',
     cost: {
       perBoxEur: 3.02,

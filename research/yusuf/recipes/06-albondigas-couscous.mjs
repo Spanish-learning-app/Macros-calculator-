@@ -66,7 +66,7 @@ export default {
     ],
     steps: [
       { text: 'In the big bowl mix the beef mince (640 g), breadcrumbs (45 g, about 5 tbsp), 1 egg, the 8 g garlic, the parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands. Leave 10 minutes.', heat: 'none', minutes: 10, wait: true },
-      { text: 'Roll 24 balls of about 30 g each (the size of a walnut). Wash your hands.', heat: 'none' },
+      { text: 'Roll 24 balls of about 30 g each (the size of a walnut). Wash your hands.', heat: 'none', minutes: 10 },
       { text: 'Heat 1½ tbsp olive oil (20 g) in the pan. Brown the meatballs in 2 batches, turning them, 4–5 minutes per batch. Lift them onto a plate (they are not cooked through yet).', heat: 'medium-high', minutes: 10 },
       { text: 'In the same pan add 1 tbsp olive oil (15 g), the onion, pepper, carrot and the 10 g garlic. Cook, stirring, until soft.', heat: 'medium', minutes: 10 },
       { text: 'Add the crushed tomato, 1 tsp sugar (4 g), 1½ tsp paprika (3 g), ½ tsp oregano (1 g), ½ bay leaf and ½ tsp salt (3 g). Simmer 15 minutes.', heat: 'low', minutes: 15, wait: true },

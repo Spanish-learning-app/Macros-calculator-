@@ -86,7 +86,7 @@ export default {
       { text: 'Spread the mix on a plate to cool 15 minutes. Pick out the cinnamon stick and the cloves.', heat: 'none', minutes: 15, wait: true },
       { text: 'Blend it in the food processor (in 2 batches) into a smooth, dough-like paste.', heat: 'none', minutes: 3 },
       { text: 'Mix in the raw red onion, green chillies, coriander, mint and 1 egg with your hand.', heat: 'none' },
-      { text: 'With wet hands shape 12 flat round patties (about 75 g each, 1 cm thick). Smooth any cracks on the edges.', heat: 'none' },
+      { text: 'With wet hands shape 12 flat round patties (about 75 g each, 1 cm thick). Smooth any cracks on the edges.', heat: 'none', minutes: 6 },
       { text: 'Beat the second egg on a plate. Heat half the oil (12 g, a little under 1 tbsp) in the frying pan for 1 minute.', heat: 'medium', minutes: 1 },
       { text: 'Dip 6 patties in the egg, let the extra drip off, and fry 2 minutes a side until golden. Turn them once only, gently, with a flat spatula. Add the other 12 g oil and fry the other 6.', heat: 'medium', minutes: 8 },
       { text: 'Check one kebab: golden brown on both sides, it holds its shape when you lift it, and it is steaming hot in the middle when you cut it. Pale? 1 more minute a side.', heat: 'none', check: true },

@@ -10,7 +10,7 @@ Record `es-mandonguilles-pesols-portion` in `app/data/foods-mealprep.js` · libr
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; breadcrumbs label checked (no manteca), 2026-10-13; no wine, brandy or stock. **Confidence:** C.
 
-**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 45 min hands-on, about 1 h 45 min start to finish for the batch of 4. About 1 h 45 min start to finish (45 min of it hands-on).
+**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 50 min hands-on, about 1 h 50 min start to finish for the batch of 4. About 1 h 50 min start to finish (50 min of it hands-on).
 
 ## One portion at a glance
 
@@ -76,7 +76,7 @@ This is the method the app shows under "How to make it" (generated from the same
 **Steps**
 
 1. In the bowl mix the beef mince (560 g), breadcrumbs (40 g, about 4 tbsp), 1 egg, the garlic, parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands. *(no heat)*
-2. Shape 20 meatballs of about 33 g (a little bigger than a walnut). Put them on a plate in the fridge. Wash your hands. *(no heat)*
+2. Shape 20 meatballs of about 33 g (a little bigger than a walnut). Put them on a plate in the fridge. Wash your hands. *(no heat · 8 min)*
 3. Sofregit: heat 2 tbsp + 1 tsp olive oil (32 g) in the casserole. Add the onions and cook slowly, stirring every few minutes, until soft and golden. *(low heat · 20 min)*
 4. Stir in 1 tsp paprika (2 g) for a few seconds, then add half a jar of crushed tomato (400 g) and 1 bay leaf. Cook until thick. *(medium heat · 10 min)*
 5. Add 300 ml water, the drained potatoes, a heaped ½ tsp salt (4 g) and the raw meatballs. Bring to a bubble. *(medium-high heat · 3 min)*

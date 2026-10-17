@@ -1,6 +1,7 @@
 // R-MP-56 · Harira: Moroccan beef, lentil and chickpea soup with bread (dinner portion). Batch: 4 portions.
 export default {
   n: 56,
+  prepMinutes: 12, // beef cubes, onion, ginger, herbs to chop
   slot: 'dinner',
   serving: 'portion',
   boxes: 4,

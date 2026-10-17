@@ -11,7 +11,7 @@ Record `es-albondigas-tomate-couscous-box` in `app/data/foods-mealprep.js` · li
 
 **Eat:** hot (microwave). **Halal:** halal: Beef from a halal butcher; no wine; breadcrumbs and tomato labels checked (no manteca), 2026-10-13. **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 30 min hands-on, about 1 h 40 min start to finish for the batch of 4. About 1 h 40 min start to finish (30 min of it hands-on).
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 40 min hands-on, about 1 h 50 min start to finish for the batch of 4. About 1 h 50 min start to finish (40 min of it hands-on).
 
 ## One box at a glance
 
@@ -87,7 +87,7 @@ This is the method the app shows under "How to make it" (generated from the same
 **Steps**
 
 1. In the big bowl mix the beef mince (640 g), breadcrumbs (45 g, about 5 tbsp), 1 egg, the 8 g garlic, the parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands. Leave 10 minutes. *(no heat · 10 min)*
-2. Roll 24 balls of about 30 g each (the size of a walnut). Wash your hands. *(no heat)*
+2. Roll 24 balls of about 30 g each (the size of a walnut). Wash your hands. *(no heat · 10 min)*
 3. Heat 1½ tbsp olive oil (20 g) in the pan. Brown the meatballs in 2 batches, turning them, 4–5 minutes per batch. Lift them onto a plate (they are not cooked through yet). *(medium-high heat · 10 min)*
 4. In the same pan add 1 tbsp olive oil (15 g), the onion, pepper, carrot and the 10 g garlic. Cook, stirring, until soft. *(medium heat · 10 min)*
 5. Add the crushed tomato, 1 tsp sugar (4 g), 1½ tsp paprika (3 g), ½ tsp oregano (1 g), ½ bay leaf and ½ tsp salt (3 g). Simmer 15 minutes. *(low heat · 15 min)*

@@ -12,7 +12,7 @@ Record `pk-shami-kebab-pita-box` in `app/data/foods-mealprep.js` · library page
 
 **Eat:** hot or cold. **Halal:** halal: Beef from a halal butcher; pita has no E471, yogurt is milk only (labels checked 2026-10-13). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 45 min hands-on, about 2 h 45 min start to finish for the batch of 4. About 2 h 45 min start to finish (45 min of it hands-on): soak the chana dal 1 hour first; the dal simmers 35 min, hands off.
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 50 min hands-on, about 2 h 50 min start to finish for the batch of 4. About 2 h 50 min start to finish (50 min of it hands-on): soak the chana dal 1 hour first; the dal simmers 35 min, hands off.
 
 ## One box at a glance
 
@@ -107,7 +107,7 @@ This is the method the app shows under "How to make it" (generated from the same
 5. Spread the mix on a plate to cool 15 minutes. Pick out the cinnamon stick and the cloves. *(no heat · 15 min)*
 6. Blend it in the food processor (in 2 batches) into a smooth, dough-like paste. *(no heat · 3 min)*
 7. Mix in the raw red onion, green chillies, coriander, mint and 1 egg with your hand. *(no heat)*
-8. With wet hands shape 12 flat round patties (about 75 g each, 1 cm thick). Smooth any cracks on the edges. *(no heat)*
+8. With wet hands shape 12 flat round patties (about 75 g each, 1 cm thick). Smooth any cracks on the edges. *(no heat · 6 min)*
 9. Beat the second egg on a plate. Heat half the oil (12 g, a little under 1 tbsp) in the frying pan for 1 minute. *(medium heat · 1 min)*
 10. Dip 6 patties in the egg, let the extra drip off, and fry 2 minutes a side until golden. Turn them once only, gently, with a flat spatula. Add the other 12 g oil and fry the other 6. *(medium heat · 8 min)*
 11. Check one kebab: golden brown on both sides, it holds its shape when you lift it, and it is steaming hot in the middle when you cut it. Pale? 1 more minute a side. *(no heat)*

@@ -72,11 +72,12 @@ export default {
       { text: 'Add the tomatoes and the whisked yogurt, then 1¼ tsp salt (8 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g) and 1 tsp ground cumin (2 g).', heat: 'medium' },
       { text: 'Stir and cook until the tomato has melted into a thick paste and the oil separates at the edges ("bhunai"). If it sticks, add 2 tbsp of the measured water.', heat: 'medium', minutes: 9 },
       { text: 'Add 400 ml water. Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry.', heat: 'low', minutes: 70, wait: true },
+      // R3-B: the roti are rolled and cooked while the beef simmers (70 min, hands off), not after.
+      ...R.cook.map((st) => ({ ...st, during: true })),
       { text: 'Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny.', heat: 'low', minutes: 22, wait: true },
       { text: 'Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander.', heat: 'none' },
       { text: 'Check: a piece of beef breaks apart easily with a spoon and a knife slides into the potatoes. Firm? Lid on, 10 minutes more.', heat: 'none', check: true },
       R.cool('aloo gosht'),
-      ...R.cook,
       { text: 'Pack 4 portions: 2 potato chunks, ¼ of the cold beef and shorba in each box, and 2 cooled roti in a small bag.', heat: 'none', pack: true },
     ],
     doneWhen: 'The beef breaks apart easily with a spoon, the potatoes are soft right through, and the shorba is thin. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.',

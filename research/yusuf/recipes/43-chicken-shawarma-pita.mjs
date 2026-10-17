@@ -1,6 +1,7 @@
 // R-MP-43 · Chicken shawarma pitas with garlic yogurt, hummus and salad (lunch box). Batch: 4 boxes. Sprint 3 variety.
 export default {
   n: 43,
+  prepMinutes: 15, // the chicken strips, garlic and half the salad to cut
   serving: 'box',
   boxes: 4,
   effort: 'cook',

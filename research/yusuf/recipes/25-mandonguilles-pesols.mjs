@@ -61,7 +61,7 @@ export default {
     ],
     steps: [
       { text: 'In the bowl mix the beef mince (560 g), breadcrumbs (40 g, about 4 tbsp), 1 egg, the garlic, parsley, ¾ tsp salt (5 g) and black pepper (1 g) with your hands.', heat: 'none' },
-      { text: 'Shape 20 meatballs of about 33 g (a little bigger than a walnut). Put them on a plate in the fridge. Wash your hands.', heat: 'none' },
+      { text: 'Shape 20 meatballs of about 33 g (a little bigger than a walnut). Put them on a plate in the fridge. Wash your hands.', heat: 'none', minutes: 8 },
       { text: 'Sofregit: heat 2 tbsp + 1 tsp olive oil (32 g) in the casserole. Add the onions and cook slowly, stirring every few minutes, until soft and golden.', heat: 'low', minutes: 20 },
       { text: 'Stir in 1 tsp paprika (2 g) for a few seconds, then add half a jar of crushed tomato (400 g) and 1 bay leaf. Cook until thick.', heat: 'medium', minutes: 10 },
       { text: 'Add 300 ml water, the drained potatoes, a heaped ½ tsp salt (4 g) and the raw meatballs. Bring to a bubble.', heat: 'medium-high', minutes: 3 },

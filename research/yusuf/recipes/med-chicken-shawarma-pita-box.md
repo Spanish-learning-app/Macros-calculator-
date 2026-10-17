@@ -10,7 +10,7 @@ Record `med-chicken-shawarma-pita-box` in `app/data/foods-mealprep.js` · librar
 
 **Eat:** hot or cold. **Halal:** halal: Chicken from a halal butcher; yogurt (milk and cultures), hummus with additives de origen vegetal, pita without E471. **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 15 min hands-on, about 1 h 30 min start to finish for the batch of 4. About 1 h 30 min start to finish (15 min of it hands-on): the chicken marinates 30 min (or overnight).
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 25 min hands-on, about 1 h 40 min start to finish for the batch of 4. About 1 h 40 min start to finish (25 min of it hands-on): the chicken marinates 30 min (or overnight).
 
 ## One box at a glance
 

@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-17 00:10 UTC by Omar._
+_Last updated: 2026-10-17 00:42 UTC by Omar._
 
 ## Links
 
@@ -41,6 +41,7 @@ _Paused 19:30–00:10 UTC (session limit). Lena, Yusuf and Bilal restarted fresh
 - Done: **Priya**: first load 10–17 % faster (recipes load later), "2 biscuits" plurals, a11y re-check of the new dialogs; the halal guide card and Check button.
 - **Lena:** fix wave R3-A from Mariam's Review 3 (team/feedback/mariam-review3.md): plan ↔ batch link, the plan's fridge/freezer split, evening nudges on screen, a whole-week shopping list, the Merienda slot, the protein tip with a plan on.
 - **Yusuf:** fix wave R3-B (recipe data): one storage truth across method, record and plan; "Done when" before packing; safe roti timing; honest total minutes; shopping names that match the methods; household measures; evening jobs in the plans.
+- Done: **Review 3 complete** (team/meetings/006-review-3.md): Mariam 8.5, Bilal 8.7, Nasreen 7. One theme: the plan once the week is running. Fix wave R3 runs now.
 - Done: **Nasreen Review 3: 7/10** (about 6 at Review 2). The methods are well ordered and the roti is doable, but the recipe doesn't scale to the portions cooked, the storage answer differs between screens, and "null" shows in the ingredient picker.
 - Done: **Mariam Review 3: 8.5/10** (from 8). Plans hold together until the week starts, then batches, nudges and the shopping list drift (6 must-fix).
 - Done: **Lab rebuild**: G19 = **0** (every record reviewed), 351/351 pass, no numbers moved, cola names split.

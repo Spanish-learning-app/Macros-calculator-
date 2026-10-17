@@ -12,7 +12,7 @@ Record `pk-chicken-seekh-tabbouleh-box` in `app/data/foods-mealprep.js` · libra
 
 **Eat:** hot or cold. **Halal:** halal: Chicken mince from a halal butcher; no animal-derived additives in the tabbouleh. **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 25 min hands-on, about 1 h 30 min start to finish for the batch of 4. About 1 h 30 min start to finish (25 min of it hands-on): the kebab mix chills 30 min before it bakes.
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 35 min hands-on, about 1 h 35 min start to finish for the batch of 4. About 1 h 35 min start to finish (35 min of it hands-on): the kebab mix chills 30 min before it bakes.
 
 ## One box at a glance
 
@@ -99,7 +99,7 @@ This is the method the app shows under "How to make it" (generated from the same
 1. In the bowl mix the chicken mince (640 g) with the squeezed onion, ginger-garlic paste, chillies, coriander and mint, and the powders: 2 tsp roasted ground cumin (4 g), 2 tsp garam masala (4 g), ¾ tsp red chilli powder (2 g), ¾ tsp chaat masala (2 g), ½ tsp black pepper (1 g) and 1 tsp salt (6 g). Knead with your hand until sticky. *(no heat · 3 min)*
 2. Cover and chill 30 minutes: it makes the kebabs firmer. *(no heat · 30 min)*
 3. Heat the oven to 220 °C with the grill on (or fan). Brush the lined tray with half the oil (5 g, 1 tsp). *(oven 220 °C · 10 min)*
-4. With wet hands shape 16 sausages of about 50 g (12 cm long, 2.5 cm thick) on the tray, or press them around flat skewers. Brush them with the other 1 tsp oil (5 g). *(no heat)*
+4. With wet hands shape 16 sausages of about 50 g (12 cm long, 2.5 cm thick) on the tray, or press them around flat skewers. Brush them with the other 1 tsp oil (5 g). *(no heat · 8 min)*
 5. Bake 8 minutes, turn them, then 7–10 minutes more until browned at the edges. *(oven 220 °C · 17 min)*
 6. Check: break the thickest kebab open. White all through, no pink, clear juices, browned at the edges. Pink? 3–4 minutes more in the oven. *(no heat)*
 7. Let the kebabs cool on the rack. *(no heat · 20 min)*

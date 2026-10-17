@@ -77,7 +77,7 @@ export default {
       { text: 'In the bowl mix the chicken mince (640 g) with the squeezed onion, ginger-garlic paste, chillies, coriander and mint, and the powders: 2 tsp roasted ground cumin (4 g), 2 tsp garam masala (4 g), ¾ tsp red chilli powder (2 g), ¾ tsp chaat masala (2 g), ½ tsp black pepper (1 g) and 1 tsp salt (6 g). Knead with your hand until sticky.', heat: 'none', minutes: 3 },
       { text: 'Cover and chill 30 minutes: it makes the kebabs firmer.', heat: 'none', minutes: 30, wait: true },
       { text: 'Heat the oven to 220 °C with the grill on (or fan). Brush the lined tray with half the oil (5 g, 1 tsp).', heat: 'oven-220', minutes: 10 },
-      { text: 'With wet hands shape 16 sausages of about 50 g (12 cm long, 2.5 cm thick) on the tray, or press them around flat skewers. Brush them with the other 1 tsp oil (5 g).', heat: 'none' },
+      { text: 'With wet hands shape 16 sausages of about 50 g (12 cm long, 2.5 cm thick) on the tray, or press them around flat skewers. Brush them with the other 1 tsp oil (5 g).', heat: 'none', minutes: 8 },
       { text: 'Bake 8 minutes, turn them, then 7–10 minutes more until browned at the edges.', heat: 'oven-220', minutes: 17 },
       { text: 'Check: break the thickest kebab open. White all through, no pink, clear juices, browned at the edges. Pink? 3–4 minutes more in the oven.', heat: 'none', check: true },
       { text: 'Let the kebabs cool on the rack.', heat: 'none', minutes: 20, wait: true },

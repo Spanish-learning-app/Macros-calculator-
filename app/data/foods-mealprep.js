@@ -1478,7 +1478,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (15 min hands-on for 4; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 486 g = 685 kcal, 48.1 g protein, 9.2 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 box = 486 g = 685 kcal, 48.1 g protein, 9.2 g fibre. Eat hot or cold; use-by 2 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1929,7 +1929,7 @@ export default [
       confidence: 'C',
       reviewer: 'ayesha',
       date: '2026-10-16',
-      notes: 'Sprint 3 variety prep (20 min hands-on for 4; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 709 g = 659 kcal, 46.1 g protein, 18.4 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
+      notes: 'Sprint 3 variety prep (25 min hands-on for 4; cuisine middle-eastern). Labels, prices and table values read 2026-10-13 to 2026-10-15. 1 portion = 709 g = 659 kcal, 46.1 g protein, 18.4 g fibre. Eat hot (microwave); use-by 3 days in the fridge. Ingredients: USDA FDC SR Legacy, dated labels (Open Food Facts, checked against tienda.mercadona.es) and the Lab records of Javier Morales\'s base foods; yields: Bognár 2002 and USDA raw/cooked water balances. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
