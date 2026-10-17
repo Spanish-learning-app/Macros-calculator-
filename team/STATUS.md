@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-16 19:27 UTC by Omar._
+_Last updated: 2026-10-17 00:10 UTC by Omar._
 
 ## Links
 
@@ -33,7 +33,7 @@ _Last updated: 2026-10-16 19:27 UTC by Omar._
 
 ## Working now (night shift)
 
-_Paused 16:40–18:56 UTC (session limit); restarted fresh at 18:56 UTC._
+_Paused 19:30–00:10 UTC (session limit). Lena, Yusuf and Bilal restarted fresh at 00:10 UTC._
 
 - **Nasreen:** Review 3, cooking as a first-time cook from the methods.
 - Done: **Kenji**: everything green, 735 unit tests and 524 e2e (incl. plans, picks, swap, chips, Ramadan table, halal guide).
@@ -45,7 +45,7 @@ _Paused 16:40–18:56 UTC (session limit); restarted fresh at 18:56 UTC._
 - Done: **Mariam Review 3: 8.5/10** (from 8). Plans hold together until the week starts, then batches, nudges and the shopping list drift (6 must-fix).
 - Done: **Lab rebuild**: G19 = **0** (every record reviewed), 351/351 pass, no numbers moved, cola names split.
 - Done: **Ayesha**: all 14 remaining records pass; new R4 check on meal-prep ingredient links (M-16); cola kept as two clearly named records (saved logs stay valid).
-- **Timeline (told to the Boss):** finish tonight, then Review 3, the fix wave, the final audit, a republish and the delivery report. Target: Sat 17 Oct about 10:00 Madrid, or Saturday night if a usage limit pauses us.
+- **Timeline (told to the Boss):** finish tonight, then Review 3, the fix wave, the final audit, a republish and the delivery report. Target was Sat 17 Oct about 10:00 Madrid; after tonight's 4.5 h pause the realistic target is **Saturday night (from 18:00 Madrid)**.
 - Done tonight:
   - **Yusuf:** budget week **58.97 €** (was 77.17 €), every figure generated (M-15 closed), the `halalSwap` field, 3 more prices, Ayesha's fixes (light mozzarella, halal soy sauce, smoothie 1 day). Omar tapped the budget plan and the swap in the app: both work.
   - **Javier:** 3 records.
