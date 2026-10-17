@@ -262,7 +262,11 @@ feature that sets kcal by hand. Kenji: test the function with these inputs direc
 | `maintain` | 0 | 0 |
 | `gain` | 0.25, 0.5 | 0.25 |
 
-The default goal is `maintain`.
+The default goal is `maintain`. It is a **fallback**, not a preselected choice (`RULES.defaultGoal`, rules 1.7.3):
+- It applies only when a profile has no goal: the skip path (`skipDefaults.defaultsWhenMissing`) and saved data written without one.
+- The profile form (welcome and Profile) shows **no goal ticked**. The user must choose one, like sex, and sees "Please choose one." if they press save without choosing. A returning user sees their saved goal ticked.
+- Under the goal choices the form says: "Not sure? Keep my weight is a safe place to start. You can change it any time." The text never nudges towards losing weight.
+- Why: a goal the user did not choose is a goal the app chose for them. Pregnant and breastfeeding users are held at `maintain` by the engine, and the `eating_disorder` flag disallows `lose`, so an explicit choice costs them nothing and no one is steered towards a deficit.
 
 ### 2.5 Health flags ("talk to a professional")
 

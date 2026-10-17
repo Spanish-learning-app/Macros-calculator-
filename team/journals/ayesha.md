@@ -223,3 +223,24 @@
     - Expected G19 after all three = **0**. If any per-100 g number moves in a rebuild, tell me and I'll unstamp.
   - Checks: check-foods 351/351 PASS, R1–R4 PASS. npm test, 3 time zones: 735/735, then 734 + 1 skipped twice, 0 fail. Prettier clean. Not committed.
   - Not changed: M-16 also says "the build must fail" on a wrong link. Yusuf's build.mjs has no such guard (grep). R4 in check-foods now catches it at the gate. A build-time guard is still Yusuf's to add if Omar wants it.
+
+## 2026-10-17 — default goal ("Keep my weight" preselected, Nasreen R2 + R3 item 10)
+- 00:43 UTC · Read the code. Only one UI reader: `app/ui/components/profile-form.js:30` `goal: p.goal ?? rules.defaultGoal`. Nothing else in app/, tests/ or e2e reads `RULES.defaultGoal` (the contract test only checks the key exists). The engine fallback is `skipDefaults.defaultsWhenMissing` (goal `maintain`), a separate value.
+- **Ruling:** no goal is preselected on the form. The user picks one, like sex. `RULES.defaultGoal` stays `'maintain'` but is now documented as the FALLBACK for a profile with no goal (skip path, old saved data), not a preselected choice. Reason: a goal the user did not choose is a goal the app chose for them. Safety rails are unaffected (pregnant/breastfeeding are held at maintain by the engine; `eating_disorder` disallows lose), so explicit choice costs nobody anything. A "safe start" hint under the choices covers people who are unsure.
+- I did NOT set `defaultGoal` to null: with `form.goal = null`, `renderRate()` (profile-form.js ~line 114) does `g.ratesKgPerWeek` on undefined and throws, and `submit()` has no goal check so `goal: null` would reach `computeTargets` (throws RangeError "unknown goal"). So the UI change is below, for Lena.
+- Changed: `app/data/rules.js` 1.7.2 -> 1.7.3 (comment only, value unchanged), `docs/NUTRITION.md` §2.4. npm test 749 pass / 0 fail / 1 skipped; check-foods 351/351 PASS.
+- **@Lena, exact change in app/ui/components/profile-form.js** (4 edits; nothing else reads defaultGoal):
+  1. Line 30: `goal: p.goal ?? null,` (was `?? rules.defaultGoal`). A returning user still sees their saved goal ticked.
+  2. `renderRate()` line ~113: first lines become
+     `const g = rules.goals.find((x) => x.id === form.goal);`
+     `if (!g) { rateBox.replaceChildren(); return; }`
+     (it runs once at init on line 136 with goal null, so the guard is required).
+  3. The goal fieldset (line ~280): add `dataset: { field: 'goal' }` to its props, like the sex fieldset, and after the `choice-row` div add
+     `h('p', { class: 'field-help' }, 'Not sure? Keep my weight is a safe place to start. You can change it any time.'),`
+     `h('p', { class: 'field-error', hidden: true }),`
+     (the help text is the same for every viewer; it must not push towards losing weight.)
+  4. `submit()`, next to the sex check (line ~340):
+     `setError('goal', form.goal ? null : 'Please choose what you want.');`
+     `if (!form.goal) problems.push('goal');`
+     The existing focus line (`[data-field="goal"] input`) then works.
+  - Also check: any e2e or unit test that submits the form without touching the goal will now fail on "Please choose..." (the welcome flow tests); that is Kenji's to update, not an app bug. The "Skip" path is unaffected (it uses reference targets, then defaultsWhenMissing).

@@ -64,6 +64,17 @@ export function mount(container, ctx) {
     const today = store.today();
     const hideKcal = Boolean(store.settings().hideCalories);
     const logged = rows.filter((r) => r.entries > 0).length;
+    // Bilal R3: planned food is not eaten food. A day is "planned" when nothing on it is eaten yet,
+    // "part planned" when some is; the average says how many of its days are only planned.
+    const state = (r) =>
+      !r.entries || !r.planned ? 'eaten' : r.planned === r.entries ? 'planned' : 'part';
+    const plannedDays = rows.filter((r) => r.entries && state(r) === 'planned').length;
+    const avgLabel =
+      plannedDays === logged
+        ? `Average of ${logged} planned ${logged === 1 ? 'day' : 'days'} (not eaten yet): `
+        : plannedDays
+          ? `Average of ${logged} days (${plannedDays} only planned so far): `
+          : `Average of ${logged} logged ${logged === 1 ? 'day' : 'days'}: `;
     return h(
       'section',
       { class: 'card week-card', 'aria-labelledby': 'week-title' },
@@ -110,9 +121,10 @@ export function mount(container, ctx) {
                 href: router.href({ name: 'day', params: { date: row.date } }),
                 'data-testid': 'week-row',
                 'data-date': row.date,
+                'data-state': row.entries ? state(row) : 'empty',
                 'aria-label': `${fmtDateShort(row.date)}${row.date === today ? ', today' : ''}: ${
                   row.entries
-                    ? `${hideKcal ? '' : `${fmtKcal(row.total.kcal)} kcal, `}${fmtGrams(row.total.protein)} g protein`
+                    ? `${hideKcal ? '' : `${fmtKcal(row.total.kcal)} kcal, `}${fmtGrams(row.total.protein)} g protein${state(row) === 'planned' ? ', planned' : state(row) === 'part' ? ', partly planned' : ''}`
                     : 'nothing logged'
                 }`,
               },
@@ -121,6 +133,13 @@ export function mount(container, ctx) {
                 { class: 'week-day' },
                 h('span', { class: 'week-dow' }, fmtWeekday(row.date)),
                 h('span', { class: 'week-date' }, fmtDayMonth(row.date)),
+                row.entries && state(row) !== 'eaten'
+                  ? h(
+                      'span',
+                      { class: 'week-planned', 'data-testid': 'week-planned' },
+                      state(row) === 'planned' ? 'Planned' : 'Part planned',
+                    )
+                  : null,
               ),
               row.entries
                 ? h(
@@ -147,7 +166,7 @@ export function mount(container, ctx) {
         { class: 'week-average', 'data-testid': 'week-average' },
         logged
           ? [
-              h('strong', null, `Average of ${logged} logged ${logged === 1 ? 'day' : 'days'}: `),
+              h('strong', null, avgLabel),
               hideKcal ? '' : `${fmtKcal(average.kcal)} kcal · `,
               `${fmtGrams(average.protein)} g protein · ${fmtGrams(average.carbs)} g carbs · ${fmtGrams(average.fat)} g fat · ${fmtGrams(average.fiber)} g fibre`,
             ]

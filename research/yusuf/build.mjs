@@ -571,6 +571,15 @@ const WHERE = {
   'soy-sauce-halal': 'Asian or Pakistani grocery: pick one with a halal logo (Mercadona has none)',
   'pan-barra': 'Bakery (forn): a barra made with flour, water, salt and yeast',
 };
+// R3-B (Nasreen Review 3 must-fix 5): the shopping name says the form the method uses, from the sheet line's own
+// note ("whole seeds", "ground"): whole seeds and ground spice are different things to buy.
+const WHOLE = /whole|seed|roasted|crushed|yakhni|tarka/i;
+const FORM = {
+  cumin: (note) => (WHOLE.test(note) ? { name: 'Cumin seeds, whole (zeera)', note: `${WHERE_DESI}; Mercadona sells only ground cumin` } : { name: 'Ground cumin (comino molido)' }),
+  'coriander-seed': (note) => (WHOLE.test(note) && !/ground/i.test(note) ? { name: 'Coriander seeds, whole (sabut dhania)' } : { name: 'Ground coriander (dhania powder)' }),
+};
+NAME.paprika = 'Sweet paprika (pimentón dulce)';
+WHERE.atta = 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works';
 const MISSING = new Map(); // ingId → { label, recipes: Set }
 function libraryRecipe(s, r) {
   const items = new Map();
@@ -580,10 +589,11 @@ function libraryRecipe(s, r) {
       const m = DB[l.ingId];
       const buy = REG[l.ingId].buy;
       const section = buy?.shop === 'butcher' ? 'butcher' : 'supermarket';
-      const key = m ? `${m.foodId}|${m.name ?? ''}` : `name|${l.ingId}`;
-      const it = items.get(key) ?? (m ? { foodId: m.foodId, ...(m.name ? { name: m.name } : {}), grams: 0, section } : { name: NAME[l.ingId] ?? shortLabel(l.ingId), grams: 0, section });
+      const form = FORM[l.ingId]?.(l.note ?? '');
+      const key = m ? `${m.foodId}|${m.name ?? ''}` : `name|${form?.name ?? l.ingId}`;
+      const it = items.get(key) ?? (m ? { foodId: m.foodId, ...(m.name ? { name: m.name } : {}), grams: 0, section } : { name: form?.name ?? NAME[l.ingId] ?? shortLabel(l.ingId), grams: 0, section });
       // Where to buy (STATUS O5): every line bought outside the supermarket keeps its shop note, with or without a foodId.
-      if (WHERE[l.ingId] || buy?.shop === 'desi') it.note = WHERE[l.ingId] ?? WHERE_DESI;
+      if (form?.note || WHERE[l.ingId] || buy?.shop === 'desi') it.note = form?.note ?? WHERE[l.ingId] ?? WHERE_DESI;
       it.grams += l.grams;
       items.set(key, it);
       if (!m) {

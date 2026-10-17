@@ -857,7 +857,11 @@ export function createStore({
     left: (date) => progress(totals(date).eaten.total, targets() ?? {}),
     week(date) {
       const dates = weekDates(date, settings().weekStartsOn);
-      const rows = weekSummary(data().days ?? {}, dates, index(), targets());
+      // `planned`: entries still to eat that day (Bilal R3: a plan's week is not "logged").
+      const rows = weekSummary(data().days ?? {}, dates, index(), targets()).map((r) => ({
+        ...r,
+        planned: day(r.date).entries.filter((e) => e.status === 'planned').length,
+      }));
       return { dates, rows, average: averageTotals(rows) };
     },
     food,

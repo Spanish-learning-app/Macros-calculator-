@@ -7,8 +7,8 @@
 // Any change here must be mirrored in docs/NUTRITION.md and re-checked against test vectors A-H.
 
 export default {
-  version: '1.7.2',
-  updated: '2026-10-16',
+  version: '1.7.3',
+  updated: '2026-10-17',
 
   // ---------------------------------------------------------------- energy
   energy: {
@@ -127,6 +127,9 @@ export default {
       defaultRateKgPerWeek: 0.25,
     },
   ],
+  // The FALLBACK goal when a profile has none (skipDefaults.defaultsWhenMissing, saved data without
+  // a goal). It is NOT a preselected choice: the profile form shows no goal ticked and asks the
+  // user to pick one (NUTRITION.md 2.4, Review 2 and 3).
   defaultGoal: 'maintain',
   // Requested daily change = rateKgPerWeek × energy.kcalPerKgBodyWeight / 7.
   rails: {
