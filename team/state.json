@@ -1,10 +1,10 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "working",
+  "status": "on-hold",
   "phase": "Sprint 3 · Review 3",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-17T00:42:01Z",
+  "updatedAt": "2026-10-17T05:10:44Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -21,12 +21,12 @@
   "members": {
     "omar": {
       "location": "office",
-      "status": "working",
-      "task": "Night shift: coordinating Sprint 3 finish"
+      "status": "idle",
+      "task": "On hold (Boss): until Sunday reset or Boss says resume"
     },
     "lena": {
       "location": "office",
-      "status": "working",
+      "status": "idle",
       "task": "Review 3 fix wave A: plan/batch link, storage split, evening nudges, week shopping, merienda, protein tip"
     },
     "ayesha": {
@@ -71,7 +71,7 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "working",
+      "status": "idle",
       "task": "Review 3 fix wave B: one storage truth, Done-when before packing, roti timing, honest minutes, shopping names"
     },
     "mariam": {
@@ -82,25 +82,20 @@
   },
   "inFlight": [
     {
-      "member": "bilal",
-      "task": "Review 3 lifter week on snapshot 4a702b5 (scratchpad/review3b)",
-      "output": "team/feedback/bilal-review3.md"
-    },
-    {
       "member": "lena",
-      "task": "Fix wave R3-A from mariam-review3.md must-fix 1-6 (+ step-mode should-fix)",
+      "task": "Fix wave R3-A (stopped mid-run by limit): Mariam must-fix 1-6, Nasreen app items, Bilal small items, Ayesha goal-choice edits. Check journal + git diff first.",
       "output": "app/** (not data), tests/unit/dev/**"
     },
     {
       "member": "yusuf",
-      "task": "Fix wave R3-B (recipe/plan data) from mariam/nasreen Review 3",
-      "output": "research/yusuf/**, app/data/*mealprep.js, docs/MEALPREP.md"
+      "task": "Fix wave R3-B (stopped mid-run at sheets 01/02): storage truth, Done-when order, roti timing, totalMinutes, shopping names, evening jobs, plan-card honesty, timeNote. Check journal first.",
+      "output": "research/yusuf/**, app/data/*mealprep.js"
     }
   ],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
-    "enabled": true
+    "enabled": false
   },
   "appName": "Katori",
   "next": "See team/STATUS.md (Next, and Not in the app yet O1-O16).",
@@ -156,6 +151,10 @@
     {
       "at": "2026-10-17T00:10:45Z",
       "result": "5 check-ins (20:09-00:09 UTC) delivered at reset. Inbox empty. Lena, Yusuf, Bilal had saved nothing; restarted fresh."
+    },
+    {
+      "at": "2026-10-17T05:10:44Z",
+      "result": "5 check-ins (01:09-05:10 UTC) read at reset. Boss ordered a HOLD (weekly usage 89%). Routine disabled, partial work committed, no agents started."
     }
   ],
   "pauses": [
@@ -250,5 +249,11 @@
   "reports": [
     "001-sprint-1",
     "002-sprint-2"
-  ]
+  ],
+  "hold": {
+    "since": "2026-10-17T05:10:44Z",
+    "by": "Boss",
+    "reason": "Boss's weekly Claude usage at 89%; saving the rest. Hold until the Sunday weekly reset or the Boss says resume. Check-in routine disabled.",
+    "resumeWith": "Re-enable trig_01YYGtucaaFW4EKznQzbesAG, then restart inFlight fresh from journals (Lena R3-A, Yusuf R3-B)"
+  }
 }
