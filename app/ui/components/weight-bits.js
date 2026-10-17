@@ -43,8 +43,19 @@ export function suggestionText(suggestion, weeklyRateKg, rules, unit = 'kg') {
   const t = rules?.weightTrend?.text;
   if (!suggestion || !t?.suggestion || weeklyRateKg === null) return null;
   const change = suggestion.kcalPerDay;
+  // Bilal R3: when the rails cap the change (−100 kcal against a ~440 kcal gap), the sentence says
+  // it is a step toward the goal, not a match. The Lab may write `text.suggestionStep`.
+  const perKg = rules?.energy?.kcalPerKgBodyWeight ?? 7700;
+  const full = Number.isFinite(suggestion.differenceKgPerWeek)
+    ? Math.abs((suggestion.differenceKgPerWeek * perKg) / 7)
+    : 0;
+  const partial = full > 0 && Math.abs(change) < full * 0.75;
+  const words = partial
+    ? (t.suggestionStep ??
+      t.suggestion.replace(/To match your goal,?\s*/i, 'As a step toward your goal, '))
+    : t.suggestion;
   return inUnit(
-    fill(t.suggestion, {
+    fill(words, {
       rate: signed(weeklyRateKg, unit),
       goal: signed(suggestion.expectedKgPerWeek, unit),
       newKcal: fmtKcal(suggestion.newKcal),
