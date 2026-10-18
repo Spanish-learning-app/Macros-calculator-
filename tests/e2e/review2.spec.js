@@ -355,7 +355,18 @@ test.describe('A4 the weekly shopping list', () => {
     // salt and spices are in the cupboard group, the meat in the butcher's, rice and dahi are not
     const where = (re) => all.filter((i) => re.test(i.name)).map((i) => i.section);
     expect(where(/^salt$/i)).toEqual(['cupboard']);
-    expect(where(/cumin/i)).toEqual(['cupboard']);
+    // Two cumin lines since the Lab split them: the seeds (zeera) and the powder (comino molido).
+    const cuminLines = all.filter((i) => /cumin/i.test(i.name));
+    expect(cuminLines.length, `cumin lines: ${cuminLines.map((i) => i.text).join(' | ')}`).toBe(2);
+    const seedLines = cuminLines.filter((i) => /seeds|zeera/i.test(i.name));
+    const powder = cuminLines.filter((i) => /ground|powder|molido/i.test(i.name));
+    expect(seedLines.length, 'one line for the whole seeds').toBe(1);
+    expect(powder.length, 'one line for the powder').toBe(1);
+    expect(seedLines[0].name).not.toBe(powder[0].name);
+    expect(cuminLines.every((i) => i.section === 'cupboard')).toBe(true);
+    // Seeds: tikka 3 g + keema 3 g merged = 6 g; powder: tikka only, 4 g.
+    expect(seedLines[0].text).toMatch(/\b6 g\b/);
+    expect(powder[0].text).toMatch(/\b4 g\b/);
     expect(where(/chicken|beef|mince/i).every((s) => s === 'butcher')).toBe(true);
     expect(where(/rice/i).every((s) => s === 'supermarket')).toBe(true);
 

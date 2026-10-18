@@ -665,7 +665,7 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     );
   });
 
-  test('(6) the cold chana chaat box: use-by is Sunday + 2 days (Tuesday), freezer off', async ({
+  test('(6) the chana chaat box keeps 2 days: boxes 1-2 in the fridge (use-by Tuesday), boxes 3-4 frozen', async ({
     page,
   }) => {
     needsUi(...NEED_COOK, 'cook-dialog', 'box-useby');
@@ -673,22 +673,36 @@ test.describe('A18 fridge, freezer, use-by and shopping list', () => {
     await openPrep(page, at(SUN, '19:00'));
     await libraryRow(page, CHAAT).getByTestId('library-cook').click();
     const dlg = page.getByTestId('cook-dialog');
-    await expect(dlg).toContainText(/doesn.t freeze well/i);
+    // Lab data (R3): the chicken half of the box freezes, so the dialog no longer says "doesn't freeze well".
+    await expect(dlg).not.toContainText(/doesn.t freeze well/i);
+    await expect(dlg).toContainText(/Keeps 2 days in the fridge/i);
+    await expect(dlg).toContainText(/first 2 go in the fridge and the rest in the freezer/i);
     const groups = dlg.getByRole('group', { name: 'Fridge or freezer' });
     await expect(groups).toHaveCount(4);
     for (let i = 0; i < 4; i += 1) {
-      await expect(groups.nth(i).getByRole('button', { name: /freezer/i })).toBeDisabled();
+      const inFridge = i < 2;
+      await expect(groups.nth(i).getByRole('button', { name: /freezer/i })).toBeEnabled();
       await expect(groups.nth(i).getByRole('button', { name: 'Fridge' })).toHaveAttribute(
         'aria-pressed',
-        'true',
+        String(inFridge),
+      );
+      await expect(groups.nth(i).getByRole('button', { name: /freezer/i })).toHaveAttribute(
+        'aria-pressed',
+        String(!inFridge),
       );
     }
     await page.getByTestId('cook-save').click();
     const card = batchCard(page);
     await expectBoxCounts(card, { toEat: 4, unplaced: 4 });
+    // Cooked on Sunday: a fridge box is use-by Tuesday (Sunday + 2 days).
     await expect(boxRow(card, 1).getByTestId('box-useby')).toContainText(/use by.*tue/i);
     const doc = await savedWhere(page, (d) => d.batches?.length === 1, 'the chaat batch');
-    expect(doc.batches[0].boxes.every((b) => b.storage === 'fridge')).toBe(true);
+    expect(doc.batches[0].boxes.map((b) => b.storage)).toEqual([
+      'fridge',
+      'fridge',
+      'freezer',
+      'freezer',
+    ]);
   });
 
   test('(7) the shopping list: each ingredient once, amounts double at 8 boxes, butcher vs supermarket, copies as text', async ({

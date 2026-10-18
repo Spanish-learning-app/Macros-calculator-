@@ -56,6 +56,8 @@ const euro = (n) => `€${n.toFixed(2)}`;
 test.describe('weekly plans (Prep)', () => {
   const plan = PLANS[0];
   const card = (page, id = plan.id) => page.locator(`[data-testid="plan-card"][data-plan="${id}"]`);
+  // R3 (Mariam #5): the plan's afternoon snacks are Merienda ('evening' in the app), not the Snacks slot.
+  const slotOf = (item) => (item.slot === 'snacks' ? 'evening' : item.slot);
   /** The entries of one saved day, [] when none. */
   const entriesOn = (doc, date) => doc.days?.[date]?.entries ?? [];
 
@@ -118,8 +120,8 @@ test.describe('weekly plans (Prep)', () => {
     // Every food of the plan's Monday is there once, in the plan's slot, still to be eaten (planned).
     expect(entries.length).toBe(monday.items.length);
     for (const item of monday.items) {
-      const hit = entries.filter((e) => e.slot === item.slot && e.foodId === item.foodId);
-      expect(hit.length, `${item.slot}: ${item.foodId}`).toBeGreaterThanOrEqual(1);
+      const hit = entries.filter((e) => e.slot === slotOf(item) && e.foodId === item.foodId);
+      expect(hit.length, `${slotOf(item)}: ${item.foodId}`).toBeGreaterThanOrEqual(1);
     }
     expect(new Set(entries.map((e) => e.status))).toEqual(new Set(['planned']));
     // Friday has entries too, and nothing leaked into the weekend or into today.
@@ -144,11 +146,13 @@ test.describe('weekly plans (Prep)', () => {
     await page.goto(`/#/day/${MONDAY}`);
     await expect(ui.dayTitle(page)).toBeVisible();
     const monday = plan.days[0];
-    const slots = [...new Set(monday.items.map((i) => i.slot))];
+    const slots = [...new Set(monday.items.map(slotOf))];
     for (const slot of slots) {
-      const n = monday.items.filter((i) => i.slot === slot).length;
+      const n = monday.items.filter((i) => slotOf(i) === slot).length;
       await expect(ui.entries(ui.slot(page, slot))).toHaveCount(n);
     }
+    // Nothing from the plan lands in the Snacks slot.
+    await expect(ui.entries(ui.slot(page, 'snacks'))).toHaveCount(0);
     // All of them are planned, none eaten.
     const status = await ui
       .entries(page.locator('main'))
