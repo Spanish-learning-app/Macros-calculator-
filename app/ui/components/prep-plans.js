@@ -102,6 +102,24 @@ export function plansSection({ store, notes, onChange, onShop = null }) {
   ];
 }
 
+/**
+ * The till line (Bilal R3 must-fix 5, M-15): the Lab's eatenEur is food eaten Mon–Fri, frozenEur
+ * the boxes that go to the freezer for later weeks; the rest of the till stays in the cupboard.
+ */
+export function costLine(plan) {
+  const parts = [`${euro(plan.tillEur)} at the till`];
+  const eaten = Number.isFinite(plan.eatenEur)
+    ? `${euro(plan.eatenEur)} of it eaten Mon–Fri`
+    : null;
+  const frozen =
+    Number.isFinite(plan.frozenEur) && plan.frozenEur > 0
+      ? `${euro(plan.frozenEur)} goes to the freezer for later weeks`
+      : null;
+  if (eaten || frozen) parts.push([eaten, frozen].filter(Boolean).join(', '));
+  if (plan.priceDate) parts.push(`prices from ${fmtDateShort(plan.priceDate)}`);
+  return parts.join(' · ');
+}
+
 function planCard(plan, { store, notes, onChange, onShop, monday, friday }) {
   const avg = planAverages(plan);
   const sunday = addDays(monday, -1);
@@ -118,17 +136,13 @@ function planCard(plan, { store, notes, onChange, onShop, monday, friday }) {
       { class: 'plan-facts', 'data-testid': 'plan-facts' },
       avg ? h('span', null, `About ${avg.kcal} kcal · ${avg.protein} g protein a day`) : null,
       Number.isFinite(plan.tillEur)
-        ? h(
-            'span',
-            { 'data-testid': 'plan-cost' },
-            `${euro(plan.tillEur)} at the till${Number.isFinite(plan.eatenEur) ? ` (${euro(plan.eatenEur)} of it eaten this week)` : ''}${plan.priceDate ? ` · prices from ${fmtDateShort(plan.priceDate)}` : ''}`,
-          )
+        ? h('span', { 'data-testid': 'plan-cost' }, costLine(plan))
         : null,
       Number.isFinite(plan.sundayMinutes)
         ? h(
             'span',
             null,
-            `Sunday ${plan.sundayMinutes} min hands-on${Number.isFinite(plan.weekdayMinutes) ? `, weekday evenings ${plan.weekdayMinutes} min in all` : ''}`,
+            `Sunday ${plan.sundayMinutes} min hands-on${Number.isFinite(plan.weekdayMinutes) ? ` · weekday evening jobs ${plan.weekdayMinutes} min across the week` : ''}`,
           )
         : null,
     ),

@@ -713,7 +713,8 @@ export function createStore({
    * the last week): PLANS[].evenings = [{ weekday, time?, text, recipeId? }], today's weekday.
    * @returns {{ text: string, recipeId: string|null, time: string|null }[]}
    */
-  function planEvenings(date) {
+  /** The evening jobs of a plan in use around `date` (that evening's; with `wholeWeek`, all). */
+  function planEvenings(date, wholeWeek = false) {
     const out = [];
     const seen = new Set();
     for (const b of batchesList()) {
@@ -725,12 +726,14 @@ export function createStore({
       const weekday = ((offset + 7) % 7) + 1; // the Sunday before is weekday 7
       const plan = api.weeklyPlans().find((p) => p.id === use.id);
       for (const e of Array.isArray(plan?.evenings) ? plan.evenings : []) {
-        if (e?.weekday !== weekday || typeof e.text !== 'string' || !e.text.trim()) continue;
+        if (typeof e?.text !== 'string' || !e.text.trim()) continue;
+        if (!wholeWeek && e.weekday !== weekday) continue;
         if (e.time === 'morning') continue; // "Tonight" is the evening's list
         out.push({
           text: e.text.trim(),
           recipeId: typeof e.recipeId === 'string' && food(e.recipeId) ? e.recipeId : null,
           time: e.time ?? null,
+          kind: typeof e.kind === 'string' ? e.kind : null,
         });
       }
     }
@@ -1045,16 +1048,29 @@ export function createStore({
       }
       // The plan's own evening jobs (Lab: PLANS[].evenings), for the week a plan is in use. They
       // replace the rows worked out above for the same recipe.
-      const jobs = planEvenings(date);
-      const covered = new Set(jobs.map((j) => j.recipeId).filter(Boolean));
+      // A plan's 'move' job (take a frozen box down) is dropped when the app has that batch: the
+      // app's own moveTonight row says it, with its button, and goes quiet once the box is moved.
+      const tracked = new Set(batchesList().map((b) => b.recipeId));
+      const jobs = planEvenings(date).filter(
+        (j) => !(j.kind === 'move' && tracked.has(j.recipeId)),
+      );
+      // A recipe the plan schedules on some evening of the week is the plan's to announce (not a
+      // derived row a day early); a 'make' job whose box is already made is done and drops out.
+      const covered = new Set(
+        planEvenings(date, true)
+          .map((j) => j.recipeId)
+          .filter(Boolean),
+      );
       return {
         moveTonight,
         later: later.filter((l) => !covered.has(findBatch(l.batchId)?.recipeId)),
         make: make.filter((m) => !covered.has(m.foodId)),
-        jobs: jobs.map((j) => ({
-          ...j,
-          make: Boolean(j.recipeId && make.some((m) => m.foodId === j.recipeId)),
-        })),
+        jobs: jobs
+          .map((j) => ({
+            ...j,
+            make: Boolean(j.recipeId && make.some((m) => m.foodId === j.recipeId)),
+          }))
+          .filter((j) => !(j.kind === 'make' && j.recipeId && !j.make)),
       };
     },
     /**

@@ -84,19 +84,28 @@ export function timeNoteOf(recipe) {
 }
 
 /**
- * What a cook must plan for, for the library card: the part of the `timeNote` after its colon
- * ("Start the night before, so the chicken marinates at least 4 hours."), or null.
- * `ahead` is true when it must be started the day before.
- * @returns {{ text: string, ahead: boolean } | null}
+ * What a cook must plan for, for the library card: the part of the `timeNote`'s first sentence
+ * after its colon ("Start the night before, so the chicken marinates at least 4 hours."), or null.
+ * `later` is the "Later, …" sentence's when and what ("Later, the night before each lunch (boil
+ * the penne and mix it with a portion)."), its minutes left to the sheet. `ahead` is true when it
+ * must be started the day before.
+ * @returns {{ text: string|null, ahead: boolean, later: string|null } | null}
  */
 export function planAheadOf(recipe) {
   const note = text(recipe?.timeNote);
-  const i = note ? note.indexOf(':') : -1;
-  const rest = i >= 0 ? note.slice(i + 1).trim() : '';
-  if (!rest) return null;
+  // Only the first sentence (the cook itself); "Later, …" parts stay in the sheet's full note.
+  const [first = '', later = ''] = note ? note.split(/\.\s+(?=Later\b)/) : [];
+  const i = first.indexOf(':');
+  let rest = i >= 0 ? first.slice(i + 1).trim() : '';
+  // "Later, the night before each lunch (boil the penne …): 10 min hands-on." → the when and what.
+  const j = later.lastIndexOf(':');
+  const after = j > 0 ? `${later.slice(0, j).trim()}.` : null;
+  if (!rest && !after) return null;
+  if (rest && !/[.!?]$/.test(rest)) rest += '.';
   return {
-    text: rest.charAt(0).toUpperCase() + rest.slice(1),
-    ahead: /\bstart (it )?the (night|day) before\b/i.test(rest),
+    text: rest ? rest.charAt(0).toUpperCase() + rest.slice(1) : null,
+    ahead: /\b(start|make) (it )?the (night|day) before\b/i.test(rest),
+    later: after,
   };
 }
 const texts = (v) => (Array.isArray(v) ? v.map(text).filter(Boolean) : []);

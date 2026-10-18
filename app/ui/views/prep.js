@@ -1005,7 +1005,7 @@ export function mount(container, ctx) {
             )
           : null,
         // Bilal R3 / M-17: the waiting a cook must plan for ("Start the night before…").
-        ahead
+        ahead?.text
           ? h(
               'span',
               {
@@ -1014,6 +1014,9 @@ export function mount(container, ctx) {
               },
               ahead.text,
             )
+          : null,
+        ahead?.later
+          ? h('span', { class: 'prep-ahead', 'data-testid': 'prep-time-later' }, ahead.later)
           : null,
       ),
       h(

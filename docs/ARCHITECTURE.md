@@ -304,7 +304,7 @@ K applies prefs `{ proteinGPerKg: 2.2, fatPct: 25 }`.
 | `TIERS`, `BOOST_WEIGHT = 19` | `{ exact 100, prefix 80, wordPrefix 60, substring 40, fuzzy 20 }`; a boost never crosses a tier |
 | `normalize(text)` | lowercase; NFKD with combining marks stripped, so accents fold (`ensaïmada`, `pa amb tomàquet`, `café con leche`, `ñ`, `ç`); the Catalan middle dot `·` deleted (`col·liflor` → `colliflor`); Arabic harakat stripped; ي→ی, ك→ک, ة→ہ; other punctuation becomes a space; Latin `aa→a`, `ee→i`, `oo→u`; whitespace collapsed and trimmed |
 | `buildSearchIndex(foods)` | indexes `name`, `nameRoman`, `nameUr` and `aliases` |
-| `searchFoods(index, query, { limit = 20, boosts = {}, halalOnly = true, hints = [] } = {})` | returns `{ hits, hidden }`. Best tier per food. Substring needs a query of 4+ characters. Fuzzy (Review 1, meeting 003 item 8) only fills in when the other tiers match fewer than 3 foods; each query word of 4+ characters must share its first letter with a name word and be within Damerau-Levenshtein (OSA) distance 1 of it, or, from 5 characters, of its same-length prefix. `score = tier + 19 × clamp(boost)`. Sort by score, then shorter `matched`, then style (no style or `home` first, then `restaurant`, `dhaba`, `street`; item 2), then ids in `hints` first (the slot's meal hints), then name. With `halalOnly`, `not-halal` matches go to `hidden` (the UI says "1 hidden: not halal" and shows the reason); `check` stays in `hits`. A blank query gives no hits. |
+| `searchFoods(index, query, { limit = 20, boosts = {}, halalOnly = true, hints = [] } = {})` | returns `{ hits, hidden }`. Best tier per food. Substring needs a query of 4+ characters. Fuzzy (Review 1, meeting 003 item 8) only fills in when the other tiers match fewer than 3 foods and none exactly (Bilal R3: "kela", "pulpo" are names, not typos); each query word of 4+ characters must share its first letter with a name word and be within Damerau-Levenshtein (OSA) distance 1 of it, or, from 5 characters, of its same-length prefix. `score = tier + 19 × clamp(boost)`. Sort by score, then shorter `matched`, then style (no style or `home` first, then `restaurant`, `dhaba`, `street`; item 2), then a food whose own name starts with the query (Bilal R3: "salad" lists Salad leaves before a dish with only a "salad" alias), then ids in `hints` first (the slot's meal hints), then name. With `halalOnly`, `not-halal` matches go to `hidden` (the UI says "1 hidden: not halal" and shows the reason); `check` stays in `hits`. A blank query gives no hits. |
 | `recordUse(recents, { foodId, servingId, qty, slot, date })` | adds 1 to `count` and to `slots[slot]`; sets `lastUsed`; remembers the last serving and qty (the one-tap "+") |
 | `recencyBoosts(recents, today)` | `0.5·min(1, count/10) + 0.5·max(0, 1 − daysSince/30)` |
 | `recentForSlot(recents, slot, { limit = 12 } = {})` | **every** recent food; ones used in `slot` first (A6) |
@@ -799,6 +799,17 @@ the same dish with no box behind them, from its cooking day for a week (never a 
 `placeBox` into a meal that has such a row links it too. Optional Lab fields read when present:
 `PLANS[].evenings = [{ weekday (7 = the Sunday before), time?, text, recipeId? }]` (shown as "Tonight"
 lines in that plan's week, replacing the app's own lines for the same recipe) and `keep.later[].text`.
+A recipe named in any of the plan week's `evenings` gets no derived "make"/"later" row on another evening
+(the plan says when); a `kind: 'make'` job drops out once its box is made; a `kind: 'move'` job is not
+shown when the app holds that batch (its own `moveTonight` row, with Move to fridge, says it once).
+The plan card's till line reads `eatenEur` ("eaten Mon–Fri") and `frozenEur` ("goes to the freezer for
+later weeks"); the rest of the till is cupboard food.
+
+**Time** (Bilal R3, M-17). `timeNote` is shown in full at the top of a library recipe's sheet and in
+its Cook dialog (`recipe-method.js` `timeNoteOf`, which falls back to `totalMinutes` vs `minutes`). The
+library card shows `planAheadOf`: the first sentence's part after its colon ("Start the night before,
+so the chicken marinates at least 4 hours.", stressed when it must start the day before) and the
+"Later, …" sentence's when and what.
 
 **Method** (M-01: the sheets had methods and the contract had no field, so they never reached the
 app). Optional and additive: no schema bump. A recipe without a method shows no "How to make it"

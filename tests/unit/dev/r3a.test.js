@@ -153,13 +153,20 @@ test('Mariam #3: tonight’s jobs: the penne the night before, and planned preps
   const bolo = batchOf(s, BOLO);
   const wed = bolo.boxes.find((b) => b.placed?.date === '2026-10-21');
   if (wed.storage === 'freezer') assert.equal(tue.moveTonight.length, 1);
-  assert.equal(tue.later.length, 1);
-  assert.match(tue.later[0].job, /penne/);
+  // The plan's own penne job (PLANS[].evenings kind 'later') replaces the app's derived row.
+  assert.equal(tue.later.length, 0);
+  assert.ok(tue.jobs.some((j) => /penne/.test(j.text)));
   clock.now = new Date(2026, 9, 21, 21, 0); // Wed
-  const make = s.prepNotices('2026-10-21').make;
-  assert.ok(make.some((m) => m.foodId === BOC && m.when === 'tomorrow' && m.slot === 'lunch'));
+  // The plan's own Wednesday job (PLANS[].evenings kind 'make') says it, with a Make button.
+  const wedNight = s.prepNotices('2026-10-21');
+  assert.ok(wedNight.jobs.some((j) => j.recipeId === BOC && j.make));
+  assert.ok(!wedNight.make.some((m) => m.foodId === BOC), 'not twice');
+  // Thursday's crema is the plan's Thursday job: no derived row a day early.
+  assert.ok(!wedNight.make.some((m) => m.foodId === 'es-crema-verduras-huevo-garbanzos-portion'));
   s.cookBatch({ recipeId: BOC, boxes: 1 });
-  assert.ok(!s.prepNotices('2026-10-21').make.some((m) => m.foodId === BOC));
+  const after = s.prepNotices('2026-10-21');
+  assert.ok(!after.make.some((m) => m.foodId === BOC));
+  assert.ok(!after.jobs.some((j) => j.recipeId === BOC), 'made: the job drops out');
 });
 
 test('Mariam #4: the week’s list covers the plan’s weekday jobs and ready food; planShopping too', () => {
@@ -178,6 +185,7 @@ test('Mariam #4: the week’s list covers the plan’s weekday jobs and ready fo
     'es-crema-verduras-huevo-garbanzos-portion',
     'intl-banana-oat-smoothie-jar',
     'intl-chicken-caesar-salad-box',
+    'pk-microwave-chana-masala-portion',
   ]);
   assert.equal(week.weekdayJobs.find((j) => j.foodId === 'intl-banana-oat-smoothie-jar').boxes, 2);
   assert.ok(week.ready.length > 0);
@@ -278,6 +286,13 @@ test('Bilal (c) / M-17: timeNote reaches the sheet, the card line and the Cook d
   const ahead = planAheadOf(tikka);
   assert.equal(ahead.ahead, true);
   assert.match(ahead.text, /^Start the night before/);
+  // A "Later, …" sentence gives a second card line (when and what), not its minutes.
+  const bolo = planAheadOf({
+    timeNote:
+      'About 1 h 30 min start to finish (25 min of it hands-on): the sauce simmers. Later, the night before each lunch (boil the penne): 10 min hands-on.',
+  });
+  assert.equal(bolo.text, 'The sauce simmers.');
+  assert.equal(bolo.later, 'Later, the night before each lunch (boil the penne).');
   // No colon part: nothing extra on the card; the sheet still gets the note.
   const plain = { minutes: 30, totalMinutes: 85, timeNote: 'About 1 h 25 min start to finish.' };
   assert.equal(planAheadOf(plain), null);
@@ -320,4 +335,25 @@ test('Bilal (f): a tip idea adds in one call with Undo, and an idea eaten there 
   assert.equal(s.getState().undo?.label, 'Added it');
   const again = s.proteinTip(MONDAY);
   if (again) assert.ok(!again.ideas.some((i) => i.food.id === idea.food.id));
+});
+
+test('Omar R3-B: a plan’s "move" job is not shown twice next to the app’s own move row', () => {
+  const clock = { now: new Date(2026, 9, 18, 17, 0) };
+  const s = makeStore(clock);
+  s.usePlan({ planId: 'budget-week', monday: MONDAY });
+  clock.now = new Date(2026, 9, 21, 21, 0); // Wed night
+  const wed = s.prepNotices('2026-10-21');
+  assert.ok(!wed.jobs.some((j) => j.kind === 'move'));
+  for (const id of ['intl-protein-pancakes-portion', 'intl-chicken-spinach-pasta-bake-portion']) {
+    const b = batchOf(s, id);
+    const tomorrowFrozen = b?.boxes.some(
+      (x) => x.placed?.date === '2026-10-22' && x.storage === 'freezer',
+    );
+    if (tomorrowFrozen) {
+      assert.ok(
+        wed.moveTonight.some((m) => m.batchId === b.id),
+        `${id}: the app's move row`,
+      );
+    }
+  }
 });
