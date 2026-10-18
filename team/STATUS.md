@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-17 05:10 UTC by Omar._
+_Last updated: 2026-10-18 16:32 UTC by Omar._
 
 ## Links
 
@@ -31,17 +31,15 @@ _Last updated: 2026-10-17 05:10 UTC by Omar._
 | Protein tips and Ramadan mode | done in code, checked in Chromium (Lena). Published in v4 |
 | Sprint 3 wave 1 tests | partial; restarts after Yusuf lands (Kenji) |
 
-## ON HOLD (Boss's order, 2026-10-17 05:10 UTC)
+## Working now (resumed Sun 18 Oct 18:32 Madrid, after the Boss's hold)
 
-The Boss's weekly Claude usage is at 89%. **No work until the Sunday weekly reset, or until the Boss says resume.**
-The check-in routine `trig_01YYGtucaaFW4EKznQzbesAG` is **disabled**. Nothing runs and nothing auto-resumes.
-
-**To resume:** re-enable the routine, then restart fresh from the journals:
-- **Lena:** fix wave R3-A. It was stopped mid-run; check her journal and `git diff` first.
-- **Yusuf:** fix wave R3-B. It was stopped at sheets 01/02.
-- **Then:** Kenji re-tests, Mariam re-checks her six must-fix items, the final audit, the republish and Report #3.
-
-All partial work is committed. The published app (v4) is unchanged and fully usable.
+- **Lena:** finishing fix wave R3-A. Mariam's 6 and Nasreen's items are done in code; now Bilal's items, the goal-choice edits, and a re-verify.
+- **Yusuf:** finishing fix wave R3-B: storage truth, "Done when" order, roti timing, total minutes, shopping names, plan-card honesty, evening jobs.
+- **Next:**
+  - Kenji re-tests the testers' steps as e2e.
+  - Mariam re-checks her six must-fix items.
+  - Then the final audit (orphan check plus my tap-through), the republish and Report #3.
+- The check-in routine is back on.
 
 ## Next, in order (from 18:09 Madrid)
 

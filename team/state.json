@@ -1,10 +1,10 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "on-hold",
+  "status": "working",
   "phase": "Sprint 3 · Review 3",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-17T05:10:44Z",
+  "updatedAt": "2026-10-18T16:32:28Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -21,13 +21,13 @@
   "members": {
     "omar": {
       "location": "office",
-      "status": "idle",
-      "task": "On hold (Boss): until Sunday reset or Boss says resume"
+      "status": "working",
+      "task": "Night shift: finish and deliver"
     },
     "lena": {
       "location": "office",
-      "status": "idle",
-      "task": "Review 3 fix wave A: plan/batch link, storage split, evening nudges, week shopping, merienda, protein tip"
+      "status": "working",
+      "task": "Finish Review 3 fixes (app)"
     },
     "ayesha": {
       "location": "office",
@@ -71,8 +71,8 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "idle",
-      "task": "Review 3 fix wave B: one storage truth, Done-when before packing, roti timing, honest minutes, shopping names"
+      "status": "working",
+      "task": "Finish Review 3 fixes (data)"
     },
     "mariam": {
       "location": "office",
@@ -95,7 +95,7 @@
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
-    "enabled": false
+    "enabled": true
   },
   "appName": "Katori",
   "next": "See team/STATUS.md (Next, and Not in the app yet O1-O16).",
@@ -223,6 +223,12 @@
       "to": "2026-10-17T00:10:45Z",
       "reason": "Session usage limit (reset 23:50 UTC)",
       "resumedBy": "check-in backlog read at 00:10"
+    },
+    {
+      "from": "2026-10-17T05:10:44Z",
+      "to": "2026-10-18T16:32:28Z",
+      "reason": "Hold by the Boss (weekly usage 89%) until the weekly reset",
+      "resumedBy": "Boss: 'limit is reset'"
     }
   ],
   "workingHours": {
@@ -249,11 +255,5 @@
   "reports": [
     "001-sprint-1",
     "002-sprint-2"
-  ],
-  "hold": {
-    "since": "2026-10-17T05:10:44Z",
-    "by": "Boss",
-    "reason": "Boss's weekly Claude usage at 89%; saving the rest. Hold until the Sunday weekly reset or the Boss says resume. Check-in routine disabled.",
-    "resumeWith": "Re-enable trig_01YYGtucaaFW4EKznQzbesAG, then restart inFlight fresh from journals (Lena R3-A, Yusuf R3-B)"
-  }
+  ]
 }
