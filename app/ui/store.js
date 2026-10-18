@@ -734,6 +734,7 @@ export function createStore({
           recipeId: typeof e.recipeId === 'string' && food(e.recipeId) ? e.recipeId : null,
           time: e.time ?? null,
           kind: typeof e.kind === 'string' ? e.kind : null,
+          minutes: Number.isFinite(e.minutes) && e.minutes > 0 ? e.minutes : null,
         });
       }
     }

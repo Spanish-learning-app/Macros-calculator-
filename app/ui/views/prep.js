@@ -39,7 +39,11 @@ import {
   cuisineLabel,
   matchesCuisine,
   halalSwapOf,
+  halalSwapNoteOf,
   amountsText,
+  lightCookingLine,
+  jobMinutesText,
+  boxSafetyLines,
 } from '../components/prep-bits.js';
 import { amountText } from '../components/ingredient-sheet.js';
 import { savedMealLine } from '../components/add-sheet.js';
@@ -93,6 +97,7 @@ export function mount(container, ctx) {
       'A batch is food you cook once and split into boxes (or jars): each box is one meal, for any day. “Cook” needs the hob or oven; “Make” is mostly putting it together (at most a few minutes, such as boiling eggs).',
     ),
     notices,
+    safetyNote(),
     batchesBox,
     plansBox,
     recipesBox,
@@ -102,6 +107,22 @@ export function mount(container, ctx) {
     toast.el,
   );
   mountChildren(container, root);
+
+  /** "Keeping boxes safe": a folded note built from RULES.mealPrep (audit O2). */
+  function safetyNote() {
+    const lines = boxSafetyLines(rules);
+    if (!lines.length) return null;
+    return h(
+      'details',
+      { class: 'guide-section box-safety', 'data-testid': 'box-safety' },
+      h('summary', null, 'Keeping boxes safe'),
+      h(
+        'ul',
+        { class: 'guide-items', role: 'list' },
+        lines.map((t) => h('li', null, t)),
+      ),
+    );
+  }
 
   // ------------------------------------------------------------------ how to make it (s3-method)
 
@@ -1018,6 +1039,14 @@ export function mount(container, ctx) {
         ahead?.later
           ? h('span', { class: 'prep-ahead', 'data-testid': 'prep-time-later' }, ahead.later)
           : null,
+        // Orphan check: what little cooking a "no cooking" prep still has (boiled eggs, toast).
+        lightCookingLine(recipe)
+          ? h(
+              'span',
+              { class: 'prep-ahead', 'data-testid': 'prep-light-cooking' },
+              lightCookingLine(recipe),
+            )
+          : null,
       ),
       h(
         'button',
@@ -1042,18 +1071,22 @@ export function mount(container, ctx) {
     const altId = halalSwapOf(food, recipe, (id) => store.food(id));
     if (!altId) return null;
     const alt = store.food(altId);
-    return h(
-      'button',
-      {
-        type: 'button',
-        class: 'link-btn method-link halal-swap',
-        'data-testid': 'halal-swap',
-        'data-swap-to': altId,
-        'aria-haspopup': 'dialog',
-        onclick: () => openCook(altId),
-      },
-      `Halal swap: ${alt.shortName ?? displayName(alt)}`,
-    );
+    const note = halalSwapNoteOf(food, recipe);
+    return [
+      h(
+        'button',
+        {
+          type: 'button',
+          class: 'link-btn method-link halal-swap',
+          'data-testid': 'halal-swap',
+          'data-swap-to': altId,
+          'aria-haspopup': 'dialog',
+          onclick: () => openCook(altId),
+        },
+        `Halal swap: ${alt.shortName ?? displayName(alt)}`,
+      ),
+      note ? h('p', { class: 'halal-swap-note', 'data-testid': 'halal-swap-note' }, note) : null,
+    ];
   }
 
   function render() {
@@ -1085,7 +1118,18 @@ export function mount(container, ctx) {
               h(
                 'div',
                 { class: 'tonight-row', 'data-testid': 'tonight-plan-job' },
-                h('p', null, j.text),
+                h(
+                  'p',
+                  null,
+                  `${j.text} `,
+                  jobMinutesText(j)
+                    ? h(
+                        'span',
+                        { class: 'tonight-minutes', 'data-testid': 'tonight-minutes' },
+                        jobMinutesText(j),
+                      )
+                    : null,
+                ),
                 j.make ? makeBtn(j.recipeId) : null,
               ),
             ),

@@ -11,7 +11,13 @@ import { openPortionPicker } from '../components/portion-picker.js';
 import { openDialog, openActionSheet } from '../components/dialog.js';
 import { createUndoToast } from '../components/toast.js';
 import { addDays, fmtDateShort, fmtDateLong, relativeDay } from '../components/format.js';
-import { useByText, boxWord, frozenDueText, pluralWord } from '../components/prep-bits.js';
+import {
+  useByText,
+  boxWord,
+  frozenDueText,
+  pluralWord,
+  jobMinutesText,
+} from '../components/prep-bits.js';
 import { rowName } from '../components/food-bits.js';
 import { renderTipCard, renderRamadanBar, renderFluidsLine } from '../components/day-tips.js';
 import { setPrepIntent } from '../components/prep-intent.js';
@@ -757,7 +763,19 @@ export function mount(container, ctx) {
           h(
             'div',
             { class: 'tonight-row tonight-row--job', 'data-testid': 'tonight-plan-job' },
-            h('p', { class: 'tonight-job' }, h('strong', null, 'Tonight:'), ` ${j.text}`),
+            h(
+              'p',
+              { class: 'tonight-job' },
+              h('strong', null, 'Tonight:'),
+              ` ${j.text} `,
+              jobMinutesText(j)
+                ? h(
+                    'span',
+                    { class: 'tonight-minutes', 'data-testid': 'tonight-minutes' },
+                    jobMinutesText(j),
+                  )
+                : null,
+            ),
             j.make ? makeIt(j.recipeId) : null,
           ),
         ),

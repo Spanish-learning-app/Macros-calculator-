@@ -263,3 +263,66 @@ export function halalSwapOf(food, recipe, lookup) {
   const alt = id ? lookup(id) : null;
   return alt && alt.halal?.status === 'halal' ? id : null;
 }
+
+/** The Lab's one-line reason for a halal swap (`halalSwapNote`), or null. */
+export function halalSwapNoteOf(food, recipe) {
+  const t = recipe?.halalSwapNote ?? food?.halalSwapNote;
+  return typeof t === 'string' && t.trim() ? t.trim() : null;
+}
+
+/**
+ * One honest line for a prep or ready pick that is "mostly no cooking": what is cooked
+ * (`lightCooking`, a clause such as "the eggs are boiled"), or null (STATUS orphan check).
+ * @param {{ lightCooking?: string }|null|undefined} x
+ */
+export function lightCookingLine(x) {
+  const t = typeof x?.lightCooking === 'string' ? x.lightCooking.trim() : '';
+  return t ? `Cooking: ${t}.` : null;
+}
+
+/** "(≈ 13 min)" for an evening job with the Lab's `minutes`, or null. */
+export function jobMinutesText(job) {
+  const m = job?.minutes;
+  return Number.isFinite(m) && m > 0 ? `(≈ ${Math.round(m)} min)` : null;
+}
+
+/**
+ * "Keeping boxes safe": the short rules of RULES.mealPrep, every number read from the rules
+ * (M-15). Returns [] when the rules are missing.
+ * @param {object} rules
+ * @returns {string[]}
+ */
+export function boxSafetyLines(rules) {
+  const mp = rules?.mealPrep;
+  if (!mp) return [];
+  const num = (v) => (Number.isFinite(v) && v > 0 ? v : null);
+  const unit = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+  const span = (min) => (min % 60 === 0 ? unit(min / 60, 'hour') : unit(min, 'minute'));
+  const out = [];
+  const chill = num(mp.chillWithinMinutes);
+  if (chill) out.push(`Cool cooked food and put it in the fridge within ${span(chill)}.`);
+  if (Number.isFinite(mp.fridgeMaxC)) out.push(`Keep the fridge at ${mp.fridgeMaxC} °C or colder.`);
+  const times = num(mp.reheat?.maxTimes);
+  if (times) {
+    out.push(
+      `Reheat ${times === 1 ? 'once' : `up to ${times} times`}, until steaming hot all through${Number.isFinite(mp.reheat.minCoreTempC) ? ` (${mp.reheat.minCoreTempC} °C in the middle)` : ''}.`,
+    );
+  }
+  const hours = num(mp.unchilledMaxHours);
+  if (hours) {
+    // The hot-day limit's temperature is part of its rule key (unchilledMaxHoursAbove32C).
+    const key = Object.keys(mp).find((k) => /^unchilledMaxHoursAbove\d+C$/.test(k));
+    const hot = key ? num(mp[key]) : null;
+    const above = key ? Number(/\d+/.exec(key)[0]) : null;
+    out.push(
+      `Out of the fridge no more than ${unit(hours, 'hour')}${hot ? ` (${unit(hot, 'hour')} above ${above} °C)` : ''}. For a packed lunch, use an ice pack.`,
+    );
+  }
+  const thawed = num(mp.thawedFridgeDays);
+  if (thawed) {
+    out.push(
+      `A box from the freezer keeps ${unit(thawed, 'day')} in the fridge once it moves there.`,
+    );
+  }
+  return out;
+}

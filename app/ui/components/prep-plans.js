@@ -7,7 +7,7 @@
 import { h } from '../dom.js';
 import { iconEl } from './icons.js';
 import { addDays, dayOfWeek, fmtDateShort, fmtDayMonth } from './format.js';
-import { noteEl, plural } from './prep-bits.js';
+import { noteEl, plural, lightCookingLine } from './prep-bits.js';
 
 const READY_SLOTS = ['breakfast', 'lunch', 'dinner', 'snacks'];
 
@@ -251,6 +251,13 @@ export function readySection({ store }) {
                 `${Math.round(pick.kcal)} kcal · ${Math.round(pick.protein)} g protein`,
               ),
               pick.note ? h('span', { class: 'ready-pick-note' }, words(pick.note)) : null,
+              lightCookingLine(pick)
+                ? h(
+                    'span',
+                    { class: 'ready-pick-note', 'data-testid': 'ready-light-cooking' },
+                    lightCookingLine(pick),
+                  )
+                : null,
             ),
           ),
         ),

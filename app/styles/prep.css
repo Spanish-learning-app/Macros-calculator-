@@ -1214,6 +1214,29 @@ details[open] > .cook-method-summary::before {
   text-align: left;
 }
 
+/* The swap's one-line reason (Lab halalSwapNote), under the link. */
+.prep-row > .halal-swap-note {
+  grid-column: 1 / -1;
+  grid-row: 5;
+  margin: 0 0 var(--space-1);
+  padding-left: var(--space-2);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* An evening job's time stays on one line: "(≈ 13 min)" never splits. */
+.tonight-minutes {
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+
+/* "Keeping boxes safe" (O2): a folded note above the batches. */
+.box-safety {
+  margin-bottom: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
 /* Where to buy (O5): one quiet line per shop under the section. */
 .shop-note {
   margin: var(--space-1) 0 var(--space-2);

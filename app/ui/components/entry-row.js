@@ -26,8 +26,10 @@ export function entryLine(entry, food, { hideKcal = false } = {}) {
   } else {
     const serving = food ? servingOf(food, entry.servingId) : null;
     const grams = entryGramsOf(entry, food);
-    if (serving && serving.id !== 'g') parts.push(portionText(serving, entry.qty));
-    if (grams !== null) parts.push(`${fmtGrams(grams)} g`);
+    const portion = serving && serving.id !== 'g' ? portionText(serving, entry.qty) : null;
+    if (portion) parts.push(portion);
+    // Picos "30 g (a small handful)" already reads "30 g": do not say the grams twice (O15).
+    if (grams !== null && portion !== `${fmtGrams(grams)} g`) parts.push(`${fmtGrams(grams)} g`);
   }
   if (!hideKcal) parts.push(`${fmtKcal(n.kcal)} kcal`);
   return parts.join(' · ');
