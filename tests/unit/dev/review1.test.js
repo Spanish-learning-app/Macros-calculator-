@@ -98,8 +98,10 @@ test('fuzzy only fills in when exact, prefix, word and substring matches find fe
     food('pk-kebab', 'Shami kebab'),
     food('pk-kelo', 'Kelo'),
   ];
-  // "kelo" is a whole word one edit from "kela": it fills in while results are thin.
-  assert.deepEqual(ids(searchFoods(buildSearchIndex(foods), 'kela')), ['intl-banana', 'pk-kelo']);
+  // "kela" is the banana's exact alias, so it is not a typo: nothing fills in (Bilal R3).
+  assert.deepEqual(ids(searchFoods(buildSearchIndex(foods), 'kela')), ['intl-banana']);
+  // A typo ("kelu") with no exact match: fuzzy fills in while results are thin.
+  assert.deepEqual(ids(searchFoods(buildSearchIndex(foods), 'kelu')), ['intl-banana', 'pk-kelo']);
   // With 3 better matches, no fuzzy hit is added.
   const many = [
     ...foods,

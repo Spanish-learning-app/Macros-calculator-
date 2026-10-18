@@ -17,7 +17,9 @@ import {
 } from '../../../app/ui/components/prep-bits.js';
 import { isNotCounted } from '../../../app/ui/components/ingredient-sheet.js';
 import { mealWords } from '../../../app/ui/components/prep-plans.js';
-import { refersToDone } from '../../../app/ui/components/recipe-method.js';
+import { refersToDone, timeNoteOf, planAheadOf } from '../../../app/ui/components/recipe-method.js';
+import { suggestionText } from '../../../app/ui/components/weight-bits.js';
+import { buildSearchIndex, searchFoods } from '../../../app/core/search.js';
 
 const MONDAY = '2026-10-19';
 const BOLO = 'intl-beef-bolognese-pasta-box';
@@ -248,4 +250,74 @@ test('Mariam should-fix 3: hands-on and start-to-finish time, and no "no cooking
     effortText({ effort: 'assemble', minutes: 10, totalMinutes: 25, lightCooking: 'boil eggs' }),
     '10 min, little cooking · 25 min in all',
   );
+});
+
+// ------------------------------------------------------------------ Bilal Review 3 (a)–(f)
+
+test('Bilal (a): Week rows count planned entries, so a plan’s week is not called logged', () => {
+  const s = makeStore(undefined, { profile: true });
+  s.usePlan({ planId: 'low-cook-week', monday: MONDAY });
+  const { rows } = s.week(MONDAY);
+  const mon = rows.find((r) => r.date === MONDAY);
+  assert.ok(mon.entries > 0);
+  assert.equal(mon.planned, mon.entries, 'nothing eaten yet: every entry is planned');
+});
+
+test('Bilal (b): a rail-capped suggestion is worded as a step toward the goal', () => {
+  const base = { newKcal: 2110, expectedKgPerWeek: -0.5, differenceKgPerWeek: -0.4 };
+  const step = suggestionText({ ...base, kcalPerDay: -100 }, -0.1, RULES);
+  assert.match(step, /step toward your goal/i);
+  assert.doesNotMatch(step, /to match your goal/i);
+  const full = suggestionText({ ...base, kcalPerDay: -440 }, -0.1, RULES);
+  assert.match(full, /to match your goal/i);
+});
+
+test('Bilal (c) / M-17: timeNote reaches the sheet, the card line and the Cook dialog helpers', () => {
+  const tikka = LIBRARY.find((r) => r.foodId === 'pk-chicken-tikka-rice-box');
+  assert.match(timeNoteOf(tikka), /night before/);
+  const ahead = planAheadOf(tikka);
+  assert.equal(ahead.ahead, true);
+  assert.match(ahead.text, /^Start the night before/);
+  // No colon part: nothing extra on the card; the sheet still gets the note.
+  const plain = { minutes: 30, totalMinutes: 85, timeNote: 'About 1 h 25 min start to finish.' };
+  assert.equal(planAheadOf(plain), null);
+  assert.equal(timeNoteOf(plain), 'About 1 h 25 min start to finish.');
+  // totalMinutes alone still says start to finish; hands-on only says nothing more.
+  assert.equal(
+    timeNoteOf({ minutes: 45, totalMinutes: 55 }),
+    'About 55 min start to finish (45 min of it hands-on).',
+  );
+  assert.equal(timeNoteOf({ minutes: 10, totalMinutes: 10 }), null);
+  // Every Lab timeNote is plain text a card can show.
+  for (const r of LIBRARY) if (r.timeNote) assert.equal(typeof timeNoteOf(r), 'string', r.foodId);
+});
+
+test('Bilal (e): search leftovers — name before alias, no fuzzy junk after an exact hit', () => {
+  const index = buildSearchIndex(FOODS);
+  const top = (q) => searchFoods(index, q, { limit: 10 }).hits.map((x) => x.food.id);
+  assert.notEqual(top('salad')[0], 'es-ensalada-mixta');
+  assert.deepEqual(top('kela'), ['intl-banana']);
+  assert.deepEqual(top('pulpo'), ['es-pulpo-cocido']);
+  assert.ok(top('karhai').length >= 2, 'a real typo still finds karahi');
+});
+
+test('Bilal (f): a tip idea adds in one call with Undo, and an idea eaten there is not offered again', () => {
+  const clock = { now: new Date(2026, 9, 19, 9, 0) };
+  const s = makeStore(clock, { profile: true });
+  s.addFood({ date: MONDAY, slot: 'breakfast', foodId: 'intl-banana' });
+  clock.now = new Date(2026, 9, 19, 16, 45);
+  const tip = s.proteinTip(MONDAY);
+  assert.ok(tip && tip.ideas.length, 'a tip with ideas');
+  const idea = tip.ideas[0];
+  s.addFood({
+    date: MONDAY,
+    slot: tip.suggestFor,
+    foodId: idea.food.id,
+    servingId: idea.servingId,
+    qty: idea.qty,
+    undo: 'Added it',
+  });
+  assert.equal(s.getState().undo?.label, 'Added it');
+  const again = s.proteinTip(MONDAY);
+  if (again) assert.ok(!again.ideas.some((i) => i.food.id === idea.food.id));
 });

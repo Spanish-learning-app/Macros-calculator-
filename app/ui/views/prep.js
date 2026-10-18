@@ -47,6 +47,8 @@ import {
   methodOf,
   renderMethod,
   openMethodDialog,
+  planAheadOf,
+  timeNoteOf,
   openStepMode,
   recipeAbout,
 } from '../components/recipe-method.js';
@@ -203,6 +205,7 @@ export function mount(container, ctx) {
     let storage = [...plan.storage];
     const per = portionNutrients(food, defaultServingOf(food).id, 1);
     const halal = halalBadge(food, rules);
+    const timeNote = store.recipe(recipeId) ? null : timeNoteOf(recipeOf(recipeId));
     const countOut = h('output', { class: 'boxes-count', 'data-testid': 'cook-boxes' });
     const boxesList = h('ul', { class: 'cook-boxes', role: 'list' });
     const scaleNote = h('p', { class: 'muted method-note', 'data-testid': 'cook-amounts' });
@@ -312,6 +315,9 @@ export function mount(container, ctx) {
           macroLine(per),
         ),
         h('p', { class: 'muted' }, `${fmtGrams(per.grams)} g per ${word}`),
+        timeNote
+          ? h('p', { class: 'recipe-time', 'data-testid': 'cook-time-note' }, timeNote)
+          : null,
         h('div', { class: 'cook-halal' }, halal.chip, halal.reason),
         h(
           'div',
@@ -970,6 +976,7 @@ export function mount(container, ctx) {
     const per = portionNutrients(food, defaultServingOf(food).id, 1);
     const halal = halalChip(food, rules);
     const time = effortText(recipe);
+    const ahead = planAheadOf(recipe);
     const serve = serveChip(food, recipe); // STATUS O3: "Good cold" / "Microwave" / "Hot or cold"
     const verb = effortOf(recipe) === 'cook' ? 'Cook' : 'Make';
     return h(
@@ -995,6 +1002,17 @@ export function mount(container, ctx) {
               { class: 'prep-meta' },
               time ? h('span', { class: 'prep-time', 'data-testid': 'prep-time' }, time) : null,
               serve,
+            )
+          : null,
+        // Bilal R3 / M-17: the waiting a cook must plan for ("Start the night before…").
+        ahead
+          ? h(
+              'span',
+              {
+                class: ['prep-ahead', ahead.ahead ? 'is-ahead' : null],
+                'data-testid': 'prep-time-note',
+              },
+              ahead.text,
             )
           : null,
       ),

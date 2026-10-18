@@ -132,19 +132,19 @@ export function sehriTip(input) {
  * Protein and kcal come from the food record for the listed serving × qty.
  * @param {string} slot @param {object} rules
  * @param {{ foodIndex: Map<string, object>, recentIds?: Set<string>, showCheck?: boolean,
- *   limit?: number }} options
+ *   limit?: number, skipIds?: Set<string> }} options skipIds: foods left out (already eaten there today)
  * @returns {{ food: object, servingId: string, qty: number, protein: number, kcal: number }[]}
  */
 export function tipIdeas(
   slot,
   rules,
-  { foodIndex, recentIds = new Set(), showCheck = false, limit },
+  { foodIndex, recentIds = new Set(), showCheck = false, limit, skipIds = new Set() },
 ) {
   const r = rules?.proteinNudges ?? {};
   const out = [];
   for (const item of r.suggestions?.[slot] ?? []) {
     const food = foodIndex?.get(item.foodId);
-    if (!food) continue;
+    if (!food || skipIds.has(food.id)) continue;
     const status = food.halal?.status ?? 'halal';
     if (status === 'not-halal' || (status === 'check' && !showCheck)) continue;
     const servingId = findServing(food, item.servingId) ? item.servingId : defaultServing(food).id;

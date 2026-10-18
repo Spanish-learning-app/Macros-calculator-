@@ -2092,13 +2092,23 @@
   color: var(--text-faint);
   font-size: var(--text-sm);
 }
+/* Bilal R3: the idea (opens the picker) and a one-tap Add side by side */
+.tip-idea-row {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+}
+.tip-idea-row .tip-idea {
+  flex: 1 1 auto;
+  min-width: 0;
+}
 .tip-idea-add {
   display: inline-flex;
+  flex: none;
   align-items: center;
   gap: 2px;
-  color: var(--accent);
-  font-weight: 600;
-  font-size: var(--text-sm);
+  min-height: var(--tap);
+  min-width: var(--tap);
 }
 .tip-actions {
   display: flex;

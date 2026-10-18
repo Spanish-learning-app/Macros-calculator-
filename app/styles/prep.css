@@ -270,13 +270,13 @@
   text-decoration: line-through;
 }
 
-/* The pair's outer box is 44 px tall; each half is a full-height target. */
+/* Each half is a full 44 px target (Bilal R3: they were 38 px tall). */
 .seg-pair .seg-btn {
-  min-height: 38px;
+  min-height: var(--tap);
 }
 
 .seg-pair {
-  min-height: var(--tap);
+  padding: 0;
   align-items: stretch;
 }
 
@@ -1236,6 +1236,34 @@ details[open] > .cook-method-summary::before {
 .recipe-cost {
   font-size: var(--text-sm);
   color: var(--text-muted);
+}
+
+/* Start-to-finish time (Bilal R3, M-17): sheet, Cook dialog and the library card's plan-ahead line */
+.recipe-time {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-1);
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.recipe-time .icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--text-muted);
+}
+
+.prep-ahead {
+  display: block;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.prep-ahead.is-ahead {
+  color: var(--text);
+  font-weight: var(--weight-medium);
 }
 
 .recipe-refs a {

@@ -610,6 +610,15 @@ export function mount(container, ctx) {
       rules,
       hideKcal: Boolean(store.settings().hideCalories),
       onIdea: (idea) => openIdea(idea, tip.suggestFor),
+      onAdd: (idea) =>
+        store.addFood({
+          date,
+          slot: tip.suggestFor,
+          foodId: idea.food.id,
+          servingId: idea.servingId,
+          qty: idea.qty,
+          undo: `Added ${rowName(idea.food)} to ${tip.slotLabel ?? store.slotLabel(tip.suggestFor)}`,
+        }),
       onNotToday: () => store.tipNotToday(),
       onTurnOff: () => {
         store.setTipsOn(false);

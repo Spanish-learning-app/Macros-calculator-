@@ -8,36 +8,51 @@
 //   packCheck           "Done when" is checked on a step before the food is packed
 
 // Sheet-only step keys (the app's Method contract keeps text, heat, minutes; build.mjs strips the rest):
-//   wait: true    hands-off minutes (oven, simmer, rest, cool, soak): counts in the total, not hands-on
+//   wait: true    hands-off minutes (oven, simmer, rest, cool, soak, chill): counts in the total, not hands-on
 //   during: true  done while the previous timer runs ("Meanwhile ..."): counts hands-on, not in the total
-//   ahead: true   started the day before (a 4 h marinade): in neither total; named in the time note
+//   ahead: true   started before the cooking session (the night before: a 4 h marinade). Counts in the total (start
+//                 to finish is from the first step); hands-on unless it is also wait. Named in the time note.
+//   later: true   done later, for each box (the night before a lunch: boil the penne; on the night: crack the eggs).
+//                 In neither total of the batch: the time note says it with the sheet's laterNote.
 //   check: true   the "is it done?" step, which carries the doneness test itself
 //   pack: true    the first step that fills the boxes
-export const SHEET_STEP_KEYS = ['text', 'heat', 'minutes', 'wait', 'during', 'ahead', 'check', 'pack'];
+// Sheet keys for time: prepMinutes (hands-on of "Before you start", default 2 a line), prepWait (hands-off minutes
+// inside "Before you start": the eggs boil 10 and cool 5), waitNote (what the waiting is), laterNote (when the
+// later steps are done; required when a step is later).
+export const SHEET_STEP_KEYS = ['text', 'heat', 'minutes', 'wait', 'during', 'ahead', 'later', 'check', 'pack'];
 
 const roundMin = (x) => (x <= 15 ? Math.round(x) : 5 * Math.round(x / 5));
 
 // Hands-on minutes = "Before you start" (2 min a line unless the sheet sets prepMinutes) + every step that is not
-// hands-off; a step with no time counts 1 minute. Total = prep + every step not done during another, waits included.
+// hands-off; a step with no time counts 1 minute. Total (start to finish, R3-B: marinade, soak, chill and oven
+// included) = prep + prepWait + every step not done during another, waits and ahead steps included. Later steps
+// (per box, later in the week) are counted apart: laterHands and laterTotal.
 export function minutesOf(s) {
   const m = s.method;
   const prep = s.prepMinutes ?? 2 * m.prep.length;
   let hands = prep;
-  let total = prep;
+  let total = prep + (s.prepWait ?? 0);
   let ahead = 0;
+  let laterHands = 0;
+  let laterTotal = 0;
   for (const st of m.steps) {
     const t = st.minutes ?? 1;
-    if (st.ahead) {
-      ahead += t;
-      continue;
-    }
     const during = st.during ?? /^(Meanwhile|While)\b/.test(st.text);
     // Oven and microwave minutes are hands-off unless the sheet says otherwise.
     const wait = st.wait ?? (/^oven|^microwave$/.test(st.heat ?? '') && !!st.minutes);
+    if (st.ahead && st.later) throw new Error(`${s.id}: a step cannot be both ahead and later`);
+    if (st.later) {
+      if (!during) laterTotal += t;
+      if (!wait) laterHands += t;
+      continue;
+    }
+    if (st.ahead) ahead += t;
     if (!during) total += t;
     if (!wait) hands += t;
   }
-  return { hands: roundMin(hands), total: roundMin(Math.max(total, hands)), ahead: roundMin(ahead), prep };
+  if (laterTotal && !s.laterNote) throw new Error(`${s.id}: a step is later: say when in laterNote ("the night before each lunch")`);
+  if (!laterTotal && s.laterNote) throw new Error(`${s.id}: laterNote but no step is later`);
+  return { hands: roundMin(hands), total: roundMin(Math.max(total, hands)), ahead: roundMin(ahead), laterHands: roundMin(laterHands), laterTotal: roundMin(Math.max(laterTotal, laterHands)), prep };
 }
 
 // "1 h 25 min", "45 min", "2 h"

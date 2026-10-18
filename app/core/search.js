@@ -86,7 +86,8 @@ export function buildSearchIndex(foods) {
       const norm = normalize(original);
       if (norm !== '') names.push({ original, norm, words: norm.split(' ') });
     }
-    entries.push({ food, names, sortName: String(food.name ?? '') });
+    const nameNorm = typeof food.name === 'string' ? normalize(food.name) : '';
+    entries.push({ food, names, sortName: String(food.name ?? ''), nameNorm });
   }
   return { entries };
 }
@@ -114,11 +115,16 @@ export function singularWord(word) {
   return word.endsWith('s') ? word.slice(0, -1) : word;
 }
 
-/** Shorter `matched`, then style, then the slot's hints, then name and id (Review 1 order). */
+/**
+ * Shorter `matched`, then style, then a food whose own name starts with the query (Bilal R3:
+ * "salad" lists Salad leaves before a dish that only has "salad" as an alias), then the slot's
+ * hints, then name and id (Review 1 order).
+ */
 function natural(a, b) {
   return (
     a.hit.matched.length - b.hit.matched.length ||
     a.style - b.style ||
+    a.nameLead - b.nameLead ||
     a.hint - b.hint ||
     COLLATOR.compare(a.sortName, b.sortName) ||
     COLLATOR.compare(String(a.hit.food.id), String(b.hit.food.id))
@@ -232,7 +238,8 @@ function bestMatch(entry, q, qWords, allowFuzzy, alt = null) {
  *              same length; shorter query words must word-prefix
  *              (karhai -> karahi, dhal -> dal, anday -> anda, samosay -> samosa).
  *              Fuzzy only fills in: it is used only when the other tiers match fewer than 3 foods
- *              (Review 1: "kela" no longer brings kebab and corn flakes).
+ *              and none of them exactly (Review 1: "kela" no longer brings kebab and corn flakes;
+ *              Bilal R3: nor gulab jamun, and "pulpo" no longer lists pulao).
  * A plural query also matches the singular (singularWord: "potatoes" finds "potato", as a whole word).
  * A Lab prep (foodKind 'prep') matches one tier lower (exact counts as prefix, and so on), so
  * "roti" lists rotis before roti boxes (Review 2).
@@ -275,6 +282,7 @@ export function searchFoods(
       const best = bestMatch(entry, q, qWords, allowFuzzy, alt);
       if (!best) continue;
       const kind = foodKind(entry.food);
+      const exact = best.tier === 'exact';
       const own = kind === 'own' && best.tier !== 'fuzzy' ? 0 : 1;
       // A Lab prep's match counts one tier lower ("roti" lists rotis before roti boxes).
       if (kind === 'prep') best.tier = TIER_BELOW[best.tier] ?? best.tier;
@@ -282,16 +290,25 @@ export function searchFoods(
       out.push({
         hit: { food: entry.food, score: TIERS[best.tier] + BOOST_WEIGHT * boost, ...best },
         own,
+        exact,
         kind: KIND_RANK[kind],
         sortName: entry.sortName,
         style: styleRank(entry.food),
         hint: hinted.has(entry.food.id) ? 0 : 1,
+        nameLead:
+          entry.nameNorm.startsWith(q) || (alt !== null && entry.nameNorm.startsWith(alt.q))
+            ? 0
+            : 1,
       });
     }
     return out;
   };
   let matches = collect(false);
-  if (matches.length < FUZZY_FILL_BELOW) matches = collect(true);
+  // Fuzzy fills in for a typo only: a query that is some food's exact name or alias is not a typo
+  // (Bilal R3: "kela" no longer brings gulab jamun via "kala jamun", "pulpo" no longer pulao).
+  if (matches.length < FUZZY_FILL_BELOW && !matches.some((m) => m.exact)) {
+    matches = collect(true);
+  }
   // Style variants of one dish (same family, same score) stay together, in style order (home,
   // home-light, restaurant, dhaba, street), where the family's best match would be (Sprint 3:
   // kam tel right after home, whatever the names' lengths). A food with no family leads itself.

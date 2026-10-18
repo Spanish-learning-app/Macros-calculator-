@@ -27,7 +27,9 @@ export function createProfileForm(props) {
     bodyFat: p.bodyFatPct ?? '',
     activity: p.activity ?? rules.defaultActivity,
     lifts: p.lifts ?? false,
-    goal: p.goal ?? rules.defaultGoal,
+    // No goal is preselected (Ayesha, rules 1.7.3): the person picks one, like sex. A saved goal
+    // stays ticked. RULES.defaultGoal is only the fallback for a profile with none (skip path).
+    goal: p.goal ?? null,
     rate: p.rateKgPerWeek ?? null,
     flags: new Set(p.healthFlags ?? []),
   };
@@ -112,6 +114,10 @@ export function createProfileForm(props) {
   const rateBox = h('div');
   function renderRate() {
     const g = rules.goals.find((x) => x.id === form.goal);
+    if (!g) {
+      rateBox.replaceChildren();
+      return;
+    }
     if (!g.ratesKgPerWeek.includes(form.rate)) form.rate = g.defaultRateKgPerWeek;
     if (g.ratesKgPerWeek.length < 2) {
       rateBox.replaceChildren();
@@ -279,7 +285,7 @@ export function createProfileForm(props) {
     ),
     h(
       'fieldset',
-      { class: 'field' },
+      { class: 'field', dataset: { field: 'goal' } },
       h('legend', { class: 'field-label' }, 'What do you want?'),
       h(
         'div',
@@ -287,10 +293,17 @@ export function createProfileForm(props) {
         rules.goals.map((g) =>
           choice(ids.goal, g.id, g.label, form.goal === g.id, () => {
             form.goal = g.id;
+            setError('goal', null);
             renderRate();
           }),
         ),
       ),
+      h(
+        'p',
+        { class: 'field-help' },
+        'Not sure? Keep my weight is a safe place to start. You can change it any time.',
+      ),
+      h('p', { class: 'field-error', hidden: true }),
     ),
     rateBox,
     h(
@@ -368,6 +381,9 @@ export function createProfileForm(props) {
     } else if (showBodyFat) {
       setError(bodyFatId, null);
     }
+    // In screen order, after the numbers: the goal fieldset comes below them.
+    setError('goal', form.goal ? null : 'Please choose what you want.');
+    if (!form.goal) problems.push('goal');
     if (problems.length) {
       el.querySelector(`[data-field="${problems[0]}"] input`)?.focus();
       return;

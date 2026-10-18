@@ -67,6 +67,38 @@ export function minutesText(minutes) {
 }
 
 const text = (v) => (typeof v === 'string' && v.trim() ? v.trim() : null);
+
+/**
+ * Start-to-finish time for a library recipe (Bilal R3, MISTAKES M-17): the Lab's `timeNote`, or
+ * from `totalMinutes` when it is longer than the hands-on `minutes`. Null when neither says more.
+ */
+export function timeNoteOf(recipe) {
+  const note = text(recipe?.timeNote);
+  if (note) return note;
+  const m = Number.isFinite(recipe?.minutes) && recipe.minutes > 0 ? recipe.minutes : null;
+  const t = recipe?.totalMinutes;
+  if (!Number.isFinite(t) || !(t > (m ?? 0))) return null;
+  return m
+    ? `About ${minutesText(Math.round(t))} start to finish (${minutesText(Math.round(m))} of it hands-on).`
+    : `About ${minutesText(Math.round(t))} start to finish.`;
+}
+
+/**
+ * What a cook must plan for, for the library card: the part of the `timeNote` after its colon
+ * ("Start the night before, so the chicken marinates at least 4 hours."), or null.
+ * `ahead` is true when it must be started the day before.
+ * @returns {{ text: string, ahead: boolean } | null}
+ */
+export function planAheadOf(recipe) {
+  const note = text(recipe?.timeNote);
+  const i = note ? note.indexOf(':') : -1;
+  const rest = i >= 0 ? note.slice(i + 1).trim() : '';
+  if (!rest) return null;
+  return {
+    text: rest.charAt(0).toUpperCase() + rest.slice(1),
+    ahead: /\bstart (it )?the (night|day) before\b/i.test(rest),
+  };
+}
 const texts = (v) => (Array.isArray(v) ? v.map(text).filter(Boolean) : []);
 
 /** A step as data: a string or { text, heat?, minutes? }; unknown heat and bad minutes are dropped. */
@@ -614,8 +646,9 @@ export function referencesOf(recipe) {
 }
 
 /**
- * The top of a library recipe's sheet (STATUS O4, O9): the Lab's pitch, cost per box with its
- * price date, and the published recipes it starts from. Null when the recipe has none of them.
+ * The top of a library recipe's sheet (STATUS O4, O9): the Lab's pitch, the start-to-finish time
+ * (`timeNote`, Bilal R3 / M-17), cost per box with its price date, and the published recipes it
+ * starts from. Null when the recipe has none of them.
  */
 export function recipeAbout(recipe) {
   if (!recipe) return null;
@@ -623,11 +656,20 @@ export function recipeAbout(recipe) {
     typeof recipe.pitch === 'string' && recipe.pitch.trim() ? recipe.pitch.trim() : null;
   const cost = costText(recipe.cost);
   const refs = referencesOf(recipe);
-  if (!pitch && !cost && !refs.length) return null;
+  const time = timeNoteOf(recipe);
+  if (!pitch && !cost && !refs.length && !time) return null;
   return h(
     'div',
     { class: 'recipe-about', 'data-testid': 'recipe-about' },
     pitch ? h('p', { class: 'recipe-pitch', 'data-testid': 'recipe-pitch' }, pitch) : null,
+    time
+      ? h(
+          'p',
+          { class: 'recipe-time', 'data-testid': 'recipe-time' },
+          iconEl('clock', 16),
+          h('span', null, time),
+        )
+      : null,
     cost ? h('p', { class: 'recipe-cost', 'data-testid': 'recipe-cost' }, cost) : null,
     refs.length
       ? h(

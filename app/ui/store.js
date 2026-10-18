@@ -434,6 +434,12 @@ export function createStore({
       foodIndex: index(),
       recentIds: recentFoodIds(t),
       showCheck: !s.halalOnly,
+      // Bilal R3: an idea already eaten in that meal today is not offered again.
+      skipIds: new Set(
+        d.entries
+          .filter((e) => e.slot === tip.suggestFor && e.status !== 'planned' && e.foodId)
+          .map((e) => e.foodId),
+      ),
     });
     return {
       ...tip,
@@ -1397,7 +1403,7 @@ export function createStore({
     },
 
     // actions: entries
-    addFood({ date, slot, foodId, servingId = null, qty = null, status = null }) {
+    addFood({ date, slot, foodId, servingId = null, qty = null, status = null, undo = null }) {
       const f = requireFood(foodId);
       const portion = servingId ? { servingId, qty: qty ?? 1 } : portionFor(foodId);
       if (!servingId && qty !== null) portion.qty = qty;
@@ -1417,7 +1423,7 @@ export function createStore({
         slot,
         date,
       });
-      commit(next);
+      commit(next, undo); // `undo`: a label offers Undo (the protein tip's one-tap Add)
       return entry.id;
     },
     quickAdd({ date, slot, name, nutrients, status = null }) {

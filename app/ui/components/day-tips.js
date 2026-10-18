@@ -13,9 +13,17 @@ const fill = (text, values) =>
 /**
  * The protein tip card (§13.2), or the sehri line (§12.4) with the same ideas and buttons.
  * @param {{ tip: object, rules: object, hideKcal?: boolean, onIdea: (idea: object) => void,
- *   onNotToday: () => void, onTurnOff: () => void }} props
+ *   onAdd?: (idea: object) => void, onNotToday: () => void, onTurnOff: () => void }} props
  */
-export function renderTipCard({ tip, rules, hideKcal = false, onIdea, onNotToday, onTurnOff }) {
+export function renderTipCard({
+  tip,
+  rules,
+  hideKcal = false,
+  onIdea,
+  onAdd = null,
+  onNotToday,
+  onTurnOff,
+}) {
   const text = rules?.proteinNudges?.text ?? {};
   const sehri = tip.kind === 'sehri';
   const heading = sehri
@@ -47,9 +55,11 @@ export function renderTipCard({ tip, rules, hideKcal = false, onIdea, onNotToday
               serving,
               protein: fmtGrams(idea.protein),
             });
+            // Bilal R3: "Add" logs the idea's serving in one tap (Undo in the toast); the row
+            // itself opens the portion picker to choose another amount.
             return h(
               'li',
-              null,
+              { class: 'tip-idea-row' },
               h(
                 'button',
                 {
@@ -57,20 +67,29 @@ export function renderTipCard({ tip, rules, hideKcal = false, onIdea, onNotToday
                   class: 'tip-idea',
                   'data-testid': 'tip-idea',
                   'data-food-id': idea.food.id,
-                  'aria-label': `${line}. Choose how much to add.`,
+                  'aria-label': `${line}. Choose how much.`,
                   onclick: () => onIdea(idea),
                 },
                 h('span', { class: 'tip-idea-text' }, line),
                 hideKcal
                   ? null
                   : h('span', { class: 'tip-idea-kcal' }, `${fmtKcal(idea.kcal)} kcal`),
-                h(
-                  'span',
-                  { class: 'tip-idea-add', 'aria-hidden': 'true' },
-                  iconEl('plus', 16),
-                  text.add ?? 'Add',
-                ),
               ),
+              onAdd
+                ? h(
+                    'button',
+                    {
+                      type: 'button',
+                      class: 'btn btn-secondary btn-small tip-idea-add',
+                      'data-testid': 'tip-add',
+                      'data-food-id': idea.food.id,
+                      'aria-label': `Add ${rowName(idea.food)}, ${serving}, to ${tip.slotLabel ?? 'this meal'}`,
+                      onclick: () => onAdd(idea),
+                    },
+                    iconEl('plus', 16),
+                    text.add ?? 'Add',
+                  )
+                : null,
             );
           }),
         )
