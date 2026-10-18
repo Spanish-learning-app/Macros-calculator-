@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Review 3",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-18T16:59:40Z",
+  "updatedAt": "2026-10-18T17:10:11Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -76,8 +76,8 @@
     },
     "mariam": {
       "location": "office",
-      "status": "working",
-      "task": "Re-check of her must-fix items"
+      "status": "idle",
+      "task": "Re-check done: all 6 fixed, 9/10"
     }
   },
   "inFlight": [
@@ -85,16 +85,6 @@
       "member": "kenji",
       "task": "Update 4 e2e, goal-choice tests, new review3.spec.js regression tests, full check + e2e",
       "output": "tests/**"
-    },
-    {
-      "member": "lab (alias)",
-      "task": "Remove bare biscuit aliases from 3 pk brand biscuits, rebuild",
-      "output": "research/{zainab,javier}/**, foods-pk-*.js"
-    },
-    {
-      "member": "mariam",
-      "task": "Re-check must-fix 1-6 on snapshot 784f649",
-      "output": "team/feedback/mariam-review3.md"
     }
   ],
   "checkIn": {
@@ -244,6 +234,10 @@
     "note": "Boss can prompt the session during the day to work anyway"
   },
   "queued": [
+    {
+      "member": "polish (sonnet)",
+      "task": "After Priya: smoothie Make default = plan's box count; plan card explains the rest of the till (pantry/leftover packs) with generated figure; tikka rice-soak step order"
+    },
     {
       "member": "ayesha",
       "task": "Nasreen R3: 'Keep my weight' still preselected (defaultGoal in rules.js)"

@@ -75,3 +75,4 @@
 - 2026-10-18T16:49:55Z: Yusuf R3-B done (351/351, G19 0). Lena has his 3 follow-ups (2 dev-test lines, duplicate move job).
 - 2026-10-18T16:59:40Z: Lena R3-A done. Kenji, the Lab alias fix and Mariam's re-check started, all on Sonnet (model policy).
 - 2026-10-18T17:03:31Z: final orphan check (Haiku). Priya (Sonnet) is on the 4 user-facing items and O15; the internal keys are documented in DECISIONS.
+- 2026-10-18T17:10:11Z: Mariam re-check: 6/6 fixed, 9/10. Last polish queued after Priya.
