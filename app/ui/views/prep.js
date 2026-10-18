@@ -213,14 +213,15 @@ export function mount(container, ctx) {
     return !store.recipe(recipeId) && lib && effortOf(lib.recipe) !== 'cook' ? 'Make' : 'Cook';
   }
 
-  function openCook(recipeId) {
+  function openCook(recipeId, planBoxes = null) {
     const food = store.food(recipeId);
     if (!food) return;
     const word = boxWord(food, rules);
     // A family pot opens on its katori (Nasreen R3 #7); a plan's weekday job on what is still
-    // planned with no box (Mariam: the plan says ×1, the dialog said 2).
+    // planned with no box (Mariam: the plan says ×1, the dialog said 2). From a plan's job it opens
+    // on that plan batch's own box count (the smoothie: 1 jar, though Friday's row is planned too).
     const waiting = plannedWithoutBox(recipeId);
-    let boxes = waiting || baseBoxes(recipeId) || 4;
+    let boxes = planBoxes || waiting || baseBoxes(recipeId) || 4;
     const makeVerb = cookVerb(recipeId);
     let plan = store.planFor(recipeId, boxes);
     let storage = [...plan.storage];
@@ -1457,7 +1458,7 @@ export function mount(container, ctx) {
   /** "Make it" on the Day view's Tonight card (R3-A) opens that recipe's Make / Cook dialog here. */
   function takeIntent() {
     const intent = takePrepIntent();
-    if (intent?.cook && store.food(intent.cook)) openCook(intent.cook);
+    if (intent?.cook && store.food(intent.cook)) openCook(intent.cook, intent.boxes);
   }
 
   return {

@@ -682,7 +682,7 @@ export function mount(container, ctx) {
     const make = notes?.make ?? [];
     const jobs = notes?.jobs ?? [];
     if (!move.length && !later.length && !make.length && !jobs.length) return null;
-    const makeIt = (foodId) =>
+    const makeIt = (foodId, boxes = null) =>
       h(
         'button',
         {
@@ -690,7 +690,7 @@ export function mount(container, ctx) {
           class: 'btn btn-secondary',
           'data-testid': 'tonight-make-btn',
           onclick: () => {
-            setPrepIntent({ cook: foodId });
+            setPrepIntent({ cook: foodId, boxes });
             router.go({ name: 'prep', params: {} });
           },
         },
@@ -776,7 +776,7 @@ export function mount(container, ctx) {
                   )
                 : null,
             ),
-            j.make ? makeIt(j.recipeId) : null,
+            j.make ? makeIt(j.recipeId, j.boxes) : null,
           ),
         ),
         make.map((m) => {

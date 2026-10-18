@@ -1,7 +1,7 @@
 // R-MP-1 · Chicken tikka rice bowl with a raita pot. Standard batch: 4 boxes. Raw edible grams.
 export default {
   n: 1,
-  prepMinutes: 15, // cutting the thighs, a ginger-garlic paste, peppers, onion petals, rinsing the rice
+  prepMinutes: 15, // cutting the thighs, a ginger-garlic paste, peppers, onion petals; the rice is rinsed in the soak step
   effort: 'cook',
   minutes: 40,
   waitNote: 'start the night before, so the chicken marinates at least 4 hours',
@@ -74,15 +74,15 @@ export default {
       'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.',
       'Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).',
       'Cut 2 red peppers (240 g) into 3 cm squares. Peel {{n:onion-red}}, cut each one into quarters and pull the layers apart into "petals".',
-      'Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.',
     ],
     steps: [
       { text: 'Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir.', heat: 'none', minutes: 5, ahead: true },
       { text: 'Add the chicken and turn it until every piece is coated. Cover and put it in the fridge for 4 hours or overnight.', heat: 'none', waitMinutes: 240, ahead: true },
-      { text: 'Heat the oven to 220 °C (fan, or fan with grill if your oven has it).', heat: 'oven-220', minutes: 10 },
+      { text: 'Rice soak (the day you cook, not the night before): rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes. Do this first, on the day you cook, then turn the oven on.', heat: 'none', minutes: 20, wait: true },
+      { text: 'While the rice soaks, heat the oven to 220 °C (fan, or fan with grill if your oven has it).', heat: 'oven-220', minutes: 10, during: true },
       { text: 'Spread the chicken on the lined tray in one layer, letting extra marinade drip back into the bowl. Put the pepper and onion petals around it and drizzle everything with the other 2 tsp oil (10 g).', heat: 'none' },
       { text: 'Roast 25 minutes, turning the pieces halfway, until the chicken has dark, slightly charred edges.', heat: 'oven-220', minutes: 25 },
-      { text: 'Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g).', heat: 'high', minutes: 3, during: true },
+      { text: 'Rice, 10 minutes after the chicken goes in the oven (the rice has soaked its 20 minutes by then): drain the soaked rice. In the pot bring 450 ml water to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g).', heat: 'high', minutes: 3, during: true },
       { text: 'Add the rice and stir once. Boil without the lid until the water has dropped just below the top of the rice and small holes appear on the surface.', heat: 'medium-high', minutes: 5, during: true },
       { text: 'Put the lid on tightly and turn the heat to the lowest. Leave 7 minutes; do not lift the lid.', heat: 'low', minutes: 7, during: true, wait: true },
       { text: 'Scatter the frozen peas (240 g, about 1¾ cups) on top of the rice, put the lid back on and steam 5 minutes more. Then turn off the heat, leave it 5 minutes and fluff the rice with a fork.', heat: 'low', minutes: 10, during: true, wait: true },

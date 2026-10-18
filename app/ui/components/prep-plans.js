@@ -104,7 +104,8 @@ export function plansSection({ store, notes, onChange, onShop = null }) {
 
 /**
  * The till line (Bilal R3 must-fix 5, M-15): the Lab's eatenEur is food eaten Mon–Fri, frozenEur
- * the boxes that go to the freezer for later weeks; the rest of the till stays in the cupboard.
+ * the boxes that go to the freezer for later weeks, keptEur the rest of the packs and jars that stays
+ * in the cupboard (generated: till - eaten - frozen).
  */
 export function costLine(plan) {
   const parts = [`${euro(plan.tillEur)} at the till`];
@@ -116,6 +117,8 @@ export function costLine(plan) {
       ? `${euro(plan.frozenEur)} goes to the freezer for later weeks`
       : null;
   if (eaten || frozen) parts.push([eaten, frozen].filter(Boolean).join(', '));
+  if (Number.isFinite(plan.keptEur) && plan.keptEur > 0)
+    parts.push(`${euro(plan.keptEur)} stays in your cupboard (rest of the packs and jars)`);
   if (plan.priceDate) parts.push(`prices from ${fmtDateShort(plan.priceDate)}`);
   return parts.join(' · ');
 }

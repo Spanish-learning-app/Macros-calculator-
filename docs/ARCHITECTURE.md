@@ -768,6 +768,8 @@ export const PLANS = [{ id: 'low-cook-week'|'budget-week', name, pitch,   // pit
   eatenEur,                                      // + R3-B meaning: only the food eaten Monday-Friday out of
                                                  //   this week's till (pro-rata; no frozen boxes, no cupboard)
   frozenEur,                                     // + made this week, frozen for later weeks
+  keptEur,                                       // + = tillEur - eatenEur - frozenEur: the rest of the packs and
+                                                 //   jars, which stays in the cupboard and fridge (generated)
   sundayMinutes,                                 // = the Sunday batches' `minutes` added up (hands-on)
   weekdayMinutes,                                // = the weekday `evenings[].minutes` added up
   batches: [{ foodId, when, boxes, from?: 'freezer',  // when: "Sunday", "<Day> night", "<Day>" (that evening)
@@ -802,8 +804,8 @@ lines in that plan's week, replacing the app's own lines for the same recipe) an
 A recipe named in any of the plan week's `evenings` gets no derived "make"/"later" row on another evening
 (the plan says when); a `kind: 'make'` job drops out once its box is made; a `kind: 'move'` job is not
 shown when the app holds that batch (its own `moveTonight` row, with Move to fridge, says it once).
-The plan card's till line reads `eatenEur` ("eaten Mon–Fri") and `frozenEur` ("goes to the freezer for
-later weeks"); the rest of the till is cupboard food.
+The plan card's till line reads `eatenEur` ("eaten Mon–Fri"), `frozenEur` ("goes to the freezer for
+later weeks") and `keptEur` ("stays in your cupboard"), so the three add up to `tillEur`.
 
 **Time** (Bilal R3, M-17). `timeNote` is shown in full at the top of a library recipe's sheet and in
 its Cook dialog (`recipe-method.js` `timeNoteOf`, which falls back to `totalMinutes` vs `minutes`). The

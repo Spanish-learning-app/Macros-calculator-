@@ -77,7 +77,7 @@ export default [
     ],
     effort: 'cook',
     minutes: 35,
-    totalMinutes: 330,
+    totalMinutes: 340,
     keep: {
       fridgeDays: 1,
       fridge: 1,
@@ -93,7 +93,7 @@ export default [
       ],
     },
     cuisine: 'desi',
-    timeNote: 'About 5 h 30 min start to finish (35 min of it hands-on): start the night before, so the chicken marinates at least 4 hours.',
+    timeNote: 'About 5 h 40 min start to finish (35 min of it hands-on): start the night before, so the chicken marinates at least 4 hours.',
     pitch: 'Oven-grilled thigh tikka with peppers over matar rice; cool raita in its own pot.',
     references: [
       { title: 'SOS Cuisine, Chicken tikka', url: 'https://www.soscuisine.com/recipe/1068' },
@@ -116,7 +116,7 @@ export default [
     ],
     method: {
       equipment: ['Mixing bowl with a lid (or a big freezer bag) for the marinade', 'Large oven tray lined with baking paper', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', 'A second tray or wide dish for cooling the rice', '4 lunch boxes and 4 small lidded pots (about 150 ml) for the raita'],
-      prep: ['Cut the chicken thighs (720 g, boneless and skinless: the butcher weighs them) into 4 cm pieces. Trim off any big lumps of fat.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.', 'Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).', 'Cut 2 red peppers (240 g) into 3 cm squares. Peel about 2 medium red onions (200 g), cut each one into quarters and pull the layers apart into "petals".', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.'],
+      prep: ['Cut the chicken thighs (720 g, boneless and skinless: the butcher weighs them) into 4 cm pieces. Trim off any big lumps of fat.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.', 'Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).', 'Cut 2 red peppers (240 g) into 3 cm squares. Peel about 2 medium red onions (200 g), cut each one into quarters and pull the layers apart into "petals".'],
       steps: [
         {
           text: 'Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir.',
@@ -128,7 +128,12 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Heat the oven to 220 °C (fan, or fan with grill if your oven has it).',
+          text: 'Rice soak (the day you cook, not the night before): rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes. Do this first, on the day you cook, then turn the oven on.',
+          heat: 'none',
+          minutes: 20,
+        },
+        {
+          text: 'While the rice soaks, heat the oven to 220 °C (fan, or fan with grill if your oven has it).',
           heat: 'oven-220',
           minutes: 10,
         },
@@ -142,7 +147,7 @@ export default [
           minutes: 25,
         },
         {
-          text: 'Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water (about 2 cups) to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g).',
+          text: 'Rice, 10 minutes after the chicken goes in the oven (the rice has soaked its 20 minutes by then): drain the soaked rice. In the pot bring 450 ml water (about 2 cups) to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g).',
           heat: 'high',
           minutes: 3,
         },

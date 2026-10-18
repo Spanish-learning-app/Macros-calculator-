@@ -382,7 +382,7 @@ test.describe('timeNote reaches the screen (M-17)', () => {
     await row(page, TIKKA).getByTestId('library-method').click();
     const dlg = page.getByTestId('method-dialog');
     await expect(dlg).toBeVisible();
-    await expect(dlg.getByTestId('recipe-time')).toContainText(/About 5 h 30 min start to finish/);
+    await expect(dlg.getByTestId('recipe-time')).toContainText(/About 5 h 40 min start to finish/);
     await expect(dlg.getByTestId('recipe-time')).toContainText(/marinates at least 4 hours/);
   });
 
@@ -392,7 +392,7 @@ test.describe('timeNote reaches the screen (M-17)', () => {
     await openPrep(page);
     await row(page, TIKKA).getByTestId('library-cook').click();
     const dlg = page.getByTestId('cook-dialog');
-    await expect(dlg.getByTestId('cook-time-note')).toContainText(/5 h 30 min start to finish/);
+    await expect(dlg.getByTestId('cook-time-note')).toContainText(/5 h 40 min start to finish/);
     await expect(dlg.getByTestId('cook-time-note')).toContainText(/marinates at least 4 hours/);
     await page.keyboard.press('Escape');
     await row(page, CHAAT).getByTestId('library-cook').click();

@@ -713,6 +713,19 @@ export function createStore({
    * the last week): PLANS[].evenings = [{ weekday, time?, text, recipeId? }], today's weekday.
    * @returns {{ text: string, recipeId: string|null, time: string|null }[]}
    */
+  /**
+   * How many boxes the plan's batch for an evening job makes (PLANS[].batches[].boxes: the batch
+   * whose `when` is "<Day> <time>", or "<Day>" for an evening job), else null.
+   */
+  function planBoxesFor(plan, e) {
+    if (!e.recipeId || !e.day) return null;
+    const when = e.time && e.time !== 'evening' ? `${e.day} ${e.time}` : e.day;
+    const b = (plan.batches ?? []).find(
+      (x) => x.foodId === e.recipeId && !x.from && x.when === when,
+    );
+    return Number.isInteger(b?.boxes) && b.boxes > 0 ? b.boxes : null;
+  }
+
   /** The evening jobs of a plan in use around `date` (that evening's; with `wholeWeek`, all). */
   function planEvenings(date, wholeWeek = false) {
     const out = [];
@@ -735,6 +748,7 @@ export function createStore({
           time: e.time ?? null,
           kind: typeof e.kind === 'string' ? e.kind : null,
           minutes: Number.isFinite(e.minutes) && e.minutes > 0 ? e.minutes : null,
+          boxes: planBoxesFor(plan, e),
         });
       }
     }
