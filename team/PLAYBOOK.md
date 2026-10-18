@@ -76,7 +76,15 @@ Run this whenever a check-in fires or a new session starts on this repo:
    resumes used up a full usage window in about ten minutes. Run at most three agents at once, and
    give each a tight, single deliverable.
 
-8. **Working hours (Boss's rule, 2026-10-14).** The team works only **18:00–10:00 Europe/Madrid**.
+8. **Model choice (Boss's rule, 2026-10-18): use the cheapest model that keeps the quality.**
+   - **Opus:** only for work that needs judgement and touches many files: app features and fixes in app/core and app/ui (Lena), recipe and plan data with build checks (Yusuf), and nutrition rulings (Ayesha).
+   - **Sonnet:** tests and QA (Kenji), tester reviews and re-checks (customer panel), data rebuilds and alias or record additions (Javier, Zainab), UI polish with a clear spec (Priya), and read-only audits.
+   - **Haiku:** mechanical checks only, such as "does X appear in file Y" sweeps or counting.
+   - Every brief stays tight: one deliverable and a "read only these files" list.
+   - The Manager keeps dashboard writes to one batch per event, and never reads large files or transcripts into the main session.
+   - Quality guard: whatever model did the work, a fix is accepted only after `npm run check`, the e2e suite, and the Manager's own tap-through (M-14).
+
+9. **Working hours (Boss's rule, 2026-10-14).** The team works only **18:00–10:00 Europe/Madrid**.
    From 10:00 to 18:00 the Boss uses Claude for other work, so no agents run and no check-ins fire.
    The 09:09 check-in starts no new agents: it commits, pushes and marks the team off duty. If the
    Boss messages the session during the day and asks the team to work, that is fine: it is their call.

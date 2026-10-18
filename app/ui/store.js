@@ -434,11 +434,9 @@ export function createStore({
       foodIndex: index(),
       recentIds: recentFoodIds(t),
       showCheck: !s.halalOnly,
-      // Bilal R3: an idea already eaten in that meal today is not offered again.
+      // Bilal R3: an idea already in that meal today (eaten, or planned there) is not offered.
       skipIds: new Set(
-        d.entries
-          .filter((e) => e.slot === tip.suggestFor && e.status !== 'planned' && e.foodId)
-          .map((e) => e.foodId),
+        d.entries.filter((e) => e.slot === tip.suggestFor && e.foodId).map((e) => e.foodId),
       ),
     });
     return {

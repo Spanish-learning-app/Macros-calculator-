@@ -48,21 +48,21 @@
    },
    {
     "day": "Friday",
-    "kcal": 1881.52,
-    "protein": 144.49,
-    "fiber": 34.768,
+    "kcal": 1967.52,
+    "protein": 131.79,
+    "fiber": 43.668,
     "breakfast": "intl-banana-oat-smoothie-jar",
     "lunch": "intl-chicken-caesar-salad-box",
-    "dinner": "pk-chicken-karahi-roti-portion",
+    "dinner": "pk-microwave-chana-masala-portion",
     "lunchCuisine": "international",
     "dinnerCuisine": "desi"
    }
   ],
-  "sundayMinutes": 71,
-  "weekdayMinutes": 55,
-  "till": 75.64009999999999,
-  "eaten": 43.96661900277803,
-  "freezer": 1.9324516777188325,
+  "sundayMinutes": 81,
+  "weekdayMinutes": 85,
+  "till": 82.35009999999998,
+  "eaten": 43.91545833101787,
+  "freezer": 0,
   "unpriced": []
  },
  "budget": {

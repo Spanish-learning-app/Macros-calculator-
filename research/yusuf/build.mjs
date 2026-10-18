@@ -810,24 +810,27 @@ const WEEKS = {
   // v3 (Sprint 3, the Boss's variety note): lunches mix a bowl, pasta, a sandwich and a salad; no desi lunch and no
   // lentil-tuna salad; desi food stays at dinner (the karahi from the freezer). Fish lunches never three in a row.
   v3: {
+    // R3-B: notes are generated from the boxes (planBoxes, batchNote); `tip` is only extra shop or use advice, with no
+    // split or day count of its own. Friday's desi dinner is made that evening (Mariam Review 3: in a first week there
+    // is no karahi in the freezer), with the other half of Thursday's chickpea jar.
     batches: [
-      { id: 'es-pollo-patatas-pimientos-horno-portion', when: 'Sunday', make: 4, note: 'Mon–Wed dinners (cooked meat keeps 3 days); the 4th portion goes in the freezer for next week' },
-      { id: 'intl-chicken-burrito-bowl-box', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'Mon, Tue lunches: half the 4-box recipe (1 pack of 2 rice cups)' },
-      { id: 'intl-beef-bolognese-pasta-box', when: 'Sunday', make: 4, note: 'the sauce: 1 portion in the fridge for Wednesday, 3 in the freezer for the next weeks; boil the penne on Tuesday night (8 min)' },
-      { id: 'es-queso-batido-parfait-jar', when: 'Sunday', make: 3, note: 'Mon–Wed breakfasts' },
-      { id: 'es-bocadillo-atun-huevo-box', when: 'Wednesday night', make: 1, note: 'Thursday lunch: half the recipe (boil the egg while you mix)' },
-      { id: 'intl-banana-oat-smoothie-jar', when: 'Wednesday night', make: 1, note: 'Thursday breakfast' },
-      { id: 'intl-chicken-caesar-salad-box', when: 'Thursday night', make: 1, scale: true, minutes: 15, note: 'Friday lunch: half the recipe' },
-      { id: 'intl-banana-oat-smoothie-jar', when: 'Thursday night', make: 1, note: 'Friday breakfast' },
-      { id: 'es-crema-verduras-huevo-garbanzos-portion', when: 'Thursday', make: 1, note: 'dinner: half the brik and half the chickpea jar (the rest makes Saturday\'s dinner)' },
-      { id: 'pk-chicken-karahi-roti-portion', when: 'Friday morning', make: 1, from: 'freezer', note: 'move 1 portion (with its 2 roti) from the freezer to the fridge for Friday dinner; cooked on an earlier Sunday' },
+      { id: 'es-pollo-patatas-pimientos-horno-portion', when: 'Sunday', make: 4 },
+      { id: 'intl-chicken-burrito-bowl-box', when: 'Sunday', make: 2, scale: true, tip: '1 pack of 2 rice cups' },
+      { id: 'intl-beef-bolognese-pasta-box', when: 'Sunday', make: 4 },
+      { id: 'es-queso-batido-parfait-jar', when: 'Sunday', make: 3 },
+      { id: 'es-bocadillo-atun-huevo-box', when: 'Wednesday night', make: 1 },
+      { id: 'intl-banana-oat-smoothie-jar', when: 'Wednesday night', make: 1 },
+      { id: 'intl-chicken-caesar-salad-box', when: 'Thursday night', make: 1, scale: true },
+      { id: 'intl-banana-oat-smoothie-jar', when: 'Thursday night', make: 1 },
+      { id: 'es-crema-verduras-huevo-garbanzos-portion', when: 'Thursday', make: 1, tip: "half the brik and half a chickpea jar: the other half of the jar is Friday's chana masala, the rest of the brik a weekend dinner" },
+      { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 1, tip: "with the chickpeas left from Thursday" },
     ],
     days: [
       { day: 'Monday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-chicken-burrito-bowl-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-banana', 'medium', 1, 'banana'), R('intl-kinnow', 'medium', 1, 'mandarin'), R('intl-almonds', 'ten', 1, 'almonds')] },
       { day: 'Tuesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-chicken-burrito-bowl-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-queso-burgos-0', 'tub', 1, 'burgos-0'), R('intl-apple', 'medium', 1, 'apple'), R('intl-almonds', 'ten', 1, 'almonds'), R('es-picos-integrales', '30g', 1, 'picos')] },
       { day: 'Wednesday', breakfast: 'es-queso-batido-parfait-jar', lunch: 'intl-beef-bolognese-pasta-box', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-pear', 'medium', 1, 'pear'), R('intl-almonds', 'ten', 1, 'almonds')] },
       { day: 'Thursday', breakfast: 'intl-banana-oat-smoothie-jar', lunch: 'es-bocadillo-atun-huevo-box', dinner: 'es-crema-verduras-huevo-garbanzos-portion', ready: [R('intl-kinnow', 'medium', 1, 'mandarin'), R('es-queso-burgos-0', 'tub', 1, 'burgos-0')] },
-      { day: 'Friday', breakfast: 'intl-banana-oat-smoothie-jar', lunch: 'intl-chicken-caesar-salad-box', dinner: 'pk-chicken-karahi-roti-portion', ready: [R('intl-apple', 'medium', 1, 'apple'), R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-almonds', 'ten', 1, 'almonds')] },
+      { day: 'Friday', breakfast: 'intl-banana-oat-smoothie-jar', lunch: 'intl-chicken-caesar-salad-box', dinner: 'pk-microwave-chana-masala-portion', ready: [R('intl-apple', 'medium', 1, 'apple'), R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('intl-almonds', 'ten', 1, 'almonds')] },
     ],
   },
   // Budget v3 (2026-10-16, MISTAKES M-15): BUDGET_EUR or less at the till, by buying fewer different packs: every
@@ -837,15 +840,15 @@ const WEEKS = {
   budget: {
     buy: { banana: { id: 3824 } }, // the loose "Banana" (0.20 € each), not Plátano de Canarias: same fruit, same record
     batches: [
-      { id: 'intl-protein-pancakes-portion', when: 'Sunday', make: 4, note: 'Mon–Thu breakfasts: 1 portion in the fridge for Monday, 3 in the freezer (toast them from frozen)' },
-      { id: 'es-pollo-patatas-pimientos-horno-portion', when: 'Sunday', make: 4, note: 'Mon–Wed dinners (cooked meat keeps 3 days); the 4th portion goes in the freezer for next week' },
-      { id: 'intl-chicken-spinach-pasta-bake-portion', when: 'Sunday', make: 2, scale: true, minutes: 20, note: 'Mon and Thu lunches: half the recipe; Monday\'s in the fridge, Thursday\'s in the freezer (pasta keeps 1 day), moved down on Wednesday night' },
-      { id: 'es-bocadillo-atun-huevo-box', when: 'Monday night', make: 1, note: 'Tuesday lunch: half the recipe (boil the egg while you mix)' },
-      { id: 'med-lentil-rice-burgos-bowl-box', when: 'Tuesday night', make: 1, note: 'Wednesday lunch: half the recipe; the rest of the lentil jar goes in a closed box for Thursday night' },
-      { id: 'es-crema-verduras-huevo-garbanzos-portion', when: 'Thursday', make: 1, note: 'dinner: half the brik (the rest keeps 2 days) and half a chickpea jar (the other half is Friday\'s chana masala)' },
-      { id: 'es-lentejas-atun-burgos-salad-box', when: 'Thursday night', make: 1, note: 'Friday lunch: half the recipe, with the lentils left from Tuesday' },
-      { id: 'intl-banana-oat-smoothie-jar', when: 'Thursday night', make: 1, note: 'Friday breakfast' },
-      { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 1, note: 'dinner: half the recipe, with the chickpeas left from Thursday' },
+      { id: 'intl-protein-pancakes-portion', when: 'Sunday', make: 4 },
+      { id: 'es-pollo-patatas-pimientos-horno-portion', when: 'Sunday', make: 4 },
+      { id: 'intl-chicken-spinach-pasta-bake-portion', when: 'Sunday', make: 2, scale: true },
+      { id: 'es-bocadillo-atun-huevo-box', when: 'Monday night', make: 1 },
+      { id: 'med-lentil-rice-burgos-bowl-box', when: 'Tuesday night', make: 1, tip: 'the rest of the lentil jar goes in a closed box for Thursday night' },
+      { id: 'es-crema-verduras-huevo-garbanzos-portion', when: 'Thursday', make: 1, tip: "half the brik and half a chickpea jar: the other half of the jar is Friday's chana masala" },
+      { id: 'es-lentejas-atun-burgos-salad-box', when: 'Thursday night', make: 1, tip: 'with the lentils left from Tuesday' },
+      { id: 'intl-banana-oat-smoothie-jar', when: 'Thursday night', make: 1 },
+      { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 1, tip: 'with the chickpeas left from Thursday' },
     ],
     days: [
       { day: 'Monday', breakfast: 'intl-protein-pancakes-portion', lunch: 'intl-chicken-spinach-pasta-bake-portion', dinner: 'es-pollo-patatas-pimientos-horno-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('es-yogur-proteinas-natural', 'pot', 1, 'protein-yogurt'), R('es-picos-integrales', '30g', 1, 'picos')] },
@@ -860,15 +863,15 @@ const WEEKS = {
   budgetV2: {
     buy: { egg: { id: 31540, units: 6 } }, // the box of 6 large eggs, not 12
     batches: [
-      { id: 'intl-tuna-tomato-pasta-box', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'Mon lunch and 1 box in the freezer for next week: half the recipe' },
-      { id: 'intl-chicken-spinach-pasta-bake-portion', when: 'Sunday', make: 4, note: 'Mon dinner (fridge, pasta keeps 1 day); 3 in the freezer: Wednesday\'s dinner and 2 for next week' },
-      { id: 'med-shakshuka-garbanzos-portion', when: 'Sunday', make: 2, scale: true, minutes: 15, note: 'the sauce for Tue and Thu dinners (half the recipe); 2 eggs cracked in on the night' },
-      { id: 'intl-overnight-oats-protein-jar', when: 'Sunday', make: 3, note: 'Mon–Wed breakfasts' },
-      { id: 'es-bocadillo-pollo-piquillo-box', when: 'Monday night', make: 2, note: 'Tue, Wed lunches' },
-      { id: 'med-lentil-rice-burgos-bowl-box', when: 'Wednesday night', make: 1, note: 'Thursday lunch (half the recipe: the other half jar of lentils goes into Friday\'s caesar or a salad)' },
-      { id: 'med-menemen-portion', when: 'Wednesday night', make: 2, note: 'Thu breakfast that night\'s pan, Fri reheated' },
-      { id: 'intl-chicken-caesar-salad-box', when: 'Thursday night', make: 1, scale: true, minutes: 15, note: 'Friday lunch: half the recipe' },
-      { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 2, note: 'dinner; the second portion goes in the freezer' },
+      { id: 'intl-tuna-tomato-pasta-box', when: 'Sunday', make: 2, scale: true },
+      { id: 'intl-chicken-spinach-pasta-bake-portion', when: 'Sunday', make: 4 },
+      { id: 'med-shakshuka-garbanzos-portion', when: 'Sunday', make: 2, scale: true },
+      { id: 'intl-overnight-oats-protein-jar', when: 'Sunday', make: 3 },
+      { id: 'es-bocadillo-pollo-piquillo-box', when: 'Monday night', make: 2 },
+      { id: 'med-lentil-rice-burgos-bowl-box', when: 'Wednesday night', make: 1 },
+      { id: 'med-menemen-portion', when: 'Wednesday night', make: 2 },
+      { id: 'intl-chicken-caesar-salad-box', when: 'Thursday night', make: 1, scale: true },
+      { id: 'pk-microwave-chana-masala-portion', when: 'Friday', make: 2 },
     ],
     days: [
       { day: 'Monday', breakfast: 'intl-overnight-oats-protein-jar', lunch: 'intl-tuna-tomato-pasta-box', dinner: 'intl-chicken-spinach-pasta-bake-portion', ready: [R('intl-banana', 'medium', 1, 'banana'), R('intl-apple', 'medium', 1, 'apple')] },
@@ -890,6 +893,147 @@ function packLabel(ingId, pr, units = REG[ingId].buy?.units) {
   return pr.pack;
 }
 
+// ------------------------------------------------------------------ R3-B: which box is eaten when, fridge or freezer
+// Day numbers from the Sunday cook: Sunday 0, Monday 1 … Friday 5. A batch line's `when` is "Sunday", "<Day> night"
+// (made the evening before the box is eaten) or "<Day>" (made that evening, for that dinner).
+const DAY_IX = { Sunday: 0, Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6 };
+const DAY_NAMES = Object.keys(DAY_IX);
+function madeOn(when) {
+  const m = /^(\w+day)(?: (night|morning))?$/.exec(when);
+  if (!m || !(m[1] in DAY_IX)) throw new Error(`week: unknown batch time "${when}"`);
+  return { day: DAY_IX[m[1]], time: m[2] ?? (m[1] === 'Sunday' ? 'day' : 'evening') };
+}
+// Every meal of the week is given the box it eats: the earliest batch of that prep already made by then (a batch made
+// on a night is for the next day on). Each box then goes in the fridge when it is eaten within the recipe's fridge
+// life (keep.fridgeDays, counted from the day it is made, the app's own rule), else in the freezer, and a box made and
+// not eaten this week goes in the freezer. A box that would have to wait longer than its fridge life and cannot be
+// frozen fails the build. Same rule as the app's planStorage (store.js), so the plan and the app agree (R3-B item 1).
+function planBoxes(res, W) {
+  for (const pb of res.batches) Object.assign(pb, { made: madeOn(pb.b.when), eat: [] });
+  W.days.forEach((d, i) => {
+    const day = DAY_IX[d.day];
+    d.batchOf = {};
+    for (const slot of ['breakfast', 'lunch', 'dinner']) {
+      const ok = res.batches
+        .map((pb, k) => ({ pb, k }))
+        .filter(({ pb }) => pb.b.id === d[slot] && pb.eat.length < pb.b.make && (pb.made.day < day || (pb.made.day === day && pb.made.time !== 'night')))
+        .sort((a, b) => a.pb.made.day - b.pb.made.day);
+      if (!ok.length) throw new Error(`week: no batch makes ${d[slot]} by ${d.day}'s ${slot}`);
+      const { pb, k } = ok[0];
+      pb.eat.push({ day: d.day, weekday: day, slot, age: day - pb.made.day });
+      d.batchOf[slot] = k;
+      void i;
+    }
+  });
+  for (const pb of res.batches) {
+    const keep = pb.s.keep;
+    if (pb.b.from) {
+      pb.eat.forEach((e) => (e.from = 'freezer'));
+      Object.assign(pb, { fridge: 0, freezer: pb.b.make });
+      continue;
+    }
+    for (const e of pb.eat) {
+      if (e.age <= keep.fridgeDays) e.from = 'fridge';
+      else if (keep.freezable) e.from = 'freezer';
+      else throw new Error(`week: ${pb.b.id} box for ${e.day} is ${e.age} days old, it keeps ${keep.fridgeDays} and does not freeze`);
+    }
+    const left = pb.b.make - pb.eat.length;
+    if (left && !keep.freezable) throw new Error(`week: ${pb.b.id} makes ${left} more than the week eats and does not freeze`);
+    pb.fridge = pb.eat.filter((e) => e.from === 'fridge').length;
+    pb.freezer = pb.b.make - pb.fridge;
+    // The fridge boxes are the first ones eaten (the app places them in order).
+    const order = pb.eat.map((e) => e.from).join(',');
+    if (!/^(fridge,)*(fridge)?(,?freezer)*$/.test(order)) throw new Error(`week: ${pb.b.id} eats a frozen box before a fridge box (${order})`);
+  }
+}
+
+// Plan text (R3-B items 1, 6, 7): every batch note and evening job is written from the boxes above and the recipe's
+// own keep, minutes and lightCooking, never typed; a batch's `tip` adds shop or use advice only.
+const SHORT = (d) => d.slice(0, 3);
+const SLOT_MANY = { breakfast: 'breakfasts', lunch: 'lunches', dinner: 'dinners' };
+const lcFirst = (x) => x.charAt(0).toLowerCase() + x.slice(1);
+const dishName = (s) => lcFirst(s.names.en.replace(/\s*\(\d+\)$/, ''));
+function daysText(days) {
+  if (days.length === 1) return days[0];
+  const ix = days.map((d) => DAY_IX[d]);
+  const run = ix.every((x, i) => !i || x === ix[i - 1] + 1);
+  return run && days.length >= 3 ? `${SHORT(days[0])}–${SHORT(days[days.length - 1])}` : andList(days.map(SHORT));
+}
+// "Mon–Wed dinners", "Thursday's lunch", "Mon and Thu lunches"
+function forText(eat) {
+  const by = new Map();
+  for (const e of eat) by.set(e.slot, [...(by.get(e.slot) ?? []), e.day]);
+  return andList([...by].map(([slot, days]) => (days.length === 1 ? `${days[0]}'s ${slot}` : `${daysText(days)} ${SLOT_MANY[slot]}`)));
+}
+const FRAC_WORD = { 0.5: 'half', 0.25: 'a quarter of', 0.75: 'three quarters of' };
+function scaleText(b, r) {
+  if (b.make >= r.boxes) return null;
+  const f = FRAC_WORD[b.make / r.boxes];
+  if (!f) throw new Error(`week: ${b.id} makes ${b.make} of a ${r.boxes}-${UNIT[r.serving].one} recipe: use half or a quarter`);
+  return `${f} the ${r.boxes === 2 ? '' : `${r.boxes}-${UNIT[r.serving].one} `}recipe`;
+}
+const prevDay = (d) => DAY_NAMES[(DAY_IX[d] + 6) % 7];
+const TIP_BAD = /\b\d+\s*(?:min|minutes?|days?|months?)\b|\b(?:fridge|freezer)\b/i;
+function batchNote(pb) {
+  const { b, s, r } = pb;
+  const u = UNIT[r.serving];
+  if (b.tip && TIP_BAD.test(b.tip)) throw new Error(`week: ${b.id} tip "${b.tip}" states minutes, days or fridge/freezer: those are generated`);
+  if (b.note) throw new Error(`week: ${b.id} has a typed note: notes are generated (tip for extra advice)`);
+  const parts = [];
+  const sc = scaleText(b, r);
+  if (sc) parts.push(`${sc} (${plural(b.make, u)})`);
+  if (r.effort !== 'cook' && s.lightCooking) parts.push(s.lightCooking);
+  if (b.from) parts.push(`cooked on an earlier week: move it from the freezer to the fridge on ${prevDay(pb.eat[0].day)} night`);
+  else {
+    const fr = pb.eat.filter((e) => e.from === 'fridge');
+    const fz = pb.eat.filter((e) => e.from === 'freezer');
+    const left = b.make - pb.eat.length;
+    if (fz.length || left || b.when === 'Sunday') {
+      const st = [];
+      const life = `keeps ${s.keep.fridgeDays} day${s.keep.fridgeDays > 1 ? 's' : ''}`;
+      const where = fr.length === b.make ? (b.make === 1 ? 'into the fridge' : b.make === 2 ? 'both in the fridge' : `all ${b.make} in the fridge`) : fr.length === 1 ? (pb.eat.length === 1 ? '1 in the fridge' : `${fr[0].day}'s in the fridge`) : `${daysText(fr.map((e) => e.day))} in the fridge`;
+      if (fr.length) st.push(`${where} (${life})`);
+      for (const e of fz) st.push(`${e.day}'s in the freezer, moved to the fridge on ${prevDay(e.day)} night`);
+      if (left) st.push(`${left === 1 ? `1 more ${u.one}` : `${left} more ${u.many}`} in the freezer for the next ${left === 1 ? 'week' : 'weeks'}`);
+      parts.push(st.join(', '));
+    }
+    for (const l of s.keep.later ?? []) parts.push(`cook the ${lcFirst(l.name)} on ${andList([...new Set(pb.eat.map((e) => `${prevDay(e.day)} night`))])}`);
+  }
+  if (b.tip) parts.push(b.tip);
+  return `${forText(pb.eat)}${parts.length ? `: ${parts.join('; ')}` : ''}`;
+}
+// Evening jobs Monday to Friday (and Sunday night): make a weekday batch, move a frozen box down, cook the part of a
+// box made the night before (keep.later), or make a fresh side again once the first one is past its life.
+// weekday: 1 = Monday … 5 = Friday, 7 = the Sunday before (the app's convention).
+function planEvenings(P) {
+  const out = [];
+  const job = (day, time, kind, text, recipeId, minutes) => out.push({ day, weekday: DAY_IX[day] || 7, time, kind, text, recipeId, ...(minutes ? { minutes } : {}) });
+  for (const pb of P.batches) {
+    const { b, s, r } = pb;
+    const u = UNIT[r.serving];
+    if (!b.from && b.when !== 'Sunday') {
+      const sc = scaleText(b, r);
+      const extra = [sc ? `${sc}, ${plural(b.make, u)}` : null, r.effort !== 'cook' ? s.lightCooking : null].filter(Boolean).join('; ');
+      const tonight = pb.made.time === 'evening' && pb.eat.every((e) => e.weekday === pb.made.day);
+      job(DAY_NAMES[pb.made.day], pb.made.time, 'make', `Make the ${dishName(s)} for ${tonight ? `tonight's ${pb.eat[0].slot}` : forText(pb.eat)}${extra ? ` (${extra})` : ''}: ${r.minutes} min hands-on.`, s.id, r.minutes);
+    }
+    for (const e of pb.eat) {
+      if (e.from === 'freezer') job(prevDay(e.day), 'night', 'move', `Move 1 ${u.one} of ${dishName(s)} from the freezer to the fridge for ${e.day}'s ${e.slot}.`, s.id);
+      if (b.from) continue;
+      for (const l of s.keep.later ?? []) job(prevDay(e.day), 'night', 'later', `For ${e.day}'s ${e.slot} (${dishName(s)}): ${lcFirst(l.job)}`, s.id, s.laterHands);
+      if (!s.keep.later && s.laterTotal) job(e.slot === 'dinner' ? e.day : prevDay(e.day), e.slot === 'dinner' ? 'evening' : 'night', 'later', `For ${e.day}'s ${e.slot} (${dishName(s)}): ${s.laterNote}.`, s.id, s.laterHands);
+      for (const f of s.keep.fresh ?? []) {
+        if (e.age <= f.fridgeDays) continue;
+        if (!f.again) throw new Error(`week: ${s.id} box for ${e.day} needs a fresh ${f.name} and the sheet has no "again" text`);
+        const m = /\((\d+) min\)|, (\d+) min\.?$/.exec(f.again);
+        job(prevDay(e.day), 'night', 'fresh', `For ${e.day}'s ${e.slot} (${dishName(s)}): ${lcFirst(f.again.replace(/^[^:]*night:\s*/i, ''))}`, s.id, m ? Number(m[1] ?? m[2]) : undefined);
+      }
+    }
+  }
+  const TIME = { morning: 0, day: 1, evening: 2, night: 3 };
+  return out.sort((a, b) => DAY_IX[a.day] - DAY_IX[b.day] || TIME[a.time] - TIME[b.time]);
+}
+
 // Totals, shopping and money for one week; md = the page text.
 function planWeek(rows, W) {
   const byId = new Map(rows.map((x) => [x.s.id, x]));
@@ -901,10 +1045,11 @@ function planWeek(rows, W) {
   const res = { batches: [], totals: [], mins: { Sunday: 0, other: 0 } };
   for (const b of W.batches) {
     const { s, r } = prep(b.id);
-    const m = b.from ? 0 : (b.minutes ?? r.minutes);
+    // Hands-on minutes are the recipe's own (the library row and the plan card show the same number; R3-B, Bilal).
+    if (b.minutes !== undefined) throw new Error(`week: ${b.id} has typed minutes: plan minutes are the recipe's (M-15)`);
+    const m = b.from ? 0 : r.minutes;
     res.batches.push({ b, s, r, m });
     if (b.when === 'Sunday') res.mins.Sunday += m;
-    else res.mins.other += m;
   }
   // Every jar, box or portion eaten in the week is made (or moved from the freezer) by a batch line.
   const made = new Map();
@@ -920,12 +1065,33 @@ function planWeek(rows, W) {
     const sum = (k) => meals.reduce((a, m) => a + m.r.box[k], 0) + ready.reduce((a, l) => a + l[k], 0);
     res.totals.push({ day: d.day, kcal: sum('kcal'), protein: sum('protein'), fiber: sum('fiber'), mealProtein: meals.reduce((a, m) => a + m.r.box.protein, 0), readyProtein: ready.reduce((a, l) => a + l.protein, 0), readyKcal: ready.reduce((a, l) => a + l.kcal, 0), meals, ready });
   }
+  planBoxes(res, W);
+  for (const pb of res.batches) pb.note = batchNote(pb);
+  res.evenings = planEvenings(res);
+  // Weekday minutes = the evening jobs' own minutes (the same numbers the jobs show).
+  res.mins.other = res.evenings.filter((e) => e.weekday <= 5).reduce((x, e) => x + (e.minutes ?? 0), 0);
   // ---- shopping list: the batches + the ready items, priced on one date
   const need = new Map(); // ingId → grams
   const add = (ingId, g) => need.set(ingId, (need.get(ingId) ?? 0) + g);
   let freezer = 0;
-  for (const { b, r } of res.batches) {
+  // Loose produce: price the week from single pieces, not the 2–3 kg bags the sheets use.
+  const WEEK_BUY = { tomato: { id: 69912 }, potato: { id: 69066 }, ...W.buy };
+  const proOf = (ingId, g) => {
+    const pr = priceOf(ingId, { snap: WEEK_SNAP, id: WEEK_BUY[ingId]?.id, units: WEEK_BUY[ingId]?.units });
+    return pr.eurPerG != null ? g * pr.eurPerG : 0;
+  };
+  for (const pb of res.batches) {
+    const { b, r } = pb;
     const f = r.effort === 'cook' && !b.scale && !b.from ? 1 : b.make / r.boxes;
+    // What this batch's food costs (pro-rata, cupboard apart): split later into eaten this week and frozen for later.
+    pb.cost = 0;
+    pb.pantryCost = 0;
+    for (const c of r.components)
+      for (const l of c.lines) {
+        if (l.ingId === 'water' || b.from) continue;
+        if (PANTRY.has(l.ingId)) pb.pantryCost += proOf(l.ingId, l.grams * f);
+        else pb.cost += proOf(l.ingId, l.grams * f);
+      }
     for (const c of r.components)
       for (const l of c.lines) {
         if (l.ingId === 'water') continue;
@@ -936,8 +1102,6 @@ function planWeek(rows, W) {
       }
   }
   for (const d of W.days) for (const x of d.ready) add(x.buy, readyLine(x.r).grams);
-  // Loose produce: price the week from single pieces, not the 2–3 kg bags the sheets use.
-  const WEEK_BUY = { tomato: { id: 69912 }, potato: { id: 69066 }, ...W.buy };
   const merged = new Map(); // Mercadona product → one line (raw and boiled eggs are the same box of eggs)
   for (const [ingId, g] of need) {
     const bu = REG[ingId].buy;
@@ -978,17 +1142,29 @@ function planWeek(rows, W) {
     groups.mercadona.push({ ingId, g, packs, cost, pr, units: WEEK_BUY[ingId]?.units ?? buy.units, unit: buy.perUnitG ? (ingId.startsWith('egg') ? 'eggs' : 'pieces') : null });
   }
   const pantry = groups.pantry.reduce((a, x) => a + (x.pro ?? 0), 0);
-  Object.assign(res, { groups, till, eaten: eaten + freezer, freezer, pantry, unpriced });
+  // Money (R3-B, Bilal must-fix 5): "eaten this week" is only the food eaten Monday to Friday out of this week's
+  // till: the boxes of this week's batches that are eaten this week, and the ready items. Boxes that go to the freezer
+  // for later weeks are `frozen`; a portion from an earlier week's freezer (`from`) is neither.
+  const readyCost = W.days.reduce((a, d) => a + d.ready.reduce((x, it) => x + proOf(it.buy, readyLine(it.r).grams), 0), 0);
+  const fromThisWeek = res.batches.filter((pb) => !pb.b.from);
+  const eatenWeek = readyCost + fromThisWeek.reduce((a, pb) => a + (pb.cost * pb.eat.length) / pb.b.make, 0);
+  const frozen = fromThisWeek.reduce((a, pb) => a + (pb.cost * (pb.b.make - pb.eat.length)) / pb.b.make, 0);
+  const pantryUsed = fromThisWeek.reduce((a, pb) => a + pb.pantryCost, 0);
+  if (Math.abs(eatenWeek + frozen + pantryUsed - eaten) > 0.02) throw new Error(`week money: eaten ${eatenWeek.toFixed(2)} + frozen ${frozen.toFixed(2)} + cupboard ${pantryUsed.toFixed(2)} ≠ pro-rata ${eaten.toFixed(2)}`);
+  Object.assign(res, { groups, till, eaten: eaten + freezer, eatenWeek, frozen, freezer, pantry, unpriced });
   return res;
 }
 
 function weekDaysMd(L, P) {
   L.push('**When to make what**', '', '| When | Make | Hands-on | Gives you |', '|---|---|---|---|');
-  for (const { b, s, r, m } of P.batches) {
+  for (const { b, s, r, m, note } of P.batches) {
     const u = UNIT[r.serving];
-    L.push(`| ${b.when} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md): ${b.make} ${b.make === 1 ? u.one : u.many}${b.from ? ' from the freezer' : ''} | ${b.from ? '—' : `${m} min${r.effort === 'cook' && !b.scale ? ' (cook)' : ''}`} | ${b.note} |`);
+    L.push(`| ${b.when} | [${s.names.en}](../research/yusuf/recipes/${s.id}.md): ${b.make} ${b.make === 1 ? u.one : u.many}${b.from ? ' from the freezer' : ''} | ${b.from ? '—' : `${m} min`} | ${note} |`);
   }
-  L.push('', `Sunday: **${P.mins.Sunday} minutes** hands-on. The rest of the week: **${P.mins.other} minutes** in all, spread over the weekday evenings.`, '');
+  L.push('', `Sunday: **${P.mins.Sunday} minutes** hands-on (the recipes' own hands-on minutes, added up). The weekday evenings: **${P.mins.other} minutes** in all, the jobs below.`, '');
+  L.push('**Evening jobs** (the app shows each one on the day, under "Tonight")', '', '| Day | When | Job | Hands-on |', '|---|---|---|---|');
+  for (const e of P.evenings) L.push(`| ${e.day} | ${e.time} | ${e.text} | ${e.minutes ? `${e.minutes} min` : '—'} |`);
+  L.push('');
   L.push('**The days** (kcal / protein for each meal; ready items are bought and eaten as they are)', '', '| Day | Breakfast | Lunch | Dinner | Ready (merienda, snacks, with dinner) | Day total |', '|---|---|---|---|---|---|');
   for (const t of P.totals) {
     const cell = ({ s, r }) => `${s.names.en} (${r.box.kcal} / ${r0(r.box.protein)} g)`;
@@ -1088,6 +1264,19 @@ function butcherText(P) {
   const dates = [...new Set(xs.map((x) => x.pr.date))].sort();
   return `${andList(names)} at Carne Halal Online (read ${andList(dates)})`;
 }
+// Pitch pieces (R3-B item 6): counted from the plan, never claimed.
+const weekdayJobsText = (P) => {
+  const n = P.evenings.filter((e) => e.weekday <= 5 && e.kind !== 'move').length;
+  return `${n} short job${n === 1 ? '' : 's'} on weekday evenings (${P.mins.other} min in all)`;
+};
+const lunchCount = (P) => {
+  const n = new Set(P.totals.map((t) => t.meals[1].s.id)).size;
+  return `${n === 5 ? 'a different lunch every day' : `${n} different lunches in 5 days`}`;
+};
+const desiDinners = (P) => {
+  const days = P.totals.filter((t) => t.meals[2].s.cuisine === 'desi').map((t) => t.day);
+  return days.length ? `${days.length === 1 ? 'a desi dinner' : `${days.length} desi dinners`} (${daysText(days)})` : '';
+};
 const fromFreezer = (P) => P.batches.filter(({ b }) => b.from).map(({ s }) => lc(s.names.en));
 
 function weekMd(rows) {
@@ -1099,6 +1288,7 @@ function weekMd(rows) {
   L.push('## A low-cook week', '');
   L.push(`One Sunday cook of about ${P.mins.Sunday} minutes, a few ${Math.min(...jobs)}–${Math.max(...jobs)}-minute jobs on weekday evenings, and ready food for the merienda. Monday to Friday, breakfast, lunch and dinner. All halal. The days come to ${spanText(P, 'kcal')} kcal and ${spanText(P, 'protein')} g protein, for a PhD student who walks and trains a little: set your own targets in the app.`, '');
   L.push(`**Version 3** (Sprint 3, the Boss's note "don't be limited, there should be a variety"). Lunches: ${slotText(P, 1)}: ${lunchRules(P)}. Dinners: ${slotText(P, 2)}. Breakfasts: ${slotText(P, 0)}.`, '');
+  L.push(`**R3-B change (2026-10-18):** Friday's dinner is now ${dishName(P.totals[4].meals[2].s)}, made that evening with the other half of Thursday's chickpea jar, instead of a karahi portion from an earlier week's freezer: a first week needs nothing cooked before it (Mariam and Bilal, Review 3).`, '');
   const { avg } = weekDaysMd(L, P);
   L.push(`**Variety:** lunches ${mix(P, 1)}; dinners ${mix(P, 2)}.`, '');
   const meal = P.totals.map((t) => t.mealProtein);
@@ -1106,8 +1296,8 @@ function weekMd(rows) {
   L.push(`**A lower protein target.** This week gives ${spanText(P, 'protein')} g protein a day. If your target is lower, like ${T.who}'s ${r0(T.kg * T.gPerKg)} g (${T.gPerKg} g per kg at ${T.kg} kg), eat smaller portions or fewer add-ons, not different meals: the three preps alone give ${r0(Math.min(...meal))}–${r0(Math.max(...meal))} g a day, and the ready items add about ${r0(avg('readyProtein'))} g. Leave out the protein add-ons (the protein yogurt pots and Burgos tubs) and keep the fruit and almonds, or take the ½ box or ½ portion serving of one meal and fill up with fruit or bread. Set your own target in the app and the day bar shows where you are.`, '');
   weekShopMd(L, P);
   const left = leftovers(P, W);
-  L.push(`**Approximate cost:** about **${eur(P.till)}** at the till for the week (whole packs at Mercadona on ${WEEK_SNAP}, a new price snapshot; ${butcherText(P)}). About **${eur(P.eaten - P.freezer)}** of it is the food that goes into this week's batches and ready items (pro-rata, cupboard included)${left.length ? `, and that includes ${andList(left)} left in the freezer for the next weeks` : ''}. ${ff.length ? `The ${andList(ff)} from the freezer was bought on an earlier week: about **${eur(P.freezer)}** of food (pro-rata, same price dates). With it, the week eats` : 'The week eats'} about **${eur(P.eaten)}**, **${eur(P.eaten / 5)} a day** for three meals and the merienda, freezer stock included; the rest of the till money stays in the cupboard and fridge (most of all ${andList(leftoverPacks(P))}). Prices change: the date is part of the number.`, '');
-  planData('low-cook-week', 'Low-cook week', `One Sunday cook (${P.mins.Sunday} min hands-on), short jobs on weekday evenings and ready food for the merienda: a different lunch most days, desi at dinner.`, P, W);
+  L.push(`**Approximate cost:** about **${eur(P.till)}** at the till for the week (whole packs at Mercadona on ${WEEK_SNAP}, a new price snapshot; ${butcherText(P)}). About **${eur(P.eatenWeek)}** of it is the food you eat Monday to Friday (pro-rata), **${eur(P.eatenWeek / 5)} a day** for three meals and the merienda. ${left.length ? `Another **${eur(P.frozen)}** is frozen for the next weeks: ${andList(left)}. ` : ''}${ff.length ? `The ${andList(ff)} from the freezer was bought on an earlier week (about ${eur(P.freezer)} of food) and is not in this week's money. ` : ''}The cupboard (oil, salt, spices) adds about ${eur(P.pantry)}, and the rest of the till money stays in packs in the cupboard and fridge (most of all ${andList(leftoverPacks(P))}). Prices change: the date is part of the number.`, '');
+  planData('low-cook-week', 'Low-cook week', `One Sunday cook (${P.mins.Sunday} min hands-on), ${weekdayJobsText(P)} and ready food for the merienda: ${lunchCount(P)}${desiDinners(P) ? `, ${desiDinners(P)}` : ''}.`, P, W);
   WEEK_RESULT.v3 = { snap: WEEK_SNAP, totals: P.totals.map(({ day, kcal, protein, fiber, meals }) => ({ day, kcal, protein, fiber, breakfast: meals[0].s.id, lunch: meals[1].s.id, dinner: meals[2].s.id, lunchCuisine: meals[1].s.cuisine, dinnerCuisine: meals[2].s.cuisine })), sundayMinutes: P.mins.Sunday, weekdayMinutes: P.mins.other, till: P.till, eaten: P.eaten, freezer: P.freezer, unpriced: P.unpriced };
   return L;
 }
@@ -1131,8 +1321,11 @@ function budgetWeekMd(rows) {
   L.push(`**Variety:** lunches ${mix(P, 1)}; dinners ${mix(P, 2)}.`, '');
   weekShopMd(L, P);
   const left = leftovers(P, W);
-  L.push(`**Cost:** **${eur(P.till)} at the till** (${eur(P.till / 5)} a day), whole packs at Mercadona on ${WEEK_SNAP} and ${butcherText(P)}. The food in this week's batches and ready items is about **${eur(P.eaten)}** (${eur(P.eaten / 5)} a day, pro-rata, cupboard included${left.length ? `, with ${andList(left)} left in the freezer for next week` : ''}). The till total leaves out the cupboard (oil, salt and spices: about ${eur(P.pantry)} of them go into the week)${P.unpriced.length ? ` and ${P.unpriced.map((i) => shortLabel(i).toLowerCase().replace(/, raw$/, '')).join(', ')} from the desi shop (a few grams, not priced)` : ''}. What is left over stays in the cupboard and fridge for next week (most of all ${andList(leftoverPacks(P))}). Prices change: the date is part of the number.`, '');
-  planData('budget-week', 'Budget week', `${ok ? `Under ${BUDGET_EUR} € at the till` : 'Our cheapest week'}: one Sunday cook from the same few staples (chicken, eggs, oats, lentils, chickpeas, pasta), ${spanText(P, 'protein')} g protein a day.`, P, W);
+  L.push(`**Cost:** **${eur(P.till)} at the till** (${eur(P.till / 5)} a day), whole packs at Mercadona on ${WEEK_SNAP} and ${butcherText(P)}. The food you eat Monday to Friday is about **${eur(P.eatenWeek)}** of it (${eur(P.eatenWeek / 5)} a day, pro-rata)${left.length ? `, and about ${eur(P.frozen)} more is frozen for next week (${andList(left)})` : ''}. The till total leaves out the cupboard (oil, salt and spices: about ${eur(P.pantry)} of them go into the week)${P.unpriced.length ? ` and ${P.unpriced.map((i) => shortLabel(i).toLowerCase().replace(/, raw$/, '')).join(', ')} from the desi shop (a few grams, not priced)` : ''}. What is left over stays in the cupboard and fridge for next week (most of all ${andList(leftoverPacks(P))}). Prices change: the date is part of the number.`, '');
+  const STAPLES = { chicken: ['chicken-breast'], eggs: ['egg', 'egg-boiled'], oats: ['oats'], lentils: ['lentils-jar'], chickpeas: ['chickpeas-jar', 'chickpeas'], pasta: ['pasta-ww', 'pasta-wholewheat'] };
+  const bought = new Set([...P.groups.mercadona, ...P.groups.butcher].map((x) => x.ingId));
+  const staples = Object.entries(STAPLES).filter(([, ids]) => ids.some((i) => bought.has(i))).map(([w]) => w);
+  planData('budget-week', 'Budget week', `${ok ? `Under ${BUDGET_EUR} € at the till` : 'Our cheapest week'}: one Sunday cook (${P.mins.Sunday} min hands-on) from the same few staples (${staples.join(', ')}), ${weekdayJobsText(P)}, ${spanText(P, 'protein')} g protein a day.`, P, W);
   WEEK_RESULT.budget = { snap: WEEK_SNAP, target: BUDGET_EUR, totals: P.totals.map(({ day, kcal, protein, fiber, meals }) => ({ day, kcal, protein, fiber, breakfast: meals[0].s.id, lunch: meals[1].s.id, dinner: meals[2].s.id, lunchCuisine: meals[1].s.cuisine, dinnerCuisine: meals[2].s.cuisine })), sundayMinutes: P.mins.Sunday, weekdayMinutes: P.mins.other, till: P.till, eaten: P.eaten, tillPerDay: P.till / 5, eatenPerDay: P.eaten / 5, unpriced: P.unpriced, mercadonaPacks: P.groups.mercadona.length, v2Till: old.till, v2MercadonaPacks: old.groups.mercadona.length };
   return L;
 }
@@ -1155,15 +1348,27 @@ function planData(id, name, pitch, P, W) {
     priceDate: WEEK_SNAP,
     shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
     tillEur: r2(P.till),
-    eatenEur: r2(P.eaten),
+    eatenEur: r2(P.eatenWeek),
+    frozenEur: r2(P.frozen),
     sundayMinutes: P.mins.Sunday,
     weekdayMinutes: P.mins.other,
-    batches: W.batches.map((b) => ({ foodId: b.id, when: b.when, boxes: b.make, ...(b.from ? { from: b.from } : {}), note: b.note })),
+    batches: P.batches.map((pb) => ({
+      foodId: pb.b.id,
+      when: pb.b.when,
+      boxes: pb.b.make,
+      ...(pb.b.from ? { from: pb.b.from } : {}),
+      minutes: pb.m,
+      fridge: pb.fridge,
+      freezer: pb.freezer,
+      eat: pb.eat.map((e) => ({ day: e.day, weekday: e.weekday, slot: e.slot, from: e.from })),
+      note: pb.note,
+    })),
+    evenings: P.evenings,
     days: P.totals.map((t, i) => ({
       day: t.day,
       weekday: WEEKDAY[t.day],
       items: [
-        ...['breakfast', 'lunch', 'dinner'].map((slot, k) => ({ slot, foodId: t.meals[k].s.id, servingId: t.meals[k].r.serving, qty: 1 })),
+        ...['breakfast', 'lunch', 'dinner'].map((slot, k) => ({ slot, foodId: t.meals[k].s.id, servingId: t.meals[k].r.serving, qty: 1, batch: W.days[i].batchOf[slot] })),
         ...W.days[i].ready.map((x) => ({ slot: 'snacks', ...readyEntry(x.r) })),
       ],
       kcal: Math.round(t.kcal),

@@ -157,26 +157,40 @@ Buy and eat, no prep. Every item is a normal food in the app (search it and tap 
 
 ## A low-cook week
 
-One Sunday cook of about 71 minutes, a few 7–15-minute jobs on weekday evenings, and ready food for the merienda. Monday to Friday, breakfast, lunch and dinner. All halal. The days come to 1841–1981 kcal and 121–144 g protein, for a PhD student who walks and trains a little: set your own targets in the app.
+One Sunday cook of about 81 minutes, a few 7–20-minute jobs on weekday evenings, and ready food for the merienda. Monday to Friday, breakfast, lunch and dinner. All halal. The days come to 1841–1981 kcal and 121–137 g protein, for a PhD student who walks and trains a little: set your own targets in the app.
 
-**Version 3** (Sprint 3, the Boss's note "don't be limited, there should be a variety"). Lunches: chicken burrito bowl with kidney beans, corn, brown rice and salsa (Mon, Tue), halal beef bolognese with wholewheat penne (Wed), tuna, egg, tomato and avocado bocadillo (Thu), chicken caesar salad with a yogurt-Dijon dressing, egg and picos croutons (Fri): no desi lunch, one fish lunch and no lentil-tuna salad. Dinners: lemon-paprika chicken tray bake with potatoes, peppers and chickpeas (Mon, Tue, Wed), vegetable crema with boiled eggs, chickpeas and bread (Thu), chicken karahi (boneless) with 2 wholemeal roti (Fri, from the freezer). Breakfasts: queso fresco batido parfait with oats, chia, kiwi and walnuts (Mon, Tue, Wed), banana, oat and protein yogurt smoothie jar (Thu, Fri).
+**Version 3** (Sprint 3, the Boss's note "don't be limited, there should be a variety"). Lunches: chicken burrito bowl with kidney beans, corn, brown rice and salsa (Mon, Tue), halal beef bolognese with wholewheat penne (Wed), tuna, egg, tomato and avocado bocadillo (Thu), chicken caesar salad with a yogurt-Dijon dressing, egg and picos croutons (Fri): no desi lunch, one fish lunch and no lentil-tuna salad. Dinners: lemon-paprika chicken tray bake with potatoes, peppers and chickpeas (Mon, Tue, Wed), vegetable crema with boiled eggs, chickpeas and bread (Thu), microwave chana masala with a basmati cup and raita (Fri). Breakfasts: queso fresco batido parfait with oats, chia, kiwi and walnuts (Mon, Tue, Wed), banana, oat and protein yogurt smoothie jar (Thu, Fri).
+
+**R3-B change (2026-10-18):** Friday's dinner is now microwave chana masala with a basmati cup and raita, made that evening with the other half of Thursday's chickpea jar, instead of a karahi portion from an earlier week's freezer: a first week needs nothing cooked before it (Mariam and Bilal, Review 3).
 
 **When to make what**
 
 | When | Make | Hands-on | Gives you |
 |---|---|---|---|
-| Sunday | [Lemon-paprika chicken tray bake with potatoes, peppers and chickpeas](../research/yusuf/recipes/es-pollo-patatas-pimientos-horno-portion.md): 4 portions | 25 min (cook) | Mon–Wed dinners (cooked meat keeps 3 days); the 4th portion goes in the freezer for next week |
-| Sunday | [Chicken burrito bowl with kidney beans, corn, brown rice and salsa](../research/yusuf/recipes/intl-chicken-burrito-bowl-box.md): 2 boxes | 15 min | Mon, Tue lunches: half the 4-box recipe (1 pack of 2 rice cups) |
-| Sunday | [Halal beef bolognese with wholewheat penne](../research/yusuf/recipes/intl-beef-bolognese-pasta-box.md): 4 boxes | 25 min (cook) | the sauce: 1 portion in the fridge for Wednesday, 3 in the freezer for the next weeks; boil the penne on Tuesday night (8 min) |
-| Sunday | [Queso fresco batido parfait with oats, chia, kiwi and walnuts](../research/yusuf/recipes/es-queso-batido-parfait-jar.md): 3 jars | 6 min | Mon–Wed breakfasts |
-| Wednesday night | [Tuna, egg, tomato and avocado bocadillo](../research/yusuf/recipes/es-bocadillo-atun-huevo-box.md): 1 box | 13 min | Thursday lunch: half the recipe (boil the egg while you mix) |
-| Wednesday night | [Banana, oat and protein yogurt smoothie jar](../research/yusuf/recipes/intl-banana-oat-smoothie-jar.md): 1 jar | 7 min | Thursday breakfast |
-| Thursday night | [Chicken caesar salad with a yogurt-Dijon dressing, egg and picos croutons](../research/yusuf/recipes/intl-chicken-caesar-salad-box.md): 1 box | 15 min | Friday lunch: half the recipe |
-| Thursday night | [Banana, oat and protein yogurt smoothie jar](../research/yusuf/recipes/intl-banana-oat-smoothie-jar.md): 1 jar | 7 min | Friday breakfast |
-| Thursday | [Vegetable crema with boiled eggs, chickpeas and bread](../research/yusuf/recipes/es-crema-verduras-huevo-garbanzos-portion.md): 1 portion | 13 min | dinner: half the brik and half the chickpea jar (the rest makes Saturday's dinner) |
-| Friday morning | [Chicken karahi (boneless) with 2 wholemeal roti](../research/yusuf/recipes/pk-chicken-karahi-roti-portion.md): 1 portion from the freezer | — | move 1 portion (with its 2 roti) from the freezer to the fridge for Friday dinner; cooked on an earlier Sunday |
+| Sunday | [Lemon-paprika chicken tray bake with potatoes, peppers and chickpeas](../research/yusuf/recipes/es-pollo-patatas-pimientos-horno-portion.md): 4 portions | 25 min | Mon–Wed dinners: Mon–Wed in the fridge (keeps 3 days), 1 more portion in the freezer for the next week |
+| Sunday | [Chicken burrito bowl with kidney beans, corn, brown rice and salsa](../research/yusuf/recipes/intl-chicken-burrito-bowl-box.md): 2 boxes | 25 min | Mon and Tue lunches: half the 4-box recipe (2 boxes); both in the fridge (keeps 3 days); 1 pack of 2 rice cups |
+| Sunday | [Halal beef bolognese with wholewheat penne](../research/yusuf/recipes/intl-beef-bolognese-pasta-box.md): 4 boxes | 25 min | Wednesday's lunch: 1 in the fridge (keeps 3 days), 3 more boxes in the freezer for the next weeks; cook the wholewheat penne on Tuesday night |
+| Sunday | [Queso fresco batido parfait with oats, chia, kiwi and walnuts](../research/yusuf/recipes/es-queso-batido-parfait-jar.md): 3 jars | 6 min | Mon–Wed breakfasts: all 3 in the fridge (keeps 3 days) |
+| Wednesday night | [Tuna, egg, tomato and avocado bocadillo](../research/yusuf/recipes/es-bocadillo-atun-huevo-box.md): 1 box | 13 min | Thursday's lunch: half the recipe (1 box); the eggs are boiled |
+| Wednesday night | [Banana, oat and protein yogurt smoothie jar](../research/yusuf/recipes/intl-banana-oat-smoothie-jar.md): 1 jar | 7 min | Thursday's breakfast |
+| Thursday night | [Chicken caesar salad with a yogurt-Dijon dressing, egg and picos croutons](../research/yusuf/recipes/intl-chicken-caesar-salad-box.md): 1 box | 20 min | Friday's lunch: half the recipe (1 box) |
+| Thursday night | [Banana, oat and protein yogurt smoothie jar](../research/yusuf/recipes/intl-banana-oat-smoothie-jar.md): 1 jar | 7 min | Friday's breakfast |
+| Thursday | [Vegetable crema with boiled eggs, chickpeas and bread](../research/yusuf/recipes/es-crema-verduras-huevo-garbanzos-portion.md): 1 portion | 13 min | Thursday's dinner: half the recipe (1 portion); a ready-made soup is heated and the eggs are boiled; half the brik and half a chickpea jar: the other half of the jar is Friday's chana masala, the rest of the brik a weekend dinner |
+| Friday | [Microwave chana masala with a basmati cup and raita](../research/yusuf/recipes/pk-microwave-chana-masala-portion.md): 1 portion | 15 min | Friday's dinner: half the recipe (1 portion); everything is done in the microwave; with the chickpeas left from Thursday |
 
-Sunday: **71 minutes** hands-on. The rest of the week: **55 minutes** in all, spread over the weekday evenings.
+Sunday: **81 minutes** hands-on (the recipes' own hands-on minutes, added up). The weekday evenings: **85 minutes** in all, the jobs below.
+
+**Evening jobs** (the app shows each one on the day, under "Tonight")
+
+| Day | When | Job | Hands-on |
+|---|---|---|---|
+| Tuesday | night | For Wednesday's lunch (halal beef bolognese with wholewheat penne): boil 80 g wholewheat penne (about 1 cup) in 2 l of salted water for about 10 minutes, drain it, mix it with one portion of sauce, cool it 20–30 minutes and put the box in the fridge. | 10 min |
+| Wednesday | night | Make the tuna, egg, tomato and avocado bocadillo for Thursday's lunch (half the recipe, 1 box; the eggs are boiled): 13 min hands-on. | 13 min |
+| Wednesday | night | Make the banana, oat and protein yogurt smoothie jar for Thursday's breakfast: 7 min hands-on. | 7 min |
+| Thursday | evening | Make the vegetable crema with boiled eggs, chickpeas and bread for tonight's dinner (half the recipe, 1 portion; a ready-made soup is heated and the eggs are boiled): 13 min hands-on. | 13 min |
+| Thursday | night | Make the chicken caesar salad with a yogurt-Dijon dressing, egg and picos croutons for Friday's lunch (half the recipe, 1 box): 20 min hands-on. | 20 min |
+| Thursday | night | Make the banana, oat and protein yogurt smoothie jar for Friday's breakfast: 7 min hands-on. | 7 min |
+| Friday | evening | Make the microwave chana masala with a basmati cup and raita for tonight's dinner (half the recipe, 1 portion; everything is done in the microwave): 15 min hands-on. | 15 min |
 
 **The days** (kcal / protein for each meal; ready items are bought and eaten as they are)
 
@@ -186,13 +200,13 @@ Sunday: **71 minutes** hands-on. The rest of the week: **55 minutes** in all, sp
 | Tuesday | Queso fresco batido parfait with oats, chia, kiwi and walnuts (400 / 26 g) | Chicken burrito bowl with kidney beans, corn, brown rice and salsa (590 / 48 g) | Lemon-paprika chicken tray bake with potatoes, peppers and chickpeas (599 / 47 g) | Queso fresco de Burgos 0 % 1 single tub; Apple 1 medium apple; Almonds 10 almonds; Picos integrales 30 g (320 / 15 g) | **1909 kcal, 135 g protein**, 49 g fibre |
 | Wednesday | Queso fresco batido parfait with oats, chia, kiwi and walnuts (400 / 26 g) | Halal beef bolognese with wholewheat penne (609 / 40 g) | Lemon-paprika chicken tray bake with potatoes, peppers and chickpeas (599 / 47 g) | Protein yogurt 1 portion; Pear 1 medium pear; Almonds 10 almonds (233 / 15 g) | **1841 kcal, 128 g protein**, 48 g fibre |
 | Thursday | Banana, oat and protein yogurt smoothie jar (516 / 35 g) | Tuna, egg, tomato and avocado bocadillo (666 / 44 g) | Vegetable crema with boiled eggs, chickpeas and bread (710 / 33 g) | Kinnow 1 medium kinnow; Queso fresco de Burgos 0 % 1 single tub (89 / 8 g) | **1981 kcal, 121 g protein**, 36 g fibre |
-| Friday | Banana, oat and protein yogurt smoothie jar (516 / 35 g) | Chicken caesar salad with a yogurt-Dijon dressing, egg and picos croutons (584 / 49 g) | Chicken karahi (boneless) with 2 wholemeal roti (555 / 46 g) | Apple 1 medium apple; Protein yogurt 1 portion; Almonds 10 almonds (227 / 15 g) | **1882 kcal, 144 g protein**, 35 g fibre |
+| Friday | Banana, oat and protein yogurt smoothie jar (516 / 35 g) | Chicken caesar salad with a yogurt-Dijon dressing, egg and picos croutons (584 / 49 g) | Microwave chana masala with a basmati cup and raita (641 / 33 g) | Apple 1 medium apple; Protein yogurt 1 portion; Almonds 10 almonds (227 / 15 g) | **1968 kcal, 132 g protein**, 44 g fibre |
 
-**Week:** 1841–1981 kcal a day (average 1897), 121–144 g protein (average 133), 35–49 g fibre. Meals are the Lab records (1 jar, box or portion); ready items are the records for the serving named. Coffee, tea and extra fruit are on top: log them as you go.
+**Week:** 1841–1981 kcal a day (average 1914), 121–137 g protein (average 131), 36–49 g fibre. Meals are the Lab records (1 jar, box or portion); ready items are the records for the serving named. Coffee, tea and extra fruit are on top: log them as you go.
 
 **Variety:** lunches Mon mexican, Tue mexican, Wed italian, Thu spanish, Fri international; dinners Mon spanish, Tue spanish, Wed spanish, Thu spanish, Fri desi.
 
-**A lower protein target.** This week gives 121–144 g protein a day. If your target is lower, like Mariam's 96 g (1.6 g per kg at 60 kg), eat smaller portions or fewer add-ons, not different meals: the three preps alone give 112–129 g a day, and the ready items add about 14 g. Leave out the protein add-ons (the protein yogurt pots and Burgos tubs) and keep the fruit and almonds, or take the ½ box or ½ portion serving of one meal and fill up with fruit or bread. Set your own target in the app and the day bar shows where you are.
+**A lower protein target.** This week gives 121–137 g protein a day. If your target is lower, like Mariam's 96 g (1.6 g per kg at 60 kg), eat smaller portions or fewer add-ons, not different meals: the three preps alone give 112–120 g a day, and the ready items add about 14 g. Leave out the protein add-ons (the protein yogurt pots and Burgos tubs) and keep the fruit and almonds, or take the ½ box or ½ portion serving of one meal and fill up with fruit or bread. Set your own target in the app and the day bar shows where you are.
 
 **Mercadona shopping list** (Barcelona online shop, warehouse bcn1, prices read 2026-10-15; you buy whole packs)
 
@@ -201,29 +215,34 @@ Sunday: **71 minutes** hands-on. The rest of the week: **55 minutes** in all, sp
 | Aguacate, flesh: 50 g | [Aguacate](https://tienda.mercadona.es/product/3830/) | 1 piece | 1.60 € |
 | Almendra natural Hacendado: 48 g | [Almendra natural Hacendado](https://tienda.mercadona.es/product/34865/) | 1 × 200 g | 2.30 € |
 | Apple, with skin: 364 g | [Manzana Golden](https://tienda.mercadona.es/product/3028/) | 2 × 200 g | 0.80 € |
+| Arroz cocido basmati Sabroz: 125 g | [Arroz cocido basmati Sabroz](https://tienda.mercadona.es/product/22280/) | 1 pack of 2 × 125 g cups | 1.10 € |
 | Arroz cocido integral Sabroz: 250 g | [Arroz cocido integral Sabroz](https://tienda.mercadona.es/product/22281/) | 1 pack of 2 × 125 g cups | 1.05 € |
 | Atún claro al natural Hacendado, drained: 120 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 1 × 480 g (360 g drained) | 4.20 € |
 | Banana, raw, peeled: 320 g | [Plátano de Canarias IGP](https://tienda.mercadona.es/product/3819/) | 4 pieces | 1.80 € |
 | Carrot, raw: 120 g | [Zanahorias](https://tienda.mercadona.es/product/69586/) | 1 × 1000 g | 1.00 € |
 | Cherry tomatoes, raw: 100 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 1 × 500 g tray (Tomates cherry) | 2.20 € |
 | Chia seeds, dry: 30 g | [Semillas de chía Hacendado](https://tienda.mercadona.es/product/5464/) | 1 × 150 g bag | 1.45 € |
-| Chickpeas, canned/jarred, drained and rinsed: 600 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 2 × 570 g jar (400 g drained) | 1.60 € |
+| Chickpeas, canned/jarred, drained and rinsed: 800 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 2 × 570 g jar (400 g drained) | 1.60 € |
 | Crema de verduras Hacendado: 258 g | [Crema de verduras Hacendado](https://tienda.mercadona.es/product/60308/) | 1 × 500 ml brik | 1.00 € |
+| Cucumber, with peel, raw: 30 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 1 × 210 g | 0.36 € |
 | Dijon mustard: 5 g | [Mostaza de Dijon Hacendado](https://tienda.mercadona.es/product/17228/) | 1 × 200 g | 1.25 € |
 | Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 1 pack of 12 eggs (uses 4 eggs) | 3.05 € |
-| Garlic, raw: 24 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 1 × 250 g | 1.85 € |
+| Fresh coriander leaves: 3 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 1 × 20 g | 1.25 € |
+| Fresh mint: 1 g | [Hierbabuena](https://tienda.mercadona.es/product/68037/) | 1 × 40 g | 1.35 € |
+| Garlic, raw: 27 g | [Ajos morados](https://tienda.mercadona.es/product/69297/) | 1 × 250 g | 1.85 € |
+| Ginger root, raw: 3 g | [Jengibre](https://tienda.mercadona.es/product/69289/) | 1 × 200 g | 1.65 € |
 | Green bell pepper, raw (pimiento verde): 200 g | [Pimiento verde freír](https://tienda.mercadona.es/product/69320/) | 3 × 90 g | 0.69 € |
 | Kiwi verde: 207 g | [Kiwi verde](https://tienda.mercadona.es/product/3820/) | 2 × 110 g | 1.02 € |
 | Leche semidesnatada Hacendado: 300 g | [Leche semidesnatada Hacendado](https://tienda.mercadona.es/product/10382/) | 1 × 1 l brik | 0.83 € |
-| Lemon juice: 36 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 1 × 0.28 l | 1.40 € |
+| Lemon juice: 41 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 1 × 0.28 l | 1.40 € |
 | Macarrón rayado integral Hacendado, dry: 320 g | [Macarrón rayado integral Hacendado](https://tienda.mercadona.es/product/35777/) | 1 × 500 g pack | 1.15 € |
 | Mandarina / clementina: 176 g | [Mandarina](https://tienda.mercadona.es/product/3238/) | 2 × 120 g | 0.62 € |
-| Onion, raw: 150 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1 × 1000 g | 1.50 € |
+| Onion, raw: 190 g | [Cebollas](https://tienda.mercadona.es/product/69089/) | 1 × 1000 g | 1.50 € |
 | Pan de bocadillo Hacendado: 195 g | [3 Bocadillos](https://tienda.mercadona.es/product/9664/) | 1 pack of 3 (uses 2 pieces) | 1.04 € |
 | Peanuts, dry-roasted, no added salt: 30 g | [Cacahuete tostado Hacendado 0% sal añadida pelado](https://tienda.mercadona.es/product/13451/) | 1 × 200 g | 1.05 € |
 | Pera Conferencia: 178 g | [Pera Conferencia](https://tienda.mercadona.es/product/3119/) | 1 × 180 g | 0.45 € |
 | Picos 100% integral Hacendado: 70 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 1 × 250 g bag | 0.80 € |
-| Postre lácteo natural +Proteínas 10 g 0% MG: 760 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 2 × 500 g tub | 2.80 € |
+| Postre lácteo natural +Proteínas 10 g 0% MG: 880 g | [Postre lácteo natural +Proteínas 10 g 0% MG](https://tienda.mercadona.es/product/21256/) | 2 × 500 g tub | 2.80 € |
 | Potato, raw: 900 g | [Patata](https://tienda.mercadona.es/product/69066/) | 5 × 220 g | 2.10 € |
 | Queso fresco batido desnatado 0% Hacendado: 660 g | [Queso fresco batido desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/51071/) | 2 × 500 g tub | 2.20 € |
 | Queso fresco de Burgos desnatado 0% Hacendado: 125 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 1 × 250 g (4 tubs) | 1.15 € |
@@ -234,7 +253,7 @@ Sunday: **71 minutes** hands-on. The rest of the week: **55 minutes** in all, sp
 | Romaine lettuce, raw: 290 g | [Lechuga romana cortada y lavada](https://tienda.mercadona.es/product/69435/) | 2 × 200 g | 2.30 € |
 | Salsa Mexicana Hacendado: 120 g | [Salsa Mexicana Hacendado](https://tienda.mercadona.es/product/16827/) | 1 × 300 g jar | 1.25 € |
 | Sweetcorn, canned, drained: 105 g | [Maíz dulce Hacendado](https://tienda.mercadona.es/product/16714/) | 1 × 225 g (210 g drained) | 1.25 € |
-| Tomate triturado Hacendado: 800 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 1 × 800 g jar | 1.00 € |
+| Tomate triturado Hacendado: 900 g | [Tomate triturado Hacendado](https://tienda.mercadona.es/product/16043/) | 2 × 800 g jar | 2.00 € |
 | Tomato, raw: 100 g | [Tomate pera](https://tienda.mercadona.es/product/69912/) | 1 × 110 g | 0.24 € |
 | Walnuts, shelled: 24 g | [Nuez natural Hacendado pelada](https://tienda.mercadona.es/product/34024/) | 1 × 200 g | 2.40 € |
 | White mushrooms, raw: 200 g | [Champiñones blancos](https://tienda.mercadona.es/product/26951/) | 1 × 300 g tray (Champiñones blancos) | 1.56 € |
@@ -245,31 +264,44 @@ Sunday: **71 minutes** hands-on. The rest of the week: **55 minutes** in all, sp
 - Pechuga de pollo halal (fileteada): 990 g, 7.49 €/kg at [Carne Halal Online](https://carnehalalonline.com/pollo-halal/pechuga-de-pollo-halal/) (read 2026-10-13) = 7.42 €.
 - Carne picada de ternera halal (ask for magra, about 10% fat): 500 g, 11.99 €/kg at [Carne Halal Online](https://carnehalalonline.com/ternera-halal/carne-picada-de-ternera-halal/) (read 2026-10-13) = 6.00 €.
 
-**Cupboard** (most kitchens have these; counted only for what the week uses): bay leaf 1 g, black pepper 4 g, cinnamon 3 g, cumin 3 g, olive oil 72 g, oregano, dried 5 g, paprika 8 g, red chilli powder 1 g, salt 13 g, sunflower oil 5 g.
+**Cupboard** (most kitchens have these; counted only for what the week uses): bay leaf 1 g, black pepper 4 g, cinnamon 3 g, coriander seed 1 g, cumin 4 g, garam masala 2 g, olive oil 77 g, oregano, dried 5 g, paprika 8 g, red chilli powder 2 g, salt 14 g, sunflower oil 5 g, turmeric, ground 1 g.
 
-**Approximate cost:** about **75.64 €** at the till for the week (whole packs at Mercadona on 2026-10-15, a new price snapshot; pechuga de pollo halal and carne picada de ternera halal at Carne Halal Online (read 2026-10-13)). About **42.03 €** of it is the food that goes into this week's batches and ready items (pro-rata, cupboard included), and that includes 1 portion of lemon-paprika chicken tray bake with potatoes, peppers and chickpeas and 3 boxes of halal beef bolognese with wholewheat penne left in the freezer for the next weeks. The chicken karahi (boneless) with 2 wholemeal roti from the freezer was bought on an earlier week: about **1.93 €** of food (pro-rata, same price dates). With it, the week eats about **43.97 €**, **8.79 € a day** for three meals and the merienda, freezer stock included; the rest of the till money stays in the cupboard and fridge (most of all atún claro al natural Hacendado, walnuts, egg, yogur griego natural ligero Hacendado 2% MG and cherry tomatoes). Prices change: the date is part of the number.
+**Approximate cost:** about **82.35 €** at the till for the week (whole packs at Mercadona on 2026-10-15, a new price snapshot; pechuga de pollo halal and carne picada de ternera halal at Carne Halal Online (read 2026-10-13)). About **33.79 €** of it is the food you eat Monday to Friday (pro-rata), **6.76 € a day** for three meals and the merienda. Another **9.13 €** is frozen for the next weeks: 1 portion of lemon-paprika chicken tray bake with potatoes, peppers and chickpeas and 3 boxes of halal beef bolognese with wholewheat penne. The cupboard (oil, salt, spices) adds about 1.00 €, and the rest of the till money stays in packs in the cupboard and fridge (most of all atún claro al natural Hacendado, walnuts, egg, yogur griego natural ligero Hacendado 2% MG and cherry tomatoes). Prices change: the date is part of the number.
 
 ## A budget low-cook week
 
-The same idea for less: **58.97 € at the till** for Monday to Friday, under the 60 € target and 16.67 € less than the low-cook week (both priced at Mercadona on 2026-10-15). One Sunday cook (80 minutes hands-on), short jobs on weekday evenings (65 minutes in all), and the same cheap staples in every prep: halal chicken breast, eggs, protein yogurt, oats, bananas, jarred lentils and chickpeas, wholewheat pasta and tomato. The days come to 1889–2000 kcal and 127–141 g protein. All halal: chicken from the halal butcher, mozzarella with microbial coagulant, queso de Burgos with *cuajo microbiano* and no cheese with unstated rennet.
+The same idea for less: **58.97 € at the till** for Monday to Friday, under the 60 € target and 23.38 € less than the low-cook week (both priced at Mercadona on 2026-10-15). One Sunday cook (80 minutes hands-on), short jobs on weekday evenings (65 minutes in all), and the same cheap staples in every prep: halal chicken breast, eggs, protein yogurt, oats, bananas, jarred lentils and chickpeas, wholewheat pasta and tomato. The days come to 1889–2000 kcal and 127–141 g protein. All halal: chicken from the halal butcher, mozzarella with microbial coagulant, queso de Burgos with *cuajo microbiano* and no cheese with unstated rennet.
 
-**Version 3** (2026-10-16). Version 2 came to 77.17 € at the till, more than the low-cook week, while this page said "60 € or less" (MISTAKES M-15). Version 3 buys 36 different Mercadona packs instead of 43 because the preps share their staples; 13 packs are still bought for less than a quarter of their contents (18.78 € of the till: aguacate, cherry tomatoes, fresh coriander leaves, fresh mint, fresh parsley, garlic, ginger root, leche semidesnatada Hacendado, lemon juice, onion, peanuts, red onion and romaine lettuce): that is the price of buying for one week only. Lunches: chicken, spinach and tomato pasta bake with mozzarella (Mon, Thu), tuna, egg, tomato and avocado bocadillo (Tue), lentil and brown-rice bowl with queso de Burgos and tomato salad (Wed), lentil salad with tuna, queso de Burgos and peppers (Fri): no desi lunch, 2 fish lunches and one lentil-tuna salad. Dinners: lemon-paprika chicken tray bake with potatoes, peppers and chickpeas (Mon, Tue, Wed), vegetable crema with boiled eggs, chickpeas and bread (Thu), microwave chana masala with a basmati cup and raita (Fri). Breakfasts: oat, protein yogurt and banana pancakes (Mon, Tue, Wed, Thu), banana, oat and protein yogurt smoothie jar (Fri).
+**Version 3** (2026-10-16). Version 2 came to 77.17 € at the till while this page said "60 € or less" (MISTAKES M-15). Version 3 buys 36 different Mercadona packs instead of 43 because the preps share their staples; 13 packs are still bought for less than a quarter of their contents (18.78 € of the till: aguacate, cherry tomatoes, fresh coriander leaves, fresh mint, fresh parsley, garlic, ginger root, leche semidesnatada Hacendado, lemon juice, onion, peanuts, red onion and romaine lettuce): that is the price of buying for one week only. Lunches: chicken, spinach and tomato pasta bake with mozzarella (Mon, Thu), tuna, egg, tomato and avocado bocadillo (Tue), lentil and brown-rice bowl with queso de Burgos and tomato salad (Wed), lentil salad with tuna, queso de Burgos and peppers (Fri): no desi lunch, 2 fish lunches and one lentil-tuna salad. Dinners: lemon-paprika chicken tray bake with potatoes, peppers and chickpeas (Mon, Tue, Wed), vegetable crema with boiled eggs, chickpeas and bread (Thu), microwave chana masala with a basmati cup and raita (Fri). Breakfasts: oat, protein yogurt and banana pancakes (Mon, Tue, Wed, Thu), banana, oat and protein yogurt smoothie jar (Fri).
 
 **When to make what**
 
 | When | Make | Hands-on | Gives you |
 |---|---|---|---|
-| Sunday | [Oat, protein yogurt and banana pancakes (4)](../research/yusuf/recipes/intl-protein-pancakes-portion.md): 4 portions | 35 min (cook) | Mon–Thu breakfasts: 1 portion in the fridge for Monday, 3 in the freezer (toast them from frozen) |
-| Sunday | [Lemon-paprika chicken tray bake with potatoes, peppers and chickpeas](../research/yusuf/recipes/es-pollo-patatas-pimientos-horno-portion.md): 4 portions | 25 min (cook) | Mon–Wed dinners (cooked meat keeps 3 days); the 4th portion goes in the freezer for next week |
-| Sunday | [Chicken, spinach and tomato pasta bake with mozzarella](../research/yusuf/recipes/intl-chicken-spinach-pasta-bake-portion.md): 2 portions | 20 min | Mon and Thu lunches: half the recipe; Monday's in the fridge, Thursday's in the freezer (pasta keeps 1 day), moved down on Wednesday night |
-| Monday night | [Tuna, egg, tomato and avocado bocadillo](../research/yusuf/recipes/es-bocadillo-atun-huevo-box.md): 1 box | 13 min | Tuesday lunch: half the recipe (boil the egg while you mix) |
-| Tuesday night | [Lentil and brown-rice bowl with queso de Burgos and tomato salad](../research/yusuf/recipes/med-lentil-rice-burgos-bowl-box.md): 1 box | 7 min | Wednesday lunch: half the recipe; the rest of the lentil jar goes in a closed box for Thursday night |
-| Thursday | [Vegetable crema with boiled eggs, chickpeas and bread](../research/yusuf/recipes/es-crema-verduras-huevo-garbanzos-portion.md): 1 portion | 13 min | dinner: half the brik (the rest keeps 2 days) and half a chickpea jar (the other half is Friday's chana masala) |
-| Thursday night | [Lentil salad with tuna, queso de Burgos and peppers](../research/yusuf/recipes/es-lentejas-atun-burgos-salad-box.md): 1 box | 10 min | Friday lunch: half the recipe, with the lentils left from Tuesday |
-| Thursday night | [Banana, oat and protein yogurt smoothie jar](../research/yusuf/recipes/intl-banana-oat-smoothie-jar.md): 1 jar | 7 min | Friday breakfast |
-| Friday | [Microwave chana masala with a basmati cup and raita](../research/yusuf/recipes/pk-microwave-chana-masala-portion.md): 1 portion | 15 min | dinner: half the recipe, with the chickpeas left from Thursday |
+| Sunday | [Oat, protein yogurt and banana pancakes (4)](../research/yusuf/recipes/intl-protein-pancakes-portion.md): 4 portions | 35 min | Mon–Thu breakfasts: Mon–Wed in the fridge (keeps 3 days), Thursday's in the freezer, moved to the fridge on Wednesday night |
+| Sunday | [Lemon-paprika chicken tray bake with potatoes, peppers and chickpeas](../research/yusuf/recipes/es-pollo-patatas-pimientos-horno-portion.md): 4 portions | 25 min | Mon–Wed dinners: Mon–Wed in the fridge (keeps 3 days), 1 more portion in the freezer for the next week |
+| Sunday | [Chicken, spinach and tomato pasta bake with mozzarella](../research/yusuf/recipes/intl-chicken-spinach-pasta-bake-portion.md): 2 portions | 20 min | Mon and Thu lunches: half the 4-portion recipe (2 portions); Monday's in the fridge (keeps 1 day), Thursday's in the freezer, moved to the fridge on Wednesday night |
+| Monday night | [Tuna, egg, tomato and avocado bocadillo](../research/yusuf/recipes/es-bocadillo-atun-huevo-box.md): 1 box | 13 min | Tuesday's lunch: half the recipe (1 box); the eggs are boiled |
+| Tuesday night | [Lentil and brown-rice bowl with queso de Burgos and tomato salad](../research/yusuf/recipes/med-lentil-rice-burgos-bowl-box.md): 1 box | 7 min | Wednesday's lunch: half the recipe (1 box); the rice cup is warmed at lunch; the rest of the lentil jar goes in a closed box for Thursday night |
+| Thursday | [Vegetable crema with boiled eggs, chickpeas and bread](../research/yusuf/recipes/es-crema-verduras-huevo-garbanzos-portion.md): 1 portion | 13 min | Thursday's dinner: half the recipe (1 portion); a ready-made soup is heated and the eggs are boiled; half the brik and half a chickpea jar: the other half of the jar is Friday's chana masala |
+| Thursday night | [Lentil salad with tuna, queso de Burgos and peppers](../research/yusuf/recipes/es-lentejas-atun-burgos-salad-box.md): 1 box | 10 min | Friday's lunch: half the recipe (1 box); with the lentils left from Tuesday |
+| Thursday night | [Banana, oat and protein yogurt smoothie jar](../research/yusuf/recipes/intl-banana-oat-smoothie-jar.md): 1 jar | 7 min | Friday's breakfast |
+| Friday | [Microwave chana masala with a basmati cup and raita](../research/yusuf/recipes/pk-microwave-chana-masala-portion.md): 1 portion | 15 min | Friday's dinner: half the recipe (1 portion); everything is done in the microwave; with the chickpeas left from Thursday |
 
-Sunday: **80 minutes** hands-on. The rest of the week: **65 minutes** in all, spread over the weekday evenings.
+Sunday: **80 minutes** hands-on (the recipes' own hands-on minutes, added up). The weekday evenings: **65 minutes** in all, the jobs below.
+
+**Evening jobs** (the app shows each one on the day, under "Tonight")
+
+| Day | When | Job | Hands-on |
+|---|---|---|---|
+| Monday | night | Make the tuna, egg, tomato and avocado bocadillo for Tuesday's lunch (half the recipe, 1 box; the eggs are boiled): 13 min hands-on. | 13 min |
+| Tuesday | night | Make the lentil and brown-rice bowl with queso de Burgos and tomato salad for Wednesday's lunch (half the recipe, 1 box; the rice cup is warmed at lunch): 7 min hands-on. | 7 min |
+| Wednesday | night | Move 1 portion of oat, protein yogurt and banana pancakes from the freezer to the fridge for Thursday's breakfast. | — |
+| Wednesday | night | Move 1 portion of chicken, spinach and tomato pasta bake with mozzarella from the freezer to the fridge for Thursday's lunch. | — |
+| Thursday | evening | Make the vegetable crema with boiled eggs, chickpeas and bread for tonight's dinner (half the recipe, 1 portion; a ready-made soup is heated and the eggs are boiled): 13 min hands-on. | 13 min |
+| Thursday | night | Make the lentil salad with tuna, queso de Burgos and peppers for Friday's lunch (half the recipe, 1 box): 10 min hands-on. | 10 min |
+| Thursday | night | Make the banana, oat and protein yogurt smoothie jar for Friday's breakfast: 7 min hands-on. | 7 min |
+| Friday | evening | Make the microwave chana masala with a basmati cup and raita for tonight's dinner (half the recipe, 1 portion; everything is done in the microwave): 15 min hands-on. | 15 min |
 
 **The days** (kcal / protein for each meal; ready items are bought and eaten as they are)
 
@@ -332,7 +364,7 @@ Sunday: **80 minutes** hands-on. The rest of the week: **65 minutes** in all, sp
 
 **Cupboard** (most kitchens have these; counted only for what the week uses): black pepper 3 g, cinnamon 4 g, coriander seed 1 g, cumin 3 g, garam masala 2 g, olive oil 85 g, oregano, dried 3 g, paprika 6 g, red chilli powder 1 g, salt 9 g, sunflower oil 16 g, turmeric, ground 1 g.
 
-**Cost:** **58.97 € at the till** (11.79 € a day), whole packs at Mercadona on 2026-10-15 and pechuga de pollo halal at Carne Halal Online (read 2026-10-13). The food in this week's batches and ready items is about **32.44 €** (6.49 € a day, pro-rata, cupboard included, with 1 portion of lemon-paprika chicken tray bake with potatoes, peppers and chickpeas left in the freezer for next week). The till total leaves out the cupboard (oil, salt and spices: about 0.81 € of them go into the week). What is left over stays in the cupboard and fridge for next week (most of all atún claro al natural Hacendado, cherry tomatoes, garlic, ginger root and red onion). Prices change: the date is part of the number.
+**Cost:** **58.97 € at the till** (11.79 € a day), whole packs at Mercadona on 2026-10-15 and pechuga de pollo halal at Carne Halal Online (read 2026-10-13). The food you eat Monday to Friday is about **29.39 €** of it (5.88 € a day, pro-rata), and about 2.24 € more is frozen for next week (1 portion of lemon-paprika chicken tray bake with potatoes, peppers and chickpeas). The till total leaves out the cupboard (oil, salt and spices: about 0.81 € of them go into the week). What is left over stays in the cupboard and fridge for next week (most of all atún claro al natural Hacendado, cherry tomatoes, garlic, ginger root and red onion). Prices change: the date is part of the number.
 
 ## Roti and paratha stock
 
