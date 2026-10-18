@@ -1,17 +1,17 @@
 {
   "project": "Daily meal & macro calculator",
-  "status": "working",
-  "phase": "Sprint 3 · Review 3",
+  "status": "delivered",
+  "phase": "Delivered",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-18T17:10:11Z",
+  "updatedAt": "2026-10-18T17:37:25Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
   "app": {
     "url": "https://claude.ai/artifact/GusJdyjFkPK4yftNRPzFrY",
-    "version": "Sprint 3 preview (v4)",
-    "publishedAt": "2026-10-16T07:33:38Z",
+    "version": "Delivery (v5)",
+    "publishedAt": "2026-10-18T17:37:25Z",
     "page": "tools/artifact-page.html",
     "files": "npm run publish:files"
   },
@@ -21,8 +21,8 @@
   "members": {
     "omar": {
       "location": "office",
-      "status": "working",
-      "task": "Night shift: finish and deliver"
+      "status": "idle",
+      "task": "Delivered (Report #3)"
     },
     "lena": {
       "location": "office",
@@ -51,7 +51,7 @@
     },
     "kenji": {
       "location": "office",
-      "status": "working",
+      "status": "idle",
       "task": "E2E for the Review 3 fixes"
     },
     "zainab": {
@@ -80,17 +80,11 @@
       "task": "Re-check done: all 6 fixed, 9/10"
     }
   },
-  "inFlight": [
-    {
-      "member": "kenji",
-      "task": "Update 4 e2e, goal-choice tests, new review3.spec.js regression tests, full check + e2e",
-      "output": "tests/**"
-    }
-  ],
+  "inFlight": [],
   "checkIn": {
     "triggerId": "trig_01YYGtucaaFW4EKznQzbesAG",
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
-    "enabled": true
+    "enabled": false
   },
   "appName": "Katori",
   "next": "See team/STATUS.md (Next, and Not in the app yet O1-O16).",
@@ -233,26 +227,10 @@
     "cron": "CRON_TZ=Europe/Madrid 9 0-9,18-23 * * *",
     "note": "Boss can prompt the session during the day to work anyway"
   },
-  "queued": [
-    {
-      "member": "polish (sonnet)",
-      "task": "After Priya: smoothie Make default = plan's box count; plan card explains the rest of the till (pantry/leftover packs) with generated figure; tikka rice-soak step order"
-    },
-    {
-      "member": "ayesha",
-      "task": "Nasreen R3: 'Keep my weight' still preselected (defaultGoal in rules.js)"
-    },
-    {
-      "member": "lena",
-      "task": "Proposal from Priya: <link rel=modulepreload> for data files in index.html (~300 ms sooner); only if low-risk"
-    },
-    {
-      "member": "omar",
-      "task": "Meeting 006 Review 3 -> fix wave -> final audit -> republish -> delivery report #3"
-    }
-  ],
+  "queued": [],
   "reports": [
     "001-sprint-1",
-    "002-sprint-2"
+    "002-sprint-2",
+    "003-delivery"
   ]
 }

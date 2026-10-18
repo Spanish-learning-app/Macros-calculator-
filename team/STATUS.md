@@ -5,11 +5,11 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-18 17:10 UTC by Omar._
+_Last updated: 2026-10-18 17:37 UTC by Omar._
 
 ## Links
 
-- **The app:** https://claude.ai/artifact/GusJdyjFkPK4yftNRPzFrY (published **Sprint 3 preview v4**, 2026-10-16 07:33 UTC: How to make it on all 64 preps, weekly plans, ready picks, halal swap, cost per box, serve chips, weight log, protein tips, Ramadan mode). Republish with `npm run publish:files`; see the Publishing notes below.
+- **The app:** https://claude.ai/artifact/GusJdyjFkPK4yftNRPzFrY (**Delivery v5**, published 2026-10-18 17:37 UTC). Republish with `npm run publish:files`.
 - **Team HQ dashboard:** https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq (the Boss's inbox is there)
 - **Branch:** `ccr-247c106e-lzhd86`. Every task is committed and pushed.
 
@@ -31,18 +31,18 @@ _Last updated: 2026-10-18 17:10 UTC by Omar._
 | Protein tips and Ramadan mode | done in code, checked in Chromium (Lena). Published in v4 |
 | Sprint 3 wave 1 tests | partial; restarts after Yusuf lands (Kenji) |
 
-## Working now (resumed Sun 18 Oct 18:32 Madrid, after the Boss's hold)
+## DELIVERED (2026-10-18)
 
-- Done: **Lena R3-A** (app): Mariam must-fix 1–6 re-verified on the new data, Bilal's items (timeNote shown, honest Week view, 44 px buttons, search, one-tap tip Add), and no preselected goal.
-- Working (all on Sonnet): **Kenji** (e2e for the R3 fixes), **Mariam** (re-check on snapshot 784f649), **Priya** (the last orphan items from the 2026-10-18 check: halal-swap note, light-cooking note, evening-job minutes, a "Keeping boxes safe" note, O15 verification).
-- Done: **Mariam's re-check: all 6 must-fix FIXED, 9/10** (from 8.5). Should-fix items for a last polish: the smoothie's Make default vs the plan, the plan card explaining the rest of the €82 till, the tikka rice-soak step order, tappable timers (later).
-- Done: **Lab** biscuit aliases (Marie first). **Final orphan check** run (DECISIONS 2026-10-18).
-- Done: **Yusuf R3-B** (data): plan box split by rule, honest total minutes (incl. marinade and later parts), shopping names, plan cards ("eaten this week" Mon–Fri only), evening jobs. Low-cook Friday is now a fresh chana masala, so the till rises from 75.64 € to 82.35 €.
-- **Next:**
-  - Kenji re-tests the testers' steps as e2e.
-  - Mariam re-checks her six must-fix items.
-  - Then the final audit (orphan check plus my tap-through), the republish and Report #3.
-- The check-in routine is back on.
+Report #3 is in `team/reports/003-delivery.md`.
+- Final gate: 351/351 foods (G19 0), 760 unit tests in each of 3 time zones, 612 e2e, 0 failures.
+- I tapped through the main screens on the final build.
+- Mariam's re-check gave 9/10, with all 6 must-fix items fixed.
+- The check-in routine is disabled, so nothing runs.
+
+**If the Boss asks for more:** re-enable `trig_01YYGtucaaFW4EKznQzbesAG` and follow PLAYBOOK §4. Ideas parked:
+- tappable step timers;
+- photos;
+- a vegetarian filter.
 
 ## Next, in order (from 18:09 Madrid)
 

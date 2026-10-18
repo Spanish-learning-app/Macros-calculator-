@@ -76,3 +76,4 @@
 - 2026-10-18T16:59:40Z: Lena R3-A done. Kenji, the Lab alias fix and Mariam's re-check started, all on Sonnet (model policy).
 - 2026-10-18T17:03:31Z: final orphan check (Haiku). Priya (Sonnet) is on the 4 user-facing items and O15; the internal keys are documented in DECISIONS.
 - 2026-10-18T17:10:11Z: Mariam re-check: 6/6 fixed, 9/10. Last polish queued after Priya.
+- 2026-10-18T17:37:25Z: DELIVERED. Final gate green; tap-through OK; republished v5; Report #3 written; check-in routine disabled.

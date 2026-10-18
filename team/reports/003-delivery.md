@@ -16,7 +16,8 @@ every must-fix they found is fixed and re-checked.
 | Bilal (lifter, 7 years of tracking) | **8.7/10** |
 | Nasreen (first-time cook) | **7/10**; her cooking issues are fixed since |
 
-Tests: 760 unit tests and 612 browser tests, 0 failures.
+Tests: 760 unit tests (in 3 time zones) and 612 browser tests, 0 failures, on the final build.
+I also tapped through the main screens on the final build myself before publishing.
 Food data: 351 foods, every one with a source and reviewed by Ayesha.
 
 ## What you can do with it
@@ -64,7 +65,8 @@ Food data: 351 foods, every one with a source and reviewed by Ayesha.
   - An orphan check runs before every report. Tonight's check found 4 more small items, and they're
     now in the app.
 - **Prices change weekly.** Every € figure in the app shows the date its prices were read. The budget week is
-  58.97 € and the low-cook week 82.35 €. The low-cook week rose when Friday's dinner became a fresh
+  58.97 € and the low-cook week 82.35 €. The plan card now explains the whole till: what you eat Mon–Fri, what goes to the
+  freezer, and what stays in the cupboard. The low-cook week rose when Friday's dinner became a fresh
   chana masala instead of a freezer karahi you wouldn't have in week 1.
 - **Known small gaps, left on purpose:**
   - Step-mode times are labels, not tappable timers.
