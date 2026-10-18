@@ -10,7 +10,7 @@ Record `intl-overnight-oats-protein-jar` in `app/data/foods-mealprep.js` · libr
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Dairy, oats, seeds, nuts and fruit only; milk and yogurt labels checked (no gelatine), 2026-10-13/14. **Confidence:** B.
 
-**Meal:** breakfast prep, logged as "1 jar". **Effort:** no-cook assembly (`effort: 'assemble'`), 8 min hands-on, no cooking for the batch of 3.
+**Meal:** breakfast prep, logged as "1 jar". **Effort:** no-cook assembly (`effort: 'assemble'`), 7 min hands-on, about 6 h 5 min start to finish, no cooking for the batch of 3. About 6 h 5 min start to finish (7 min of it hands-on): make it the night before (the oats soak at least 6 hours in the fridge).
 
 ## One jar at a glance
 
@@ -67,7 +67,7 @@ This is the method the app shows under "How to make it" (generated from the same
 2. Add 150 g protein yogurt and 120 ml semi-skimmed milk (120 g) to each jar. *(no heat)*
 3. Stir well, scraping the bottom so no dry oats or chia stay stuck. *(no heat)*
 4. Sprinkle 8 g chopped walnuts on top of each jar. Close the lids and put the jars in the fridge. *(no heat)*
-5. Leave at least 6 hours (overnight). Before the first jar, stir once more if it set unevenly. *(no heat)*
+5. Leave at least 6 hours (overnight). Before the first jar, stir once more if it set unevenly. *(no heat · 360 min)*
 6. In the morning slice half a banana (60 g) on top and eat cold. *(no heat)*
 
 **Done when:** The oats are soft and the mix is thick like a pudding, with no dry oats.

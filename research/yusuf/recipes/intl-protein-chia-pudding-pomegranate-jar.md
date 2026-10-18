@@ -10,7 +10,7 @@ Record `intl-protein-chia-pudding-pomegranate-jar` in `app/data/foods-mealprep.j
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Milk, protein yogurt (no gelatine), chia and fruit only. **Confidence:** B.
 
-**Meal:** snack prep, logged as "1 jar". **Effort:** no-cook assembly (`effort: 'assemble'`), 11 min hands-on, no cooking for the batch of 3.
+**Meal:** snack prep, logged as "1 jar". **Effort:** no-cook assembly (`effort: 'assemble'`), 10 min hands-on, about 4 h 10 min start to finish, no cooking for the batch of 3. About 4 h 10 min start to finish (10 min of it hands-on): make it the night before (the chia sets at least 4 hours in the fridge).
 
 ## One jar at a glance
 
@@ -63,7 +63,7 @@ This is the method the app shows under "How to make it" (generated from the same
 1. No cooking. In the jug whisk the protein yogurt (450 g), milk (180 ml, 180 g) and a pinch of cinnamon (1 g) until smooth. *(no heat)*
 2. Stir in the chia seeds (45 g, 3 tbsp). *(no heat)*
 3. Wait 5 minutes, then stir again well so the chia does not form clumps. *(no heat · 5 min)*
-4. Pour into the 3 jars, close and put them in the fridge for at least 4 hours. *(no heat)*
+4. Pour into the 3 jars, close and put them in the fridge for at least 4 hours. *(no heat · 240 min)*
 5. Just before eating, add 50 g pomegranate seeds on top. *(no heat)*
 
 **Done when:** The pudding is thick and set: it no longer pours when you tilt the jar.

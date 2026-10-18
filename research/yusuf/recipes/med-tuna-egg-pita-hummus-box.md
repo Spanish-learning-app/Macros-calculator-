@@ -10,7 +10,7 @@ Record `med-tuna-egg-pita-hummus-box` in `app/data/foods-mealprep.js` · library
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Tuna (tuna, water, salt), hummus with additives de origen vegetal, pita without E471, eggs and vegetables (labels read 2026-10-13/14). **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** no-cook assembly (`effort: 'assemble'`), 9 min hands-on (the eggs are boiled) for the batch of 2.
+**Meal:** lunch prep, logged as "1 box". **Effort:** no-cook assembly (`effort: 'assemble'`), 9 min hands-on, about 25 min start to finish (the eggs are boiled) for the batch of 2. About 25 min start to finish (9 min of it hands-on): if you have no boiled eggs, they boil 10 min and cool 5 first.
 
 ## One box at a glance
 
@@ -76,7 +76,7 @@ This is the method the app shows under "How to make it" (generated from the same
 **Before you start**
 
 - Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).
-- If you have no boiled eggs from Sunday: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.
+- If you have no eggs boiled in the last 3 days: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.
 
 **Steps**
 
@@ -162,7 +162,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Olive oil: 10 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Lemon juice: 20 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
-| Egg, hard-boiled: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 2 pieces | 3.05 € |
+| Egg, hard-boiled: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 2 pieces | 3.05 € |
 | Hummus de garbanzos Hacendado receta clásica: 100 g | [Hummus de garbanzos Hacendado receta clásica](https://tienda.mercadona.es/product/80858/) | 240 g tub | 1 × pack | 1.05 € |
 | Pan de pita Mission: 240 g | [Pan de pita Mission](https://tienda.mercadona.es/product/14378/) | 5 pittas (300 g) | 1 × pack | 2.00 € |
 

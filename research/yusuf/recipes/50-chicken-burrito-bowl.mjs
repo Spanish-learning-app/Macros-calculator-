@@ -40,7 +40,7 @@ export default {
       id: 'beans', label: 'Kidney beans and sweetcorn', storage: 'cooked-curry', yield: 'none', eat: 'hot',
       lines: [
         ['kidney-beans', 400, '1 jar, drained and rinsed, warmed with the cumin'],
-        ['sweetcorn', 210, '3 small tins, drained'],
+        ['sweetcorn', 210, '1½ small tins, drained'],
         ['cumin', 2, ''],
         ['salt', 1, ''],
       ],
@@ -64,7 +64,7 @@ export default {
     prep: [
       'Cut the chicken breast (520 g) into strips about 1 cm thick.',
       'Peel and chop 2 garlic cloves (6 g).',
-      'Drain and rinse the kidney beans (1 jar, 400 g). Drain the 3 small tins of sweetcorn (210 g).',
+      'Drain and rinse the kidney beans (1 jar, 400 g). Drain 1½ small tins of sweetcorn (210 g: 1½ of the 3 tins in the pack; put the last half tin in a closed box in the fridge for a salad).',
       'Shred the lettuce (120 g).',
     ],
     steps: [

@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 8,
+  prepWait: 15, // the eggs boil 10 min and cool 5 (R3-B: start to finish includes them)
+  waitNote: 'the eggs boil 10 min and cool 5 first (up to 3 days ahead)',
   cuisine: 'spanish',
   shortName: 'Salmorejo, egg, tuna',
   id: 'es-salmorejo-huevo-atun-portion',
@@ -46,7 +48,7 @@ export default {
     },
   ],
   method: {
-    equipment: ['Pot for the Sunday eggs', 'Soup bowl', 'Can opener', 'Knife and board'],
+    equipment: ['Pot for the eggs', 'Soup bowl', 'Can opener', 'Knife and board'],
     prep: ['Boil the eggs (2 per dinner) 10 minutes, cool 5 minutes in cold water and keep them in the fridge: boiled eggs keep 3 days, so boil them no more than 3 days before you eat them.', 'Keep the salmorejo brik in the fridge so it is very cold.'],
     steps: [
       { text: 'No cooking: only the eggs are boiled (up to 3 days ahead). Shake the brik and pour 250 g (about 1 cup) of cold salmorejo into the bowl.', heat: 'none', pack: true },
@@ -68,6 +70,6 @@ export default {
     'Mercadona\'s salmorejo contains vinagre de Jerez (vinegar, allowed by the Lab: NUTRITION.md §3). If you avoid any wine vinegar, make it at home with lemon, or swap for gazpacho after reading its label.',
   ],
   confidence: 'B',
-  confidenceWhy: 'No cooking (eggs from the Sunday batch). Dated labels (salmorejo, tuna, picos) and USDA SR Legacy values (egg, orange).',
+  confidenceWhy: 'No cooking (the eggs are boiled up to 3 days ahead). Dated labels (salmorejo, tuna, picos) and USDA SR Legacy values (egg, orange).',
   halal: { status: 'halal', reason: 'Salmorejo of tomato, bread, olive oil, pepper, garlic, salt and vinegar; tuna, eggs, wholemeal picos (no lard) and fruit (labels read 2026-10-13/14).' },
 };

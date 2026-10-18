@@ -10,7 +10,7 @@ Record `intl-egg-bean-breakfast-tacos-portion` in `app/data/foods-mealprep.js` Â
 
 **Eat:** hot (microwave). **Halal:** check: Corn tortillas list glycerine (E-422) of unstated origin, which can be animal fat (Ayesha, 2026-10-15). Halal swap: fill a Mission pita (no E471 or E-422) instead. Eggs, beans and the salsa (wine vinegar only) are halal. **Confidence:** B.
 
-**Meal:** breakfast prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 13 min hands-on for the batch of 2. About 13 min start to finish (13 min of it hands-on), plus 2 min started ahead.
+**Meal:** breakfast prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 13 min hands-on for the batch of 2. About 13 min start to finish (13 min of it hands-on). Later, each morning (reheat the filling, warm the tortillas): 2 min hands-on.
 
 ## One portion at a glance
 

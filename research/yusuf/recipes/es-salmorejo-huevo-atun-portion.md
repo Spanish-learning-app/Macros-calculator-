@@ -10,7 +10,7 @@ Record `es-salmorejo-huevo-atun-portion` in `app/data/foods-mealprep.js` · libr
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Salmorejo of tomato, bread, olive oil, pepper, garlic, salt and vinegar; tuna, eggs, wholemeal picos (no lard) and fruit (labels read 2026-10-13/14). **Confidence:** B.
 
-**Meal:** dinner prep, logged as "1 portion". **Effort:** no-cook assembly (`effort: 'assemble'`), 8 min hands-on (the eggs are boiled) for the batch of 2.
+**Meal:** dinner prep, logged as "1 portion". **Effort:** no-cook assembly (`effort: 'assemble'`), 8 min hands-on, about 25 min start to finish (the eggs are boiled) for the batch of 2. About 25 min start to finish (8 min of it hands-on): the eggs boil 10 min and cool 5 first (up to 3 days ahead).
 
 ## One portion at a glance
 
@@ -61,7 +61,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Equipment**
 
-- Pot for the Sunday eggs
+- Pot for the eggs
 - Soup bowl
 - Can opener
 - Knife and board
@@ -152,7 +152,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
 | Salmorejo al estilo cordobés Hacendado: 500 g | [Salmorejo al estilo cordobés Hacendado](https://tienda.mercadona.es/product/39902/) | 1 l carton | 1 × pack | 2.20 € |
-| Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 pieces | 3.05 € |
+| Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 4 pieces | 3.05 € |
 | Atún claro al natural Hacendado, drained: 120 g | [Atún claro al natural Hacendado](https://tienda.mercadona.es/product/18018/) | 480 g (360 g drained) | 1 × pack | 4.20 € |
 | Olive oil: 6 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Picos 100% integral Hacendado: 60 g | [Picos 100% integral de trigo Hacendado](https://tienda.mercadona.es/product/86215/) | 250 g bag | 1 × pack | 0.80 € |
@@ -188,4 +188,4 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 ## Assumptions and confidence
 
-Confidence **B**: No cooking (eggs from the Sunday batch). Dated labels (salmorejo, tuna, picos) and USDA SR Legacy values (egg, orange). Weights are as bought (drained for jars and cans, edible part for fruit); all oil is eaten. Values from Lab records are the records the app shows for those foods.
+Confidence **B**: No cooking (the eggs are boiled up to 3 days ahead). Dated labels (salmorejo, tuna, picos) and USDA SR Legacy values (egg, orange). Weights are as bought (drained for jars and cans, edible part for fruit); all oil is eaten. Values from Lab records are the records the app shows for those foods.

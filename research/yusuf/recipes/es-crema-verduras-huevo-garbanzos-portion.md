@@ -152,7 +152,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Chickpeas, canned/jarred, drained and rinsed: 400 g | [Garbanzo cocido Hacendado](https://tienda.mercadona.es/product/26029/) | 570 g jar (400 g drained) | 1 × pack | 0.80 € |
 | Olive oil: 10 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
-| Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 pieces | 3.05 € |
+| Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 4 pieces | 3.05 € |
 | Pan de bocadillo Hacendado: 130 g | [3 Bocadillos](https://tienda.mercadona.es/product/9664/) | 3 × 130 g edible | 1 pieces | 1.04 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)

@@ -69,7 +69,7 @@ export default {
   method: {
     equipment: ['Big mixing bowl', 'Grater', 'Clean tea towel or kitchen paper for squeezing', 'Oven tray lined with baking paper (skewers optional)', 'Heatproof bowl with a plate as a lid', 'Kettle', 'Sharp knife and chopping board', 'Wire rack or plate for cooling', '4 lunch boxes and 3 freezer bags'],
     prep: [
-      'Grate {{n:onion:150}} and squeeze it hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.',
+      'Grate {{n:onion:150}}, then squeeze the grated onion hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.',
       'Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.',
       'Chop 2 green chillies (10 g), a handful of coriander (15 g) and a few mint leaves (5 g) very fine.',
     ],

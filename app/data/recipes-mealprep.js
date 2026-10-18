@@ -76,8 +76,8 @@ export default [
       { foodId: 'intl-mint-fresh', grams: 8, section: 'supermarket' },
     ],
     effort: 'cook',
-    minutes: 30,
-    totalMinutes: 85,
+    minutes: 35,
+    totalMinutes: 330,
     keep: {
       fridgeDays: 1,
       fridge: 1,
@@ -93,7 +93,7 @@ export default [
       ],
     },
     cuisine: 'desi',
-    timeNote: 'About 1 h 25 min start to finish (30 min of it hands-on), plus 4 h 5 min started ahead: start the night before, so the chicken marinates at least 4 hours.',
+    timeNote: 'About 5 h 30 min start to finish (35 min of it hands-on): start the night before, so the chicken marinates at least 4 hours.',
     pitch: 'Oven-grilled thigh tikka with peppers over matar rice; cool raita in its own pot.',
     references: [
       { title: 'SOS Cuisine, Chicken tikka', url: 'https://www.soscuisine.com/recipe/1068' },
@@ -116,7 +116,7 @@ export default [
     ],
     method: {
       equipment: ['Mixing bowl with a lid (or a big freezer bag) for the marinade', 'Large oven tray lined with baking paper', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', 'A second tray or wide dish for cooling the rice', '4 lunch boxes and 4 small lidded pots (about 150 ml) for the raita'],
-      prep: ['Cut the chicken thighs (720 g, boneless and skinless: the butcher weighs them) into 4 cm pieces. Trim off any big lumps of fat.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.', 'Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).', 'Cut 2 red peppers (240 g) into 3 cm squares. Peel about 2 medium red onions (200 g), cut it into quarters and pull the layers apart into "petals".', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.'],
+      prep: ['Cut the chicken thighs (720 g, boneless and skinless: the butcher weighs them) into 4 cm pieces. Trim off any big lumps of fat.', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.', 'Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).', 'Cut 2 red peppers (240 g) into 3 cm squares. Peel about 2 medium red onions (200 g), cut each one into quarters and pull the layers apart into "petals".', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.'],
       steps: [
         {
           text: 'Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir.',
@@ -264,7 +264,7 @@ export default [
     ],
     method: {
       equipment: ['Wide deep frying pan or karahi (28 cm) with a lid', 'Wooden spoon', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', '2 trays or wide dishes for cooling', '4 lunch boxes'],
-      prep: ['Peel about 2 medium onions (200 g) and dice it small (5 mm).', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Chop 2 medium tomatoes (250 g) small. Chop 2 green chillies (10 g).', 'Whisk 1 tbsp yogurt (15 g) smooth in a cup. Chop a handful of fresh coriander leaves (15 g).', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve until the water runs almost clear, then soak it in cold water for 20 minutes.'],
+      prep: ['Peel and dice about 2 medium onions (200 g) small (5 mm).', 'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.', 'Chop 2 medium tomatoes (250 g) small. Chop 2 green chillies (10 g).', 'Whisk 1 tbsp yogurt (15 g) smooth in a cup. Chop a handful of fresh coriander leaves (15 g).', 'Rinse the basmati (240 g, about 1⅓ cups) in the sieve until the water runs almost clear, then soak it in cold water for 20 minutes.'],
       steps: [
         {
           text: 'Put the pan on the hob. Add 2 tbsp sunflower oil (28 g) and heat 1 minute.',
@@ -1120,7 +1120,7 @@ export default [
     ],
     method: {
       equipment: ['Big mixing bowl', 'Grater', 'Clean tea towel or kitchen paper for squeezing', 'Oven tray lined with baking paper (skewers optional)', 'Heatproof bowl with a plate as a lid', 'Kettle', 'Sharp knife and chopping board', 'Wire rack or plate for cooling', '4 lunch boxes and 3 freezer bags'],
-      prep: ['Grate about 1½ medium onions (150 g) and squeeze it hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.', 'Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.', 'Chop 2 green chillies (10 g), a handful of coriander (15 g) and a few mint leaves (5 g) very fine.'],
+      prep: ['Grate about 1½ medium onions (150 g), then squeeze the grated onion hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.', 'Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.', 'Chop 2 green chillies (10 g), a handful of coriander (15 g) and a few mint leaves (5 g) very fine.'],
       steps: [
         {
           text: 'In the bowl mix the chicken mince (640 g) with the squeezed onion, ginger-garlic paste, chillies, coriander and mint, and the powders: 2 tsp roasted ground cumin (4 g), 2 tsp garam masala (4 g), ¾ tsp red chilli powder (2 g), ¾ tsp chaat masala (2 g), ½ tsp black pepper (1 g) and 1 tsp salt (6 g). Knead with your hand until sticky.',
@@ -1252,7 +1252,7 @@ export default [
     totalMinutes: 60,
     keep: { fridgeDays: 2, fridge: 2, freezer: 2, freezerMonths: 3 },
     cuisine: 'desi',
-    timeNote: 'About 1 h start to finish (35 min of it hands-on), plus 10 min started ahead.',
+    timeNote: 'About 1 h start to finish (35 min of it hands-on). Later, on Tuesday night (the second half of the chaat and 2 yogurt pots): 10 min hands-on.',
     pitch: 'Tangy chickpeas, potato and spiced chicken with chaat masala and lemon; mint yogurt on the side. No microwave needed.',
     cost: {
       perBoxEur: 2.46,
@@ -1452,7 +1452,7 @@ export default [
     totalMinutes: 30,
     keep: { fridgeDays: 1, fridge: 1, freezer: 3, freezerMonths: 1 },
     cuisine: 'mediterranean',
-    timeNote: 'About 30 min start to finish (20 min of it hands-on), plus 1 min started ahead.',
+    timeNote: 'About 30 min start to finish (20 min of it hands-on). Later, each morning (toss one box with its dressing), plus fresh vegetables and dressing on Tuesday night: 2 min hands-on.',
     pitch: 'Wholewheat penne coated in hummus with paprika chicken, spinach, cherry tomatoes, cucumber and pepper.',
     cost: {
       perBoxEur: 2.39,
@@ -1520,6 +1520,7 @@ export default [
         {
           text: 'Each evening move one bag to the fridge. In the morning toss it with dressing and vegetables (2 minutes). On Tuesday night cut fresh vegetables and whisk new dressing.',
           heat: 'none',
+          minutes: 2,
         },
       ],
       doneWhen: 'The chicken is white all through with clear juices (75 °C); the pasta is soft with a little bite.',
@@ -1638,11 +1639,12 @@ export default [
       { foodId: 'intl-banana', grams: 180, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 8,
-    totalMinutes: 8,
+    minutes: 7,
+    totalMinutes: 365,
     keep: { fridgeDays: 3, fridge: 3, freezer: 0 },
     serve: 'cold',
     cuisine: 'international',
+    timeNote: 'About 6 h 5 min start to finish (7 min of it hands-on): make it the night before (the oats soak at least 6 hours in the fridge).',
     pitch: 'Five minutes on Sunday night, three breakfasts ready; eat cold from the jar.',
     cost: { perBoxEur: 1.09, totalEur: 3.28, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -1679,6 +1681,7 @@ export default [
         {
           text: 'Leave at least 6 hours (overnight). Before the first jar, stir once more if it set unevenly.',
           heat: 'none',
+          minutes: 360,
         },
         { text: 'In the morning slice half a banana (60 g) on top and eat cold.', heat: 'none' },
       ],
@@ -1723,9 +1726,10 @@ export default [
       },
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 117.4,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
     ],
     effort: 'cook',
@@ -1936,9 +1940,10 @@ export default [
     ingredients: [
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 200,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
       { foodId: 'intl-potato-raw', grams: 520, section: 'supermarket' },
       {
@@ -2098,9 +2103,10 @@ export default [
     ingredients: [
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 200,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
       {
         foodId: 'intl-cooking-oil',
@@ -2223,9 +2229,10 @@ export default [
     ingredients: [
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 176.2,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
       { name: 'Salt', grams: 4.9, section: 'supermarket' },
       { foodId: 'intl-chicken-breast-raw', grams: 280, section: 'butcher' },
@@ -2412,9 +2419,10 @@ export default [
       },
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 234.9,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
     ],
     effort: 'cook',
@@ -2598,9 +2606,10 @@ export default [
       },
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 234.9,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
     ],
     effort: 'cook',
@@ -2780,9 +2789,10 @@ export default [
       },
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 234.9,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
     ],
     effort: 'cook',
@@ -2956,9 +2966,10 @@ export default [
       },
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 234.9,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
     ],
     effort: 'cook',
@@ -3130,9 +3141,10 @@ export default [
       },
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 234.9,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
       { foodId: 'intl-tomato', grams: 320, section: 'supermarket' },
       { foodId: 'intl-cucumber', grams: 320, section: 'supermarket' },
@@ -3175,7 +3187,7 @@ export default [
       ],
     },
     cuisine: 'desi',
-    timeNote: 'About 2 h start to finish (55 min of it hands-on), plus 5 min started ahead: the kebab mix chills 30 min first.',
+    timeNote: 'About 2 h start to finish (55 min of it hands-on): the kebab mix chills 30 min first. Later, for each dinner, on the day or the night before (kachumber and raita): 5 min hands-on.',
     pitch: 'Oven-baked seekh kebabs from the freezer, a hot roti, crunchy kachumber and cool raita.',
     cost: {
       perBoxEur: 2.86,
@@ -3346,9 +3358,10 @@ export default [
       { name: 'Ground cumin (comino molido)', grams: 1, section: 'supermarket' },
       {
         foodId: 'intl-atta-wholemeal',
+        name: 'Atta (chakki atta, wholemeal chapati flour)',
         grams: 234.9,
         section: 'supermarket',
-        note: 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works',
+        note: 'Pakistani or Moroccan grocery (next to the halal butcher)',
       },
     ],
     effort: 'cook',
@@ -3600,11 +3613,12 @@ export default [
       { foodId: 'intl-kiwi', grams: 207, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 7,
-    totalMinutes: 7,
+    minutes: 6,
+    totalMinutes: 245,
     keep: { fridgeDays: 3, fridge: 3, freezer: 0 },
     serve: 'cold',
     cuisine: 'spanish',
+    timeNote: 'About 4 h 5 min start to finish (6 min of it hands-on): make it the night before (the jars set at least 4 hours in the fridge).',
     pitch: 'The Mercadona classic of the gym crowd: whipped fresh cheese, oats and chia in a jar, kiwi on top in the morning.',
     cost: { perBoxEur: 1.08, totalEur: 3.24, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -3633,6 +3647,7 @@ export default [
         {
           text: 'Sprinkle 8 g chopped walnuts on top, close the lids and put the jars in the fridge for at least 4 hours.',
           heat: 'none',
+          minutes: 240,
         },
         { text: 'In the morning peel 1 kiwi (69 g), slice it on top and eat cold.', heat: 'none' },
       ],
@@ -3646,7 +3661,7 @@ export default [
     boxes: 3,
     storage: ['egg-dish'],
     ingredients: [
-      { foodId: 'intl-egg-boiled', grams: 300, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 300, section: 'supermarket' },
       { foodId: 'es-queso-burgos-0', grams: 187.5, section: 'supermarket' },
       {
         foodId: 'es-pan-barra',
@@ -3661,12 +3676,13 @@ export default [
     ],
     effort: 'assemble',
     minutes: 10,
-    totalMinutes: 10,
+    totalMinutes: 25,
     keep: { fridgeDays: 3, fridge: 3, freezer: 0 },
     lightCooking: 'the bread is toasted and the eggs are boiled',
     serve: 'either',
     cuisine: 'spanish',
-    pitch: 'The Barcelona breakfast: toasted barra rubbed with tomato and olive oil, with fresh cheese, two eggs boiled on Sunday and an orange.',
+    timeNote: 'About 25 min start to finish (10 min of it hands-on): the eggs boil 10 min and cool 5 first (up to 3 days ahead: they keep 3 days in their shells).',
+    pitch: 'The Barcelona breakfast: toasted barra rubbed with tomato and olive oil, with fresh cheese, two boiled eggs and an orange.',
     references: [
       {
         title: 'Cooklang recipes, Pa amb tomàquet',
@@ -3683,10 +3699,10 @@ export default [
     ],
     method: {
       equipment: ['Pot for 6 eggs', 'Toaster, grill or dry frying pan', 'Box grater and a small bowl', 'Bread knife'],
-      prep: ['Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
+      prep: ['Up to 3 days before the first breakfast: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
       steps: [
         {
-          text: 'No cooking: only the bread is toasted and the eggs are boiled (on Sunday, 10 minutes). In the morning cut 80 g of barra (a third of a barra) and split it lengthways.',
+          text: 'No cooking: only the bread is toasted and the eggs are boiled. In the morning cut 80 g of barra (a third of a barra) and split it lengthways.',
           heat: 'none',
         },
         {
@@ -3877,16 +3893,17 @@ export default [
       { foodId: 'intl-lemon-juice', grams: 30, section: 'supermarket' },
       { foodId: 'intl-coriander-fresh', grams: 6, section: 'supermarket' },
       { name: 'Black pepper', grams: 1, section: 'supermarket' },
-      { foodId: 'intl-egg-boiled', grams: 200, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 200, section: 'supermarket' },
       { foodId: 'intl-rice-cup-brown', grams: 250, section: 'supermarket' },
     ],
     effort: 'assemble',
     minutes: 8,
-    totalMinutes: 9,
+    totalMinutes: 25,
     keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     lightCooking: 'the eggs are boiled and the rice cup is warmed at lunch',
     serve: 'either',
     cuisine: 'international',
+    timeNote: 'About 25 min start to finish (8 min of it hands-on): if you have no boiled eggs, they boil 10 min and cool 5 first.',
     pitch: 'A poke-style bowl from the cupboard: canned salmon with lemon, a sealed brown-rice cup you microwave at uni, avocado and a boiled egg.',
     cost: { perBoxEur: 3.71, totalEur: 7.41, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -3901,7 +3918,7 @@ export default [
     ],
     method: {
       equipment: ['Pot for 4 eggs (if you have none boiled)', 'Grater', 'Bowl and fork', 'Can opener', '2 lunch boxes'],
-      prep: ['Dice the cucumber (160 g) into 1 cm cubes. Peel and grate 2 medium carrots (120 g). Chop the red onion (20 g) small and the coriander (6 g).', 'If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
+      prep: ['Dice the cucumber (160 g) into 1 cm cubes. Peel and grate 2 medium carrots (120 g). Chop the red onion (20 g) small and the coriander (6 g).', 'If you have no eggs boiled in the last 3 days: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
       steps: [
         {
           text: 'No cooking: only the eggs are boiled (skip it if you have eggs boiled in the last 3 days) and the rice cup is warmed at lunch. Open the 3 cans of salmon (240 g), drain them and flake the fish into the bowl with the fork.',
@@ -3951,17 +3968,18 @@ export default [
       { foodId: 'med-olive-oil', grams: 10, section: 'supermarket' },
       { foodId: 'intl-lemon-juice', grams: 20, section: 'supermarket' },
       { name: 'Black pepper', grams: 1, section: 'supermarket' },
-      { foodId: 'intl-egg-boiled', grams: 100, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 100, section: 'supermarket' },
       { foodId: 'med-hummus', grams: 100, section: 'supermarket' },
       { foodId: 'med-pita-bread', grams: 240, section: 'supermarket' },
     ],
     effort: 'assemble',
     minutes: 9,
-    totalMinutes: 9,
+    totalMinutes: 25,
     keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     lightCooking: 'the eggs are boiled',
     serve: 'cold',
     cuisine: 'mediterranean',
+    timeNote: 'About 25 min start to finish (9 min of it hands-on): if you have no boiled eggs, they boil 10 min and cool 5 first.',
     pitch: 'A Tunisian-style sandwich you build at lunch: hummus in the pita, then tuna, egg and crunchy salad from the box.',
     cost: { perBoxEur: 3.17, totalEur: 6.35, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -3980,7 +3998,7 @@ export default [
     ],
     method: {
       equipment: ['Pot for 2 eggs (if you have none boiled)', 'Can opener and sieve', 'Bowl', 'Chopping board and knife', '2 lunch boxes and 2 small lidded pots (about 75 ml)'],
-      prep: ['Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).', 'If you have no boiled eggs from Sunday: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
+      prep: ['Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).', 'If you have no eggs boiled in the last 3 days: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.'],
       steps: [
         {
           text: 'No cooking: only the eggs are boiled (if you have none boiled in the last 3 days). Open and drain 4 cans of tuna (240 g) and put the tuna in the bowl.',
@@ -4152,7 +4170,7 @@ export default [
     storage: ['cold-salad', 'egg-dish'],
     ingredients: [
       { foodId: 'es-salmorejo-envasado', grams: 500, section: 'supermarket' },
-      { foodId: 'intl-egg-boiled', grams: 200, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 200, section: 'supermarket' },
       { foodId: 'intl-tuna-canned-water', grams: 120, section: 'supermarket' },
       { foodId: 'med-olive-oil', grams: 6, section: 'supermarket' },
       { foodId: 'es-picos-integrales', grams: 60, section: 'supermarket' },
@@ -4160,11 +4178,12 @@ export default [
     ],
     effort: 'assemble',
     minutes: 8,
-    totalMinutes: 8,
+    totalMinutes: 25,
     keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     lightCooking: 'the eggs are boiled',
     serve: 'cold',
     cuisine: 'spanish',
+    timeNote: 'About 25 min start to finish (8 min of it hands-on): the eggs boil 10 min and cool 5 first (up to 3 days ahead).',
     pitch: 'A cold Córdoba-style dinner from a carton: salmorejo topped with chopped egg and tuna instead of the usual cured ham, picos to dip.',
     cost: { perBoxEur: 2.18, totalEur: 4.36, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -4175,7 +4194,7 @@ export default [
       },
     ],
     method: {
-      equipment: ['Pot for the Sunday eggs', 'Soup bowl', 'Can opener', 'Knife and board'],
+      equipment: ['Pot for the eggs', 'Soup bowl', 'Can opener', 'Knife and board'],
       prep: ['Boil the eggs (2 per dinner) 10 minutes, cool 5 minutes in cold water and keep them in the fridge: boiled eggs keep 3 days, so boil them no more than 3 days before you eat them.', 'Keep the salmorejo brik in the fridge so it is very cold.'],
       steps: [
         {
@@ -4278,7 +4297,7 @@ export default [
           heat: 'microwave',
         },
         {
-          text: 'Add the crushed tomato (200 g, half a 400 g tin). Stir, cover and microwave 4 minutes, stirring halfway.',
+          text: 'Add the crushed tomato (200 g: a quarter of the 800 g jar; close the jar and keep the rest in the fridge). Stir, cover and microwave 4 minutes, stirring halfway.',
           heat: 'microwave',
           minutes: 4,
         },
@@ -4321,7 +4340,7 @@ export default [
       { foodId: 'intl-pepper-red', grams: 140, section: 'supermarket' },
       { foodId: 'intl-cucumber', grams: 160, section: 'supermarket' },
       { foodId: 'intl-tomato-cherry', grams: 120, section: 'supermarket' },
-      { foodId: 'intl-egg-boiled', grams: 200, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 200, section: 'supermarket' },
       { foodId: 'es-queso-burgos-0', grams: 250, section: 'supermarket' },
       { foodId: 'med-olive-oil', grams: 6, section: 'supermarket' },
       { name: 'Oregano, dried', grams: 1, section: 'supermarket' },
@@ -4329,11 +4348,12 @@ export default [
     ],
     effort: 'assemble',
     minutes: 7,
-    totalMinutes: 7,
+    totalMinutes: 20,
     keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     lightCooking: 'the eggs are boiled',
     serve: 'cold',
     cuisine: 'spanish',
+    timeNote: 'About 20 min start to finish (7 min of it hands-on): the eggs boil 10 min and cool 5 first (up to 3 days ahead).',
     pitch: 'The Spanish "picoteo" dinner for tired evenings: dip, cheese, eggs and crunchy vegetables, nothing to cook.',
     cost: { perBoxEur: 2.2, totalEur: 4.41, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -4347,7 +4367,7 @@ export default [
       },
     ],
     method: {
-      equipment: ['Pot for the Sunday eggs', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)', 'A plate to serve'],
+      equipment: ['Pot for the eggs', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)', 'A plate to serve'],
       prep: ['Boil the eggs (2 per portion) 10 minutes, cool 5 minutes in cold water and keep them in the fridge: boiled eggs keep 3 days, so boil them no more than 3 days before you eat them.'],
       steps: [
         {
@@ -4435,11 +4455,12 @@ export default [
       { foodId: 'intl-pomegranate', grams: 150, section: 'supermarket' },
     ],
     effort: 'assemble',
-    minutes: 11,
-    totalMinutes: 11,
+    minutes: 10,
+    totalMinutes: 250,
     keep: { fridgeDays: 3, fridge: 3, freezer: 0 },
     serve: 'cold',
     cuisine: 'international',
+    timeNote: 'About 4 h 10 min start to finish (10 min of it hands-on): make it the night before (the chia sets at least 4 hours in the fridge).',
     pitch: 'Stir, wait overnight, done: chia set in protein yogurt and milk, pomegranate on top.',
     cost: { perBoxEur: 0.9, totalEur: 2.69, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -4469,6 +4490,7 @@ export default [
         {
           text: 'Pour into the 3 jars, close and put them in the fridge for at least 4 hours.',
           heat: 'none',
+          minutes: 240,
         },
         { text: 'Just before eating, add 50 g pomegranate seeds on top.', heat: 'none' },
       ],
@@ -4766,7 +4788,7 @@ export default [
       { foodId: 'intl-avocado', grams: 100, section: 'supermarket' },
       { foodId: 'intl-lemon-juice', grams: 6, section: 'supermarket' },
       { name: 'Salt', grams: 1, section: 'supermarket' },
-      { foodId: 'intl-egg-boiled', grams: 100, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 100, section: 'supermarket' },
       { foodId: 'es-pan-bocadillo', grams: 260, section: 'supermarket' },
     ],
     effort: 'assemble',
@@ -4969,7 +4991,7 @@ export default [
       { name: 'Black pepper', grams: 2, section: 'supermarket' },
       { foodId: 'intl-lettuce', grams: 400, section: 'supermarket' },
       { foodId: 'intl-tomato-cherry', grams: 200, section: 'supermarket' },
-      { foodId: 'intl-egg-boiled', grams: 100, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 100, section: 'supermarket' },
       { foodId: 'es-yogur-griego-ligero', grams: 120, section: 'supermarket' },
       { name: 'Dijon mustard', grams: 10, section: 'supermarket' },
       { foodId: 'intl-lemon-juice', grams: 16, section: 'supermarket' },
@@ -5097,7 +5119,7 @@ export default [
       ],
     },
     cuisine: 'italian',
-    timeNote: 'About 1 h 30 min start to finish (25 min of it hands-on), plus 40 min started ahead: the sauce simmers 30–40 min, hands off, then cools 30 min; the penne is boiled the night before each lunch (10 min).',
+    timeNote: 'About 1 h 30 min start to finish (25 min of it hands-on): the sauce simmers 30–40 min, hands off, then cools 30 min. Later, the night before each lunch (boil the penne and mix it with a portion): 10 min hands-on, about 40 min with the waiting.',
     pitch: 'A slow-simmered beef, mushroom and carrot ragù with no wine, frozen in portions; cook the penne fresh or the night before and lunch is done.',
     cost: {
       perBoxEur: 2.35,
@@ -5121,7 +5143,7 @@ export default [
     ],
     method: {
       equipment: ['Wide deep frying pan or casserole (28 cm) with a lid', 'Wooden spoon', 'Pot for 2 l of water and a colander', 'Grater', 'Oven tray or wide dish for cooling', '4 lunch boxes or flat freezer bags'],
-      prep: ['Peel about 1½ medium onions (150 g) and chop it small (5 mm).', 'Peel and grate 2 medium carrots (120 g) on the big holes of the grater.', 'Wipe the mushrooms (200 g) and chop them into 1 cm pieces.', 'Peel 3 garlic cloves (9 g) and chop them finely.', 'Open 1 jar (800 g) of crushed tomato.'],
+      prep: ['Peel and chop about 1½ medium onions (150 g) small (5 mm).', 'Peel and grate 2 medium carrots (120 g) on the big holes of the grater.', 'Wipe the mushrooms (200 g) and chop them into 1 cm pieces.', 'Peel 3 garlic cloves (9 g) and chop them finely.', 'Open 1 jar (800 g) of crushed tomato.'],
       steps: [
         {
           text: 'Put the wide pan on the hob. Add a little under 1 tbsp olive oil (12 g) and heat 1 minute.',
@@ -5331,7 +5353,7 @@ export default [
     ],
     method: {
       equipment: ['Wide deep frying pan or casserole (28 cm)', 'Wooden spoon', 'Large pot for 3 l of water and a colander', 'Can opener and sieve', 'Oven tray for cooling', '4 lunch boxes'],
-      prep: ['Peel about 1½ medium onions (150 g) and chop it small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.', 'Open and drain 6 cans of tuna in the sieve (360 g drained).', 'Slice the pitted green olives (60 g) into rings.', 'Open 1 jar (800 g) of crushed tomato.'],
+      prep: ['Peel and chop about 1½ medium onions (150 g) small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.', 'Open and drain 6 cans of tuna in the sieve (360 g drained).', 'Slice the pitted green olives (60 g) into rings.', 'Open 1 jar (800 g) of crushed tomato.'],
       steps: [
         {
           text: 'Heat 1½ tbsp olive oil (20 g) in the wide pan for 1 minute.',
@@ -5656,7 +5678,7 @@ export default [
     ],
     method: {
       equipment: ['Large frying pan (28 cm)', 'Sieve', 'Can opener', '4 lunch boxes and 4 small boxes or pots (about 150 ml) for the cold side'],
-      prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick.', 'Peel and chop 2 garlic cloves (6 g).', 'Drain and rinse the kidney beans (1 jar, 400 g). Drain the 3 small tins of sweetcorn (210 g).', 'Shred the lettuce (120 g).'],
+      prep: ['Cut the chicken breast (520 g) into strips about 1 cm thick.', 'Peel and chop 2 garlic cloves (6 g).', 'Drain and rinse the kidney beans (1 jar, 400 g). Drain 1½ small tins of sweetcorn (210 g: 1½ of the 3 tins in the pack; put the last half tin in a closed box in the fridge for a salad).', 'Shred the lettuce (120 g).'],
       steps: [
         {
           text: 'In a bowl mix the chicken with 2 tsp sunflower oil (10 g), 1½ tsp ground cumin (3 g), 2 tsp paprika (4 g), 1 tsp chilli powder (2 g), 1 tsp dried oregano (2 g), the garlic and ½ tsp salt (3 g).',
@@ -6137,7 +6159,7 @@ export default [
       ],
     },
     cuisine: 'middle-eastern',
-    timeNote: 'About 1 h start to finish (20 min of it hands-on), plus 13 min started ahead.',
+    timeNote: 'About 1 h start to finish (20 min of it hands-on). Later, on the night you eat each portion (heat the sauce and cook 2 eggs in it): 6 min hands-on, about 13 min with the waiting.',
     pitch: 'A spiced pepper, tomato and chickpea sauce from the freezer; crack two eggs into it on the night and dip bread. Eight minutes at dinner.',
     cost: { perBoxEur: 1.64, totalEur: 6.57, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -6411,7 +6433,7 @@ export default [
       { foodId: 'es-garbanzos-cocidos', grams: 400, section: 'supermarket' },
       { foodId: 'med-olive-oil', grams: 10, section: 'supermarket' },
       { name: 'Black pepper', grams: 1, section: 'supermarket' },
-      { foodId: 'intl-egg-boiled', grams: 200, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 200, section: 'supermarket' },
       { foodId: 'es-pan-bocadillo', grams: 130, section: 'supermarket' },
     ],
     effort: 'assemble',
@@ -6482,16 +6504,17 @@ export default [
       { foodId: 'intl-avocado', grams: 100, section: 'supermarket' },
       { foodId: 'med-olive-oil', grams: 6, section: 'supermarket' },
       { name: 'Salt', grams: 1, section: 'supermarket' },
-      { foodId: 'intl-egg-boiled', grams: 100, section: 'supermarket' },
+      { foodId: 'intl-egg-raw', grams: 100, section: 'supermarket' },
       { foodId: 'es-pan-bocadillo', grams: 130, section: 'supermarket' },
     ],
     effort: 'assemble',
     minutes: 13,
-    totalMinutes: 13,
+    totalMinutes: 30,
     keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     lightCooking: 'the bread is toasted and the eggs are boiled',
     serve: 'cold',
     cuisine: 'spanish',
+    timeNote: 'About 30 min start to finish (13 min of it hands-on): if you have no boiled eggs, they boil 10 min and cool 5 first; the tomato is grated the night before.',
     pitch: 'A Spanish café breakfast at home: toasted roll with grated tomato and olive oil, topped with tuna, avocado and a sliced egg.',
     cost: { perBoxEur: 1.76, totalEur: 3.52, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [
@@ -6740,7 +6763,7 @@ export default [
     totalMinutes: 13,
     keep: { fridgeDays: 2, fridge: 2, freezer: 0 },
     cuisine: 'mexican',
-    timeNote: 'About 13 min start to finish (13 min of it hands-on), plus 2 min started ahead.',
+    timeNote: 'About 13 min start to finish (13 min of it hands-on). Later, each morning (reheat the filling, warm the tortillas): 2 min hands-on.',
     pitch: 'Scrambled eggs with cumin and kidney beans in warm corn tortillas, topped with pico de gallo. The filling reheats in a minute; warm the tortillas in a dry pan.',
     cost: { perBoxEur: 1.91, totalEur: 3.81, priceDate: '2026-10-13', shop: 'Mercadona Barcelona' },
     references: [

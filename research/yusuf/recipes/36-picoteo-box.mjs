@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 10,
+  prepWait: 15, // the eggs boil 10 min and cool 5 (R3-B: start to finish includes them)
+  waitNote: 'the eggs boil 10 min and cool 5 first (up to 3 days ahead)',
   cuisine: 'spanish',
   shortName: 'Picoteo plate',
   id: 'es-picoteo-hummus-burgos-portion',
@@ -36,7 +38,7 @@ export default {
     },
     {
       id: 'eggs', label: 'Hard-boiled eggs (2 per portion)', storage: 'egg-dish', yield: 'none', eat: 'cold',
-      lines: [['egg-boiled', 200, '4 eggs from the Sunday batch']],
+      lines: [['egg-boiled', 200, '4 eggs, boiled 10 min up to 3 days ahead']],
     },
     {
       id: 'cheese', label: 'Queso de Burgos 0% (2 tubs)', storage: 'proposed:sealed-pack', yield: 'none', eat: 'cold',
@@ -52,7 +54,7 @@ export default {
     },
   ],
   method: {
-    equipment: ['Pot for the Sunday eggs', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)', 'A plate to serve'],
+    equipment: ['Pot for the eggs', 'Chopping board and knife', '2 boxes and 2 small lidded pots (about 100 ml)', 'A plate to serve'],
     prep: ['Boil the eggs (2 per portion) 10 minutes, cool 5 minutes in cold water and keep them in the fridge: boiled eggs keep 3 days, so boil them no more than 3 days before you eat them.'],
     steps: [
       { text: 'No cooking: only the eggs are boiled (up to 3 days ahead). Peel {{n:carrot}} and cut them into sticks 1 cm thick. Cut the red pepper (140 g) into strips and the cucumber (160 g) into sticks.', heat: 'none' },
@@ -72,6 +74,6 @@ export default {
     'Wholemeal picos in place of crackers (no lard; label 2026-10-14).',
   ],
   confidence: 'B',
-  confidenceWhy: 'No cooking (eggs from the Sunday batch). Dated labels (hummus, Burgos, picos) and USDA SR Legacy values (egg, vegetables).',
+  confidenceWhy: 'No cooking (the eggs are boiled up to 3 days ahead). Dated labels (hummus, Burgos, picos) and USDA SR Legacy values (egg, vegetables).',
   halal: { status: 'halal', reason: 'Hummus (additives de origen vegetal), Burgos with microbial rennet, eggs, vegetables and picos without lard.' },
 };

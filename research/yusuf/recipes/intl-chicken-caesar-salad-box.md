@@ -186,7 +186,7 @@ Chill everything within 60 minutes of cooking (spread on a tray). Cold boxes tra
 | Black pepper: 2 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
 | Romaine lettuce, raw: 400 g | [Lechuga romana cortada y lavada](https://tienda.mercadona.es/product/69435/) | 200 g | 2 × pack | 1.15 € |
 | Cherry tomatoes, raw: 200 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g tray (Tomates cherry) | 1 × pack | 2.20 € |
-| Egg, hard-boiled: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 2 pieces | 3.05 € |
+| Egg, hard-boiled: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 2 pieces | 3.05 € |
 | Yogur griego natural ligero Hacendado 2% MG: 120 g | [Yogur griego natural ligero Hacendado 2% MG](https://tienda.mercadona.es/product/21358/) | 1000 g | 1 × pack | 2.10 € |
 | Dijon mustard: 10 g | [Mostaza de Dijon Hacendado](https://tienda.mercadona.es/product/17228/) | 200 g | 1 × pack | 1.25 € |
 | Lemon juice: 16 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |

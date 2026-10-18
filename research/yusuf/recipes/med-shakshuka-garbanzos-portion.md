@@ -10,7 +10,7 @@ Record `med-shakshuka-garbanzos-portion` in `app/data/foods-mealprep.js` · libr
 
 **Eat:** hot (microwave). **Halal:** halal: Vegetables, chickpeas, eggs, yogurt and a roll of flour, water, yeast and salt. **Confidence:** B.
 
-**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 20 min hands-on, about 1 h start to finish for the batch of 4. About 1 h start to finish (20 min of it hands-on), plus 13 min started ahead.
+**Meal:** dinner prep, logged as "1 portion". **Effort:** batch-cooked (`effort: 'cook'`), 20 min hands-on, about 1 h start to finish for the batch of 4. About 1 h start to finish (20 min of it hands-on). Later, on the night you eat each portion (heat the sauce and cook 2 eggs in it): 6 min hands-on, about 13 min with the waiting.
 
 ## One portion at a glance
 

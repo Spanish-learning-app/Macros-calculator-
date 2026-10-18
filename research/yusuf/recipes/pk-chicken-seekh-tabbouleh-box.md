@@ -90,7 +90,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Before you start**
 
-- Grate about 1½ medium onions (150 g) and squeeze it hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.
+- Grate about 1½ medium onions (150 g), then squeeze the grated onion hard in a tea towel to get the juice out. Wet onion makes kebabs that fall apart.
 - Peel and grate 3 garlic cloves (10 g) and a 3 cm piece of ginger (10 g) into a paste.
 - Chop 2 green chillies (10 g), a handful of coriander (15 g) and a few mint leaves (5 g) very fine.
 

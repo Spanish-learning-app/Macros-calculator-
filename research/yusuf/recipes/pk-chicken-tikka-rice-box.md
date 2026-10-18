@@ -12,7 +12,7 @@ Record `pk-chicken-tikka-rice-box` in `app/data/foods-mealprep.js` · library pa
 
 **Eat:** hot (microwave). **Halal:** halal: Chicken from a halal butcher; yogurt is milk and cultures only (label checked 2026-10-13). **Confidence:** C.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 30 min hands-on, about 1 h 25 min start to finish for the batch of 4. About 1 h 25 min start to finish (30 min of it hands-on), plus 4 h 5 min started ahead: start the night before, so the chicken marinates at least 4 hours.
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 35 min hands-on, about 5 h 30 min start to finish for the batch of 4. About 5 h 30 min start to finish (35 min of it hands-on): start the night before, so the chicken marinates at least 4 hours.
 
 ## One box at a glance
 
@@ -91,7 +91,7 @@ This is the method the app shows under "How to make it" (generated from the same
 - Cut the chicken thighs (720 g, boneless and skinless: the butcher weighs them) into 4 cm pieces. Trim off any big lumps of fat.
 - Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g). Grate both on the smallest holes of the grater into a paste.
 - Squeeze ⅔ of a lemon: 2 tbsp juice (30 g).
-- Cut 2 red peppers (240 g) into 3 cm squares. Peel about 2 medium red onions (200 g), cut it into quarters and pull the layers apart into "petals".
+- Cut 2 red peppers (240 g) into 3 cm squares. Peel about 2 medium red onions (200 g), cut each one into quarters and pull the layers apart into "petals".
 - Rinse the basmati (240 g, about 1⅓ cups) in the sieve under the tap, rubbing it with your fingers, until the water runs almost clear. Leave it to soak in a bowl of cold water for 20 minutes.
 
 **Steps**

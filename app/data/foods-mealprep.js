@@ -867,7 +867,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 7 min for 3). Labels, prices and table values read 2026-10-14. 1 jar = 348 g = 400 kcal, 26.4 g protein, 10.8 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 6 min for 3). Labels, prices and table values read 2026-10-14. 1 jar = 348 g = 400 kcal, 26.4 g protein, 10.8 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {
@@ -1287,7 +1287,7 @@ export default [
       confidence: 'B',
       reviewer: 'ayesha',
       date: '2026-10-15',
-      notes: 'No-cook prep (effort assemble, 11 min for 3). Labels, prices and table values read 2026-10-14. 1 jar = 275 g = 223 kcal, 20.4 g protein, 7.4 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
+      notes: 'No-cook prep (effort assemble, 10 min for 3). Labels, prices and table values read 2026-10-14. 1 jar = 275 g = 223 kcal, 20.4 g protein, 7.4 g fibre. Eat cold (no microwave needed); use-by 3 days in the fridge. Ingredient values from the Lab records for the market foods (Javier Morales, labels read 2026-10-14) and from research/yusuf/ingredients.json (USDA FDC SR Legacy, dated labels); weights as bought and drained, no cooking yield. Computed by research/yusuf/calc.mjs.',
     },
   },
   {

@@ -330,3 +330,20 @@
   - PLANS[].batches[]: `fridge`, `freezer` (this plan's split) and `eat: [{ day, weekday, slot, from }]`.
   - PLANS[].`evenings` = [{ day, weekday, time: 'morning'|'evening'|'night', kind, text, recipeId }].
   - PLANS[].days[].items[]: `batch` = index into the plan's batches for a meal made by a batch.
+
+## 2026-10-18 — R3-B resumed after the Boss's hold
+
+- 16:40 UTC Resumed (fresh agent). git: last commits 91caeab/4ee2e71/aaf9369, my R3-B work up to the 00:16 shapes is in
+  9d28f65/ea27287; a rebuild changes only the "Generated on" dates. Already in place and passing: keep (one storage
+  truth, build compares it with the app's storagePlan), packCheck (Done when before packing), rotiSteps (dough first,
+  curry to the fridge on a 30-min timer, one action per roti step, cool before bagging), {{n:…}} household amounts,
+  countCheck, seed/ground spice names, lightCooking, totalMinutes. Left: honest totals for ahead/later/chill/egg boils,
+  a few shopping-name mismatches, and the plans (split, evenings, eaten €, minutes, pitch).
+- 16:40 UTC Item 4: step key `later` (per box, later in the week) split from `ahead` (before the session, now IN
+  totalMinutes); sheet keys prepWait (eggs boiled in "Before you start") and laterNote; timeNote generated with
+  "Later, <when>: N min hands-on". Timed the 4 h / 6 h fridge sets (#13, #26, #38) and the 15-min egg boils (#27, #30,
+  #31, #34, #36, #59). #01 total 85 → 330 min (marinade). Removed the "Sunday egg batch" claims in #27, #30, #31, #34, #36.
+- 16:40 UTC Item 5: #35 "half a 400 g tin" → a quarter of the 800 g jar (the record's pack); #50 "3 small tins of
+  sweetcorn (210 g)" → 1½ tins (pack is 3 × 140 g drained); onion sentences no longer say "it" for 1½–2 onions;
+  boiled-egg lines shop as the box of raw eggs (the methods boil them); atta's shop line is the desi grocery line and
+  its name says "chakki atta".

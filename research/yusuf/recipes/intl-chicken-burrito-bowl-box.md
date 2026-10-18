@@ -47,7 +47,7 @@ The standard recipe below triangulates these and then adjusts to the box targets
 | Ingredient | Raw g (4 boxes) | Per box | Notes |
 |---|---|---|---|
 | Red kidney beans, jarred, drained and rinsed (Alubia roja cocida Hacendado, 570 g jar = 400 g drained; USDA 175243) | 400 | 100 | 1 jar, drained and rinsed, warmed with the cumin |
-| Sweetcorn, canned, drained (Maíz dulce Hacendado 3 × 70 g drained; USDA 169214) | 210 | 53 | 3 small tins, drained |
+| Sweetcorn, canned, drained (Maíz dulce Hacendado 3 × 70 g drained; USDA 169214) | 210 | 53 | 1½ small tins, drained |
 | Cumin (seeds or ground) | 2 | 0.5 |  |
 | Salt | 1 | 0.3 |  |
 
@@ -81,7 +81,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 - Cut the chicken breast (520 g) into strips about 1 cm thick.
 - Peel and chop 2 garlic cloves (6 g).
-- Drain and rinse the kidney beans (1 jar, 400 g). Drain the 3 small tins of sweetcorn (210 g).
+- Drain and rinse the kidney beans (1 jar, 400 g). Drain 1½ small tins of sweetcorn (210 g: 1½ of the 3 tins in the pack; put the last half tin in a closed box in the fridge for a salad).
 - Shred the lettuce (120 g).
 
 **Steps**

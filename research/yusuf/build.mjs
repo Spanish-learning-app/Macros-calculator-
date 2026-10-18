@@ -166,7 +166,7 @@ function checkMethod(s) {
   m.steps.forEach((st, i) => {
     if (!st || typeof st.text !== 'string' || !st.text.trim()) bad(`step ${i + 1} has no text`);
     for (const k of Object.keys(st)) if (!SHEET_STEP_KEYS.includes(k)) bad(`step ${i + 1} has an unknown key "${k}"`);
-    for (const k of ['wait', 'during', 'ahead', 'check', 'pack']) if (st[k] !== undefined && st[k] !== true) bad(`step ${i + 1}: ${k} must be true when present`);
+    for (const k of ['wait', 'during', 'ahead', 'later', 'check', 'pack']) if (st[k] !== undefined && st[k] !== true) bad(`step ${i + 1}: ${k} must be true when present`);
     if (st.heat !== undefined && !HEATS.includes(st.heat)) bad(`step ${i + 1} has an unknown heat "${st.heat}" (allowed: ${HEATS.join(', ')})`);
     if (st.minutes !== undefined && !(typeof st.minutes === 'number' && st.minutes > 0)) bad(`step ${i + 1} minutes must be a number > 0`);
   });
@@ -275,9 +275,21 @@ function finishMethod(s, r) {
   countCheck(s, [...out.prep, ...out.steps.map((x) => x.text), ...out.equipment]);
   for (const st of out.steps) if (st.text.length > 400) throw new Error(`${s.id}: a ${st.text.length}-character step is more than one action: "${st.text.slice(0, 60)}"`);
   if (out.steps.length > 20) throw new Error(`${s.id}: ${out.steps.length} steps (the app contract allows 3–20)`);
-  // Time note: generated from the minutes, with the sheet's waitNote (a marinade, a soak) when there is one.
+  // Time note (R3-B, M-17): generated from the same minutes as totalMinutes, with the sheet's waitNote (a marinade, a
+  // soak) and laterNote (a part done for each box later in the week). A note may name waits, never its own total,
+  // and no wait it names may be longer than the total.
+  for (const [k, v] of [['waitNote', s.waitNote], ['laterNote', s.laterNote]]) {
+    if (v === undefined) continue;
+    if (/start to finish|in all|hands-on/i.test(v)) throw new Error(`${s.id}: ${k} must not state a total ("${v}")`);
+    for (const x of v.matchAll(/(\d+)(?:[–-](\d+))?\s*(h|hours?|min)\b/g)) {
+      const mins = Number(x[2] ?? x[1]) * (x[3].startsWith('h') ? 60 : 1);
+      if (k === 'waitNote' && mins > s.totalMinutes) throw new Error(`${s.id}: waitNote says ${x[0]} but the whole recipe is ${s.totalMinutes} min start to finish`);
+    }
+  }
+  if (s.aheadMinutes && !s.waitNote) throw new Error(`${s.id}: a step is ahead: say why in waitNote ("start the night before, …")`);
   const t = s.totalMinutes;
-  s.timeNote = s.totalMinutes - s.minutes >= 15 || s.aheadMinutes || s.waitNote ? `About ${durText(t)} start to finish (${s.minutes} min of it hands-on)${s.aheadMinutes ? `, plus ${durText(s.aheadMinutes)} started ahead` : ''}${s.waitNote ? `: ${s.waitNote}` : ''}.` : undefined;
+  const laterText = s.laterTotal ? ` Later, ${s.laterNote}: ${s.laterHands} min hands-on${s.laterTotal - s.laterHands >= 5 ? `, about ${durText(s.laterTotal)} with the waiting` : ''}.` : '';
+  s.timeNote = t - s.minutes >= 15 || s.aheadMinutes || s.waitNote || s.laterTotal ? `About ${durText(t)} start to finish (${s.minutes} min of it hands-on)${s.waitNote ? `: ${s.waitNote}` : ''}.${laterText}` : undefined;
   // lightCooking: what heat a no-cook prep still uses, from its own "No cooking: …" first step.
   if (s.effort !== 'cook') {
     const heated = m.steps.filter((st) => st.heat && st.heat !== 'none');
@@ -511,7 +523,7 @@ const DB = {
   'rice-brown': { foodId: 'intl-rice-brown-dry' },
   couscous: { foodId: 'med-couscous-dry' },
   bulgur: { foodId: 'med-bulgur-dry' },
-  atta: { foodId: 'intl-atta-wholemeal' },
+  atta: { foodId: 'intl-atta-wholemeal', name: 'Atta (chakki atta, wholemeal chapati flour)' },
   'pasta-wholewheat': { foodId: 'intl-pasta-wholewheat-dry' },
   pita: { foodId: 'med-pita-bread' },
   breadcrumbs: { foodId: 'es-pan-rallado' },
@@ -527,6 +539,8 @@ const DB = {
   spinach: { foodId: 'intl-spinach-raw' },
   chia: { foodId: 'intl-chia-seeds' },
   egg: { foodId: 'intl-egg-raw' },
+  // R3-B (item 5): the methods boil raw eggs, so the shopping line is the box of raw eggs, merged with any other eggs.
+  'egg-boiled': { foodId: 'intl-egg-raw' },
   oats: { foodId: 'intl-oats-dry' },
   walnuts: { foodId: 'intl-walnuts' },
   banana: { foodId: 'intl-banana' },
@@ -579,7 +593,9 @@ const FORM = {
   'coriander-seed': (note) => (WHOLE.test(note) && !/ground/i.test(note) ? { name: 'Coriander seeds, whole (sabut dhania)' } : { name: 'Ground coriander (dhania powder)' }),
 };
 NAME.paprika = 'Sweet paprika (pimentón dulce)';
-WHERE.atta = 'Pakistani grocery: chakki atta (wholemeal chapati flour); Mercadona harina integral de trigo also works';
+// Atta is bought at the Pakistani grocery (the method's tip says so): one shop line with the other desi items, and a
+// shopping name that says what to ask for (Nasreen Review 3 must-fix 5). The Mercadona alternative is in the tip.
+WHERE.atta = WHERE_DESI;
 const MISSING = new Map(); // ingId → { label, recipes: Set }
 function libraryRecipe(s, r) {
   const items = new Map();
@@ -1311,7 +1327,7 @@ for (const s of sheets) {
   checkMethod(s);
   // R3-B honest minutes: hands-on and start to finish, generated from the method (the typed figure is only logged).
   const t = minutesOf(s);
-  Object.assign(s, { minutesTyped: s.minutes, minutes: t.hands, totalMinutes: t.total, aheadMinutes: t.ahead });
+  Object.assign(s, { minutesTyped: s.minutes, minutes: t.hands, totalMinutes: t.total, aheadMinutes: t.ahead, laterHands: t.laterHands, laterTotal: t.laterTotal });
 }
 const rows = sheets.map((s) => ({ s, r: compute(s) }));
 const FOOD_INDEX = new Map(FOODS.map((f) => [f.id, f]));

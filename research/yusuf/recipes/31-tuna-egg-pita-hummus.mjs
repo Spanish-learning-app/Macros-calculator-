@@ -5,6 +5,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 12,
+  prepWait: 15, // the eggs boil 10 min and cool 5 (R3-B: start to finish includes them)
+  waitNote: 'if you have no boiled eggs, they boil 10 min and cool 5 first',
   cuisine: 'mediterranean',
   shortName: 'Tuna egg pita pockets',
   id: 'med-tuna-egg-pita-hummus-box',
@@ -54,7 +56,7 @@ export default {
     equipment: ['Pot for 2 eggs (if you have none boiled)', 'Can opener and sieve', 'Bowl', 'Chopping board and knife', '2 lunch boxes and 2 small lidded pots (about 75 ml)'],
     prep: [
       'Dice the red pepper (100 g) and cucumber (100 g) into 1 cm pieces. Chop the red onion (20 g) small. Shred the lettuce (60 g).',
-      'If you have no boiled eggs from Sunday: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.',
+      'If you have no eggs boiled in the last 3 days: boil 2 eggs 10 minutes, cool 5 minutes in cold water and peel them.',
     ],
     steps: [
       { text: 'No cooking: only the eggs are boiled (if you have none boiled in the last 3 days). Open and drain 4 cans of tuna (240 g) and put the tuna in the bowl.', heat: 'none' },

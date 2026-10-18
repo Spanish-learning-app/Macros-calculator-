@@ -10,7 +10,7 @@ Record `es-tostada-tomate-atun-aguacate-portion` in `app/data/foods-mealprep.js`
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Tuna (tuna, water, salt), roll of flour, water, yeast and salt, egg, avocado and tomato. **Confidence:** B.
 
-**Meal:** breakfast prep, logged as "1 portion". **Effort:** no-cook assembly (`effort: 'assemble'`), 13 min hands-on (the bread is toasted and the eggs are boiled) for the batch of 2.
+**Meal:** breakfast prep, logged as "1 portion". **Effort:** no-cook assembly (`effort: 'assemble'`), 13 min hands-on, about 30 min start to finish (the bread is toasted and the eggs are boiled) for the batch of 2. About 30 min start to finish (13 min of it hands-on): if you have no boiled eggs, they boil 10 min and cool 5 first; the tomato is grated the night before.
 
 ## One portion at a glance
 
@@ -150,7 +150,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Aguacate, flesh: 100 g | [Aguacate](https://tienda.mercadona.es/product/3830/) | 1 × 201 g edible | 1 pieces | 1.65 € |
 | Olive oil: 6 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Salt: 1 g | [Sal fina Hacendado](https://tienda.mercadona.es/product/19731/) | 1000 g | 1 × pack | 0.40 € |
-| Egg, hard-boiled: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 2 pieces | 3.05 € |
+| Egg, hard-boiled: 100 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 2 pieces | 3.05 € |
 | Pan de bocadillo Hacendado: 130 g | [3 Bocadillos](https://tienda.mercadona.es/product/9664/) | 3 × 130 g edible | 1 pieces | 1.04 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)

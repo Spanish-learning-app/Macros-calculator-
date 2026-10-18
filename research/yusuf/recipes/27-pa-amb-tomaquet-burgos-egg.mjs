@@ -6,6 +6,8 @@ export default {
   boxes: 3,
   effort: 'assemble',
   minutes: 12,
+  prepWait: 15, // the eggs boil 10 min and cool 5 (R3-B: start to finish includes them)
+  waitNote: 'the eggs boil 10 min and cool 5 first (up to 3 days ahead: they keep 3 days in their shells)',
   cuisine: 'spanish',
   shortName: 'Pa amb tomàquet, eggs',
   id: 'es-pa-amb-tomaquet-burgos-ous-portion',
@@ -16,7 +18,7 @@ export default {
     ca: 'Pa amb tomàquet amb formatge de Burgos, ous durs i una taronja',
   },
   aliases: ['pa amb tomaquet', 'pan con tomate', 'pan tumaca', 'pan con tomate y huevo', 'pa amb tomaquet i ou', 'esmorzar catala', 'tostada con tomate y queso fresco', 'queso de burgos'],
-  pitch: 'The Barcelona breakfast: toasted barra rubbed with tomato and olive oil, with fresh cheese, two eggs boiled on Sunday and an orange.',
+  pitch: 'The Barcelona breakfast: toasted barra rubbed with tomato and olive oil, with fresh cheese, two boiled eggs and an orange.',
   eat: 'either',
   tags: ['catalan', 'spanish', 'meal-prep', 'contains-egg', 'vegetarian'],
   references: [
@@ -27,7 +29,7 @@ export default {
   components: [
     {
       id: 'eggs', label: 'Hard-boiled eggs (2 per portion)', storage: 'egg-dish', yield: 'none', eat: 'cold',
-      lines: [['egg-boiled', 300, '6 large eggs boiled 10 min on Sunday, kept in their shells']],
+      lines: [['egg-boiled', 300, '6 large eggs boiled 10 min up to 3 days ahead, kept in their shells']],
     },
     {
       id: 'cheese', label: 'Queso de Burgos 0% (1 tub)', storage: 'proposed:sealed-pack', yield: 'none', eat: 'cold',
@@ -49,9 +51,9 @@ export default {
   ],
   method: {
     equipment: ['Pot for 6 eggs', 'Toaster, grill or dry frying pan', 'Box grater and a small bowl', 'Bread knife'],
-    prep: ['Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
+    prep: ['Up to 3 days before the first breakfast: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).'],
     steps: [
-      { text: 'No cooking: only the bread is toasted and the eggs are boiled (on Sunday, 10 minutes). In the morning cut 80 g of barra (a third of a barra) and split it lengthways.', heat: 'none' },
+      { text: 'No cooking: only the bread is toasted and the eggs are boiled. In the morning cut 80 g of barra (a third of a barra) and split it lengthways.', heat: 'none' },
       { text: 'Toast it in the toaster or a dry pan until golden and crisp at the edges, about 2–3 minutes.', heat: 'medium', minutes: 3, check: true },
       { text: 'Cut a ripe tomato (60 g, ½ medium) in half and grate the cut side into the bowl; throw away the skin. Or rub the cut tomato straight onto the toast.', heat: 'none' },
       { text: 'Spread the tomato on the toast. Add a pinch of salt and 1 tsp olive oil (5 g).', heat: 'none' },

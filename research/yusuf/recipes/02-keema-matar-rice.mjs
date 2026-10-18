@@ -57,7 +57,7 @@ export default {
   method: {
     equipment: ['Wide deep frying pan or karahi (28 cm) with a lid', 'Wooden spoon', 'Medium pot (2 l) with a tight lid', 'Sieve', 'Grater', '2 trays or wide dishes for cooling', '4 lunch boxes'],
     prep: [
-      'Peel {{n:onion}} and dice it small (5 mm).',
+      'Peel and dice {{n:onion}} small (5 mm).',
       'Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.',
       'Chop 2 medium tomatoes (250 g) small. Chop 2 green chillies (10 g).',
       'Whisk 1 tbsp yogurt (15 g) smooth in a cup. Chop a handful of fresh coriander leaves (15 g).',

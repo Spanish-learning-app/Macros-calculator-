@@ -10,7 +10,7 @@ Record `es-pa-amb-tomaquet-burgos-ous-portion` in `app/data/foods-mealprep.js` �
 
 **Eat:** hot or cold. **Halal:** halal: Bakery bread of flour, water, salt and yeast; Burgos with microbial rennet (label 2026-10-14); eggs, tomato, olive oil and fruit. Mercadona's own barras list E-472e of unstated origin: buy at a forn or check. **Confidence:** B.
 
-**Meal:** breakfast prep, logged as "1 portion". **Effort:** no-cook assembly (`effort: 'assemble'`), 10 min hands-on (the bread is toasted and the eggs are boiled) for the batch of 3.
+**Meal:** breakfast prep, logged as "1 portion". **Effort:** no-cook assembly (`effort: 'assemble'`), 10 min hands-on, about 25 min start to finish (the bread is toasted and the eggs are boiled) for the batch of 3. About 25 min start to finish (10 min of it hands-on): the eggs boil 10 min and cool 5 first (up to 3 days ahead: they keep 3 days in their shells).
 
 ## One portion at a glance
 
@@ -34,7 +34,7 @@ The assembly below starts from these and adjusts to the breakfast targets (see "
 
 | Ingredient | Raw g (3 portions) | Per portion | Notes |
 |---|---|---|---|
-| Egg, hard-boiled (1 large egg = 50 g edible) | 300 | 100 | 6 large eggs boiled 10 min on Sunday, kept in their shells |
+| Egg, hard-boiled (1 large egg = 50 g edible) | 300 | 100 | 6 large eggs boiled 10 min up to 3 days ahead, kept in their shells |
 
 ### Queso de Burgos 0% (1 tub)
 
@@ -70,11 +70,11 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Before you start**
 
-- Sunday: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).
+- Up to 3 days before the first breakfast: put 6 eggs in the pot, cover with cold water, bring to the boil and cook 10 minutes at a gentle bubble. Cool them 5 minutes in cold water and keep them in their shells in the fridge (3 days).
 
 **Steps**
 
-1. No cooking: only the bread is toasted and the eggs are boiled (on Sunday, 10 minutes). In the morning cut 80 g of barra (a third of a barra) and split it lengthways. *(no heat)*
+1. No cooking: only the bread is toasted and the eggs are boiled. In the morning cut 80 g of barra (a third of a barra) and split it lengthways. *(no heat)*
 2. Toast it in the toaster or a dry pan until golden and crisp at the edges, about 2–3 minutes. *(medium heat · 3 min)*
 3. Cut a ripe tomato (60 g, ½ medium) in half and grate the cut side into the bowl; throw away the skin. Or rub the cut tomato straight onto the toast. *(no heat)*
 4. Spread the tomato on the toast. Add a pinch of salt and 1 tsp olive oil (5 g). *(no heat)*
@@ -161,7 +161,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 | You need | Product | Pack | Buy | Pack price |
 |---|---|---|---|---|
-| Egg, hard-boiled: 300 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 6 pieces | 3.05 € |
+| Egg, hard-boiled: 300 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 6 pieces | 3.05 € |
 | Queso fresco de Burgos desnatado 0% Hacendado: 188 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g (4 tubs) | 1 × pack | 1.15 € |
 | Tomato, raw: 180 g | [Tomates](https://tienda.mercadona.es/product/69971/) | 2000 g | 1 × pack | 4.20 € |
 | Olive oil: 15 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |

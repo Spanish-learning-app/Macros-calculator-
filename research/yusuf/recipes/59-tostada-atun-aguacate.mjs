@@ -6,6 +6,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 8,
+  prepWait: 15, // the eggs boil 10 min and cool 5 (R3-B: start to finish includes them)
+  waitNote: 'if you have no boiled eggs, they boil 10 min and cool 5 first; the tomato is grated the night before',
   cuisine: 'spanish',
   shortName: 'Tuna avocado tostada',
   id: 'es-tostada-tomate-atun-aguacate-portion',

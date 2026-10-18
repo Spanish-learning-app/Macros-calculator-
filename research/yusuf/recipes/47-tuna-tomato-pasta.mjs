@@ -47,7 +47,7 @@ export default {
   method: {
     equipment: ['Wide deep frying pan or casserole (28 cm)', 'Wooden spoon', 'Large pot for 3 l of water and a colander', 'Can opener and sieve', 'Oven tray for cooling', '4 lunch boxes'],
     prep: [
-      'Peel {{n:onion}} and chop it small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.',
+      'Peel and chop {{n:onion}} small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.',
       'Open and drain 6 cans of tuna in the sieve (360 g drained).',
       'Slice the pitted green olives (60 g) into rings.',
       'Open {{n:tomato-crushed}} of crushed tomato.',

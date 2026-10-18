@@ -77,7 +77,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Before you start**
 
-- Peel about 2 medium onions (200 g) and dice it small (5 mm).
+- Peel and dice about 2 medium onions (200 g) small (5 mm).
 - Peel 5 garlic cloves (15 g) and a 4 cm piece of ginger (15 g); grate both into a paste.
 - Chop 2 medium tomatoes (250 g) small. Chop 2 green chillies (10 g).
 - Whisk 1 tbsp yogurt (15 g) smooth in a cup. Chop a handful of fresh coriander leaves (15 g).

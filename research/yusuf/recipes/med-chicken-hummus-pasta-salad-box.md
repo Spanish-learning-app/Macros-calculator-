@@ -11,7 +11,7 @@ Record `med-chicken-hummus-pasta-salad-box` in `app/data/foods-mealprep.js` · l
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Chicken from a halal butcher; hummus label lists E270 "de origen vegetal" and no E471 (checked 2026-10-13). **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 20 min hands-on, about 30 min start to finish for the batch of 4. About 30 min start to finish (20 min of it hands-on), plus 1 min started ahead.
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 20 min hands-on, about 30 min start to finish for the batch of 4. About 30 min start to finish (20 min of it hands-on). Later, each morning (toss one box with its dressing), plus fresh vegetables and dressing on Tuesday night: 2 min hands-on.
 
 ## One box at a glance
 
@@ -93,7 +93,7 @@ This is the method the app shows under "How to make it" (generated from the same
 7. Make the dressing: whisk the hummus (160 g, ⅔ of the tub) with 2 tbsp lemon juice (30 g) and 3 tbsp water (40 g) until runny. *(no heat)*
 8. Tomorrow's box: toss a quarter of the pasta (about 175 g) with a quarter of the dressing, then fold in a quarter of the vegetables and a quarter of the chicken. *(no heat)*
 9. Put each other pasta portion with a quarter of the chicken in a freezer bag and freeze it. Keep the dressing and cut vegetables in closed boxes in the fridge. *(no heat)*
-10. Each evening move one bag to the fridge. In the morning toss it with dressing and vegetables (2 minutes). On Tuesday night cut fresh vegetables and whisk new dressing. *(no heat)*
+10. Each evening move one bag to the fridge. In the morning toss it with dressing and vegetables (2 minutes). On Tuesday night cut fresh vegetables and whisk new dressing. *(no heat · 2 min)*
 
 **Done when:** The chicken is white all through with clear juices (75 °C); the pasta is soft with a little bite.
 

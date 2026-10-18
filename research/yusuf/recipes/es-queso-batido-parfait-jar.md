@@ -10,7 +10,7 @@ Record `es-queso-batido-parfait-jar` in `app/data/foods-mealprep.js` · library 
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Dairy (no rennet, no gelatine: label read 2026-10-14), oats, seeds, nuts and fruit only. **Confidence:** B.
 
-**Meal:** breakfast prep, logged as "1 jar". **Effort:** no-cook assembly (`effort: 'assemble'`), 7 min hands-on, no cooking for the batch of 3.
+**Meal:** breakfast prep, logged as "1 jar". **Effort:** no-cook assembly (`effort: 'assemble'`), 6 min hands-on, about 4 h 5 min start to finish, no cooking for the batch of 3. About 4 h 5 min start to finish (6 min of it hands-on): make it the night before (the jars set at least 4 hours in the fridge).
 
 ## One jar at a glance
 
@@ -64,7 +64,7 @@ This is the method the app shows under "How to make it" (generated from the same
 1. No cooking. In each jar put 40 g oats (4 tbsp), 10 g chia seeds (1 tbsp) and 1 g cinnamon (a good pinch). *(no heat)*
 2. Spoon 220 g queso fresco batido into each jar (one 500 g tub fills 2 jars and a bit). *(no heat)*
 3. Stir well, scraping the bottom so no dry oats or chia are left. *(no heat)*
-4. Sprinkle 8 g chopped walnuts on top, close the lids and put the jars in the fridge for at least 4 hours. *(no heat)*
+4. Sprinkle 8 g chopped walnuts on top, close the lids and put the jars in the fridge for at least 4 hours. *(no heat · 240 min)*
 5. In the morning peel 1 kiwi (69 g), slice it on top and eat cold. *(no heat)*
 
 **Done when:** The oats are soft and the jar is thick and spoonable.

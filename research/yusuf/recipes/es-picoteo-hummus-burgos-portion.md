@@ -10,7 +10,7 @@ Record `es-picoteo-hummus-burgos-portion` in `app/data/foods-mealprep.js` · lib
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Hummus (additives de origen vegetal), Burgos with microbial rennet, eggs, vegetables and picos without lard. **Confidence:** B.
 
-**Meal:** dinner prep, logged as "1 portion". **Effort:** no-cook assembly (`effort: 'assemble'`), 7 min hands-on (the eggs are boiled) for the batch of 2.
+**Meal:** dinner prep, logged as "1 portion". **Effort:** no-cook assembly (`effort: 'assemble'`), 7 min hands-on, about 20 min start to finish (the eggs are boiled) for the batch of 2. About 20 min start to finish (7 min of it hands-on): the eggs boil 10 min and cool 5 first (up to 3 days ahead).
 
 ## One portion at a glance
 
@@ -43,7 +43,7 @@ The assembly below starts from these and adjusts to the dinner targets (see "Cha
 
 | Ingredient | Raw g (2 portions) | Per portion | Notes |
 |---|---|---|---|
-| Egg, hard-boiled (1 large egg = 50 g edible) | 200 | 100 | 4 eggs from the Sunday batch |
+| Egg, hard-boiled (1 large egg = 50 g edible) | 200 | 100 | 4 eggs, boiled 10 min up to 3 days ahead |
 
 ### Queso de Burgos 0% (2 tubs)
 
@@ -65,7 +65,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Equipment**
 
-- Pot for the Sunday eggs
+- Pot for the eggs
 - Chopping board and knife
 - 2 boxes and 2 small lidded pots (about 100 ml)
 - A plate to serve
@@ -156,7 +156,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Red bell pepper, raw: 140 g | [Pimiento rojo](https://tienda.mercadona.es/product/69310/) | 220 g | 1 × pack | 0.64 € |
 | Cucumber, with peel, raw: 160 g | [Pepino](https://tienda.mercadona.es/product/69584/) | 210 g | 1 × pack | 0.36 € |
 | Cherry tomatoes, raw: 120 g | [Tomates cherry](https://tienda.mercadona.es/product/69990/) | 500 g tray (Tomates cherry) | 1 × pack | 2.20 € |
-| Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 pieces | 3.05 € |
+| Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 4 pieces | 3.05 € |
 | Queso fresco de Burgos desnatado 0% Hacendado: 250 g | [Queso fresco Burgos desnatado 0% MG Hacendado](https://tienda.mercadona.es/product/52409/) | 250 g (4 tubs) | 1 × pack | 1.15 € |
 | Olive oil: 6 g | [Aceite de oliva 0,4º Hacendado](https://tienda.mercadona.es/product/4240/) | 1 l | 1 × pack | 3.70 € |
 | Oregano, dried: 1 g | [Orégano Hacendado](https://tienda.mercadona.es/product/5598/) | 25 g | 1 × pack | 1.00 € |
@@ -195,4 +195,4 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 
 ## Assumptions and confidence
 
-Confidence **B**: No cooking (eggs from the Sunday batch). Dated labels (hummus, Burgos, picos) and USDA SR Legacy values (egg, vegetables). Weights are as bought (drained for jars and cans, edible part for fruit); all oil is eaten. Values from Lab records are the records the app shows for those foods.
+Confidence **B**: No cooking (the eggs are boiled up to 3 days ahead). Dated labels (hummus, Burgos, picos) and USDA SR Legacy values (egg, vegetables). Weights are as bought (drained for jars and cans, edible part for fruit); all oil is eaten. Values from Lab records are the records the app shows for those foods.

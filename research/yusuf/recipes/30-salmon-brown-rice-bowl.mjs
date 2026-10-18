@@ -5,6 +5,8 @@ export default {
   boxes: 2,
   effort: 'assemble',
   minutes: 12,
+  prepWait: 15, // the eggs boil 10 min and cool 5 (R3-B: start to finish includes them)
+  waitNote: 'if you have no boiled eggs, they boil 10 min and cool 5 first',
   cuisine: 'international',
   shortName: 'Salmon brown rice bowl',
   id: 'intl-salmon-brown-rice-bowl-box',
@@ -38,7 +40,7 @@ export default {
     },
     {
       id: 'egg', label: 'Hard-boiled eggs (2 per box)', storage: 'egg-dish', yield: 'none', eat: 'cold',
-      lines: [['egg-boiled', 200, '4 eggs, boiled 10 min (or from the Sunday batch)']],
+      lines: [['egg-boiled', 200, '4 eggs, boiled 10 min (or boiled in the last 3 days)']],
     },
     {
       id: 'rice', label: 'Brown rice microwave cup (sealed)', storage: 'proposed:sealed-pack', yield: 'none', eat: 'hot',
@@ -49,7 +51,7 @@ export default {
     equipment: ['Pot for 4 eggs (if you have none boiled)', 'Grater', 'Bowl and fork', 'Can opener', '2 lunch boxes'],
     prep: [
       'Dice the cucumber (160 g) into 1 cm cubes. Peel and grate {{n:carrot}}. Chop the red onion (20 g) small and the coriander (6 g).',
-      'If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.',
+      'If you have no eggs boiled in the last 3 days: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.',
     ],
     steps: [
       { text: 'No cooking: only the eggs are boiled (skip it if you have eggs boiled in the last 3 days) and the rice cup is warmed at lunch. Open the 3 cans of salmon (240 g), drain them and flake the fish into the bowl with the fork.', heat: 'none' },

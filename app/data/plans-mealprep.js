@@ -13,12 +13,12 @@ export const PLANS = [
   {
     id: 'low-cook-week',
     name: 'Low-cook week',
-    pitch: 'One Sunday cook (72 min hands-on), short jobs on weekday evenings and ready food for the merienda: a different lunch most days, desi at dinner.',
+    pitch: 'One Sunday cook (71 min hands-on), short jobs on weekday evenings and ready food for the merienda: a different lunch most days, desi at dinner.',
     priceDate: '2026-10-15',
     shop: 'Mercadona Barcelona + halal butcher (Carne Halal Online)',
     tillEur: 75.64,
     eatenEur: 43.97,
-    sundayMinutes: 72,
+    sundayMinutes: 71,
     weekdayMinutes: 55,
     batches: [
       {

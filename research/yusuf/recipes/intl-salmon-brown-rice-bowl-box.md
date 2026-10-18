@@ -10,7 +10,7 @@ Record `intl-salmon-brown-rice-bowl-box` in `app/data/foods-mealprep.js` · libr
 
 **Eat:** hot or cold. **Halal:** halal: Fish, egg, rice and vegetables only; no soy sauce or mirin. **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** no-cook assembly (`effort: 'assemble'`), 8 min hands-on, about 9 min start to finish (the eggs are boiled and the rice cup is warmed at lunch) for the batch of 2.
+**Meal:** lunch prep, logged as "1 box". **Effort:** no-cook assembly (`effort: 'assemble'`), 8 min hands-on, about 25 min start to finish (the eggs are boiled and the rice cup is warmed at lunch) for the batch of 2. About 25 min start to finish (8 min of it hands-on): if you have no boiled eggs, they boil 10 min and cool 5 first.
 
 ## One box at a glance
 
@@ -46,7 +46,7 @@ The assembly below starts from these and adjusts to the lunch targets (see "Chan
 
 | Ingredient | Raw g (2 boxes) | Per box | Notes |
 |---|---|---|---|
-| Egg, hard-boiled (1 large egg = 50 g edible) | 200 | 100 | 4 eggs, boiled 10 min (or from the Sunday batch) |
+| Egg, hard-boiled (1 large egg = 50 g edible) | 200 | 100 | 4 eggs, boiled 10 min (or boiled in the last 3 days) |
 
 ### Brown rice microwave cup (sealed)
 
@@ -69,7 +69,7 @@ This is the method the app shows under "How to make it" (generated from the same
 **Before you start**
 
 - Dice the cucumber (160 g) into 1 cm cubes. Peel and grate 2 medium carrots (120 g). Chop the red onion (20 g) small and the coriander (6 g).
-- If you have no boiled eggs from Sunday: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.
+- If you have no eggs boiled in the last 3 days: boil 4 eggs 10 minutes, cool 5 minutes in cold water and peel them.
 
 **Steps**
 
@@ -153,7 +153,7 @@ Assemble with cold ingredients straight from the fridge and put the boxes back i
 | Lemon juice: 30 g | [Limón exprimido Hacendado](https://tienda.mercadona.es/product/4903/) | 0.28 l | 1 × pack | 1.40 € |
 | Fresh coriander: 6 g | [Cilantro](https://tienda.mercadona.es/product/69690/) | 20 g | 1 × pack | 1.25 € |
 | Black pepper: 1 g | [Pimienta negra molida Hacendado](https://tienda.mercadona.es/product/34171/) | 70 g | 1 × pack | 1.30 € |
-| Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 × 50 g edible | 4 pieces | 3.05 € |
+| Egg, hard-boiled: 200 g | [Huevos grandes L](https://tienda.mercadona.es/product/31504/) | 12 eggs | 4 pieces | 3.05 € |
 | Arroz cocido integral Sabroz: 250 g | [Arroz cocido integral Sabroz](https://tienda.mercadona.es/product/22281/) | 2 × 125 g cups | 1 × pack | 1.05 € |
 
 **Label checks** (what to read on the pack; what we found on 2026-10-13)

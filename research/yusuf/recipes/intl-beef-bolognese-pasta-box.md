@@ -11,7 +11,7 @@ Record `intl-beef-bolognese-pasta-box` in `app/data/foods-mealprep.js` · librar
 
 **Eat:** hot (microwave). **Halal:** halal: Beef mince from a halal butcher; no wine, no stock cubes. **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 25 min hands-on, about 1 h 30 min start to finish for the batch of 4. About 1 h 30 min start to finish (25 min of it hands-on), plus 40 min started ahead: the sauce simmers 30–40 min, hands off, then cools 30 min; the penne is boiled the night before each lunch (10 min).
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 25 min hands-on, about 1 h 30 min start to finish for the batch of 4. About 1 h 30 min start to finish (25 min of it hands-on): the sauce simmers 30–40 min, hands off, then cools 30 min. Later, the night before each lunch (boil the penne and mix it with a portion): 10 min hands-on, about 40 min with the waiting.
 
 ## One box at a glance
 
@@ -68,7 +68,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Before you start**
 
-- Peel about 1½ medium onions (150 g) and chop it small (5 mm).
+- Peel and chop about 1½ medium onions (150 g) small (5 mm).
 - Peel and grate 2 medium carrots (120 g) on the big holes of the grater.
 - Wipe the mushrooms (200 g) and chop them into 1 cm pieces.
 - Peel 3 garlic cloves (9 g) and chop them finely.

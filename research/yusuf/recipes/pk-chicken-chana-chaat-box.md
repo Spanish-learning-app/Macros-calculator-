@@ -12,7 +12,7 @@ Record `pk-chicken-chana-chaat-box` in `app/data/foods-mealprep.js` · library p
 
 **Eat:** cold (no microwave needed). **Halal:** halal: Chicken from a halal butcher; chickpea jar and yogurt labels checked 2026-10-13. **Confidence:** B.
 
-**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 35 min hands-on, about 1 h start to finish for the batch of 4. About 1 h start to finish (35 min of it hands-on), plus 10 min started ahead.
+**Meal:** lunch prep, logged as "1 box". **Effort:** batch-cooked (`effort: 'cook'`), 35 min hands-on, about 1 h start to finish for the batch of 4. About 1 h start to finish (35 min of it hands-on). Later, on Tuesday night (the second half of the chaat and 2 yogurt pots): 10 min hands-on.
 
 ## One box at a glance
 

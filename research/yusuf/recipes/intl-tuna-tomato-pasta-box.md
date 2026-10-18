@@ -66,7 +66,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Before you start**
 
-- Peel about 1½ medium onions (150 g) and chop it small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.
+- Peel and chop about 1½ medium onions (150 g) small (5 mm). Peel 3 garlic cloves (9 g) and chop them finely.
 - Open and drain 6 cans of tuna in the sieve (360 g drained).
 - Slice the pitted green olives (60 g) into rings.
 - Open 1 jar (800 g) of crushed tomato.
