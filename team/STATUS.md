@@ -5,7 +5,7 @@ every event (an agent starts or finishes, a Boss message, a meeting, a report, a
 the team and any new Claude Code session can see what was done, what is next and how to pick up.
 Mistakes and the rules they taught us are in `team/MISTAKES.md`.
 
-_Last updated: 2026-10-18 16:32 UTC by Omar._
+_Last updated: 2026-10-18 16:49 UTC by Omar._
 
 ## Links
 
@@ -34,7 +34,7 @@ _Last updated: 2026-10-18 16:32 UTC by Omar._
 ## Working now (resumed Sun 18 Oct 18:32 Madrid, after the Boss's hold)
 
 - **Lena:** finishing fix wave R3-A. Mariam's 6 and Nasreen's items are done in code; now Bilal's items, the goal-choice edits, and a re-verify.
-- **Yusuf:** finishing fix wave R3-B: storage truth, "Done when" order, roti timing, total minutes, shopping names, plan-card honesty, evening jobs.
+- Done: **Yusuf R3-B** (data): plan box split by rule, honest total minutes (incl. marinade and later parts), shopping names, plan cards ("eaten this week" Mon–Fri only), evening jobs. Low-cook Friday is now a fresh chana masala, so the till rises from 75.64 € to 82.35 €.
 - **Next:**
   - Kenji re-tests the testers' steps as e2e.
   - Mariam re-checks her six must-fix items.

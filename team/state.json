@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Review 3",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-18T16:32:28Z",
+  "updatedAt": "2026-10-18T16:49:55Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -71,8 +71,8 @@
     },
     "yusuf": {
       "location": "office",
-      "status": "working",
-      "task": "Finish Review 3 fixes (data)"
+      "status": "idle",
+      "task": "Done: Review 3 data fixes"
     },
     "mariam": {
       "location": "office",
@@ -85,11 +85,6 @@
       "member": "lena",
       "task": "Fix wave R3-A (stopped mid-run by limit): Mariam must-fix 1-6, Nasreen app items, Bilal small items, Ayesha goal-choice edits. Check journal + git diff first.",
       "output": "app/** (not data), tests/unit/dev/**"
-    },
-    {
-      "member": "yusuf",
-      "task": "Fix wave R3-B (stopped mid-run at sheets 01/02): storage truth, Done-when order, roti timing, totalMinutes, shopping names, evening jobs, plan-card honesty, timeNote. Check journal first.",
-      "output": "research/yusuf/**, app/data/*mealprep.js"
     }
   ],
   "checkIn": {
