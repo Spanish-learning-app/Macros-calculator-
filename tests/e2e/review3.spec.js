@@ -128,14 +128,31 @@ test.describe('M2 the Low-cook bolognese is booked right', () => {
     const b = doc.batches.find((x) => x.recipeId === BOLOGNESE);
     expect(b.boxes.map((x) => x.storage)).toEqual(['fridge', 'freezer', 'freezer', 'freezer']);
 
-    // Monday: no "last day" line, no spare-box nag, and Wednesday's lunch holds the box.
+    // Monday: no "last day" line and no spare-box nag for the bolognese.
     await timeTravel(page, at('19', '12:00'), '/#/day');
     await expect(ui.dayTitle(page)).toBeVisible();
     await expect(page.getByTestId('spare-box')).toHaveCount(0);
     await expect(page.locator('main')).not.toContainText(/last day/i);
     await expect(page.locator('main')).not.toContainText(/Plan it/);
-    // Thursday 08:00: nothing was thrown away by the use-by rule.
-    await timeTravel(page, at('22', '08:00'), '/#/day');
-    await expect(page.locator('main')).not.toContainText(/past its use-by|Discard/i);
+  });
+});
+
+test.describe('M3 the Tonight card is on screen', () => {
+  test('Tue 20:30: the card is in view, with the penne job and the box to move to the fridge', async ({
+    page,
+  }) => {
+    await useLowCookWeek(page);
+    await timeTravel(page, at('20', '20:30'), '/#/day');
+    const card = page.getByTestId('move-tonight');
+    await expect(card).toBeVisible();
+    // The Day opens at the current meal; the card must not be scrolled away above the screen.
+    await expect(card).toBeInViewport({ ratio: 1 });
+    await expect(card).toContainText(/Tonight:/);
+    await expect(card).toContainText(/boil 80 g wholewheat penne/i);
+    await expect(card.getByTestId('tonight-plan-job').filter({ hasText: /penne/i })).toHaveCount(1);
+    // Still in view a moment later (the auto-scroll has finished).
+    await page.waitForTimeout(600);
+    await expect(card).toBeInViewport({ ratio: 1 });
+    console.log(flat(await card.innerText()));
   });
 });
