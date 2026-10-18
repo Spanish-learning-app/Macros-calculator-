@@ -4,7 +4,7 @@
   "phase": "Sprint 3 · Review 3",
   "sprint": 3,
   "sprintGoal": "Make it a daily habit: protein nudges, Ramadan mode, weight trend, kam-tel, polish and a final audit.",
-  "updatedAt": "2026-10-18T16:49:55Z",
+  "updatedAt": "2026-10-18T16:59:40Z",
   "dashboard": {
     "url": "https://claude.ai/artifact/PMwzk6CNUn4p8BX6d1Smaq"
   },
@@ -26,8 +26,8 @@
     },
     "lena": {
       "location": "office",
-      "status": "working",
-      "task": "Finish Review 3 fixes (app)"
+      "status": "idle",
+      "task": "Done: Review 3 app fixes"
     },
     "ayesha": {
       "location": "office",
@@ -51,8 +51,8 @@
     },
     "kenji": {
       "location": "office",
-      "status": "idle",
-      "task": "Done: all green (735 unit, 524 e2e)"
+      "status": "working",
+      "task": "E2E for the Review 3 fixes"
     },
     "zainab": {
       "location": "office",
@@ -76,15 +76,25 @@
     },
     "mariam": {
       "location": "office",
-      "status": "idle",
-      "task": "Review 3 done: 8.5/10"
+      "status": "working",
+      "task": "Re-check of her must-fix items"
     }
   },
   "inFlight": [
     {
-      "member": "lena",
-      "task": "Fix wave R3-A (stopped mid-run by limit): Mariam must-fix 1-6, Nasreen app items, Bilal small items, Ayesha goal-choice edits. Check journal + git diff first.",
-      "output": "app/** (not data), tests/unit/dev/**"
+      "member": "kenji",
+      "task": "Update 4 e2e, goal-choice tests, new review3.spec.js regression tests, full check + e2e",
+      "output": "tests/**"
+    },
+    {
+      "member": "lab (alias)",
+      "task": "Remove bare biscuit aliases from 3 pk brand biscuits, rebuild",
+      "output": "research/{zainab,javier}/**, foods-pk-*.js"
+    },
+    {
+      "member": "mariam",
+      "task": "Re-check must-fix 1-6 on snapshot 784f649",
+      "output": "team/feedback/mariam-review3.md"
     }
   ],
   "checkIn": {

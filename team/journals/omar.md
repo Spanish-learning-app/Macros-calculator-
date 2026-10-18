@@ -73,3 +73,4 @@
 - 2026-10-17T05:10:44Z: the Boss ordered a hold (weekly usage 89%) until the Sunday reset or their word. Check-in routine disabled; partial R3 work committed; no agents running.
 - 2026-10-18T16:32:28Z: the Boss said the limit is reset, so I resumed. Routine re-enabled; Lena and Yusuf restarted fresh to finish R3-A and R3-B.
 - 2026-10-18T16:49:55Z: Yusuf R3-B done (351/351, G19 0). Lena has his 3 follow-ups (2 dev-test lines, duplicate move job).
+- 2026-10-18T16:59:40Z: Lena R3-A done. Kenji, the Lab alias fix and Mariam's re-check started, all on Sonnet (model policy).
