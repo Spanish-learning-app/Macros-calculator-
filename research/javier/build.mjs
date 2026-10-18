@@ -922,7 +922,7 @@ const pk = [
   },
   {
     id: 'pk-sooper-biscuit', name: 'Sooper biscuit (Peek Freans)', nameUr: 'سوپر بسکٹ', nameRoman: 'sooper',
-    aliases: ['sooper', 'super biscuit', 'sooper biscuit', 'peek freans sooper', 'biscuit', 'biscuits', 'egg and butter biscuit'],
+    aliases: ['sooper', 'super biscuit', 'sooper biscuit', 'peek freans sooper', 'egg and butter biscuit'],
     group: 'biscuit-bakery', state: 'as sold',
     per100g: pkLabel({ kcal: 529, protein: 5.5, carbs: 66, fat: 27, fiber: 1.3, sugars: 22.5, satFat: 12.9, sodium: 429 }),
     servings: [sv('biscuit', '1 biscuit', 8.4, true, '1 بسکٹ'), sv('pack', '1 pack (11 biscuits)', 92)],
@@ -931,7 +931,7 @@ const pk = [
   },
   {
     id: 'pk-gluco-biscuit', name: 'Gluco biscuit (Peek Freans)', nameUr: 'گلوکو بسکٹ', nameRoman: 'gluco',
-    aliases: ['gluco', 'glucose biscuit', 'gluco biscuit', 'peek freans gluco', 'biscuit', 'biscuits'],
+    aliases: ['gluco', 'glucose biscuit', 'gluco biscuit', 'peek freans gluco'],
     group: 'biscuit-bakery', state: 'as sold',
     per100g: pkLabel({ kcal: 488, protein: 6.1, carbs: 71.8, fat: 19.6, fiber: 1.8, sugars: 22.1, satFat: 9.2, sodium: 160 }),
     servings: [sv('biscuit', '1 biscuit', 7.4, true, '1 بسکٹ')],
@@ -940,7 +940,7 @@ const pk = [
   },
   {
     id: 'pk-rio-biscuit', name: 'Rio biscuit (cream sandwich, Peek Freans)', nameUr: 'ریو بسکٹ', nameRoman: 'rio',
-    aliases: ['rio', 'rio biscuit', 'cream biscuit', 'sandwich biscuit', 'peek freans rio', 'biscuit', 'biscuits'],
+    aliases: ['rio', 'rio biscuit', 'cream biscuit', 'sandwich biscuit', 'peek freans rio'],
     group: 'biscuit-bakery', state: 'as sold',
     per100g: pkLabel({ kcal: 493, protein: 5.4, carbs: 72.5, fat: 20.1, fiber: 2.7, sugars: 32.8, satFat: 11.8, sodium: 362 }),
     servings: [sv('biscuit', '1 biscuit', 7, true, '1 بسکٹ')],
