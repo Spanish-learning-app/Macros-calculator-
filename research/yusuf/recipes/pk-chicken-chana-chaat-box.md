@@ -104,7 +104,7 @@ This is the method the app shows under "How to make it" (generated from the same
 6. Check: cut the biggest chicken piece. White all through, no pink. Pink? 2 more minutes in the pan. *(no heat)*
 7. Turn off the heat, squeeze 1 tbsp lemon juice (15 g) over the chicken and spread it on a plate to cool. *(no heat · 20 min)*
 8. Chaat (no cooking), half now for Monday and Tuesday: in the bowl gently mix half the chickpeas (220 g), half the potato cubes, half the onion, tomato, cucumber, chilli and coriander with 1 tbsp + 1 tsp lemon juice (20 g), 1½ tsp chaat masala (4 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g). *(no heat · 5 min)*
-9. Yogurt pots (no cooking), 2 now: mix 160 g yogurt with half the chopped mint (5 g) and a pinch of salt; split into 2 pots. *(no heat · 2 min)*
+9. Yogurt pots (no cooking), 2 now: mix 160 g yogurt (about ¾ cup) with half the chopped mint (5 g) and a pinch of salt; split into 2 pots. *(no heat · 2 min)*
 10. Boxes 1 and 2: half each of today's chaat, topped with ¼ of the chicken; a yogurt pot on the side. Put the rest of the chicken in 2 freezer bags (¼ each) in the freezer, and the other half of the potatoes and chopped vegetables in a closed box in the fridge. *(no heat)*
 11. Tuesday night: mix the second half of the chaat and 2 more yogurt pots the same way (10 minutes), and move one chicken bag to the fridge for box 3. Wednesday night: move the last bag down for box 4. *(no heat · 10 min)*
 

@@ -114,7 +114,7 @@ This is the method the app shows under "How to make it" (generated from the same
 17. Roll and cook the other 7 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 18 minutes. *(medium-high heat · 18 min)*
 18. Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy. *(no heat · 10 min)*
 19. Pack 4 portions: ¼ of the cold daal in a box, 2 cooled roti in a small bag. *(no heat)*
-20. Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt, a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week. *(no heat · 3 min)*
+20. Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt (about 1¼ cups), a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week. *(no heat · 3 min)*
 
 **Done when:** The lentils have broken down completely, a spoon dragged through leaves a trail, and the tarka onions are golden. Roti: light brown spots on both sides, no pale or doughy patches, soft when folded.
 

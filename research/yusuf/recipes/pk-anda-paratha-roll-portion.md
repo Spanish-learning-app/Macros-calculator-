@@ -77,7 +77,7 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Steps**
 
-1. Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with a heaped ¼ tsp salt (2 g). Add 140 ml water a little at a time, mixing with your fingers, until it is one soft ball. *(no heat · 3 min)*
+1. Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with a heaped ¼ tsp salt (2 g). Add 140 ml water (about ½ cup) a little at a time, mixing with your fingers, until it is one soft ball. *(no heat · 3 min)*
 2. Knead 5 minutes until smooth. *(no heat · 5 min)*
 3. Cover with a damp cloth and let the dough rest 20 minutes. *(no heat · 20 min)*
 4. Divide into 4 balls. Roll one to a thin 15 cm circle, brush it with ½ tsp oil (2 g), fold it in half, then in half again (a triangle), dust with atta and roll it out to about 20 cm. The folds make light layers. Shape all 4 and keep them apart on a floured plate. *(no heat · 8 min)*

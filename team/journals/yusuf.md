@@ -347,3 +347,37 @@
   sweetcorn (210 g)" → 1½ tins (pack is 3 × 140 g drained); onion sentences no longer say "it" for 1½–2 onions;
   boiled-egg lines shop as the box of raw eggs (the methods boil them); atta's shop line is the desi grocery line and
   its name says "chakki atta".
+- 16:49 UTC Long fridge waits use the sheet-only key `waitMinutes` (in the total, no 240/360-min chip in the app: Kenji's
+  method-contract test caps a step at 240 min). Household measures generated: ml of water/stock/milk and grams of
+  yogurt get "(about N cups / tbsp)". Zainab's desi sheets touched (method only): 01, 02, 08, 09, 23, 35, noted in
+  her journal.
+- 16:49 UTC Plans (items 1, 6, 7), all in build.mjs, all generated:
+  - planBoxes: every meal gets the box it eats (earliest batch made by then); fridge if eaten within keep.fridgeDays
+    of the cook, else freezer; boxes not eaten → freezer; a box that would wait past its life and cannot freeze fails
+    the build. Same rule as Lena's planStorage, so plan and app agree.
+  - batch notes generated (eaten days, scale, lightCooking, split with "keeps N days", night-before parts, tip);
+    typed notes and typed minutes now fail the build (`tip` may not state minutes, days, fridge or freezer).
+  - evenings generated: make (weekday batches), move (frozen box the night before), later (keep.later job the night
+    before: the penne), fresh (a side past its life). weekdayMinutes = their minutes; sundayMinutes = the Sunday
+    batches' recipe minutes (low-cook 81 / 85, budget 80 / 65; were 72 / 55 and 80 / 65 from typed overrides).
+  - eatenEur = food eaten Mon–Fri out of this week's till (low-cook 33.79 €, budget 29.39 €), new frozenEur (9.13 €,
+    2.24 €); a check ties eaten + frozen + cupboard to the pro-rata total.
+  - Low-cook Friday dinner: microwave chana masala made that evening (other half of Thursday's chickpea jar) instead
+    of a karahi from an earlier week's freezer (Mariam/Bilal: nothing in the freezer in week 1). Friday 1968 kcal /
+    131.8 g P (was 1882 / 144.5); week 1841–1981 kcal, 121–137 g P; till 75.64 → 82.35 € (chana masala's herbs,
+    ginger, a 2nd tomato jar, rice cup). Pitch counted: "4 different lunches in 5 days, a desi dinner (Friday)".
+  - days[].items[].batch = index into batches. READY_PICKS with boiled eggs carry lightCooking and say when to boil.
+  - ARCHITECTURE §13.1 Lab sub-list and Weekly plans block updated (keep, totalMinutes, lightCooking, the plan fields).
+- 16:49 UTC FOR LENA (app reads):
+  1. PLANS[].evenings now exists with `kind`. kind 'move' duplicates your own moveTonight row for a Sunday batch's
+     frozen box (budget: pancakes and pasta bake, Wednesday night): skip evenings of kind 'move' whose recipeId has
+     a box in the app, or drop moveTonight for those. kind 'later' (bolognese penne) now replaces your `later` row.
+  2. Your dev tests need the new data: tests/unit/dev/r3a.test.js:156 `tue.later.length === 1` is now 0 because the
+     plan's penne job covers it (assert `tue.jobs.some((j) => /penne/.test(j.text))` instead); :176 the weekday jobs
+     list gains 'pk-microwave-chana-masala-portion' (low-cook Friday dinner). These are the only 2 npm test failures.
+  3. Plan card can show batches[].minutes, eat, note; "€X of it eaten this week" is now true (eatenEur); frozenEur is
+     new. READY_PICKS[].lightCooking for the "No cooking" heading.
+- 16:49 UTC Checks: build OK (64 sheets); check-foods 351/351, 0 fail, 0 warn, G19 0 (no per-100 g moved: only notes,
+  methods, times and plans changed); prettier OK on app/data/*mealprep.js and ARCHITECTURE; npm test 753 pass,
+  2 fail = Lena's r3a dev tests that encode the old plan (see FOR LENA 2). STOP POINT (clean). R3-B done on the Lab
+  side; open: Lena's 2 test lines and the 'move' de-dupe, and nobody has tapped the new plan data in the app yet (M-14).

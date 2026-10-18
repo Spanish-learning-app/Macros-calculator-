@@ -78,7 +78,7 @@ export default {
     ],
     steps: [
       { text: 'Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir.', heat: 'none', minutes: 5, ahead: true },
-      { text: 'Add the chicken and turn it until every piece is coated. Cover and put it in the fridge for 4 hours or overnight.', heat: 'none', minutes: 240, wait: true, ahead: true },
+      { text: 'Add the chicken and turn it until every piece is coated. Cover and put it in the fridge for 4 hours or overnight.', heat: 'none', waitMinutes: 240, ahead: true },
       { text: 'Heat the oven to 220 °C (fan, or fan with grill if your oven has it).', heat: 'oven-220', minutes: 10 },
       { text: 'Spread the chicken on the lined tray in one layer, letting extra marinade drip back into the bowl. Put the pepper and onion petals around it and drizzle everything with the other 2 tsp oil (10 g).', heat: 'none' },
       { text: 'Roast 25 minutes, turning the pieces halfway, until the chicken has dark, slightly charred edges.', heat: 'oven-220', minutes: 25 },

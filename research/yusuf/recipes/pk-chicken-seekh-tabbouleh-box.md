@@ -103,7 +103,7 @@ This is the method the app shows under "How to make it" (generated from the same
 5. Bake 8 minutes, turn them, then 7–10 minutes more until browned at the edges. *(oven 220 °C · 17 min)*
 6. Check: break the thickest kebab open. White all through, no pink, clear juices, browned at the edges. Pink? 3–4 minutes more in the oven. *(no heat)*
 7. Let the kebabs cool on the rack. *(no heat · 20 min)*
-8. Bulgur (no cooking on the hob): pour 300 ml boiling water from the kettle over the bulgur (200 g, about 1 cup) in the heatproof bowl. Stir, cover with the plate and leave 20 minutes until the water is soaked up. Fluff with a fork and spread it out to cool. *(no heat · 20 min)*
+8. Bulgur (no cooking on the hob): pour 300 ml boiling water (about 1¼ cups) from the kettle over the bulgur (200 g, about 1 cup) in the heatproof bowl. Stir, cover with the plate and leave 20 minutes until the water is soaked up. Fluff with a fork and spread it out to cool. *(no heat · 20 min)*
 9. Split the cooled bulgur into 4 portions (about 125 g each) and the kebabs into 4 sets of 4. *(no heat)*
 10. Tabbouleh, first half (no cooking): wash and dry the parsley (60 g, about 1½ bunches) and mint (10 g); pick the leaves off the thick stalks and chop them very fine. Dice 150 g tomato, 100 g cucumber (5 mm) and 20 g red onion (very fine). *(no heat · 10 min)*
 11. Whisk 2 tbsp lemon juice (30 g), 1½ tbsp extra virgin olive oil (20 g) and a heaped ¼ tsp salt (2 g). Toss with the chopped herbs and vegetables. Fold Monday's bulgur portion into half of this salad; keep the other half in a box for Tuesday. *(no heat · 3 min)*

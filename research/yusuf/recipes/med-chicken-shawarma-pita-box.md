@@ -96,7 +96,7 @@ This is the method the app shows under "How to make it" (generated from the same
 3. Turn the oven on to 220 °C and let it heat for 10 minutes. *(oven 220 °C · 10 min)*
 4. Spread the chicken on the lined tray in one layer, pieces not touching. Put it in the oven. *(oven 220 °C)*
 5. Roast for 15–18 minutes, until the edges start to brown. *(oven 220 °C · 18 min)*
-6. While it roasts, make half the sauce (for boxes 1–2): stir 80 g Greek yogurt, half the 3 g grated garlic, ¾ tsp lemon juice (4 g) and half the chopped mint in the small bowl. Keep the rest of the yogurt in the fridge for Tuesday night. *(no heat)*
+6. While it roasts, make half the sauce (for boxes 1–2): stir 80 g Greek yogurt (about ¼ cup), half the 3 g grated garlic, ¾ tsp lemon juice (4 g) and half the chopped mint in the small bowl. Keep the rest of the yogurt in the fridge for Tuesday night. *(no heat)*
 7. Spoon the garlic-yogurt sauce into 2 small pots and the hummus (160 g) into 4 more pots (40 g each). Close them. *(no heat)*
 8. Take the tray out. Check: cut the thickest strip. White all through, no pink, juices clear. Pink? 3 more minutes in the oven. *(no heat)*
 9. Let the chicken cool on the tray (20 minutes). *(no heat · 20 min)*

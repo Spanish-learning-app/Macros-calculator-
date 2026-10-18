@@ -14,12 +14,14 @@
 //                 to finish is from the first step); hands-on unless it is also wait. Named in the time note.
 //   later: true   done later, for each box (the night before a lunch: boil the penne; on the night: crack the eggs).
 //                 In neither total of the batch: the time note says it with the sheet's laterNote.
+//   waitMinutes   a long hands-off wait in hours (a marinade, an overnight soak, jars setting in the fridge): counts in
+//                 the total like a wait, but the app shows no time chip (the step text says "4 hours or overnight")
 //   check: true   the "is it done?" step, which carries the doneness test itself
 //   pack: true    the first step that fills the boxes
 // Sheet keys for time: prepMinutes (hands-on of "Before you start", default 2 a line), prepWait (hands-off minutes
 // inside "Before you start": the eggs boil 10 and cool 5), waitNote (what the waiting is), laterNote (when the
 // later steps are done; required when a step is later).
-export const SHEET_STEP_KEYS = ['text', 'heat', 'minutes', 'wait', 'during', 'ahead', 'later', 'check', 'pack'];
+export const SHEET_STEP_KEYS = ['text', 'heat', 'minutes', 'waitMinutes', 'wait', 'during', 'ahead', 'later', 'check', 'pack'];
 
 const roundMin = (x) => (x <= 15 ? Math.round(x) : 5 * Math.round(x / 5));
 
@@ -36,10 +38,11 @@ export function minutesOf(s) {
   let laterHands = 0;
   let laterTotal = 0;
   for (const st of m.steps) {
-    const t = st.minutes ?? 1;
+    if (st.waitMinutes !== undefined && (st.minutes !== undefined || !(st.waitMinutes > 60))) throw new Error(`${s.id}: waitMinutes is for waits over an hour, instead of minutes`);
+    const t = st.minutes ?? st.waitMinutes ?? 1;
     const during = st.during ?? /^(Meanwhile|While)\b/.test(st.text);
     // Oven and microwave minutes are hands-off unless the sheet says otherwise.
-    const wait = st.wait ?? (/^oven|^microwave$/.test(st.heat ?? '') && !!st.minutes);
+    const wait = st.waitMinutes ? true : (st.wait ?? (/^oven|^microwave$/.test(st.heat ?? '') && !!st.minutes));
     if (st.ahead && st.later) throw new Error(`${s.id}: a step cannot be both ahead and later`);
     if (st.later) {
       if (!during) laterTotal += t;

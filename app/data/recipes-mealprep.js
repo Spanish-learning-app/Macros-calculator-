@@ -126,7 +126,6 @@ export default [
         {
           text: 'Add the chicken and turn it until every piece is coated. Cover and put it in the fridge for 4 hours or overnight.',
           heat: 'none',
-          minutes: 240,
         },
         {
           text: 'Heat the oven to 220 °C (fan, or fan with grill if your oven has it).',
@@ -143,7 +142,7 @@ export default [
           minutes: 25,
         },
         {
-          text: 'Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g).',
+          text: 'Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water (about 2 cups) to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g).',
           heat: 'high',
           minutes: 3,
         },
@@ -172,7 +171,7 @@ export default [
           minutes: 30,
         },
         {
-          text: 'Raita (no cooking), first 2 pots: grate half the cucumber (100 g) and squeeze it hard in your hands over the sink. Whisk 150 g yogurt smooth, then stir in the cucumber, half the chopped mint (4 g, a small handful), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Mix the other 2 pots the same way on Tuesday night.',
+          text: 'Raita (no cooking), first 2 pots: grate half the cucumber (100 g) and squeeze it hard in your hands over the sink. Whisk 150 g yogurt (about ½ cup) smooth, then stir in the cucumber, half the chopped mint (4 g, a small handful), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Mix the other 2 pots the same way on Tuesday night.',
           heat: 'none',
           minutes: 5,
         },
@@ -325,7 +324,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Rice: drain the rice that has been soaking. Bring 450 ml water to the boil in the pot with ½ tsp salt (3 g), add the rice and boil without the lid until the water drops just below the top of the rice.',
+          text: 'Rice: drain the rice that has been soaking. Bring 450 ml water (about 2 cups) to the boil in the pot with ½ tsp salt (3 g), add the rice and boil without the lid until the water drops just below the top of the rice.',
           heat: 'high',
           minutes: 5,
         },
@@ -442,7 +441,7 @@ export default [
       prep: ['Cut the chicken breast (640 g) into 4 cm pieces.', 'Roughly chop ½ medium onion (60 g) for the stock. Slice about 1½ medium onions (175 g) thin, in half-moons.', 'Peel 5 garlic cloves (15 g) and a 3 cm piece of ginger (10 g); grate both into a paste.', 'Slit 2 green chillies (10 g) lengthwise. Chop 1 tomato (100 g). Whisk 2 tbsp yogurt (30 g) smooth in a cup.', 'Rinse the basmati (280 g, about 1½ cups) until the water runs almost clear, then soak it in cold water for 30 minutes.', 'Drain and rinse the chickpeas (320 g drained, most of a 570 g jar).', 'Whole spices for the stock: 2 tsp zeera (cumin seeds, 4 g), 2 tsp whole coriander seeds (4 g), 1 tsp black peppercorns (3 g), 1 cinnamon stick (5 cm, 2 g), 3–4 cloves (1 g), 3–4 green cardamom pods pressed open (1 g) and ½ bay leaf.'],
       steps: [
         {
-          text: 'Yakhni (stock): put the chicken, the rough onion, all the whole spices and 1¾ tsp salt (10 g) in the 3 l pot with 700 ml water. Bring to the boil.',
+          text: 'Yakhni (stock): put the chicken, the rough onion, all the whole spices and 1¾ tsp salt (10 g) in the 3 l pot with 700 ml water (about 3 cups). Bring to the boil.',
           heat: 'high',
           minutes: 5,
         },
@@ -452,7 +451,7 @@ export default [
           minutes: 18,
         },
         {
-          text: 'Lift the chicken out with the slotted spoon into a bowl. Pour the stock through the sieve into the jug and throw away the spices. You need 520 ml stock: top up with water if you have less.',
+          text: 'Lift the chicken out with the slotted spoon into a bowl. Pour the stock through the sieve into the jug and throw away the spices. You need 520 ml stock (about 2¼ cups): top up with water if you have less.',
           heat: 'none',
         },
         {
@@ -477,7 +476,7 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Pour in the 520 ml stock. Boil without the lid until the liquid drops below the top of the rice and small holes appear.',
+          text: 'Pour in the 520 ml stock (about 2¼ cups). Boil without the lid until the liquid drops below the top of the rice and small holes appear.',
           heat: 'high',
           minutes: 6,
         },
@@ -620,7 +619,7 @@ export default [
           minutes: 60,
         },
         {
-          text: 'Put the mince (500 g), drained chana dal, onion chunks, whole garlic, ginger, whole spices, 1½ tsp red chilli powder or chilli flakes (4 g) and 1 heaped tsp salt (7 g) in the pot with 600 ml water. Bring to the boil.',
+          text: 'Put the mince (500 g), drained chana dal, onion chunks, whole garlic, ginger, whole spices, 1½ tsp red chilli powder or chilli flakes (4 g) and 1 heaped tsp salt (7 g) in the pot with 600 ml water (about 2½ cups). Bring to the boil.',
           heat: 'high',
           minutes: 5,
         },
@@ -678,7 +677,7 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Mint-yogurt pots (no cooking), half now: grate 60 g cucumber and squeeze it hard. Mix with 160 g light Greek yogurt, half the chopped mint (4 g), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Make 2 more on Tuesday night.',
+          text: 'Mint-yogurt pots (no cooking), half now: grate 60 g cucumber and squeeze it hard. Mix with 160 g light Greek yogurt (about ¾ cup), half the chopped mint (4 g), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Make 2 more on Tuesday night.',
           heat: 'none',
           minutes: 3,
         },
@@ -762,7 +761,7 @@ export default [
           minutes: 2,
         },
         {
-          text: 'Put the chicken back. Pour in the lemon juice (60 g) and 100 ml water. Put the lid on and cook 10 minutes.',
+          text: 'Put the chicken back. Pour in the lemon juice (60 g) and 100 ml water (about ½ cup). Put the lid on and cook 10 minutes.',
           heat: 'medium',
           minutes: 10,
         },
@@ -1153,7 +1152,7 @@ export default [
         },
         { text: 'Let the kebabs cool on the rack.', heat: 'none', minutes: 20 },
         {
-          text: 'Bulgur (no cooking on the hob): pour 300 ml boiling water from the kettle over the bulgur (200 g, about 1 cup) in the heatproof bowl. Stir, cover with the plate and leave 20 minutes until the water is soaked up. Fluff with a fork and spread it out to cool.',
+          text: 'Bulgur (no cooking on the hob): pour 300 ml boiling water (about 1¼ cups) from the kettle over the bulgur (200 g, about 1 cup) in the heatproof bowl. Stir, cover with the plate and leave 20 minutes until the water is soaked up. Fluff with a fork and spread it out to cool.',
           heat: 'none',
           minutes: 20,
         },
@@ -1315,7 +1314,7 @@ export default [
           minutes: 5,
         },
         {
-          text: 'Yogurt pots (no cooking), 2 now: mix 160 g yogurt with half the chopped mint (5 g) and a pinch of salt; split into 2 pots.',
+          text: 'Yogurt pots (no cooking), 2 now: mix 160 g yogurt (about ¾ cup) with half the chopped mint (5 g) and a pinch of salt; split into 2 pots.',
           heat: 'none',
           minutes: 2,
         },
@@ -1670,7 +1669,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Add 150 g protein yogurt and 120 ml semi-skimmed milk (120 g) to each jar.',
+          text: 'Add 150 g protein yogurt (about ½ cup) and 120 ml semi-skimmed milk (120 g) to each jar.',
           heat: 'none',
         },
         { text: 'Stir well, scraping the bottom so no dry oats or chia stay stuck.', heat: 'none' },
@@ -1681,7 +1680,6 @@ export default [
         {
           text: 'Leave at least 6 hours (overnight). Before the first jar, stir once more if it set unevenly.',
           heat: 'none',
-          minutes: 360,
         },
         { text: 'In the morning slice half a banana (60 g) on top and eat cold.', heat: 'none' },
       ],
@@ -2081,7 +2079,7 @@ export default [
           minutes: 20,
         },
         {
-          text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Whisk 400 g protein yogurt smooth and stir in the cucumber, half the chopped mint (3 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g). Split into 2 pots (200 g of yogurt each). Mix the other 2 on Tuesday night.',
+          text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Whisk 400 g protein yogurt (about 1¾ cups) smooth and stir in the cucumber, half the chopped mint (3 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g). Split into 2 pots (200 g of yogurt each). Mix the other 2 on Tuesday night.',
           heat: 'none',
           minutes: 3,
         },
@@ -2158,7 +2156,7 @@ export default [
       prep: ['Chop the red onion fine (80 g, ½ medium). Cut 1 tomato in half, scoop out the seeds and chop it small (80 g). Chop 1–2 green chillies (8 g) and a small handful of coriander (8 g).', 'Measure the oil into a small cup: 32 g (about 2 tbsp + 1 tsp) in all: 2 g per paratha for folding, 4 g per paratha for the pan, 2 g per omelette.'],
       steps: [
         {
-          text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with a heaped ¼ tsp salt (2 g). Add 140 ml water a little at a time, mixing with your fingers, until it is one soft ball.',
+          text: 'Dough: in the bowl mix the atta (200 g, about 1⅔ cups) with a heaped ¼ tsp salt (2 g). Add 140 ml water (about ½ cup) a little at a time, mixing with your fingers, until it is one soft ball.',
           heat: 'none',
           minutes: 3,
         },
@@ -3034,7 +3032,7 @@ export default [
           minutes: 9,
         },
         {
-          text: 'Add 400 ml water. Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry.',
+          text: 'Add 400 ml water (about 1¾ cups). Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry.',
           heat: 'low',
           minutes: 70,
         },
@@ -3069,7 +3067,7 @@ export default [
           minutes: 10,
         },
         {
-          text: 'Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny.',
+          text: 'Drain the potatoes and add them with another 200 ml water (about ¾ cup). Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny.',
           heat: 'low',
           minutes: 22,
         },
@@ -3492,7 +3490,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt, a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week.',
+          text: 'Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Mix with 300 g light Greek yogurt (about 1¼ cups), a few chopped mint leaves (2 g), a pinch of roasted cumin and a pinch of salt (1 g). Split into 2 pots (150 g yogurt each). Mix the other 2 later in the week.',
           heat: 'none',
           minutes: 3,
         },
@@ -3570,7 +3568,7 @@ export default [
           minutes: 10,
         },
         {
-          text: 'Add 300 ml water, the drained potatoes, a heaped ½ tsp salt (4 g) and the raw meatballs. Bring to a bubble.',
+          text: 'Add 300 ml water (about 1¼ cups), the drained potatoes, a heaped ½ tsp salt (4 g) and the raw meatballs. Bring to a bubble.',
           heat: 'medium-high',
           minutes: 3,
         },
@@ -3640,14 +3638,13 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Spoon 220 g queso fresco batido into each jar (one 500 g tub fills 2 jars and a bit).',
+          text: 'Spoon 220 g queso fresco batido (about 1 cup) into each jar (one 500 g tub fills 2 jars and a bit).',
           heat: 'none',
         },
         { text: 'Stir well, scraping the bottom so no dry oats or chia are left.', heat: 'none' },
         {
           text: 'Sprinkle 8 g chopped walnuts on top, close the lids and put the jars in the fridge for at least 4 hours.',
           heat: 'none',
-          minutes: 240,
         },
         { text: 'In the morning peel 1 kiwi (69 g), slice it on top and eat cold.', heat: 'none' },
       ],
@@ -3792,7 +3789,7 @@ export default [
         },
         { text: 'Sprinkle 1 tsp chaat masala (3 g) over the fruit and toss.', heat: 'none' },
         {
-          text: 'Spoon 240 g protein yogurt into each box and put half the fruit chaat on top. Close and refrigerate.',
+          text: 'Spoon 240 g protein yogurt (about 1 cup) into each box and put half the fruit chaat on top. Close and refrigerate.',
           heat: 'none',
           minutes: 2,
         },
@@ -4315,7 +4312,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Raita (no cooking): grate 60 g cucumber and squeeze it hard. Mix with 240 g protein yogurt and a few chopped mint leaves (2 g). Split into 2 pots.',
+          text: 'Raita (no cooking): grate 60 g cucumber and squeeze it hard. Mix with 240 g protein yogurt (about 1 cup) and a few chopped mint leaves (2 g). Split into 2 pots.',
           heat: 'none',
           minutes: 2,
         },
@@ -4490,7 +4487,6 @@ export default [
         {
           text: 'Pour into the 3 jars, close and put them in the fridge for at least 4 hours.',
           heat: 'none',
-          minutes: 240,
         },
         { text: 'Just before eating, add 50 g pomegranate seeds on top.', heat: 'none' },
       ],
@@ -4575,7 +4571,7 @@ export default [
           minutes: 1,
         },
         {
-          text: 'Spoon 120 g protein yogurt into each pot and dust with a pinch of roasted ground cumin (½ g). Pour it over the chaat just before you eat it.',
+          text: 'Spoon 120 g protein yogurt (about ½ cup) into each pot and dust with a pinch of roasted ground cumin (½ g). Pour it over the chaat just before you eat it.',
           heat: 'none',
           minutes: 1,
         },
@@ -4943,7 +4939,7 @@ export default [
           minutes: 18,
         },
         {
-          text: 'While it roasts, make half the sauce (for boxes 1–2): stir 80 g Greek yogurt, half the 3 g grated garlic, ¾ tsp lemon juice (4 g) and half the chopped mint in the small bowl. Keep the rest of the yogurt in the fridge for Tuesday night.',
+          text: 'While it roasts, make half the sauce (for boxes 1–2): stir 80 g Greek yogurt (about ¼ cup), half the 3 g grated garlic, ¾ tsp lemon juice (4 g) and half the chopped mint in the small bowl. Keep the rest of the yogurt in the fridge for Tuesday night.',
           heat: 'none',
         },
         {
@@ -5487,7 +5483,7 @@ export default [
           heat: 'none',
         },
         {
-          text: 'Make the dressing: mix 240 g Greek yogurt, 1¾ tbsp olive oil (24 g), 2 tbsp lemon juice (30 g), the 6 g grated garlic, the mint and a heaped ¼ tsp salt (2 g). Spoon into 4 pots (about 77 g each).',
+          text: 'Make the dressing: mix 240 g Greek yogurt (about 1 cup), 1¾ tbsp olive oil (24 g), 2 tbsp lemon juice (30 g), the 6 g grated garlic, the mint and a heaped ¼ tsp salt (2 g). Spoon into 4 pots (about 77 g each).',
           heat: 'none',
         },
         {
@@ -5996,7 +5992,7 @@ export default [
         },
         { text: 'Roast 13–15 minutes more.', heat: 'oven-200', minutes: 15 },
         {
-          text: 'Make the sauce: stir 120 g Greek yogurt, 1 tsp lemon juice (6 g), the grated garlic and the parsley. Spoon into the 2 pots.',
+          text: 'Make the sauce: stir 120 g Greek yogurt (about ½ cup), 1 tsp lemon juice (6 g), the grated garlic and the parsley. Spoon into the 2 pots.',
           heat: 'none',
         },
         {

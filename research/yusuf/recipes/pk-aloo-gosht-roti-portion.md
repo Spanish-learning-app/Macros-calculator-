@@ -94,14 +94,14 @@ This is the method the app shows under "How to make it" (generated from the same
 5. Add the ginger-garlic paste and the beef. Turn the heat up and stir until the meat is browned on the outside. *(high heat · 5 min)*
 6. Add the tomatoes and the whisked yogurt, then 1¼ tsp salt (8 g), 1½ tsp red chilli powder (4 g), 2 tsp ground coriander (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g) and 1 tsp ground cumin (2 g). *(medium heat)*
 7. Stir and cook until the tomato has melted into a thick paste and the oil separates at the edges ("bhunai"). If it sticks, add 2 tbsp of the measured water. *(medium heat · 9 min)*
-8. Add 400 ml water. Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry. *(low heat · 70 min)*
+8. Add 400 ml water (about 1¾ cups). Bring it to the boil, put the lid on and simmer gently until a piece of beef breaks easily with a spoon (pressure cooker: 25 minutes after it whistles). Check every 20 minutes and add a splash of water if it gets dry. *(low heat · 70 min)*
 9. Divide the dough into 8 equal balls of about 50 g (golf-ball size) and keep them under the cloth. Heat the tawa or a dry non-stick frying pan, with no oil, for 2 minutes. *(medium-high heat · 2 min)*
 10. Roll one ball: dip it in dry atta, flatten it with your palm and roll it into a thin circle the size of a side plate (about 16 cm across, 2 mm thick). Give it a quarter turn every few rolls so it stays round, and dust with atta when it sticks. *(no heat · 1 min)*
 11. First side: lay the roti on the hot dry pan. When small bubbles show (20–30 seconds), flip it. *(medium-high heat · 30 s)*
 12. Second side: cook 30–40 seconds, pressing the edges gently with a folded cloth so it puffs. Flip once more for 10 seconds, then lay it on a clean tea towel. *(medium-high heat · 1 min)*
 13. Roll and cook the other 7 the same way, rolling the next one while one cooks. On a first try each one takes 2–3 minutes, so allow about 18 minutes. *(medium-high heat · 18 min)*
 14. Let the roti cool fully, spread out on the tea towel (about 10 minutes), before you bag them: bagged warm, they go soggy. *(no heat · 10 min)*
-15. Drain the potatoes and add them with another 200 ml water. Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny. *(low heat · 22 min)*
+15. Drain the potatoes and add them with another 200 ml water (about ¾ cup). Lid half on, simmer until a knife slides into the potatoes easily and the gravy (shorba) is light and runny. *(low heat · 22 min)*
 16. Turn off the heat. Stir in 1 tsp garam masala (2 g) and the coriander. *(no heat)*
 17. Check: a piece of beef breaks apart easily with a spoon and a knife slides into the potatoes. Firm? Lid on, 10 minutes more. *(no heat)*
 18. Spread the aloo gosht on the tray to cool and set a timer for 30 minutes. When it rings, put the tray in the fridge, even if the roti are not finished: cooked food never sits out more than 1 hour. *(no heat)*

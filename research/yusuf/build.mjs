@@ -247,6 +247,20 @@ function countCheck(s, texts) {
     }
   if (errs.length) throw new Error(errs.join('\n'));
 }
+// Household measure for a liquid in ml (Nasreen Review 3 should-fix 1: no jug or scale assumed): "450 ml water" →
+// "450 ml water (about 2 cups)", a 240 ml cup. Left alone when the text already gives a measure in brackets.
+function householdMl(text) {
+  return text.replace(/(?<!\()\b(\d+) ml ((?:boiling )?water|stock|milk)\b(?! \()/g, (all, ml, what) => {
+    const c = Number(ml) / 240;
+    return `${all} (about ${fracText(c)} cup${c > 1.12 ? 's' : ''})`;
+  }).replace(/(?<!\()\b(\d+) g ((?:protein |light Greek |Greek |plain )?yogurt|queso fresco batido)\b(?! \()/g, (all, g, what) => {
+    // Spoonable dairy: about 245 g a cup, 15 g a tablespoon.
+    const n = Number(g);
+    if (n < 60) return `${all} (about ${Math.round(n / 15)} tbsp)`;
+    const c = n / 245;
+    return `${all} (about ${fracText(c)} cup${c > 1.12 ? 's' : ''})`;
+  });
+}
 // The method as the app gets it: placeholders resolved, the R3-B checks run, the sheet-only step keys dropped.
 function finishMethod(s, r) {
   const m = s.method;
@@ -269,7 +283,8 @@ function finishMethod(s, r) {
   const out = {};
   for (const k of METHOD_KEYS) {
     if (m[k] === undefined) continue;
-    if (k === 'steps') out.steps = m.steps.map((st) => ({ text: res(st.text), ...(st.heat ? { heat: st.heat } : {}), ...(st.minutes ? { minutes: st.minutes } : {}) }));
+    if (k === 'steps') out.steps = m.steps.map((st) => ({ text: householdMl(res(st.text)), ...(st.heat ? { heat: st.heat } : {}), ...(st.minutes ? { minutes: st.minutes } : {}) }));
+    else if (k === 'prep') out.prep = m.prep.map((x) => householdMl(res(x)));
     else out[k] = Array.isArray(m[k]) ? m[k].map(res) : res(m[k]);
   }
   countCheck(s, [...out.prep, ...out.steps.map((x) => x.text), ...out.equipment]);
@@ -747,10 +762,10 @@ const READY = {
   breakfast: [
     { name: 'Protein yogurt, banana and almonds', items: [['es-yogur-proteinas-natural', 'pot', 2], ['intl-banana', 'medium'], ['intl-almonds', 'ten']], note: '2 pots of +Proteínas natural (milk and cultures only)' },
     { name: 'Queso fresco batido with kiwi and picos', items: [['es-queso-fresco-batido', 'large'], ['intl-kiwi', 'two'], ['es-picos-integrales', '30g']], note: '200 g of the 0% tub, eaten from a bowl' },
-    { name: 'Two boiled eggs, a Burgos tub and a pear', items: [['intl-egg-boiled', 'egg', 2], ['es-queso-burgos-0', 'tub'], ['intl-pear', 'medium'], ['es-picos-integrales', '30g']], note: 'eggs boiled on Sunday' },
+    { name: 'Two boiled eggs, a Burgos tub and a pear', items: [['intl-egg-boiled', 'egg', 2], ['es-queso-burgos-0', 'tub'], ['intl-pear', 'medium'], ['es-picos-integrales', '30g']], note: 'boil the eggs up to 3 days ahead (10 min, then 5 in cold water)' },
   ],
   lunch: [
-    { name: 'Gazpacho, tuna, eggs and picos', items: [['es-gazpacho-envasado', 'brick'], ['intl-tuna-canned-water', 120], ['intl-egg-boiled', 'egg', 2], ['es-picos-integrales', '30g'], ['intl-apple', 'medium']], note: 'when the box ran out: 1 brick, 2 Mercadona cans (60 g drained each)' },
+    { name: 'Gazpacho, tuna, eggs and picos', items: [['es-gazpacho-envasado', 'brick'], ['intl-tuna-canned-water', 120], ['intl-egg-boiled', 'egg', 2], ['es-picos-integrales', '30g'], ['intl-apple', 'medium']], note: 'when the box ran out: 1 brick, 2 Mercadona cans (60 g drained each); boil the eggs up to 3 days ahead (10 min, then 5 in cold water)' },
     { name: 'Lentils, rice cup and Burgos, no chopping', items: [['es-lentejas-cocidas', 'half-jar'], ['intl-rice-cup-brown', 'pot'], ['es-queso-burgos-0', 'two-tubs'], ['intl-orange', 'fruit']], note: 'half a jar of lentils, rinsed; olive oil and lemon if you have them' },
   ],
   dinner: [
@@ -761,7 +776,7 @@ const READY = {
     { name: '1 protein yogurt pot + 1 mandarin', items: [['es-yogur-proteinas-natural', 'pot'], ['intl-kinnow', 'medium']], note: 'merienda' },
     { name: '200 g queso fresco batido + 10 almonds', items: [['es-queso-fresco-batido', 'large'], ['intl-almonds', 'ten']], note: '' },
     { name: '2 Burgos 0% tubs + 1 apple', items: [['es-queso-burgos-0', 'two-tubs'], ['intl-apple', 'medium']], note: 'fruit + protein for merienda' },
-    { name: '2 boiled eggs', items: [['intl-egg-boiled', 'egg', 2]], note: 'from the Sunday batch' },
+    { name: '2 boiled eggs', items: [['intl-egg-boiled', 'egg', 2]], note: 'boil them up to 3 days ahead (10 min, then 5 in cold water) and keep them in their shells' },
     { name: '1 can of tuna + 15 g picos', items: [['intl-tuna-canned-water', 60], ['es-picos-integrales', '15g']], note: '1 Mercadona can, 60 g drained' },
     { name: 'Protein yogurt pot + ½ cup pomegranate', items: [['es-yogur-proteinas-natural', 'pot'], ['intl-pomegranate', 'half-cup']], note: 'fruit + protein for merienda' },
   ],
@@ -1383,7 +1398,10 @@ function readyPicksData() {
       slot,
       picks.map((p) => {
         const t = sumLines(p.items.map(readyLine));
-        return { name: p.name, note: p.note, items: p.items.map(readyEntry), kcal: Math.round(t.kcal), protein: n1(t.protein), fiber: n1(t.fiber) };
+        // R3-B (Mariam, Bilal): a pick with boiled eggs is not "no cooking"; it says what heat it needs.
+        const boils = p.items.some(([id]) => id === 'intl-egg-boiled');
+        if (boils && !/boil/.test(p.note)) throw new Error(`ready pick ${p.name}: has boiled eggs, the note must say when to boil them`);
+        return { name: p.name, note: p.note, items: p.items.map(readyEntry), kcal: Math.round(t.kcal), protein: n1(t.protein), fiber: n1(t.fiber), ...(boils ? { lightCooking: 'the eggs are boiled' } : {}) };
       }),
     ]),
   );
@@ -1392,13 +1410,16 @@ function plansFile() {
   const header = `// Meal-prep weekly plans and ready-to-eat picks (STATUS O7). Owner: Yusuf Benali (Nutrition Lab).
 // GENERATED by research/yusuf/build.mjs from the same WEEKS and READY objects as docs/MEALPREP.md; do not edit by
 // hand. Every foodId is a Lab food (lunch-box preps in foods-mealprep.js, ready items in the other food files).
-// PLANS = [{ id, name, pitch, priceDate, shop, tillEur (whole packs at the till), eatenEur (the food eaten,
-// pro-rata), sundayMinutes, weekdayMinutes (hands-on), batches: [{ foodId, when, boxes, from?: 'freezer', note }],
-// days: [{ day, weekday (1 = Monday), items: [{ slot, foodId, servingId, qty }], kcal, protein, fiber }] }].
+// PLANS = [{ id, name, pitch, priceDate, shop, tillEur (whole packs at the till), eatenEur (the food eaten Monday
+// to Friday out of this week's till, pro-rata), frozenEur (made this week, frozen for later weeks), sundayMinutes
+// (the Sunday batches' minutes), weekdayMinutes (the evening jobs' minutes), batches: [{ foodId, when, boxes,
+// from?: 'freezer', minutes, fridge, freezer, eat: [{ day, weekday, slot, from }], note }], evenings: [{ day,
+// weekday (7 = the Sunday before), time, kind, text, recipeId, minutes? }], days: [{ day, weekday (1 = Monday),
+// items: [{ slot, foodId, servingId, qty, batch? }], kcal, protein, fiber }] }]. Shapes: ARCHITECTURE §13.1.
 // An item is a Day entry: servingId 'g' means grams (qty = grams). Ready items of a week are in slot 'snacks'
 // (merienda and add-ons). kcal, protein and fiber are the day's totals from the Lab records (a preview only;
 // the app computes its own from the entries). READY_PICKS = { breakfast|lunch|dinner|snacks: [{ name, note,
-// items, kcal, protein, fiber }] }: buy-and-eat meals, no prep.
+// items, kcal, protein, fiber, lightCooking? }] }: buy-and-eat meals; lightCooking when eggs are boiled.
 
 export const PLANS = [
 `;

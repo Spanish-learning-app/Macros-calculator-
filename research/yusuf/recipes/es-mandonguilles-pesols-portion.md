@@ -79,7 +79,7 @@ This is the method the app shows under "How to make it" (generated from the same
 2. Shape 20 meatballs of about 33 g (a little bigger than a walnut). Put them on a plate in the fridge. Wash your hands. *(no heat · 8 min)*
 3. Sofregit: heat 2 tbsp + 1 tsp olive oil (32 g) in the casserole. Add the onions and cook slowly, stirring every few minutes, until soft and golden. *(low heat · 20 min)*
 4. Stir in 1 tsp paprika (2 g) for a few seconds, then add half a jar of crushed tomato (400 g) and 1 bay leaf. Cook until thick. *(medium heat · 10 min)*
-5. Add 300 ml water, the drained potatoes, a heaped ½ tsp salt (4 g) and the raw meatballs. Bring to a bubble. *(medium-high heat · 3 min)*
+5. Add 300 ml water (about 1¼ cups), the drained potatoes, a heaped ½ tsp salt (4 g) and the raw meatballs. Bring to a bubble. *(medium-high heat · 3 min)*
 6. Put the lid on, turn down and simmer 20 minutes. Do not stir hard: shake the pan so the meatballs keep their shape. *(low heat · 20 min)*
 7. Add the frozen peas (400 g (about 3 cups)). Simmer 10 minutes more with the lid a little open. *(low heat · 10 min)*
 8. Check: a potato chunk breaks easily with a spoon, and a meatball cut in half has no pink inside. Pink or hard? Lid on, 5 minutes more. *(no heat)*

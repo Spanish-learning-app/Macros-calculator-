@@ -84,15 +84,15 @@ This is the method the app shows under "How to make it" (generated from the same
 
 **Steps**
 
-1. Yakhni (stock): put the chicken, the rough onion, all the whole spices and 1¾ tsp salt (10 g) in the 3 l pot with 700 ml water. Bring to the boil. *(high heat · 5 min)*
+1. Yakhni (stock): put the chicken, the rough onion, all the whole spices and 1¾ tsp salt (10 g) in the 3 l pot with 700 ml water (about 3 cups). Bring to the boil. *(high heat · 5 min)*
 2. Spoon off the grey foam, then turn down so it bubbles gently. Lid half on, simmer until the chicken is white all through. *(low heat · 18 min)*
-3. Lift the chicken out with the slotted spoon into a bowl. Pour the stock through the sieve into the jug and throw away the spices. You need 520 ml stock: top up with water if you have less. *(no heat)*
+3. Lift the chicken out with the slotted spoon into a bowl. Pour the stock through the sieve into the jug and throw away the spices. You need 520 ml stock (about 2¼ cups): top up with water if you have less. *(no heat)*
 4. In the wide pot heat 2 tbsp oil (30 g), add the sliced onion and stir every minute or two until golden brown (not dark brown: dark tastes bitter). *(medium heat · 11 min)*
 5. Add the ginger-garlic paste and the slit chillies. Stir 1 minute. *(medium heat · 1 min)*
 6. Add the chopped tomato and cook until soft. *(medium heat · 3 min)*
 7. Turn the heat down, stir in the whisked yogurt (whisking first stops it splitting) and cook, stirring, until the oil separates at the edges. *(low heat · 4 min)*
 8. Drain the rice. Add the rice and the chickpeas and stir gently for 1 minute, so the grains do not break. *(medium heat · 1 min)*
-9. Pour in the 520 ml stock. Boil without the lid until the liquid drops below the top of the rice and small holes appear. *(high heat · 6 min)*
+9. Pour in the 520 ml stock (about 2¼ cups). Boil without the lid until the liquid drops below the top of the rice and small holes appear. *(high heat · 6 min)*
 10. Lay the chicken back on top and sprinkle 1 tsp garam masala (2 g). Cover the pot with foil, then the lid ("dum"). Lowest heat, 14 minutes, without lifting the lid. *(low heat · 14 min)*
 11. Turn off the heat and leave 5 minutes. Fold in the chopped coriander (10 g) and mint (6 g) gently with a flat spoon. *(no heat · 5 min)*
 12. Check before it cools: push a spoon to the bottom of the pot. No water left, the grains are long, soft and separate, and the chicken is white all through. Water left? Lid back on, lowest heat, 3–4 minutes more. *(no heat)*

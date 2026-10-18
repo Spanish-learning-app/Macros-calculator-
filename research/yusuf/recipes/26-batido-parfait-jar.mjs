@@ -47,7 +47,7 @@ export default {
       { text: 'No cooking. In each jar put 40 g oats (4 tbsp), 10 g chia seeds (1 tbsp) and 1 g cinnamon (a good pinch).', heat: 'none', pack: true },
       { text: 'Spoon 220 g queso fresco batido into each jar (one 500 g tub fills 2 jars and a bit).', heat: 'none' },
       { text: 'Stir well, scraping the bottom so no dry oats or chia are left.', heat: 'none' },
-      { text: 'Sprinkle 8 g chopped walnuts on top, close the lids and put the jars in the fridge for at least 4 hours.', heat: 'none', minutes: 240, wait: true },
+      { text: 'Sprinkle 8 g chopped walnuts on top, close the lids and put the jars in the fridge for at least 4 hours.', heat: 'none', waitMinutes: 240 },
       { text: 'In the morning peel 1 kiwi (69 g), slice it on top and eat cold.', heat: 'none' },
     ],
     doneWhen: 'The oats are soft and the jar is thick and spoonable.',

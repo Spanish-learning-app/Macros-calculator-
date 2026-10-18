@@ -124,13 +124,13 @@ Buy and eat, no prep. Every item is a normal food in the app (search it and tap 
 |---|---|---|---|---|
 | Protein yogurt, banana and almonds (2 pots of +Proteínas natural (milk and cultures only)) | Protein yogurt, plain 0 % (Mercadona +Proteínas): 2 × 1 portion (120 g); Banana: 1 medium banana; Almonds: 10 almonds | 299 | 27.8 g | 4.6 g |
 | Queso fresco batido with kiwi and picos (200 g of the 0% tub, eaten from a bowl) | Queso fresco batido 0 % (whipped fresh cheese): 1 large bowl (200 g); Kiwi (green): 2 kiwis; Picos integrales (wholemeal breadsticks): 30 g (a small handful) | 290 | 21.7 g | 7.4 g |
-| Two boiled eggs, a Burgos tub and a pear (eggs boiled on Sunday) | Egg, boiled: 2 × 1 egg; Queso fresco de Burgos 0 % (fresh cheese, single tub): 1 single tub (62.5 g); Pear: 1 medium pear; Picos integrales (wholemeal breadsticks): 30 g (a small handful) | 412 | 25.0 g | 8.8 g |
+| Two boiled eggs, a Burgos tub and a pear (boil the eggs up to 3 days ahead (10 min, then 5 in cold water)) | Egg, boiled: 2 × 1 egg; Queso fresco de Burgos 0 % (fresh cheese, single tub): 1 single tub (62.5 g); Pear: 1 medium pear; Picos integrales (wholemeal breadsticks): 30 g (a small handful) | 412 | 25.0 g | 8.8 g |
 
 **Lunch (the box ran out)**
 
 | Pick | What to log | kcal | Protein | Fibre |
 |---|---|---|---|---|
-| Gazpacho, tuna, eggs and picos (when the box ran out: 1 brick, 2 Mercadona cans (60 g drained each)) | Gazpacho, supermarket carton (Hacendado tradicional): 1 small carton (330 ml); Tuna, canned in water (drained): 120 g; Egg, boiled: 2 × 1 egg; Picos integrales (wholemeal breadsticks): 30 g (a small handful); Apple (with skin): 1 medium apple | 607 | 43.2 g | 11.1 g |
+| Gazpacho, tuna, eggs and picos (when the box ran out: 1 brick, 2 Mercadona cans (60 g drained each); boil the eggs up to 3 days ahead (10 min, then 5 in cold water)) | Gazpacho, supermarket carton (Hacendado tradicional): 1 small carton (330 ml); Tuna, canned in water (drained): 120 g; Egg, boiled: 2 × 1 egg; Picos integrales (wholemeal breadsticks): 30 g (a small handful); Apple (with skin): 1 medium apple | 607 | 43.2 g | 11.1 g |
 | Lentils, rice cup and Burgos, no chopping (half a jar of lentils, rinsed; olive oil and lemon if you have them) | Lentils, jarred (cooked), drained: ½ jar, drained (200 g); Brown rice, microwave cup (ready cooked): 1 cup (125 g); Queso fresco de Burgos 0 % (fresh cheese, single tub): 2 single tubs; Orange (malta): 1 orange | 528 | 37.3 g | 16.4 g |
 
 **Dinner (too tired to cook)**
@@ -147,7 +147,7 @@ Buy and eat, no prep. Every item is a normal food in the app (search it and tap 
 | 1 protein yogurt pot + 1 mandarin (merienda) | Protein yogurt, plain 0 % (Mercadona +Proteínas): 1 portion (120 g); Kinnow (mandarin): 1 medium kinnow | 109 | 12.7 g | 1.6 g |
 | 200 g queso fresco batido + 10 almonds | Queso fresco batido 0 % (whipped fresh cheese): 1 large bowl (200 g); Almonds: 10 almonds | 161 | 18.5 g | 1.5 g |
 | 2 Burgos 0% tubs + 1 apple (fruit + protein for merienda) | Queso fresco de Burgos 0 % (fresh cheese, single tub): 2 single tubs; Apple (with skin): 1 medium apple | 178 | 15.5 g | 4.4 g |
-| 2 boiled eggs (from the Sunday batch) | Egg, boiled: 2 × 1 egg | 155 | 12.6 g | 0.0 g |
+| 2 boiled eggs (boil them up to 3 days ahead (10 min, then 5 in cold water) and keep them in their shells) | Egg, boiled: 2 × 1 egg | 155 | 12.6 g | 0.0 g |
 | 1 can of tuna + 15 g picos (1 Mercadona can, 60 g drained) | Tuna, canned in water (drained): 60 g; Picos integrales (wholemeal breadsticks): 15 g | 111 | 13.5 g | 1.7 g |
 | Protein yogurt pot + ½ cup pomegranate (fruit + protein for merienda) | Protein yogurt, plain 0 % (Mercadona +Proteínas): 1 portion (120 g); Pomegranate (arils): ½ cup of arils | 135 | 13.5 g | 3.5 g |
 

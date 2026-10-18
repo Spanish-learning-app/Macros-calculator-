@@ -97,7 +97,7 @@ This is the method the app shows under "How to make it" (generated from the same
 10. Lid off. Stir until the keema is dry with no loose gravy (a box keema should not slosh). *(medium-high heat · 3 min)*
 11. Turn off the heat. Stir in ¾ tsp ground black pepper (2 g), 1 tsp garam masala (2 g), the coriander leaves and 1 tsp lemon juice (5 g). *(no heat)*
 12. Check the keema: push it to one side. No liquid runs into the gap, no pink meat is left and the peas are soft and bright green. Still wet? Stir on high 2–3 minutes more. *(no heat)*
-13. Rice: drain the rice that has been soaking. Bring 450 ml water to the boil in the pot with ½ tsp salt (3 g), add the rice and boil without the lid until the water drops just below the top of the rice. *(high heat · 5 min)*
+13. Rice: drain the rice that has been soaking. Bring 450 ml water (about 2 cups) to the boil in the pot with ½ tsp salt (3 g), add the rice and boil without the lid until the water drops just below the top of the rice. *(high heat · 5 min)*
 14. Lid on tightly, lowest heat, 10 minutes without lifting the lid. *(low heat · 10 min)*
 15. Turn off the heat and leave the lid on 5 minutes more, then fluff the rice with a fork. *(no heat · 5 min)*
 16. Spread the keema and the rice on separate trays to cool fast (30 minutes, no longer than 1 hour). *(no heat · 30 min)*

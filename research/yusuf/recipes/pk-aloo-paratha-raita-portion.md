@@ -96,7 +96,7 @@ This is the method the app shows under "How to make it" (generated from the same
 14. Check this first paratha: golden-brown spots on both sides, crisp edges and no white, raw-looking dough. Pale? 30 seconds more a side, and cook the next ones a little longer. *(no heat)*
 15. Fill, roll and cook the other 3 parathas the same way (about 4 minutes each on the pan; roll the next one while one cooks). *(medium-high heat · 12 min)*
 16. Cool the parathas on the rack, not in a stack (stacked hot, they go soggy). *(no heat · 20 min)*
-17. Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Whisk 400 g protein yogurt smooth and stir in the cucumber, half the chopped mint (3 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g). Split into 2 pots (200 g of yogurt each). Mix the other 2 on Tuesday night. *(no heat · 3 min)*
+17. Raita pots (no cooking), 2 now: grate 80 g cucumber and squeeze it hard. Whisk 400 g protein yogurt (about 1¾ cups) smooth and stir in the cucumber, half the chopped mint (3 g), ½ tsp roasted ground cumin (1 g) and a pinch of salt (1 g). Split into 2 pots (200 g of yogurt each). Mix the other 2 on Tuesday night. *(no heat · 3 min)*
 18. When they are cool, stack the parathas with baking paper between them and bag them as Box it up says. *(no heat)*
 
 **Done when:** Golden-brown spots on both sides, crisp edges and no white, raw-looking dough anywhere.

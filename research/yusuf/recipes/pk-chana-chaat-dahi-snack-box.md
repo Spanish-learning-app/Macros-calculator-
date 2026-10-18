@@ -66,7 +66,7 @@ This is the method the app shows under "How to make it" (generated from the same
 1. No cooking. Drain and rinse 260 g chickpeas (about ⅔ of a 400 g-drained jar) in the sieve and shake them dry. *(no heat · 1 min)*
 2. Dice 1 small tomato (80 g) into 1 cm cubes. Chop ¼ small red onion very fine (30 g), a few sprigs of coriander (6 g) and, if you like heat, ½ green chilli (3 g). *(no heat · 4 min)*
 3. In the bowl mix the chickpeas, tomato, onion, coriander and chilli with 1 tbsp lemon juice (15 g) and 1 tsp chaat masala (3 g). Split between the 2 boxes. *(no heat · 1 min)*
-4. Spoon 120 g protein yogurt into each pot and dust with a pinch of roasted ground cumin (½ g). Pour it over the chaat just before you eat it. *(no heat · 1 min)*
+4. Spoon 120 g protein yogurt (about ½ cup) into each pot and dust with a pinch of roasted ground cumin (½ g). Pour it over the chaat just before you eat it. *(no heat · 1 min)*
 
 **Box it up:** Into the fridge straight away. Both boxes go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Keep the last third of the chickpea jar in its liquid in the fridge and use it within 2 days.
 

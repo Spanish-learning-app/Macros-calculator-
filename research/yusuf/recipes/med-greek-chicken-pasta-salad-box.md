@@ -96,7 +96,7 @@ This is the method the app shows under "How to make it" (generated from the same
 5. Check: cut the thickest piece. White all through, no pink, juices clear. Pink? 1–2 minutes more a side. Then cool it on a plate and slice it. *(no heat)*
 6. Boil 3 l of water with a pinch of salt. Add the wholewheat penne (280 g, about 3½ cups) and cook for the pack time (about 10 minutes). *(high heat · 10 min)*
 7. Drain the penne and rinse it under the cold tap until it is cold. Shake it dry in the colander. *(no heat)*
-8. Make the dressing: mix 240 g Greek yogurt, 1¾ tbsp olive oil (24 g), 2 tbsp lemon juice (30 g), the 6 g grated garlic, the mint and a heaped ¼ tsp salt (2 g). Spoon into 4 pots (about 77 g each). *(no heat)*
+8. Make the dressing: mix 240 g Greek yogurt (about 1 cup), 1¾ tbsp olive oil (24 g), 2 tbsp lemon juice (30 g), the 6 g grated garlic, the mint and a heaped ¼ tsp salt (2 g). Spoon into 4 pots (about 77 g each). *(no heat)*
 9. Tomorrow's box: a quarter of the pasta (about 160 g), a quarter of the chicken and a quarter of the vegetables. Dressing pot next to it. *(no heat)*
 10. Put each other pasta portion with a quarter of the chicken in a freezer bag and freeze it. Keep the cut vegetables in a closed box in the fridge. *(no heat)*
 11. At lunch: pour the dressing over and toss. *(no heat)*

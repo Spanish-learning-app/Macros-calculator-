@@ -64,10 +64,10 @@ This is the method the app shows under "How to make it" (generated from the same
 **Steps**
 
 1. No cooking. In each jar put 50 g oats (about ½ cup), 10 g chia seeds (1 tbsp) and 1 g cinnamon (a good pinch). *(no heat)*
-2. Add 150 g protein yogurt and 120 ml semi-skimmed milk (120 g) to each jar. *(no heat)*
+2. Add 150 g protein yogurt (about ½ cup) and 120 ml semi-skimmed milk (120 g) to each jar. *(no heat)*
 3. Stir well, scraping the bottom so no dry oats or chia stay stuck. *(no heat)*
 4. Sprinkle 8 g chopped walnuts on top of each jar. Close the lids and put the jars in the fridge. *(no heat)*
-5. Leave at least 6 hours (overnight). Before the first jar, stir once more if it set unevenly. *(no heat · 360 min)*
+5. Leave at least 6 hours (overnight). Before the first jar, stir once more if it set unevenly. *(no heat)*
 6. In the morning slice half a banana (60 g) on top and eat cold. *(no heat)*
 
 **Done when:** The oats are soft and the mix is thick like a pudding, with no dry oats.

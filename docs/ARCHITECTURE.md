@@ -719,8 +719,21 @@ LibraryRecipe += { pitch?: string,              // one sentence for the card: wh
                                                 // 2026-10-16: boneless halal thigh #1, #5; a forn barra #27)
                    references?: [{ title: string, url: string }],  // published recipes the sheet starts
                                                 // from, 2–5 per prep (O9); https links, shown in Source
-                   timeNote?: string,           // start-to-finish time when waiting changes the plan
-                                                // (marinade, soak, slow simmer); `minutes` stays hands-on
+                   timeNote?: string,           // generated from totalMinutes (R3-B, M-17): "About 5 h 30 min start
+                                                // to finish (35 min of it hands-on): …", plus "Later, <when>: N min
+                                                // hands-on" for a part made per box; present when the wait matters
+                   totalMinutes: number,        // start to finish (R3-B): prep + every step that is not done during
+                                                // another, waits included: marinade, soak, chill, oven, eggs boiling.
+                                                // `minutes` is hands-on. Both are generated from the method's steps.
+                   keep: { fridgeDays, fridge, freezer,   // the ONE storage truth of the standard batch (R3-B): the
+                           freezerMonths?,      // method's boxUp sentence is generated from it, and the build fails
+                                                // when the app's storagePlan(recipe) disagrees on days or split
+                           later?: [{ name, storage, fridgeDays, when, job }],  // a part cooked the night
+                                                // before each box (bolognese penne); not in the box's life
+                           fresh?: [{ name, storage, fridgeDays, again? }] },  // a side made again in rounds
+                                                // (raita, dressed salad); `again` = when and how, one line
+                   lightCooking?: string,       // assemble/ready preps that still heat: "the eggs are boiled", "a
+                                                // ready-made soup is heated ..."; never shown as no cooking
                    cuisine?: 'desi'|'spanish'|'mediterranean'|'middle-eastern'|'italian'|'mexican'|'asian'|'international',
                    serve?: 'cold'|'hot'|'either',   // assemble preps only: how it is eaten (hot = microwave)
                    halalSwap?: string,          // foodId of the halal version of a prep that is not 'halal'
@@ -736,20 +749,44 @@ checks the same): every library recipe has a method object; a no-cook prep (`ass
 with a step that starts "No cooking" with no heat, and names any light heat there ("No cooking: only the
 bread is toasted."); a cook prep never opens with "No cooking"; a `boxUp` that freezes numbered boxes
 belongs to a recipe whose `storage` can freeze (a fresh salad or tomatoes kept apart is `{ id, pot: true }`).
+R3-B (Review 3) build checks: `boxUp` and the sheet's storage plan carry the generated split sentence and
+no split or day count of their own, and `keep` must equal the app's `storagePlan`; a prep that heats food
+checks doneness on its own step **before** the first packing step (the check step says what to look for,
+never "see Done when"); a count with grams ("1 small onion (70 g)") must match the record's unit weight;
+a step of more than 400 characters is split; roti batches make the dough first, put the curry in the
+fridge on a 30-minute timer, and cool the roti before bagging (`research/yusuf/shared.mjs` rotiSteps);
+shopping names say the form the method uses (ground coriander vs coriander seeds, the 800 g jar of
+crushed tomato, atta at the Pakistani grocery, boiled-egg lines as the box of raw eggs).
 
-**Weekly plans** (`app/data/plans-mealprep.js`, Nutrition Lab, STATUS O7; generated with the library, not yet
-read by the UI: one-tap "Use this week" and ready picks per slot are Lena's):
+**Weekly plans** (`app/data/plans-mealprep.js`, Nutrition Lab, STATUS O7; generated with the library by
+`research/yusuf/build.mjs`; R3-B 2026-10-18 adds the fields marked +, all from the same numbers):
 
 ```js
-export const PLANS = [{ id: 'low-cook-week'|'budget-week', name, pitch, priceDate, shop,
-  tillEur, eatenEur,                             // whole packs at the till / food eaten this week (pro-rata)
-  sundayMinutes, weekdayMinutes,                 // hands-on
-  batches: [{ foodId, when, boxes, from?: 'freezer', note }],   // what to make and when ("Sunday", "Wednesday night")
-  days: [{ day, weekday,                         // 'Monday', 1 … 'Friday', 5
-           items: [{ slot, foodId, servingId, qty }],  // one Day entry each; servingId 'g' = grams (qty = grams);
-                                                 // ready add-ons are in slot 'snacks'
+export const PLANS = [{ id: 'low-cook-week'|'budget-week', name, pitch,   // pitch counted from the plan
+  priceDate, shop,
+  tillEur,                                       // whole packs at the till for the week
+  eatenEur,                                      // + R3-B meaning: only the food eaten Monday-Friday out of
+                                                 //   this week's till (pro-rata; no frozen boxes, no cupboard)
+  frozenEur,                                     // + made this week, frozen for later weeks
+  sundayMinutes,                                 // = the Sunday batches' `minutes` added up (hands-on)
+  weekdayMinutes,                                // = the weekday `evenings[].minutes` added up
+  batches: [{ foodId, when, boxes, from?: 'freezer',  // when: "Sunday", "<Day> night", "<Day>" (that evening)
+              minutes,                           // + the recipe's hands-on minutes (the library row's number)
+              fridge, freezer,                   // + this plan's split: a box eaten within keep.fridgeDays of
+                                                 //   the cook -> fridge, else freezer; boxes not eaten -> freezer
+              eat: [{ day, weekday, slot, from: 'fridge'|'freezer' }],  // + which meal each box is
+              note }],                           // generated from the above (no typed split or minutes)
+  evenings: [{ day, weekday,                     // + 1 = Monday ... 5 = Friday, 7 = the Sunday before
+               time: 'evening'|'night',          //   evening = for tonight's dinner; night = for tomorrow
+               kind: 'make'|'move'|'later'|'fresh',  // make a weekday batch / a frozen box to the fridge /
+                                                 //   the part made the night before (keep.later) / a fresh side
+               text, recipeId, minutes? }],      //   minutes: hands-on (none for a move)
+  days: [{ day, weekday,                         // 'Monday', 1 ... 'Friday', 5
+           items: [{ slot, foodId, servingId, qty,
+                     batch? }],                  // + index into batches for a meal made by a batch
            kcal, protein, fiber }] }]            // preview totals from the Lab records; the app computes its own
-export const READY_PICKS = { breakfast|lunch|dinner|snacks: [{ name, note, items, kcal, protein, fiber }] }
+export const READY_PICKS = { breakfast|lunch|dinner|snacks: [{ name, note, items, kcal, protein, fiber,
+                             lightCooking? }] }  // + a pick that boils eggs says so (never "no cooking")
 ```
 
 **How the app uses a plan (R3-A, Mariam Review 3).** "Use this week" stamps each batch it cooks with

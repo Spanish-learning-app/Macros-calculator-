@@ -85,7 +85,7 @@ This is the method the app shows under "How to make it" (generated from the same
 4. Take the tray out. Add the frozen green beans, onion and sliced garlic, and drizzle the rest of the 1 tbsp oil (7 g). Toss. *(no heat)*
 5. Pat the salmon dry. Lay it on top of the vegetables, drizzle 1 tsp olive oil (4 g) and 2 tsp lemon juice (10 g), and sprinkle a pinch of salt (1 g). *(no heat)*
 6. Roast 13–15 minutes more. *(oven 200 °C · 15 min)*
-7. Make the sauce: stir 120 g Greek yogurt, 1 tsp lemon juice (6 g), the grated garlic and the parsley. Spoon into the 2 pots. *(no heat)*
+7. Make the sauce: stir 120 g Greek yogurt (about ½ cup), 1 tsp lemon juice (6 g), the grated garlic and the parsley. Spoon into the 2 pots. *(no heat)*
 8. Check: press the thickest medallion with a fork. It is opaque pink in the middle, not glassy, and flakes; a knife slides into the potatoes. Glassy? 3 more minutes. *(no heat)*
 9. Divide into 2 portions: 2 medallions and half the vegetables each. *(no heat)*
 

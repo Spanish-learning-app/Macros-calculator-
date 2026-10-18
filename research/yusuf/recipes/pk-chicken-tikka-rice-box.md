@@ -97,17 +97,17 @@ This is the method the app shows under "How to make it" (generated from the same
 **Steps**
 
 1. Marinade (the night before, or at least 4 hours ahead): in the bowl, whisk the yogurt (150 g, about ⅔ cup) with a fork until smooth. Add the lemon juice, the ginger-garlic paste, 2 tsp red chilli powder (5 g), 2 tsp paprika (5 g), 1 tbsp garam masala (6 g), 2 tsp ground cumin (4 g), a heaped ½ tsp haldi (turmeric powder, 2 g), 1 heaped tsp salt (7 g) and 2 tsp oil (10 g). Stir. *(no heat · 5 min)*
-2. Add the chicken and turn it until every piece is coated. Cover and put it in the fridge for 4 hours or overnight. *(no heat · 240 min)*
+2. Add the chicken and turn it until every piece is coated. Cover and put it in the fridge for 4 hours or overnight. *(no heat)*
 3. Heat the oven to 220 °C (fan, or fan with grill if your oven has it). *(oven 220 °C · 10 min)*
 4. Spread the chicken on the lined tray in one layer, letting extra marinade drip back into the bowl. Put the pepper and onion petals around it and drizzle everything with the other 2 tsp oil (10 g). *(no heat)*
 5. Roast 25 minutes, turning the pieces halfway, until the chicken has dark, slightly charred edges. *(oven 220 °C · 25 min)*
-6. Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g). *(high heat · 3 min)*
+6. Rice, while the chicken roasts: drain the soaked rice. In the pot bring 450 ml water (about 2 cups) to the boil with ½ tsp zeera (whole cumin seeds, 2 g) and a heaped ½ tsp salt (4 g). *(high heat · 3 min)*
 7. Add the rice and stir once. Boil without the lid until the water has dropped just below the top of the rice and small holes appear on the surface. *(medium-high heat · 5 min)*
 8. Put the lid on tightly and turn the heat to the lowest. Leave 7 minutes; do not lift the lid. *(low heat · 7 min)*
 9. Scatter the frozen peas (240 g, about 1¾ cups) on top of the rice, put the lid back on and steam 5 minutes more. Then turn off the heat, leave it 5 minutes and fluff the rice with a fork. *(low heat · 10 min)*
 10. Check the chicken before it cools: cut the biggest piece open. It must be white all through with no pink and clear juices. Still pink? Back in the oven for 5 minutes, then check again. *(no heat)*
 11. Spread the rice on the second tray and leave the chicken and veg on their tray to cool fast (30 minutes, no longer than 1 hour). *(no heat · 30 min)*
-12. Raita (no cooking), first 2 pots: grate half the cucumber (100 g) and squeeze it hard in your hands over the sink. Whisk 150 g yogurt smooth, then stir in the cucumber, half the chopped mint (4 g, a small handful), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Mix the other 2 pots the same way on Tuesday night. *(no heat · 5 min)*
+12. Raita (no cooking), first 2 pots: grate half the cucumber (100 g) and squeeze it hard in your hands over the sink. Whisk 150 g yogurt (about ½ cup) smooth, then stir in the cucumber, half the chopped mint (4 g, a small handful), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Mix the other 2 pots the same way on Tuesday night. *(no heat · 5 min)*
 13. Pack each lunch box with ¼ of the rice and ¼ of the chicken, peppers and onion. *(no heat)*
 
 **Done when:** Cut the biggest chicken piece: white all through, no pink, juices clear (75 °C if you have a thermometer), with browned edges. Rice: grains soft and separate, no water left in the bottom of the pot.

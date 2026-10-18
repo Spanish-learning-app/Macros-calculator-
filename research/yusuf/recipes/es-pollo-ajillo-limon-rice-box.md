@@ -85,7 +85,7 @@ This is the method the app shows under "How to make it" (generated from the same
 3. Heat 2 tbsp olive oil (30 g) in the wide pan for 1 minute. Add the chicken in one layer (in 2 batches if it does not fit). *(medium-high heat · 1 min)*
 4. Brown the chicken 6–8 minutes, turning the pieces every 2 minutes, until golden on all sides. Lift it out onto a plate. *(medium-high heat · 8 min)*
 5. Turn the heat down. Add the sliced garlic, 1 dried guindilla (optional) and ½ bay leaf. Stir until the garlic is pale gold, not brown (burnt garlic tastes bitter). *(low heat · 2 min)*
-6. Put the chicken back. Pour in the lemon juice (60 g) and 100 ml water. Put the lid on and cook 10 minutes. *(medium heat · 10 min)*
+6. Put the chicken back. Pour in the lemon juice (60 g) and 100 ml water (about ½ cup). Put the lid on and cook 10 minutes. *(medium heat · 10 min)*
 7. Take the lid off and cook until the liquid has become a thin, shiny glaze. Stir in the parsley. *(medium heat · 5 min)*
 8. Add the frozen peas (200 g (about 1½ cups)) to the rice for its last 5 minutes. Drain off any water left. *(medium heat · 5 min)*
 9. Boil the frozen green beans (600 g) in the second pot of salted water for 8 minutes. Drain well. *(high heat · 8 min)*

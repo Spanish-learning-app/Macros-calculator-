@@ -93,7 +93,7 @@ This is the method the app shows under "How to make it" (generated from the same
 5. Add the chickpeas, stir, cover and microwave until bubbling. *(microwave · 3 min)*
 6. Check: the sauce bubbles and is thick enough to coat the chickpeas, and the onion is soft, not crunchy. Thin? 1 more minute uncovered. *(no heat)*
 7. Stir in 2 tsp lemon juice (10 g) and the chopped coriander. Split between the 2 boxes. *(no heat)*
-8. Raita (no cooking): grate 60 g cucumber and squeeze it hard. Mix with 240 g protein yogurt and a few chopped mint leaves (2 g). Split into 2 pots. *(no heat · 2 min)*
+8. Raita (no cooking): grate 60 g cucumber and squeeze it hard. Mix with 240 g protein yogurt (about 1 cup) and a few chopped mint leaves (2 g). Split into 2 pots. *(no heat · 2 min)*
 9. To eat now: open the basmati cup a little at one corner (or as the pack says) and microwave 40 seconds. *(microwave)*
 
 **Done when:** The sauce bubbles and is thick enough to coat the chickpeas; the onion is soft, not crunchy.

@@ -72,7 +72,7 @@ This is the method the app shows under "How to make it" (generated from the same
 3. Peel 2 mandarins (176 g), pull them into segments and add them (halve the big ones). *(no heat · 2 min)*
 4. Pomegranate: cut it in half across the middle. Hold one half cut side down over the bowl and tap the back hard with the wooden spoon so the seeds (arils) fall out. You need 100 g, about ⅓ of a fruit. Pick out any white pith. *(no heat · 3 min)*
 5. Sprinkle 1 tsp chaat masala (3 g) over the fruit and toss. *(no heat)*
-6. Spoon 240 g protein yogurt into each box and put half the fruit chaat on top. Close and refrigerate. *(no heat · 2 min)*
+6. Spoon 240 g protein yogurt (about 1 cup) into each box and put half the fruit chaat on top. Close and refrigerate. *(no heat · 2 min)*
 7. In the morning: slice ½ small banana (50 g) on top and add 20 g almonds (about 16), roughly chopped. *(no heat · 1 min)*
 
 **Box it up:** Into the fridge straight away. Both portions go in the fridge: eat them within 2 days (by Tuesday if you make them on Sunday). Do not freeze. Banana and almonds go on in the morning so they stay fresh and crunchy.

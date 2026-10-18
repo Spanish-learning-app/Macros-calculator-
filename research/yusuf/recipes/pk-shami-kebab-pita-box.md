@@ -101,7 +101,7 @@ This is the method the app shows under "How to make it" (generated from the same
 **Steps**
 
 1. Soak the chana dal (150 g, about ¾ cup) in cold water for 1 hour, then drain it. Do the rest of "Before you start" meanwhile. *(no heat · 60 min)*
-2. Put the mince (500 g), drained chana dal, onion chunks, whole garlic, ginger, whole spices, 1½ tsp red chilli powder or chilli flakes (4 g) and 1 heaped tsp salt (7 g) in the pot with 600 ml water. Bring to the boil. *(high heat · 5 min)*
+2. Put the mince (500 g), drained chana dal, onion chunks, whole garlic, ginger, whole spices, 1½ tsp red chilli powder or chilli flakes (4 g) and 1 heaped tsp salt (7 g) in the pot with 600 ml water (about 2½ cups). Bring to the boil. *(high heat · 5 min)*
 3. Lid on, simmer until the dal squashes easily between your fingers. *(low heat · 35 min)*
 4. Lid off. Cook, stirring often, until it is completely dry: when you tilt the pot, no liquid runs and the mix starts to stick a little. This matters: a wet mix makes kebabs that break. *(medium-high heat · 10 min)*
 5. Spread the mix on a plate to cool 15 minutes. Pick out the cinnamon stick and the cloves. *(no heat · 15 min)*
@@ -113,7 +113,7 @@ This is the method the app shows under "How to make it" (generated from the same
 11. Check one kebab: golden brown on both sides, it holds its shape when you lift it, and it is steaming hot in the middle when you cut it. Pale? 1 more minute a side. *(no heat)*
 12. Let the kebabs cool on the plate with kitchen paper (20 minutes). *(no heat · 20 min)*
 13. Salad (no cooking), half now: shred half the romaine (60 g), slice 1 tomato (100 g) and a few thin rings of red onion (20 g). Put the tomato and onion in the bottom of 2 boxes with 2 tsp lemon juice (10 g), lettuce on top. Make the other half on Tuesday night. *(no heat · 5 min)*
-14. Mint-yogurt pots (no cooking), half now: grate 60 g cucumber and squeeze it hard. Mix with 160 g light Greek yogurt, half the chopped mint (4 g), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Make 2 more on Tuesday night. *(no heat · 3 min)*
+14. Mint-yogurt pots (no cooking), half now: grate 60 g cucumber and squeeze it hard. Mix with 160 g light Greek yogurt (about ¾ cup), half the chopped mint (4 g), a pinch of roasted ground cumin (½ g) and a pinch of salt (1 g). Split into 2 pots. Make 2 more on Tuesday night. *(no heat · 3 min)*
 15. Each box: 3 kebabs next to the salad and 1 yogurt pot. The pita stays in its own bag; you fill it at lunch so it does not go soggy. *(no heat)*
 
 **Done when:** Kebabs are golden brown on both sides, hold their shape when lifted and are hot in the middle.
