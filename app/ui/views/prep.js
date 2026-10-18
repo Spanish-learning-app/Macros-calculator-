@@ -485,16 +485,20 @@ export function mount(container, ctx) {
     );
   }
 
-  /** The next Mon–Thu (from tomorrow), for "Fill Mon–Thu". */
+  /**
+   * The rest of the coming Mon–Thu block, from tomorrow (O15): on Sunday all four days, on Monday
+   * Tue–Thu, from Thursday on the next week's Mon–Thu. One run of days, never Wed, Thu and then
+   * next Monday under a "Mon–Thu" label.
+   */
   function monToThu() {
-    const from = addDays(store.today(), 1);
+    let d = addDays(store.today(), 1);
+    while (dayOfWeek(d) === 0 || dayOfWeek(d) >= 5) d = addDays(d, 1);
     const out = [];
-    for (let i = 0; i < 7; i += 1) {
-      const d = addDays(from, i);
-      const dow = dayOfWeek(d);
-      if (dow >= 1 && dow <= 4) out.push(d);
+    while (dayOfWeek(d) >= 1 && dayOfWeek(d) <= 4) {
+      out.push(d);
+      d = addDays(d, 1);
     }
-    return out.sort();
+    return out;
   }
 
   function batchCard(batch) {
@@ -715,7 +719,11 @@ export function mount(container, ctx) {
                 },
               },
               iconEl('calendar', 18),
-              h('span', null, `Fill Mon–Thu · ${dateRange(fill[0], fill[fill.length - 1])}`),
+              h(
+                'span',
+                null,
+                `Fill ${fmtWeekday(fill[0])}${fill.length > 1 ? `–${fmtWeekday(fill[fill.length - 1])}` : ''} · ${dateRange(fill[0], fill[fill.length - 1])}`,
+              ),
             )
           : null,
         noteEl(note, 'info', 'batch-note'),
@@ -1025,6 +1033,14 @@ export function mount(container, ctx) {
               serve,
             )
           : null,
+        // Orphan check: what little cooking a "no cooking" prep still has (boiled eggs, toast).
+        lightCookingLine(recipe)
+          ? h(
+              'span',
+              { class: 'prep-ahead', 'data-testid': 'prep-light-cooking' },
+              lightCookingLine(recipe),
+            )
+          : null,
         // Bilal R3 / M-17: the waiting a cook must plan for ("Start the night before…").
         ahead?.text
           ? h(
@@ -1038,14 +1054,6 @@ export function mount(container, ctx) {
           : null,
         ahead?.later
           ? h('span', { class: 'prep-ahead', 'data-testid': 'prep-time-later' }, ahead.later)
-          : null,
-        // Orphan check: what little cooking a "no cooking" prep still has (boiled eggs, toast).
-        lightCookingLine(recipe)
-          ? h(
-              'span',
-              { class: 'prep-ahead', 'data-testid': 'prep-light-cooking' },
-              lightCookingLine(recipe),
-            )
           : null,
       ),
       h(

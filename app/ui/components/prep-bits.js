@@ -280,10 +280,16 @@ export function lightCookingLine(x) {
   return t ? `Cooking: ${t}.` : null;
 }
 
-/** "(≈ 13 min)" for an evening job with the Lab's `minutes`, or null. */
+/**
+ * "(≈ 13 min)" for an evening job with the Lab's `minutes`, or null. Null too when the job's own
+ * text already says that many minutes ("…: 13 min hands-on."), so the time is never said twice.
+ */
 export function jobMinutesText(job) {
   const m = job?.minutes;
-  return Number.isFinite(m) && m > 0 ? `(≈ ${Math.round(m)} min)` : null;
+  if (!(Number.isFinite(m) && m > 0)) return null;
+  const n = Math.round(m);
+  if (new RegExp(`\\b${n}\\s*(min|minutes)\\b`, 'i').test(String(job.text ?? ''))) return null;
+  return `(≈ ${n} min)`;
 }
 
 /**

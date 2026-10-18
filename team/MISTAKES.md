@@ -136,6 +136,7 @@ The Manager (Omar) checks this file at every review meeting and before every rep
 - **Fix:** I corrected them, and run `date -u` before every write.
 - **Repeat (2026-10-16 01:57 UTC):** I did it again an hour after writing this rule: I wrote "02:12" into the feed, state.json and STATUS when the clock said 01:57. I caught it myself and corrected it.
 - **Second repeat (2026-10-16 07:06 UTC):** a dashboard feed entry said 07:08, which was 2 minutes in the future. Dashboard writes go through a tool call, not a shell command, so the rule above did not cover them.
+- **Third repeat (2026-10-18, Kenji, caught by himself):** three journal timestamps were written ahead of the clock and corrected before the report. The rule applies to every member's journal, not only the dashboard.
 - **Extra rule:** run `date -u` in the same command that writes the timestamp, never earlier. For dashboard writes, run `date -u` in a call **right before** the write and copy that exact time. Never round up.
 - **Rule:** see standing rule 5.
 
