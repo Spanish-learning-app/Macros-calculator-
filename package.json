@@ -18,6 +18,7 @@
     "test:coverage": "node --test --experimental-test-coverage --test-coverage-include=\"app/core/**\" --test-coverage-lines=90 \"tests/{contract,unit}/**/*.test.js\"",
     "test:e2e": "playwright test",
     "publish:files": "node scripts/publish-files.mjs",
-    "check": "npm run -s lint && npm run -s format:check && npm test"
+    "check": "npm run -s lint && npm run -s format:check && npm test",
+    "build:single": "npx --yes esbuild@0.24.0 --version >/dev/null && node tools/build-single.mjs"
   }
 }
